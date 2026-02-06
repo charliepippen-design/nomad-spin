@@ -97,7 +97,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Origin */}
-            <div className="mb-6">
+            <div className="mb-8">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-2 block uppercase">
                 CURRENT ORIGIN BASE
               </label>
@@ -106,7 +106,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   onClick={() => setOriginOpen(!originOpen)}
                   className="w-full flex items-center justify-between px-4 py-3 rounded-sm glass glass-hover text-sm text-foreground"
                 >
-                  <span className={hasOrigin ? 'text-foreground' : 'text-muted-foreground'}>
+                  <span className={hasOrigin ? 'text-white' : 'text-[#888]'}>
                     {preferences.origin
                       ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
                       : 'Select origin...'}
@@ -119,14 +119,14 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       initial={{ opacity: 0, y: -4 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
-                      className="absolute top-full left-0 right-0 mt-1 z-20 glass-strong rounded-sm max-h-48 overflow-y-auto"
+                      className="absolute top-full left-0 right-0 mt-1 z-50 rounded-sm max-h-48 overflow-y-auto bg-[#0a0a0a] border border-border/30 shadow-2xl"
                     >
                       <input
                         type="text"
                         value={originSearch}
                         onChange={(e) => setOriginSearch(e.target.value)}
                         placeholder="Search..."
-                        className="w-full px-4 py-2 bg-transparent text-sm text-foreground border-b border-border/50 placeholder:text-muted-foreground/50 outline-none font-mono"
+                        className="w-full px-4 py-2 bg-transparent text-sm text-foreground border-b border-border/50 placeholder:text-[#888] outline-none font-mono"
                         autoFocus
                       />
                       {filteredOrigins.map(o => (
@@ -145,7 +145,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Budget */}
-            <div className="mb-6">
+            <div className="mb-8">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
                 MONTHLY BUDGET <span className="text-foreground">${localBudget[0]} – ${localBudget[1]}</span>
               </label>
@@ -153,7 +153,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Internet */}
-            <div className="mb-6">
+            <div className="mb-8">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
                 MIN INTERNET <span className="text-foreground">{localInternet} MBPS</span>
               </label>
@@ -161,7 +161,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Safety */}
-            <div className="mb-6">
+            <div className="mb-8">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
                 MIN SAFETY <span className="text-foreground">{localSafety}/10</span>
               </label>
@@ -169,7 +169,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Vibes */}
-            <div className="mb-6">
+            <div className="mb-8">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">MISSION PROFILE</label>
               <div className="flex flex-wrap gap-2">
                 {vibeOptions.map((v) => (
@@ -189,7 +189,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Region */}
-            <div className="mb-6">
+            <div className="mb-10">
               <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">SECTOR</label>
               <div className="flex flex-wrap gap-2">
                 {regionOptions.map((r) => (
@@ -209,7 +209,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             </div>
 
             {/* Footer */}
-            <div className="sticky bottom-0 pt-4 border-t border-border/50 -mx-6 px-6 -mb-6 pb-6">
+            <div className="sticky bottom-0 pt-6 mt-8 border-t border-border/50 -mx-6 px-6 -mb-6 pb-6 bg-[#0a0a0a]/80 backdrop-blur-md">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
                   <span className="text-foreground">{filteredCities.length}</span> TARGETS LOCKED
