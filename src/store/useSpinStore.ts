@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
+import { Origin } from '@/data/origins';
+import { haversineKm, estimateFlightCost } from '@/lib/distance';
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
 export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';
@@ -11,6 +13,7 @@ interface Preferences {
   safetyMin: number;
   vibes: VibeOption[];
   region: RegionOption;
+  origin: Origin | null;
 }
 
 interface SpinStore {
@@ -37,6 +40,7 @@ const defaultPreferences: Preferences = {
   safetyMin: 5,
   vibes: [],
   region: 'All',
+  origin: null,
 };
 
 export const useSpinStore = create<SpinStore>((set, get) => ({
@@ -56,28 +60,51 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
 
   filterCities: () => {
     const { preferences } = get();
+    const origin = preferences.origin;
+    const isAnywhere = !origin || origin.id === 'anywhere';
+    const budgetMax = preferences.budgetRange[1];
+
     const filtered = cities.filter((city) => {
       if (city.costUSD < preferences.budgetRange[0] || city.costUSD > preferences.budgetRange[1]) return false;
       if (city.internetMbps < preferences.internetMin) return false;
       if (city.safety < preferences.safetyMin) return false;
       if (preferences.region !== 'All' && city.region !== preferences.region) return false;
       if (preferences.vibes.length > 0 && !preferences.vibes.some((v) => city.vibe.includes(v))) return false;
+
+      // "Jack Ass" logic: if origin set and low budget, penalize far destinations
+      if (!isAnywhere && origin) {
+        const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
+        const flightCost = estimateFlightCost(dist);
+        // If flight alone exceeds 60% of monthly budget, exclude
+        if (flightCost > budgetMax * 0.6) return false;
+      }
+
       return true;
     });
     set({ filteredCities: filtered });
   },
 
   spin: () => {
-    const { filteredCities } = get();
+    const { filteredCities, preferences } = get();
     if (filteredCities.length === 0) return;
 
+    const origin = preferences.origin;
+    const isAnywhere = !origin || origin.id === 'anywhere';
+
     const weights = filteredCities.map((city) => {
-      const { preferences } = get();
       let score = 50;
       const budgetCenter = (preferences.budgetRange[0] + preferences.budgetRange[1]) / 2;
       score += Math.max(0, 20 - Math.abs(city.costUSD - budgetCenter) / 50);
       score += city.safety * 2;
       score += Math.min(city.internetMbps / 10, 15);
+
+      // Proximity bonus when origin is set
+      if (!isAnywhere && origin) {
+        const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
+        // Closer = higher bonus (max ~20 pts)
+        score += Math.max(0, 20 - dist / 500);
+      }
+
       return score;
     });
 
@@ -108,27 +135,13 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   resetForRespin: () => {
     console.log('Spin Reset Initiated');
     set({ resultCity: null, phase: 'landing' });
-    // Re-filter against current preferences
     get().filterCities();
   },
 
   autoFixFilters: () => {
-    // Find the loosest set of filters that yields results
-    const { preferences } = get();
-    let newPrefs = { ...preferences };
-    
-    // Widen budget
-    newPrefs.budgetRange = [500, 5000];
-    // Lower internet minimum
-    newPrefs.internetMin = 10;
-    // Lower safety minimum
-    newPrefs.safetyMin = 1;
-    // Clear vibes
-    newPrefs.vibes = [];
-    // Reset region
-    newPrefs.region = 'All' as RegionOption;
-
-    set({ preferences: newPrefs });
+    set({
+      preferences: { ...defaultPreferences, origin: get().preferences.origin },
+    });
     get().filterCities();
   },
 }));

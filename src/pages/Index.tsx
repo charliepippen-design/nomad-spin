@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, lazy, Suspense } from 'react';
+import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useSoundManager } from '@/hooks/useSoundManager';
@@ -6,14 +6,14 @@ import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
-import { Sliders, Zap, Globe2, RotateCcw, Volume2, VolumeX } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX } from 'lucide-react';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
 const GlobeFallback = () => (
   <div className="w-full h-full absolute inset-0 flex items-center justify-center">
-    <div className="w-32 h-32 rounded-full border-2 border-primary/30 animate-pulse flex items-center justify-center">
-      <Globe2 className="w-12 h-12 text-primary/50" />
+    <div className="w-24 h-24 rounded-full border border-border/30 flex items-center justify-center">
+      <span className="text-[10px] font-mono text-muted-foreground tracking-[0.2em]">LOADING</span>
     </div>
   </div>
 );
@@ -23,16 +23,17 @@ export default function Index() {
   const sound = useSoundManager();
   const [showPrefs, setShowPrefs] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [spinSpeed, setSpinSpeed] = useState(0.005);
+  const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
 
-  const handleQuickSpin = useCallback(() => {
-    filterCities();
-    startSpin();
+  // Idle hum on mount
+  useEffect(() => {
+    const t = setTimeout(() => sound.startIdle(), 2000);
+    return () => { clearTimeout(t); sound.stopIdle(); };
   }, []);
 
-  const handleCustomSpin = useCallback(() => {
+  const handleConfigureMission = useCallback(() => {
     setShowPrefs(true);
   }, []);
 
@@ -41,41 +42,38 @@ export default function Index() {
     setResetCamera(false);
     setPhase('spinning');
     setIsSpinning(true);
-    setSpinSpeed(0.4);
+    setSpinSpeed(0.8); // 2x faster
 
-    // Audio
     sound.startSpin();
-    sound.updateSpinPitch(0.4);
+    sound.updateSpinPitch(0.8);
 
-    // Haptic feedback
     if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
-    // Ramp up then decay with tick sounds
-    setTimeout(() => { setSpinSpeed(0.15); sound.updateSpinPitch(0.15); }, 1500);
+    // Aggressive ramp + decay
+    setTimeout(() => { setSpinSpeed(0.3); sound.updateSpinPitch(0.3); }, 1000);
     setTimeout(() => {
-      setSpinSpeed(0.05);
-      sound.updateSpinPitch(0.05);
-      // Start ticking
+      setSpinSpeed(0.08);
+      sound.updateSpinPitch(0.08);
       let tickCount = 0;
       tickIntervalRef.current = setInterval(() => {
         sound.playTick();
         tickCount++;
-        if (tickCount > 8) clearInterval(tickIntervalRef.current);
-      }, 250);
-    }, 3000);
+        if (tickCount > 6) clearInterval(tickIntervalRef.current);
+      }, 200);
+    }, 2000);
     setTimeout(() => {
-      setSpinSpeed(0.01);
-      sound.updateSpinPitch(0.01);
+      setSpinSpeed(0.015);
+      sound.updateSpinPitch(0.015);
       spin();
-    }, 4000);
+    }, 2800);
     setTimeout(() => {
       setIsSpinning(false);
-      setSpinSpeed(0.005);
+      setSpinSpeed(0.003);
       sound.stopSpin();
-      sound.playWin();
+      sound.playResult();
       setPhase('results');
       clearInterval(tickIntervalRef.current);
-    }, 5000);
+    }, 3500);
   }, [spin, setPhase, sound]);
 
   const handleRespin = useCallback(() => {
@@ -84,15 +82,15 @@ export default function Index() {
     setTimeout(() => {
       setResetCamera(false);
       startSpin();
-    }, 400);
+    }, 350);
   }, [startSpin, resetForRespin]);
 
   const handleShare = useCallback(() => {
     if (!resultCity) return;
     if (navigator.share) {
       navigator.share({
-        title: `Digital Nomad Spin: ${resultCity.name}!`,
-        text: `I spun the globe and got ${resultCity.name}, ${resultCity.country}! 🌍✈️ Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
+        title: `DROP ZONE: ${resultCity.name}`,
+        text: `Deployment target: ${resultCity.name}, ${resultCity.country} // Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
         url: window.location.href,
       }).catch(() => {});
     }
@@ -104,7 +102,7 @@ export default function Index() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background">
-      {/* Globe background */}
+      {/* Globe */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
           <Globe spinning={isSpinning} spinSpeed={spinSpeed} resetCamera={resetCamera} />
@@ -114,83 +112,66 @@ export default function Index() {
       {/* Gradient overlays */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/40 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Header */}
         <header className="flex items-center justify-between px-4 md:px-8 py-4">
-          <div className="flex items-center gap-2">
-            <Globe2 className="w-6 h-6 text-primary" />
-            <h1 className="font-display font-bold text-lg text-foreground neon-text">
-              Digital Nomad Spin
-            </h1>
-          </div>
+          <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
+            NOMAD // DROP
+          </h1>
           <div className="flex items-center gap-3">
-            {/* Mute toggle */}
             <button
               onClick={sound.toggleMute}
-              className="p-2 rounded-lg hover:bg-muted/50 transition-colors text-muted-foreground hover:text-primary"
+              className="p-2 rounded-sm hover:bg-muted/30 transition-colors text-muted-foreground"
               aria-label={sound.muted ? 'Unmute' : 'Mute'}
             >
-              {sound.muted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
             </button>
             {spinCount > 0 && (
-              <span className="text-xs text-accent bg-accent/10 px-2 py-1 rounded-full font-medium border border-accent/20">
-                🎰 {spinCount} spins
+              <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
+                {spinCount} DROPS
               </span>
             )}
           </div>
         </header>
 
-        {/* Main content area */}
+        {/* Main */}
         <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
           <AnimatePresence mode="wait">
-            {/* Landing phase */}
+            {/* Landing — config only, no quick spin */}
             {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
               <motion.div
                 key="landing"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="flex flex-col items-center gap-6 w-full max-w-lg"
+                exit={{ opacity: 0, y: -10 }}
+                className="flex flex-col items-center gap-8 w-full max-w-lg"
               >
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-center text-muted-foreground text-sm md:text-base max-w-sm"
+                  transition={{ delay: 0.3 }}
+                  className="text-center text-muted-foreground text-xs font-mono tracking-[0.15em] max-w-xs leading-relaxed"
                 >
-                  Spin the globe. Find your next destination.
-                  <br />
-                  <span className="text-primary">No more analysis paralysis.</span>
+                  WHERE WILL YOU DEPLOY NEXT?
                 </motion.p>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                  transition={{ delay: 0.5 }}
                 >
-                  <SpinButton onClick={handleQuickSpin} />
+                  <SpinButton onClick={handleConfigureMission} />
                 </motion.div>
-
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  onClick={handleCustomSpin}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-                >
-                  <Sliders className="w-4 h-4" />
-                  Customize preferences first
-                </motion.button>
 
                 <SavedSpins />
               </motion.div>
             )}
 
-            {/* Spinning phase */}
+            {/* Spinning */}
             {phase === 'spinning' && (
               <motion.div
                 key="spinning"
@@ -200,20 +181,18 @@ export default function Index() {
                 className="flex flex-col items-center gap-4"
               >
                 <motion.div
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
+                  animate={{ opacity: [0.3, 0.8, 0.3] }}
+                  transition={{ repeat: Infinity, duration: 1.2 }}
                   className="text-center"
                 >
-                  <Zap className="w-8 h-8 text-accent mx-auto mb-2" />
-                  <p className="font-display text-xl font-bold text-foreground neon-text-gold">
-                    Spinning the globe...
+                  <p className="font-mono text-xs tracking-[0.3em] text-foreground/60 uppercase">
+                    CALCULATING DROP ZONE...
                   </p>
-                  <p className="text-sm text-muted-foreground mt-1">Where will destiny take you?</p>
                 </motion.div>
               </motion.div>
             )}
 
-            {/* Results phase */}
+            {/* Results */}
             {phase === 'results' && resultCity && (
               <motion.div
                 key="results"
@@ -223,11 +202,12 @@ export default function Index() {
                 className="w-full flex flex-col items-center gap-4"
               >
                 <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="font-display text-sm uppercase tracking-[0.3em] text-accent"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
                 >
-                  ✨ Your destination awaits ✨
+                  TARGET ACQUIRED
                 </motion.p>
 
                 <ResultCard
@@ -241,12 +221,12 @@ export default function Index() {
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
+                  transition={{ delay: 1.2 }}
                   onClick={() => setPhase('landing')}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer mt-2"
+                  className="flex items-center gap-2 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-colors cursor-pointer mt-2 tracking-[0.2em] uppercase"
                 >
-                  <RotateCcw className="w-4 h-4" />
-                  Back to globe
+                  <RotateCcw className="w-3 h-3" />
+                  RETURN TO BASE
                 </motion.button>
               </motion.div>
             )}
