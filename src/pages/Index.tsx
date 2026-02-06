@@ -101,7 +101,7 @@ export default function Index() {
     : 0;
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background">
+    <div className="noise-overlay relative min-h-screen w-full overflow-hidden bg-background">
       {/* Globe */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
