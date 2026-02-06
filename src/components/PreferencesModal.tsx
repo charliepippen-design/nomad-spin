@@ -179,7 +179,15 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 </span>
               </div>
               {filteredCities.length === 0 ? (
-                <p className="text-sm text-destructive mb-3">Too specific! Try loosening your filters.</p>
+                <div className="mb-3">
+                  <p className="text-sm text-destructive mb-2">Too specific! No spots match these filters.</p>
+                  <button
+                    onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternet(10); setLocalSafety(1); }}
+                    className="text-sm text-primary underline hover:text-primary/80 transition-colors"
+                  >
+                    🔧 Loosen Filters for Me
+                  </button>
+                </div>
               ) : null}
               <Button
                 onClick={onSpin}

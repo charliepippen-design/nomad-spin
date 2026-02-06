@@ -1,7 +1,9 @@
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Wifi, Shield, DollarSign, Clock, Plane, ThumbsUp, ThumbsDown, Bookmark, RotateCcw, Share2 } from 'lucide-react';
 import { City } from '@/data/cities';
 import { Button } from '@/components/ui/button';
+import confetti from 'canvas-confetti';
 
 interface ResultCardProps {
   city: City;
@@ -11,10 +13,33 @@ interface ResultCardProps {
   onShare: () => void;
 }
 
+function AnimatedScore({ target }: { target: number }) {
+  const [value, setValue] = useState(0);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const start = performance.now();
+    const duration = 1000;
+    const animate = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * target));
+      if (progress < 1) rafRef.current = requestAnimationFrame(animate);
+    };
+    // Delay to sync with card entrance
+    const timeout = setTimeout(() => {
+      rafRef.current = requestAnimationFrame(animate);
+    }, 500);
+    return () => { clearTimeout(timeout); cancelAnimationFrame(rafRef.current); };
+  }, [target]);
+
+  return <span>{value}</span>;
+}
+
 function ScoreRing({ score }: { score: number }) {
   const circumference = 2 * Math.PI * 42;
   const offset = circumference - (score / 100) * circumference;
-  
+
   return (
     <div className="relative w-28 h-28 flex-shrink-0">
       <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -38,7 +63,9 @@ function ScoreRing({ score }: { score: number }) {
         </defs>
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-display font-bold text-foreground neon-text-gold">{score}</span>
+        <span className="text-2xl font-display font-bold text-foreground neon-text-gold">
+          <AnimatedScore target={score} />
+        </span>
         <span className="text-[10px] text-muted-foreground uppercase tracking-wider">match</span>
       </div>
     </div>
@@ -46,6 +73,19 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 export default function ResultCard({ city, matchScore, onSave, onRespin, onShare }: ResultCardProps) {
+  // Fire confetti on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#00D4FF', '#7C3AED', '#FFD700'],
+      });
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [city.id]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
