@@ -27,6 +27,8 @@ interface SpinStore {
   spin: () => void;
   saveResult: () => void;
   reset: () => void;
+  resetForRespin: () => void;
+  autoFixFilters: () => void;
 }
 
 const defaultPreferences: Preferences = {
@@ -48,10 +50,9 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   setPhase: (phase) => set({ phase }),
 
   setPreferences: (prefs) =>
-    set((state) => {
-      const newPrefs = { ...state.preferences, ...prefs };
-      return { preferences: newPrefs };
-    }),
+    set((state) => ({
+      preferences: { ...state.preferences, ...prefs },
+    })),
 
   filterCities: () => {
     const { preferences } = get();
@@ -70,11 +71,9 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const { filteredCities } = get();
     if (filteredCities.length === 0) return;
 
-    // Weighted random: higher match = higher chance
     const weights = filteredCities.map((city) => {
       const { preferences } = get();
       let score = 50;
-      // Budget center proximity
       const budgetCenter = (preferences.budgetRange[0] + preferences.budgetRange[1]) / 2;
       score += Math.max(0, 20 - Math.abs(city.costUSD - budgetCenter) / 50);
       score += city.safety * 2;
@@ -105,4 +104,31 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   },
 
   reset: () => set({ phase: 'landing', resultCity: null }),
+
+  resetForRespin: () => {
+    console.log('Spin Reset Initiated');
+    set({ resultCity: null, phase: 'landing' });
+    // Re-filter against current preferences
+    get().filterCities();
+  },
+
+  autoFixFilters: () => {
+    // Find the loosest set of filters that yields results
+    const { preferences } = get();
+    let newPrefs = { ...preferences };
+    
+    // Widen budget
+    newPrefs.budgetRange = [500, 5000];
+    // Lower internet minimum
+    newPrefs.internetMin = 10;
+    // Lower safety minimum
+    newPrefs.safetyMin = 1;
+    // Clear vibes
+    newPrefs.vibes = [];
+    // Reset region
+    newPrefs.region = 'All' as RegionOption;
+
+    set({ preferences: newPrefs });
+    get().filterCities();
+  },
 }));

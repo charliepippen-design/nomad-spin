@@ -1,11 +1,12 @@
-import { useState, useCallback, lazy, Suspense } from 'react';
+import { useState, useCallback, useRef, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
+import { useSoundManager } from '@/hooks/useSoundManager';
 import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
-import { Sliders, Zap, Globe2, RotateCcw } from 'lucide-react';
+import { Sliders, Zap, Globe2, RotateCcw, Volume2, VolumeX } from 'lucide-react';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
@@ -18,10 +19,13 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, resetForRespin } = useSpinStore();
+  const sound = useSoundManager();
   const [showPrefs, setShowPrefs] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.005);
+  const [resetCamera, setResetCamera] = useState(false);
+  const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
 
   const handleQuickSpin = useCallback(() => {
     filterCities();
@@ -34,36 +38,54 @@ export default function Index() {
 
   const startSpin = useCallback(() => {
     setShowPrefs(false);
+    setResetCamera(false);
     setPhase('spinning');
     setIsSpinning(true);
     setSpinSpeed(0.4);
 
-    // Haptic feedback
-    if (navigator.vibrate) {
-      navigator.vibrate([100, 50, 100]);
-    }
+    // Audio
+    sound.startSpin();
+    sound.updateSpinPitch(0.4);
 
-    // Ramp up then decay
-    setTimeout(() => setSpinSpeed(0.15), 1500);
-    setTimeout(() => setSpinSpeed(0.05), 3000);
+    // Haptic feedback
+    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+
+    // Ramp up then decay with tick sounds
+    setTimeout(() => { setSpinSpeed(0.15); sound.updateSpinPitch(0.15); }, 1500);
+    setTimeout(() => {
+      setSpinSpeed(0.05);
+      sound.updateSpinPitch(0.05);
+      // Start ticking
+      let tickCount = 0;
+      tickIntervalRef.current = setInterval(() => {
+        sound.playTick();
+        tickCount++;
+        if (tickCount > 8) clearInterval(tickIntervalRef.current);
+      }, 250);
+    }, 3000);
     setTimeout(() => {
       setSpinSpeed(0.01);
+      sound.updateSpinPitch(0.01);
       spin();
     }, 4000);
     setTimeout(() => {
       setIsSpinning(false);
       setSpinSpeed(0.005);
+      sound.stopSpin();
+      sound.playWin();
       setPhase('results');
+      clearInterval(tickIntervalRef.current);
     }, 5000);
-  }, [spin, setPhase]);
+  }, [spin, setPhase, sound]);
 
   const handleRespin = useCallback(() => {
-    setPhase('landing');
+    resetForRespin();
+    setResetCamera(true);
     setTimeout(() => {
-      filterCities();
+      setResetCamera(false);
       startSpin();
-    }, 300);
-  }, [startSpin, setPhase, filterCities]);
+    }, 400);
+  }, [startSpin, resetForRespin]);
 
   const handleShare = useCallback(() => {
     if (!resultCity) return;
@@ -85,7 +107,7 @@ export default function Index() {
       {/* Globe background */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
-          <Globe spinning={isSpinning} spinSpeed={spinSpeed} />
+          <Globe spinning={isSpinning} spinSpeed={spinSpeed} resetCamera={resetCamera} />
         </Suspense>
       </div>
 
@@ -106,6 +128,14 @@ export default function Index() {
             </h1>
           </div>
           <div className="flex items-center gap-3">
+            {/* Mute toggle */}
+            <button
+              onClick={sound.toggleMute}
+              className="p-2 rounded-lg hover:bg-muted/50 transition-colors text-muted-foreground hover:text-primary"
+              aria-label={sound.muted ? 'Unmute' : 'Mute'}
+            >
+              {sound.muted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+            </button>
             {spinCount > 0 && (
               <span className="text-xs text-accent bg-accent/10 px-2 py-1 rounded-full font-medium border border-accent/20">
                 🎰 {spinCount} spins
@@ -126,7 +156,6 @@ export default function Index() {
                 exit={{ opacity: 0, y: -20 }}
                 className="flex flex-col items-center gap-6 w-full max-w-lg"
               >
-                {/* Tagline */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -138,7 +167,6 @@ export default function Index() {
                   <span className="text-primary">No more analysis paralysis.</span>
                 </motion.p>
 
-                {/* Main CTA */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -147,7 +175,6 @@ export default function Index() {
                   <SpinButton onClick={handleQuickSpin} />
                 </motion.div>
 
-                {/* Secondary CTA */}
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
