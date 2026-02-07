@@ -340,6 +340,7 @@ export default function Index() {
                   matchScore={matchScore}
                   intel={intel}
                   risks={risks}
+                  originCity={preferences.origin?.name}
                   onSave={() => {
                     saveResult();
                     if (auth.isAuthenticated) {
