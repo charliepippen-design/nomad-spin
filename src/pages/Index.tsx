@@ -2,11 +2,12 @@ import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useSoundManager } from '@/hooks/useSoundManager';
+import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring';
 import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
-import { RotateCcw, Volume2, VolumeX } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame } from 'lucide-react';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
@@ -19,13 +20,19 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, resetForRespin } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, streak, resetForRespin, preferences, getShareableUrl } = useSpinStore();
   const sound = useSoundManager();
   const [showPrefs, setShowPrefs] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
+
+  // Load from URL params on mount
+  useEffect(() => {
+    const loaded = useSpinStore.getState().loadFromUrl();
+    if (loaded) setShowPrefs(true);
+  }, []);
 
   // Idle hum on mount
   useEffect(() => {
@@ -42,14 +49,13 @@ export default function Index() {
     setResetCamera(false);
     setPhase('spinning');
     setIsSpinning(true);
-    setSpinSpeed(0.8); // 2x faster
+    setSpinSpeed(0.8);
 
     sound.startSpin();
     sound.updateSpinPitch(0.8);
 
     if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
-    // Aggressive ramp + decay
     setTimeout(() => { setSpinSpeed(0.3); sound.updateSpinPitch(0.3); }, 1000);
     setTimeout(() => {
       setSpinSpeed(0.08);
@@ -87,18 +93,27 @@ export default function Index() {
 
   const handleShare = useCallback(() => {
     if (!resultCity) return;
+    const url = getShareableUrl();
     if (navigator.share) {
       navigator.share({
         title: `DROP ZONE: ${resultCity.name}`,
         text: `Deployment target: ${resultCity.name}, ${resultCity.country} // Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
-        url: window.location.href,
+        url,
       }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(url);
     }
-  }, [resultCity]);
+  }, [resultCity, getShareableUrl]);
 
   const matchScore = resultCity
-    ? Math.min(99, Math.round(50 + resultCity.safety * 3 + Math.min(resultCity.internetMbps / 10, 15) + Math.max(0, 15 - resultCity.costUSD / 200)))
+    ? calculateMatchScore(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.safetyMin, preferences.origin)
     : 0;
+
+  const intel = resultCity
+    ? generateIntel(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin)
+    : [];
+
+  const risks = resultCity ? generateRisks(resultCity) : [];
 
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-hidden bg-background">
@@ -123,9 +138,18 @@ export default function Index() {
             NOMAD // DROP
           </h1>
           <div className="flex items-center gap-3">
+            {/* Streak Badge */}
+            {streak > 0 && (
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03]">
+                <Flame className="w-3 h-3 text-destructive" />
+                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
+                  {streak}D STREAK
+                </span>
+              </div>
+            )}
             <button
               onClick={sound.toggleMute}
-              className="p-2 rounded-sm hover:bg-muted/30 transition-colors text-muted-foreground"
+              className="p-2 rounded-sm hover:bg-white/5 transition-colors text-muted-foreground"
               aria-label={sound.muted ? 'Unmute' : 'Mute'}
             >
               {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -141,7 +165,7 @@ export default function Index() {
         {/* Main */}
         <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
           <AnimatePresence mode="wait">
-            {/* Landing — config only, no quick spin */}
+            {/* Landing */}
             {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
               <motion.div
                 key="landing"
@@ -213,6 +237,8 @@ export default function Index() {
                 <ResultCard
                   city={resultCity}
                   matchScore={matchScore}
+                  intel={intel}
+                  risks={risks}
                   onSave={saveResult}
                   onRespin={handleRespin}
                   onShare={handleShare}

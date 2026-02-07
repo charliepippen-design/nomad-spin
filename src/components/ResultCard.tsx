@@ -1,13 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Wifi, Shield, DollarSign, Clock, Plane, ThumbsUp, ThumbsDown, Bookmark, RotateCcw, Share2 } from 'lucide-react';
+import { MapPin, Wifi, Shield, DollarSign, Plane, Bookmark, RotateCcw, Share2, ExternalLink, AlertTriangle, Zap, Globe, Clock } from 'lucide-react';
 import { City } from '@/data/cities';
 import { Button } from '@/components/ui/button';
+import HealthBar from '@/components/HealthBar';
 import confetti from 'canvas-confetti';
 
 interface ResultCardProps {
   city: City;
   matchScore: number;
+  intel: string[];
+  risks: string[];
   onSave: () => void;
   onRespin: () => void;
   onShare: () => void;
@@ -40,7 +43,7 @@ function ScoreRing({ score }: { score: number }) {
   const offset = circumference - (score / 100) * circumference;
 
   return (
-    <div className="relative w-24 h-24 flex-shrink-0">
+    <div className="relative w-20 h-20 flex-shrink-0">
       <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="42" fill="none" stroke="hsl(var(--border))" strokeWidth="1" />
         <motion.circle
@@ -56,16 +59,16 @@ function ScoreRing({ score }: { score: number }) {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-xl font-mono font-light text-foreground tracking-wider">
+        <span className="text-lg font-mono font-light text-foreground tracking-wider">
           <AnimatedScore target={score} />
         </span>
-        <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-[0.2em]">match</span>
+        <span className="text-[8px] font-mono text-muted-foreground uppercase tracking-[0.2em]">match</span>
       </div>
     </div>
   );
 }
 
-export default function ResultCard({ city, matchScore, onSave, onRespin, onShare }: ResultCardProps) {
+export default function ResultCard({ city, matchScore, intel, risks, onSave, onRespin, onShare }: ResultCardProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       confetti({
@@ -80,88 +83,128 @@ export default function ResultCard({ city, matchScore, onSave, onRespin, onShare
     return () => clearTimeout(timer);
   }, [city.id]);
 
+  const skyscannerUrl = `https://www.skyscanner.com/transport/flights/`;
+  const airbnbUrl = `https://www.airbnb.com/s/${encodeURIComponent(city.name + ' ' + city.country)}/homes`;
+  const esimUrl = `https://www.airalo.com/`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full max-w-md mx-auto glass-strong rounded-sm overflow-hidden"
+      className="w-full max-w-lg mx-auto overflow-hidden"
     >
-      {/* Header */}
-      <div className="p-6 pb-4">
-        <div className="flex items-start gap-5">
-          <ScoreRing score={matchScore} />
-          <div className="flex-1 min-w-0 pt-1">
-            <motion.h2
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-2xl md:text-3xl font-light tracking-[0.1em] text-foreground truncate uppercase"
-            >
-              {city.name}
-            </motion.h2>
-            <div className="flex items-center gap-1 text-muted-foreground mt-1">
-              <MapPin className="w-3 h-3" />
-              <span className="text-xs font-mono tracking-wider">{city.country} · {city.region}</span>
+      <div className="gradient-border-wrap rounded-sm">
+        <div className="bg-black/80 backdrop-blur-[60px] rounded-sm">
+
+          {/* Header: City + Score */}
+          <div className="p-6 pb-4">
+            <div className="flex items-start gap-4">
+              <ScoreRing score={matchScore} />
+              <div className="flex-1 min-w-0 pt-1">
+                <motion.h2
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="text-2xl md:text-3xl font-mono font-light tracking-[0.15em] text-foreground truncate uppercase"
+                >
+                  {city.name} <span className="text-muted-foreground">// {city.countryCode}</span>
+                </motion.h2>
+                <div className="flex items-center gap-2 text-muted-foreground mt-1">
+                  <MapPin className="w-3 h-3" />
+                  <span className="text-[10px] font-mono tracking-wider">{city.country} · {city.region}</span>
+                  <span className="text-[10px] font-mono tracking-wider text-muted-foreground/60">{city.meta.timeZoneUtc}</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {city.vibe.map((v) => (
+                    <span key={v} className="px-2 py-0.5 text-[9px] font-mono tracking-wider rounded-sm border border-border text-muted-foreground uppercase">
+                      {v}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {city.vibe.map((v) => (
-                <span key={v} className="px-2 py-0.5 text-[10px] font-mono tracking-wider rounded-sm border border-border text-muted-foreground uppercase">
-                  {v}
-                </span>
+          </div>
+
+          {/* Tactical Data Grid */}
+          <div className="grid grid-cols-2 gap-px bg-border/20 mx-6">
+            <StatItem icon={<DollarSign className="w-3 h-3" />} label="EST. MONTHLY BURN" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
+            <StatItem icon={<Wifi className="w-3 h-3" />} label="AVG BANDWIDTH" value={`${city.infra.internetSpeedAvg} Mbps`} />
+            <StatItem icon={<Shield className="w-3 h-3" />} label="THREAT INDEX" value={`${city.safety}/10`} />
+            <StatItem icon={<Plane className="w-3 h-3" />} label="VISA WINDOW" value={`${city.meta.visaDays}D`} />
+            <StatItem icon={<Globe className="w-3 h-3" />} label="AIRBNB MEDIAN" value={`$${city.financials.airbnbMedian}/NT`} />
+            <StatItem icon={<Clock className="w-3 h-3" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}`} />
+          </div>
+
+          {/* Health Bars */}
+          <div className="px-6 py-4 space-y-2.5">
+            <HealthBar label="BANDWIDTH" value={city.infra.internetReliability} delay={0.8} />
+            <HealthBar label="SAFETY" value={Math.round(city.safety)} delay={0.9} />
+            <HealthBar label="NIGHTLIFE" value={city.vibeMetrics.nightlife} delay={1.0} />
+            <HealthBar label="COMMUNITY" value={city.vibeMetrics.communitySize} delay={1.1} />
+            <HealthBar label="POWER GRID" value={city.infra.powerGridStability} delay={1.2} />
+          </div>
+
+          {/* Intel + Risks */}
+          <div className="px-6 py-4 grid grid-cols-2 gap-4 border-t border-border/30">
+            {/* Intel */}
+            <div>
+              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
+                <Zap className="w-3 h-3" /> WHY THIS TARGET
+              </div>
+              {intel.map((item, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, x: -5 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.2 + i * 0.1 }}
+                  className="text-[11px] text-foreground/60 mb-1.5 font-mono leading-relaxed"
+                >
+                  + {item}
+                </motion.p>
               ))}
             </div>
+            {/* Risks */}
+            <div>
+              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
+                <AlertTriangle className="w-3 h-3" /> OPERATIONAL RISKS
+              </div>
+              {risks.length > 0 ? risks.map((risk, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, x: -5 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.4 + i * 0.1 }}
+                  className="text-[11px] text-destructive/70 mb-1.5 font-mono leading-relaxed"
+                >
+                  ⚠ {risk}
+                </motion.p>
+              )) : (
+                <p className="text-[11px] text-foreground/40 font-mono">No active threats</p>
+              )}
+            </div>
+          </div>
+
+          {/* Monetization / Affiliate Row */}
+          <div className="px-6 py-3 border-t border-border/30 grid grid-cols-3 gap-2">
+            <AffiliateButton href={airbnbUrl} label="ACQUIRE ASSET" sublabel="Airbnb" />
+            <AffiliateButton href={skyscannerUrl} label="SECURE TRANSPORT" sublabel="Skyscanner" />
+            <AffiliateButton href={esimUrl} label="ESTABLISH COMMS" sublabel="eSim" />
+          </div>
+
+          {/* Action Row */}
+          <div className="px-6 py-4 border-t border-border/30 flex gap-2">
+            <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+              <Bookmark className="w-3 h-3" /> ENCRYPT TO PROFILE
+            </Button>
+            <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+              <RotateCcw className="w-3 h-3" /> RE-DROP
+            </Button>
+            <Button onClick={onShare} variant="outline" className="gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+              <Share2 className="w-3 h-3" />
+            </Button>
           </div>
         </div>
-      </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-2 gap-px bg-border/30 mx-6">
-        <StatItem icon={<DollarSign className="w-3 h-3" />} label="COST/MO" value={`$${city.costUSD}`} />
-        <StatItem icon={<Wifi className="w-3 h-3" />} label="SPEED" value={`${city.internetMbps} Mbps`} />
-        <StatItem icon={<Shield className="w-3 h-3" />} label="SAFETY" value={`${city.safety}/10`} />
-        <StatItem icon={<Clock className="w-3 h-3" />} label="VISA" value={`${city.visa.days}d`} />
-      </div>
-
-      {/* Visa */}
-      <div className="px-6 py-3">
-        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-          <Plane className="w-3 h-3" />
-          <span className="tracking-wider">{city.visa.type}</span>
-        </div>
-      </div>
-
-      {/* Pros & Cons */}
-      <div className="px-6 py-4 grid grid-cols-2 gap-6">
-        <div>
-          <div className="flex items-center gap-1 text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
-            <ThumbsUp className="w-3 h-3" /> ASSETS
-          </div>
-          {city.pros.slice(0, 3).map((pro, i) => (
-            <p key={i} className="text-xs text-foreground/60 mb-1 font-light">+ {pro}</p>
-          ))}
-        </div>
-        <div>
-          <div className="flex items-center gap-1 text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
-            <ThumbsDown className="w-3 h-3" /> LIABILITIES
-          </div>
-          {city.cons.slice(0, 3).map((con, i) => (
-            <p key={i} className="text-xs text-foreground/60 mb-1 font-light">– {con}</p>
-          ))}
-        </div>
-      </div>
-
-      {/* Actions */}
-      <div className="px-6 py-4 border-t border-border/50 flex gap-2">
-        <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-muted/50 hover:text-foreground text-xs font-mono tracking-wider">
-          <Bookmark className="w-3 h-3" /> SAVE
-        </Button>
-        <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-muted/50 hover:text-foreground text-xs font-mono tracking-wider">
-          <RotateCcw className="w-3 h-3" /> RE-DROP
-        </Button>
-        <Button onClick={onShare} variant="outline" className="gap-2 rounded-sm border-border text-foreground/60 hover:bg-muted/50 hover:text-foreground text-xs font-mono tracking-wider">
-          <Share2 className="w-3 h-3" />
-        </Button>
       </div>
     </motion.div>
   );
@@ -169,12 +212,28 @@ export default function ResultCard({ city, matchScore, onSave, onRespin, onShare
 
 function StatItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="flex items-center gap-2 p-3 bg-muted/20">
+    <div className="flex items-center gap-2 p-3 bg-white/[0.02]">
       <span className="text-muted-foreground">{icon}</span>
-      <div>
-        <p className="text-[9px] font-mono text-muted-foreground tracking-[0.15em]">{label}</p>
-        <p className="text-sm font-light text-foreground">{value}</p>
+      <div className="min-w-0">
+        <p className="text-[8px] font-mono text-muted-foreground tracking-[0.15em] truncate">{label}</p>
+        <p className="text-sm font-mono font-light text-foreground">{value}</p>
       </div>
     </div>
+  );
+}
+
+function AffiliateButton({ href, label, sublabel }: { href: string; label: string; sublabel: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex flex-col items-center gap-1 py-2.5 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-border transition-all text-center group"
+    >
+      <span className="text-[8px] font-mono tracking-[0.12em] text-foreground/60 group-hover:text-foreground transition-colors uppercase leading-tight">{label}</span>
+      <span className="text-[9px] font-mono text-muted-foreground flex items-center gap-1">
+        {sublabel} <ExternalLink className="w-2.5 h-2.5" />
+      </span>
+    </a>
   );
 }
