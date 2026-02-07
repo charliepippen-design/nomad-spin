@@ -63,8 +63,12 @@ function CityMarkers({
   onUnhover: () => void;
 }) {
   const meshRef = useRef<THREE.InstancedMesh>(null!);
+  const glowRef = useRef<THREE.Mesh>(null!);
   const timeRef = useRef(0);
   const hoveredRef = useRef<number | null>(null);
+
+  const defaultColor = useMemo(() => new THREE.Color('#00ffaa'), []);
+  const hoverColor = useMemo(() => new THREE.Color('#ffdd44'), []);
 
   const positions = useMemo(() => {
     return cities.map(city => latLngToVec3(city.lat, city.lng, 2.06));
@@ -72,28 +76,56 @@ function CityMarkers({
 
   const count = positions.length;
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  const tempColor = useMemo(() => new THREE.Color(), []);
+
+  // Initialize instance colors
+  const colorArray = useMemo(() => {
+    const arr = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      defaultColor.toArray(arr, i * 3);
+    }
+    return arr;
+  }, [count, defaultColor]);
 
   useFrame((_, delta) => {
     if (!meshRef.current) return;
     timeRef.current += delta;
     const t = timeRef.current;
     const stretch = spinning ? 1 + spinSpeed * 4 : 1;
+    const hovered = hoveredRef.current;
 
     for (let i = 0; i < count; i++) {
       const p = positions[i];
       dummy.position.copy(p);
-      const isHovered = hoveredRef.current === i;
-      const baseSize = isHovered ? 0.05 : 0.028;
+      const isHovered = hovered === i;
+      const baseSize = isHovered ? 0.06 : 0.028;
       const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.008;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
+
+      // Set instance color
+      tempColor.copy(isHovered ? hoverColor : defaultColor);
+      meshRef.current.setColorAt(i, tempColor);
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
+    if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
+
+    // Position glow ring at hovered marker
+    if (glowRef.current) {
+      if (hovered !== null) {
+        glowRef.current.visible = true;
+        glowRef.current.position.copy(positions[hovered]);
+        const glowPulse = 0.12 + Math.sin(t * 3) * 0.03;
+        glowRef.current.scale.setScalar(glowPulse);
+        glowRef.current.lookAt(0, 0, 0);
+      } else {
+        glowRef.current.visible = false;
+      }
+    }
   });
 
-  // R3F's built-in pointer events handle raycasting automatically
   const handlePointerOver = useCallback((e: ThreeEvent<PointerEvent>) => {
     if (spinning) return;
     e.stopPropagation();
@@ -125,22 +157,36 @@ function CityMarkers({
   }, [spinning, onHover]);
 
   return (
-    <instancedMesh
-      ref={meshRef}
-      args={[undefined, undefined, count]}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-      onPointerMove={handlePointerMove}
-    >
-      <sphereGeometry args={[1, 8, 8]} />
-      <meshStandardMaterial
-        color="#00ffaa"
-        emissive="#00ffaa"
-        emissiveIntensity={0.8}
-        transparent
-        opacity={0.9}
-      />
-    </instancedMesh>
+    <>
+      <instancedMesh
+        ref={meshRef}
+        args={[undefined, undefined, count]}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+        onPointerMove={handlePointerMove}
+      >
+        <sphereGeometry args={[1, 8, 8]} />
+        <meshStandardMaterial
+          color="#00ffaa"
+          emissive="#00ffaa"
+          emissiveIntensity={0.8}
+          transparent
+          opacity={0.9}
+        />
+        <instancedBufferAttribute attach="instanceColor" args={[colorArray, 3]} />
+      </instancedMesh>
+      {/* Glow ring for hovered marker */}
+      <mesh ref={glowRef} visible={false}>
+        <sphereGeometry args={[1, 16, 16]} />
+        <meshBasicMaterial
+          color="#ffdd44"
+          transparent
+          opacity={0.25}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </mesh>
+    </>
   );
 }
 
