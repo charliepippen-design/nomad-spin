@@ -10,7 +10,10 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
-import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon } from 'lucide-react';
+import CityTooltip from '@/components/CityTooltip';
+import type { City } from '@/data/cities';
+import { AnimatePresence as TooltipPresence } from 'framer-motion';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
@@ -32,7 +35,17 @@ export default function Index() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
+  const [dayMode, setDayMode] = useState(false);
+  const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
+
+  const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
+    if (city && pos) {
+      setHoveredCity({ city, pos });
+    } else {
+      setHoveredCity(null);
+    }
+  }, []);
 
   // Load from URL params on mount
   useEffect(() => {
@@ -139,9 +152,27 @@ export default function Index() {
       {/* Globe */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
-          <Globe spinning={isSpinning} spinSpeed={spinSpeed} resetCamera={resetCamera} />
+          <Globe
+            spinning={isSpinning}
+            spinSpeed={spinSpeed}
+            resetCamera={resetCamera}
+            dayMode={dayMode}
+            onCityHover={handleCityHover}
+          />
         </Suspense>
       </div>
+
+      {/* City Tooltip */}
+      <TooltipPresence>
+        {hoveredCity && (
+          <CityTooltip
+            key={hoveredCity.city.id}
+            city={hoveredCity.city}
+            x={hoveredCity.pos.x}
+            y={hoveredCity.pos.y}
+          />
+        )}
+      </TooltipPresence>
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
@@ -157,6 +188,15 @@ export default function Index() {
             NOMAD // DROP
           </h1>
           <div className="flex items-center gap-3">
+            {/* Day/Night Toggle */}
+            <button
+              onClick={() => setDayMode(d => !d)}
+              className="p-2 rounded-sm hover:bg-white/5 transition-colors text-muted-foreground"
+              aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
+              title={dayMode ? 'Night mode' : 'Day mode'}
+            >
+              {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            </button>
             {/* Streak Badge */}
             {streak > 0 && (
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03]">
