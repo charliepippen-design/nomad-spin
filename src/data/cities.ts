@@ -10,6 +10,9 @@ import { newAsiaCities } from './cities/new-asia';
 import { newEuropeCities } from './cities/new-europe';
 import { newAmericasCities } from './cities/new-americas';
 import { newOtherCities } from './cities/new-other';
+import { extraAsiaCities } from './cities/extra-asia';
+import { extraEuropeCities } from './cities/extra-europe';
+import { extraAmericasCities } from './cities/extra-americas';
 
 // ── Existing hand-tuned cities ──
 const existingCities: City[] = [
@@ -646,4 +649,7 @@ export const cities: City[] = [
   ...newEuropeCities,
   ...newAmericasCities,
   ...newOtherCities,
+  ...extraAsiaCities,
+  ...extraEuropeCities,
+  ...extraAmericasCities,
 ];
