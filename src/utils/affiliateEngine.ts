@@ -39,17 +39,19 @@ export const AFFILIATE_CONFIG = {
   },
 } as const;
 
-// ── Regional overrides ─────────────────────────────────────────────────────
-// Maps countryCode → preferred accommodation provider.
-// If a country is NOT listed here, Flatio is used as default.
-// Add country codes here if Flatio doesn't support a region.
-const REGIONAL_OVERRIDES: Record<string, { accommodation: 'flatio' | 'booking' }> = {
-  // TODO: Add countries where Flatio is unavailable, e.g.:
-  // US: { accommodation: 'booking' },
-  // AU: { accommodation: 'booking' },
-  // JP: { accommodation: 'booking' },
-  // KR: { accommodation: 'booking' },
-};
+// ── Flatio supported countries (whitelist) ─────────────────────────────────
+// If a country is listed here, Flatio is used; otherwise Booking.com is the fallback.
+const FLATIO_SUPPORTED_COUNTRIES: string[] = [
+  // Europe
+  'PT', 'ES', 'CZ', 'PL', 'HU', 'HR', 'GR', 'IT', 'DE', 'AT', 'NL',
+  'FR', 'BE', 'SK', 'SI', 'RO', 'BG', 'RS', 'ME', 'BA', 'AL', 'XK',
+  'EE', 'LV', 'LT', 'IE', 'DK', 'SE', 'FI', 'NO', 'IS', 'CH', 'GB',
+  // Americas
+  'MX', 'CO', 'AR', 'BR', 'CL', 'UY', 'EC', 'PE', 'CR', 'PA',
+  // Asia & Middle East
+  'TH', 'VN', 'ID', 'PH', 'MY', 'KH', 'IN', 'LK', 'NP',
+  'AE', 'GE', 'TR', 'AM',
+];
 
 // ── UTM builder ────────────────────────────────────────────────────────────
 
@@ -101,11 +103,10 @@ const AIRALO_SLUGS: Record<string, string> = {
 function buildAccommodationUrl(city: string, country: string, countryCode: string): { url: string; partner: string } {
   const citySlug = slugify(city);
   const utms = buildUtmParams(citySlug, 'accommodation');
-  const override = REGIONAL_OVERRIDES[countryCode.toUpperCase()];
-  const provider = override?.accommodation ?? 'flatio';
+  const useFlatio = FLATIO_SUPPORTED_COUNTRIES.includes(countryCode.toUpperCase());
 
-  if (provider === 'booking') {
-    console.warn(`[AffiliateEngine] Flatio unavailable for ${countryCode} — falling back to Booking.com for "${city}"`);
+  if (!useFlatio) {
+    console.debug(`Accommodation provider: using Booking.com for ${city} (Flatio not available in ${country})`);
     const q = encodeURIComponent(`${city} ${country}`);
     return {
       url: `https://www.booking.com/searchresults.html?ss=${q}&aid=${AFFILIATE_CONFIG.partners.booking.partnerId}&${utms}`,
