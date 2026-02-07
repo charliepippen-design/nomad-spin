@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
+import { useAuth } from '@/hooks/useAuth';
+import { useCloudSync } from '@/hooks/useCloudSync';
 import { Bookmark, MapPin, Trash2, RotateCcw } from 'lucide-react';
 
 export default function SavedSpins() {
   const { savedSpins, removeSavedSpin, redeploySpin } = useSpinStore();
+  const auth = useAuth();
+  const cloudSync = useCloudSync(auth.user?.id);
 
   if (savedSpins.length === 0) return null;
 
@@ -45,7 +49,10 @@ export default function SavedSpins() {
               <RotateCcw className="w-3 h-3 text-muted-foreground" />
             </button>
             <button
-              onClick={() => removeSavedSpin(index)}
+              onClick={() => {
+                if (auth.isAuthenticated) cloudSync.removeSpin(entry.city.id);
+                removeSavedSpin(index);
+              }}
               className="p-1.5 rounded-sm opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all"
               title="Delete"
             >

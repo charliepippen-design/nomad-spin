@@ -14,7 +14,120 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      saved_spins: {
+        Row: {
+          city_data: Json
+          city_id: string
+          created_at: string
+          id: string
+          preferences: Json
+          user_id: string
+        }
+        Insert: {
+          city_data: Json
+          city_id: string
+          created_at?: string
+          id?: string
+          preferences: Json
+          user_id: string
+        }
+        Update: {
+          city_data?: Json
+          city_id?: string
+          created_at?: string
+          id?: string
+          preferences?: Json
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_preferences: {
+        Row: {
+          budget_max: number
+          budget_min: number
+          id: string
+          internet_min: number
+          origin_id: string | null
+          region: string
+          safety_min: number
+          updated_at: string
+          user_id: string
+          vibes: string[]
+        }
+        Insert: {
+          budget_max?: number
+          budget_min?: number
+          id?: string
+          internet_min?: number
+          origin_id?: string | null
+          region?: string
+          safety_min?: number
+          updated_at?: string
+          user_id: string
+          vibes?: string[]
+        }
+        Update: {
+          budget_max?: number
+          budget_min?: number
+          id?: string
+          internet_min?: number
+          origin_id?: string | null
+          region?: string
+          safety_min?: number
+          updated_at?: string
+          user_id?: string
+          vibes?: string[]
+        }
+        Relationships: []
+      }
+      user_streaks: {
+        Row: {
+          id: string
+          last_spin_date: string | null
+          spin_count: number
+          streak: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          last_spin_date?: string | null
+          spin_count?: number
+          streak?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          last_spin_date?: string | null
+          spin_count?: number
+          streak?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

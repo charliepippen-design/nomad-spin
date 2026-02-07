@@ -2,12 +2,15 @@ import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useSoundManager } from '@/hooks/useSoundManager';
+import { useAuth } from '@/hooks/useAuth';
+import { useCloudSync } from '@/hooks/useCloudSync';
 import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring';
 import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
-import { RotateCcw, Volume2, VolumeX, Flame } from 'lucide-react';
+import AuthModal from '@/components/AuthModal';
+import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut } from 'lucide-react';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
@@ -22,7 +25,10 @@ const GlobeFallback = () => (
 export default function Index() {
   const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, streak, resetForRespin, preferences, getShareableUrl } = useSpinStore();
   const sound = useSoundManager();
+  const auth = useAuth();
+  const cloudSync = useCloudSync(auth.user?.id);
   const [showPrefs, setShowPrefs] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
@@ -33,6 +39,15 @@ export default function Index() {
     const loaded = useSpinStore.getState().loadFromUrl();
     if (loaded) setShowPrefs(true);
   }, []);
+
+  // Sync from cloud when user authenticates
+  useEffect(() => {
+    if (auth.isAuthenticated && auth.user) {
+      cloudSync.loadSavedSpins();
+      cloudSync.loadStreaks();
+      cloudSync.loadPreferences();
+    }
+  }, [auth.isAuthenticated, auth.user?.id]);
 
   // Idle hum on mount
   useEffect(() => {
@@ -79,8 +94,12 @@ export default function Index() {
       sound.playResult();
       setPhase('results');
       clearInterval(tickIntervalRef.current);
+      // Sync streaks to cloud
+      if (auth.isAuthenticated) {
+        cloudSync.syncStreaks();
+      }
     }, 3500);
-  }, [spin, setPhase, sound]);
+  }, [spin, setPhase, sound, auth.isAuthenticated, cloudSync]);
 
   const handleRespin = useCallback(() => {
     resetForRespin();
@@ -158,6 +177,29 @@ export default function Index() {
               <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
                 {spinCount} DROPS
               </span>
+            )}
+            {/* Auth Button */}
+            {auth.isAuthenticated ? (
+              <button
+                onClick={auth.signOut}
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                title="Sign out"
+              >
+                <LogOut className="w-3 h-3 text-muted-foreground" />
+                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
+                  SIGNED IN
+                </span>
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowAuth(true)}
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+              >
+                <User className="w-3 h-3 text-muted-foreground" />
+                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
+                  SYNC
+                </span>
+              </button>
             )}
           </div>
         </header>
@@ -239,7 +281,13 @@ export default function Index() {
                   matchScore={matchScore}
                   intel={intel}
                   risks={risks}
-                  onSave={saveResult}
+                  onSave={() => {
+                    saveResult();
+                    if (auth.isAuthenticated) {
+                      const latestSpin = useSpinStore.getState().savedSpins.at(-1);
+                      if (latestSpin) cloudSync.saveSpin(latestSpin);
+                    }
+                  }}
                   onRespin={handleRespin}
                   onShare={handleShare}
                 />
@@ -265,6 +313,24 @@ export default function Index() {
         open={showPrefs}
         onClose={() => setShowPrefs(false)}
         onSpin={startSpin}
+      />
+
+      {/* Auth Modal */}
+      <AuthModal
+        open={showAuth}
+        onClose={() => setShowAuth(false)}
+        onSignUp={async (email, password, name) => {
+          const result = await auth.signUp(email, password, name);
+          if (!result.error) {
+            // Migrate local data after signup
+            setTimeout(() => cloudSync.migrateLocalData(), 1000);
+          }
+          return result;
+        }}
+        onSignIn={async (email, password) => {
+          const result = await auth.signIn(email, password);
+          return result;
+        }}
       />
     </div>
   );
