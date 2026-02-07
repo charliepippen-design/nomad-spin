@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, Check, AlertTriangle } from 'lucide-react';
+import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain } from 'lucide-react';
 import { useSpinStore, type VibeOption, type RegionOption } from '@/store/useSpinStore';
 import { origins, type Origin } from '@/data/origins';
 import { Slider } from '@/components/ui/slider';
@@ -26,6 +26,46 @@ const regionOptions: { label: string; value: RegionOption }[] = [
   { label: 'N. AMERICA', value: 'North America' },
 ];
 
+interface PresetConfig {
+  label: string;
+  icon: React.ReactNode;
+  budget: [number, number];
+  internet: number;
+  safety: number;
+  vibes: VibeOption[];
+  region: RegionOption;
+}
+
+const presets: PresetConfig[] = [
+  {
+    label: 'BOOTSTRAPPER',
+    icon: <Zap className="w-3.5 h-3.5" />,
+    budget: [500, 1200],
+    internet: 40,
+    safety: 6,
+    vibes: ['workhub', 'foodie'],
+    region: 'All',
+  },
+  {
+    label: 'EXECUTIVE',
+    icon: <Briefcase className="w-3.5 h-3.5" />,
+    budget: [2000, 5000],
+    internet: 150,
+    safety: 8,
+    vibes: ['workhub', 'party'],
+    region: 'All',
+  },
+  {
+    label: 'DEEP FOCUS',
+    icon: <Mountain className="w-3.5 h-3.5" />,
+    budget: [800, 2000],
+    internet: 50,
+    safety: 7,
+    vibes: ['mountain', 'workhub'],
+    region: 'All',
+  },
+];
+
 interface PreferencesModalProps {
   open: boolean;
   onClose: () => void;
@@ -33,7 +73,7 @@ interface PreferencesModalProps {
 }
 
 export default function PreferencesModal({ open, onClose, onSpin }: PreferencesModalProps) {
-  const { preferences, setPreferences, filterCities, filteredCities } = useSpinStore();
+  const { preferences, setPreferences, filterCities, filteredCities, getNearMisses } = useSpinStore();
   const sound = useSoundManager();
   const [localBudget, setLocalBudget] = useState(preferences.budgetRange);
   const [localInternet, setLocalInternet] = useState(preferences.internetMin);
@@ -41,6 +81,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   const [originOpen, setOriginOpen] = useState(false);
   const [originSearch, setOriginSearch] = useState('');
   const [budgetAnimating, setBudgetAnimating] = useState(false);
+  const [showNearMisses, setShowNearMisses] = useState(false);
   const lastBudgetTick = useRef(localBudget[1]);
 
   useEffect(() => {
@@ -52,9 +93,22 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     filterCities();
   }, [localBudget, localInternet, localSafety, preferences.vibes, preferences.region, preferences.origin]);
 
+  const applyPreset = (preset: PresetConfig) => {
+    setLocalBudget(preset.budget);
+    setLocalInternet(preset.internet);
+    setLocalSafety(preset.safety);
+    setPreferences({
+      budgetRange: preset.budget,
+      internetMin: preset.internet,
+      safetyMin: preset.safety,
+      vibes: preset.vibes,
+      region: preset.region,
+    });
+    sound.playTick();
+  };
+
   const handleBudgetChange = useCallback((v: number[]) => {
     const newVal = v as [number, number];
-    // Tick sound every $100
     if (Math.abs(newVal[1] - lastBudgetTick.current) >= 100) {
       sound.playTick();
       lastBudgetTick.current = newVal[1];
@@ -88,6 +142,22 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
 
   const hasOrigin = preferences.origin && preferences.origin.id !== 'anywhere';
   const impossible = filteredCities.length === 0;
+  const nearMisses = impossible ? getNearMisses() : [];
+
+  // Build mission summary
+  const buildSummary = () => {
+    const parts: string[] = [];
+    const budgetLabel = localBudget[1] <= 1200 ? 'resource-efficient' : localBudget[1] <= 2500 ? 'mid-range' : 'premium';
+    parts.push(budgetLabel);
+    if (localInternet >= 100) parts.push('high-speed');
+    if (localSafety >= 8) parts.push('high-security');
+    if (preferences.vibes.length > 0) parts.push(preferences.vibes.join('/'));
+
+    const origin = hasOrigin ? preferences.origin!.name : 'GLOBAL';
+    const region = preferences.region !== 'All' ? preferences.region : 'all sectors';
+
+    return `CONFIG: Searching for ${parts.join(', ')} extraction points in ${region} from ${origin}...`;
+  };
 
   return (
     <AnimatePresence>
@@ -98,10 +168,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
         >
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={onClose} />
 
-          {/* Modal */}
           <motion.div
             initial={{ y: 100, opacity: 0, scale: 0.95 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -109,7 +177,6 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             className="relative w-full max-w-lg max-h-[85vh] z-10 rounded-t-lg sm:rounded-lg overflow-hidden"
           >
-            {/* Gradient border wrapper */}
             <div className="gradient-border-wrap rounded-t-lg sm:rounded-lg">
               <div className="bg-black/80 backdrop-blur-[60px] rounded-t-lg sm:rounded-lg overflow-y-auto max-h-[85vh]">
                 {/* Header */}
@@ -120,20 +187,35 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
-                  <button
-                    onClick={onClose}
-                    className="p-2 rounded-sm hover:bg-white/5 transition-colors"
-                  >
+                  <button onClick={onClose} className="p-2 rounded-sm hover:bg-white/5 transition-colors">
                     <X className="w-4 h-4 text-muted-foreground" />
                   </button>
                 </div>
 
-                {/* Form grid */}
-                <div className="grid gap-0 px-8 pt-6 pb-32">
+                {/* Presets */}
+                <div className="px-8 pt-4 pb-2">
+                  <label className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 mb-3 block uppercase">
+                    QUICK DEPLOY PRESETS
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {presets.map((preset) => (
+                      <button
+                        key={preset.label}
+                        onClick={() => applyPreset(preset)}
+                        className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
+                      >
+                        <span className="text-muted-foreground group-hover:text-foreground transition-colors">{preset.icon}</span>
+                        <span className="text-[9px] font-mono tracking-[0.12em] text-muted-foreground group-hover:text-foreground transition-colors">{preset.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-                  {/* Extraction Point (Origin) */}
+                {/* Form grid */}
+                <div className="grid gap-0 px-8 pt-4 pb-32">
+                  {/* Extraction Point */}
                   <div className="py-6 border-b border-white/[0.06]">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-3 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
                       EXTRACTION POINT
                     </label>
                     <div className="relative">
@@ -141,13 +223,13 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         onClick={() => setOriginOpen(!originOpen)}
                         className="w-full flex items-center justify-between px-4 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.15] transition-colors text-sm"
                       >
-                        <span className={hasOrigin ? 'text-white font-mono tracking-wider' : 'text-[#6B7280] font-mono tracking-wider'}>
+                        <span className={hasOrigin ? 'text-white font-mono tracking-wider' : 'text-muted-foreground font-mono tracking-wider'}>
                           {preferences.origin
                             ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
                             : 'Select origin...'}
                         </span>
                         <motion.div animate={{ rotate: originOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                          <Search className="w-3.5 h-3.5 text-[#6B7280]" />
+                          <Search className="w-3.5 h-3.5 text-muted-foreground" />
                         </motion.div>
                       </button>
                       <AnimatePresence>
@@ -161,13 +243,13 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           >
                             <div className="sticky top-0 bg-[#0a0a0a] border-b border-white/[0.06] p-3">
                               <div className="flex items-center gap-2 px-2">
-                                <Search className="w-3.5 h-3.5 text-[#6B7280]" />
+                                <Search className="w-3.5 h-3.5 text-muted-foreground" />
                                 <input
                                   type="text"
                                   value={originSearch}
                                   onChange={(e) => setOriginSearch(e.target.value)}
                                   placeholder="Search cities..."
-                                  className="flex-1 bg-transparent text-sm text-white placeholder:text-[#555] outline-none font-mono tracking-wider"
+                                  className="flex-1 bg-transparent text-sm text-white placeholder:text-muted-foreground outline-none font-mono tracking-wider"
                                   autoFocus
                                 />
                               </div>
@@ -176,14 +258,14 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                               <button
                                 key={o.id}
                                 onClick={() => selectOrigin(o)}
-                                className="w-full text-left px-5 py-2.5 text-sm text-white/70 hover:bg-white/[0.05] hover:text-white transition-colors font-mono tracking-wider flex items-center justify-between"
+                                className="w-full text-left px-5 py-2.5 text-sm text-foreground/70 hover:bg-white/[0.05] hover:text-foreground transition-colors font-mono tracking-wider flex items-center justify-between"
                               >
                                 <span>{o.name}{o.country ? ` — ${o.country}` : ''}</span>
-                                {preferences.origin?.id === o.id && <Check className="w-3 h-3 text-white/50" />}
+                                {preferences.origin?.id === o.id && <Check className="w-3 h-3 text-foreground/50" />}
                               </button>
                             ))}
                             {filteredOrigins.length === 0 && (
-                              <div className="px-5 py-4 text-xs text-[#555] font-mono">NO MATCHES</div>
+                              <div className="px-5 py-4 text-xs text-muted-foreground font-mono">NO MATCHES</div>
                             )}
                           </motion.div>
                         )}
@@ -191,9 +273,9 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     </div>
                   </div>
 
-                  {/* Resource Allocation (Budget) */}
+                  {/* Budget */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-1 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
                       RESOURCE ALLOCATION
                     </label>
                     <motion.div
@@ -206,58 +288,35 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       </span>
                     </motion.div>
                     <div className="relative z-10 py-2">
-                      <Slider
-                        min={500}
-                        max={5000}
-                        step={100}
-                        value={localBudget}
-                        onValueChange={handleBudgetChange}
-                        onValueCommit={handleBudgetCommit}
-                      />
+                      <Slider min={500} max={5000} step={100} value={localBudget} onValueChange={handleBudgetChange} onValueCommit={handleBudgetCommit} />
                     </div>
                   </div>
 
-                  {/* Min Internet */}
+                  {/* Internet */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-1 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
                       BANDWIDTH THRESHOLD
                     </label>
-                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localInternet} MBPS
-                    </span>
+                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localInternet} MBPS</span>
                     <div className="relative z-10 py-2">
-                      <Slider
-                        min={10}
-                        max={500}
-                        step={10}
-                        value={[localInternet]}
-                        onValueChange={(v) => setLocalInternet(v[0])}
-                      />
+                      <Slider min={10} max={500} step={10} value={[localInternet]} onValueChange={(v) => setLocalInternet(v[0])} />
                     </div>
                   </div>
 
-                  {/* Min Safety */}
+                  {/* Safety */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-1 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
                       THREAT TOLERANCE
                     </label>
-                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localSafety}/10
-                    </span>
+                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localSafety}/10</span>
                     <div className="relative z-10 py-2">
-                      <Slider
-                        min={1}
-                        max={10}
-                        step={0.5}
-                        value={[localSafety]}
-                        onValueChange={(v) => setLocalSafety(v[0])}
-                      />
+                      <Slider min={1} max={10} step={0.5} value={[localSafety]} onValueChange={(v) => setLocalSafety(v[0])} />
                     </div>
                   </div>
 
-                  {/* Mission Profile (Vibes) */}
+                  {/* Vibes */}
                   <div className="py-6 border-b border-white/[0.06]">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-4 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
                       MISSION PROFILE
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -268,7 +327,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           className={`px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
                             preferences.vibes.includes(v.value)
                               ? 'border-white/30 bg-white/10 text-white'
-                              : 'border-white/[0.06] bg-transparent text-[#6B7280] hover:border-white/15 hover:text-white/60'
+                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
                           }`}
                         >
                           {v.label}
@@ -277,9 +336,9 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     </div>
                   </div>
 
-                  {/* Sector (Region) */}
+                  {/* Region */}
                   <div className="py-6">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] mb-4 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
                       OPERATIONAL SECTOR
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -290,7 +349,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           className={`px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
                             preferences.region === r.value
                               ? 'border-white/30 bg-white/10 text-white'
-                              : 'border-white/[0.06] bg-transparent text-[#6B7280] hover:border-white/15 hover:text-white/60'
+                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
                           }`}
                         >
                           {r.label}
@@ -301,38 +360,74 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 </div>
 
                 {/* Fixed bottom bar */}
-                <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-black/90 backdrop-blur-xl border-t border-white/[0.06] px-8 py-5">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-[#6B7280] uppercase">
-                      <span className={`${impossible ? 'text-red-500' : 'text-white'} font-medium`}>{filteredCities.length}</span> TARGETS LOCKED
+                <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-black/90 backdrop-blur-xl border-t border-white/[0.06] px-8 py-4">
+                  {/* Mission summary */}
+                  <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 leading-relaxed">
+                    {buildSummary()}
+                  </p>
+
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
+                      <span className={`${impossible ? 'text-destructive' : 'text-white'} font-medium`}>{filteredCities.length}</span> TARGETS LOCKED
                     </span>
-                    {impossible && (
-                      <button
-                        onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternet(10); setLocalSafety(1); }}
-                        className="text-[10px] font-mono text-red-400/80 hover:text-red-300 transition-colors tracking-wider underline underline-offset-2"
-                      >
-                        AUTO-CALIBRATE
-                      </button>
-                    )}
+                    <div className="flex gap-2">
+                      {impossible && nearMisses.length > 0 && (
+                        <button
+                          onClick={() => setShowNearMisses(!showNearMisses)}
+                          className="text-[10px] font-mono text-foreground/50 hover:text-foreground/80 transition-colors tracking-wider"
+                        >
+                          {showNearMisses ? 'HIDE' : `${nearMisses.length} NEAR MISSES`}
+                        </button>
+                      )}
+                      {impossible && (
+                        <button
+                          onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternet(10); setLocalSafety(1); }}
+                          className="text-[10px] font-mono text-destructive/80 hover:text-destructive transition-colors tracking-wider underline underline-offset-2"
+                        >
+                          AUTO-CALIBRATE
+                        </button>
+                      )}
+                    </div>
                   </div>
+
+                  {/* Near misses */}
+                  <AnimatePresence>
+                    {showNearMisses && nearMisses.length > 0 && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden mb-3"
+                      >
+                        <div className="space-y-1.5 max-h-24 overflow-y-auto">
+                          {nearMisses.slice(0, 5).map((city) => (
+                            <div key={city.id} className="flex items-center justify-between px-3 py-1.5 rounded-sm bg-white/[0.03] text-[10px] font-mono text-foreground/50">
+                              <span>{city.name} — {city.country}</span>
+                              <span>${city.costUSD}/mo</span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
                   <button
                     onClick={onSpin}
                     disabled={impossible}
                     className={`group w-full h-14 font-mono font-medium text-sm tracking-[0.25em] uppercase rounded-sm transition-all duration-300 relative overflow-hidden ${
                       impossible
-                        ? 'bg-red-900/30 border border-red-500/30 text-red-400 cursor-not-allowed'
+                        ? 'bg-destructive/20 border border-destructive/30 text-destructive cursor-not-allowed'
                         : 'bg-white text-black hover:bg-white/90'
                     }`}
                   >
                     {impossible ? (
                       <span className="flex items-center justify-center gap-2">
                         <AlertTriangle className="w-4 h-4" />
-                        PARAMETERS IMPOSSIBLE. ADJUST.
+                        PARAMETERS IMPOSSIBLE
                       </span>
                     ) : (
                       <>
                         <span className="relative z-10">INITIATE DROP SEQUENCE</span>
-                        {/* Diagonal stripe hover effect */}
                         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_8px,rgba(0,0,0,0.05)_8px,rgba(0,0,0,0.05)_16px)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </>
                     )}

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
-import { Origin } from '@/data/origins';
+import { Origin, origins as originsData } from '@/data/origins';
 import { haversineKm, estimateFlightCost } from '@/lib/distance';
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
@@ -16,22 +16,35 @@ interface Preferences {
   origin: Origin | null;
 }
 
+export interface SavedSpin {
+  city: City;
+  timestamp: string;
+  preferences: Preferences;
+}
+
 interface SpinStore {
   phase: AppPhase;
   preferences: Preferences;
   filteredCities: City[];
   resultCity: City | null;
-  savedSpins: City[];
+  savedSpins: SavedSpin[];
   spinCount: number;
+  streak: number;
+  lastSpinDate: string | null;
 
   setPhase: (phase: AppPhase) => void;
   setPreferences: (prefs: Partial<Preferences>) => void;
   filterCities: () => void;
   spin: () => void;
   saveResult: () => void;
+  removeSavedSpin: (index: number) => void;
+  redeploySpin: (index: number) => void;
   reset: () => void;
   resetForRespin: () => void;
   autoFixFilters: () => void;
+  getNearMisses: () => City[];
+  getShareableUrl: () => string;
+  loadFromUrl: () => boolean;
 }
 
 const defaultPreferences: Preferences = {
@@ -43,13 +56,43 @@ const defaultPreferences: Preferences = {
   origin: null,
 };
 
+function calculateStreak(lastDate: string | null): number {
+  if (!lastDate) return 1;
+  const last = new Date(lastDate);
+  const now = new Date();
+  const diffDays = Math.floor((now.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
+  if (diffDays <= 1) return parseInt(localStorage.getItem('streak') || '1') + (diffDays === 1 ? 1 : 0);
+  return 1;
+}
+
+function loadSavedSpins(): SavedSpin[] {
+  try {
+    const raw = localStorage.getItem('savedSpins');
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    // Migrate old format (City[]) to new format (SavedSpin[])
+    if (parsed.length > 0 && !parsed[0].city) {
+      return parsed.map((city: City) => ({
+        city,
+        timestamp: new Date().toLocaleDateString(),
+        preferences: defaultPreferences,
+      }));
+    }
+    return parsed;
+  } catch {
+    return [];
+  }
+}
+
 export const useSpinStore = create<SpinStore>((set, get) => ({
   phase: 'landing',
   preferences: defaultPreferences,
   filteredCities: cities,
   resultCity: null,
-  savedSpins: JSON.parse(localStorage.getItem('savedSpins') || '[]'),
+  savedSpins: loadSavedSpins(),
   spinCount: parseInt(localStorage.getItem('spinCount') || '0'),
+  streak: parseInt(localStorage.getItem('streak') || '0'),
+  lastSpinDate: localStorage.getItem('lastSpinDate'),
 
   setPhase: (phase) => set({ phase }),
 
@@ -71,17 +114,29 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
       if (preferences.region !== 'All' && city.region !== preferences.region) return false;
       if (preferences.vibes.length > 0 && !preferences.vibes.some((v) => city.vibe.includes(v))) return false;
 
-      // "Jack Ass" logic: if origin set and low budget, penalize far destinations
       if (!isAnywhere && origin) {
         const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
         const flightCost = estimateFlightCost(dist);
-        // If flight alone exceeds 60% of monthly budget, exclude
         if (flightCost > budgetMax * 0.6) return false;
       }
 
       return true;
     });
     set({ filteredCities: filtered });
+  },
+
+  getNearMisses: () => {
+    const { preferences } = get();
+    // Relax filters by 15%
+    return cities.filter((city) => {
+      const budgetFloor = preferences.budgetRange[0] * 0.85;
+      const budgetCeil = preferences.budgetRange[1] * 1.15;
+      if (city.costUSD < budgetFloor || city.costUSD > budgetCeil) return false;
+      if (city.internetMbps < preferences.internetMin * 0.85) return false;
+      if (city.safety < preferences.safetyMin * 0.85) return false;
+      if (preferences.region !== 'All' && city.region !== preferences.region) return false;
+      return true;
+    }).slice(0, 5);
   },
 
   spin: () => {
@@ -98,10 +153,8 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
       score += city.safety * 2;
       score += Math.min(city.internetMbps / 10, 15);
 
-      // Proximity bonus when origin is set
       if (!isAnywhere && origin) {
         const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
-        // Closer = higher bonus (max ~20 pts)
         score += Math.max(0, 20 - dist / 500);
       }
 
@@ -117,23 +170,54 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     }
 
     const newCount = get().spinCount + 1;
+    const today = new Date().toISOString().split('T')[0];
+    const newStreak = calculateStreak(get().lastSpinDate);
+
     localStorage.setItem('spinCount', String(newCount));
-    set({ resultCity: filteredCities[selectedIndex], spinCount: newCount });
+    localStorage.setItem('streak', String(newStreak));
+    localStorage.setItem('lastSpinDate', today);
+
+    set({
+      resultCity: filteredCities[selectedIndex],
+      spinCount: newCount,
+      streak: newStreak,
+      lastSpinDate: today,
+    });
   },
 
   saveResult: () => {
-    const { resultCity, savedSpins } = get();
+    const { resultCity, savedSpins, preferences } = get();
     if (!resultCity) return;
-    if (savedSpins.find((c) => c.id === resultCity.id)) return;
-    const updated = [...savedSpins, resultCity];
+    if (savedSpins.find((s) => s.city.id === resultCity.id)) return;
+    const newSpin: SavedSpin = {
+      city: resultCity,
+      timestamp: new Date().toLocaleDateString(),
+      preferences: { ...preferences },
+    };
+    const updated = [...savedSpins, newSpin];
     localStorage.setItem('savedSpins', JSON.stringify(updated));
     set({ savedSpins: updated });
+  },
+
+  removeSavedSpin: (index: number) => {
+    const updated = get().savedSpins.filter((_, i) => i !== index);
+    localStorage.setItem('savedSpins', JSON.stringify(updated));
+    set({ savedSpins: updated });
+  },
+
+  redeploySpin: (index: number) => {
+    const spin = get().savedSpins[index];
+    if (!spin) return;
+    set({
+      preferences: { ...spin.preferences },
+      phase: 'preferences',
+    });
+    get().filterCities();
   },
 
   reset: () => set({ phase: 'landing', resultCity: null }),
 
   resetForRespin: () => {
-    console.log('Spin Reset Initiated');
     set({ resultCity: null, phase: 'landing' });
     get().filterCities();
   },
@@ -143,5 +227,44 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
       preferences: { ...defaultPreferences, origin: get().preferences.origin },
     });
     get().filterCities();
+  },
+
+  getShareableUrl: () => {
+    const { preferences } = get();
+    const params = new URLSearchParams();
+    params.set('b', `${preferences.budgetRange[0]}-${preferences.budgetRange[1]}`);
+    params.set('i', String(preferences.internetMin));
+    params.set('s', String(preferences.safetyMin));
+    if (preferences.vibes.length) params.set('v', preferences.vibes.join(','));
+    if (preferences.region !== 'All') params.set('r', preferences.region);
+    if (preferences.origin && preferences.origin.id !== 'anywhere') params.set('o', preferences.origin.id);
+    return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+  },
+
+  loadFromUrl: () => {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('b')) return false;
+
+    const budget = params.get('b')?.split('-').map(Number) as [number, number] | undefined;
+    const internet = Number(params.get('i')) || 20;
+    const safety = Number(params.get('s')) || 5;
+    const vibes = (params.get('v')?.split(',') || []) as VibeOption[];
+    const region = (params.get('r') || 'All') as RegionOption;
+    const originId = params.get('o');
+
+    const origin = originId ? originsData.find((o) => o.id === originId) || null : null;
+
+    set({
+      preferences: {
+        budgetRange: budget || [500, 3000],
+        internetMin: internet,
+        safetyMin: safety,
+        vibes,
+        region,
+        origin,
+      },
+    });
+    get().filterCities();
+    return true;
   },
 }));
