@@ -1,61 +1,18 @@
-export interface CityFinancials {
-  costNomadSingle: number;
-  costLongTerm: number;
-  rentIndex: number; // 0-100 scale
-  airbnbMedian: number;
-}
+// Re-export types
+export type {
+  City, CityFinancials, CityInfra, CityVibeMetrics, CityWeather, CityMeta,
+} from './cities/types';
 
-export interface CityInfra {
-  internetSpeedAvg: number;
-  internetReliability: number; // 0-10
-  coworkingDensity: 'High' | 'Med' | 'Low';
-  powerGridStability: number; // 0-10
-}
+export type { City as CityType } from './cities/types';
 
-export interface CityVibeMetrics {
-  nightlife: number; // 0-10
-  communitySize: number; // 0-10
-  lgbtFriendly: number; // 0-10
-  femaleSafety: number; // 0-10
-  englishProficiency: number; // 0-10
-}
+import type { City } from './cities/types';
+import { newAsiaCities } from './cities/new-asia';
+import { newEuropeCities } from './cities/new-europe';
+import { newAmericasCities } from './cities/new-americas';
+import { newOtherCities } from './cities/new-other';
 
-export interface CityWeather {
-  bestMonths: string[];
-  rainyMonths: string[];
-  tempAvgC: number;
-}
-
-export interface CityMeta {
-  visaType: string;
-  visaDays: number;
-  timeZoneUtc: string;
-}
-
-export interface City {
-  id: string;
-  name: string;
-  country: string;
-  countryCode: string;
-  lat: number;
-  lng: number;
-  region: 'Asia' | 'Europe' | 'LATAM' | 'Africa' | 'Oceania' | 'North America';
-  vibe: string[];
-  safety: number;
-  financials: CityFinancials;
-  infra: CityInfra;
-  vibeMetrics: CityVibeMetrics;
-  weather: CityWeather;
-  meta: CityMeta;
-  pros: string[];
-  cons: string[];
-  // Legacy compat
-  costUSD: number;
-  internetMbps: number;
-  visa: { type: string; days: number };
-}
-
-export const cities: City[] = [
+// ── Existing hand-tuned cities ──
+const existingCities: City[] = [
   {
     id: 'chiang-mai-th', name: 'Chiang Mai', country: 'Thailand', countryCode: 'TH',
     lat: 18.7883, lng: 98.9853, region: 'Asia',
@@ -680,4 +637,13 @@ export const cities: City[] = [
     cons: ['Brutal winters', 'French bureaucracy', 'Construction chaos', 'Potholes', 'High taxes'],
     costUSD: 2000, internetMbps: 200, visa: { type: 'Visa Required', days: 180 },
   },
+];
+
+// Merge all cities
+export const cities: City[] = [
+  ...existingCities,
+  ...newAsiaCities,
+  ...newEuropeCities,
+  ...newAmericasCities,
+  ...newOtherCities,
 ];
