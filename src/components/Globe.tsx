@@ -1,4 +1,4 @@
-import { useRef, useMemo, useCallback, Suspense, useState } from 'react';
+import { useRef, useMemo, useCallback, Suspense, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -13,6 +13,12 @@ function latLngToVec3(lat: number, lng: number, radius: number): THREE.Vector3 {
     radius * Math.cos(phi),
     radius * Math.sin(phi) * Math.sin(theta),
   );
+}
+
+/** Convert longitude to an initial Y-rotation so that location faces camera */
+function lngToYRotation(lng: number): number {
+  // Camera looks at -Z by default, so we rotate the globe to place the longitude in front
+  return -((lng + 90) * Math.PI) / 180;
 }
 
 /* ── Subtle atmosphere ring ── */
@@ -78,7 +84,6 @@ function CityMarkers({
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const tempColor = useMemo(() => new THREE.Color(), []);
 
-  // Initialize instance colors
   const colorArray = useMemo(() => {
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
@@ -105,14 +110,12 @@ function CityMarkers({
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i, dummy.matrix);
 
-      // Set instance color
       tempColor.copy(isHovered ? hoverColor : defaultColor);
       meshRef.current.setColorAt(i, tempColor);
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
 
-    // Position glow ring at hovered marker
     if (glowRef.current) {
       if (hovered !== null) {
         glowRef.current.visible = true;
@@ -175,7 +178,6 @@ function CityMarkers({
         />
         <instancedBufferAttribute attach="instanceColor" args={[colorArray, 3]} />
       </instancedMesh>
-      {/* Glow ring for hovered marker */}
       <mesh ref={glowRef} visible={false}>
         <sphereGeometry args={[1, 16, 16]} />
         <meshBasicMaterial
@@ -195,19 +197,24 @@ function Earth({
   spinning,
   spinSpeed,
   dayMode,
+  autoSpin,
   userDragging,
+  initialRotationY,
   onHover,
   onUnhover,
 }: {
   spinning: boolean;
   spinSpeed: number;
   dayMode: boolean;
+  autoSpin: boolean;
   userDragging: boolean;
+  initialRotationY: number;
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
   const groupRef = useRef<THREE.Group>(null!);
-  const speedRef = useRef(0.003);
+  const speedRef = useRef(0);
+  const initializedRef = useRef(false);
 
   const nightTexture = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
   const dayTexture = useLoader(THREE.TextureLoader, '/textures/earth-day.jpg');
@@ -221,9 +228,31 @@ function Earth({
 
   const texture = dayMode ? dayTexture : nightTexture;
 
+  // Set initial rotation from geolocation
+  useEffect(() => {
+    if (!initializedRef.current && groupRef.current) {
+      groupRef.current.rotation.y = initialRotationY;
+      initializedRef.current = true;
+    }
+  }, [initialRotationY]);
+
   useFrame((_, delta) => {
     if (!groupRef.current) return;
-    const target = spinning ? spinSpeed : userDragging ? 0 : 0.003;
+
+    // Rotation logic:
+    // - During casino spin animation: use spinSpeed
+    // - autoSpin ON + not dragging: idle speed 0.003
+    // - autoSpin ON + dragging: 0 (pause)
+    // - autoSpin OFF: always 0 (fully manual)
+    let target: number;
+    if (spinning) {
+      target = spinSpeed;
+    } else if (autoSpin && !userDragging) {
+      target = 0.003;
+    } else {
+      target = 0;
+    }
+
     speedRef.current = THREE.MathUtils.lerp(
       speedRef.current,
       target,
@@ -234,7 +263,6 @@ function Earth({
 
   return (
     <group ref={groupRef}>
-      {/* Earth sphere */}
       <mesh>
         <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial
@@ -246,7 +274,6 @@ function Earth({
           emissiveIntensity={dayMode ? 0 : 0.4}
         />
       </mesh>
-      {/* City markers - OUTSIDE the earth mesh so they're not blocked by it */}
       <CityMarkers
         spinning={spinning}
         spinSpeed={speedRef.current}
@@ -277,6 +304,8 @@ interface GlobeProps {
   spinSpeed?: number;
   resetCamera?: boolean;
   dayMode?: boolean;
+  autoSpin?: boolean;
+  onAutoSpinOff?: () => void;
   onCityHover?: (city: City | null, pos: { x: number; y: number } | null) => void;
 }
 
@@ -284,10 +313,42 @@ export default function Globe({
   spinning = false,
   spinSpeed = 0.003,
   resetCamera = false,
-  dayMode = false,
+  dayMode = true,
+  autoSpin = false,
+  onAutoSpinOff,
   onCityHover,
 }: GlobeProps) {
   const [userDragging, setUserDragging] = useState(false);
+  const [initialRotationY, setInitialRotationY] = useState(0);
+
+  // Request geolocation on mount to set initial globe orientation
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          setInitialRotationY(lngToYRotation(pos.coords.longitude));
+        },
+        () => {
+          // Denied or unavailable — default orientation (0)
+        },
+        { timeout: 5000, enableHighAccuracy: false }
+      );
+    }
+  }, []);
+
+  const handleDragStart = useCallback(() => {
+    setUserDragging(true);
+    // When auto-spin is on and user drags, turn off auto-spin
+    // so it doesn't resume after release
+    if (autoSpin && onAutoSpinOff) {
+      onAutoSpinOff();
+    }
+  }, [autoSpin, onAutoSpinOff]);
+
+  const handleDragEnd = useCallback(() => {
+    setUserDragging(false);
+    // NOTE: Auto-spin is NOT resumed here. The user must toggle it back on manually.
+  }, []);
 
   const handleHover = useCallback((city: City, screenPos: { x: number; y: number }) => {
     onCityHover?.(city, screenPos);
@@ -313,7 +374,9 @@ export default function Globe({
             spinning={spinning}
             spinSpeed={spinSpeed}
             dayMode={dayMode}
+            autoSpin={autoSpin}
             userDragging={userDragging}
+            initialRotationY={initialRotationY}
             onHover={handleHover}
             onUnhover={handleUnhover}
           />
@@ -330,8 +393,8 @@ export default function Globe({
               minPolarAngle={0.1}
               maxPolarAngle={Math.PI - 0.1}
               rotateSpeed={0.5}
-              onStart={() => setUserDragging(true)}
-              onEnd={() => setUserDragging(false)}
+              onStart={handleDragStart}
+              onEnd={handleDragEnd}
             />
           )}
         </Suspense>

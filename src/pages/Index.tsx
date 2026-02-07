@@ -10,7 +10,7 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
-import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
@@ -35,7 +35,8 @@ export default function Index() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
-  const [dayMode, setDayMode] = useState(false);
+  const [dayMode, setDayMode] = useState(true);
+  const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
 
@@ -157,6 +158,8 @@ export default function Index() {
             spinSpeed={spinSpeed}
             resetCamera={resetCamera}
             dayMode={dayMode}
+            autoSpin={autoSpin}
+            onAutoSpinOff={() => setAutoSpin(false)}
             onCityHover={handleCityHover}
           />
         </Suspense>
@@ -188,6 +191,22 @@ export default function Index() {
             NOMAD // DROP
           </h1>
           <div className="flex items-center gap-3">
+            {/* Auto-spin Toggle */}
+            <button
+              onClick={() => setAutoSpin(s => !s)}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-sm border transition-colors ${
+                autoSpin
+                  ? 'border-primary/50 bg-primary/10 text-primary'
+                  : 'border-border/50 bg-white/[0.03] text-muted-foreground hover:bg-white/[0.06]'
+              }`}
+              aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
+              title={autoSpin ? 'Auto-rotate: ON' : 'Auto-rotate: OFF'}
+            >
+              <Globe2 className="w-3 h-3" />
+              <span className="text-[10px] font-mono tracking-wider">
+                {autoSpin ? 'SPIN ON' : 'SPIN OFF'}
+              </span>
+            </button>
             {/* Day/Night Toggle */}
             <button
               onClick={() => setDayMode(d => !d)}
