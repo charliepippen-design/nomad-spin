@@ -11,6 +11,7 @@ import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
 import OriginSelector from '@/components/OriginSelector';
+import SEO from '@/components/SEO';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
@@ -151,6 +152,10 @@ export default function Index() {
 
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-hidden bg-background">
+      <SEO
+        title={resultCity ? `Target Acquired: ${resultCity.name} // Nomad Spin` : 'Digital Nomad Spin | Tactical Decision Engine'}
+        description={resultCity ? `Deployment target: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next mission.'}
+      />
       {/* Globe */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>

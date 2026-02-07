@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain } from 'lucide-react';
+import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair } from 'lucide-react';
 import { useSpinStore, type VibeOption, type RegionOption } from '@/store/useSpinStore';
 import { origins, type Origin } from '@/data/origins';
 import { Slider } from '@/components/ui/slider';
 import { useSoundManager } from '@/hooks/useSoundManager';
+import { useGeolocation } from '@/hooks/useGeolocation';
 
 const vibeOptions: { label: string; value: VibeOption }[] = [
   { label: 'BEACH', value: 'beach' },
@@ -82,7 +83,15 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   const [originSearch, setOriginSearch] = useState('');
   const [budgetAnimating, setBudgetAnimating] = useState(false);
   const [showNearMisses, setShowNearMisses] = useState(false);
+  const [isShortRange, setIsShortRange] = useState(false);
   const lastBudgetTick = useRef(localBudget[1]);
+
+  const handleGeoOrigin = useCallback((origin: Origin) => {
+    setPreferences({ origin });
+    sound.playTick();
+  }, [setPreferences, sound]);
+
+  const geo = useGeolocation(handleGeoOrigin);
 
   useEffect(() => {
     setPreferences({
@@ -104,6 +113,27 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       vibes: preset.vibes,
       region: preset.region,
     });
+    setIsShortRange(false);
+    sound.playTick();
+  };
+
+  const applyShortRange = () => {
+    const hasOrigin = preferences.origin && preferences.origin.id !== 'anywhere';
+    if (!hasOrigin) {
+      // Trigger geolocation first, then apply preset after origin is set
+      geo.locate();
+    }
+    setLocalBudget([500, 5000]);
+    setLocalInternet(30);
+    setLocalSafety(1);
+    setPreferences({
+      budgetRange: [500, 5000],
+      internetMin: 30,
+      safetyMin: 1,
+      vibes: [],
+      region: 'All',
+    });
+    setIsShortRange(true);
     sound.playTick();
   };
 
@@ -197,7 +227,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   <label className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 mb-3 block uppercase">
                     QUICK DEPLOY PRESETS
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-4 gap-2">
                     {presets.map((preset) => (
                       <button
                         key={preset.label}
@@ -208,6 +238,18 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <span className="text-[9px] font-mono tracking-[0.12em] text-muted-foreground group-hover:text-foreground transition-colors">{preset.label}</span>
                       </button>
                     ))}
+                    {/* SHORT RANGE preset */}
+                    <button
+                      onClick={applyShortRange}
+                      className={`flex flex-col items-center gap-1.5 py-3 px-2 rounded-sm border transition-all group ${
+                        isShortRange
+                          ? 'border-destructive/50 bg-destructive/10 text-destructive'
+                          : 'border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20'
+                      }`}
+                    >
+                      <Crosshair className={`w-3.5 h-3.5 ${isShortRange ? 'text-destructive' : 'text-muted-foreground group-hover:text-foreground'} transition-colors`} />
+                      <span className={`text-[9px] font-mono tracking-[0.12em] ${isShortRange ? 'text-destructive' : 'text-muted-foreground group-hover:text-foreground'} transition-colors`}>SHORT RANGE</span>
+                    </button>
                   </div>
                 </div>
 
@@ -218,15 +260,26 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
                       EXTRACTION POINT
                     </label>
-                    <div className="relative">
+                    <div className="relative flex gap-2">
+                      {/* Locate Me button */}
+                      <button
+                        onClick={geo.locate}
+                        disabled={geo.locating}
+                        className="flex-shrink-0 px-3 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-destructive/50 hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
+                        title="Locate nearest base city"
+                      >
+                        <Crosshair className={`w-4 h-4 ${geo.locating ? 'animate-spin' : ''}`} />
+                      </button>
                       <button
                         onClick={() => setOriginOpen(!originOpen)}
-                        className="w-full flex items-center justify-between px-4 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.15] transition-colors text-sm"
+                        className="flex-1 flex items-center justify-between px-4 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.15] transition-colors text-sm"
                       >
-                        <span className={hasOrigin ? 'text-white font-mono tracking-wider' : 'text-muted-foreground font-mono tracking-wider'}>
-                          {preferences.origin
-                            ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
-                            : 'Select origin...'}
+                        <span className={`font-mono tracking-wider ${geo.acquiredCity ? 'text-destructive typing-effect' : hasOrigin ? 'text-white' : 'text-muted-foreground'}`}>
+                          {geo.acquiredCity
+                            ? `COORDINATES ACQUIRED: ${geo.acquiredCity.toUpperCase()}`
+                            : preferences.origin
+                              ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
+                              : 'Select origin...'}
                         </span>
                         <motion.div animate={{ rotate: originOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                           <Search className="w-3.5 h-3.5 text-muted-foreground" />
@@ -363,7 +416,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-black/90 backdrop-blur-xl border-t border-white/[0.06] px-8 py-4">
                   {/* Mission summary */}
                   <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 leading-relaxed">
-                    {buildSummary()}
+                    {isShortRange ? 'SCANNING LOCAL SECTOR (<1000KM)...' : buildSummary()}
                   </p>
 
                   <div className="flex items-center justify-between mb-3">
