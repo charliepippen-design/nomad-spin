@@ -1,8 +1,8 @@
-import { useRef, useMemo, Suspense } from 'react';
+import { useRef, useMemo, useState, useCallback, Suspense } from 'react';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import { cities } from '@/data/cities';
+import { cities, type City } from '@/data/cities';
 
 /* ── Convert lat/lng to 3D position ── */
 function latLngToVec3(lat: number, lng: number, radius: number): THREE.Vector3 {
@@ -50,19 +50,34 @@ function AtmosphereGlow() {
   );
 }
 
-/* ── City markers from actual data ── */
-function CityMarkers({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: number }) {
+/* ── City markers with hover raycasting ── */
+function CityMarkers({
+  spinning,
+  spinSpeed,
+  onHover,
+  onUnhover,
+}: {
+  spinning: boolean;
+  spinSpeed: number;
+  onHover: (city: City, screenPos: { x: number; y: number }) => void;
+  onUnhover: () => void;
+}) {
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const timeRef = useRef(0);
+  const hoveredRef = useRef<number | null>(null);
+  const { camera, gl } = useThree();
 
-  const positions = useMemo(() => {
-    return cities.map(city => latLngToVec3(city.lat, city.lng, 2.02));
+  const { positions, cityList } = useMemo(() => {
+    const pos = cities.map(city => latLngToVec3(city.lat, city.lng, 2.03));
+    return { positions: pos, cityList: cities };
   }, []);
 
   const count = positions.length;
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  const raycaster = useMemo(() => new THREE.Raycaster(), []);
+  const pointer = useMemo(() => new THREE.Vector2(), []);
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!meshRef.current) return;
     timeRef.current += delta;
     const t = timeRef.current;
@@ -71,7 +86,9 @@ function CityMarkers({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: nu
     for (let i = 0; i < count; i++) {
       const p = positions[i];
       dummy.position.copy(p);
-      const pulse = 0.025 + Math.sin(t * 2 + i * 0.5) * 0.01;
+      const isHovered = hoveredRef.current === i;
+      const baseSize = isHovered ? 0.045 : 0.025;
+      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.008;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
       dummy.updateMatrix();
@@ -80,8 +97,44 @@ function CityMarkers({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: nu
     meshRef.current.instanceMatrix.needsUpdate = true;
   });
 
+  const handlePointerMove = useCallback((e: THREE.Event & { clientX?: number; clientY?: number }) => {
+    if (spinning) return;
+    const ev = e as unknown as PointerEvent;
+    const rect = gl.domElement.getBoundingClientRect();
+    pointer.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.set(camera.position, new THREE.Vector3(pointer.x, pointer.y, 0.5).unproject(camera).sub(camera.position).normalize());
+
+    if (!meshRef.current) return;
+    const intersects = raycaster.intersectObject(meshRef.current);
+
+    if (intersects.length > 0 && intersects[0].instanceId !== undefined) {
+      const idx = intersects[0].instanceId;
+      if (hoveredRef.current !== idx) {
+        hoveredRef.current = idx;
+        onHover(cityList[idx], { x: ev.clientX, y: ev.clientY });
+      }
+    } else {
+      if (hoveredRef.current !== null) {
+        hoveredRef.current = null;
+        onUnhover();
+      }
+    }
+  }, [spinning, camera, gl, onHover, onUnhover, cityList, raycaster, pointer]);
+
+  const handlePointerLeave = useCallback(() => {
+    hoveredRef.current = null;
+    onUnhover();
+  }, [onUnhover]);
+
   return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+    <instancedMesh
+      ref={meshRef}
+      args={[undefined, undefined, count]}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+    >
       <sphereGeometry args={[1, 8, 8]} />
       <meshStandardMaterial
         color="#00ffaa"
@@ -95,16 +148,33 @@ function CityMarkers({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: nu
 }
 
 /* ── Earth with texture ── */
-function Earth({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: number }) {
+function Earth({
+  spinning,
+  spinSpeed,
+  dayMode,
+  onHover,
+  onUnhover,
+}: {
+  spinning: boolean;
+  spinSpeed: number;
+  dayMode: boolean;
+  onHover: (city: City, screenPos: { x: number; y: number }) => void;
+  onUnhover: () => void;
+}) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const speedRef = useRef(0.003);
 
-  const texture = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
+  const nightTexture = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
+  const dayTexture = useLoader(THREE.TextureLoader, '/textures/earth-day.jpg');
 
   useMemo(() => {
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.anisotropy = 4;
-  }, [texture]);
+    nightTexture.colorSpace = THREE.SRGBColorSpace;
+    nightTexture.anisotropy = 4;
+    dayTexture.colorSpace = THREE.SRGBColorSpace;
+    dayTexture.anisotropy = 4;
+  }, [nightTexture, dayTexture]);
+
+  const texture = dayMode ? dayTexture : nightTexture;
 
   useFrame((_, delta) => {
     if (!meshRef.current) return;
@@ -122,13 +192,18 @@ function Earth({ spinning, spinSpeed }: { spinning: boolean; spinSpeed: number }
         <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial
           map={texture}
-          roughness={0.85}
+          roughness={dayMode ? 0.7 : 0.85}
           metalness={0.05}
-          emissiveMap={texture}
-          emissive={new THREE.Color('#ffffff')}
-          emissiveIntensity={0.4}
+          emissiveMap={dayMode ? undefined : texture}
+          emissive={dayMode ? new THREE.Color('#000000') : new THREE.Color('#ffffff')}
+          emissiveIntensity={dayMode ? 0 : 0.4}
         />
-        <CityMarkers spinning={spinning} spinSpeed={speedRef.current} />
+        <CityMarkers
+          spinning={spinning}
+          spinSpeed={speedRef.current}
+          onHover={onHover}
+          onUnhover={onUnhover}
+        />
       </mesh>
     </group>
   );
@@ -153,9 +228,25 @@ interface GlobeProps {
   spinning?: boolean;
   spinSpeed?: number;
   resetCamera?: boolean;
+  dayMode?: boolean;
+  onCityHover?: (city: City | null, pos: { x: number; y: number } | null) => void;
 }
 
-export default function Globe({ spinning = false, spinSpeed = 0.003, resetCamera = false }: GlobeProps) {
+export default function Globe({
+  spinning = false,
+  spinSpeed = 0.003,
+  resetCamera = false,
+  dayMode = false,
+  onCityHover,
+}: GlobeProps) {
+  const handleHover = useCallback((city: City, screenPos: { x: number; y: number }) => {
+    onCityHover?.(city, screenPos);
+  }, [onCityHover]);
+
+  const handleUnhover = useCallback(() => {
+    onCityHover?.(null, null);
+  }, [onCityHover]);
+
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas
@@ -165,21 +256,29 @@ export default function Globe({ spinning = false, spinSpeed = 0.003, resetCamera
         aria-label="Interactive Globe showing digital nomad destinations"
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.2} />
-          <directionalLight position={[5, 3, 5]} intensity={0.8} color="#ffffff" />
-          <pointLight position={[-5, -3, -5]} intensity={0.2} color="#4488ff" />
-          <Earth spinning={spinning} spinSpeed={spinSpeed} />
+          <ambientLight intensity={dayMode ? 0.5 : 0.2} />
+          <directionalLight position={[5, 3, 5]} intensity={dayMode ? 1.2 : 0.8} color="#ffffff" />
+          <pointLight position={[-5, -3, -5]} intensity={dayMode ? 0.3 : 0.2} color="#4488ff" />
+          <Earth
+            spinning={spinning}
+            spinSpeed={spinSpeed}
+            dayMode={dayMode}
+            onHover={handleHover}
+            onUnhover={handleUnhover}
+          />
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
           <CameraRig spinning={spinning} resetCamera={resetCamera} />
           {!spinning && (
             <OrbitControls
-              enableZoom={false}
+              enableZoom={true}
               enablePan={false}
-              autoRotate
-              autoRotateSpeed={0.15}
-              minPolarAngle={Math.PI / 4}
-              maxPolarAngle={(3 * Math.PI) / 4}
+              autoRotate={false}
+              minDistance={3.5}
+              maxDistance={8}
+              minPolarAngle={0.1}
+              maxPolarAngle={Math.PI - 0.1}
+              rotateSpeed={0.5}
             />
           )}
         </Suspense>
