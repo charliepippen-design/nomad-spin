@@ -1,5 +1,5 @@
-import { useRef, useMemo, useState, useCallback, Suspense } from 'react';
-import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+import { useRef, useMemo, useCallback, Suspense } from 'react';
+import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { cities, type City } from '@/data/cities';
@@ -50,7 +50,7 @@ function AtmosphereGlow() {
   );
 }
 
-/* ── City markers with hover raycasting ── */
+/* ── City markers using R3F built-in pointer events ── */
 function CityMarkers({
   spinning,
   spinSpeed,
@@ -65,19 +65,15 @@ function CityMarkers({
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const timeRef = useRef(0);
   const hoveredRef = useRef<number | null>(null);
-  const { camera, gl } = useThree();
 
-  const { positions, cityList } = useMemo(() => {
-    const pos = cities.map(city => latLngToVec3(city.lat, city.lng, 2.03));
-    return { positions: pos, cityList: cities };
+  const positions = useMemo(() => {
+    return cities.map(city => latLngToVec3(city.lat, city.lng, 2.06));
   }, []);
 
   const count = positions.length;
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  const raycaster = useMemo(() => new THREE.Raycaster(), []);
-  const pointer = useMemo(() => new THREE.Vector2(), []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!meshRef.current) return;
     timeRef.current += delta;
     const t = timeRef.current;
@@ -87,7 +83,7 @@ function CityMarkers({
       const p = positions[i];
       dummy.position.copy(p);
       const isHovered = hoveredRef.current === i;
-      const baseSize = isHovered ? 0.045 : 0.025;
+      const baseSize = isHovered ? 0.05 : 0.028;
       const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.008;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
@@ -97,43 +93,44 @@ function CityMarkers({
     meshRef.current.instanceMatrix.needsUpdate = true;
   });
 
-  const handlePointerMove = useCallback((e: THREE.Event & { clientX?: number; clientY?: number }) => {
+  // R3F's built-in pointer events handle raycasting automatically
+  const handlePointerOver = useCallback((e: ThreeEvent<PointerEvent>) => {
     if (spinning) return;
-    const ev = e as unknown as PointerEvent;
-    const rect = gl.domElement.getBoundingClientRect();
-    pointer.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
-    pointer.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
-
-    raycaster.set(camera.position, new THREE.Vector3(pointer.x, pointer.y, 0.5).unproject(camera).sub(camera.position).normalize());
-
-    if (!meshRef.current) return;
-    const intersects = raycaster.intersectObject(meshRef.current);
-
-    if (intersects.length > 0 && intersects[0].instanceId !== undefined) {
-      const idx = intersects[0].instanceId;
-      if (hoveredRef.current !== idx) {
-        hoveredRef.current = idx;
-        onHover(cityList[idx], { x: ev.clientX, y: ev.clientY });
-      }
-    } else {
-      if (hoveredRef.current !== null) {
-        hoveredRef.current = null;
-        onUnhover();
-      }
+    e.stopPropagation();
+    const idx = e.instanceId;
+    if (idx !== undefined && idx < cities.length) {
+      hoveredRef.current = idx;
+      onHover(cities[idx], { x: e.clientX, y: e.clientY });
+      document.body.style.cursor = 'pointer';
     }
-  }, [spinning, camera, gl, onHover, onUnhover, cityList, raycaster, pointer]);
+  }, [spinning, onHover]);
 
-  const handlePointerLeave = useCallback(() => {
+  const handlePointerOut = useCallback((e: ThreeEvent<PointerEvent>) => {
+    e.stopPropagation();
     hoveredRef.current = null;
     onUnhover();
+    document.body.style.cursor = 'auto';
   }, [onUnhover]);
+
+  const handlePointerMove = useCallback((e: ThreeEvent<PointerEvent>) => {
+    if (spinning) return;
+    e.stopPropagation();
+    const idx = e.instanceId;
+    if (idx !== undefined && idx < cities.length) {
+      if (hoveredRef.current !== idx) {
+        hoveredRef.current = idx;
+      }
+      onHover(cities[idx], { x: e.clientX, y: e.clientY });
+    }
+  }, [spinning, onHover]);
 
   return (
     <instancedMesh
       ref={meshRef}
       args={[undefined, undefined, count]}
+      onPointerOver={handlePointerOver}
+      onPointerOut={handlePointerOut}
       onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
     >
       <sphereGeometry args={[1, 8, 8]} />
       <meshStandardMaterial
@@ -161,7 +158,7 @@ function Earth({
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
-  const meshRef = useRef<THREE.Mesh>(null!);
+  const groupRef = useRef<THREE.Group>(null!);
   const speedRef = useRef(0.003);
 
   const nightTexture = useLoader(THREE.TextureLoader, '/textures/earth-night.jpg');
@@ -177,18 +174,19 @@ function Earth({
   const texture = dayMode ? dayTexture : nightTexture;
 
   useFrame((_, delta) => {
-    if (!meshRef.current) return;
+    if (!groupRef.current) return;
     speedRef.current = THREE.MathUtils.lerp(
       speedRef.current,
       spinning ? spinSpeed : 0.003,
       spinning ? 0.03 : 0.02
     );
-    meshRef.current.rotation.y += speedRef.current * delta * 60;
+    groupRef.current.rotation.y += speedRef.current * delta * 60;
   });
 
   return (
-    <group>
-      <mesh ref={meshRef}>
+    <group ref={groupRef}>
+      {/* Earth sphere */}
+      <mesh>
         <sphereGeometry args={[2, 64, 64]} />
         <meshStandardMaterial
           map={texture}
@@ -198,25 +196,26 @@ function Earth({
           emissive={dayMode ? new THREE.Color('#000000') : new THREE.Color('#ffffff')}
           emissiveIntensity={dayMode ? 0 : 0.4}
         />
-        <CityMarkers
-          spinning={spinning}
-          spinSpeed={speedRef.current}
-          onHover={onHover}
-          onUnhover={onUnhover}
-        />
       </mesh>
+      {/* City markers - OUTSIDE the earth mesh so they're not blocked by it */}
+      <CityMarkers
+        spinning={spinning}
+        spinSpeed={speedRef.current}
+        onHover={onHover}
+        onUnhover={onUnhover}
+      />
     </group>
   );
 }
 
-/* ── Camera Rig ── */
-function CameraRig({ spinning, resetCamera }: { spinning: boolean; resetCamera: boolean }) {
+/* ── Camera Rig - only active during resetCamera ── */
+function CameraRig({ resetCamera }: { resetCamera: boolean }) {
   const { camera } = useThree();
   const idlePos = useMemo(() => new THREE.Vector3(0, 0.3, 5.5), []);
 
   useFrame(() => {
-    if (!spinning || resetCamera) {
-      camera.position.lerp(idlePos, resetCamera ? 0.06 : 0.008);
+    if (resetCamera) {
+      camera.position.lerp(idlePos, 0.06);
     }
   });
 
@@ -268,7 +267,7 @@ export default function Globe({
           />
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
-          <CameraRig spinning={spinning} resetCamera={resetCamera} />
+          <CameraRig resetCamera={resetCamera} />
           {!spinning && (
             <OrbitControls
               enableZoom={true}
