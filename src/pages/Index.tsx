@@ -10,6 +10,7 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
+import OriginSelector from '@/components/OriginSelector';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
@@ -26,7 +27,7 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, streak, resetForRespin, preferences, getShareableUrl } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
   const sound = useSoundManager();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
@@ -237,6 +238,11 @@ export default function Index() {
                 {spinCount} DROPS
               </span>
             )}
+            {/* Origin Selector */}
+            <OriginSelector
+              value={preferences.origin}
+              onChange={(origin) => setPreferences({ origin })}
+            />
             {/* Auth Button */}
             {auth.isAuthenticated ? (
               <button
