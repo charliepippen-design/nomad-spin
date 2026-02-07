@@ -1,4 +1,4 @@
-import { useRef, useMemo, useCallback, Suspense } from 'react';
+import { useRef, useMemo, useCallback, Suspense, useState } from 'react';
 import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -149,12 +149,14 @@ function Earth({
   spinning,
   spinSpeed,
   dayMode,
+  userDragging,
   onHover,
   onUnhover,
 }: {
   spinning: boolean;
   spinSpeed: number;
   dayMode: boolean;
+  userDragging: boolean;
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
@@ -175,10 +177,11 @@ function Earth({
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
+    const target = spinning ? spinSpeed : userDragging ? 0 : 0.003;
     speedRef.current = THREE.MathUtils.lerp(
       speedRef.current,
-      spinning ? spinSpeed : 0.003,
-      spinning ? 0.03 : 0.02
+      target,
+      spinning ? 0.03 : 0.08
     );
     groupRef.current.rotation.y += speedRef.current * delta * 60;
   });
@@ -238,6 +241,8 @@ export default function Globe({
   dayMode = false,
   onCityHover,
 }: GlobeProps) {
+  const [userDragging, setUserDragging] = useState(false);
+
   const handleHover = useCallback((city: City, screenPos: { x: number; y: number }) => {
     onCityHover?.(city, screenPos);
   }, [onCityHover]);
@@ -262,6 +267,7 @@ export default function Globe({
             spinning={spinning}
             spinSpeed={spinSpeed}
             dayMode={dayMode}
+            userDragging={userDragging}
             onHover={handleHover}
             onUnhover={handleUnhover}
           />
@@ -278,6 +284,8 @@ export default function Globe({
               minPolarAngle={0.1}
               maxPolarAngle={Math.PI - 0.1}
               rotateSpeed={0.5}
+              onStart={() => setUserDragging(true)}
+              onEnd={() => setUserDragging(false)}
             />
           )}
         </Suspense>
