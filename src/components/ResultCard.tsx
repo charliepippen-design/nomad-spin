@@ -76,8 +76,7 @@ export default function ResultCard({ city, matchScore, intel, risks, originCity,
   const affiliateLinks = generateAffiliateLinks(city, originCity);
 
   useEffect(() => {
-    // Fire analytics event
-    trackSpinCompleted(city.name, city.country, matchScore);
+    trackSpinCompleted(city.name, city.country, matchScore, city.region);
 
     const timer = setTimeout(() => {
       confetti({
