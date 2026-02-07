@@ -245,7 +245,7 @@ export default function Index() {
         </header>
 
         {/* Main */}
-        <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4 pointer-events-auto">
+        <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
           <AnimatePresence mode="wait">
             {/* Landing */}
             {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
@@ -254,7 +254,7 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="flex flex-col items-center gap-8 w-full max-w-lg"
+                className="flex flex-col items-center gap-8 w-full max-w-lg pointer-events-auto"
               >
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
@@ -284,7 +284,7 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex flex-col items-center gap-4"
+                className="flex flex-col items-center gap-4 pointer-events-auto"
               >
                 <motion.div
                   animate={{ opacity: [0.3, 0.8, 0.3] }}
@@ -305,7 +305,7 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="w-full flex flex-col items-center gap-4"
+                className="w-full flex flex-col items-center gap-4 pointer-events-auto"
               >
                 <motion.p
                   initial={{ opacity: 0 }}
