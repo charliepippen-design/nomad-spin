@@ -181,9 +181,9 @@ export default function Index() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header */}
-        <header className="flex items-center justify-between px-4 md:px-8 py-4">
+        <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-4">
           <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
             NOMAD // DROP
           </h1>
@@ -245,7 +245,7 @@ export default function Index() {
         </header>
 
         {/* Main */}
-        <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
+        <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4 pointer-events-auto">
           <AnimatePresence mode="wait">
             {/* Landing */}
             {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
