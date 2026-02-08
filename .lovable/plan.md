@@ -1,120 +1,74 @@
 
 
-## Total Refactor: Rename UX Terminology and Simplify Flow
+## Fix: "Current Location" Search Must Query All 600+ Cities
 
-This refactor removes all military/tactical language across the app and replaces it with friendly, travel-oriented terminology. The data loading and search are already complete (all 600 cities load correctly), so the focus is on renaming labels and simplifying the preferences UI.
+### Root Cause
 
----
+The "Current Location" dropdown in PreferencesModal.tsx searches against the `origins` array, which contains only **25 hand-picked cities**. Da Nang and hundreds of other cities exist in the full `cities` array (600+ entries) but are invisible to the search because it never queries that array.
 
-### What Changes
+This is NOT a CSV loading issue -- all data loads correctly. The bug is that the search input is wired to the wrong dataset.
 
-Every file containing military jargon gets updated. No logic changes to the scoring engine or data loading -- those work correctly. This is purely a terminology and UX simplification pass.
+### The Fix
 
----
+**File: `src/components/PreferencesModal.tsx`**
 
-### File-by-File Changes
+1. Import the full `cities` array from `src/data/cities`
+2. Build a combined searchable list that merges the 25 curated origins with all 600+ cities (deduped by ID)
+3. When a user searches, filter against this combined list (case-insensitive match on name and country)
+4. When a city from the full dataset is selected (not in origins), dynamically create an `Origin` object from it using its `name`, `country`, `lat`, `lng`
+5. No `.slice()` or result limit -- show all matches
+6. Add `console.info` logging the total searchable city count at component mount
 
-**1. `src/components/PreferencesModal.tsx`** (heaviest changes)
+**File: `src/components/OriginSelector.tsx`**
 
-Label renames:
-- "MISSION CONFIGURATION" becomes "TRIP PREFERENCES"
-- "QUICK DEPLOY PRESETS" becomes "QUICK PRESETS"
-- "EXTRACTION POINT" becomes "CURRENT LOCATION"
-- "RESOURCE ALLOCATION" becomes "MONTHLY BUDGET"
-- "BANDWIDTH THRESHOLD" becomes "MIN. INTERNET SPEED"
-- "THREAT TOLERANCE" becomes "MIN. SAFETY RATING"
-- "MISSION PROFILE" becomes "YOUR VIBE"
-- "OPERATIONAL SECTOR" becomes "PREFERRED REGION"
-- "ALL SECTORS" becomes "ALL REGIONS"
-- "TARGETS LOCKED" becomes "DESTINATIONS FOUND"
-- "NEAR MISSES" becomes "CLOSE MATCHES"
-- "AUTO-CALIBRATE" becomes "RESET FILTERS"
-- "PARAMETERS IMPOSSIBLE" becomes "NO DESTINATIONS MATCH"
-- "INITIATE DROP SEQUENCE" becomes "FIND MY NEXT DESTINATION"
-- "COORDINATES ACQUIRED: ..." becomes "Located: ..."
-- Config summary: remove "extraction points" phrasing, use "destinations in [region] from [origin]"
+Same fix: import the full `cities` array and merge with origins for the header dropdown search.
 
-Preset labels stay as-is (BUDGET SAVER, HIGH COMFORT, QUIET / PRODUCTIVE, REGION) since those are already user-friendly.
+**File: `src/data/origins.ts`** (optional helper)
 
-The "SHORT RANGE" / geolocation preset section is kept but the button label "SHORT RANGE" is already replaced with "REGION" which is fine.
+Add a utility function `cityToOrigin(city)` that converts a City object to an Origin object, so both components can use it consistently.
 
-**2. `src/pages/Index.tsx`**
+### Technical Details
 
-- "NOMAD // DROP" becomes "NOMAD SPIN"
-- "WHERE WILL YOU DEPLOY NEXT?" becomes "WHERE TO NEXT?"
-- "CALCULATING DROP ZONE..." becomes "FINDING YOUR MATCH..."
-- "TARGET ACQUIRED" becomes "YOUR TOP PICKS"
-- "RETURN TO BASE" becomes "START OVER"
-- "DROPS" (spin count) becomes "SPINS"
-- Share text: "DROP ZONE" becomes "Destination", "Deployment target" becomes "Next stop"
-- SEO title: "Tactical Decision Engine" becomes "Find Your Next Destination"
-- SEO description: "Find your next mission" becomes "Find your next destination"
+The combined search list will be:
 
-**3. `src/components/SpinButton.tsx`**
+```text
+// Pseudocode
+const allSearchable = [
+  ...origins,                          // 25 curated origins (includes "ANYWHERE")
+  ...cities                             // 600+ cities
+    .filter(c => !origins.some(o => o.id === c.id))  // dedupe
+    .map(c => ({ id: c.id, name: c.name, country: c.country, lat: c.lat, lng: c.lng }))
+];
+```
 
-- Default label: "CONFIGURE MISSION" becomes "SET PREFERENCES"
+This is computed once (memoized) and filtered on each keystroke. The search matches case-insensitively against both `name` and `country` fields.
 
-**4. `src/components/ResultCard.tsx`**
+When a user selects Da Nang from the list, it creates:
+```text
+{ id: 'da-nang-vn', name: 'Da Nang', country: 'Vietnam', lat: 16.0544, lng: 108.2022 }
+```
 
-- "EST. MONTHLY BURN" becomes "MONTHLY COST"
-- "AVG BANDWIDTH" becomes "AVG. INTERNET"
-- "THREAT INDEX" becomes "SAFETY SCORE"
-- "VISA WINDOW" becomes "VISA LENGTH"
-- "WHY THIS TARGET" becomes "WHY THIS CITY"
-- "OPERATIONAL RISKS" becomes "THINGS TO KNOW"
-- "No active threats" becomes "No concerns noted"
-- "ENCRYPT TO PROFILE" becomes "SAVE"
-- "RE-DROP" becomes "SPIN AGAIN"
-
-**5. `src/components/TopResultsGrid.tsx`**
-
-- "ALTERNATIVE TARGETS" becomes "OTHER GREAT MATCHES"
-- "VIEW FULL DOSSIER" becomes "VIEW DETAILS"
-
-**6. `src/components/SavedSpins.tsx`**
-
-- "MISSION ARCHIVE" becomes "SAVED DESTINATIONS"
-- "MISSION #001: TOKYO" becomes "TRIP #001: TOKYO"
-- "PENDING" becomes "SAVED"
-- "Re-deploy with same filters" title becomes "Search again with same filters"
-
-**7. `src/components/DeploymentGrid.tsx`**
-
-- "LINK UNAVAILABLE" toast title becomes "Link Unavailable"
-- Affiliate disclaimer: convert from ALL-CAPS to sentence case: "Some outbound links are affiliate links -- we may earn a commission at no extra cost to you."
-
-**8. `src/components/OriginSelector.tsx`**
-
-- "LOCKED: ..." becomes "Located: ..."
-- "BASE: ANYWHERE" becomes "LOCATION: ANYWHERE"
-- "Locate nearest base city" title becomes "Detect my location"
-
-**9. `src/components/SEO.tsx`**
-
-- Default title: "Digital Nomad Spin | Find Your Next Destination"
-- Default description: "Stop overthinking. Spin the globe. Find your next destination. Discover nomad-friendly cities with curated stays, flights, eSIMs, and insurance."
-
-**10. `src/hooks/useGeolocation.ts`**
-
-- Toast messages: "SIGNAL LOST. MANUAL INPUT REQUIRED." becomes "Location access denied. Please select your city manually."
-- "NO NEARBY ASSETS DETECTED" becomes "No nearby city found in our database."
-- "COORDINATES LOCKED" becomes "Location detected"
-
----
+This Origin object works identically with the existing scoring/distance logic.
 
 ### What Does NOT Change
 
-- Scoring engine (`src/lib/scoring.ts`) -- already uses weighted scoring, works correctly
-- Data loading (`src/data/cities.ts`) -- all 600 cities are already loaded and merged
-- Store logic (`src/store/useSpinStore.ts`) -- filtering, spin, top 3 results all work
-- Affiliate engine (`src/utils/affiliateEngine.ts`) -- no military terms there
-- Analytics (`src/utils/analytics.ts`) -- event names are already clean
-- Globe component -- no text labels to rename
-- The dark aesthetic and visual design stay the same -- only text labels change
+- The `cities` data loading (already correct, all 600+ cities load)
+- The scoring engine (`src/lib/scoring.ts`)
+- The spin store logic
+- The `origins.ts` base list (kept for quick access / geolocation snapping)
 
----
+### Files Changed
 
-### Summary
+| File | Change |
+|------|--------|
+| `src/components/PreferencesModal.tsx` | Import `cities`, build merged searchable list, update `filteredOrigins` to query all cities |
+| `src/components/OriginSelector.tsx` | Same: import `cities`, merge with origins for header search |
+| `src/data/origins.ts` | Add `cityToOrigin()` helper function |
 
-This is a text-only refactor across 10 files. No logic, data loading, or scoring changes. Every instance of military jargon (mission, target, deployment, extraction, threat, dossier, drop, etc.) is replaced with travel-friendly equivalents (trip, destination, preferences, location, safety, details, spin, etc.).
+### Verification
 
+After this fix:
+- Searching "Da Nang" in Current Location will show the result
+- Searching any of the 600+ cities will work
+- Console will log: `[NomadSpin] Searchable origins: 625 cities` (or similar count)
+- Selected cities work correctly with distance scoring and flight link generation
