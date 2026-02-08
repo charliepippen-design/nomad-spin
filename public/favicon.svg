@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Dark Hexagon -->
+  <path d="M256 44L438 149V363L256 468L74 363V149L256 44Z" fill="#1A1F2C" stroke="#8B5CF6" stroke-width="12"/>
+  
+  <!-- Circuit Lines -->
+  <path d="M256 256L256 180" stroke="#D6BCFA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 256L322 294" stroke="#D6BCFA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 256L190 294" stroke="#D6BCFA" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="256" cy="180" r="8" fill="#D6BCFA"/>
+  <circle cx="322" cy="294" r="8" fill="#D6BCFA"/>
+  <circle cx="190" cy="294" r="8" fill="#D6BCFA"/>
+  
+  <!-- Circuit Nodes -->
+  <path d="M256 120L256 140" stroke="#9b87f5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M140 200L160 210" stroke="#9b87f5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M372 200L352 210" stroke="#9b87f5" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Center Glow -->
+  <circle cx="256" cy="256" r="24" fill="#F97316"/>
+  <circle cx="256" cy="256" r="12" fill="#FEC6A1"/>
+  
+  <!-- Orbital Rings/Arrows -->
+  <path d="M480 256C480 379.726 379.726 480 256 480" stroke="white" stroke-width="8" stroke-linecap="round" stroke-dasharray="40 40" opacity="0.6"/>
+  <path d="M32 256C32 132.274 132.274 32 256 32" stroke="white" stroke-width="8" stroke-linecap="round" stroke-dasharray="40 40" opacity="0.6"/>
+  
+  <!-- Arrow Heads for Spin Effect -->
+  <path d="M460 230L480 256L500 230" fill="white" opacity="0.8"/>
+  <path d="M52 282L32 256L12 282" fill="white" opacity="0.8"/>
+</svg>
