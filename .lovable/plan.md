@@ -1,120 +1,106 @@
 
-
-## Make It Rich: City Images, Smart Badges, CTA Buttons, and Visual Polish
-
-### Overview
-
-Four upgrades to transform the result cards from data-heavy to visually premium: hero city images, smart contextual badges, a prominent "Check Stays" CTA, and polished card styling. Plus fixing the last remaining military jargon in the affiliate engine labels.
+## Four Upgrades: Globe Focus, Dynamic SEO, City Images Fix, Social Sharing
 
 ---
 
-### 1. City Hero Images (No API Key Needed)
+### 1. Globe Navigation -- Focus on Selected City
 
-Instead of requiring an Unsplash API key, we use **Unsplash Source URLs** which work without authentication:
+**Problem**: When a spin result lands, the globe stays at whatever random rotation it stopped at. It should smoothly rotate to center the winning city in view.
 
+**Solution**: Add a `focusCity` prop to Globe. When set, the Earth group lerps its Y-rotation to place that city's longitude facing the camera, and CameraRig lerps the camera to a closer zoom position.
+
+**Files changed:**
+- `src/components/Globe.tsx` -- Add `focusCity?: City` prop. In `Earth`, add a `useEffect` + `useFrame` that targets `lngToYRotation(focusCity.lng)` with smooth lerp. In `CameraRig`, when `focusCity` is set, lerp camera to a closer position (z=4.2 instead of 5.5) and tilt slightly based on latitude.
+- `src/pages/Index.tsx` -- Pass `focusCity={resultCity}` to `<Globe>` when in results phase.
+
+**Technical detail:**
 ```text
-https://images.unsplash.com/photo-{id}?w=800&q=80
+// In Earth component:
+const targetRotY = lngToYRotation(focusCity.lng);
+// In useFrame:
+groupRef.current.rotation.y = THREE.MathUtils.lerp(
+  groupRef.current.rotation.y, targetRotY, 0.04
+);
 ```
 
-Since we can't search dynamically without an API key, we take a hybrid approach:
-
-- Create a **curated image map** (`src/data/cityImages.ts`) with hand-picked Unsplash photo IDs for the top 50 most popular nomad cities (Bangkok, Lisbon, Bali, Da Nang, Medellin, etc.)
-- For cities NOT in the map, fall back to a **region-based default** (e.g., a generic "Southeast Asia beach" image for Asian coastal cities, a "European old town" for European cities)
-- Images display as a **gradient-overlaid hero banner** at the top of ResultCard and as thumbnails on runner-up cards
-
-This approach is:
-- Free (no API key)
-- Fast (direct CDN URLs)
-- Reliable (no runtime API calls that can fail)
-- Beautiful (hand-picked, high-quality photos)
-
-**Files:**
-- NEW: `src/data/cityImages.ts` -- curated Unsplash photo IDs + region fallbacks
-- EDIT: `src/components/ResultCard.tsx` -- add hero image banner
-- EDIT: `src/components/TopResultsGrid.tsx` -- add thumbnail image on runner-up cards
+The lerp factor of 0.04 gives a smooth ~1 second transition. Auto-spin is paused when focusCity is active.
 
 ---
 
-### 2. Smart Badges
+### 2. Dynamic SEO with JSON-LD Schema
 
-Generate contextual badges from city data. Each badge has an emoji, label, and color. Displayed as a row of pills below the city name.
+**Problem**: SEO tags are basic. No JSON-LD structured data for search engines.
 
-Badge logic (in a new helper `src/lib/badges.ts`):
+**Solution**: Enhance the SEO component to accept a `city` prop and generate:
+- Dynamic OG tags with city-specific image from Unsplash
+- JSON-LD `TouristDestination` schema markup
+- Canonical URL
 
-| Condition | Badge |
-|-----------|-------|
-| `internetMbps >= 50` OR `infra.internetSpeedAvg >= 50` | "Digital God Mode" (blue) |
-| `costUSD < 1200` | "Wallet Heaven" (green) |
-| `vibeMetrics.englishProficiency >= 7` | "No Duolingo Needed" (purple) |
-| `safety >= 8` | "Ultra Safe" (emerald) |
-| `vibeMetrics.nightlife >= 7` | "Party Central" (pink) |
-| `vibe includes 'beach'` | "Beach Life" (cyan) |
-| `weather.tempAvgC >= 28` | "Tropical Heat" (orange) |
-| `safety < 5` | "Stay Alert" (red/warning) |
+**Files changed:**
+- `src/components/SEO.tsx` -- Add optional `city?: City` prop. When present:
+  - Title: `"{City}, {Country} -- Digital Nomad Guide | Nomad Spin"`
+  - Description: `"Explore {City}: ${cost}/mo, {internet}Mbps WiFi, safety {safety}/10. Find stays, flights, and eSIMs."`
+  - OG image: `getCityImageUrl(city.id, city.region, 1200)` for social sharing
+  - Add JSON-LD script block with `TouristDestination` schema including name, description, geo coordinates, and cost info
+- `src/pages/Index.tsx` -- Pass `city={resultCity}` to `<SEO>` when in results phase.
 
-Each badge renders as a small colored pill with emoji + text. Max 4 badges shown per city to avoid clutter.
+**JSON-LD structure:**
+```text
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Da Nang, Vietnam",
+  "description": "...",
+  "geo": { "@type": "GeoCoordinates", "latitude": 16.05, "longitude": 108.20 },
+  "touristType": ["Digital Nomad", "Remote Worker"]
+}
+```
 
-**Files:**
-- NEW: `src/lib/badges.ts` -- `generateBadges(city): Badge[]`
-- EDIT: `src/components/ResultCard.tsx` -- render badge row replacing the plain vibe tags
-- EDIT: `src/components/TopResultsGrid.tsx` -- show top 2 badges on runner-up cards
-
----
-
-### 3. Prominent "Check Stays" CTA Button
-
-Replace the current small affiliate grid with a **large, attention-grabbing primary CTA** for accommodation, plus keep the secondary links (flights, eSIM, insurance) below it.
-
-- Button text: `Check Stays in {City Name}`
-- Style: Full-width, rounded-lg, bg-gradient from emerald-500 to emerald-600, white bold text, hover glow effect, large padding
-- Links to the existing Booking.com/Flatio affiliate URL from the affiliate engine
-- Secondary links (flights, eSIM, insurance) remain as smaller buttons below
-
-Also fix the remaining military jargon in `src/utils/affiliateEngine.ts`:
-- "SECURE SAFE HOUSE IN..." becomes "Find Stays in..."
-- "INITIATE AIRLIFT FROM..." becomes "Find Flights from..."
-- "ESTABLISH COMMS IN..." becomes "Get eSIM for..."
-- "ACTIVATE PROTOCOLS" becomes "Travel Insurance"
-
-**Files:**
-- EDIT: `src/utils/affiliateEngine.ts` -- rename labels
-- EDIT: `src/components/ResultCard.tsx` -- add large CTA above the deployment grid
-- EDIT: `src/components/DeploymentGrid.tsx` -- minor: the existing grid becomes the "secondary links" section
+Also add a `WebApplication` schema on the landing page for the app itself.
 
 ---
 
-### 4. Visual Polish
+### 3. City Hero Images -- Already Done, Minor Fix
 
-Update card styling across ResultCard and TopResultsGrid:
-
-- `rounded-sm` becomes `rounded-xl` on all cards
-- Add `shadow-2xl shadow-black/50` for depth
-- Hero image section gets a gradient overlay (black from bottom for text readability)
-- Runner-up cards get a subtle image thumbnail strip at top
-- Stat items get `rounded-lg` and slightly more padding
-- Score ring background gets a subtle frosted glass effect
-
-**Files:**
-- EDIT: `src/components/ResultCard.tsx` -- rounded corners, shadows, image header
-- EDIT: `src/components/TopResultsGrid.tsx` -- rounded corners, shadows, image strip
+The Unsplash integration is already implemented in `src/data/cityImages.ts` and used in `ResultCard.tsx`. The curated map has 60+ cities with region fallbacks. No API key needed. This is already working. No changes needed here unless you want to expand the image map (can be done later).
 
 ---
 
-### Summary of All File Changes
+### 4. Social Sharing Buttons (Floating Bar)
 
-| File | Action |
-|------|--------|
-| `src/data/cityImages.ts` | NEW: Curated Unsplash photo map + region fallbacks |
-| `src/lib/badges.ts` | NEW: `generateBadges()` smart badge generator |
-| `src/components/ResultCard.tsx` | Hero image, badge row, large CTA, rounded corners, shadows |
-| `src/components/TopResultsGrid.tsx` | Image thumbnails, badges, rounded corners |
-| `src/components/DeploymentGrid.tsx` | Minor style tweaks (secondary role) |
-| `src/utils/affiliateEngine.ts` | Fix remaining military label text |
+**Problem**: The only share option is a single Share2 icon in the action row that uses `navigator.share`. Need visible, platform-specific sharing buttons.
 
-### Technical Notes
+**Solution**: Create a floating social share bar in the bottom-left corner that appears when results are shown.
 
-- No API key required for images -- all Unsplash URLs are direct CDN links from curated photo IDs
-- Badge generation is pure function, no side effects, easily testable
-- The large CTA uses the existing affiliate engine URL, so monetization tracking works immediately
-- All images use `loading="lazy"` and appropriate `srcset` for performance
-- The curated image map can be expanded over time -- cities without a specific photo get a beautiful regional default
+**Files changed:**
+- NEW: `src/components/SocialShareBar.tsx` -- Floating vertical bar with share buttons for:
+  - **Twitter/X**: Opens `https://twitter.com/intent/tweet?text=...&url=...`
+  - **WhatsApp**: Opens `https://wa.me/?text=...`
+  - **Facebook**: Opens `https://www.facebook.com/sharer/sharer.php?u=...`
+  - **LinkedIn**: Opens `https://www.linkedin.com/sharing/share-offsite/?url=...`
+  - **Copy Link**: Copies URL to clipboard with toast confirmation
+  - Each button uses a simple SVG icon or lucide icon, styled as a glass pill
+  - Bar animates in from left with staggered children using framer-motion
+  - Share text: "I just found my next nomad destination: {City}, {Country}! Check it out:"
+  - URL: the shareable URL from `getShareableUrl()`
+- `src/pages/Index.tsx` -- Render `<SocialShareBar>` when `phase === 'results'` with `resultCity` and shareable URL. Position it `fixed bottom-4 left-4 z-20`.
+
+**Design:**
+- Vertical stack of circular glass buttons (40x40px)
+- `bg-white/10 backdrop-blur-md border border-white/20 rounded-full`
+- Hover: scale 1.1, glow effect
+- Each icon is 18x18px, white color
+- The bar fades in with 0.5s delay after results appear
+
+---
+
+### Summary
+
+| File | Action | What |
+|------|--------|------|
+| `src/components/Globe.tsx` | EDIT | Add `focusCity` prop, smooth rotation to city coordinates |
+| `src/pages/Index.tsx` | EDIT | Pass `focusCity`, pass `city` to SEO, render SocialShareBar |
+| `src/components/SEO.tsx` | EDIT | Add `city` prop, JSON-LD schema, dynamic OG image |
+| `src/components/SocialShareBar.tsx` | NEW | Floating social share buttons (Twitter, WhatsApp, FB, LinkedIn, Copy) |
+
+All changes sync to GitHub automatically.
