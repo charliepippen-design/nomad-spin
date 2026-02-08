@@ -20,7 +20,7 @@ export default function SavedSpins() {
       <div className="flex items-center gap-2 mb-3">
         <Bookmark className="w-3 h-3 text-muted-foreground" />
         <h3 className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
-          MISSION ARCHIVE ({savedSpins.length})
+          SAVED DESTINATIONS ({savedSpins.length})
         </h3>
       </div>
       <div className="space-y-1">
@@ -32,19 +32,19 @@ export default function SavedSpins() {
             <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
             <div className="flex-1 min-w-0">
               <p className="text-xs font-mono text-foreground/80 truncate tracking-wider">
-                MISSION #{String(index + 1).padStart(3, '0')}: {entry.city.name.toUpperCase()}
+                TRIP #{String(index + 1).padStart(3, '0')}: {entry.city.name.toUpperCase()}
               </p>
               <p className="text-[10px] text-muted-foreground font-mono">
                 {entry.city.country} · ${entry.city.costUSD}/mo · {entry.timestamp}
               </p>
             </div>
             <span className="text-[9px] font-mono text-muted-foreground/60 uppercase tracking-wider mr-1">
-              PENDING
+              SAVED
             </span>
             <button
               onClick={() => redeploySpin(index)}
               className="p-1.5 rounded-sm opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all"
-              title="Re-deploy with same filters"
+              title="Search again with same filters"
             >
               <RotateCcw className="w-3 h-3 text-muted-foreground" />
             </button>

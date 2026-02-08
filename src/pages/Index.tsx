@@ -131,8 +131,8 @@ export default function Index() {
     const url = getShareableUrl();
     if (navigator.share) {
       navigator.share({
-        title: `DROP ZONE: ${resultCity.name}`,
-        text: `Deployment target: ${resultCity.name}, ${resultCity.country} // Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
+        title: `Destination: ${resultCity.name}`,
+        text: `Next stop: ${resultCity.name}, ${resultCity.country} — Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
         url,
       }).catch(() => {});
     } else {
@@ -155,8 +155,8 @@ export default function Index() {
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-hidden bg-background">
       <SEO
-        title={resultCity ? `Target Acquired: ${resultCity.name} // Nomad Spin` : 'Digital Nomad Spin | Tactical Decision Engine'}
-        description={resultCity ? `Deployment target: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next mission.'}
+        title={resultCity ? `${resultCity.name} — Nomad Spin` : 'Digital Nomad Spin | Find Your Next Destination'}
+        description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
       />
       {/* Globe */}
       <div className="absolute inset-0 z-0">
@@ -196,7 +196,7 @@ export default function Index() {
         {/* Header */}
         <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-4">
           <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-            NOMAD // DROP
+            NOMAD SPIN
           </h1>
           <div className="flex items-center gap-3">
             {/* Auto-spin Toggle */}
@@ -242,7 +242,7 @@ export default function Index() {
             </button>
             {spinCount > 0 && (
               <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
-                {spinCount} DROPS
+                {spinCount} SPINS
               </span>
             )}
             {/* Origin Selector */}
@@ -294,7 +294,7 @@ export default function Index() {
                   transition={{ delay: 0.3 }}
                   className="text-center text-muted-foreground text-xs font-mono tracking-[0.15em] max-w-xs leading-relaxed"
                 >
-                  WHERE WILL YOU DEPLOY NEXT?
+                  WHERE TO NEXT?
                 </motion.p>
 
                 <motion.div
@@ -324,7 +324,7 @@ export default function Index() {
                   className="text-center"
                 >
                   <p className="font-mono text-xs tracking-[0.3em] text-foreground/60 uppercase">
-                    CALCULATING DROP ZONE...
+                    FINDING YOUR MATCH...
                   </p>
                 </motion.div>
               </motion.div>
@@ -345,7 +345,7 @@ export default function Index() {
                   transition={{ delay: 0.2 }}
                   className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
                 >
-                  TARGET ACQUIRED
+                  YOUR TOP PICKS
                 </motion.p>
 
                 <TopResultsGrid
@@ -380,7 +380,7 @@ export default function Index() {
                   className="flex items-center gap-2 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-colors cursor-pointer mt-2 tracking-[0.2em] uppercase"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  RETURN TO BASE
+                  START OVER
                 </motion.button>
               </motion.div>
             )}

@@ -7,8 +7,8 @@ interface SEOProps {
 }
 
 export default function SEO({
-  title = 'Digital Nomad Spin | Tactical Decision Engine',
-  description = 'Stop overthinking. Spin the globe. Find your next mission. Discover nomad cities with curated stays, flights, eSIMs, and insurance.',
+  title = 'Digital Nomad Spin | Find Your Next Destination',
+  description = 'Stop overthinking. Spin the globe. Find your next destination. Discover nomad-friendly cities with curated stays, flights, eSIMs, and insurance.',
   image = '/og-preview.png',
 }: SEOProps) {
   return (

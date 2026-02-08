@@ -13,7 +13,7 @@ export function useGeolocation(onOriginFound: (origin: Origin) => void) {
 
   const locate = useCallback(() => {
     if (!navigator.geolocation) {
-      toast({ title: '⚠ SIGNAL LOST', description: 'Geolocation not supported. Manual input required.' });
+      toast({ title: 'Location unavailable', description: 'Geolocation not supported. Please select your city manually.' });
       return;
     }
 
@@ -40,13 +40,13 @@ export function useGeolocation(onOriginFound: (origin: Origin) => void) {
           // Clear the acquired text after 3s
           setTimeout(() => setState(s => ({ ...s, acquiredCity: null })), 3000);
         } else {
-          toast({ title: '⚠ NO NEARBY ASSETS DETECTED', description: 'Manual input required.' });
+          toast({ title: 'No nearby city found', description: 'No nearby city found in our database. Please select manually.' });
           setState({ locating: false, acquiredCity: null });
         }
       },
       (err) => {
         console.debug('Geolocation error:', err.message);
-        toast({ title: '⚠ SIGNAL LOST', description: 'Location denied. Manual input required.' });
+        toast({ title: 'Location access denied', description: 'Please select your city manually.' });
         setState({ locating: false, acquiredCity: null });
       },
       { timeout: 10000, maximumAge: 300000 }

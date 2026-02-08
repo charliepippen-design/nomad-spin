@@ -135,10 +135,10 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 
           {/* Tactical Data Grid */}
           <div className="grid grid-cols-2 gap-px bg-border/20 mx-6">
-            <StatItem icon={<DollarSign className="w-3 h-3" />} label="EST. MONTHLY BURN" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
-            <StatItem icon={<Wifi className="w-3 h-3" />} label="AVG BANDWIDTH" value={`${city.infra.internetSpeedAvg} Mbps`} />
-            <StatItem icon={<Shield className="w-3 h-3" />} label="THREAT INDEX" value={`${city.safety}/10`} />
-            <StatItem icon={<Globe className="w-3 h-3" />} label="VISA WINDOW" value={`${city.meta.visaDays}D`} />
+            <StatItem icon={<DollarSign className="w-3 h-3" />} label="MONTHLY COST" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
+            <StatItem icon={<Wifi className="w-3 h-3" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} />
+            <StatItem icon={<Shield className="w-3 h-3" />} label="SAFETY SCORE" value={`${city.safety}/10`} />
+            <StatItem icon={<Globe className="w-3 h-3" />} label="VISA LENGTH" value={`${city.meta.visaDays}D`} />
             <StatItem icon={<Globe className="w-3 h-3" />} label="AIRBNB MEDIAN" value={`$${city.financials.airbnbMedian}/NT`} />
             <StatItem icon={<Clock className="w-3 h-3" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}`} />
           </div>
@@ -157,7 +157,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             {/* Intel */}
             <div>
               <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
-                <Zap className="w-3 h-3" /> WHY THIS TARGET
+                <Zap className="w-3 h-3" /> WHY THIS CITY
               </div>
               {intel.map((item, i) => (
                 <motion.p
@@ -174,7 +174,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             {/* Risks */}
             <div>
               <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
-                <AlertTriangle className="w-3 h-3" /> OPERATIONAL RISKS
+                <AlertTriangle className="w-3 h-3" /> THINGS TO KNOW
               </div>
               {risks.length > 0 ? risks.map((risk, i) => (
                 <motion.p
@@ -187,7 +187,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
                   ⚠ {risk}
                 </motion.p>
               )) : (
-                <p className="text-[11px] text-foreground/40 font-mono">No active threats</p>
+                <p className="text-[11px] text-foreground/40 font-mono">No concerns noted</p>
               )}
             </div>
           </div>
@@ -200,10 +200,10 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           {/* Action Row */}
           <div className="px-6 py-4 border-t border-border/30 flex gap-2">
             <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
-              <Bookmark className="w-3 h-3" /> ENCRYPT TO PROFILE
+              <Bookmark className="w-3 h-3" /> SAVE
             </Button>
             <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
-              <RotateCcw className="w-3 h-3" /> RE-DROP
+              <RotateCcw className="w-3 h-3" /> SPIN AGAIN
             </Button>
             <Button onClick={onShare} variant="outline" className="gap-2 rounded-sm border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
               <Share2 className="w-3 h-3" />

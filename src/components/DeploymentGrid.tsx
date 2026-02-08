@@ -31,7 +31,7 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
       const msg = err instanceof Error ? err.message : 'Unknown error';
       trackAffiliateClickError(link.partner, link.vertical, cityName, link.url, msg);
       toast({
-        title: 'LINK UNAVAILABLE',
+        title: 'Link Unavailable',
         description: `Unable to open ${link.partner} link. Please try again.`,
         variant: 'destructive',
       });
@@ -101,7 +101,7 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
 
       {/* Affiliate disclaimer */}
       <p className="text-[8px] font-mono text-muted-foreground/30 text-center tracking-wider leading-relaxed">
-        SOME OUTBOUND LINKS ARE AFFILIATE LINKS — WE MAY EARN A COMMISSION AT NO EXTRA COST TO YOU.
+        Some outbound links are affiliate links — we may earn a commission at no extra cost to you.
       </p>
     </div>
   );
