@@ -1,64 +1,107 @@
 
 
-## Phase 5: Intelligence and Visibility — "Radar and Comms"
+## Refactor: Recommendation Engine and UX Logic
 
-This upgrade adds geolocation-based city snapping ("Locate Asset"), a proximity filter preset ("Short Range Ops"), and dynamic SEO via react-helmet-async.
+### Overview
+
+This refactor addresses four issues: data completeness verification, climate/vibe-weighted scoring, confusing preset names, and single-result display. The core changes touch the spin store (filtering + scoring), the preferences modal (presets + new climate preference), and a new Top 3 results view.
 
 ---
 
-### 1. "LOCATE ASSET" — Geolocation Snap to Nearest City
+### 1. Data Loading Verification
+
+Da Nang and all other cities from the three spreadsheet parts are already loaded and merged in `src/data/cities.ts` (line 646-655 merges 8 arrays). The dataset is complete. No changes needed here, but we will add a `console.info` at initialization logging the total city count so this is always verifiable.
+
+---
+
+### 2. Weighted Scoring Refactor ("Hamburg vs. Tamarindo" Fix)
+
+**Problem:** The current `filterCities()` uses binary pass/fail filters. A city either matches or it doesn't. There is no penalty for climate mismatch. The `spin()` function has a basic weighting system but it doesn't factor in vibe/climate preference strongly enough.
+
+**Solution:** Replace the binary filter + random weighted pick with a proper scoring system that always returns the top N cities by score.
+
+**File: `src/lib/scoring.ts`** -- Add a new `scoreCityForPreferences()` function:
+
+- Budget score (0-30 pts): Non-linear curve (existing `budgetScore` logic, normalized to 0-30)
+- Internet score (0-15 pts): Linear scale based on how far above minimum
+- Safety score (0-15 pts): Linear scale based on how far above minimum  
+- Vibe/Climate match (0-25 pts): Each matching vibe tag = points. If user selects "beach" and city has "beach" vibe, full credit. Cities with zero vibe overlap get 0 points. This is the key fix -- Hamburg (party/workhub/adventure) gets 0 vibe points when user selects "beach", while Tamarindo (beach) gets full credit.
+- Proximity score (0-15 pts): Based on distance from origin (existing logic)
+
+Total: 0-100 points, displayed as "Match Score %"
+
+**File: `src/store/useSpinStore.ts`** -- Refactor `spin()`:
+
+- Instead of random weighted selection, compute scores for ALL filtered cities using `scoreCityForPreferences()`
+- Sort by score descending
+- Store `topResults: City[]` (top 3) instead of single `resultCity`
+- Keep `resultCity` as `topResults[0]` for backward compatibility with globe animation target
+- Add `matchReasons` map: for each top city, a short string like "Best for Budget", "Ideal Climate", "Closest to Base"
+
+**File: `src/store/useSpinStore.ts`** -- Update `filterCities()`:
+
+- Keep hard filters for region (since it's an explicit sector choice)
+- Remove the flight-cost binary cutoff (let scoring handle proximity penalty instead)
+- Keep budget range as a soft filter: include cities within 20% overage (they'll just score lower)
+
+---
+
+### 3. Preset Renaming and "Short Range" Replacement
 
 **File: `src/components/PreferencesModal.tsx`**
 
-- Add a "LOCATE ME" button (Crosshair icon) inside the Extraction Point section, next to the origin dropdown trigger.
-- On click, call `navigator.geolocation.getCurrentPosition`.
-- Use the existing `haversineKm` function from `src/lib/distance.ts` to find the closest city in the `origins` array (not the 600-city dataset — origins are the valid base cities).
-- Auto-select that origin via `setPreferences({ origin: closestOrigin })`.
-- Show a brief animated text: "COORDINATES ACQUIRED: [City Name]" using a typing effect (CSS animation with `steps()`).
-- On geolocation denial, show a toast: "SIGNAL LOST. MANUAL INPUT REQUIRED."
-- Button styling: tactical crosshair icon, red glow on hover via `hover:text-red-500 hover:shadow-[0_0_12px_rgba(255,0,0,0.3)]`.
+Rename presets and update their logic:
 
-**Also update `src/components/OriginSelector.tsx`** (header selector):
-- Add the same "Locate Me" mini-button (small Crosshair icon) so users can trigger geolocation from the header as well.
+| Old Name | New Name | Subtitle | Logic |
+|---|---|---|---|
+| BOOTSTRAPPER | BUDGET SAVER | "Cost < $1,500" | budget: [500, 1500], keep other params |
+| EXECUTIVE | HIGH COMFORT | "Fast + Safe" | internet: 150, safety: 8 |
+| DEEP FOCUS | QUIET / PRODUCTIVE | "Low nightlife" | vibes: ['workhub', 'mountain'] (no party) |
+| SHORT RANGE | PREFERRED REGION | "Pick your sector" | Opens region selector, removes distance constraint |
 
-### 2. "PROXIMITY SCRAMBLE" — Short Range Ops Preset
+For "SHORT RANGE" specifically: replace the crosshair button with a "PREFERRED REGION" preset that simply highlights the region selector section and scrolls to it, prompting the user to pick a region. This is clearer than the opaque distance-based filter.
 
-**File: `src/components/PreferencesModal.tsx`**
+Each preset button will show a one-line subtitle explaining what it does (e.g., "Cost < $1,500/mo").
 
-- Add a 4th preset button: "SHORT RANGE" with a Crosshair/Radar icon.
-- Logic:
-  - If no origin is set, trigger the "Locate Me" geolocation flow first, then apply the preset.
-  - If origin is set, apply filters: budget flexible (500-5000), internet > 30 Mbps, safety flexible, region = All.
-  - The spin store's `filterCities` already factors in distance from origin — the proximity is naturally handled by the existing flight-cost filter.
-- Update the mission summary to show "SCANNING LOCAL SECTOR (<1000KM)..." when this preset is active.
-- Store a flag `isShortRange` in local component state to drive the summary text.
+---
 
-### 3. SEO Architecture — react-helmet-async
+### 4. Top 3 Results Grid
 
-**Install:** `react-helmet-async`
+**New component: `src/components/TopResultsGrid.tsx`**
 
-**File: `src/components/SEO.tsx`** (new)
-- Create a reusable `<SEO title="" description="" image="" />` component using `<Helmet>` from react-helmet-async.
-- Sets `<title>`, `<meta name="description">`, OG tags, and Twitter card tags.
-- Default image: `/og-preview.png` (already exists).
+When the spin completes, instead of showing a single `ResultCard`, show a grid of 3 result cards:
 
-**File: `src/App.tsx`**
-- Wrap the app in `<HelmetProvider>`.
+- Primary card (rank 1): Full-size `ResultCard` as it exists today, with score ring, health bars, intel, risks, and deployment grid
+- Cards 2 and 3: Compact summary cards showing:
+  - City name + country
+  - Match score ring (smaller)
+  - Key reason tag (e.g., "BEST FOR BUDGET")
+  - 3 key stats (cost, internet, safety)
+  - A "VIEW FULL DOSSIER" button that swaps it into the primary slot
 
-**File: `src/pages/Index.tsx`**
-- Import `<SEO />`.
-- Landing state: title = "Digital Nomad Spin | Tactical Decision Engine", description = "Stop overthinking. Spin the globe. Find your next mission."
-- Result state: When `resultCity` is set, update to "Target Acquired: [City] // Nomad Spin".
+**File: `src/pages/Index.tsx`** -- Update results phase:
 
-### 4. Distance Utility Consolidation
+- Replace single `<ResultCard>` with `<TopResultsGrid>` component
+- Pass `topResults` array + `matchReasons` from store
+- Keep the existing `ResultCard` component unchanged (it renders the "primary" selection)
+- The two runner-up cards are new compact components
 
-The `haversineKm` function already exists in `src/lib/distance.ts` and is exported. It is already used by the spin store for scoring. No new file needed — we will import it directly where needed (PreferencesModal, OriginSelector).
+**Layout:**
+- Desktop: Primary card full width, two compact cards side by side below
+- Mobile: All three stacked vertically, primary first
 
-### 5. Error Handling
+---
 
-- Geolocation denial: toast notification with tactical language.
-- Geolocation timeout: same fallback toast.
-- If no origins match within reasonable distance (edge case), show "NO NEARBY ASSETS DETECTED" and keep the manual selector open.
+### 5. Store Changes Summary
+
+**`src/store/useSpinStore.ts`** new state fields:
+
+```text
+topResults: City[]          // top 3 scored cities
+matchReasons: Map<string, string>  // cityId -> reason string
+```
+
+New exported function: `selectResult(index: number)` -- swaps a runner-up into the primary slot.
 
 ---
 
@@ -66,17 +109,18 @@ The `haversineKm` function already exists in `src/lib/distance.ts` and is export
 
 | File | Action |
 |------|--------|
-| `src/components/PreferencesModal.tsx` | Add "Locate Me" button, "SHORT RANGE" preset, geolocation logic |
-| `src/components/OriginSelector.tsx` | Add mini "Locate Me" button with same geolocation logic |
-| `src/components/SEO.tsx` | New reusable SEO component |
-| `src/App.tsx` | Wrap in `HelmetProvider` |
-| `src/pages/Index.tsx` | Add dynamic `<SEO />` based on app phase |
-| `package.json` | Add `react-helmet-async` dependency |
+| `src/lib/scoring.ts` | Add `scoreCityForPreferences()` with vibe-weighted logic |
+| `src/store/useSpinStore.ts` | Refactor `spin()` to return top 3, add `topResults` state |
+| `src/components/PreferencesModal.tsx` | Rename presets, add subtitles, replace SHORT RANGE |
+| `src/components/TopResultsGrid.tsx` | New component: Top 3 comparison grid |
+| `src/components/ResultCard.tsx` | Minor: accept optional `matchReason` prop |
+| `src/pages/Index.tsx` | Wire up `TopResultsGrid` in results phase |
+| `src/data/cities.ts` | Add city count log at init |
 
 ### Technical Notes
 
-- The geolocation snap uses `haversineKm` against the `origins` array (25 cities), not the full 600-city dataset, since origins are the valid base cities for flight calculations.
-- The "Short Range" preset works with existing filter logic — the spin store already penalizes destinations where estimated flight cost exceeds 60% of budget, which naturally limits results to nearby cities when origin is set.
-- SEO tags update dynamically via react-helmet-async's `<Helmet>` which modifies `document.head` in-place — no SSR required.
-- All new UI elements maintain the Obsidian/Tactical dark aesthetic with `bg-white/[0.03]`, `font-mono`, `tracking-wider`, and dark borders.
+- The vibe-weighted scoring is the critical fix. By giving 25% of the total score to vibe match, "beach" preference will naturally push Hamburg down and Tamarindo up, even if both pass budget/internet filters.
+- Backward compatibility: `resultCity` stays as the primary selection for globe targeting and analytics.
+- The compact runner-up cards use the existing `ScoreRing` component extracted from `ResultCard`.
+- No backend changes needed. All scoring is client-side.
 
