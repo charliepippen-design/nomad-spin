@@ -200,6 +200,7 @@ function Earth({
   autoSpin,
   userDragging,
   initialRotationY,
+  focusCity,
   onHover,
   onUnhover,
 }: {
@@ -209,6 +210,7 @@ function Earth({
   autoSpin: boolean;
   userDragging: boolean;
   initialRotationY: number;
+  focusCity?: City | null;
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
@@ -238,6 +240,18 @@ function Earth({
 
   useFrame((_, delta) => {
     if (!groupRef.current) return;
+
+    // When focusCity is set, smoothly rotate to center that city
+    if (focusCity && !spinning) {
+      const targetRotY = lngToYRotation(focusCity.lng);
+      // Normalize rotation to avoid spinning the long way around
+      const current = groupRef.current.rotation.y;
+      const diff = targetRotY - current;
+      const normalizedDiff = ((diff + Math.PI) % (Math.PI * 2)) - Math.PI;
+      groupRef.current.rotation.y += normalizedDiff * 0.04;
+      speedRef.current = 0;
+      return;
+    }
 
     // Rotation logic:
     // - During casino spin animation: use spinSpeed
@@ -284,14 +298,19 @@ function Earth({
   );
 }
 
-/* ── Camera Rig - only active during resetCamera ── */
-function CameraRig({ resetCamera }: { resetCamera: boolean }) {
+/* ── Camera Rig - handles resetCamera & focusCity zoom ── */
+function CameraRig({ resetCamera, focusCity }: { resetCamera: boolean; focusCity?: City | null }) {
   const { camera } = useThree();
   const idlePos = useMemo(() => new THREE.Vector3(0, 0.3, 5.5), []);
 
   useFrame(() => {
     if (resetCamera) {
       camera.position.lerp(idlePos, 0.06);
+    } else if (focusCity) {
+      // Zoom in and tilt slightly based on latitude
+      const latOffset = (focusCity.lat / 90) * 0.5;
+      const focusPos = new THREE.Vector3(0, 0.3 + latOffset, 4.2);
+      camera.position.lerp(focusPos, 0.04);
     }
   });
 
@@ -305,6 +324,7 @@ interface GlobeProps {
   resetCamera?: boolean;
   dayMode?: boolean;
   autoSpin?: boolean;
+  focusCity?: City | null;
   onAutoSpinOff?: () => void;
   onCityHover?: (city: City | null, pos: { x: number; y: number } | null) => void;
 }
@@ -315,6 +335,7 @@ export default function Globe({
   resetCamera = false,
   dayMode = true,
   autoSpin = false,
+  focusCity = null,
   onAutoSpinOff,
   onCityHover,
 }: GlobeProps) {
@@ -377,12 +398,13 @@ export default function Globe({
             autoSpin={autoSpin}
             userDragging={userDragging}
             initialRotationY={initialRotationY}
+            focusCity={focusCity}
             onHover={handleHover}
             onUnhover={handleUnhover}
           />
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
-          <CameraRig resetCamera={resetCamera} />
+          <CameraRig resetCamera={resetCamera} focusCity={focusCity} />
           {!spinning && (
             <OrbitControls
               enableZoom={true}
