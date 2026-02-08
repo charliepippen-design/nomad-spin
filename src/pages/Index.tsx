@@ -13,6 +13,7 @@ import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
 import OriginSelector from '@/components/OriginSelector';
 import SEO from '@/components/SEO';
+import SocialShareBar from '@/components/SocialShareBar';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
@@ -157,6 +158,7 @@ export default function Index() {
       <SEO
         title={resultCity ? `${resultCity.name} — Nomad Spin` : 'Digital Nomad Spin | Find Your Next Destination'}
         description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
+        city={resultCity}
       />
       {/* Globe */}
       <div className="absolute inset-0 z-0">
@@ -167,6 +169,7 @@ export default function Index() {
             resetCamera={resetCamera}
             dayMode={dayMode}
             autoSpin={autoSpin}
+            focusCity={phase === 'results' ? resultCity : null}
             onAutoSpinOff={() => setAutoSpin(false)}
             onCityHover={handleCityHover}
           />
@@ -411,6 +414,14 @@ export default function Index() {
           return result;
         }}
       />
+      {/* Social Share Bar */}
+      {phase === 'results' && resultCity && (
+        <SocialShareBar
+          cityName={resultCity.name}
+          country={resultCity.country}
+          shareUrl={getShareableUrl()}
+        />
+      )}
     </div>
   );
 }
