@@ -208,24 +208,24 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
   return {
     accommodation: {
       ...accom,
-      label: `SECURE SAFE HOUSE IN ${city.name.toUpperCase()}`,
+      label: `Find Stays in ${city.name}`,
       vertical: 'accommodation',
     },
     flights: {
       ...flights,
       label: originCity
-        ? `INITIATE AIRLIFT FROM ${originCity.toUpperCase()} TO ${city.name.toUpperCase()}`
-        : `INITIATE AIRLIFT TO ${city.name.toUpperCase()}`,
+        ? `Find Flights from ${originCity} to ${city.name}`
+        : `Find Flights to ${city.name}`,
       vertical: 'flights',
     },
     connectivity: {
       ...esim,
-      label: `ESTABLISH COMMS IN ${city.name.toUpperCase()}`,
+      label: `Get eSIM for ${city.name}`,
       vertical: 'esim',
     },
     insurance: {
       ...insurance,
-      label: 'ACTIVATE PROTOCOLS',
+      label: 'Travel Insurance',
       vertical: 'insurance',
     },
   };
