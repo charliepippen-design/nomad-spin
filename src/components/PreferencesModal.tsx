@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair, Globe } from 'lucide-react';
 import { useSpinStore, type VibeOption, type RegionOption } from '@/store/useSpinStore';
-import { origins, type Origin } from '@/data/origins';
+import { origins, cityToOrigin, type Origin } from '@/data/origins';
+import { cities } from '@/data/cities';
 import { Slider } from '@/components/ui/slider';
 import { useSoundManager } from '@/hooks/useSoundManager';
 import { useGeolocation } from '@/hooks/useGeolocation';
@@ -172,10 +173,23 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     setOriginSearch('');
   };
 
-  const filteredOrigins = origins.filter(o =>
-    o.name.toLowerCase().includes(originSearch.toLowerCase()) ||
-    o.country.toLowerCase().includes(originSearch.toLowerCase())
-  );
+  // Build combined searchable list: 25 curated origins + all 600+ cities (deduped)
+  const allSearchableOrigins = useMemo(() => {
+    const originIds = new Set(origins.map(o => o.id));
+    const citiesAsOrigins = cities
+      .filter(c => !originIds.has(c.id))
+      .map(c => cityToOrigin(c));
+    const combined = [...origins, ...citiesAsOrigins];
+    console.info(`[NomadSpin] Searchable origins: ${combined.length} cities`);
+    return combined;
+  }, []);
+
+  const filteredOrigins = originSearch.trim()
+    ? allSearchableOrigins.filter(o =>
+        o.name.toLowerCase().includes(originSearch.toLowerCase()) ||
+        o.country.toLowerCase().includes(originSearch.toLowerCase())
+      )
+    : allSearchableOrigins;
 
   const hasOrigin = preferences.origin && preferences.origin.id !== 'anywhere';
   const impossible = filteredCities.length === 0;

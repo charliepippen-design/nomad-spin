@@ -33,3 +33,8 @@ export const origins: Origin[] = [
   { id: "los-angeles-us", name: "Los Angeles", country: "USA", lat: 34.0522, lng: -118.2437 },
   { id: "miami-us", name: "Miami", country: "USA", lat: 25.7617, lng: -80.1918 },
 ];
+
+/** Convert a City object to an Origin object */
+export function cityToOrigin(city: { id: string; name: string; country: string; lat: number; lng: number }): Origin {
+  return { id: city.id, name: city.name, country: city.country, lat: city.lat, lng: city.lng };
+}
