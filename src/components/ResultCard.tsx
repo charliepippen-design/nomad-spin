@@ -12,6 +12,7 @@ import confetti from 'canvas-confetti';
 interface ResultCardProps {
   city: City;
   matchScore: number;
+  matchReason?: string;
   intel: string[];
   risks: string[];
   originCity?: string;
@@ -72,7 +73,7 @@ function ScoreRing({ score }: { score: number }) {
   );
 }
 
-export default function ResultCard({ city, matchScore, intel, risks, originCity, onSave, onRespin, onShare }: ResultCardProps) {
+export default function ResultCard({ city, matchScore, matchReason, intel, risks, originCity, onSave, onRespin, onShare }: ResultCardProps) {
   const affiliateLinks = generateAffiliateLinks(city, originCity);
 
   useEffect(() => {

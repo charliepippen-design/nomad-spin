@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair } from 'lucide-react';
+import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair, Globe } from 'lucide-react';
 import { useSpinStore, type VibeOption, type RegionOption } from '@/store/useSpinStore';
 import { origins, type Origin } from '@/data/origins';
 import { Slider } from '@/components/ui/slider';
@@ -27,42 +27,49 @@ const regionOptions: { label: string; value: RegionOption }[] = [
   { label: 'N. AMERICA', value: 'North America' },
 ];
 
+// PresetConfig is defined below with presets array
+
 interface PresetConfig {
   label: string;
+  subtitle: string;
   icon: React.ReactNode;
   budget: [number, number];
   internet: number;
   safety: number;
   vibes: VibeOption[];
   region: RegionOption;
+  action?: 'scrollToRegion';
 }
 
 const presets: PresetConfig[] = [
   {
-    label: 'BOOTSTRAPPER',
+    label: 'BUDGET SAVER',
+    subtitle: 'Cost < $1,500',
     icon: <Zap className="w-3.5 h-3.5" />,
-    budget: [500, 1200],
-    internet: 40,
-    safety: 6,
-    vibes: ['workhub', 'foodie'],
+    budget: [500, 1500],
+    internet: 20,
+    safety: 5,
+    vibes: [],
     region: 'All',
   },
   {
-    label: 'EXECUTIVE',
+    label: 'HIGH COMFORT',
+    subtitle: 'Fast + Safe',
     icon: <Briefcase className="w-3.5 h-3.5" />,
-    budget: [2000, 5000],
+    budget: [1500, 5000],
     internet: 150,
     safety: 8,
-    vibes: ['workhub', 'party'],
+    vibes: [],
     region: 'All',
   },
   {
-    label: 'DEEP FOCUS',
+    label: 'QUIET / PRODUCTIVE',
+    subtitle: 'Low nightlife',
     icon: <Mountain className="w-3.5 h-3.5" />,
-    budget: [800, 2000],
+    budget: [500, 3000],
     internet: 50,
-    safety: 7,
-    vibes: ['mountain', 'workhub'],
+    safety: 6,
+    vibes: ['workhub', 'mountain'],
     region: 'All',
   },
 ];
@@ -232,23 +239,24 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       <button
                         key={preset.label}
                         onClick={() => applyPreset(preset)}
-                        className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
+                        className="flex flex-col items-center gap-1 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                       >
                         <span className="text-muted-foreground group-hover:text-foreground transition-colors">{preset.icon}</span>
-                        <span className="text-[9px] font-mono tracking-[0.12em] text-muted-foreground group-hover:text-foreground transition-colors">{preset.label}</span>
+                        <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">{preset.label}</span>
+                        <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">{preset.subtitle}</span>
                       </button>
                     ))}
-                    {/* SHORT RANGE preset */}
+                    {/* PREFERRED REGION preset */}
                     <button
-                      onClick={applyShortRange}
-                      className={`flex flex-col items-center gap-1.5 py-3 px-2 rounded-sm border transition-all group ${
-                        isShortRange
-                          ? 'border-destructive/50 bg-destructive/10 text-destructive'
-                          : 'border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20'
-                      }`}
+                      onClick={() => {
+                        const regionSection = document.getElementById('region-section');
+                        if (regionSection) regionSection.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="flex flex-col items-center gap-1 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                     >
-                      <Crosshair className={`w-3.5 h-3.5 ${isShortRange ? 'text-destructive' : 'text-muted-foreground group-hover:text-foreground'} transition-colors`} />
-                      <span className={`text-[9px] font-mono tracking-[0.12em] ${isShortRange ? 'text-destructive' : 'text-muted-foreground group-hover:text-foreground'} transition-colors`}>SHORT RANGE</span>
+                      <Globe className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">REGION</span>
+                      <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">Pick sector</span>
                     </button>
                   </div>
                 </div>
@@ -390,7 +398,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Region */}
-                  <div className="py-6">
+                  <div id="region-section" className="py-6">
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
                       OPERATIONAL SECTOR
                     </label>
@@ -416,7 +424,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-black/90 backdrop-blur-xl border-t border-white/[0.06] px-8 py-4">
                   {/* Mission summary */}
                   <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 leading-relaxed">
-                    {isShortRange ? 'SCANNING LOCAL SECTOR (<1000KM)...' : buildSummary()}
+                    {buildSummary()}
                   </p>
 
                   <div className="flex items-center justify-between mb-3">

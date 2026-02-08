@@ -8,6 +8,7 @@ import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring
 import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
+import TopResultsGrid from '@/components/TopResultsGrid';
 import SavedSpins from '@/components/SavedSpins';
 import AuthModal from '@/components/AuthModal';
 import OriginSelector from '@/components/OriginSelector';
@@ -28,7 +29,7 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
   const sound = useSoundManager();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
@@ -110,7 +111,6 @@ export default function Index() {
       sound.playResult();
       setPhase('results');
       clearInterval(tickIntervalRef.current);
-      // Sync streaks to cloud
       if (auth.isAuthenticated) {
         cloudSync.syncStreaks();
       }
@@ -140,9 +140,11 @@ export default function Index() {
     }
   }, [resultCity, getShareableUrl]);
 
-  const matchScore = resultCity
+  // Use the top result's score if available, otherwise fallback to legacy
+  const primaryScored = topResults[0];
+  const matchScore = primaryScored?.score ?? (resultCity
     ? calculateMatchScore(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.safetyMin, preferences.origin)
-    : 0;
+    : 0);
 
   const intel = resultCity
     ? generateIntel(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin)
@@ -346,21 +348,28 @@ export default function Index() {
                   TARGET ACQUIRED
                 </motion.p>
 
-                <ResultCard
-                  city={resultCity}
-                  matchScore={matchScore}
-                  intel={intel}
-                  risks={risks}
-                  originCity={preferences.origin?.name}
-                  onSave={() => {
-                    saveResult();
-                    if (auth.isAuthenticated) {
-                      const latestSpin = useSpinStore.getState().savedSpins.at(-1);
-                      if (latestSpin) cloudSync.saveSpin(latestSpin);
-                    }
-                  }}
-                  onRespin={handleRespin}
-                  onShare={handleShare}
+                <TopResultsGrid
+                  topResults={topResults}
+                  onSelectResult={(index) => selectResult(index)}
+                  primaryContent={
+                    <ResultCard
+                      city={resultCity}
+                      matchScore={matchScore}
+                      matchReason={primaryScored?.reason}
+                      intel={intel}
+                      risks={risks}
+                      originCity={preferences.origin?.name}
+                      onSave={() => {
+                        saveResult();
+                        if (auth.isAuthenticated) {
+                          const latestSpin = useSpinStore.getState().savedSpins.at(-1);
+                          if (latestSpin) cloudSync.saveSpin(latestSpin);
+                        }
+                      }}
+                      onRespin={handleRespin}
+                      onShare={handleShare}
+                    />
+                  }
                 />
 
                 <motion.button
@@ -393,7 +402,6 @@ export default function Index() {
         onSignUp={async (email, password, name) => {
           const result = await auth.signUp(email, password, name);
           if (!result.error) {
-            // Migrate local data after signup
             setTimeout(() => cloudSync.migrateLocalData(), 1000);
           }
           return result;

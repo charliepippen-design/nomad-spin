@@ -1,12 +1,15 @@
 import { City } from '@/data/cities';
 import { Origin } from '@/data/origins';
 import { haversineKm } from '@/lib/distance';
+import type { VibeOption } from '@/store/useSpinStore';
+
+// ── Legacy scoring (kept for backward compat) ──
 
 export interface ScoringWeights {
-  budget: number;      // 0-100
-  internet: number;    // 0-100
-  safety: number;      // 0-100
-  proximity: number;   // 0-100 (only if origin set)
+  budget: number;
+  internet: number;
+  safety: number;
+  proximity: number;
 }
 
 const defaultWeights: ScoringWeights = {
@@ -16,41 +19,35 @@ const defaultWeights: ScoringWeights = {
   proximity: 20,
 };
 
-/** Non-linear budget penalty: slight overage = small penalty, massive = -100 */
 function budgetScore(cityCost: number, budgetMax: number): number {
   if (cityCost <= budgetMax) {
-    // Under budget: reward, closer to max = better utilization
     return 80 + (cityCost / budgetMax) * 20;
   }
   const overage = (cityCost - budgetMax) / budgetMax;
-  if (overage < 0.1) return 70 - overage * 200;  // slight: 70→50
-  if (overage < 0.3) return 50 - (overage - 0.1) * 250; // moderate: 50→0
-  return Math.max(-100, -(overage * 200)); // massive: hard penalty
+  if (overage < 0.1) return 70 - overage * 200;
+  if (overage < 0.3) return 50 - (overage - 0.1) * 250;
+  return Math.max(-100, -(overage * 200));
 }
 
-/** Internet score: normalized against user's minimum requirement */
 function internetScore(cityMbps: number, minMbps: number): number {
   if (cityMbps < minMbps) return Math.max(0, (cityMbps / minMbps) * 40);
   const excess = (cityMbps - minMbps) / Math.max(minMbps, 1);
   return 60 + Math.min(40, excess * 20);
 }
 
-/** Safety score: simple 0-10 → 0-100 mapping */
 function safetyScore(citySafety: number, minSafety: number): number {
   if (citySafety < minSafety) return Math.max(0, (citySafety / minSafety) * 30);
   return 50 + citySafety * 5;
 }
 
-/** Proximity bonus/penalty based on distance and budget */
 function proximityScore(distKm: number, budgetMax: number): number {
-  // Low budget + far = big penalty
-  const budgetFactor = budgetMax / 3000; // normalized
-  const distPenalty = distKm / 20000; // normalized
+  const budgetFactor = budgetMax / 3000;
+  const distPenalty = distKm / 20000;
   const score = 100 - (distPenalty * 100) / Math.max(budgetFactor, 0.3);
   return Math.max(0, Math.min(100, score));
 }
 
-/** Calculate weighted match score 0-99 */
+/** Legacy: Calculate weighted match score 0-99 */
 export function calculateMatchScore(
   city: City,
   budgetMax: number,
@@ -59,12 +56,11 @@ export function calculateMatchScore(
   origin: Origin | null,
 ): number {
   const w = defaultWeights;
-
   const bScore = budgetScore(city.costUSD, budgetMax);
   const iScore = internetScore(city.internetMbps, internetMin);
   const sScore = safetyScore(city.safety, safetyMin);
 
-  let pScore = 50; // neutral if no origin
+  let pScore = 50;
   let totalWeight = w.budget + w.internet + w.safety;
 
   if (origin && origin.id !== 'anywhere') {
@@ -81,6 +77,110 @@ export function calculateMatchScore(
   ) / totalWeight;
 
   return Math.max(0, Math.min(99, Math.round(weighted)));
+}
+
+// ── New: Preference-Weighted Scoring (0-100) ──
+
+export interface ScoredCity {
+  city: City;
+  score: number;
+  reason: string;
+  breakdown: {
+    budget: number;
+    internet: number;
+    safety: number;
+    vibe: number;
+    proximity: number;
+  };
+}
+
+/** Score a city against full user preferences. Returns 0-100. */
+export function scoreCityForPreferences(
+  city: City,
+  budgetMax: number,
+  internetMin: number,
+  safetyMin: number,
+  vibes: VibeOption[],
+  origin: Origin | null,
+): ScoredCity {
+  // Budget (0-30): non-linear curve
+  let bRaw: number;
+  if (city.costUSD <= budgetMax) {
+    bRaw = 80 + (city.costUSD / budgetMax) * 20; // 80-100
+  } else {
+    const overage = (city.costUSD - budgetMax) / budgetMax;
+    bRaw = Math.max(0, 80 - overage * 300);
+  }
+  const bPts = (bRaw / 100) * 30;
+
+  // Internet (0-15): linear above minimum
+  let iRaw: number;
+  if (city.internetMbps < internetMin) {
+    iRaw = Math.max(0, (city.internetMbps / internetMin) * 40);
+  } else {
+    const excess = (city.internetMbps - internetMin) / Math.max(internetMin, 1);
+    iRaw = 60 + Math.min(40, excess * 20);
+  }
+  const iPts = (iRaw / 100) * 15;
+
+  // Safety (0-15): linear above minimum
+  let sRaw: number;
+  if (city.safety < safetyMin) {
+    sRaw = Math.max(0, (city.safety / safetyMin) * 40);
+  } else {
+    sRaw = 60 + Math.min(40, (city.safety - safetyMin) * 10);
+  }
+  const sPts = (sRaw / 100) * 15;
+
+  // Vibe (0-25): overlap between user vibes and city vibes
+  let vPts = 0;
+  if (vibes.length > 0) {
+    const matches = vibes.filter(v => city.vibe.includes(v)).length;
+    vPts = (matches / vibes.length) * 25;
+  } else {
+    vPts = 12.5; // neutral if no vibes selected
+  }
+
+  // Proximity (0-15): distance from origin
+  let pPts = 7.5; // neutral if no origin
+  if (origin && origin.id !== 'anywhere') {
+    const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
+    const pRaw = Math.max(0, 100 - (dist / 200)); // 200km = 1 point penalty
+    pPts = (Math.min(100, pRaw) / 100) * 15;
+  }
+
+  const total = Math.max(0, Math.min(100, Math.round(bPts + iPts + sPts + vPts + pPts)));
+
+  // Determine primary reason
+  const scores = [
+    { key: 'budget', val: bPts / 30 },
+    { key: 'vibe', val: vPts / 25 },
+    { key: 'safety', val: sPts / 15 },
+    { key: 'internet', val: iPts / 15 },
+    { key: 'proximity', val: pPts / 15 },
+  ];
+  scores.sort((a, b) => b.val - a.val);
+
+  const reasonMap: Record<string, string> = {
+    budget: 'BEST FOR BUDGET',
+    vibe: 'IDEAL CLIMATE',
+    safety: 'SAFEST OPTION',
+    internet: 'FASTEST CONNECTIVITY',
+    proximity: 'CLOSEST TO BASE',
+  };
+
+  return {
+    city,
+    score: total,
+    reason: reasonMap[scores[0].key] || 'TOP MATCH',
+    breakdown: {
+      budget: Math.round(bPts),
+      internet: Math.round(iPts),
+      safety: Math.round(sPts),
+      vibe: Math.round(vPts),
+      proximity: Math.round(pPts),
+    },
+  };
 }
 
 /** Generate dynamic "Why This Target?" intel based on user prefs */
@@ -103,7 +203,7 @@ export function generateIntel(
   }
   if (origin && origin.id !== 'anywhere') {
     const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
-    const hours = Math.round(dist / 800); // rough flight time
+    const hours = Math.round(dist / 800);
     intel.push(`~${hours}h flight from ${origin.name}`);
   }
   if (city.meta.visaDays >= 180) {
