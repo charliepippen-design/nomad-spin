@@ -37,10 +37,10 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
   }, [onChange]);
 
   const displayName = geo.acquiredCity
-    ? `LOCKED: ${geo.acquiredCity.toUpperCase()}`
+    ? `Located: ${geo.acquiredCity}`
     : value && value.id !== 'anywhere'
       ? value.name.toUpperCase()
-      : 'BASE: ANYWHERE';
+      : 'LOCATION: ANYWHERE';
 
   return (
     <div className="relative flex items-center gap-1">
@@ -49,7 +49,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
         onClick={geo.locate}
         disabled={geo.locating}
         className="p-1.5 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
-        title="Locate nearest base city"
+        title="Detect my location"
       >
         <Crosshair className={`w-3 h-3 ${geo.locating ? 'animate-spin' : ''}`} />
       </button>

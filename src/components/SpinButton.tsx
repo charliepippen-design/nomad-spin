@@ -5,7 +5,7 @@ interface SpinButtonProps {
   label?: string;
 }
 
-export default function SpinButton({ onClick, label = "CONFIGURE MISSION" }: SpinButtonProps) {
+export default function SpinButton({ onClick, label = "SET PREFERENCES" }: SpinButtonProps) {
   return (
     <motion.button
       onClick={onClick}

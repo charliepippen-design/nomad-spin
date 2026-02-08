@@ -18,7 +18,7 @@ const vibeOptions: { label: string; value: VibeOption }[] = [
 ];
 
 const regionOptions: { label: string; value: RegionOption }[] = [
-  { label: 'ALL SECTORS', value: 'All' },
+  { label: 'ALL REGIONS', value: 'All' },
   { label: 'ASIA', value: 'Asia' },
   { label: 'EUROPE', value: 'Europe' },
   { label: 'LATAM', value: 'LATAM' },
@@ -191,9 +191,9 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     if (preferences.vibes.length > 0) parts.push(preferences.vibes.join('/'));
 
     const origin = hasOrigin ? preferences.origin!.name : 'GLOBAL';
-    const region = preferences.region !== 'All' ? preferences.region : 'all sectors';
+    const region = preferences.region !== 'All' ? preferences.region : 'all regions';
 
-    return `CONFIG: Searching for ${parts.join(', ')} extraction points in ${region} from ${origin}...`;
+    return `Searching for ${parts.join(', ')} destinations in ${region} from ${origin}...`;
   };
 
   return (
@@ -220,7 +220,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 <div className="flex items-center justify-between px-8 pt-8 pb-2">
                   <div>
                     <h2 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                      MISSION CONFIGURATION
+                      TRIP PREFERENCES
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
@@ -232,7 +232,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 {/* Presets */}
                 <div className="px-8 pt-4 pb-2">
                   <label className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 mb-3 block uppercase">
-                    QUICK DEPLOY PRESETS
+                    QUICK PRESETS
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {presets.map((preset) => (
@@ -256,7 +256,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     >
                       <Globe className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
                       <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">REGION</span>
-                      <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">Pick sector</span>
+                      <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">Pick region</span>
                     </button>
                   </div>
                 </div>
@@ -266,7 +266,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Extraction Point */}
                   <div className="py-6 border-b border-white/[0.06]">
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
-                      EXTRACTION POINT
+                      CURRENT LOCATION
                     </label>
                     <div className="relative flex gap-2">
                       {/* Locate Me button */}
@@ -274,7 +274,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         onClick={geo.locate}
                         disabled={geo.locating}
                         className="flex-shrink-0 px-3 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-destructive/50 hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
-                        title="Locate nearest base city"
+                        title="Detect my location"
                       >
                         <Crosshair className={`w-4 h-4 ${geo.locating ? 'animate-spin' : ''}`} />
                       </button>
@@ -284,7 +284,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       >
                         <span className={`font-mono tracking-wider ${geo.acquiredCity ? 'text-destructive typing-effect' : hasOrigin ? 'text-white' : 'text-muted-foreground'}`}>
                           {geo.acquiredCity
-                            ? `COORDINATES ACQUIRED: ${geo.acquiredCity.toUpperCase()}`
+                            ? `Located: ${geo.acquiredCity}`
                             : preferences.origin
                               ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
                               : 'Select origin...'}
@@ -337,7 +337,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Budget */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
-                      RESOURCE ALLOCATION
+                      MONTHLY BUDGET
                     </label>
                     <motion.div
                       animate={budgetAnimating ? { scale: 1.05 } : { scale: 1 }}
@@ -356,7 +356,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Internet */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
-                      BANDWIDTH THRESHOLD
+                      MIN. INTERNET SPEED
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localInternet} MBPS</span>
                     <div className="relative z-10 py-2">
@@ -367,7 +367,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Safety */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
-                      THREAT TOLERANCE
+                      MIN. SAFETY RATING
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localSafety}/10</span>
                     <div className="relative z-10 py-2">
@@ -378,7 +378,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Vibes */}
                   <div className="py-6 border-b border-white/[0.06]">
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
-                      MISSION PROFILE
+                      YOUR VIBE
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {vibeOptions.map((v) => (
@@ -400,7 +400,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Region */}
                   <div id="region-section" className="py-6">
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
-                      OPERATIONAL SECTOR
+                      PREFERRED REGION
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {regionOptions.map((r) => (
@@ -429,7 +429,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
 
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
-                      <span className={`${impossible ? 'text-destructive' : 'text-white'} font-medium`}>{filteredCities.length}</span> TARGETS LOCKED
+                      <span className={`${impossible ? 'text-destructive' : 'text-white'} font-medium`}>{filteredCities.length}</span> DESTINATIONS FOUND
                     </span>
                     <div className="flex gap-2">
                       {impossible && nearMisses.length > 0 && (
@@ -437,7 +437,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           onClick={() => setShowNearMisses(!showNearMisses)}
                           className="text-[10px] font-mono text-foreground/50 hover:text-foreground/80 transition-colors tracking-wider"
                         >
-                          {showNearMisses ? 'HIDE' : `${nearMisses.length} NEAR MISSES`}
+                          {showNearMisses ? 'HIDE' : `${nearMisses.length} CLOSE MATCHES`}
                         </button>
                       )}
                       {impossible && (
@@ -445,7 +445,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternet(10); setLocalSafety(1); }}
                           className="text-[10px] font-mono text-destructive/80 hover:text-destructive transition-colors tracking-wider underline underline-offset-2"
                         >
-                          AUTO-CALIBRATE
+                          RESET FILTERS
                         </button>
                       )}
                     </div>
@@ -484,11 +484,11 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     {impossible ? (
                       <span className="flex items-center justify-center gap-2">
                         <AlertTriangle className="w-4 h-4" />
-                        PARAMETERS IMPOSSIBLE
+                        NO DESTINATIONS MATCH
                       </span>
                     ) : (
                       <>
-                        <span className="relative z-10">INITIATE DROP SEQUENCE</span>
+                        <span className="relative z-10">FIND MY NEXT DESTINATION</span>
                         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_8px,rgba(0,0,0,0.05)_8px,rgba(0,0,0,0.05)_16px)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </>
                     )}
