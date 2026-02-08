@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
 import { Origin, origins as originsData } from '@/data/origins';
-import { haversineKm, estimateFlightCost } from '@/lib/distance';
+import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
+
+// Log dataset size at init
+console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
 export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';
@@ -27,6 +30,7 @@ interface SpinStore {
   preferences: Preferences;
   filteredCities: City[];
   resultCity: City | null;
+  topResults: ScoredCity[];
   savedSpins: SavedSpin[];
   spinCount: number;
   streak: number;
@@ -36,6 +40,7 @@ interface SpinStore {
   setPreferences: (prefs: Partial<Preferences>) => void;
   filterCities: () => void;
   spin: () => void;
+  selectResult: (index: number) => void;
   saveResult: () => void;
   removeSavedSpin: (index: number) => void;
   redeploySpin: (index: number) => void;
@@ -70,7 +75,6 @@ function loadSavedSpins(): SavedSpin[] {
     const raw = localStorage.getItem('savedSpins');
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    // Migrate old format (City[]) to new format (SavedSpin[])
     if (parsed.length > 0 && !parsed[0].city) {
       return parsed.map((city: City) => ({
         city,
@@ -89,6 +93,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   preferences: defaultPreferences,
   filteredCities: cities,
   resultCity: null,
+  topResults: [],
   savedSpins: loadSavedSpins(),
   spinCount: parseInt(localStorage.getItem('spinCount') || '0'),
   streak: parseInt(localStorage.getItem('streak') || '0'),
@@ -103,22 +108,14 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
 
   filterCities: () => {
     const { preferences } = get();
-    const origin = preferences.origin;
-    const isAnywhere = !origin || origin.id === 'anywhere';
-    const budgetMax = preferences.budgetRange[1];
 
     const filtered = cities.filter((city) => {
-      if (city.costUSD < preferences.budgetRange[0] || city.costUSD > preferences.budgetRange[1]) return false;
-      if (city.internetMbps < preferences.internetMin) return false;
-      if (city.safety < preferences.safetyMin) return false;
+      // Hard filter: region
       if (preferences.region !== 'All' && city.region !== preferences.region) return false;
-      if (preferences.vibes.length > 0 && !preferences.vibes.some((v) => city.vibe.includes(v))) return false;
 
-      if (!isAnywhere && origin) {
-        const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
-        const flightCost = estimateFlightCost(dist);
-        if (flightCost > budgetMax * 0.6) return false;
-      }
+      // Soft filter: include cities within 20% budget overage (scoring handles penalty)
+      const budgetCeiling = preferences.budgetRange[1] * 1.2;
+      if (city.costUSD < preferences.budgetRange[0] * 0.8 || city.costUSD > budgetCeiling) return false;
 
       return true;
     });
@@ -127,7 +124,6 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
 
   getNearMisses: () => {
     const { preferences } = get();
-    // Relax filters by 15%
     return cities.filter((city) => {
       const budgetFloor = preferences.budgetRange[0] * 0.85;
       const budgetCeil = preferences.budgetRange[1] * 1.15;
@@ -143,31 +139,23 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const { filteredCities, preferences } = get();
     if (filteredCities.length === 0) return;
 
-    const origin = preferences.origin;
-    const isAnywhere = !origin || origin.id === 'anywhere';
+    // Score ALL filtered cities
+    const scored = filteredCities.map(city =>
+      scoreCityForPreferences(
+        city,
+        preferences.budgetRange[1],
+        preferences.internetMin,
+        preferences.safetyMin,
+        preferences.vibes,
+        preferences.origin,
+      )
+    );
 
-    const weights = filteredCities.map((city) => {
-      let score = 50;
-      const budgetCenter = (preferences.budgetRange[0] + preferences.budgetRange[1]) / 2;
-      score += Math.max(0, 20 - Math.abs(city.costUSD - budgetCenter) / 50);
-      score += city.safety * 2;
-      score += Math.min(city.internetMbps / 10, 15);
+    // Sort descending by score
+    scored.sort((a, b) => b.score - a.score);
 
-      if (!isAnywhere && origin) {
-        const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
-        score += Math.max(0, 20 - dist / 500);
-      }
-
-      return score;
-    });
-
-    const totalWeight = weights.reduce((a, b) => a + b, 0);
-    let random = Math.random() * totalWeight;
-    let selectedIndex = 0;
-    for (let i = 0; i < weights.length; i++) {
-      random -= weights[i];
-      if (random <= 0) { selectedIndex = i; break; }
-    }
+    // Top 3
+    const top3 = scored.slice(0, 3);
 
     const newCount = get().spinCount + 1;
     const today = new Date().toISOString().split('T')[0];
@@ -178,11 +166,18 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     localStorage.setItem('lastSpinDate', today);
 
     set({
-      resultCity: filteredCities[selectedIndex],
+      resultCity: top3[0]?.city || null,
+      topResults: top3,
       spinCount: newCount,
       streak: newStreak,
       lastSpinDate: today,
     });
+  },
+
+  selectResult: (index: number) => {
+    const { topResults } = get();
+    if (index < 0 || index >= topResults.length) return;
+    set({ resultCity: topResults[index].city });
   },
 
   saveResult: () => {
@@ -215,10 +210,10 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     get().filterCities();
   },
 
-  reset: () => set({ phase: 'landing', resultCity: null }),
+  reset: () => set({ phase: 'landing', resultCity: null, topResults: [] }),
 
   resetForRespin: () => {
-    set({ resultCity: null, phase: 'landing' });
+    set({ resultCity: null, topResults: [], phase: 'landing' });
     get().filterCities();
   },
 
