@@ -1,113 +1,40 @@
 
 
-## Persistent Social Bar, Clear CTA, Trust Section, and Navigation Refinements
+## Improve City Name Readability and Dynamic Hero Images
 
-### Overview
+### 1. City Name Readability (ResultCard.tsx)
 
-This plan adds five major upgrades: (1) a responsive social share bar always visible, (2) a compelling headline + primary CTA on the landing screen, (3) a "How it Works" trust section below the fold, (4) refined navigation links, and (5) performance and accessibility enhancements throughout.
+**Current state**: The city name uses `font-light` weight with a `drop-shadow-lg` over a gradient overlay (`from-black via-black/40 to-transparent`). On bright or busy images, the thin text can still be hard to read.
 
----
+**Changes to `src/components/ResultCard.tsx`**:
 
-### 1. Persistent Social Share Bar (Desktop + Mobile)
+- **Stronger gradient overlay**: Change from `bg-gradient-to-t from-black via-black/40 to-transparent` to `bg-gradient-to-t from-black via-black/60 to-black/10` -- this ensures more consistent darkness behind the text area.
+- **Bolder city name**: Change `font-light` to `font-medium` on the h2 element and add a stronger text shadow using inline style (`textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6)'`).
+- **Increase size slightly**: Change from `text-2xl md:text-3xl` to `text-2xl md:text-4xl` for better visual impact.
+- **Country code contrast**: Change `text-white/60` on the country code span to `text-white/80` for better readability.
+- **Sub-info text**: Bump the location/region text from `text-white/70` to `text-white/80` and from `text-[10px]` to `text-[11px]`.
+- **Add a subtle frosted bar**: Add `bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3` wrapper around the text content inside the absolute-positioned bottom container, creating a soft frosted bar effect that ensures readability regardless of image content.
 
-**Current state**: `SocialShareBar.tsx` only renders when `phase === 'results'` and is always a vertical left-pinned bar.
+### 2. Dynamic City Images -- Already Working, Expand Coverage
 
-**Changes**:
-- Move `<SocialShareBar>` rendering outside the phase conditional in `Index.tsx` so it is always visible.
-- Remove city-specific share text when no result is selected -- fall back to generic app share text ("Discover your next digital nomad destination with Nomad Spin!").
-- Add Telegram button alongside the existing X, WhatsApp, Facebook, LinkedIn, and Copy Link.
-- Use `useIsMobile()` hook to switch layout:
-  - **Desktop**: Vertical bar, `fixed left-4 top-1/2 -translate-y-1/2 z-20`, centered vertically.
-  - **Mobile**: Horizontal bar, `fixed bottom-16 left-0 right-0 z-20 flex-row justify-center`, above system UI.
-- Add `aria-label` attributes and keyboard focus styles (`focus-visible:ring-2`) for accessibility.
-- Share URLs include UTM parameters: `?utm_source=nomadspin&utm_medium=social&utm_campaign=share`.
-- Add small hover scale animation (`hover:scale-110 transition-transform duration-200`).
-- Ensure the bar does not overlap with the globe canvas by using `pointer-events-auto` only on the bar itself, not the container.
+The `getCityImageUrl()` in `src/data/cityImages.ts` already maps 60+ cities to curated Unsplash CDN URLs with region fallbacks. No API key is needed. This is already functional.
 
-**Files**:
-- EDIT: `src/components/SocialShareBar.tsx` -- Add Telegram icon, responsive layout, UTM params, always-visible mode, accessibility.
-- EDIT: `src/pages/Index.tsx` -- Render SocialShareBar unconditionally, pass dynamic props.
-
----
-
-### 2. Clear Primary CTA and Headline (Landing Phase)
-
-**Current state**: Landing shows a small "WHERE TO NEXT?" text and a "SET PREFERENCES" button.
-
-**Changes**:
-- Replace "WHERE TO NEXT?" with a two-line hero block:
-  - **Headline**: "Spin the globe. Find your next digital nomad base." (larger text, `text-lg md:text-2xl font-mono`)
-  - **Subheadline**: "Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place." (smaller, `text-xs text-muted-foreground`)
-- Change SpinButton label from "SET PREFERENCES" to "Spin and Compare Destinations".
-- Style the button with a subtle glow/gradient border to make it unmissable.
-- Keep everything above the fold by positioning in the existing `justify-end pb-8` flex container (which overlays the globe).
-
-**Files**:
-- EDIT: `src/pages/Index.tsx` -- Replace landing phase content with headline, subheadline, and renamed CTA.
-
----
-
-### 3. Trust and Clarity Section (Below the Fold)
-
-**Current state**: No content below the fold at all.
-
-**Changes**:
-- Add a new `HowItWorks` component rendered below the main content area (after the globe + overlay).
-- Only visible on the landing phase (hidden during spinning/results to keep focus on results).
-- Content:
-  - **3-step process**: "1. Spin and select a city. 2. Compare key metrics. 3. Book what you need."
-  - **3 benefit bullets**: "Avoid slow internet traps", "Optimize cost vs. quality of life", "Plan trips in minutes instead of days".
-  - Small paragraph about data: "Our dataset covers 600+ cities worldwide with curated cost, internet, safety, and visa data."
-- Styled with glass cards, `max-w-3xl mx-auto`, consistent with the premium aesthetic.
-- Uses `pointer-events-auto` so it is scrollable and interactive.
-
-**Files**:
-- NEW: `src/components/HowItWorks.tsx` -- The trust/clarity section component.
-- EDIT: `src/pages/Index.tsx` -- Render HowItWorks below the main content when phase is landing.
-
----
-
-### 4. Navigation Refinements
-
-**Current state**: Header only has "NOMAD SPIN" logo and utility buttons (auto-spin, day/night, mute, auth).
-
-**Changes**:
-- Add three nav links in the header (desktop only, hidden on mobile to avoid clutter):
-  - "Explore" -- scrolls to or triggers the preferences modal.
-  - "How it Works" -- smooth scrolls to the HowItWorks section.
-  - "About" -- could link to a future page or scroll to a small footer.
-- On mobile, these links collapse into a simple menu or are accessible via the trust section itself.
-- Style: `text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors`.
-- Keep the header light -- no heavy navbar, just subtle text links.
-
-**Files**:
-- EDIT: `src/pages/Index.tsx` -- Add nav links in header section.
-
----
-
-### 5. Performance and UX Details
-
-**Changes across multiple files**:
-- Social bar buttons get `tabIndex={0}`, `role="button"` (for copy), and `aria-label` for screen readers.
-- Share URLs use `getShareableUrl()` with appended UTM parameters for tracking.
-- The social bar container uses `will-change: transform` to hint GPU compositing and avoid layout shift.
-- The HowItWorks section uses `loading="lazy"` pattern (only renders when in viewport via intersection observer or simply by being below fold).
-
----
+**Minor enhancement to `src/data/cityImages.ts`**:
+- No structural changes needed -- the system already works with curated photo IDs, region fallbacks, and a generic default.
+- The existing implementation at line 81 in `ResultCard.tsx` (`getCityImageUrl(city.id, city.region, 800)`) correctly loads city-specific images.
 
 ### Summary of File Changes
 
 | File | Action | What |
 |------|--------|------|
-| `src/components/SocialShareBar.tsx` | EDIT | Add Telegram, responsive desktop/mobile layout, UTM params, always-visible, a11y |
-| `src/components/HowItWorks.tsx` | NEW | Trust section with 3-step process, benefits, data paragraph |
-| `src/pages/Index.tsx` | EDIT | Render SocialShareBar always, add headline/subheadline, render HowItWorks, add nav links |
+| `src/components/ResultCard.tsx` | EDIT | Stronger gradient overlay, bolder/larger city name, text shadow, frosted bar behind text, improved contrast on sub-text |
 
-### Technical Notes
+### Technical Details
 
-- The `useIsMobile()` hook already exists at `src/hooks/use-mobile.tsx` with a 768px breakpoint.
-- No new dependencies required -- all built with existing framer-motion, lucide-react, and Tailwind.
-- The trust section only renders on landing phase to avoid cluttering the results view.
-- UTM parameters use the existing `buildUtmParams` utility pattern from the affiliate engine.
-- The social bar z-index (20) stays below the noise overlay (9999) and above the globe (0).
+The key CSS changes on the hero section (lines 108-136 of ResultCard.tsx):
+- Gradient overlay: `from-black via-black/60 to-black/10`
+- City name: `font-medium` + inline `textShadow`
+- Frosted bar: `bg-black/30 backdrop-blur-sm rounded-lg` wrapping the text block
+- All changes maintain the existing premium glass aesthetic
+- Contrast ratio will exceed WCAG AA (4.5:1) for the white-on-dark text
 
