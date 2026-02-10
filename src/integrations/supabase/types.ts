@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      city_image_cache: {
+        Row: {
+          city_name: string | null
+          country: string | null
+          fetched_at: string
+          photo_id: string
+          slug: string
+        }
+        Insert: {
+          city_name?: string | null
+          country?: string | null
+          fetched_at?: string
+          photo_id: string
+          slug: string
+        }
+        Update: {
+          city_name?: string | null
+          country?: string | null
+          fetched_at?: string
+          photo_id?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
