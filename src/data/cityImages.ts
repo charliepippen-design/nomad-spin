@@ -91,7 +91,7 @@ const DEFAULT_FALLBACK = '1488646953014-85cb44e25828'; // generic travel
  * Get a high-quality Unsplash CDN URL for a city.
  */
 export function getCityImageUrl(cityId: string, region: string, width = 800): string {
-  const slug = cityId.toLowerCase();
+  const slug = cityId.toLowerCase().replace(/-[a-z]{2}$/, '');
   const photoId = CITY_PHOTOS[slug] ?? REGION_FALLBACKS[region] ?? DEFAULT_FALLBACK;
   return `https://images.unsplash.com/photo-${photoId}?w=${width}&h=${Math.round(width * 0.56)}&fit=crop&auto=format&q=80`;
 }
