@@ -187,10 +187,8 @@ function buildInsuranceUrl(city: string): { url: string; partner: string } {
 export function buildVisaUrl(
   city: string,
   countryCode: string,
-): { url: string; partner: string } | null {
-  const base = import.meta.env.VITE_VISA_PARTNER_BASE_URL;
-  if (!base) return null;
-
+): { url: string; partner: string } {
+  const base = import.meta.env.VITE_VISA_PARTNER_BASE_URL || 'https://www.ivisa.com';
   const citySlug = slugify(city);
   const utms = buildUtmParams(citySlug, 'visa');
   const sep = base.includes('?') ? '&' : '?';
@@ -212,7 +210,7 @@ export interface AffiliateLinks {
   flights: AffiliateLinkData;
   connectivity: AffiliateLinkData;
   insurance: AffiliateLinkData;
-  visa: AffiliateLinkData | null;
+  visa: AffiliateLinkData;
 }
 
 interface CityInput {
@@ -256,8 +254,6 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
       label: 'Travel Insurance',
       vertical: 'insurance',
     },
-    visa: visa
-      ? { ...visa, label: `Check visa options`, vertical: 'visa' as Vertical }
-      : null,
+    visa: { ...visa, label: `Check visa options`, vertical: 'visa' as Vertical },
   };
 }
