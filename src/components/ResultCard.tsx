@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTriangle, Zap, Globe, Clock, ExternalLink } from 'lucide-react';
+import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTriangle, Zap, Globe, Clock, ExternalLink, Info } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import UnsplashAttribution from '@/components/UnsplashAttribution';
 import { City } from '@/data/cities';
 import { Button } from '@/components/ui/button';
@@ -160,12 +161,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 
           {/* Tactical Data Grid */}
           <div className="grid grid-cols-2 gap-px bg-border/10 mx-6 mt-4 rounded-lg overflow-hidden">
-            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="MONTHLY COST" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
-            <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} />
-            <StatItem icon={<Shield className="w-3.5 h-3.5" />} label="SAFETY SCORE" value={`${city.safety}/10`} />
-            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="VISA LENGTH" value={`${city.meta.visaDays}D`} />
-            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="ACCOMMODATION" value={`$${city.financials.airbnbMedian} / mo`} tooltip="Approx. average monthly rent or mid-term stay cost for a 1-bedroom or studio." />
-            <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}`} />
+            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="TOTAL COST" value={`$${city.financials.costNomadSingle.toLocaleString()}/mo`} tooltip="Estimated total monthly living cost for a single digital nomad (rent, food, transport, etc.)." />
+            <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} tooltip="Average download speed from fixed broadband and coworking spaces." />
+            <StatItem icon={<Shield className="w-3.5 h-3.5" />} label="SAFETY" value={`${city.safety}/10`} tooltip="Composite safety score (1–10) based on crime rates, political stability, and traveler reports." />
+            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="TYPICAL STAY" value={`${city.meta.visaDays} days`} tooltip="Approximate maximum stay for many nationalities; actual rules depend on your passport." />
+            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="ACCOM. (NIGHTLY)" value={`$${city.financials.airbnbMedian}/night`} tooltip="Approximate median nightly price for a 1-bedroom or studio on Airbnb / similar platforms." />
+            <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}/mo`} tooltip="Estimated monthly cost for stays of 3+ months, including lower rent and local pricing." />
           </div>
 
           {/* Divider */}
@@ -258,10 +259,26 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 
 function StatItem({ icon, label, value, tooltip }: { icon: React.ReactNode; label: string; value: string; tooltip?: string }) {
   return (
-    <div className="flex items-center gap-2.5 p-3.5 bg-white/[0.02] group relative" title={tooltip}>
+    <div className="flex items-center gap-2.5 p-3.5 bg-white/[0.02]">
       <span className="text-muted-foreground/80">{icon}</span>
-      <div className="min-w-0">
-        <p className="text-[9px] font-mono font-medium text-foreground/60 tracking-[0.12em] truncate uppercase">{label}</p>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1">
+          <p className="text-[9px] font-mono font-medium text-foreground/60 tracking-[0.12em] truncate uppercase">{label}</p>
+          {tooltip && (
+            <TooltipProvider delayDuration={200}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button type="button" className="text-muted-foreground/40 hover:text-foreground/60 transition-colors pointer-events-auto" aria-label={`Info about ${label}`}>
+                    <Info className="w-3 h-3" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="max-w-[220px] text-xs">
+                  {tooltip}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+        </div>
         <p className="text-base font-mono font-semibold text-foreground tabular-nums">{value}</p>
       </div>
     </div>
