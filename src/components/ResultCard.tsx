@@ -112,23 +112,24 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             loading="lazy"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
           <div className="absolute bottom-0 left-0 right-0 p-6 pb-4">
             <div className="flex items-end gap-4">
               <ScoreRing score={matchScore} />
-              <div className="flex-1 min-w-0 pb-1">
+              <div className="flex-1 min-w-0 pb-1 bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3">
                 <motion.h2
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="text-2xl md:text-3xl font-mono font-light tracking-[0.15em] text-white truncate uppercase drop-shadow-lg"
+                  className="text-2xl md:text-4xl font-mono font-medium tracking-[0.15em] text-white truncate uppercase"
+                  style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6)' }}
                 >
-                  {city.name} <span className="text-white/60">// {city.countryCode}</span>
+                  {city.name} <span className="text-white/80">// {city.countryCode}</span>
                 </motion.h2>
-                <div className="flex items-center gap-2 text-white/70 mt-1">
+                <div className="flex items-center gap-2 text-white/80 mt-1">
                   <MapPin className="w-3 h-3" />
-                  <span className="text-[10px] font-mono tracking-wider">{city.country} · {city.region}</span>
-                  <span className="text-[10px] font-mono tracking-wider text-white/40">{city.meta.timeZoneUtc}</span>
+                  <span className="text-[11px] font-mono tracking-wider">{city.country} · {city.region}</span>
+                  <span className="text-[11px] font-mono tracking-wider text-white/50">{city.meta.timeZoneUtc}</span>
                 </div>
               </div>
             </div>
