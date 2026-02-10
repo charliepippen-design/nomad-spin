@@ -15,7 +15,8 @@ import OriginSelector from '@/components/OriginSelector';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import HowItWorks from '@/components/HowItWorks';
-import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
@@ -206,103 +207,167 @@ export default function Index() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header */}
-        <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-4">
-          <div className="flex items-center gap-6">
-            <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
+        <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-3">
+          {/* LEFT: Brand + Nav */}
+          <div className="flex items-center gap-5">
+            <h1 className="font-mono text-xs tracking-[0.25em] text-foreground/80 uppercase font-medium">
               NOMAD SPIN
             </h1>
-            {/* Nav links — desktop only */}
             {!isMobile && (
               <nav className="flex items-center gap-4">
                 <button
                   onClick={handleConfigureMission}
-                  className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase"
+                  className="text-[11px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
                 >
                   Explore
                 </button>
                 <button
                   onClick={handleScrollToHowItWorks}
-                  className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase"
+                  className="text-[11px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
                 >
                   How it Works
                 </button>
               </nav>
             )}
           </div>
-          <div className="flex items-center gap-3">
-            {/* Auto-spin Toggle */}
-            <button
-              onClick={() => setAutoSpin(s => !s)}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-sm border transition-colors ${
-                autoSpin
-                  ? 'border-primary/50 bg-primary/10 text-primary'
-                  : 'border-border/50 bg-white/[0.03] text-muted-foreground hover:bg-white/[0.06]'
-              }`}
-              aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
-              title={autoSpin ? 'Auto-rotate: ON' : 'Auto-rotate: OFF'}
-            >
-              <Globe2 className="w-3 h-3" />
-              <span className="text-[10px] font-mono tracking-wider">
-                {autoSpin ? 'SPIN ON' : 'SPIN OFF'}
-              </span>
-            </button>
-            {/* Day/Night Toggle */}
-            <button
-              onClick={() => setDayMode(d => !d)}
-              className="p-2 rounded-sm hover:bg-white/5 transition-colors text-muted-foreground"
-              aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
-              title={dayMode ? 'Night mode' : 'Day mode'}
-            >
-              {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-            </button>
-            {/* Streak Badge */}
-            {streak > 0 && (
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03]">
-                <Flame className="w-3 h-3 text-destructive" />
-                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
-                  {streak}D STREAK
+
+          {/* CENTER: Streak + Spins (desktop only) */}
+          {!isMobile && (
+            <div className="flex items-center gap-3">
+              {streak > 0 && (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03]">
+                  <Flame className="w-3.5 h-3.5 text-orange-400" />
+                  <span className="text-[11px] font-mono text-foreground/70 tracking-wider font-medium">
+                    {streak}D STREAK
+                  </span>
+                </div>
+              )}
+              {spinCount > 0 && (
+                <span className="text-[11px] font-mono text-muted-foreground tracking-wider">
+                  {spinCount} spins
                 </span>
-              </div>
-            )}
-            <button
-              onClick={sound.toggleMute}
-              className="p-2 rounded-sm hover:bg-white/5 transition-colors text-muted-foreground"
-              aria-label={sound.muted ? 'Unmute' : 'Mute'}
-            >
-              {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-            </button>
-            {spinCount > 0 && (
-              <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
-                {spinCount} SPINS
-              </span>
-            )}
-            {/* Origin Selector */}
+              )}
+            </div>
+          )}
+
+          {/* RIGHT: Controls + Auth */}
+          <div className="flex items-center gap-2">
+            {/* Auto-spin */}
+            <TooltipProvider delayDuration={300}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={() => setAutoSpin(s => !s)}
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-colors ${
+                      autoSpin
+                        ? 'border-primary/50 bg-primary/10 text-primary'
+                        : 'border-border/40 bg-white/[0.03] text-muted-foreground hover:bg-white/[0.06]'
+                    }`}
+                    aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
+                  >
+                    <Globe2 className="w-3.5 h-3.5" />
+                    {!isMobile && (
+                      <span className="text-[10px] font-mono tracking-wider">
+                        {autoSpin ? 'AUTO' : 'MANUAL'}
+                      </span>
+                    )}
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <p className="text-xs">{autoSpin ? 'Click to disable auto-spin' : 'Click to enable auto-spin'}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            {/* Day/Night */}
+            <TooltipProvider delayDuration={300}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={() => setDayMode(d => !d)}
+                    className="p-2 rounded-lg hover:bg-white/5 transition-colors text-muted-foreground"
+                    aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
+                  >
+                    {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            {/* Sound */}
+            <TooltipProvider delayDuration={300}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={sound.toggleMute}
+                    className={`p-2 rounded-lg hover:bg-white/5 transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
+                    aria-label={sound.muted ? 'Unmute' : 'Mute'}
+                  >
+                    {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <p className="text-xs">Toggle sounds</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+
+            {/* Origin */}
             <OriginSelector
               value={preferences.origin}
               onChange={(origin) => setPreferences({ origin })}
             />
-            {/* Auth Button */}
+
+            {/* Auth */}
             {auth.isAuthenticated ? (
-              <button
-                onClick={auth.signOut}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
-                title="Sign out"
-              >
-                <LogOut className="w-3 h-3 text-muted-foreground" />
-                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
-                  SIGNED IN
-                </span>
-              </button>
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={auth.signOut}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span className="text-[9px] font-mono font-bold text-primary">
+                          {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
+                        </span>
+                      </div>
+                      {!isMobile && (
+                        <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
+                          My picks
+                        </span>
+                      )}
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p className="text-xs">Signed in · Click to sign out</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ) : (
-              <button
-                onClick={() => setShowAuth(true)}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
-              >
-                <User className="w-3 h-3 text-muted-foreground" />
-                <span className="text-[10px] font-mono text-muted-foreground tracking-wider">
-                  SYNC
-                </span>
-              </button>
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => setShowAuth(true)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
+                    >
+                      <Bookmark className="w-3.5 h-3.5 text-primary/70" />
+                      {!isMobile && (
+                        <span className="text-[11px] font-mono text-primary/80 tracking-wider font-medium">
+                          Sign in · Save picks
+                        </span>
+                      )}
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="max-w-[220px]">
+                    <p className="text-xs">Sign in to save cities, sync spins across devices, and track your streaks.</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             )}
           </div>
         </header>
