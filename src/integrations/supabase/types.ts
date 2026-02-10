@@ -105,6 +105,7 @@ export type Database = {
         Row: {
           budget_max: number
           budget_min: number
+          email_recap: boolean
           id: string
           internet_min: number
           origin_id: string | null
@@ -117,6 +118,7 @@ export type Database = {
         Insert: {
           budget_max?: number
           budget_min?: number
+          email_recap?: boolean
           id?: string
           internet_min?: number
           origin_id?: string | null
@@ -129,6 +131,7 @@ export type Database = {
         Update: {
           budget_max?: number
           budget_min?: number
+          email_recap?: boolean
           id?: string
           internet_min?: number
           origin_id?: string | null
