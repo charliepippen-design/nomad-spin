@@ -3,6 +3,7 @@ import { MapPin, ChevronDown, Crosshair, Search } from 'lucide-react';
 import { origins, cityToOrigin, type Origin } from '@/data/origins';
 import { cities } from '@/data/cities';
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const STORAGE_KEY = 'nomadspin_origin_city_slug';
 
@@ -14,6 +15,7 @@ interface OriginSelectorProps {
 export default function OriginSelector({ value, onChange }: OriginSelectorProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
+  const isMobile = useIsMobile();
 
   const handleOriginFound = useCallback((origin: Origin) => {
     onChange(origin);
@@ -22,7 +24,6 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
 
   const geo = useGeolocation(handleOriginFound);
 
-  // Build combined searchable list once
   const allSearchableOrigins = useMemo(() => {
     const originIds = new Set(origins.map(o => o.id));
     const citiesAsOrigins = cities
@@ -31,7 +32,6 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
     return [...origins, ...citiesAsOrigins];
   }, []);
 
-  // Load persisted origin on mount
   useEffect(() => {
     if (value) return;
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -47,11 +47,12 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
     setSearch('');
   }, [onChange]);
 
+  const hasOrigin = value && value.id !== 'anywhere';
   const displayName = geo.acquiredCity
-    ? `Located: ${geo.acquiredCity}`
-    : value && value.id !== 'anywhere'
-      ? value.name.toUpperCase()
-      : 'LOCATION: ANYWHERE';
+    ? (isMobile ? geo.acquiredCity.slice(0, 8) : `Located: ${geo.acquiredCity}`)
+    : hasOrigin
+      ? (isMobile ? value.name.slice(0, 8).toUpperCase() : `BASE: ${value.name.toUpperCase()}`)
+      : (isMobile ? 'BASE' : 'LOCATION: ANYWHERE');
 
   return (
     <div className="relative flex items-center gap-1">
@@ -59,7 +60,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
       <button
         onClick={geo.locate}
         disabled={geo.locating}
-        className="p-1.5 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
+        className="p-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-all text-muted-foreground"
         title="Detect my location"
       >
         <Crosshair className={`w-3 h-3 ${geo.locating ? 'animate-spin' : ''}`} />
@@ -67,14 +68,14 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
 
       <button
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-border/50 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
-        title="Set your origin base city"
+        className="flex items-center gap-1.5 px-2 md:px-2.5 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+        title="Filter recommendations based on your current base or target region"
       >
-        <MapPin className="w-3 h-3 text-muted-foreground" />
-        <span className={`text-[10px] font-mono tracking-wider max-w-[120px] truncate ${geo.acquiredCity ? 'text-destructive' : 'text-muted-foreground'}`}>
+        <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+        <span className={`text-[10px] font-mono tracking-wider max-w-[60px] md:max-w-[120px] truncate ${geo.acquiredCity ? 'text-primary' : 'text-muted-foreground'}`}>
           {displayName}
         </span>
-        <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {open && (

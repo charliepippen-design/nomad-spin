@@ -251,14 +251,14 @@ export default function Index() {
           )}
 
           {/* RIGHT: Controls + Auth */}
-          <div className="flex items-center gap-2">
-            {/* Auto-spin */}
+          <div className="flex items-center gap-1.5 md:gap-2">
+            {/* Auto-spin — icon only on mobile */}
             <TooltipProvider delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
                     onClick={() => setAutoSpin(s => !s)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-colors ${
+                    className={`flex items-center gap-1.5 p-2 md:px-2.5 md:py-1.5 rounded-lg border transition-colors ${
                       autoSpin
                         ? 'border-primary/50 bg-primary/10 text-primary'
                         : 'border-border/40 bg-white/[0.03] text-muted-foreground hover:bg-white/[0.06]'
@@ -279,41 +279,45 @@ export default function Index() {
               </Tooltip>
             </TooltipProvider>
 
-            {/* Day/Night */}
-            <TooltipProvider delayDuration={300}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={() => setDayMode(d => !d)}
-                    className="p-2 rounded-lg hover:bg-white/5 transition-colors text-muted-foreground"
-                    aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
-                  >
-                    {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {/* Day/Night — hidden on mobile */}
+            {!isMobile && (
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => setDayMode(d => !d)}
+                      className="p-2 rounded-lg hover:bg-white/5 transition-colors text-muted-foreground"
+                      aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
+                    >
+                      {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
 
-            {/* Sound */}
-            <TooltipProvider delayDuration={300}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={sound.toggleMute}
-                    className={`p-2 rounded-lg hover:bg-white/5 transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
-                    aria-label={sound.muted ? 'Unmute' : 'Mute'}
-                  >
-                    {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p className="text-xs">Toggle sounds</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            {/* Sound — hidden on mobile */}
+            {!isMobile && (
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={sound.toggleMute}
+                      className={`p-2 rounded-lg hover:bg-white/5 transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
+                      aria-label={sound.muted ? 'Unmute' : 'Mute'}
+                    >
+                      {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p className="text-xs">Toggle sounds</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
 
             {/* Origin */}
             <OriginSelector
@@ -328,9 +332,9 @@ export default function Index() {
                   <TooltipTrigger asChild>
                     <button
                       onClick={auth.signOut}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                      className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
                     >
-                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                         <span className="text-[9px] font-mono font-bold text-primary">
                           {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
                         </span>
@@ -353,9 +357,9 @@ export default function Index() {
                   <TooltipTrigger asChild>
                     <button
                       onClick={() => setShowAuth(true)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
+                      className="flex items-center gap-1.5 px-2 md:px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
                     >
-                      <Bookmark className="w-3.5 h-3.5 text-primary/70" />
+                      <Bookmark className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
                       {!isMobile && (
                         <span className="text-[11px] font-mono text-primary/80 tracking-wider font-medium">
                           Sign in · Save picks
