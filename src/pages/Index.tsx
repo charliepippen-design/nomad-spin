@@ -14,10 +14,12 @@ import AuthModal from '@/components/AuthModal';
 import OriginSelector from '@/components/OriginSelector';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
+import HowItWorks from '@/components/HowItWorks';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2 } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
@@ -43,6 +45,7 @@ export default function Index() {
   const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
+  const isMobile = useIsMobile();
 
   const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
     if (city && pos) {
@@ -141,6 +144,10 @@ export default function Index() {
     }
   }, [resultCity, getShareableUrl]);
 
+  const handleScrollToHowItWorks = useCallback(() => {
+    document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   // Use the top result's score if available, otherwise fallback to legacy
   const primaryScored = topResults[0];
   const matchScore = primaryScored?.score ?? (resultCity
@@ -153,8 +160,10 @@ export default function Index() {
 
   const risks = resultCity ? generateRisks(resultCity) : [];
 
+  const shareUrl = resultCity ? getShareableUrl() : window.location.href;
+
   return (
-    <div className="noise-overlay relative min-h-screen w-full overflow-hidden bg-background">
+    <div className="noise-overlay relative min-h-screen w-full overflow-x-hidden bg-background">
       <SEO
         title={resultCity ? `${resultCity.name} — Nomad Spin` : 'Digital Nomad Spin | Find Your Next Destination'}
         description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
@@ -198,9 +207,28 @@ export default function Index() {
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header */}
         <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-4">
-          <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-            NOMAD SPIN
-          </h1>
+          <div className="flex items-center gap-6">
+            <h1 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
+              NOMAD SPIN
+            </h1>
+            {/* Nav links — desktop only */}
+            {!isMobile && (
+              <nav className="flex items-center gap-4">
+                <button
+                  onClick={handleConfigureMission}
+                  className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase"
+                >
+                  Explore
+                </button>
+                <button
+                  onClick={handleScrollToHowItWorks}
+                  className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase"
+                >
+                  How it Works
+                </button>
+              </nav>
+            )}
+          </div>
           <div className="flex items-center gap-3">
             {/* Auto-spin Toggle */}
             <button
@@ -289,23 +317,28 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="flex flex-col items-center gap-8 w-full max-w-lg pointer-events-auto"
+                className="flex flex-col items-center gap-6 w-full max-w-lg pointer-events-auto"
               >
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-center text-muted-foreground text-xs font-mono tracking-[0.15em] max-w-xs leading-relaxed"
+                  transition={{ delay: 0.2 }}
+                  className="text-center flex flex-col gap-2"
                 >
-                  WHERE TO NEXT?
-                </motion.p>
+                  <h2 className="text-lg md:text-2xl font-mono tracking-wide text-foreground leading-tight">
+                    Spin the globe.<br />Find your next digital nomad base.
+                  </h2>
+                  <p className="text-xs text-muted-foreground max-w-sm mx-auto leading-relaxed">
+                    Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
+                  </p>
+                </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.4 }}
                 >
-                  <SpinButton onClick={handleConfigureMission} />
+                  <SpinButton onClick={handleConfigureMission} label="SPIN & COMPARE DESTINATIONS" />
                 </motion.div>
 
                 <SavedSpins />
@@ -391,6 +424,11 @@ export default function Index() {
         </div>
       </div>
 
+      {/* How It Works — landing only */}
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+        <HowItWorks />
+      )}
+
       {/* Preferences Modal */}
       <PreferencesModal
         open={showPrefs}
@@ -414,14 +452,13 @@ export default function Index() {
           return result;
         }}
       />
-      {/* Social Share Bar */}
-      {phase === 'results' && resultCity && (
-        <SocialShareBar
-          cityName={resultCity.name}
-          country={resultCity.country}
-          shareUrl={getShareableUrl()}
-        />
-      )}
+
+      {/* Social Share Bar — always visible */}
+      <SocialShareBar
+        cityName={resultCity?.name}
+        country={resultCity?.country}
+        shareUrl={shareUrl}
+      />
     </div>
   );
 }
