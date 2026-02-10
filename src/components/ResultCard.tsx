@@ -114,7 +114,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
-          <UnsplashAttribution attribution={attribution} className="absolute top-2 right-3 text-white/40" />
+          {/* Unsplash attribution — top-right overlay */}
+          {attribution && (
+            <div className="absolute top-2 right-2 z-20 bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">
+              <UnsplashAttribution attribution={attribution} className="text-white/70" />
+            </div>
+          )}
           <div className="absolute bottom-0 left-0 right-0 p-6 pb-4">
             <div className="flex items-end gap-4">
               <ScoreRing score={matchScore} />
