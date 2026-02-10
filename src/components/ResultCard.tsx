@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTriangle, Zap, Globe, Clock, ExternalLink } from 'lucide-react';
+import UnsplashAttribution from '@/components/UnsplashAttribution';
 import { City } from '@/data/cities';
 import { Button } from '@/components/ui/button';
 import HealthBar from '@/components/HealthBar';
@@ -78,7 +79,7 @@ function ScoreRing({ score }: { score: number }) {
 export default function ResultCard({ city, matchScore, matchReason, intel, risks, originCity, onSave, onRespin, onShare }: ResultCardProps) {
   const affiliateLinks = generateAffiliateLinks(city, originCity);
   const badges = generateBadges(city);
-  const { imageUrl: heroImageUrl } = useCityImage(city.id, city.name, city.country, city.region, 800);
+  const { imageUrl: heroImageUrl, attribution } = useCityImage(city.id, city.name, city.country, city.region, 800);
 
   useEffect(() => {
     trackSpinCompleted(city.name, city.country, matchScore, city.region);
@@ -113,6 +114,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
+          <UnsplashAttribution attribution={attribution} className="absolute top-2 right-3 text-white/40" />
           <div className="absolute bottom-0 left-0 right-0 p-6 pb-4">
             <div className="flex items-end gap-4">
               <ScoreRing score={matchScore} />
