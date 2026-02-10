@@ -8,30 +8,28 @@ interface HealthBarProps {
 }
 
 export default function HealthBar({ label, value, maxValue = 10, delay = 0 }: HealthBarProps) {
-  const segments = 10;
-  const filled = Math.round((value / maxValue) * segments);
-  const color = value >= 7 ? 'bg-white' : value >= 4 ? 'bg-white/60' : 'bg-destructive/70';
+  const pct = Math.round((value / maxValue) * 100);
+  const barColor =
+    value >= 7
+      ? 'bg-emerald-400'
+      : value >= 4
+        ? 'bg-sky-400'
+        : 'bg-amber-400';
 
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-[9px] font-mono tracking-[0.15em] text-muted-foreground w-20 uppercase shrink-0">
+    <div className="flex items-center gap-3 py-1">
+      <span className="text-[10px] font-mono font-medium tracking-[0.12em] text-foreground/70 w-24 uppercase shrink-0">
         {label}
       </span>
-      <div className="flex-1 flex gap-0.5">
-        {Array.from({ length: segments }).map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scaleY: 0 }}
-            animate={{
-              opacity: i < filled ? 1 : 0.15,
-              scaleY: 1,
-            }}
-            transition={{ delay: delay + i * 0.04, duration: 0.2 }}
-            className={`h-2 flex-1 rounded-[1px] ${i < filled ? color : 'bg-white/10'}`}
-          />
-        ))}
+      <div className="flex-1 h-2.5 rounded-full bg-white/[0.06] overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${pct}%` }}
+          transition={{ delay: delay, duration: 0.8, ease: 'easeOut' }}
+          className={`h-full rounded-full ${barColor}`}
+        />
       </div>
-      <span className="text-[10px] font-mono text-foreground/80 w-8 text-right">
+      <span className="text-xs font-mono font-semibold text-foreground w-10 text-right tabular-nums">
         {value}/{maxValue}
       </span>
     </div>

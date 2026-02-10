@@ -159,17 +159,20 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           )}
 
           {/* Tactical Data Grid */}
-          <div className="grid grid-cols-2 gap-px bg-border/20 mx-6 mt-4 rounded-lg overflow-hidden">
-            <StatItem icon={<DollarSign className="w-3 h-3" />} label="MONTHLY COST" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
-            <StatItem icon={<Wifi className="w-3 h-3" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} />
-            <StatItem icon={<Shield className="w-3 h-3" />} label="SAFETY SCORE" value={`${city.safety}/10`} />
-            <StatItem icon={<Globe className="w-3 h-3" />} label="VISA LENGTH" value={`${city.meta.visaDays}D`} />
-            <StatItem icon={<Globe className="w-3 h-3" />} label="AIRBNB MEDIAN" value={`$${city.financials.airbnbMedian}/NT`} />
-            <StatItem icon={<Clock className="w-3 h-3" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}`} />
+          <div className="grid grid-cols-2 gap-px bg-border/10 mx-6 mt-4 rounded-lg overflow-hidden">
+            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="MONTHLY COST" value={`$${city.financials.costNomadSingle.toLocaleString()}`} />
+            <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} />
+            <StatItem icon={<Shield className="w-3.5 h-3.5" />} label="SAFETY SCORE" value={`${city.safety}/10`} />
+            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="VISA LENGTH" value={`${city.meta.visaDays}D`} />
+            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="ACCOMMODATION" value={`$${city.financials.airbnbMedian} / mo`} tooltip="Approx. average monthly rent or mid-term stay cost for a 1-bedroom or studio." />
+            <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}`} />
           </div>
 
+          {/* Divider */}
+          <div className="mx-6 mt-4 border-t border-white/[0.06]" />
+
           {/* Health Bars */}
-          <div className="px-6 py-4 space-y-2.5">
+          <div className="px-6 py-5 space-y-3">
             <HealthBar label="BANDWIDTH" value={city.infra.internetReliability} delay={0.8} />
             <HealthBar label="SAFETY" value={Math.round(city.safety)} delay={0.9} />
             <HealthBar label="NIGHTLIFE" value={city.vibeMetrics.nightlife} delay={1.0} />
@@ -253,13 +256,13 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
   );
 }
 
-function StatItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+function StatItem({ icon, label, value, tooltip }: { icon: React.ReactNode; label: string; value: string; tooltip?: string }) {
   return (
-    <div className="flex items-center gap-2 p-3 bg-white/[0.02]">
-      <span className="text-muted-foreground">{icon}</span>
+    <div className="flex items-center gap-2.5 p-3.5 bg-white/[0.02] group relative" title={tooltip}>
+      <span className="text-muted-foreground/80">{icon}</span>
       <div className="min-w-0">
-        <p className="text-[8px] font-mono text-muted-foreground tracking-[0.15em] truncate">{label}</p>
-        <p className="text-sm font-mono font-light text-foreground">{value}</p>
+        <p className="text-[9px] font-mono font-medium text-foreground/60 tracking-[0.12em] truncate uppercase">{label}</p>
+        <p className="text-base font-mono font-semibold text-foreground tabular-nums">{value}</p>
       </div>
     </div>
   );
