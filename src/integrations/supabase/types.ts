@@ -18,23 +18,38 @@ export type Database = {
         Row: {
           city_name: string | null
           country: string | null
+          download_location: string | null
           fetched_at: string
+          image_url: string | null
           photo_id: string
+          photographer_name: string | null
+          photographer_url: string | null
           slug: string
+          unsplash_url: string | null
         }
         Insert: {
           city_name?: string | null
           country?: string | null
+          download_location?: string | null
           fetched_at?: string
+          image_url?: string | null
           photo_id: string
+          photographer_name?: string | null
+          photographer_url?: string | null
           slug: string
+          unsplash_url?: string | null
         }
         Update: {
           city_name?: string | null
           country?: string | null
+          download_location?: string | null
           fetched_at?: string
+          image_url?: string | null
           photo_id?: string
+          photographer_name?: string | null
+          photographer_url?: string | null
           slug?: string
+          unsplash_url?: string | null
         }
         Relationships: []
       }
