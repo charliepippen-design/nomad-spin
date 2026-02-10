@@ -4,6 +4,7 @@ import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTri
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import UnsplashAttribution from '@/components/UnsplashAttribution';
 import { City } from '@/data/cities';
+import { type AffiliateLinkData } from '@/utils/affiliateEngine';
 import { Button } from '@/components/ui/button';
 import HealthBar from '@/components/HealthBar';
 import DeploymentGrid from '@/components/DeploymentGrid';
@@ -164,7 +165,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="TOTAL COST" value={`$${city.financials.costNomadSingle.toLocaleString()}/mo`} tooltip="Estimated total monthly living cost for a single digital nomad (rent, food, transport, etc.)." />
             <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} tooltip="Average download speed from fixed broadband and coworking spaces." />
             <StatItem icon={<Shield className="w-3.5 h-3.5" />} label="SAFETY" value={`${city.safety}/10`} tooltip="Composite safety score (1–10) based on crime rates, political stability, and traveler reports." />
-            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="TYPICAL STAY" value={`${city.meta.visaDays} days`} tooltip="Approximate maximum stay for many nationalities; actual rules depend on your passport." />
+            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label="TYPICAL STAY" value={`${city.meta.visaDays} days`} tooltip="Approximate maximum stay for many nationalities; actual rules depend on your passport." visaLink={affiliateLinks.visa} />
             <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="ACCOM. (NIGHTLY)" value={`$${city.financials.airbnbMedian}/night`} tooltip="Approximate median nightly price for a 1-bedroom or studio on Airbnb / similar platforms." />
             <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}/mo`} tooltip="Estimated monthly cost for stays of 3+ months, including lower rent and local pricing." />
           </div>
@@ -257,7 +258,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
   );
 }
 
-function StatItem({ icon, label, value, tooltip }: { icon: React.ReactNode; label: string; value: string; tooltip?: string }) {
+function StatItem({ icon, label, value, tooltip, visaLink }: { icon: React.ReactNode; label: string; value: string; tooltip?: string; visaLink?: AffiliateLinkData | null }) {
   return (
     <div className="flex items-center gap-2.5 p-3.5 bg-white/[0.02]">
       <span className="text-muted-foreground/80">{icon}</span>
@@ -280,6 +281,16 @@ function StatItem({ icon, label, value, tooltip }: { icon: React.ReactNode; labe
           )}
         </div>
         <p className="text-base font-mono font-semibold text-foreground tabular-nums">{value}</p>
+        {visaLink && (
+          <a
+            href={visaLink.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-1 text-[9px] font-mono text-primary/70 hover:text-primary transition-colors pointer-events-auto"
+          >
+            Check visa options <ExternalLink className="w-2.5 h-2.5" />
+          </a>
+        )}
       </div>
     </div>
   );

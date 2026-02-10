@@ -172,6 +172,32 @@ function buildInsuranceUrl(city: string): { url: string; partner: string } {
   };
 }
 
+/**
+ * Visa affiliate link builder.
+ *
+ * Reads the base URL from VITE_VISA_PARTNER_BASE_URL (env variable).
+ * If unset, returns null so the UI hides the CTA (no dead links).
+ *
+ * Final URL pattern:
+ *   {VITE_VISA_PARTNER_BASE_URL}?country={countryCode}&city={citySlug}&{UTMs}
+ *
+ * To enable:  set VITE_VISA_PARTNER_BASE_URL in .env or hosting config.
+ * Example:    VITE_VISA_PARTNER_BASE_URL=https://www.ivisa.com/apply
+ */
+export function buildVisaUrl(
+  city: string,
+  countryCode: string,
+): { url: string; partner: string } | null {
+  const base = import.meta.env.VITE_VISA_PARTNER_BASE_URL;
+  if (!base) return null;
+
+  const citySlug = slugify(city);
+  const utms = buildUtmParams(citySlug, 'visa');
+  const sep = base.includes('?') ? '&' : '?';
+  const url = `${base}${sep}country=${countryCode.toUpperCase()}&city=${citySlug}&${utms}`;
+  return { url, partner: 'iVisa' };
+}
+
 // ── Public interface ───────────────────────────────────────────────────────
 
 export interface AffiliateLinkData {
@@ -186,6 +212,7 @@ export interface AffiliateLinks {
   flights: AffiliateLinkData;
   connectivity: AffiliateLinkData;
   insurance: AffiliateLinkData;
+  visa: AffiliateLinkData | null;
 }
 
 interface CityInput {
@@ -204,6 +231,7 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
   const flights = buildFlightsUrl(city.name, originCity);
   const esim = buildEsimUrl(city.name, city.countryCode);
   const insurance = buildInsuranceUrl(city.name);
+  const visa = buildVisaUrl(city.name, city.countryCode);
 
   return {
     accommodation: {
@@ -228,5 +256,8 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
       label: 'Travel Insurance',
       vertical: 'insurance',
     },
+    visa: visa
+      ? { ...visa, label: `Check visa options`, vertical: 'visa' as Vertical }
+      : null,
   };
 }

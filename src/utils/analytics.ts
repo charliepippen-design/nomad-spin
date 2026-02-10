@@ -31,6 +31,7 @@ export type Vertical =
   | 'flights'
   | 'esim'
   | 'insurance'
+  | 'visa'
   | 'extra1'
   | 'extra2';
 
