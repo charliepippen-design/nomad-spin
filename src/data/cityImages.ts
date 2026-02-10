@@ -88,6 +88,13 @@ const REGION_FALLBACKS: Record<string, string> = {
 const DEFAULT_FALLBACK = '1488646953014-85cb44e25828'; // generic travel
 
 /**
+ * Check if a city slug has a curated photo.
+ */
+export function isCurated(slug: string): boolean {
+  return slug in CITY_PHOTOS;
+}
+
+/**
  * Get a high-quality Unsplash CDN URL for a city.
  */
 export function getCityImageUrl(cityId: string, region: string, width = 800): string {
