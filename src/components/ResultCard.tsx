@@ -7,7 +7,7 @@ import HealthBar from '@/components/HealthBar';
 import DeploymentGrid from '@/components/DeploymentGrid';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { trackSpinCompleted } from '@/utils/analytics';
-import { getCityImageUrl } from '@/data/cityImages';
+import { useCityImage } from '@/hooks/useCityImage';
 import { generateBadges } from '@/lib/badges';
 import confetti from 'canvas-confetti';
 
@@ -78,7 +78,7 @@ function ScoreRing({ score }: { score: number }) {
 export default function ResultCard({ city, matchScore, matchReason, intel, risks, originCity, onSave, onRespin, onShare }: ResultCardProps) {
   const affiliateLinks = generateAffiliateLinks(city, originCity);
   const badges = generateBadges(city);
-  const heroImageUrl = getCityImageUrl(city.id, city.region, 800);
+  const { imageUrl: heroImageUrl } = useCityImage(city.id, city.name, city.country, city.region, 800);
 
   useEffect(() => {
     trackSpinCompleted(city.name, city.country, matchScore, city.region);
