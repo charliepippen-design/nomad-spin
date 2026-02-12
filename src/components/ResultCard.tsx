@@ -112,6 +112,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             src={heroImageUrl}
             alt={`${city.name}, ${city.country}`}
             loading="lazy"
+            crossOrigin="anonymous"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
