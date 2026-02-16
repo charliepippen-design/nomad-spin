@@ -1,133 +1,171 @@
 
+## Premium Travel Discovery Platform Overhaul
 
-## Nomad Spin Audit Refactor
-
-This is a significant refactor touching the data model, scoring engine, filtering UI, result cards, and adding AI-powered data enrichment. Here's the phased plan:
-
----
-
-### Phase 1: Data Model Expansion
-
-**Extend the City type** (`src/data/cities/types.ts`) with new fields:
-
-| New Field | Type | Description |
-|-----------|------|-------------|
-| `landscape` | `('seaside' \| 'mountain' \| 'urban' \| 'rural' \| 'island' \| 'desert')[]` | New dedicated landscape tags |
-| `language` | `string` | Primary local language |
-| `nearestAirport` | `{ code: string; name: string; distKm: number }` | Nearest major airport |
-| `taxation` | `{ incomeTax: string; notes: string }` | Tax summary for nomads |
-| `healthInsurance` | `{ costMonthly: number; quality: number }` | Est. monthly insurance + quality 1-10 |
-| `esim` | `{ available: boolean; costMonthly: number }` | eSIM availability and cost |
-| `legalNotes` | `string[]` | Specific disclaimers about local laws |
-| `dataSource` | `'verified' \| 'estimated'` | Data quality indicator |
-
-**Update the builder** (`src/data/cities/builder.ts`) with sensible defaults for all new fields so existing 600+ cities don't break. Existing cities get `dataSource: 'verified'`.
+This plan transforms Nomad Spin from a single-page spin tool into a multi-page premium travel discovery platform optimized for affiliate monetization and SEO.
 
 ---
 
-### Phase 2: Origin System Enhancement
+### Phase 1: Routing Infrastructure and Layout Shell
 
-- Add **Treviso, Venice**, and ~20 more European/global cities to the `origins` list in `src/data/origins.ts`
-- Update the **flight cost estimator** (`src/lib/distance.ts`) to use `nearestAirport` distance when available, and add a rough **flight time** calculator
-- Show flight time and cost in the result card's intel section
+**Switch from HashRouter to BrowserRouter** for clean SEO-friendly URLs (`/about` instead of `/#/about`).
 
----
+Create a shared `Layout` component that wraps all pages with the existing header (extracted from Index.tsx) and a new global `Footer`.
 
-### Phase 3: Mobile Bug Fix (2nd/3rd City Buttons)
+**New routes:**
 
-The runner-up cards in `TopResultsGrid.tsx` use a "VIEW DETAILS" button that calls `onSelectResult`, which updates `resultCity` in the store but doesn't scroll or re-render the primary card visibly on mobile.
+| Route | Page Component | Purpose |
+|-------|---------------|---------|
+| `/` | Index (existing) | Homepage with spin tool |
+| `/about` | About | Brand story, team, mission |
+| `/contact` | Contact | UI form (name, email, message) |
+| `/privacy-policy` | PrivacyPolicy | Legal text |
+| `/terms-of-use` | TermsOfUse | Legal text |
+| `/destinations/:citySlug` | DestinationGuide | Dynamic city guide template |
+| `/guides/:slug` | GuideArticle | Dynamic blog/guide articles |
 
-**Fix:**
-- When selecting a runner-up on mobile, scroll the primary `ResultCard` into view
-- Ensure the `selectResult` action in `useSpinStore` triggers a visible state change (animate the card swap)
+**Files to create:**
+- `src/components/Layout.tsx` -- shared header + footer wrapper
+- `src/components/Footer.tsx` -- global footer
+- `src/pages/About.tsx`
+- `src/pages/Contact.tsx`
+- `src/pages/PrivacyPolicy.tsx`
+- `src/pages/TermsOfUse.tsx`
+- `src/pages/DestinationGuide.tsx`
+- `src/pages/GuideArticle.tsx`
 
----
-
-### Phase 4: Mission Profile Filter System
-
-Replace the simple preset buttons in `PreferencesModal.tsx` with a composable **Mission Profile** system:
-
-```text
-[Budget: Low / Mid / Comfort] + [Region: Asia / Europe / LATAM / ...] + [Landscape: Seaside / Mountain / Urban / ...]
-```
-
-- Add a **Landscape** multi-select row (similar to Vibes) in the preferences modal
-- Update `useSpinStore` preferences to include `landscape: LandscapeOption[]`
-- Update `filterCities` to hard-filter by landscape when selected
-- Update `scoreCityForPreferences` to score landscape match (similar to vibe scoring)
-
----
-
-### Phase 5: AI Data Enrichment
-
-Create a new edge function `supabase/functions/enrich-city/index.ts` that:
-1. Takes a city name + country
-2. Calls Lovable AI (Gemini Flash) to retrieve missing data fields (language, taxation, health insurance, eSIM, legal notes, landscape)
-3. Returns structured data via tool calling
-4. Marks the result as `dataSource: 'estimated'`
-
-On the frontend:
-- When a city result loads, check if it has AI-enrichable empty fields
-- Call the edge function to fill them in
-- Cache results in a new `city_enrichment_cache` database table
+**Files to modify:**
+- `src/App.tsx` -- switch to BrowserRouter, add all new routes, wrap in Layout
+- `src/pages/Index.tsx` -- extract header into Layout component
 
 ---
 
-### Phase 6: Data Quality Indicator UI
+### Phase 2: Global Footer Component
 
-Add a visual badge system to distinguish data quality:
-- **Verified** (green checkmark): Hand-curated data
-- **Estimated** (orange AI icon): AI-retrieved data with disclaimer tooltip
+The footer includes:
 
-This badge appears:
-- Next to each stat in the ResultCard grid
-- As a small indicator on runner-up cards
-
----
-
-### Phase 7: Legal Notes Section
-
-Add a dedicated "Local Laws" section to `ResultCard.tsx`:
-- Appears below the "Things to Know" section
-- Uses a warning-styled card with specific bullet points from `city.legalNotes`
-- Includes a generic disclaimer: "Laws vary by region. Always verify current regulations before traveling."
+- **Navigation links**: About, Contact, Privacy Policy, Terms of Use
+- **Social media links**: Twitter/X, Instagram, GitHub (icon links)
+- **Affiliate Disclosure**: "I may earn a commission from qualifying bookings at no extra cost to you."
+- **Copyright line**
+- Styled to match the obsidian glass aesthetic (dark bg, mono fonts, subtle borders)
 
 ---
 
-### Files to Create
+### Phase 3: Homepage Hero and "Plan Your Stay" Block
 
-| File | Purpose |
-|------|---------|
-| `supabase/functions/enrich-city/index.ts` | AI enrichment edge function |
-| (migration) | `city_enrichment_cache` table |
+**Hero updates:**
+- Headline: keep "Spin the globe. Find your next digital nomad base." but add a supporting tagline: "Travel discovery tool for digital nomads"
+- Add a subtle descriptor badge above the headline
 
-### Files to Modify
+**"Where to Stay" block** (below the spin tool, above How It Works):
+- A grid of 3-6 featured destination cards linking to `/destinations/:citySlug`
+- Each card shows city name, country, a thumbnail, and cost snippet
+- Featured cities: Asuncion, Buenos Aires, Medellin, Bangkok, Lisbon, Tbilisi
+- Only shown on the landing phase (not during results)
 
-| File | Changes |
-|------|---------|
-| `src/data/cities/types.ts` | Add ~8 new fields to City interface |
-| `src/data/cities/builder.ts` | Add defaults for new fields |
-| `src/data/origins.ts` | Add ~20 more origin cities |
-| `src/lib/distance.ts` | Add flight time calculator, airport-aware cost |
-| `src/lib/scoring.ts` | Add landscape scoring dimension |
-| `src/store/useSpinStore.ts` | Add `landscape` to preferences, update filtering |
-| `src/components/PreferencesModal.tsx` | Add Landscape filter row, restructure presets |
-| `src/components/ResultCard.tsx` | Add legal notes section, data quality badges, new stat items |
-| `src/components/TopResultsGrid.tsx` | Add data quality indicator, fix mobile selection |
-| `src/pages/Index.tsx` | Wire up enrichment calls, handle mobile scroll fix |
-| `src/data/cities.ts` | Add landscape tags to existing hand-tuned cities |
+**Files to modify:**
+- `src/pages/Index.tsx` -- add tagline, add featured destinations block
 
-### Database Changes
+**Files to create:**
+- `src/components/FeaturedDestinations.tsx` -- the "Where to Stay" grid
 
-New table: `city_enrichment_cache`
-- `slug` (text, PK)
-- `enrichment_data` (jsonb)
-- `fetched_at` (timestamptz)
-- Public read, service_role write (same pattern as `city_image_cache`)
+---
 
-### Technical Considerations
+### Phase 4: Mobile Bug Fix for 2nd/3rd City Buttons
 
-- All new City fields have defaults in the builder, so the 600+ existing cities compile without changes to every regional file
-- The AI enrichment is lazy-loaded (on result view) to avoid burning API calls on cities users never see
-- The scoring engine adds landscape as a 6th dimension (0-10 pts), redistributing from vibe (25 -> 20) and adding landscape (0-10)
-- Mobile fix uses `scrollIntoView` + a brief animated transition on card swap
+The runner-up "VIEW DETAILS" buttons call `onSelectResult` which updates `resultCity` in the store. On mobile, the issue is that the primary `ResultCard` re-renders with new data but the user can't see it because they're scrolled down to the runner-up cards.
+
+**Fix approach:**
+- Add a `key={resultCity.id}` to the primary ResultCard wrapper so React fully re-mounts it on city change (triggering entry animations)
+- The existing `scrollIntoView` in `TopResultsGrid` should then work -- but add a longer delay (300ms) to allow the re-mount animation to start
+- Ensure the runner-up button has proper touch target size (min 44px height) for mobile
+
+**Files to modify:**
+- `src/components/TopResultsGrid.tsx` -- increase scroll delay, ensure touch targets
+- `src/pages/Index.tsx` -- add `key` prop to ResultCard wrapper
+
+---
+
+### Phase 5: Spin Result Card Redesign
+
+Enhance the existing ResultCard with:
+
+1. **Short intro description** -- a one-line AI-generated or template-based city summary below the city name
+2. **Simplified key stats** -- prominently show: Avg Monthly Budget, Wi-Fi Speed, Safety Score
+3. **Primary CTA redesign**: Change from "Check Stays in [City]" to a larger, higher-contrast button: **"Find a place to stay in [City]"** with improved visual weight
+4. **Internal link**: Add a "Read full guide" link pointing to `/destinations/${citySlug}` below the CTA
+
+**Files to modify:**
+- `src/components/ResultCard.tsx` -- add intro text, redesign CTA, add guide link
+
+---
+
+### Phase 6: Destination Guide Template
+
+A rich, mobile-first page template at `/destinations/:citySlug` that:
+
+1. Looks up the city from the dataset by slug
+2. Triggers AI enrichment if needed (reuses existing `useCityEnrichment` hook)
+3. Renders structured sections with H2 headings:
+
+| Section | Content |
+|---------|---------|
+| Hero banner | City image, name, country, key stats overlay |
+| Why Go | Pros list, vibe tags, landscape description |
+| Best Neighborhoods | Placeholder text (expandable via AI enrichment later) |
+| Where to Stay | Budget / Mid-range / High-end tiers with affiliate CTAs |
+| Coworking and Wi-Fi | Internet speed, reliability, coworking density |
+| Getting There | Nearest airport, flight estimates, visa info |
+| Safety | Safety score, legal notes, female safety, LGBTQ+ friendliness |
+| Bottom CTA | "Not sure where to go next? Spin for a new city" linking back to `/` |
+
+- Uses proper semantic HTML (h1, h2, section tags) for SEO
+- Mobile-first with generous spacing (px-6, py-8+, gap-6+)
+- Includes JSON-LD structured data for the destination
+
+**Files to create:**
+- `src/pages/DestinationGuide.tsx` -- the full template
+- `src/components/GuideSection.tsx` -- reusable section wrapper with H2
+
+---
+
+### Phase 7: Guide Article Stub
+
+Create a simple `/guides/:slug` page that serves as a placeholder for future blog content. For now it shows a "Coming Soon" state with a link back to the spin tool.
+
+**Files to create:**
+- `src/pages/GuideArticle.tsx`
+
+---
+
+### Technical Details
+
+**Router change**: HashRouter to BrowserRouter requires no backend config since this is a client-side SPA -- the existing Vite dev server and Lovable preview handle client-side routing. A `public/_redirects` or similar may be needed for production but Lovable handles this automatically.
+
+**Header extraction**: The current header lives inside `Index.tsx` (lines 215-382). It will be extracted into the `Layout` component so it appears on all pages. The globe background and pointer-events logic remain Index-only.
+
+**City slug lookup**: Use `slugify(city.name)` to generate URL-friendly slugs, and match against the cities array. Example: "Buenos Aires" becomes `buenos-aires`, URL: `/destinations/buenos-aires`.
+
+**SEO**: Each destination guide page will use react-helmet-async to set unique title, description, and OG tags. The existing SEO component will be reused.
+
+**No database changes needed** -- all content is derived from the existing city dataset and AI enrichment cache.
+
+### Summary of All Files
+
+**New files (10):**
+- `src/components/Layout.tsx`
+- `src/components/Footer.tsx`
+- `src/components/FeaturedDestinations.tsx`
+- `src/components/GuideSection.tsx`
+- `src/pages/About.tsx`
+- `src/pages/Contact.tsx`
+- `src/pages/PrivacyPolicy.tsx`
+- `src/pages/TermsOfUse.tsx`
+- `src/pages/DestinationGuide.tsx`
+- `src/pages/GuideArticle.tsx`
+
+**Modified files (4):**
+- `src/App.tsx`
+- `src/pages/Index.tsx`
+- `src/components/ResultCard.tsx`
+- `src/components/TopResultsGrid.tsx`
