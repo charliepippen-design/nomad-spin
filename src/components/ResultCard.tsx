@@ -313,8 +313,8 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </div>
           )}
 
-          {/* Primary CTA — Check Stays */}
-          <div className="px-6 pt-2">
+          {/* Primary CTA — Find Stays */}
+          <div className="px-6 pt-2 space-y-2">
             <motion.a
               href={affiliateLinks.accommodation.url}
               target="_blank"
@@ -322,10 +322,16 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3 }}
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-mono font-semibold text-sm tracking-wider transition-all hover:shadow-[0_0_24px_rgba(16,185,129,0.4)] active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-mono font-semibold text-sm tracking-wider transition-all hover:shadow-[0_0_24px_rgba(16,185,129,0.4)] active:scale-[0.98]"
             >
-              Check Stays in {city.name} <ExternalLink className="w-3.5 h-3.5" />
+              Find a place to stay in {city.name} <ExternalLink className="w-3.5 h-3.5" />
             </motion.a>
+            <a
+              href={`/destinations/${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+              className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.15em] text-primary/70 hover:text-primary transition-colors uppercase"
+            >
+              Read full {city.name} guide →
+            </a>
           </div>
 
           {/* Secondary Links — Deployment Grid */}
