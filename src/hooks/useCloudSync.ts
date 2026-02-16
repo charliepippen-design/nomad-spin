@@ -103,6 +103,7 @@ export function useCloudSync(userId: string | undefined) {
           internetMin: data.internet_min,
           safetyMin: data.safety_min,
           vibes: (data.vibes || []) as any,
+          landscapes: [],
           region: (data.region || 'All') as any,
           origin,
         },

@@ -1,3 +1,5 @@
+export type LandscapeOption = 'seaside' | 'mountain' | 'urban' | 'rural' | 'island' | 'desert';
+
 export interface CityFinancials {
   costNomadSingle: number;
   costLongTerm: number;
@@ -32,6 +34,29 @@ export interface CityMeta {
   timeZoneUtc: string;
 }
 
+export interface CityAirport {
+  code: string;
+  name: string;
+  distKm: number;
+}
+
+export interface CityTaxation {
+  incomeTax: string;
+  notes: string;
+}
+
+export interface CityHealthInsurance {
+  costMonthly: number;
+  quality: number;
+}
+
+export interface CityEsim {
+  available: boolean;
+  costMonthly: number;
+}
+
+export type DataSource = 'verified' | 'estimated';
+
 export interface City {
   id: string;
   name: string;
@@ -41,12 +66,20 @@ export interface City {
   lng: number;
   region: 'Asia' | 'Europe' | 'LATAM' | 'Africa' | 'Oceania' | 'North America';
   vibe: string[];
+  landscape: LandscapeOption[];
   safety: number;
   financials: CityFinancials;
   infra: CityInfra;
   vibeMetrics: CityVibeMetrics;
   weather: CityWeather;
   meta: CityMeta;
+  language: string;
+  nearestAirport: CityAirport;
+  taxation: CityTaxation;
+  healthInsurance: CityHealthInsurance;
+  esim: CityEsim;
+  legalNotes: string[];
+  dataSource: DataSource;
   pros: string[];
   cons: string[];
   costUSD: number;

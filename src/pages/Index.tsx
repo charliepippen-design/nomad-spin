@@ -4,6 +4,7 @@ import { useSpinStore } from '@/store/useSpinStore';
 import { useSoundManager } from '@/hooks/useSoundManager';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
+import { useCityEnrichment } from '@/hooks/useCityEnrichment';
 import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring';
 import SpinButton from '@/components/SpinButton';
 import PreferencesModal from '@/components/PreferencesModal';
@@ -155,11 +156,15 @@ export default function Index() {
     ? calculateMatchScore(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.safetyMin, preferences.origin)
     : 0);
 
-  const intel = resultCity
-    ? generateIntel(resultCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin)
+  // Lazy AI enrichment for the displayed city
+  const { enrichedCity } = useCityEnrichment(resultCity);
+  const displayCity = enrichedCity || resultCity;
+
+  const intel = displayCity
+    ? generateIntel(displayCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin)
     : [];
 
-  const risks = resultCity ? generateRisks(resultCity) : [];
+  const risks = displayCity ? generateRisks(displayCity) : [];
 
   const shareUrl = resultCity ? getShareableUrl() : window.location.href;
 
@@ -458,12 +463,13 @@ export default function Index() {
                   onSelectResult={(index) => selectResult(index)}
                   primaryContent={
                     <ResultCard
-                      city={resultCity}
+                      city={displayCity!}
                       matchScore={matchScore}
                       matchReason={primaryScored?.reason}
                       intel={intel}
                       risks={risks}
                       originCity={preferences.origin?.name}
+                      flightInfo={primaryScored?.flightInfo}
                       onSave={() => {
                         saveResult();
                         if (auth.isAuthenticated) {
