@@ -1,11 +1,12 @@
 // Re-export types
 export type {
   City, CityFinancials, CityInfra, CityVibeMetrics, CityWeather, CityMeta,
+  LandscapeOption, DataSource, CityAirport, CityTaxation, CityHealthInsurance, CityEsim,
 } from './cities/types';
 
 export type { City as CityType } from './cities/types';
 
-import type { City } from './cities/types';
+import type { City, LandscapeOption } from './cities/types';
 import { newAsiaCities } from './cities/new-asia';
 import { newEuropeCities } from './cities/new-europe';
 import { newAmericasCities } from './cities/new-americas';
@@ -14,8 +15,55 @@ import { extraAsiaCities } from './cities/extra-asia';
 import { extraEuropeCities } from './cities/extra-europe';
 import { extraAmericasCities } from './cities/extra-americas';
 
+/** Infer landscape from vibe tags when not explicitly set */
+function inferLandscape(vibe: string[]): LandscapeOption[] {
+  const ls: LandscapeOption[] = [];
+  if (vibe.includes('beach')) ls.push('seaside');
+  if (vibe.includes('mountain')) ls.push('mountain');
+  if (ls.length === 0) ls.push('urban');
+  return ls;
+}
+
+/** Infer primary language from country code */
+function inferLanguage(cc: string): string {
+  const langMap: Record<string, string> = {
+    TH: 'Thai', ID: 'Indonesian', PT: 'Portuguese', CO: 'Spanish', GE: 'Georgian',
+    ZA: 'English', MX: 'Spanish', AR: 'Spanish', VN: 'Vietnamese', PY: 'Spanish',
+    ES: 'Spanish', HU: 'Hungarian', MY: 'Malay', DE: 'German', HR: 'Croatian',
+    JP: 'Japanese', KR: 'Korean', TW: 'Mandarin', IN: 'Hindi', TR: 'Turkish',
+    GR: 'Greek', CZ: 'Czech', PL: 'Polish', RO: 'Romanian', BG: 'Bulgarian',
+    BR: 'Portuguese', CL: 'Spanish', PE: 'Spanish', CA: 'English', US: 'English',
+    GB: 'English', FR: 'French', IT: 'Italian', NL: 'Dutch', AU: 'English',
+    NZ: 'English', SE: 'Swedish', NO: 'Norwegian', DK: 'Danish', FI: 'Finnish',
+    AE: 'Arabic', KE: 'Swahili', NG: 'English', PH: 'Filipino', KH: 'Khmer',
+    NP: 'Nepali', LK: 'Sinhala', RS: 'Serbian', ME: 'Montenegrin', AL: 'Albanian',
+    EE: 'Estonian', LV: 'Latvian', LT: 'Lithuanian', UA: 'Ukrainian', GH: 'English',
+    MA: 'Arabic', TN: 'Arabic', EG: 'Arabic', SG: 'English', HK: 'Cantonese',
+    CN: 'Mandarin', IL: 'Hebrew', AT: 'German', CH: 'German', BE: 'Dutch',
+    IE: 'English', IS: 'Icelandic', MT: 'Maltese', CY: 'Greek', LU: 'French',
+  };
+  return langMap[cc] || 'English';
+}
+
+type LegacyCity = Omit<City, 'landscape' | 'language' | 'nearestAirport' | 'taxation' | 'healthInsurance' | 'esim' | 'legalNotes' | 'dataSource'>;
+
+/** Fill in defaults for hand-tuned cities that don't have the new fields */
+function withDefaults(c: LegacyCity): City {
+  return {
+    ...c,
+    landscape: inferLandscape(c.vibe),
+    language: inferLanguage(c.countryCode),
+    nearestAirport: { code: '', name: '', distKm: 0 },
+    taxation: { incomeTax: 'Unknown', notes: '' },
+    healthInsurance: { costMonthly: 0, quality: 0 },
+    esim: { available: true, costMonthly: 0 },
+    legalNotes: [],
+    dataSource: 'verified' as const,
+  };
+}
+
 // ── Existing hand-tuned cities ──
-const existingCities: City[] = [
+const existingCitiesRaw: LegacyCity[] = [
   {
     id: 'chiang-mai-th', name: 'Chiang Mai', country: 'Thailand', countryCode: 'TH',
     lat: 18.7883, lng: 98.9853, region: 'Asia',
@@ -641,6 +689,8 @@ const existingCities: City[] = [
     costUSD: 2000, internetMbps: 200, visa: { type: 'Visa Required', days: 180 },
   },
 ];
+
+const existingCities: City[] = existingCitiesRaw.map(withDefaults);
 
 // Merge all cities
 export const cities: City[] = [

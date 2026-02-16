@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair, Globe } from 'lucide-react';
-import { useSpinStore, type VibeOption, type RegionOption } from '@/store/useSpinStore';
+import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair, Globe, Waves, Building, TreePine, Palmtree } from 'lucide-react';
+import { useSpinStore, type VibeOption, type RegionOption, type LandscapeOption } from '@/store/useSpinStore';
 import { origins, cityToOrigin, type Origin } from '@/data/origins';
 import { cities } from '@/data/cities';
 import { Slider } from '@/components/ui/slider';
@@ -18,6 +18,15 @@ const vibeOptions: { label: string; value: VibeOption }[] = [
   { label: 'FOODIE', value: 'foodie' },
 ];
 
+const landscapeOptions: { label: string; value: LandscapeOption; icon: React.ReactNode }[] = [
+  { label: 'SEASIDE', value: 'seaside', icon: <Waves className="w-3 h-3" /> },
+  { label: 'MOUNTAIN', value: 'mountain', icon: <Mountain className="w-3 h-3" /> },
+  { label: 'URBAN', value: 'urban', icon: <Building className="w-3 h-3" /> },
+  { label: 'RURAL', value: 'rural', icon: <TreePine className="w-3 h-3" /> },
+  { label: 'ISLAND', value: 'island', icon: <Palmtree className="w-3 h-3" /> },
+  { label: 'DESERT', value: 'desert', icon: <Globe className="w-3 h-3" /> },
+];
+
 const regionOptions: { label: string; value: RegionOption }[] = [
   { label: 'ALL REGIONS', value: 'All' },
   { label: 'ASIA', value: 'Asia' },
@@ -28,8 +37,6 @@ const regionOptions: { label: string; value: RegionOption }[] = [
   { label: 'N. AMERICA', value: 'North America' },
 ];
 
-// PresetConfig is defined below with presets array
-
 interface PresetConfig {
   label: string;
   subtitle: string;
@@ -38,6 +45,7 @@ interface PresetConfig {
   internet: number;
   safety: number;
   vibes: VibeOption[];
+  landscapes: LandscapeOption[];
   region: RegionOption;
   action?: 'scrollToRegion';
 }
@@ -51,6 +59,7 @@ const presets: PresetConfig[] = [
     internet: 20,
     safety: 5,
     vibes: [],
+    landscapes: [],
     region: 'All',
   },
   {
@@ -61,6 +70,7 @@ const presets: PresetConfig[] = [
     internet: 150,
     safety: 8,
     vibes: [],
+    landscapes: [],
     region: 'All',
   },
   {
@@ -71,6 +81,7 @@ const presets: PresetConfig[] = [
     internet: 50,
     safety: 6,
     vibes: ['workhub', 'mountain'],
+    landscapes: [],
     region: 'All',
   },
 ];
@@ -108,7 +119,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       safetyMin: localSafety,
     });
     filterCities();
-  }, [localBudget, localInternet, localSafety, preferences.vibes, preferences.region, preferences.origin]);
+  }, [localBudget, localInternet, localSafety, preferences.vibes, preferences.landscapes, preferences.region, preferences.origin]);
 
   const applyPreset = (preset: PresetConfig) => {
     setLocalBudget(preset.budget);
@@ -119,6 +130,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       internetMin: preset.internet,
       safetyMin: preset.safety,
       vibes: preset.vibes,
+      landscapes: preset.landscapes,
       region: preset.region,
     });
     setIsShortRange(false);
@@ -128,7 +140,6 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   const applyShortRange = () => {
     const hasOrigin = preferences.origin && preferences.origin.id !== 'anywhere';
     if (!hasOrigin) {
-      // Trigger geolocation first, then apply preset after origin is set
       geo.locate();
     }
     setLocalBudget([500, 5000]);
@@ -139,6 +150,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       internetMin: 30,
       safetyMin: 1,
       vibes: [],
+      landscapes: [],
       region: 'All',
     });
     setIsShortRange(true);
@@ -167,20 +179,27 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     setPreferences({ vibes: updated });
   };
 
+  const toggleLandscape = (landscape: LandscapeOption) => {
+    const current = preferences.landscapes;
+    const updated = current.includes(landscape)
+      ? current.filter((l) => l !== landscape)
+      : [...current, landscape];
+    setPreferences({ landscapes: updated });
+  };
+
   const selectOrigin = (o: Origin) => {
     setPreferences({ origin: o });
     setOriginOpen(false);
     setOriginSearch('');
   };
 
-  // Build combined searchable list: 25 curated origins + all 600+ cities (deduped)
+  // Build combined searchable list: curated origins + all 600+ cities (deduped)
   const allSearchableOrigins = useMemo(() => {
     const originIds = new Set(origins.map(o => o.id));
     const citiesAsOrigins = cities
       .filter(c => !originIds.has(c.id))
       .map(c => cityToOrigin(c));
     const combined = [...origins, ...citiesAsOrigins];
-    console.info(`[NomadSpin] Searchable origins: ${combined.length} cities`);
     return combined;
   }, []);
 
@@ -203,6 +222,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     if (localInternet >= 100) parts.push('high-speed');
     if (localSafety >= 8) parts.push('high-security');
     if (preferences.vibes.length > 0) parts.push(preferences.vibes.join('/'));
+    if (preferences.landscapes.length > 0) parts.push(preferences.landscapes.join('/'));
 
     const origin = hasOrigin ? preferences.origin!.name : 'GLOBAL';
     const region = preferences.region !== 'All' ? preferences.region : 'all regions';
@@ -234,7 +254,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 <div className="flex items-center justify-between px-8 pt-8 pb-2">
                   <div>
                     <h2 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                      TRIP PREFERENCES
+                      MISSION PROFILE
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
@@ -406,6 +426,28 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           }`}
                         >
                           {v.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Landscape */}
+                  <div className="py-6 border-b border-white/[0.06]">
+                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
+                      LANDSCAPE
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {landscapeOptions.map((l) => (
+                        <button
+                          key={l.value}
+                          onClick={() => toggleLandscape(l.value)}
+                          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
+                            preferences.landscapes.includes(l.value)
+                              ? 'border-white/30 bg-white/10 text-white'
+                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
+                          }`}
+                        >
+                          {l.icon} {l.label}
                         </button>
                       ))}
                     </div>

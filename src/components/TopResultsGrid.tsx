@@ -1,5 +1,6 @@
+import { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, DollarSign, Wifi, Shield, ChevronRight } from 'lucide-react';
+import { MapPin, DollarSign, Wifi, Shield, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
 import type { ScoredCity } from '@/lib/scoring';
 import { getCityThumbnailUrl } from '@/data/cityImages';
 import { generateBadges } from '@/lib/badges';
@@ -36,6 +37,21 @@ function ScoreRingSmall({ score }: ScoreRingSmallProps) {
   );
 }
 
+function DataSourceBadge({ source }: { source: 'verified' | 'estimated' }) {
+  if (source === 'verified') {
+    return (
+      <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7px] font-mono tracking-wider rounded-md border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+        <CheckCircle2 className="w-2.5 h-2.5" /> VERIFIED
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7px] font-mono tracking-wider rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-400">
+      <Sparkles className="w-2.5 h-2.5" /> AI EST.
+    </span>
+  );
+}
+
 interface RunnerUpCardProps {
   scored: ScoredCity;
   rank: number;
@@ -64,14 +80,17 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-        <div className="absolute bottom-2 left-3 right-3">
-          <h3 className="text-sm font-mono font-light tracking-[0.12em] text-white truncate uppercase drop-shadow-lg">
-            {city.name} <span className="text-white/60">// {city.countryCode}</span>
-          </h3>
-          <div className="flex items-center gap-1.5 text-white/60 mt-0.5">
-            <MapPin className="w-2.5 h-2.5" />
-            <span className="text-[9px] font-mono tracking-wider">{city.country} · {city.region}</span>
+        <div className="absolute bottom-2 left-3 right-3 flex items-end justify-between">
+          <div>
+            <h3 className="text-sm font-mono font-light tracking-[0.12em] text-white truncate uppercase drop-shadow-lg">
+              {city.name} <span className="text-white/60">// {city.countryCode}</span>
+            </h3>
+            <div className="flex items-center gap-1.5 text-white/60 mt-0.5">
+              <MapPin className="w-2.5 h-2.5" />
+              <span className="text-[9px] font-mono tracking-wider">{city.country} · {city.region}</span>
+            </div>
           </div>
+          <DataSourceBadge source={city.dataSource || 'verified'} />
         </div>
       </div>
 
@@ -117,7 +136,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         {/* View full dossier */}
         <button
           onClick={onSelect}
-          className="w-full mt-3 flex items-center justify-center gap-1.5 py-2 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground uppercase"
+          className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
         >
           VIEW DETAILS <ChevronRight className="w-3 h-3" />
         </button>
@@ -134,10 +153,21 @@ interface TopResultsGridProps {
 
 export default function TopResultsGrid({ topResults, onSelectResult, primaryContent }: TopResultsGridProps) {
   const runners = topResults.slice(1, 3);
+  const primaryRef = useRef<HTMLDivElement>(null);
+
+  const handleSelectRunner = useCallback((index: number) => {
+    onSelectResult(index);
+    // Scroll the primary card into view on mobile
+    setTimeout(() => {
+      primaryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }, [onSelectResult]);
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4">
-      {primaryContent}
+      <div ref={primaryRef}>
+        {primaryContent}
+      </div>
 
       {runners.length > 0 && (
         <div className="space-y-2">
@@ -150,7 +180,7 @@ export default function TopResultsGrid({ topResults, onSelectResult, primaryCont
                 key={scored.city.id}
                 scored={scored}
                 rank={i + 2}
-                onSelect={() => onSelectResult(i + 1)}
+                onSelect={() => handleSelectRunner(i + 1)}
               />
             ))}
           </div>

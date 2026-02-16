@@ -1,6 +1,7 @@
 import { City } from '@/data/cities';
+import type { LandscapeOption } from '@/data/cities/types';
 import { Origin } from '@/data/origins';
-import { haversineKm } from '@/lib/distance';
+import { haversineKm, estimateFlightTimeHours, estimateFlightCost, getEffectiveDistance } from '@/lib/distance';
 import type { VibeOption } from '@/store/useSpinStore';
 
 // ── Legacy scoring (kept for backward compat) ──
@@ -90,7 +91,13 @@ export interface ScoredCity {
     internet: number;
     safety: number;
     vibe: number;
+    landscape: number;
     proximity: number;
+  };
+  flightInfo?: {
+    distKm: number;
+    hours: number;
+    costEstimate: number;
   };
 }
 
@@ -102,18 +109,19 @@ export function scoreCityForPreferences(
   safetyMin: number,
   vibes: VibeOption[],
   origin: Origin | null,
+  landscapes: LandscapeOption[] = [],
 ): ScoredCity {
-  // Budget (0-30): non-linear curve
+  // Budget (0-28)
   let bRaw: number;
   if (city.costUSD <= budgetMax) {
-    bRaw = 80 + (city.costUSD / budgetMax) * 20; // 80-100
+    bRaw = 80 + (city.costUSD / budgetMax) * 20;
   } else {
     const overage = (city.costUSD - budgetMax) / budgetMax;
     bRaw = Math.max(0, 80 - overage * 300);
   }
-  const bPts = (bRaw / 100) * 30;
+  const bPts = (bRaw / 100) * 28;
 
-  // Internet (0-15): linear above minimum
+  // Internet (0-12)
   let iRaw: number;
   if (city.internetMbps < internetMin) {
     iRaw = Math.max(0, (city.internetMbps / internetMin) * 40);
@@ -121,49 +129,64 @@ export function scoreCityForPreferences(
     const excess = (city.internetMbps - internetMin) / Math.max(internetMin, 1);
     iRaw = 60 + Math.min(40, excess * 20);
   }
-  const iPts = (iRaw / 100) * 15;
+  const iPts = (iRaw / 100) * 12;
 
-  // Safety (0-15): linear above minimum
+  // Safety (0-12)
   let sRaw: number;
   if (city.safety < safetyMin) {
     sRaw = Math.max(0, (city.safety / safetyMin) * 40);
   } else {
     sRaw = 60 + Math.min(40, (city.safety - safetyMin) * 10);
   }
-  const sPts = (sRaw / 100) * 15;
+  const sPts = (sRaw / 100) * 12;
 
-  // Vibe (0-25): overlap between user vibes and city vibes
+  // Vibe (0-20)
   let vPts = 0;
   if (vibes.length > 0) {
     const matches = vibes.filter(v => city.vibe.includes(v)).length;
-    vPts = (matches / vibes.length) * 25;
+    vPts = (matches / vibes.length) * 20;
   } else {
-    vPts = 12.5; // neutral if no vibes selected
+    vPts = 10;
   }
 
-  // Proximity (0-15): distance from origin
-  let pPts = 7.5; // neutral if no origin
+  // Landscape (0-13)
+  let lPts = 6.5; // neutral if no landscape selected
+  if (landscapes.length > 0) {
+    const cityLandscapes = city.landscape || [];
+    const matches = landscapes.filter(l => cityLandscapes.includes(l)).length;
+    lPts = (matches / landscapes.length) * 13;
+  }
+
+  // Proximity (0-15)
+  let pPts = 7.5;
+  let flightInfo: ScoredCity['flightInfo'] = undefined;
   if (origin && origin.id !== 'anywhere') {
-    const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
-    const pRaw = Math.max(0, 100 - (dist / 200)); // 200km = 1 point penalty
+    const dist = getEffectiveDistance(origin.lat, origin.lng, city.lat, city.lng, city.nearestAirport);
+    const pRaw = Math.max(0, 100 - (dist / 200));
     pPts = (Math.min(100, pRaw) / 100) * 15;
+    flightInfo = {
+      distKm: Math.round(dist),
+      hours: estimateFlightTimeHours(dist),
+      costEstimate: estimateFlightCost(dist),
+    };
   }
 
-  const total = Math.max(0, Math.min(100, Math.round(bPts + iPts + sPts + vPts + pPts)));
+  const total = Math.max(0, Math.min(100, Math.round(bPts + iPts + sPts + vPts + lPts + pPts)));
 
-  // Determine primary reason
   const scores = [
-    { key: 'budget', val: bPts / 30 },
-    { key: 'vibe', val: vPts / 25 },
-    { key: 'safety', val: sPts / 15 },
-    { key: 'internet', val: iPts / 15 },
+    { key: 'budget', val: bPts / 28 },
+    { key: 'vibe', val: vPts / 20 },
+    { key: 'landscape', val: lPts / 13 },
+    { key: 'safety', val: sPts / 12 },
+    { key: 'internet', val: iPts / 12 },
     { key: 'proximity', val: pPts / 15 },
   ];
   scores.sort((a, b) => b.val - a.val);
 
   const reasonMap: Record<string, string> = {
     budget: 'BEST FOR BUDGET',
-    vibe: 'IDEAL CLIMATE',
+    vibe: 'IDEAL VIBE',
+    landscape: 'PERFECT LANDSCAPE',
     safety: 'SAFEST OPTION',
     internet: 'FASTEST CONNECTIVITY',
     proximity: 'CLOSEST TO BASE',
@@ -178,8 +201,10 @@ export function scoreCityForPreferences(
       internet: Math.round(iPts),
       safety: Math.round(sPts),
       vibe: Math.round(vPts),
+      landscape: Math.round(lPts),
       proximity: Math.round(pPts),
     },
+    flightInfo,
   };
 }
 

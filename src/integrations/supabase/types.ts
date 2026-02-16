@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      city_enrichment_cache: {
+        Row: {
+          enrichment_data: Json
+          fetched_at: string
+          slug: string
+        }
+        Insert: {
+          enrichment_data?: Json
+          fetched_at?: string
+          slug: string
+        }
+        Update: {
+          enrichment_data?: Json
+          fetched_at?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       city_image_cache: {
         Row: {
           city_name: string | null

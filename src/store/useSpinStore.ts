@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
+import type { LandscapeOption } from '@/data/cities/types';
 import { Origin, origins as originsData } from '@/data/origins';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
 
@@ -9,12 +10,14 @@ console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
 export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';
 export type RegionOption = 'Asia' | 'Europe' | 'LATAM' | 'Africa' | 'Oceania' | 'North America' | 'All';
+export type { LandscapeOption };
 
 interface Preferences {
   budgetRange: [number, number];
   internetMin: number;
   safetyMin: number;
   vibes: VibeOption[];
+  landscapes: LandscapeOption[];
   region: RegionOption;
   origin: Origin | null;
 }
@@ -57,6 +60,7 @@ const defaultPreferences: Preferences = {
   internetMin: 20,
   safetyMin: 5,
   vibes: [],
+  landscapes: [],
   region: 'All',
   origin: null,
 };
@@ -117,6 +121,13 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
       const budgetCeiling = preferences.budgetRange[1] * 1.2;
       if (city.costUSD < preferences.budgetRange[0] * 0.8 || city.costUSD > budgetCeiling) return false;
 
+      // Hard filter: landscape (if any selected, city must match at least one)
+      if (preferences.landscapes.length > 0) {
+        const cityLandscapes = city.landscape || [];
+        const hasMatch = preferences.landscapes.some(l => cityLandscapes.includes(l));
+        if (!hasMatch) return false;
+      }
+
       return true;
     });
     set({ filteredCities: filtered });
@@ -148,6 +159,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
         preferences.safetyMin,
         preferences.vibes,
         preferences.origin,
+        preferences.landscapes,
       )
     );
 
@@ -231,6 +243,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     params.set('i', String(preferences.internetMin));
     params.set('s', String(preferences.safetyMin));
     if (preferences.vibes.length) params.set('v', preferences.vibes.join(','));
+    if (preferences.landscapes.length) params.set('l', preferences.landscapes.join(','));
     if (preferences.region !== 'All') params.set('r', preferences.region);
     if (preferences.origin && preferences.origin.id !== 'anywhere') params.set('o', preferences.origin.id);
     return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
@@ -255,6 +268,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
         internetMin: internet,
         safetyMin: safety,
         vibes,
+        landscapes: (params.get('l')?.split(',') || []) as any,
         region,
         origin,
       },
