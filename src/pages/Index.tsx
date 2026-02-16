@@ -16,6 +16,7 @@ import OriginSelector from '@/components/OriginSelector';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import HowItWorks from '@/components/HowItWorks';
+import FeaturedDestinations from '@/components/FeaturedDestinations';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import CityTooltip from '@/components/CityTooltip';
@@ -397,8 +398,11 @@ export default function Index() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-center flex flex-col gap-2"
+                  className="text-center flex flex-col gap-3"
                 >
+                  <span className="inline-block mx-auto px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
+                    Travel Discovery Tool for Digital Nomads
+                  </span>
                   <h2 className="text-lg md:text-2xl font-mono tracking-wide text-foreground leading-tight">
                     Spin the globe.<br />Find your next digital nomad base.
                   </h2>
@@ -463,6 +467,7 @@ export default function Index() {
                   onSelectResult={(index) => selectResult(index)}
                   primaryContent={
                     <ResultCard
+                      key={displayCity!.id}
                       city={displayCity!}
                       matchScore={matchScore}
                       matchReason={primaryScored?.reason}
@@ -499,9 +504,12 @@ export default function Index() {
         </div>
       </div>
 
-      {/* How It Works — landing only */}
+      {/* Featured Destinations + How It Works — landing only */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <HowItWorks />
+        <>
+          <FeaturedDestinations />
+          <HowItWorks />
+        </>
       )}
 
       {/* Preferences Modal */}

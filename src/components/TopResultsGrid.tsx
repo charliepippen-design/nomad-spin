@@ -134,10 +134,10 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         </div>
 
         {/* View full dossier */}
-        <button
-          onClick={onSelect}
-          className="w-full mt-3 flex items-center justify-center gap-1.5 py-2.5 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
-        >
+          <button
+            onClick={onSelect}
+            className="w-full mt-3 flex items-center justify-center gap-1.5 py-3 min-h-[44px] rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
+          >
           VIEW DETAILS <ChevronRight className="w-3 h-3" />
         </button>
       </div>
@@ -160,7 +160,7 @@ export default function TopResultsGrid({ topResults, onSelectResult, primaryCont
     // Scroll the primary card into view on mobile
     setTimeout(() => {
       primaryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    }, 300);
   }, [onSelectResult]);
 
   return (
