@@ -76,7 +76,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
           src={thumbUrl}
           alt={`${city.name}, ${city.country}`}
           loading="lazy"
-          crossOrigin="anonymous"
+          
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
