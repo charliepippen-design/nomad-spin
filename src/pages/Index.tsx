@@ -17,7 +17,7 @@ import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import HowItWorks from '@/components/HowItWorks';
 import FeaturedDestinations from '@/components/FeaturedDestinations';
-import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark, ChevronDown } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
@@ -420,6 +420,26 @@ export default function Index() {
                 </motion.div>
 
                 <SavedSpins />
+
+                {/* Scroll indicator */}
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="flex flex-col items-center gap-1 mt-4 cursor-pointer group"
+                  aria-label="Scroll to explore destinations"
+                >
+                  <span className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase group-hover:text-foreground transition-colors">
+                    Scroll to explore
+                  </span>
+                  <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                  >
+                    <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </motion.div>
+                </motion.button>
               </motion.div>
             )}
 
@@ -507,7 +527,9 @@ export default function Index() {
       {/* Featured Destinations + How It Works — landing only */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
         <>
-          <FeaturedDestinations />
+          <div id="featured">
+            <FeaturedDestinations />
+          </div>
           <HowItWorks />
         </>
       )}
