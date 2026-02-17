@@ -427,17 +427,16 @@ export default function Index() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
                   onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex flex-col items-center gap-2 mt-6 cursor-pointer group bg-primary/10 hover:bg-primary/20 backdrop-blur-sm rounded-2xl px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all"
+                  className="flex items-center justify-center gap-2 mt-6 cursor-pointer group bg-black/50 backdrop-blur-sm rounded-lg px-8 py-3 border border-white/10 hover:border-white/20 transition-all w-full max-w-sm"
                   aria-label="Scroll to explore destinations"
                 >
-                  <span className="text-xs font-mono tracking-[0.2em] text-primary uppercase font-medium">
-                    Scroll to explore
-                  </span>
                   <motion.div
-                    animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
                   >
-                    <ChevronDown className="w-5 h-5 text-primary" />
+                    <span className="text-xs font-mono tracking-[0.25em] text-foreground/70 uppercase italic">
+                      Scroll to explore ↓
+                    </span>
                   </motion.div>
                 </motion.button>
               </motion.div>
