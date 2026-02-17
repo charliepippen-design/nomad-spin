@@ -36,8 +36,8 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: 'Nomad Spin <onboarding@resend.dev>',
-        to: ['info@digitalnomadspin.com'],
-        subject: `Contact from ${name.trim()}`,
+        to: ['carlopippen@gmail.com'],
+        subject: `[Nomad Spin Contact] from ${name.trim()}`,
         reply_to: email.trim(),
         html: `
           <h2>New Contact Form Submission</h2>
