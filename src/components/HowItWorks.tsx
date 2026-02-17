@@ -74,7 +74,7 @@ export default function HowItWorks() {
           variants={fadeUp}
           className="text-[11px] text-muted-foreground/60 text-center max-w-md leading-relaxed"
         >
-          Our dataset covers 600+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
+          Our dataset covers 1,200+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
         </motion.p>
       </motion.div>
     </section>

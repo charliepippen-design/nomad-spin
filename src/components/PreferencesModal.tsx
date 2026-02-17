@@ -193,7 +193,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     setOriginSearch('');
   };
 
-  // Build combined searchable list: curated origins + all 600+ cities (deduped)
+  // Build combined searchable list: curated origins + all 1,200+ cities (deduped)
   const allSearchableOrigins = useMemo(() => {
     const originIds = new Set(origins.map(o => o.id));
     const citiesAsOrigins = cities
