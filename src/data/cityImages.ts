@@ -47,7 +47,7 @@ const CITY_PHOTOS: Record<string, string> = {
   // Latin America
   'medellin': '1599057035850-4389f12c8e4f',
   'bogota': '1568372930-aa6bc8d90c04',
-  'mexico-city': '1585464231568-dbd0514f7271',
+  'mexico-city': '1547686669-9a8cb1a22d91',
   'playa-del-carmen': '1552074284-5e88ef1aef18',
   'buenos-aires': '1589909202802-8f4aadce1849',
   'lima': '1531968455986-8bf7fc7c4887',
