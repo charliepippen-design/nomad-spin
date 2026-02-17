@@ -12,7 +12,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder — no backend handler yet
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:info@digitalnomadspin.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
