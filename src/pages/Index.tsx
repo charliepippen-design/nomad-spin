@@ -398,7 +398,7 @@ export default function Index() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-center flex flex-col gap-3"
+                  className="text-center flex flex-col gap-3 bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-5"
                 >
                   <span className="inline-block mx-auto px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
                     Travel Discovery Tool for Digital Nomads
@@ -427,7 +427,7 @@ export default function Index() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
                   onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex flex-col items-center gap-1 mt-4 cursor-pointer group"
+                  className="flex flex-col items-center gap-1 mt-4 cursor-pointer group bg-black/40 backdrop-blur-sm rounded-2xl px-4 py-3"
                   aria-label="Scroll to explore destinations"
                 >
                   <span className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase group-hover:text-foreground transition-colors">

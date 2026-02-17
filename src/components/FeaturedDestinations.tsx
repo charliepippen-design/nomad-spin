@@ -28,7 +28,7 @@ export default function FeaturedDestinations() {
         transition={{ staggerChildren: 0.1 }}
         className="max-w-4xl mx-auto flex flex-col items-center gap-8"
       >
-        <motion.div variants={fadeUp} className="text-center">
+        <motion.div variants={fadeUp} className="text-center bg-black/50 backdrop-blur-sm rounded-2xl px-6 py-4">
           <h2 className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground uppercase mb-2">
             Where to Stay
           </h2>
