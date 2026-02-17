@@ -3,7 +3,6 @@ import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { cities, type City } from '@/data/cities';
-import { Plus, Minus } from 'lucide-react';
 
 /* ── Convert lat/lng to 3D position ── */
 function latLngToVec3(lat: number, lng: number, radius: number): THREE.Vector3 {
@@ -317,18 +316,6 @@ function CameraRig({ resetCamera, focusCity }: { resetCamera: boolean; focusCity
   return null;
 }
 
-/* ── Zoom Rig - smoothly lerps camera Z toward zoomTargetRef ── */
-function ZoomRig({ zoomTargetRef }: { zoomTargetRef: React.MutableRefObject<number> }) {
-  const { camera } = useThree();
-
-  useFrame(() => {
-    const target = zoomTargetRef.current;
-    camera.position.z = THREE.MathUtils.lerp(camera.position.z, target, 0.08);
-  });
-
-  return null;
-}
-
 /* ── Main Globe ── */
 interface GlobeProps {
   spinning?: boolean;
@@ -353,15 +340,6 @@ export default function Globe({
 }: GlobeProps) {
   const [userDragging, setUserDragging] = useState(false);
   const [initialRotationY, setInitialRotationY] = useState(0);
-  const zoomTargetRef = useRef(5.5);
-
-  const handleZoomIn = useCallback(() => {
-    zoomTargetRef.current = Math.max(3.5, zoomTargetRef.current - 0.5);
-  }, []);
-
-  const handleZoomOut = useCallback(() => {
-    zoomTargetRef.current = Math.min(8, zoomTargetRef.current + 0.5);
-  }, []);
 
   // Request geolocation on mount to set initial globe orientation
   useEffect(() => {
@@ -421,10 +399,9 @@ export default function Globe({
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
           <CameraRig resetCamera={resetCamera} focusCity={focusCity} />
-          <ZoomRig zoomTargetRef={zoomTargetRef} />
           {!spinning && (
             <OrbitControls
-              enableZoom={false}
+              enableZoom={true}
               enablePan={false}
               autoRotate={false}
               minDistance={3.5}
@@ -438,24 +415,6 @@ export default function Globe({
           )}
         </Suspense>
       </Canvas>
-
-      {/* Zoom controls overlay */}
-      <div className="absolute bottom-6 right-6 z-10 flex flex-col gap-2 pointer-events-auto">
-        <button
-          onClick={handleZoomIn}
-          className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-white/20 transition-colors"
-          aria-label="Zoom in"
-        >
-          <Plus size={16} />
-        </button>
-        <button
-          onClick={handleZoomOut}
-          className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-white/20 transition-colors"
-          aria-label="Zoom out"
-        >
-          <Minus size={16} />
-        </button>
-      </div>
     </div>
   );
 }
