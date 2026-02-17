@@ -2,20 +2,32 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
-import { Send } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contact from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:info@digitalnomadspin.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact', {
+        body: { name, email, message },
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,8 +95,9 @@ export default function Contact() {
                 placeholder="Your message..."
               />
             </div>
-            <Button type="submit" className="w-full gap-2 font-mono tracking-wider uppercase text-xs">
-              <Send className="w-3.5 h-3.5" /> Send Message
+            <Button type="submit" disabled={loading} className="w-full gap-2 font-mono tracking-wider uppercase text-xs">
+              {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
+              {loading ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         )}
