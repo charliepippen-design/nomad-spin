@@ -407,7 +407,7 @@ export default function Globe({
           <CameraRig resetCamera={resetCamera} focusCity={focusCity} />
           {!spinning && (
             <OrbitControls
-              enableZoom={true}
+              enableZoom={false}
               enablePan={false}
               autoRotate={false}
               minDistance={3.5}
