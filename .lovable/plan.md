@@ -1,31 +1,42 @@
 
+## Add Zoom Controls for the Globe
 
-## Fix Mexico City Image and Improve Text Visibility
+Since mouse wheel is now reserved for page scrolling, we need an alternative way to let users zoom the globe. The cleanest approach: **floating +/- zoom buttons** overlaid on the globe area.
 
-### 1. Replace Mexico City photo ID (verified working)
+---
 
-Replace the broken ID in `src/data/cityImages.ts` with `1547686669-9a8cb1a22d91` -- an aerial shot of Palacio de Bellas Artes, confirmed loading from Unsplash right now.
+### What Changes
 
-**File:** `src/data/cityImages.ts` -- line 50, single value change.
+**Add a `ZoomControls` component inside `Globe.tsx`** -- two small circular buttons (+ and -) positioned in the bottom-right corner of the globe container. Clicking them smoothly adjusts the camera distance within the existing min/max range (3.5 to 8).
 
-### 2. Add dark backdrop behind hero text and "Where to Stay" heading
+### How It Works
 
-The globe's varying surface colors (bright oceans, light landmasses) wash out the overlaid text. The fix adds a semi-transparent dark gradient backdrop behind text-heavy areas so they remain readable regardless of globe rotation.
+- Store a `zoomLevel` ref inside the Globe component (initial value: 5.5, matching the default camera Z position)
+- The + button decreases the value (zoom in, min 3.5), the - button increases it (zoom out, max 8)
+- A new `ZoomRig` inner component (inside the Canvas) reads this ref each frame and lerps the camera Z position toward the target -- smooth animated zoom
+- Buttons are styled as small glass-morphism circles (`bg-black/40 backdrop-blur-sm border border-white/10`) matching the existing UI aesthetic
+- Buttons use `pointer-events-auto` so they're clickable above the globe
 
-**Changes in `src/pages/Index.tsx`:**
+### Layout
 
-- Wrap the hero text block (badge, headline, subtitle) in a container with `bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-5`. This creates a subtle frosted-glass panel behind the text that ensures contrast against any globe position.
-- Apply the same treatment to the "Scroll to explore" indicator.
+```text
++---------------------------+
+|                           |
+|         [Globe]           |
+|                           |
+|                     [+]   |
+|                     [-]   |
++---------------------------+
+```
 
-**Changes in `src/components/FeaturedDestinations.tsx`:**
+### Technical Details
 
-- Add `bg-black/50 backdrop-blur-sm rounded-2xl px-6 py-4` to the "Where to Stay" heading wrapper, so the section title and subtitle remain visible when the globe's bright areas are behind them.
+**File: `src/components/Globe.tsx`**
 
-### Technical summary
+1. Add a `zoomTargetRef = useRef(5.5)` in the main `Globe` component
+2. Create two handler functions: `handleZoomIn` (subtracts 0.5, clamps to 3.5) and `handleZoomOut` (adds 0.5, clamps to 8)
+3. Add a new `ZoomRig` component inside the Canvas that reads `zoomTargetRef` and lerps `camera.position.z` toward it each frame (coexists with existing `CameraRig`)
+4. Render the +/- buttons as an HTML overlay inside the globe's wrapper div (outside the Canvas), positioned with `absolute bottom-6 right-6 z-10 pointer-events-auto`
+5. Pass `zoomTargetRef` into the Canvas via a shared ref (since it's a mutable ref, no re-renders needed)
 
-| File | Change |
-|------|--------|
-| `src/data/cityImages.ts` | Line 50: replace photo ID with `1547686669-9a8cb1a22d91` |
-| `src/pages/Index.tsx` | Add `bg-black/40 backdrop-blur-sm rounded-2xl` container around hero text block (lines 397-412) and around scroll indicator (lines 424-442) |
-| `src/components/FeaturedDestinations.tsx` | Add `bg-black/50 backdrop-blur-sm rounded-2xl` to the heading `motion.div` (line 31) |
-
+**No other files need to change.**
