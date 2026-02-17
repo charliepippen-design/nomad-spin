@@ -35,8 +35,8 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Nomad Spin <onboarding@resend.dev>',
-        to: ['carlopippen@gmail.com'],
+        from: 'Nomad Spin <noreply@digitalnomadspin.com>',
+        to: ['info@digitalnomadspin.com'],
         subject: `[Nomad Spin Contact] from ${name.trim()}`,
         reply_to: email.trim(),
         html: `
