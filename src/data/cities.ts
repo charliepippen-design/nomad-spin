@@ -14,6 +14,12 @@ import { newOtherCities } from './cities/new-other';
 import { extraAsiaCities } from './cities/extra-asia';
 import { extraEuropeCities } from './cities/extra-europe';
 import { extraAmericasCities } from './cities/extra-americas';
+import { batch4EuropeCities } from './cities/batch4-europe';
+import { batch4OtherCities } from './cities/batch4-other';
+import { batch5EuropeCities } from './cities/batch5-europe';
+import { batch5OtherCities } from './cities/batch5-other';
+import { batch6MixedACities } from './cities/batch6-mixed-a';
+import { batch6MixedBCities } from './cities/batch6-mixed-b';
 
 /** Infer landscape from vibe tags when not explicitly set */
 function inferLandscape(vibe: string[]): LandscapeOption[] {
@@ -702,4 +708,10 @@ export const cities: City[] = [
   ...extraAsiaCities,
   ...extraEuropeCities,
   ...extraAmericasCities,
+  ...batch4EuropeCities,
+  ...batch4OtherCities,
+  ...batch5EuropeCities,
+  ...batch5OtherCities,
+  ...batch6MixedACities,
+  ...batch6MixedBCities,
 ];

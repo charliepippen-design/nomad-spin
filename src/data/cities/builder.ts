@@ -57,6 +57,15 @@ function inferLanguage(cc: string): string {
     KW: 'Arabic', JO: 'Arabic', LB: 'Arabic', IL: 'Hebrew',
     AM: 'Armenian', AZ: 'Azerbaijani', UZ: 'Uzbek', KZ: 'Kazakh', KG: 'Kyrgyz',
     CN: 'Mandarin', HK: 'Cantonese', SG: 'English', BN: 'Malay', FJ: 'English',
+    BT: 'Dzongkha', TJ: 'Tajik', IR: 'Persian', MZ: 'Portuguese', ZW: 'English',
+    ZM: 'English', AO: 'Portuguese', GA: 'French', ST: 'Portuguese', GL: 'Greenlandic',
+    VE: 'Spanish', HN: 'Spanish', NI: 'Spanish', SV: 'Spanish', BZ: 'English',
+    GY: 'English', SR: 'Dutch', CV: 'Portuguese', PR: 'Spanish', VI: 'English',
+    TC: 'English', BS: 'English', WS: 'Samoan', VU: 'Bislama', SB: 'English',
+    TV: 'Tuvaluan', MH: 'Marshallese', AS: 'Samoan', CK: 'English', PG: 'Tok Pisin',
+    TL: 'Portuguese', NC: 'French', TO: 'Tongan', MW: 'English', BO: 'Spanish',
+    MD: 'Romanian', RE: 'French', EH: 'Arabic', CD: 'French', GG: 'English',
+    JE: 'English', FO: 'Faroese', YT: 'French', NA: 'English',
   };
   return langMap[cc] || 'English';
 }
