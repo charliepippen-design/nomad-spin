@@ -1,85 +1,32 @@
 
-## Add 600 New Cities (Ranks 601-1200) to the Dataset
+## Send Contact Form Messages to Your Email
 
-The three uploaded Excel files contain 600 new cities that need to be converted into TypeScript using the existing `city()` builder function and merged into the main city array.
+Currently the contact form uses a `mailto:` link which opens the user's email client — not ideal. Instead, we'll create a backend function that sends the form data directly to `info@digitalnomadspin.com` using the Resend email service.
 
-### Data Mapping
+### How It Will Work
 
-The spreadsheet columns map to the `city()` builder as follows:
+1. User fills out the contact form (Name, Email, Message)
+2. On submit, the form calls a backend function
+3. The backend function sends a nicely formatted email to `info@digitalnomadspin.com`
+4. User sees a "Thank you" confirmation
 
-| Spreadsheet Column | Builder Field | Notes |
-|---|---|---|
-| City | `name` | |
-| Country | `country` | |
-| Region | `region` | Must map to one of: `Asia`, `Europe`, `LATAM`, `Africa`, `Oceania`, `North America` |
-| Monthly Cost (USD) | `cost` | Use midpoint of range (e.g., "1700-2400" becomes 2050) |
-| Safety Score | `safety` | Direct |
-| Internet Speed | `internet` | Direct |
-| Coworking Spaces | `coworking` | Map: 40+ = High, 10-39 = Med, <10 = Low |
-| Community Size | `community` | Map: Large=8, Medium=6, Small=4, Very Small=2 |
-| English Level | `english` | Map: Native/High=8, Good=7, Moderate=5, Low=3 |
-| Healthcare Quality | `quality` (healthInsurance) | Map: Excellent=9, Good=7, Moderate=5, Poor=3 |
-| Digital Nomad Visa | `visaType` | Direct text |
-| Visa Length | `visaDays` | Parse to days |
-| Key Pros | `pros` | Split into array |
-| Key Cons | `cons` | Split into array |
-| Climate | Used to infer `landscape` | e.g., Mediterranean->seaside, Alpine->mountain, etc. |
+### What's Needed
 
-Region mapping from spreadsheet values:
-- "Western Europe", "Southern Europe", "Central Europe", "Eastern Europe", "Northern Europe", "Europe/Asia" -> `Europe`
-- "South Asia", "Southeast Asia", "East Asia", "Central Asia" -> `Asia`
-- "Middle East" -> `Asia`
-- "North America" -> `North America`
-- "South America", "Central America", "Caribbean" -> `LATAM`
-- "Africa", "Central Africa" -> `Africa`
-- "Oceania", "Arctic" -> `Oceania`
+**A Resend API key** — Resend is a simple email delivery service with a generous free tier (100 emails/day). You'll need to:
+1. Sign up at [resend.com](https://resend.com) (free)
+2. Get your API key
+3. Verify a sending domain (or use the free `onboarding@resend.dev` sender for testing)
 
-### New Files
-
-Six new city data files will be created, two per spreadsheet (split by region grouping to keep file sizes manageable):
-
-| File | Content |
-|---|---|
-| `src/data/cities/batch4-europe.ts` | European cities from ranks 601-800 |
-| `src/data/cities/batch4-other.ts` | Non-European cities from ranks 601-800 |
-| `src/data/cities/batch5-europe.ts` | European cities from ranks 801-1000 |
-| `src/data/cities/batch5-other.ts` | Non-European cities from ranks 801-1000 |
-| `src/data/cities/batch6-mixed-a.ts` | Cities from ranks 1001-1100 |
-| `src/data/cities/batch6-mixed-b.ts` | Cities from ranks 1101-1200 |
-
-Each file exports a named array (e.g., `batch4EuropeCities`) using the `city()` builder, following the exact same pattern as existing files like `new-asia.ts`.
-
-### Modified Files
+### Changes
 
 | File | Change |
 |---|---|
-| `src/data/cities.ts` | Import the 6 new arrays and spread them into the `cities` export |
-| `src/data/cities/builder.ts` | Add missing country codes to `inferLanguage` map (e.g., `BJ`, `TJ`, `KG`, `BN`, `WS`, `TO`, `FJ`, `VU`, `SB`, `PG`, `TL`, `CK`, `TV`, `MH`, `CW`, `BO`, `HN`, `NI`, `GT`, `SV`, `BZ`, `GY`, `SR`, `CV`, etc.) |
-
-### City ID Convention
-
-Each city gets a slug-style ID: `lowercase-name-countrycode` (e.g., `ljubljana-si`, `boise-suburbs-us`, `santarem-pt`). This matches the existing pattern.
-
-### Landscape Inference from Climate
-
-The climate column will be used to set `landscape` where possible:
-- Mediterranean, Atlantic, Oceanic, Subtropical, Tropical (coastal context) -> `seaside`
-- Alpine, Highland, Cold Highland -> `mountain`
-- Desert, Desert Hot -> `desert`
-- Continental, Cold, Four Seasons, Hot (urban context) -> `urban`
-- Tropical + island context -> `island`
-
-### What Stays the Same
-
-- All existing filtering, scoring, search, and display logic works unchanged -- no modifications needed
-- The `city()` builder already handles defaults for all optional fields (taxation, health insurance, eSIM, legal notes, airports)
-- All new cities are flagged as `dataSource: 'estimated'` since they come from spreadsheet data rather than hand-curation
-- The console log in `useSpinStore.ts` already uses `cities.length` dynamically, so it will automatically show the updated count
+| `supabase/functions/send-contact/index.ts` | **New** — Edge function that receives form data and sends an email via Resend API to `info@digitalnomadspin.com` |
+| `src/pages/Contact.tsx` | Update `handleSubmit` to call the edge function instead of `mailto:`, add loading state and error handling |
 
 ### Technical Details
 
-- Each `city()` call is ~5 lines using the compact builder format
-- 600 cities across 6 files = ~100 cities per file, ~500 lines each
-- No database changes needed -- city data is purely client-side
-- No new dependencies required
-- Nightlife scores will be inferred from Community Size and English Level context (Large city + nightlife mentions in pros = higher score)
+- The edge function validates inputs (name, email, message) server-side
+- Email is sent with the user's name/email in the body so you can reply directly
+- The form UI stays exactly as shown in your screenshot — no visual changes
+- A new secret `RESEND_API_KEY` will need to be added to the project
