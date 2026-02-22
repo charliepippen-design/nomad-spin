@@ -27,6 +27,15 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
   const [success, setSuccess] = useState(false);
   const { toast } = useToast();
 
+  const friendlyError = (msg: string): string => {
+    const lower = msg.toLowerCase();
+    if (lower.includes('user already registered')) return 'This email is already registered. Try signing in instead.';
+    if (lower.includes('invalid login credentials')) return 'Wrong email or password. Please try again.';
+    if (lower.includes('email not confirmed')) return 'Please check your email to verify your account.';
+    if (lower.includes('password') && lower.includes('characters')) return 'Password must be at least 6 characters.';
+    return msg;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -39,7 +48,11 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
     setLoading(false);
 
     if (result.error) {
-      setError(result.error.message || 'Authentication failed');
+      const msg = result.error.message || 'Authentication failed';
+      setError(friendlyError(msg));
+      if (msg.toLowerCase().includes('user already registered')) {
+        setMode('login');
+      }
     } else {
       setSuccess(true);
       toast({
