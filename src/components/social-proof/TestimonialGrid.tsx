@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -19,25 +21,41 @@ const testimonials = [
 ];
 
 export default function TestimonialGrid() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % testimonials.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const t = testimonials[active];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl mx-auto pointer-events-auto">
-      {testimonials.map((t, i) => (
+    <div className="fixed bottom-16 right-6 z-50 w-[320px] bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl pointer-events-auto overflow-hidden">
+      <Quote className="w-4 h-4 text-white/20 mb-3" />
+      <AnimatePresence mode="wait">
         <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 30 }}
+          key={active}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 * i + 0.3 }}
-          className="bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-2xl p-6 transition-all duration-300"
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.35 }}
         >
-          <p className="text-gray-300 text-sm leading-relaxed mb-6">
-            "{t.quote}"
-          </p>
-          <div className="flex flex-col border-t border-white/10 pt-4">
-            <span className="text-white text-sm font-semibold">{t.author}</span>
-            <span className="text-white/50 text-xs uppercase tracking-wider mt-1">{t.role}</span>
-          </div>
+          <p className="text-sm text-gray-200 leading-relaxed mb-4">"{t.quote}"</p>
+          <p className="text-xs font-bold text-white">{t.author}</p>
+          <p className="text-[10px] text-white/40 uppercase tracking-wider mt-0.5">{t.role}</p>
         </motion.div>
-      ))}
+      </AnimatePresence>
+      <div className="flex gap-1.5 mt-3">
+        {testimonials.map((_, i) => (
+          <div
+            key={i}
+            className={`h-0.5 rounded-full transition-all duration-300 ${i === active ? 'w-4 bg-white/60' : 'w-2 bg-white/15'}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
