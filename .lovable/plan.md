@@ -1,27 +1,18 @@
 
-
-# More Visible Scrollbar for Landing Drawer
+# Make Scrollbar More Visible
 
 ## Problem
-The drawer's scrollable area uses the default thin/invisible scrollbar, making it hard for users to realize they can scroll back up when deep in the content.
+The current scrollbar uses `width: 6px` and low-opacity colors (`white/20` thumb, `white/5` track), making it nearly invisible on the dark background.
 
-## Solution
-Add a custom visible scrollbar to the drawer's scrollable container using Tailwind CSS utility classes. This will render a slim but clearly visible track and thumb on the right edge of the drawer.
-
-## Technical Details
-
-### `src/components/LandingDrawer.tsx`
-- On the scrollable `<div>` (line 213), add custom scrollbar classes
-- Add a "Back to top" floating button that appears when the user scrolls down past a threshold, allowing one-click scroll to top
+## Changes
 
 ### `src/index.css`
-- Add custom scrollbar CSS utilities for a styled, always-visible scrollbar:
-  - Thin track with subtle background (`bg-white/5`)
-  - Visible thumb with a brighter color (`bg-white/20`, hover `bg-white/40`)
-  - Rounded corners for a polished look
-  - Works in both Webkit (Chrome/Safari) and Firefox
+Make the `.scrollbar-visible` scrollbar significantly more prominent:
+- Increase width from `6px` to `10px`
+- Increase thumb opacity from `0.2` to `0.45` (idle) and `0.4` to `0.7` (hover)
+- Increase track opacity from `0.05` to `0.12`
+- Change Firefox `scrollbar-width` from `thin` to `auto` for a wider scrollbar
+- Add a subtle border/outline to the thumb for extra contrast
 
-### Files modified:
-- `src/index.css` -- add custom scrollbar utility class
-- `src/components/LandingDrawer.tsx` -- apply scrollbar class + add floating "scroll to top" button
-
+### Files modified
+- `src/index.css` -- increase scrollbar width and opacity values
