@@ -45,6 +45,7 @@ interface SpinStore {
   spin: () => void;
   selectResult: (index: number) => void;
   saveResult: () => void;
+  saveCity: (city: City) => void;
   removeSavedSpin: (index: number) => void;
   redeploySpin: (index: number) => void;
   reset: () => void;
@@ -198,6 +199,19 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     if (savedSpins.find((s) => s.city.id === resultCity.id)) return;
     const newSpin: SavedSpin = {
       city: resultCity,
+      timestamp: new Date().toLocaleDateString(),
+      preferences: { ...preferences },
+    };
+    const updated = [...savedSpins, newSpin];
+    localStorage.setItem('savedSpins', JSON.stringify(updated));
+    set({ savedSpins: updated });
+  },
+
+  saveCity: (city) => {
+    const { savedSpins, preferences } = get();
+    if (savedSpins.find((s) => s.city.id === city.id)) return;
+    const newSpin: SavedSpin = {
+      city,
       timestamp: new Date().toLocaleDateString(),
       preferences: { ...preferences },
     };

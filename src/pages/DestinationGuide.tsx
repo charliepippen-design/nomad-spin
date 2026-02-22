@@ -1,13 +1,16 @@
 import { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ArrowLeft, ExternalLink } from 'lucide-react';
+import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ArrowLeft, ExternalLink, Bookmark } from 'lucide-react';
 import { cities } from '@/data/cities';
 import { slugify } from '@/lib/slugify';
 import { getCityImageUrl } from '@/data/cityImages';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { generateBadges } from '@/lib/badges';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
+import { useSpinStore } from '@/store/useSpinStore';
+import { useAuth } from '@/hooks/useAuth';
+import { useCloudSync } from '@/hooks/useCloudSync';
 import GuideSection from '@/components/GuideSection';
 
 export default function DestinationGuide() {
@@ -20,6 +23,12 @@ export default function DestinationGuide() {
 
   const { enrichedCity } = useCityEnrichment(city ?? null);
   const displayCity = enrichedCity || city;
+
+  const { savedSpins, saveCity, removeSavedSpin, preferences } = useSpinStore();
+  const auth = useAuth();
+  const cloudSync = useCloudSync(auth.user?.id);
+  const savedIndex = savedSpins.findIndex(s => s.city?.id === city?.id);
+  const isSaved = savedIndex !== -1;
 
   if (!city || !displayCity) {
     return <Navigate to="/" replace />;
@@ -56,9 +65,36 @@ export default function DestinationGuide() {
           <h1 className="font-mono text-2xl md:text-4xl tracking-[0.15em] text-white uppercase">
             {city.name}
           </h1>
-          <div className="flex items-center gap-2 mt-2 text-white/60">
-            <MapPin className="w-3 h-3" />
-            <span className="text-xs font-mono tracking-wider">{city.country} · {city.region}</span>
+          <div className="flex items-center gap-3 mt-2">
+            <div className="flex items-center gap-2 text-white/60">
+              <MapPin className="w-3 h-3" />
+              <span className="text-xs font-mono tracking-wider">{city.country} · {city.region}</span>
+            </div>
+            <button
+              onClick={() => {
+                if (isSaved) {
+                  removeSavedSpin(savedIndex);
+                  if (auth.isAuthenticated) cloudSync.removeSpin(city.id);
+                } else {
+                  saveCity(city);
+                  if (auth.isAuthenticated) {
+                    cloudSync.saveSpin({
+                      city,
+                      timestamp: new Date().toLocaleDateString(),
+                      preferences,
+                    });
+                  }
+                }
+              }}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-mono tracking-[0.15em] uppercase transition-colors border backdrop-blur-sm ${
+                isSaved
+                  ? 'bg-primary/20 border-primary/40 text-primary'
+                  : 'bg-white/10 border-white/20 text-white/80 hover:bg-white/20'
+              }`}
+            >
+              <Bookmark className={`w-3 h-3 ${isSaved ? 'fill-primary' : ''}`} />
+              {isSaved ? 'Saved' : 'Save City'}
+            </button>
           </div>
         </div>
       </header>
