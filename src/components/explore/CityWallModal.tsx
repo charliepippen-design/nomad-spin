@@ -28,13 +28,13 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
     <div className="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-2xl overflow-y-auto overflow-x-hidden animate-in fade-in duration-300">
       {/* Sticky header */}
       <div className="sticky top-0 z-[105] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06]">
-        <div className="max-w-[1600px] mx-auto flex items-center justify-between px-4 md:px-8 py-4">
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between px-3 md:px-8 py-3 md:py-4">
+          <div className="min-w-0">
+            <h1 className="text-base md:text-2xl font-bold text-foreground tracking-tight truncate">
               Explore Destinations
             </h1>
-            <p className="text-xs text-muted-foreground font-mono tracking-wider mt-0.5">
-              {mockCities.length} cities · Click to compare
+            <p className="text-[10px] md:text-xs text-muted-foreground font-mono tracking-wider mt-0.5">
+              {mockCities.length} cities · Tap to compare
             </p>
           </div>
           <button
@@ -48,7 +48,7 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 p-2 md:p-4 w-full pb-28">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-1.5 sm:gap-2 p-1.5 sm:p-2 md:p-4 w-full pb-28">
         {mockCities.map((city) => (
           <CityCard
             key={city.id}
@@ -67,21 +67,21 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: 'spring', damping: 24, stiffness: 300 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] bg-white text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-4"
+            className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-[110] bg-white text-black px-3 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-4 max-w-[calc(100vw-2rem)]"
           >
-            <span className="text-sm font-mono">
-              {selectedCities.length} {selectedCities.length === 1 ? 'city' : 'cities'} selected
+            <span className="text-xs sm:text-sm font-mono whitespace-nowrap">
+              {selectedCities.length} {selectedCities.length === 1 ? 'city' : 'cities'}
             </span>
             <button
               onClick={() => setIsComparing(true)}
-              className="flex items-center gap-2 bg-black text-white px-4 py-1.5 rounded-full text-sm font-mono hover:bg-black/80 transition-colors"
+              className="flex items-center gap-1.5 sm:gap-2 bg-black text-white px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono hover:bg-black/80 transition-colors whitespace-nowrap"
             >
-              <BarChart3 className="w-4 h-4" />
-              Compare Now
+              <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              Compare
             </button>
             <button
               onClick={() => setSelectedCities([])}
-              className="text-xs text-black/50 hover:text-black transition-colors font-mono"
+              className="text-[10px] sm:text-xs text-black/50 hover:text-black transition-colors font-mono"
             >
               Clear
             </button>
