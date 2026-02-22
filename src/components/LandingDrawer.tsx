@@ -6,8 +6,11 @@ import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
   Compass, X, ChevronRight, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
-  BarChart3, ShoppingBag, ArrowUp
+  BarChart3, ShoppingBag, ArrowUp, MessageSquareQuote
 } from 'lucide-react';
+import PublisherLogoCloud from '@/components/social-proof/PublisherLogoCloud';
+import TestimonialGrid from '@/components/social-proof/TestimonialGrid';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
@@ -232,11 +235,30 @@ export default function LandingDrawer({
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
                   </p>
+                  <AvatarCluster />
                 </div>
 
                 {/* Spin button */}
                 <SpinButton onClick={handleSpin} label="SPIN & COMPARE DESTINATIONS" />
-                <AvatarCluster />
+
+                {/* Community Reviews */}
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <button className="flex items-center gap-2 w-full px-3 py-2.5 rounded-lg border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] transition-all text-left">
+                      <MessageSquareQuote className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                      <span className="text-[10px] font-mono tracking-[0.15em] text-foreground/60 uppercase">Read Community Reviews</span>
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="w-full sm:w-[480px] bg-black/90 backdrop-blur-2xl border-white/10 overflow-y-auto">
+                    <SheetHeader>
+                      <SheetTitle className="text-sm font-mono tracking-[0.2em] text-foreground/80 uppercase">Community & Press</SheetTitle>
+                    </SheetHeader>
+                    <div className="mt-6 flex flex-col gap-8">
+                      <PublisherLogoCloud />
+                      <TestimonialGrid />
+                    </div>
+                  </SheetContent>
+                </Sheet>
 
                 {/* Globe Controls */}
                 <Divider label="Globe Controls" />
