@@ -359,14 +359,12 @@ export default function Index() {
         />
       )}
 
-      {/* Publisher Logo Cloud — below hero */}
+      {/* Social Proof — well below globe */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <PublisherLogoCloud />
-      )}
-
-      {/* Testimonial Grid — bottom social proof */}
-      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <TestimonialGrid />
+        <div className="relative z-20 mt-40">
+          <PublisherLogoCloud />
+          <TestimonialGrid />
+        </div>
       )}
 
       {/* Social Share Bar — always visible */}
