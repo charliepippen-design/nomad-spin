@@ -116,7 +116,7 @@ export default function SocialShareBar({ cityName, country, shareUrl }: SocialSh
       className={`fixed z-20 pointer-events-auto will-change-transform ${
         isMobile
           ? 'bottom-16 left-0 right-0 flex flex-row justify-center gap-3 px-4'
-          : 'left-3 top-1/2 -translate-y-1/2 flex flex-col gap-2'
+          : 'right-3 top-1/2 -translate-y-1/2 flex flex-col gap-2'
       }`}
     >
       {buttons.map((btn) => (
