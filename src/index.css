@@ -71,19 +71,24 @@
     text-transform: uppercase;
   }
 
-  /* Custom scrollbar */
+  /* Chunky yellow scrollbar – page-level */
+  html {
+    scrollbar-width: auto;
+    scrollbar-color: #ffeb3b #000000;
+  }
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 20px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #000000;
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 2px;
+    background-color: #ffeb3b;
+    border-radius: 999px;
+    border: 4px solid #000000;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
+    background-color: #fff176;
   }
 }
 
