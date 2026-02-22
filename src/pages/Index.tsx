@@ -15,6 +15,7 @@ import LandingDrawer from '@/components/LandingDrawer';
 import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
+import CityWallModal from '@/components/explore/CityWallModal';
 import { RotateCcw } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
@@ -43,6 +44,7 @@ export default function Index() {
   const [dayMode, setDayMode] = useState(true);
   const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
+  const [isCityWallOpen, setIsCityWallOpen] = useState(false);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
   const hasMigrated = useRef(false);
   const { toast } = useToast();
@@ -335,7 +337,7 @@ export default function Index() {
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
-          
+          onOpenCityWall={() => setIsCityWallOpen(true)}
           autoSpin={autoSpin}
           setAutoSpin={setAutoSpin}
           dayMode={dayMode}
@@ -360,6 +362,9 @@ export default function Index() {
         country={resultCity?.country}
         shareUrl={shareUrl}
       />
+
+      {/* City Wall Modal */}
+      <CityWallModal isOpen={isCityWallOpen} onClose={() => setIsCityWallOpen(false)} />
     </div>
   );
 }

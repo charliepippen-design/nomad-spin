@@ -42,7 +42,7 @@ const benefits = [
 
 interface LandingDrawerProps {
   onConfigureMission: () => void;
-  
+  onOpenCityWall: () => void;
   // Globe controls
   autoSpin: boolean;
   setAutoSpin: (v: boolean | ((prev: boolean) => boolean)) => void;
@@ -64,7 +64,7 @@ interface LandingDrawerProps {
 }
 
 export default function LandingDrawer({
-  onConfigureMission,
+  onConfigureMission, onOpenCityWall,
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
   isAuthenticated, user, onSignOut, onOpenAuth,
@@ -235,6 +235,15 @@ export default function LandingDrawer({
 
                 {/* Spin button */}
                 <SpinButton onClick={handleSpin} label="SPIN & COMPARE DESTINATIONS" />
+
+                {/* Explore Cities button */}
+                <button
+                  onClick={() => { setOpen(false); onOpenCityWall(); }}
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all"
+                >
+                  <Globe2 className="w-4 h-4 text-foreground/70" />
+                  <span className="text-[10px] font-mono tracking-[0.2em] text-foreground/70 uppercase font-medium">Explore All Cities</span>
+                </button>
 
                 {/* Globe Controls */}
                 <Divider label="Globe Controls" />
