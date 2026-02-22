@@ -67,17 +67,9 @@ export default function LandingDrawer({
   streak, spinCount,
 }: LandingDrawerProps) {
   const [open, setOpen] = useState(false);
-  const [showBackToTop, setShowBackToTop] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-
-  // Track scroll position for "Back to top" button
-  const handleScroll2 = useCallback(() => {
-    if (scrollRef.current) {
-      setShowBackToTop(scrollRef.current.scrollTop > 300);
-    }
-  }, []);
 
   const scrollToTop = useCallback(() => {
     scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
@@ -223,7 +215,7 @@ export default function LandingDrawer({
               </div>
 
               {/* Scrollable content */}
-              <div ref={scrollRef} onScroll={handleScroll2} className="flex-1 overflow-y-auto px-5 py-4 space-y-5 scrollbar-visible">
+              <div ref={scrollRef} className="flex-1 overflow-y-scroll px-5 py-4 space-y-5 scrollbar-visible">
                 {/* Badge */}
                 <span className="inline-block self-start px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
                   Travel Discovery Tool for Digital Nomads
@@ -386,23 +378,31 @@ export default function LandingDrawer({
                     Scroll to explore ↓
                   </motion.span>
                 </button>
+
+                {/* Back to top hint */}
+                <motion.button
+                  onClick={scrollToTop}
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+                  className="flex items-center justify-center gap-2 w-full py-3 cursor-pointer"
+                  aria-label="Back to top"
+                >
+                  <ArrowUp className="w-4 h-4 text-[#ffeb3b]" />
+                  <span className="text-xs font-mono tracking-[0.2em] text-[#ffeb3b] uppercase">Back to top</span>
+                  <ArrowUp className="w-4 h-4 text-[#ffeb3b]" />
+                </motion.button>
               </div>
 
-              {/* Back to top floating button */}
-              <AnimatePresence>
-                {showBackToTop && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    onClick={scrollToTop}
-                    className="absolute bottom-4 right-4 z-10 w-9 h-9 rounded-full bg-primary/80 hover:bg-primary text-primary-foreground flex items-center justify-center shadow-lg backdrop-blur-sm transition-colors"
-                    aria-label="Scroll to top"
-                  >
-                    <ArrowUp className="w-4 h-4" />
-                  </motion.button>
-                )}
-              </AnimatePresence>
+              {/* Always-visible floating scroll-up button */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                onClick={scrollToTop}
+                className="absolute bottom-4 right-6 z-10 w-12 h-12 rounded-full bg-[#ffeb3b] hover:bg-[#fff176] text-black flex items-center justify-center shadow-[0_0_20px_rgba(255,235,59,0.4)] transition-colors"
+                aria-label="Scroll to top"
+              >
+                <ArrowUp className="w-6 h-6" strokeWidth={3} />
+              </motion.button>
             </motion.div>
           </>
         )}
