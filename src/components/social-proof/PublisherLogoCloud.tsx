@@ -1,9 +1,7 @@
 const publishers = [
   { name: "The New York Times", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/1024px-NewYorkTimes.svg.png" },
-  { name: "BBC", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1024px-BBC_News_2019.svg.png" },
   { name: "CNN", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/CNN.svg/1024px-CNN.svg.png" },
   { name: "TechCrunch", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/TechCrunch_logo.svg/1024px-TechCrunch_logo.svg.png" },
-  { name: "Forbes", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Forbes_logo.svg/1024px-Forbes_logo.svg.png" },
   { name: "The Guardian", src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/The_Guardian_2018.svg/1024px-The_Guardian_2018.svg.png" },
 ];
 
