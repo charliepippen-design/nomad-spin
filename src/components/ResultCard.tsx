@@ -162,18 +162,18 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </div>
           )}
           <div className="absolute bottom-0 left-0 right-0 p-6 pb-4">
-            <div className="flex items-end gap-4">
+            <div className="flex items-end gap-2 sm:gap-4">
               <ScoreRing score={matchScore} />
-              <div className="flex-1 min-w-0 pb-1 bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3">
-                <div className="flex items-center gap-2">
+              <div className="flex-1 min-w-0 pb-1 bg-black/30 backdrop-blur-sm rounded-lg px-2.5 sm:px-4 py-2 sm:py-3">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <motion.h2
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4, duration: 0.6 }}
-                    className="text-2xl md:text-4xl font-mono font-medium tracking-[0.15em] text-white truncate uppercase"
+                    className="text-lg sm:text-2xl md:text-4xl font-mono font-medium tracking-[0.1em] sm:tracking-[0.15em] text-white truncate uppercase"
                     style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6)' }}
                   >
-                    {city.name} <span className="text-white/80">// {city.countryCode}</span>
+                    {city.name} <span className="text-white/80 hidden sm:inline">// {city.countryCode}</span>
                   </motion.h2>
                   <DataSourceIndicator source={dataSource} />
                 </div>
@@ -259,7 +259,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           </div>
 
           {/* Intel + Risks */}
-          <div className="px-6 py-4 grid grid-cols-2 gap-4 border-t border-border/30">
+          <div className="px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-border/30">
             <div>
               <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
                 <Zap className="w-3 h-3" /> WHY THIS CITY
