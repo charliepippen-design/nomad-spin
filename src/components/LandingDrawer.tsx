@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import TrustBadge from '@/components/social-proof/TrustBadge';
+import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
   Compass, X, ChevronRight, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
@@ -222,6 +224,7 @@ export default function LandingDrawer({
                 </span>
 
                 {/* Tagline */}
+                <TrustBadge />
                 <div className="flex flex-col gap-2">
                   <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight">
                     Spin the globe.<br />Find your next digital nomad base.
@@ -233,6 +236,7 @@ export default function LandingDrawer({
 
                 {/* Spin button */}
                 <SpinButton onClick={handleSpin} label="SPIN & COMPARE DESTINATIONS" />
+                <AvatarCluster />
 
                 {/* Globe Controls */}
                 <Divider label="Globe Controls" />
