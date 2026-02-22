@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useSoundManager } from '@/hooks/useSoundManager';
@@ -42,6 +43,8 @@ export default function Index() {
   const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
+  const hasMigrated = useRef(false);
+  const { toast } = useToast();
 
   const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
     if (city && pos) {
@@ -59,10 +62,16 @@ export default function Index() {
 
   // Sync from cloud when user authenticates
   useEffect(() => {
-    if (auth.isAuthenticated && auth.user) {
+    if (auth.isAuthenticated && auth.user && !hasMigrated.current) {
+      hasMigrated.current = true;
       cloudSync.loadSavedSpins();
       cloudSync.loadStreaks();
       cloudSync.loadPreferences();
+      cloudSync.migrateLocalData();
+      toast({
+        title: "You're in",
+        description: "Your picks and settings will now be saved.",
+      });
     }
   }, [auth.isAuthenticated, auth.user?.id]);
 
@@ -113,6 +122,7 @@ export default function Index() {
       clearInterval(tickIntervalRef.current);
       if (auth.isAuthenticated) {
         cloudSync.syncStreaks();
+        cloudSync.syncPreferences();
       }
     }, 3500);
   }, [spin, setPhase, sound, auth.isAuthenticated, cloudSync]);
@@ -299,7 +309,12 @@ export default function Index() {
       {/* Preferences Modal */}
       <PreferencesModal
         open={showPrefs}
-        onClose={() => setShowPrefs(false)}
+        onClose={() => {
+          setShowPrefs(false);
+          if (auth.isAuthenticated) {
+            cloudSync.syncPreferences();
+          }
+        }}
         onSpin={startSpin}
       />
 
