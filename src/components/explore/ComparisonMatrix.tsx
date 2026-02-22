@@ -1,6 +1,7 @@
 import { ArrowLeft, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { MockCity } from '@/data/mockCities';
+import NomadImage from '@/components/common/NomadImage';
 
 interface ComparisonMatrixProps {
   cities: MockCity[];
@@ -107,9 +108,10 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
                 i > 0 ? 'border-l border-white/[0.06]' : ''
               }`}
             >
-              <img
+              <NomadImage
                 src={city.imageUrl}
-                alt={city.name}
+                cityName={city.name}
+                countryName={city.country}
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
