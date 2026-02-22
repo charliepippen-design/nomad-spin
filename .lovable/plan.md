@@ -1,99 +1,29 @@
 
+# Dual-Thumb (Range) Sliders for All Preferences
 
-# Unified Drawer Landing Surface
+## Problem
+The Budget slider already has two thumbs (min/max range), but the Internet Speed and Safety Rating sliders only have a single thumb. The user wants all sliders to show a ball on both ends -- a proper min/max range slider.
 
-## Goal
-Turn the `LandingDrawer` into the **single landing surface** that contains all content currently scattered across the page. The globe becomes the only thing visible behind it.
+## Changes
 
-## What Changes
+### `src/components/PreferencesModal.tsx`
 
-### 1. Remove from `Index.tsx` main layout:
-- The `FeaturedDestinations` section (lines 470-478) -- move its content into the drawer
-- The `HowItWorks` section -- move its content into the drawer
-- All header controls (auto-spin, day/night, sound, origin selector, auth, streak/spin count) -- move into the drawer
-- Strip the header down to just the brand name "NOMAD SPIN", kept `fixed top-0` with frosted glass background
+**Internet Speed slider** (line 397):
+- Change from single value `value={[localInternet]}` to a range `value={localInternetRange}` (e.g. `[10, localInternet]` or a new `[min, max]` state)
+- Add a new state variable `localInternetRange` as `[number, number]` defaulting to `[10, currentValue]`
+- Update the display text from `"50 MBPS"` to `"10 — 50 MBPS"` format (matching the budget style)
 
-### 2. Expand `LandingDrawer` props
-Pass into `LandingDrawer`:
-- Globe control state: `autoSpin`, `setAutoSpin`, `dayMode`, `setDayMode`, `sound` (toggle + muted state)
-- Origin: `preferences.origin`, `setPreferences`
-- Auth: `auth` object, `setShowAuth`
-- Stats: `streak`, `spinCount`
+**Safety Rating slider** (line 408):
+- Change from single value `value={[localSafety]}` to a range `value={localSafetyRange}` (e.g. `[1, localSafety]` or a new `[min, max]` state)
+- Add a new state variable `localSafetyRange` as `[number, number]` defaulting to `[1, currentValue]`
+- Update the display text from `"5/10"` to `"1 — 5 / 10"` or `"1/10 — 5/10"` format
 
-### 3. Rebuild `LandingDrawer` interior as a scrollable landing page inside the panel
+### State and scoring integration
+- Update the preferences store or local state to track min/max for internet and safety
+- Propagate both values through to the scoring logic where relevant (the min value sets the floor filter, the max value sets the ceiling)
 
-The drawer panel (320px on desktop, bottom sheet on mobile) becomes scrollable and contains these sections top-to-bottom:
-
-```text
-+-------------------------------+
-| NOMAD SPIN             [X]   |
-+-------------------------------+
-| "Travel Discovery Tool..."   |
-|                               |
-| Spin the globe.              |
-| Find your next base.         |
-|                               |
-| [SPIN & COMPARE]             |
-|                               |
-| -- Globe Controls ---------- |
-| Auto-spin [toggle]           |
-| Day/Night [toggle]           |
-| Sound     [toggle]           |
-|                               |
-| -- Your Base --------------- |
-| [Origin Selector]            |
-|                               |
-| -- Account ----------------- |
-| Sign in / My picks           |
-| 5D Streak  |  12 spins       |
-|                               |
-| -- Saved Spins ------------- |
-| (list)                       |
-|                               |
-| -- Where to Stay ----------- |
-| [Buenos Aires card]          |
-| [Bangkok card]               |
-| [Lisbon card]                |
-| [Tbilisi card]               |
-| [Mexico City card]           |
-| [Medellin card]              |
-|                               |
-| -- How It Works ------------ |
-| 01 Spin & Select             |
-| 02 Compare Metrics           |
-| 03 Book What You Need        |
-| Benefits list                |
-|                               |
-| [Scroll to explore]          |
-+-------------------------------+
-```
-
-### 4. Header becomes minimal
-- Brand name only: "NOMAD SPIN"
-- `fixed top-0 left-0 right-0 z-20`
-- Frosted glass background stays
-- All nav links, toggles, selectors, auth buttons removed from header
-
-## Technical Details
-
-### `src/pages/Index.tsx`
-- Remove lines 223-383 (all header controls except brand name)
-- Remove lines 470-478 (`FeaturedDestinations` and `HowItWorks` sections)
-- Update `LandingDrawer` rendering to pass new props: `autoSpin`, `setAutoSpin`, `dayMode`, `setDayMode`, `soundMuted`, `toggleSound`, `origin`, `setOrigin`, `auth`, `setShowAuth`, `streak`, `spinCount`
-- Header becomes: just `<h1>NOMAD SPIN</h1>` in a fixed bar
-
-### `src/components/LandingDrawer.tsx`
-- Expand props interface to accept all new control/data props
-- Add "Globe Controls" section with toggle buttons for auto-spin, day/night, sound
-- Add "Your Base" section with `OriginSelector`
-- Add "Account" section with auth button and streak/spin count display
-- Add "Where to Stay" section that renders destination cards inline (import `FeaturedDestinations` city data and card markup directly, styled for the narrower drawer width -- single column grid)
-- Add "How It Works" section reusing the steps/benefits data from `HowItWorks.tsx`
-- Ensure the panel has `overflow-y-auto` for scrolling
-- On mobile bottom sheet, same content stacks vertically with `max-h-[85vh]` and scroll
-- Widen desktop drawer slightly to `w-[360px]` to accommodate cards
+### `src/components/ui/slider.tsx`
+- No changes needed -- Radix Slider already renders one thumb per array element automatically
 
 ### Files modified:
-- `src/pages/Index.tsx` -- strip header, remove below-fold sections, pass props to drawer
-- `src/components/LandingDrawer.tsx` -- rebuild as full landing surface with all sections
-
+- `src/components/PreferencesModal.tsx` -- convert internet and safety sliders to dual-thumb range sliders
