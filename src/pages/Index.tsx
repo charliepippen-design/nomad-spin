@@ -359,9 +359,9 @@ export default function Index() {
         />
       )}
 
-      {/* Social Proof — well below globe */}
+      {/* Social Proof — pushed far below globe */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <div className="relative z-20 mt-40">
+        <div className="relative z-30 mt-[60vh] lg:mt-[80vh] flex flex-col gap-16 pb-24">
           <PublisherLogoCloud />
           <TestimonialGrid />
         </div>

@@ -2,24 +2,27 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: '"Digital Nomad Spin is redefining how remote workers discover their next home base — fast, data-driven, and addictively fun."',
-    source: 'TechCrunch',
+    quote: '"This tool completely changed how I plan my next move. I found my dream base in Lisbon in under two minutes."',
+    author: 'Sarah K.',
+    source: 'Remote Worker, Berlin → Lisbon',
   },
   {
-    quote: '"Finally, a tool that takes the guesswork out of nomad life. The spin mechanic is genius."',
-    source: 'Forbes',
+    quote: '"As a digital nomad for 5 years, I wish I had this from day one. The city comparisons are incredibly accurate."',
+    author: 'James T.',
+    source: 'Full-Stack Dev, Nomading Since 2021',
   },
   {
-    quote: '"We tested 30+ nomad platforms this year. Nomad Spin is the one we kept coming back to."',
-    source: 'CoinDesk',
+    quote: '"Finally something that compares cost of living, internet speed, and safety in one place. My whole community uses it now."',
+    author: 'Priya M.',
+    source: 'Content Creator, Bangkok',
   },
 ];
 
 export default function TestimonialGrid() {
   return (
-    <section className="w-full py-14 bg-background/80 backdrop-blur-sm">
+    <section className="w-full py-14">
       <p className="text-center text-[10px] font-mono tracking-[0.25em] text-muted-foreground/50 uppercase mb-8">
-        What they're saying
+        What nomads are saying
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto px-6">
         {testimonials.map((t, i) => (
@@ -28,14 +31,15 @@ export default function TestimonialGrid() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 * i }}
-            className="bg-white/[0.04] border border-white/10 rounded-xl p-6 flex flex-col justify-between text-center backdrop-blur-sm"
+            className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col justify-between text-center"
           >
-            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed italic">
+            <p className="text-gray-200 text-lg leading-relaxed font-light italic">
               {t.quote}
             </p>
-            <span className="mt-4 text-[10px] font-mono tracking-[0.2em] text-foreground/60 uppercase">
-              — {t.source}
-            </span>
+            <div className="mt-4">
+              <span className="text-white font-semibold tracking-wide block">{t.author}</span>
+              <span className="text-[10px] font-mono tracking-[0.15em] text-muted-foreground/60 uppercase">{t.source}</span>
+            </div>
           </motion.div>
         ))}
       </div>
