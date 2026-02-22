@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   Compass, X, ChevronRight, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
-  BarChart3, ShoppingBag
+  BarChart3, ShoppingBag, ArrowUp
 } from 'lucide-react';
 import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
@@ -67,8 +67,21 @@ export default function LandingDrawer({
   streak, spinCount,
 }: LandingDrawerProps) {
   const [open, setOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+
+  // Track scroll position for "Back to top" button
+  const handleScroll2 = useCallback(() => {
+    if (scrollRef.current) {
+      setShowBackToTop(scrollRef.current.scrollTop > 300);
+    }
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   // Click outside to close
   useEffect(() => {
@@ -210,7 +223,7 @@ export default function LandingDrawer({
               </div>
 
               {/* Scrollable content */}
-              <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
+              <div ref={scrollRef} onScroll={handleScroll2} className="flex-1 overflow-y-auto px-5 py-4 space-y-5 scrollbar-visible">
                 {/* Badge */}
                 <span className="inline-block self-start px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
                   Travel Discovery Tool for Digital Nomads
@@ -374,6 +387,22 @@ export default function LandingDrawer({
                   </motion.span>
                 </button>
               </div>
+
+              {/* Back to top floating button */}
+              <AnimatePresence>
+                {showBackToTop && (
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    onClick={scrollToTop}
+                    className="absolute bottom-4 right-4 z-10 w-9 h-9 rounded-full bg-primary/80 hover:bg-primary text-primary-foreground flex items-center justify-center shadow-lg backdrop-blur-sm transition-colors"
+                    aria-label="Scroll to top"
+                  >
+                    <ArrowUp className="w-4 h-4" />
+                  </motion.button>
+                )}
+              </AnimatePresence>
             </motion.div>
           </>
         )}

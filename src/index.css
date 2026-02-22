@@ -106,6 +106,26 @@
     border-color: hsl(var(--glass-border-hover));
   }
 
+  /* Visible scrollbar for drawers / panels */
+  .scrollbar-visible::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  .scrollbar-visible::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .scrollbar-visible {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+  }
+
   /* Gradient border wrapper */
   .gradient-border-wrap {
     padding: 1px;
