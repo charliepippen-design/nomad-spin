@@ -17,7 +17,7 @@ const testimonials = [
 
 export default function TestimonialGrid() {
   return (
-    <section className="w-full py-14 bg-[hsl(30,10%,10%)]">
+    <section className="w-full py-14 bg-background/80 backdrop-blur-sm">
       <p className="text-center text-[10px] font-mono tracking-[0.25em] text-muted-foreground/50 uppercase mb-8">
         What they're saying
       </p>
@@ -28,12 +28,12 @@ export default function TestimonialGrid() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 * i }}
-            className="bg-[hsl(0,0%,13%)] border border-white/5 rounded-xl p-6 flex flex-col justify-between text-center"
+            className="bg-white/[0.04] border border-white/10 rounded-xl p-6 flex flex-col justify-between text-center backdrop-blur-sm"
           >
-            <p className="text-xs md:text-sm text-foreground/70 leading-relaxed italic">
+            <p className="text-xs md:text-sm text-foreground/80 leading-relaxed italic">
               {t.quote}
             </p>
-            <span className="mt-4 text-[10px] font-mono tracking-[0.2em] text-muted-foreground/40 uppercase">
+            <span className="mt-4 text-[10px] font-mono tracking-[0.2em] text-foreground/60 uppercase">
               — {t.source}
             </span>
           </motion.div>
