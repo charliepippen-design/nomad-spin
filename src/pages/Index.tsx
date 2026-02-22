@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
+import dnsLogo from '@/assets/dns-logo.png';
 import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
@@ -213,10 +214,8 @@ export default function Index() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header — minimal brand only */}
-        <header className="pointer-events-auto sticky top-0 z-20 flex items-center px-4 md:px-8 py-3 bg-background/60 backdrop-blur-md">
-          <h1 className="font-mono text-xs tracking-[0.25em] text-foreground/80 uppercase font-medium">
-            NOMAD SPIN
-          </h1>
+        <header className="pointer-events-auto sticky top-0 z-20 flex items-center px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md">
+          <img src={dnsLogo} alt="Digital Nomad Spin" className="h-10 w-auto" />
         </header>
 
         {/* Main */}
