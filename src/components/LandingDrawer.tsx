@@ -42,7 +42,7 @@ const benefits = [
 
 interface LandingDrawerProps {
   onConfigureMission: () => void;
-  onScrollToExplore: () => void;
+  
   // Globe controls
   autoSpin: boolean;
   setAutoSpin: (v: boolean | ((prev: boolean) => boolean)) => void;
@@ -64,7 +64,7 @@ interface LandingDrawerProps {
 }
 
 export default function LandingDrawer({
-  onConfigureMission, onScrollToExplore,
+  onConfigureMission,
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
   isAuthenticated, user, onSignOut, onOpenAuth,
@@ -106,10 +106,6 @@ export default function LandingDrawer({
     onConfigureMission();
   }, [onConfigureMission]);
 
-  const handleScroll = useCallback(() => {
-    setOpen(false);
-    onScrollToExplore();
-  }, [onScrollToExplore]);
 
   const desktopPanel = {
     hidden: { x: '-100%', opacity: 0 },
@@ -370,20 +366,6 @@ export default function LandingDrawer({
                   Our dataset covers 1,200+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
                 </p>
 
-                {/* Scroll to explore */}
-                <button
-                  onClick={handleScroll}
-                  className="flex items-center justify-center gap-2 cursor-pointer group bg-white/[0.04] rounded-lg px-6 py-3 border border-white/10 hover:border-white/20 transition-all w-full"
-                  aria-label="Scroll to explore destinations"
-                >
-                  <motion.span
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                    className="text-xs font-mono tracking-[0.25em] text-foreground/70 uppercase italic"
-                  >
-                    Scroll to explore ↓
-                  </motion.span>
-                </button>
 
                 {/* Back to top hint */}
                 <motion.button

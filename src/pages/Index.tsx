@@ -150,9 +150,6 @@ export default function Index() {
     }
   }, [resultCity, getShareableUrl]);
 
-  const handleScrollToHowItWorks = useCallback(() => {
-    document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
 
   // Use the top result's score if available, otherwise fallback to legacy
   const primaryScored = topResults[0];
@@ -339,7 +336,7 @@ export default function Index() {
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
-          onScrollToExplore={handleScrollToHowItWorks}
+          
           autoSpin={autoSpin}
           setAutoSpin={setAutoSpin}
           dayMode={dayMode}
