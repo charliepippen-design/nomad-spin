@@ -1,84 +1,67 @@
 
 
-# Add "Save City" Button to Destination Guide Pages
+# Build Premium Hero and Social Proof Section
 
 ## Overview
 
-Currently, cities can only be saved after a spin result. There's no way to save a city when browsing its dedicated guide page (`/destinations/:citySlug`). We'll add a prominent save/unsave button to the destination guide hero area, plus ensure saved cities appear in the SavedSpins list on the home page.
+Create a new `HeroSection` component with a premium, glassmorphic design featuring a two-column hero layout, logo cloud, and testimonial cards. This will be a standalone component that can be placed on the landing page.
 
-## Changes
+## New File
 
-### 1. Add a `saveCity` action to the Zustand store (`src/store/useSpinStore.ts`)
+### `src/components/HeroSection.tsx`
 
-The existing `saveResult()` only saves the current spin result. We need a new `saveCity(city)` method that accepts any `City` object directly, so it can be called from the guide page.
+A single, well-structured component containing three visual sections:
 
-- Add `saveCity: (city: City) => void` to the store interface
-- Implementation: check for duplicates, create a `SavedSpin` entry with current preferences, persist to localStorage
+### Section 1: Hero (Two-Column)
+- **Background**: Full-width dark gradient overlay with a subtle tropical/nomad image feel using CSS gradients
+- **Left Column**:
+  - Top badge row with `Award` icon, 5 filled gold `Star` icons, and "#1 Crypto Nomad Community 2026" text
+  - Massive gradient headline: "Spin the World."
+  - Subheadline paragraph
+  - Avatar cluster: 8 overlapping circular avatars from Unsplash `randomuser.me` placeholders with "Join 14,500+ remote players" text
+  - 4 value bullets using `Globe`, `Zap`, `MapPin`, `MessageCircle` icons
+- **Right Column**:
+  - Floating glassmorphic card (`bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl`)
+  - Aspect-video placeholder image with centered `PlayCircle` icon (pulse animation via Framer Motion)
+  - Email input field (dark glass style)
+  - Red CTA button: "Claim Your Nomad Bonus ->"
 
-### 2. Add a `isCitySaved` helper to the store
+### Section 2: Logo Cloud
+- Cream/off-white background (`bg-[#f5f5f0]`) with wavy top transition
+- 6 publisher names: Bloomberg, TechCrunch, Forbes, AskGamblers, CoinDesk, Wired
+- Grayscale + opacity styling with hover-to-full-color transition
 
-A simple helper `isCitySaved(cityId: string) => boolean` so the UI can toggle between "Save" and "Saved" states.
+### Section 3: Testimonial Cards
+- Dark background (`bg-[#1a1814]`)
+- 3-column responsive grid
+- Each card: dark glass style with a punchy quote about Digital Nomad Spin and publisher attribution at bottom
+- Fade-in-up animation on mount via Framer Motion
 
-### 3. Add Save button to `src/pages/DestinationGuide.tsx`
+## Integration
 
-- Import `useSpinStore`, `useAuth`, `useCloudSync`, and the `Bookmark` icon
-- Add a save/unsave toggle button in the hero section (top-right of the hero, or next to the city name)
-- When clicked:
-  - If not saved: call `saveCity(city)` on the store, and if authenticated, call `cloudSync.saveSpin()`
-  - If already saved: call `removeSavedSpin()` on the store, and if authenticated, call `cloudSync.removeSpin()`
-- Visual: filled bookmark icon when saved, outline when not
-
-### 4. Files to modify
-
-| File | Change |
-|---|---|
-| `src/store/useSpinStore.ts` | Add `saveCity(city)` and `isCitySaved(cityId)` methods |
-| `src/pages/DestinationGuide.tsx` | Add save/unsave button in hero section using the new store methods, with cloud sync for authenticated users |
+### `src/pages/Index.tsx`
+- Import and render `<HeroSection />` inside the landing phase content area, before or within the `LandingDrawer` section
 
 ## Technical Details
 
-### Store additions (`useSpinStore.ts`)
+### Framer Motion animations
+- Each major section uses `motion.div` with `initial={{ opacity: 0, y: 30 }}` and `animate={{ opacity: 1, y: 0 }}` with staggered delays
+- PlayCircle icon uses `animate={{ scale: [1, 1.1, 1] }}` with `repeat: Infinity` for pulse effect
 
-```typescript
-// New method on interface
-saveCity: (city: City) => void;
+### Responsive approach
+- Mobile: single column stack, smaller text sizes
+- Desktop (`md:` breakpoint): two-column grid for hero, 3-column grid for testimonials
 
-// Implementation
-saveCity: (city) => {
-  const { savedSpins, preferences } = get();
-  if (savedSpins.find((s) => s.city.id === city.id)) return;
-  const newSpin: SavedSpin = {
-    city,
-    timestamp: new Date().toLocaleDateString(),
-    preferences: { ...preferences },
-  };
-  const updated = [...savedSpins, newSpin];
-  localStorage.setItem('savedSpins', JSON.stringify(updated));
-  set({ savedSpins: updated });
-},
-```
+### Icons used (all from lucide-react)
+`Award`, `Star`, `Globe`, `Zap`, `MapPin`, `MessageCircle`, `PlayCircle`
 
-### DestinationGuide save button
+### Avatar URLs
+Use `https://i.pravatar.cc/100?img=N` (N=1-8) for the 8 avatar placeholders -- these are reliable placeholder avatar images
 
-```typescript
-const { savedSpins, saveCity, removeSavedSpin } = useSpinStore();
-const auth = useAuth();
-const cloudSync = useCloudSync(auth.user?.id);
-const savedIndex = savedSpins.findIndex(s => s.city.id === city.id);
-const isSaved = savedIndex !== -1;
+### Files to create/modify
 
-// In the hero area:
-<button onClick={() => {
-  if (isSaved) {
-    if (auth.isAuthenticated) cloudSync.removeSpin(city.id);
-    removeSavedSpin(savedIndex);
-  } else {
-    saveCity(city);
-    if (auth.isAuthenticated) cloudSync.saveSpin({ city, timestamp: '...', preferences });
-  }
-}}>
-  <Bookmark filled={isSaved} /> {isSaved ? 'SAVED' : 'SAVE CITY'}
-</button>
-```
+| File | Action |
+|---|---|
+| `src/components/HeroSection.tsx` | Create new component with all three sections |
+| `src/pages/Index.tsx` | Import and render `<HeroSection />` in the landing phase |
 
-The button will appear as a glass-style chip in the hero overlay, matching the existing design language (mono font, tracking, uppercase).
