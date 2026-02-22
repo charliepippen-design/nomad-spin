@@ -53,7 +53,7 @@ const CITY_PHOTOS: Record<string, string> = {
   'lima': '1531968455986-8bf7fc7c4887',
   'santiago': '1558029137-58a71b4f2646',
   'cartagena': '1583000893-a6c1bd3d2e9f',
-  'montevideo': '1584646098378-0874163ee2c7',
+  'montevideo': '1605041876799-bfb7d72845e8',
   'san-jose': '1600794788753-56a5baa94e48',
   'tulum': '1547003652-d3fb9300f3e2',
 

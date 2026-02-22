@@ -148,7 +148,10 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             src={heroImageUrl}
             alt={`${city.name}, ${city.country}`}
             loading="lazy"
-            
+            onError={(e) => {
+              const fallback = `https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&h=448&fit=crop&auto=format&q=80`;
+              if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback;
+            }}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
