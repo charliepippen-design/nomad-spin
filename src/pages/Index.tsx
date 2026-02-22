@@ -214,7 +214,7 @@ export default function Index() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header */}
-        <header className="pointer-events-auto flex items-center justify-between px-4 md:px-8 py-3">
+        <header className="pointer-events-auto sticky top-0 z-20 flex items-center justify-between px-4 md:px-8 py-3 bg-background/60 backdrop-blur-md">
           {/* LEFT: Brand + Nav */}
           <div className="flex items-center gap-5">
             <h1 className="font-mono text-xs tracking-[0.25em] text-foreground/80 uppercase font-medium">
@@ -386,21 +386,6 @@ export default function Index() {
         {/* Main */}
         <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
           <AnimatePresence mode="wait">
-            {/* Landing — drawer-based */}
-            {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-              <motion.div
-                key="landing"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <LandingDrawer
-                  onConfigureMission={handleConfigureMission}
-                  onScrollToExplore={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
-                />
-              </motion.div>
-            )}
-
             {/* Spinning */}
             {phase === 'spinning' && (
               <motion.div
@@ -515,6 +500,14 @@ export default function Index() {
           return result;
         }}
       />
+
+      {/* Landing Drawer — fixed position, independent of content flow */}
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+        <LandingDrawer
+          onConfigureMission={handleConfigureMission}
+          onScrollToExplore={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+        />
+      )}
 
       {/* Social Share Bar — always visible */}
       <SocialShareBar
