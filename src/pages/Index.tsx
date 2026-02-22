@@ -16,18 +16,26 @@ import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
+import MobileNav from '@/components/MobileNav';
+import MobileHeroCopy from '@/components/MobileHeroCopy';
+import GlobeTapHint from '@/components/GlobeTapHint';
 import { RotateCcw } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
+import { useIsMobile } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
 const GlobeFallback = () => (
-  <div className="w-full h-full absolute inset-0 flex items-center justify-center">
-    <div className="w-24 h-24 rounded-full border border-border/30 flex items-center justify-center">
+  <div className="w-full h-full absolute inset-0 flex items-center justify-center bg-background">
+    <motion.div
+      animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
+      transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+      className="w-32 h-32 rounded-full bg-muted/30 border border-border/20 flex items-center justify-center"
+    >
       <span className="text-[10px] font-mono text-muted-foreground tracking-[0.2em]">LOADING</span>
-    </div>
+    </motion.div>
   </div>
 );
 
@@ -48,6 +56,7 @@ export default function Index() {
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
   const hasMigrated = useRef(false);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
     if (city && pos) {
@@ -179,8 +188,12 @@ export default function Index() {
         description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
         city={resultCity}
       />
+
+      {/* Mobile hamburger nav */}
+      <MobileNav onExplore={() => setIsCityWallOpen(true)} />
+
       {/* Globe */}
-      <div className="absolute inset-0 z-0">
+      <div className={`${isMobile ? 'relative h-[70vh]' : 'absolute inset-0'} z-0`}>
         <Suspense fallback={<GlobeFallback />}>
           <Globe
             spinning={isSpinning}
@@ -193,6 +206,14 @@ export default function Index() {
             onCityHover={handleCityHover}
           />
         </Suspense>
+
+        {/* Mobile tap hint */}
+        {phase === 'landing' && !isSpinning && <GlobeTapHint />}
+
+        {/* Mobile hero copy overlay */}
+        {phase === 'landing' && !isSpinning && (
+          <MobileHeroCopy onCTA={handleConfigureMission} />
+        )}
       </div>
 
       {/* City Tooltip */}
@@ -207,21 +228,25 @@ export default function Index() {
         )}
       </TooltipPresence>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 z-[1] pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/40 to-transparent" />
-      </div>
+      {/* Gradient overlays — desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-[1] pointer-events-none">
+          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/40 to-transparent" />
+        </div>
+      )}
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
-        {/* Header — minimal brand only */}
-        <header className="pointer-events-auto sticky top-0 z-20 flex items-center px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md">
-          <img src={dnsLogo} alt="Digital Nomad Spin" className="h-10 w-auto" />
-        </header>
+      <div className={`relative z-10 ${isMobile ? '' : 'min-h-screen'} flex flex-col pointer-events-none`}>
+        {/* Header — desktop only (mobile uses MobileNav) */}
+        {!isMobile && (
+          <header className="pointer-events-auto sticky top-0 z-20 flex items-center px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md">
+            <img src={dnsLogo} alt="Digital Nomad Spin" className="h-10 w-auto" />
+          </header>
+        )}
 
         {/* Main */}
-        <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
+        <div className={`flex-1 flex flex-col items-center justify-end ${isMobile ? 'pb-4 px-3' : 'pb-8 px-4'}`}>
           <AnimatePresence mode="wait">
             {/* Spinning */}
             {phase === 'spinning' && (

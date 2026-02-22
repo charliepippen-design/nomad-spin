@@ -30,20 +30,20 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Nav */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+          {/* Nav — stacked on mobile */}
+          <nav className="flex flex-col md:flex-row md:flex-wrap gap-y-3 gap-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-[11px] font-mono tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
+                className="text-sm md:text-[11px] font-mono tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase py-1"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Socials */}
+          {/* Socials — bigger tap targets on mobile */}
           <div className="flex items-center gap-3">
             {socialLinks.map((s) => (
               <a
@@ -52,24 +52,24 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="p-2 rounded-lg border border-border/30 bg-white/[0.02] hover:bg-white/[0.06] transition-colors text-muted-foreground hover:text-foreground"
+                className="p-3 md:p-2 rounded-lg border border-border/30 bg-muted/10 hover:bg-muted/20 transition-colors text-muted-foreground hover:text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
-                <s.icon className="w-3.5 h-3.5" />
+                <s.icon className="w-4 h-4 md:w-3.5 md:h-3.5" />
               </a>
             ))}
           </div>
         </div>
 
         {/* Affiliate Disclosure */}
-        <div className="rounded-lg border border-border/20 bg-white/[0.01] px-4 py-3">
+        <div className="rounded-lg border border-border/20 bg-muted/5 px-4 py-3">
           <p className="text-[10px] font-mono text-muted-foreground/60 leading-relaxed tracking-wide">
             <span className="text-muted-foreground/80 uppercase tracking-[0.15em]">Affiliate Disclosure:</span>{' '}
             I may earn a commission from qualifying bookings at no extra cost to you. This helps keep the tool free and the data updated.
           </p>
         </div>
 
-        {/* Copyright */}
-        <p className="text-[10px] font-mono text-muted-foreground/40 text-center tracking-wider">
+        {/* Copyright — extra spacing on mobile */}
+        <p className="text-[10px] font-mono text-muted-foreground/40 text-center tracking-wider pt-2 md:pt-0">
           © {new Date().getFullYear()} Nomad Spin. All rights reserved.
         </p>
       </div>
