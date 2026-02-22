@@ -7,7 +7,7 @@ export default function TrustBadge() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col md:flex-row items-start md:items-center gap-2 mb-6 w-full"
+      className="flex items-center gap-2 mb-6 w-max"
     >
       <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full w-fit">
         <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />

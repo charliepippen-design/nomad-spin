@@ -1,15 +1,65 @@
-const publishers = ['The New York Times', 'BBC', 'CNN', 'TechCrunch', 'Forbes', 'The Guardian'];
+const logos = [
+  {
+    name: 'The New York Times',
+    svg: (
+      <svg viewBox="0 0 184 25" fill="currentColor" className="h-4 md:h-5 w-auto">
+        <path d="M13.8 2.9c0-2-1.9-2.5-3.4-2.5v.3c.9 0 1.6.3 1.6 1 0 .4-.3 1-1.2 1-.7 0-2.2-.4-3.3-.8C6.2 1.4 5 1 4 1 1.5 1 0 2.8 0 4.6c0 1.7 1.2 2.5 2.1 2.9l.1-.3c-.5-.3-.9-.7-.9-1.4 0-.8.7-1.4 1.5-1.4.9 0 2.1.4 3.7.9 1.2.4 2.6.8 3.5.9v3.3L8.4 11l1.6 1.5v5.8C9 19.2 8 20.3 6.8 20.3c-1.5 0-2.2-1.5-2.2-3.3 0-1.5.5-2.7 1-3.5l-1.3-1L0 16.4v.3l1.3-.8c-.1.8-.2 1.5-.2 2.1 0 3.1 1.5 5.1 4.4 5.1 2 0 3.4-1 4.5-2.5v2.2l4.4-2.1v-.3l-1.6.8V9.8c1.5.1 4.4-.5 4.4-3.4 0-1.4-.8-2.8-3.4-3.5zm-3.8 5.7V5.9c0-.5 0-1.3.5-1.3.4 0 .8.3.8 1.8 0 1.8-.9 2.2-1.3 2.2zM20.4 5.1c-3.2 0-5.5 2.8-5.5 6.5 0 4 2.4 7 5.8 7 3.2 0 5.5-2.8 5.5-6.5 0-4-2.5-7-5.8-7zm.5 12.8c-1.6 0-2.6-2.1-2.6-6.1 0-3.2.7-6 2.3-6 1.6 0 2.6 2.1 2.6 6.1 0 3.2-.7 6-2.3 6zM33.4 5.1c-3.2 0-5.5 2.8-5.5 6.5 0 4 2.4 7 5.8 7 3.2 0 5.5-2.8 5.5-6.5 0-4-2.5-7-5.8-7zm.5 12.8c-1.6 0-2.6-2.1-2.6-6.1 0-3.2.7-6 2.3-6 1.6 0 2.6 2.1 2.6 6.1 0 3.2-.7 6-2.3 6zM46.6 13.1V5.7h2.1V5.1h-2.1V1.5l-.7.2-3.3 3.4h-.1v.6h1.3v7.1c0 3.3 1.2 5.7 3.9 5.7 1.4 0 2.7-.8 3.6-2.1l-.3-.3c-.6.6-1.2 1-1.9 1-1.5 0-2.5-1.2-2.5-4zM56.1 5.1c-1.8 0-3.1.7-4.1 1.4l.7 1c.6-.4 1.4-.8 2.2-.8 1.7 0 2 1.4 2 2.8-4.4.8-6.1 2.5-6.1 5 0 1.9 1.3 3.5 3.2 3.5 1.4 0 2.4-.7 3.2-1.8.1 1.1.7 1.8 1.8 1.8.9 0 1.7-.4 2.5-1.2l-.2-.3c-.4.3-.7.4-1 .4-.5 0-.8-.4-.8-1.5V8.3c0-2.2-1-3.2-3.4-3.2zm1 10.3c-.5.8-1.2 1.3-2 1.3-1 0-1.6-.9-1.6-2.5 0-2.1 1-3.3 3.6-4v5.2zM65.5.1l-4.1 1.9v.3l1.3-.6v15.8l-.1.1c-.7.7-1.3 1-1.8 1l-.1.3 4.9-2.1v-.3l-1.5.7V.1zM184 5.7h-5.5l-.2.3h2l-3.5 10.1-3.3-10.4h-5.3l-.2.3h1.8l-3.5 10.1-3-10.4h-5.5l-.2.3h2l4 13.6h.5l3.8-11 3.5 11h.5l4.8-14h1.3z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'BBC',
+    svg: (
+      <svg viewBox="0 0 60 20" fill="currentColor" className="h-4 md:h-5 w-auto">
+        <path d="M4.8 0H0v20h10.4c3.2 0 5.6-2.4 5.6-5.2 0-2-1.2-3.6-3.2-4.4 1.2-.8 2-2 2-3.6C14.8 3.2 12 0 8.4 0H4.8zm1.6 3.2h1.6c1.6 0 2.8 1.2 2.8 2.8S9.6 8.8 8 8.8H6.4V3.2zm0 8.4h2c1.6 0 3.2 1.2 3.2 2.8s-1.2 2.8-3.2 2.8h-2v-5.6zM22.8 0h-4.4v20h10.4c3.2 0 5.6-2.4 5.6-5.2 0-2-1.2-3.6-3.2-4.4 1.2-.8 2-2 2-3.6C33.2 3.2 30.4 0 26.8 0h-4zm1.6 3.2h1.6c1.6 0 2.8 1.2 2.8 2.8s-1.2 2.8-2.8 2.8h-1.6V3.2zm0 8.4h2c1.6 0 3.2 1.2 3.2 2.8s-1.2 2.8-3.2 2.8h-2v-5.6zM46 0c-5.6 0-10 4.4-10 10s4.4 10 10 10c2.4 0 4.4-.8 6-2l-2-2.8c-1.2.8-2.4 1.2-4 1.2-3.6 0-6.4-2.8-6.4-6.4S42.4 3.6 46 3.6c1.6 0 2.8.4 4 1.2l2-2.8C50.4.8 48.4 0 46 0z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'CNN',
+    svg: (
+      <svg viewBox="0 0 56 20" fill="currentColor" className="h-4 md:h-5 w-auto">
+        <path d="M10 0C4.4 0 0 4.4 0 10s4.4 10 10 10c2.4 0 4.8-.8 6.4-2.4l-2.4-2.8c-1.2 1.2-2.4 1.6-4 1.6-3.2 0-5.6-2.4-5.6-6.4S6.8 3.6 10 3.6c1.6 0 2.8.4 4 1.6l2.4-2.8C14.8.8 12.4 0 10 0zM24.8 0h-3.2v20h3.2V6.4L33.6 20h3.2V0h-3.2v13.6L24.8 0zM45.6 0h-3.2v20h3.2V6.4L54.4 20h3.2V0h-3.2v13.6L45.6 0z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'TechCrunch',
+    svg: (
+      <svg viewBox="0 0 200 28" fill="currentColor" className="h-3.5 md:h-4 w-auto">
+        <path d="M0 6h8v22h6V6h8V0H0v6zM28 10h14v4H34v4h8v4h-8v4h8v6H28V10zM64 10c-5.5 0-10 4.5-10 11s4.5 11 10 11c3 0 5.5-1.2 7.2-3.2l-3.6-3.6c-.8 1.2-2 1.8-3.6 1.8-2.4 0-4-2-4-5s1.6-5 4-5c1.6 0 2.8.6 3.6 1.8l3.6-3.6C69.5 11.2 67 10 64 10zM78 0v32h6V22h6c5.5 0 10-3.6 10-8s-4.5-8-10-8h-6V0h-6zm6 12h6c2.2 0 4 1.8 4 4s-1.8 4-4 4h-6v-8zM130 10h-6v22h6V18.4l8 13.6h6V10h-6v13.6L130 10zM106 10c-5.5 0-10 4.5-10 11s4.5 11 10 11c3 0 5.5-1.2 7.2-3.2l-3.6-3.6c-.8 1.2-2 1.8-3.6 1.8-2.4 0-4-2-4-5s1.6-5 4-5c1.6 0 2.8.6 3.6 1.8l3.6-3.6C111.5 11.2 109 10 106 10zM152 10v22h6V22h6v10h6V10h-6v6h-6v-6h-6z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Forbes',
+    svg: (
+      <svg viewBox="0 0 100 26" fill="currentColor" className="h-4 md:h-5 w-auto">
+        <path d="M0 0v26h6V16h10v-6H6V6h14V0H0zM30 0c-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13S37.2 0 30 0zm0 20c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zM50 0v26h6V16h4l6 10h7l-7-11c3.5-1.5 6-5 6-9 0-5.5-4.5-6-10-6H50zm6 6h4c2.2 0 4 .9 4 4s-1.8 4-4 4h-4V6zM80 0v26h6V16h6c5.5 0 8-4.5 8-8s-4.5-8-8-8H80zm6 6h4c2.2 0 4 1.8 4 4s-1.8 2-4 2h-4V6z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'The Guardian',
+    svg: (
+      <svg viewBox="0 0 170 28" fill="currentColor" className="h-4 md:h-5 w-auto">
+        <path d="M0 6h8v22h6V6h8V0H0v6zM28 0v28h6V16h8v-6h-8V6h10V0H28zM54 0v28h20v-6H60V16h10v-6H60V6h14V0H54zM96 14v-4h14v14c-3 2.8-7.5 4-12 4-8.3 0-15-5.4-15-14S89.7 0 98 0c4.5 0 8 1.5 10.5 4l-4 4c-1.8-1.8-3.8-2.5-6.5-2.5-5 0-8.5 3.5-8.5 8.5s3.5 8.5 8.5 8.5c2 0 3.5-.3 4.5-1v-3.5H96zM128 0v16c0 3.3-2.2 6-5.5 6S117 19.3 117 16V0h-6v16c0 7 4.5 12 11.5 12S134 23 134 16V0h-6zM150 0l-10 28h6l2-6h10l2 6h6L156 0h-6zm-1 18l3.5-10L156 18h-7z" />
+      </svg>
+    ),
+  },
+];
 
 export default function PublisherLogoCloud() {
   return (
-    <div className="fixed bottom-0 left-0 w-full h-10 bg-black/40 backdrop-blur-md border-t border-white/5 z-40 flex items-center justify-center gap-8 md:gap-16 pointer-events-none">
-      {publishers.map((name) => (
-        <span
-          key={name}
-          className="text-xs md:text-sm font-semibold tracking-widest text-white/50 uppercase pointer-events-auto select-none"
+    <div className="fixed bottom-0 left-0 w-full h-16 bg-black/60 backdrop-blur-xl border-t border-white/10 z-40 flex items-center justify-center gap-8 md:gap-16 pointer-events-auto shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+      {logos.map((logo) => (
+        <div
+          key={logo.name}
+          className="text-white/50 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:text-white transition-all duration-300 cursor-pointer"
+          title={logo.name}
         >
-          {name}
-        </span>
+          {logo.svg}
+        </div>
       ))}
     </div>
   );

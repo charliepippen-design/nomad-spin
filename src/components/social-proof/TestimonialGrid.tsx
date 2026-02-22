@@ -33,7 +33,7 @@ export default function TestimonialGrid() {
   const t = testimonials[active];
 
   return (
-    <div className="fixed bottom-16 right-6 z-50 w-[320px] bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl pointer-events-auto overflow-hidden">
+    <div className="fixed bottom-24 right-6 md:right-10 z-50 w-[320px] bg-[#0f0f0f]/90 backdrop-blur-2xl border border-white/10 p-6 rounded-2xl shadow-2xl pointer-events-auto overflow-hidden">
       <Quote className="w-4 h-4 text-white/20 mb-3" />
       <AnimatePresence mode="wait">
         <motion.div
