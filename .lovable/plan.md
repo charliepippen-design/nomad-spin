@@ -1,92 +1,84 @@
 
 
-# Fix Google Sign-In and Cloud Sync
+# Add "Save City" Button to Destination Guide Pages
 
-## What's Actually Happening
+## Overview
 
-Google sign-in technically works at the authentication level (the backend confirms successful logins). However, the app has several gaps that make it feel broken:
+Currently, cities can only be saved after a spin result. There's no way to save a city when browsing its dedicated guide page (`/destinations/:citySlug`). We'll add a prominent save/unsave button to the destination guide hero area, plus ensure saved cities appear in the SavedSpins list on the home page.
 
-1. **No local-to-cloud data migration after Google sign-in** -- When users sign in via Google, their locally saved cities, preferences, and streaks are never uploaded to the cloud. The `migrateLocalData()` function only runs after email signup, not after Google OAuth.
+## Changes
 
-2. **Preferences never sync TO the cloud** -- When users change their trip preferences (budget, region, vibes, etc.), those changes are never saved to the cloud. The `syncPreferences()` function exists but is never called.
+### 1. Add a `saveCity` action to the Zustand store (`src/store/useSpinStore.ts`)
 
-3. **No success feedback after Google redirect** -- After Google sign-in redirects the user back to the app, there's no toast or visual confirmation. The user doesn't know if it worked.
+The existing `saveResult()` only saves the current spin result. We need a new `saveCity(city)` method that accepts any `City` object directly, so it can be called from the guide page.
 
-## Plan
+- Add `saveCity: (city: City) => void` to the store interface
+- Implementation: check for duplicates, create a `SavedSpin` entry with current preferences, persist to localStorage
 
-### 1. Trigger data migration after Google OAuth redirect (`src/pages/Index.tsx`)
+### 2. Add a `isCitySaved` helper to the store
 
-Add logic so that when a user becomes authenticated (detected via `useAuth`), we check if this is a "new session" and trigger `migrateLocalData()`. This covers both email signup AND Google OAuth redirect.
+A simple helper `isCitySaved(cityId: string) => boolean` so the UI can toggle between "Save" and "Saved" states.
 
-- Track a `hasRunMigration` ref to avoid running it multiple times
-- In the existing `useEffect` that watches `auth.isAuthenticated`, also call `migrateLocalData()`
-- Show a welcome toast when the user returns from Google OAuth already authenticated
+### 3. Add Save button to `src/pages/DestinationGuide.tsx`
 
-### 2. Sync preferences to cloud after spin (`src/pages/Index.tsx`)
+- Import `useSpinStore`, `useAuth`, `useCloudSync`, and the `Bookmark` icon
+- Add a save/unsave toggle button in the hero section (top-right of the hero, or next to the city name)
+- When clicked:
+  - If not saved: call `saveCity(city)` on the store, and if authenticated, call `cloudSync.saveSpin()`
+  - If already saved: call `removeSavedSpin()` on the store, and if authenticated, call `cloudSync.removeSpin()`
+- Visual: filled bookmark icon when saved, outline when not
 
-After each spin completes (when `syncStreaks` is called), also call `syncPreferences()` so the user's filter settings are persisted to the cloud.
-
-### 3. Sync preferences when PreferencesModal closes (`src/pages/Index.tsx`)
-
-When the preferences modal is closed and the user is authenticated, sync preferences to the cloud.
-
-### 4. Show success toast after Google OAuth return (`src/pages/Index.tsx`)
-
-Detect when a user returns from OAuth (session exists but modal isn't open) and show a brief "Welcome back" or "You're in" toast.
-
----
-
-## Files to Modify
+### 4. Files to modify
 
 | File | Change |
 |---|---|
-| `src/pages/Index.tsx` | Add migration + sync on auth state change; sync preferences after spin and modal close; show toast after OAuth return |
+| `src/store/useSpinStore.ts` | Add `saveCity(city)` and `isCitySaved(cityId)` methods |
+| `src/pages/DestinationGuide.tsx` | Add save/unsave button in hero section using the new store methods, with cloud sync for authenticated users |
 
 ## Technical Details
 
-### `src/pages/Index.tsx` changes:
+### Store additions (`useSpinStore.ts`)
 
-**useEffect for auth sync (lines 61-67):**
 ```typescript
-const hasMigrated = useRef(false);
+// New method on interface
+saveCity: (city: City) => void;
 
-useEffect(() => {
-  if (auth.isAuthenticated && auth.user && !hasMigrated.current) {
-    hasMigrated.current = true;
-    cloudSync.loadSavedSpins();
-    cloudSync.loadStreaks();
-    cloudSync.loadPreferences();
-    cloudSync.migrateLocalData();
-    // Show welcome toast if returning from OAuth
-    toast({
-      title: "You're in",
-      description: "Your picks and settings will now be saved.",
-    });
+// Implementation
+saveCity: (city) => {
+  const { savedSpins, preferences } = get();
+  if (savedSpins.find((s) => s.city.id === city.id)) return;
+  const newSpin: SavedSpin = {
+    city,
+    timestamp: new Date().toLocaleDateString(),
+    preferences: { ...preferences },
+  };
+  const updated = [...savedSpins, newSpin];
+  localStorage.setItem('savedSpins', JSON.stringify(updated));
+  set({ savedSpins: updated });
+},
+```
+
+### DestinationGuide save button
+
+```typescript
+const { savedSpins, saveCity, removeSavedSpin } = useSpinStore();
+const auth = useAuth();
+const cloudSync = useCloudSync(auth.user?.id);
+const savedIndex = savedSpins.findIndex(s => s.city.id === city.id);
+const isSaved = savedIndex !== -1;
+
+// In the hero area:
+<button onClick={() => {
+  if (isSaved) {
+    if (auth.isAuthenticated) cloudSync.removeSpin(city.id);
+    removeSavedSpin(savedIndex);
+  } else {
+    saveCity(city);
+    if (auth.isAuthenticated) cloudSync.saveSpin({ city, timestamp: '...', preferences });
   }
-}, [auth.isAuthenticated, auth.user?.id]);
+}}>
+  <Bookmark filled={isSaved} /> {isSaved ? 'SAVED' : 'SAVE CITY'}
+</button>
 ```
 
-**After spin completes (line 115-116):**
-```typescript
-if (auth.isAuthenticated) {
-  cloudSync.syncStreaks();
-  cloudSync.syncPreferences();
-}
-```
-
-**Preferences modal close handler:**
-```typescript
-onClose={() => {
-  setShowPrefs(false);
-  if (auth.isAuthenticated) {
-    cloudSync.syncPreferences();
-  }
-}}
-```
-
-This ensures that:
-- Saved cities sync across devices (migration runs on any sign-in method)
-- Spins and streaks sync after each spin
-- Preferences sync when changed and after each spin
-- Users get clear feedback that sign-in worked
-
+The button will appear as a glass-style chip in the hero overlay, matching the existing design language (mono font, tracking, uppercase).
