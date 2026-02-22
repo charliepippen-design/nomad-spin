@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import { Wifi, Check } from 'lucide-react';
 import type { MockCity } from '@/data/mockCities';
+import { useCityImage } from '@/hooks/useCityImage';
+
+const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=800&fit=crop&auto=format&q=80';
 
 interface CityCardProps {
   city: MockCity;
@@ -8,16 +12,28 @@ interface CityCardProps {
 }
 
 export default function CityCard({ city, isSelected, onToggleSelect }: CityCardProps) {
+  const slug = city.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const { imageUrl, isLoading } = useCityImage(slug, city.name, city.country, 'Asia', 600);
+  const [imgError, setImgError] = useState(false);
+
+  const src = imgError ? FALLBACK_IMAGE : imageUrl;
+
   return (
     <div
       className="relative w-full aspect-[3/4] rounded-lg overflow-hidden group cursor-pointer border border-white/10 hover:border-white/40 transition-all select-none"
       onClick={() => onToggleSelect(city.id)}
     >
+      {/* Skeleton loader */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-zinc-900 animate-pulse" />
+      )}
+
       {/* Full-bleed background image */}
       <img
-        src={city.imageUrl}
+        src={src}
         alt={city.name}
         loading="lazy"
+        onError={() => setImgError(true)}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
 
