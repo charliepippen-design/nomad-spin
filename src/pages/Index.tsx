@@ -11,6 +11,7 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import TopResultsGrid from '@/components/TopResultsGrid';
 import SavedSpins from '@/components/SavedSpins';
+import LandingDrawer from '@/components/LandingDrawer';
 import AuthModal from '@/components/AuthModal';
 import OriginSelector from '@/components/OriginSelector';
 import SEO from '@/components/SEO';
@@ -385,60 +386,18 @@ export default function Index() {
         {/* Main */}
         <div className="flex-1 flex flex-col items-center justify-end pb-8 px-4">
           <AnimatePresence mode="wait">
-            {/* Landing */}
+            {/* Landing — drawer-based */}
             {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
               <motion.div
                 key="landing"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex flex-col items-center gap-6 w-full max-w-lg pointer-events-auto"
+                exit={{ opacity: 0 }}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-center flex flex-col gap-3 bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-5"
-                >
-                  <span className="inline-block mx-auto px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
-                    Travel Discovery Tool for Digital Nomads
-                  </span>
-                  <h2 className="text-lg md:text-2xl font-mono tracking-wide text-foreground leading-tight">
-                    Spin the globe.<br />Find your next digital nomad base.
-                  </h2>
-                  <p className="text-xs text-muted-foreground max-w-sm mx-auto leading-relaxed">
-                    Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <SpinButton onClick={handleConfigureMission} label="SPIN & COMPARE DESTINATIONS" />
-                </motion.div>
-
-                <SavedSpins />
-
-                {/* Scroll indicator */}
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  onClick={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex items-center justify-center gap-2 mt-6 cursor-pointer group bg-black/50 backdrop-blur-sm rounded-lg px-8 py-3 border border-white/10 hover:border-white/20 transition-all w-full max-w-sm"
-                  aria-label="Scroll to explore destinations"
-                >
-                  <motion.div
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-                  >
-                    <span className="text-xs font-mono tracking-[0.25em] text-foreground/70 uppercase italic">
-                      Scroll to explore ↓
-                    </span>
-                  </motion.div>
-                </motion.button>
+                <LandingDrawer
+                  onConfigureMission={handleConfigureMission}
+                  onScrollToExplore={() => document.getElementById('featured')?.scrollIntoView({ behavior: 'smooth' })}
+                />
               </motion.div>
             )}
 
