@@ -3,6 +3,7 @@ import { X, BarChart3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { mockCities } from '@/data/mockCities';
 import CityCard from './CityCard';
+import ComparisonMatrix from './ComparisonMatrix';
 
 interface CityWallModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface CityWallModalProps {
 
 export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
+  const [isComparing, setIsComparing] = useState(false);
 
   if (!isOpen) return null;
 
@@ -19,6 +21,8 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
       prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
     );
   };
+
+  const selectedCityData = mockCities.filter((c) => selectedCities.includes(c.id));
 
   return (
     <div className="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-2xl overflow-y-auto overflow-x-hidden animate-in fade-in duration-300">
@@ -57,7 +61,7 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
 
       {/* Floating action bar */}
       <AnimatePresence>
-        {selectedCities.length > 0 && (
+        {selectedCities.length > 0 && !isComparing && (
           <motion.div
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -68,7 +72,10 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
             <span className="text-sm font-mono">
               {selectedCities.length} {selectedCities.length === 1 ? 'city' : 'cities'} selected
             </span>
-            <button className="flex items-center gap-2 bg-black text-white px-4 py-1.5 rounded-full text-sm font-mono hover:bg-black/80 transition-colors">
+            <button
+              onClick={() => setIsComparing(true)}
+              className="flex items-center gap-2 bg-black text-white px-4 py-1.5 rounded-full text-sm font-mono hover:bg-black/80 transition-colors"
+            >
               <BarChart3 className="w-4 h-4" />
               Compare Now
             </button>
@@ -79,6 +86,16 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
               Clear
             </button>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Comparison Matrix */}
+      <AnimatePresence>
+        {isComparing && selectedCityData.length > 0 && (
+          <ComparisonMatrix
+            cities={selectedCityData}
+            onBack={() => setIsComparing(false)}
+          />
         )}
       </AnimatePresence>
     </div>
