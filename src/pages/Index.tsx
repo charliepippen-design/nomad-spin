@@ -359,12 +359,12 @@ export default function Index() {
         />
       )}
 
-      {/* Social Proof — pushed far below globe */}
+      {/* Social Proof — solid bg covers globe on scroll */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <div className="relative z-30 mt-[60vh] lg:mt-[80vh] flex flex-col gap-16 pb-24">
+        <section className="relative z-20 w-full bg-[#0a0a0a] border-t border-white/10 pt-16 pb-32 flex flex-col gap-20 pointer-events-auto">
           <PublisherLogoCloud />
           <TestimonialGrid />
-        </div>
+        </section>
       )}
 
       {/* Social Share Bar — always visible */}
