@@ -96,8 +96,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   const { preferences, setPreferences, filterCities, filteredCities, getNearMisses } = useSpinStore();
   const sound = useSoundManager();
   const [localBudget, setLocalBudget] = useState(preferences.budgetRange);
-  const [localInternet, setLocalInternet] = useState(preferences.internetMin);
-  const [localSafety, setLocalSafety] = useState(preferences.safetyMin);
+  const [localInternetRange, setLocalInternetRange] = useState<[number, number]>([10, preferences.internetMin]);
+  const [localSafetyRange, setLocalSafetyRange] = useState<[number, number]>([1, preferences.safetyMin]);
   const [originOpen, setOriginOpen] = useState(false);
   const [originSearch, setOriginSearch] = useState('');
   const [budgetAnimating, setBudgetAnimating] = useState(false);
@@ -115,16 +115,16 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   useEffect(() => {
     setPreferences({
       budgetRange: localBudget,
-      internetMin: localInternet,
-      safetyMin: localSafety,
+      internetMin: localInternetRange[0],
+      safetyMin: localSafetyRange[0],
     });
     filterCities();
-  }, [localBudget, localInternet, localSafety, preferences.vibes, preferences.landscapes, preferences.region, preferences.origin]);
+  }, [localBudget, localInternetRange, localSafetyRange, preferences.vibes, preferences.landscapes, preferences.region, preferences.origin]);
 
   const applyPreset = (preset: PresetConfig) => {
     setLocalBudget(preset.budget);
-    setLocalInternet(preset.internet);
-    setLocalSafety(preset.safety);
+    setLocalInternetRange([10, preset.internet]);
+    setLocalSafetyRange([1, preset.safety]);
     setPreferences({
       budgetRange: preset.budget,
       internetMin: preset.internet,
@@ -143,8 +143,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       geo.locate();
     }
     setLocalBudget([500, 5000]);
-    setLocalInternet(30);
-    setLocalSafety(1);
+    setLocalInternetRange([10, 30]);
+    setLocalSafetyRange([1, 1]);
     setPreferences({
       budgetRange: [500, 5000],
       internetMin: 30,
@@ -219,8 +219,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
     const parts: string[] = [];
     const budgetLabel = localBudget[1] <= 1200 ? 'resource-efficient' : localBudget[1] <= 2500 ? 'mid-range' : 'premium';
     parts.push(budgetLabel);
-    if (localInternet >= 100) parts.push('high-speed');
-    if (localSafety >= 8) parts.push('high-security');
+    if (localInternetRange[1] >= 100) parts.push('high-speed');
+    if (localSafetyRange[1] >= 8) parts.push('high-security');
     if (preferences.vibes.length > 0) parts.push(preferences.vibes.join('/'));
     if (preferences.landscapes.length > 0) parts.push(preferences.landscapes.join('/'));
 
@@ -390,22 +390,26 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Internet */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
-                      MIN. INTERNET SPEED
+                      INTERNET SPEED
                     </label>
-                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localInternet} MBPS</span>
+                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
+                      {localInternetRange[0]} — {localInternetRange[1]} MBPS
+                    </span>
                     <div className="relative z-10 py-2">
-                      <Slider min={10} max={500} step={10} value={[localInternet]} onValueChange={(v) => setLocalInternet(v[0])} />
+                      <Slider min={10} max={500} step={10} value={localInternetRange} onValueChange={(v) => setLocalInternetRange(v as [number, number])} />
                     </div>
                   </div>
 
                   {/* Safety */}
                   <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
-                      MIN. SAFETY RATING
+                      SAFETY RATING
                     </label>
-                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">{localSafety}/10</span>
+                    <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
+                      {localSafetyRange[0]} — {localSafetyRange[1]} / 10
+                    </span>
                     <div className="relative z-10 py-2">
-                      <Slider min={1} max={10} step={0.5} value={[localSafety]} onValueChange={(v) => setLocalSafety(v[0])} />
+                      <Slider min={1} max={10} step={0.5} value={localSafetyRange} onValueChange={(v) => setLocalSafetyRange(v as [number, number])} />
                     </div>
                   </div>
 
@@ -498,7 +502,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       )}
                       {impossible && (
                         <button
-                          onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternet(10); setLocalSafety(1); }}
+                          onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternetRange([10, 500]); setLocalSafetyRange([1, 10]); }}
                           className="text-[10px] font-mono text-destructive/80 hover:text-destructive transition-colors tracking-wider underline underline-offset-2"
                         >
                           RESET FILTERS
