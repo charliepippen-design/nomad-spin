@@ -1,61 +1,41 @@
-
-
-# Redesign: Non-Disruptive Navigation Layout
+# Clean Globe-First Landing
 
 ## Problem
-The current layout places the hero content (title, spin button, scroll indicator) and social share buttons directly over the 3D globe, causing:
-- Mouse wheel conflicts between page scroll and globe zoom
-- Click/drag confusion between UI elements and globe rotation
-- The globe -- the visual centerpiece -- is obscured on load
 
-## Solution Overview
+The LandingDrawer component is rendered inside the central content area (`flex-col items-center justify-end`), which still positions it in the middle of the page. The globe should be the only thing visible on load.
 
-### 1. Move Social Share Bar to the Right
-Relocate the vertical social bar from the left edge to the right edge of the screen. On mobile, keep it as a horizontal bar at the bottom. This is a simple CSS change.
+## Changes
 
-### 2. Collapse Hero Content into a Minimal Left-Edge Drawer
-Instead of a centered overlay that covers the globe, the landing content (tagline, spin button, scroll indicator) will live inside a slim, slide-out panel anchored to the left edge:
+### 1. Move LandingDrawer out of the central content area (`src/pages/Index.tsx`)
 
-- **Collapsed state (default)**: A narrow vertical tab/handle visible at the left edge with the text "SPIN" or a compass icon, inviting the user to drag or click to open.
-- **Expanded state**: A ~320px wide frosted-glass panel slides in from the left, containing the tagline, spin button, saved spins, and scroll-to-explore button.
-- The panel can be opened by clicking the tab or swiping right on mobile.
-- Clicking outside or pressing the close button slides it back.
+- Remove the `LandingDrawer` from inside the `flex-1 flex flex-col items-center justify-end` container
+- Place it as a sibling at the root level (like SocialShareBar), so it uses fixed positioning independently
+- The central content area will be empty during the landing phase -- only the globe shows
 
-This keeps the globe fully visible and interactive by default, while all controls remain one click/swipe away.
+### 2. Simplify LandingDrawer to start fully collapsed (`src/components/LandingDrawer.tsx`)
 
-### 3. Keep the Top Header Bar As-Is
-The top bar (brand, streak, controls, auth) is compact and works well. No changes needed there.
+- Starts closed by default (already does this)
+- The tab/handle on the left edge becomes the primary call-to-action, styled slightly more prominent so first-time visitors notice it
+- Add a subtle initial animation (gentle pulse or glow) on the tab to draw attention on first load
+- Keep the current slide-out panel behavior when opened
 
-### 4. Results Phase Unchanged
-When results appear, they still overlay the bottom of the screen as they do now -- this is expected since the user has already interacted.
+### 3.    Other layout changes
+
+- Header bar stays as-is (top)  
+Freeze the upper menu so that if user scrolls down he can still see explore and all those options on the top  
+Social share bar stays on the right
+- Results phase stays as-is
+- FeaturedDestinations and HowItWorks sections below the fold stay unchanged
 
 ## Technical Details
 
-### Files to modify:
+### `src/pages/Index.tsx`
 
-**`src/components/SocialShareBar.tsx`**
-- Change desktop position from `left-3` to `right-3`
-- No other changes needed
+- Move lines 390-402 (the LandingDrawer block) outside the main content `div`, placing it at the same level as `SocialShareBar` (around line 520)
+- Remove the `motion.div` wrapper and AnimatePresence around LandingDrawer since the drawer handles its own animations
+- Keep the conditional: only render when `(phase === 'landing' || phase === 'preferences') && !isSpinning`
 
-**`src/pages/Index.tsx`**
-- Extract the landing-phase content block into a new `LandingDrawer` component
-- Replace the centered `motion.div` (landing phase) with the drawer
-- The drawer uses framer-motion `animate` for slide-in/out from the left
-- Add a persistent tab/handle on the left edge when the drawer is closed
-- The drawer has `pointer-events-auto` while the rest stays `pointer-events-none`
+### `src/components/LandingDrawer.tsx`
 
-**`src/components/LandingDrawer.tsx`** (new file)
-- A slide-out panel component with:
-  - A visible edge handle (always shown when closed)
-  - Glassmorphism styling (`bg-black/60 backdrop-blur-xl border-r border-white/10`)
-  - Contains: tagline, "SPIN & COMPARE" button, saved spins, scroll-to-explore
-  - Framer Motion `AnimatePresence` for smooth open/close
-  - Click-outside-to-close behavior
-  - On mobile: slides up from the bottom instead of from the left
-
-### Interaction flow:
-1. User lands on page -- sees full globe with a subtle tab on the left edge reading "EXPLORE"
-2. Clicks/taps the tab -- panel slides out with the mission brief and spin button
-3. Clicks "SPIN & COMPARE" -- panel closes, preferences modal opens as before
-4. Globe remains fully interactive (zoom, drag, hover tooltips) whenever the panel is closed
-
+- Make the collapsed tab slightly larger and more noticeable with a soft pulsing glow on first appearance
+- Add a one-time subtle animation (e.g., the tab slides in from the left after 1s delay, with a brief glow) to signal interactivity to new visitors
