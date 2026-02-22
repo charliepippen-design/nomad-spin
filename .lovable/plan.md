@@ -1,72 +1,92 @@
 
 
-# Fix Register and Login Functions
+# Fix Google Sign-In and Cloud Sync
 
-## Root Cause
+## What's Actually Happening
 
-I found **two critical issues**:
+Google sign-in technically works at the authentication level (the backend confirms successful logins). However, the app has several gaps that make it feel broken:
 
-1. **Missing database trigger**: The `on_auth_user_created` trigger does not exist in the live database, even though the migration file defines it. This means when a new user signs up, the automatic creation of their `profiles`, `user_streaks`, and `user_preferences` rows never happens -- causing errors or silent failures.
+1. **No local-to-cloud data migration after Google sign-in** -- When users sign in via Google, their locally saved cities, preferences, and streaks are never uploaded to the cloud. The `migrateLocalData()` function only runs after email signup, not after Google OAuth.
 
-2. **Email confirmation required**: Email/password signups require email verification before the user can sign in. Since there's no email confirmation flow in the app (no verification page, no resend button), users who register with email+password are stuck -- they can never actually log in.
+2. **Preferences never sync TO the cloud** -- When users change their trip preferences (budget, region, vibes, etc.), those changes are never saved to the cloud. The `syncPreferences()` function exists but is never called.
 
-## Fix
+3. **No success feedback after Google redirect** -- After Google sign-in redirects the user back to the app, there's no toast or visual confirmation. The user doesn't know if it worked.
 
-### 1. Re-create the missing trigger (database migration)
+## Plan
 
-Run a migration to recreate the `handle_new_user` function and the `on_auth_user_created` trigger on `auth.users`, so that new signups automatically get their profile, streaks, and preferences rows.
+### 1. Trigger data migration after Google OAuth redirect (`src/pages/Index.tsx`)
 
-### 2. Enable auto-confirm for email signups
+Add logic so that when a user becomes authenticated (detected via `useAuth`), we check if this is a "new session" and trigger `migrateLocalData()`. This covers both email signup AND Google OAuth redirect.
 
-Since the app has no email verification flow, enable auto-confirm so email/password users can sign in immediately after registering. This matches the Google OAuth behavior (which already auto-confirms).
+- Track a `hasRunMigration` ref to avoid running it multiple times
+- In the existing `useEffect` that watches `auth.isAuthenticated`, also call `migrateLocalData()`
+- Show a welcome toast when the user returns from Google OAuth already authenticated
 
-### 3. Improve error handling in AuthModal
+### 2. Sync preferences to cloud after spin (`src/pages/Index.tsx`)
 
-Update `AuthModal.tsx` to show clearer error messages and handle edge cases (e.g., "Email not confirmed" errors, duplicate email signups).
+After each spin completes (when `syncStreaks` is called), also call `syncPreferences()` so the user's filter settings are persisted to the cloud.
+
+### 3. Sync preferences when PreferencesModal closes (`src/pages/Index.tsx`)
+
+When the preferences modal is closed and the user is authenticated, sync preferences to the cloud.
+
+### 4. Show success toast after Google OAuth return (`src/pages/Index.tsx`)
+
+Detect when a user returns from OAuth (session exists but modal isn't open) and show a brief "Welcome back" or "You're in" toast.
 
 ---
 
-## Files and Changes
+## Files to Modify
 
-| What | Where | Change |
-|---|---|---|
-| Recreate trigger | New database migration | `CREATE OR REPLACE FUNCTION handle_new_user()` + `CREATE TRIGGER on_auth_user_created` (with `IF NOT EXISTS` / drop-and-recreate) |
-| Auto-confirm emails | Auth configuration | Enable auto-confirm for email signups |
-| Better error UX | `src/components/AuthModal.tsx` | Show user-friendly messages for common auth errors (duplicate email, wrong password, unconfirmed email) |
+| File | Change |
+|---|---|
+| `src/pages/Index.tsx` | Add migration + sync on auth state change; sync preferences after spin and modal close; show toast after OAuth return |
 
 ## Technical Details
 
-### Database Migration SQL
-```sql
--- Recreate the function
-CREATE OR REPLACE FUNCTION public.handle_new_user()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path = public
-AS $$
-BEGIN
-  INSERT INTO public.profiles (user_id, display_name)
-  VALUES (NEW.id, COALESCE(NEW.raw_user_meta_data->>'display_name', 'OPERATIVE'));
-  INSERT INTO public.user_streaks (user_id)
-  VALUES (NEW.id);
-  INSERT INTO public.user_preferences (user_id)
-  VALUES (NEW.id);
-  RETURN NEW;
-END;
-$$;
+### `src/pages/Index.tsx` changes:
 
--- Drop and recreate trigger
-DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
-CREATE TRIGGER on_auth_user_created
-  AFTER INSERT ON auth.users
-  FOR EACH ROW
-  EXECUTE FUNCTION public.handle_new_user();
+**useEffect for auth sync (lines 61-67):**
+```typescript
+const hasMigrated = useRef(false);
+
+useEffect(() => {
+  if (auth.isAuthenticated && auth.user && !hasMigrated.current) {
+    hasMigrated.current = true;
+    cloudSync.loadSavedSpins();
+    cloudSync.loadStreaks();
+    cloudSync.loadPreferences();
+    cloudSync.migrateLocalData();
+    // Show welcome toast if returning from OAuth
+    toast({
+      title: "You're in",
+      description: "Your picks and settings will now be saved.",
+    });
+  }
+}, [auth.isAuthenticated, auth.user?.id]);
 ```
 
-### AuthModal error mapping
-Map common Supabase auth error messages to friendly text:
-- "User already registered" -> "This email is already registered. Try signing in instead."
-- "Invalid login credentials" -> "Wrong email or password. Please try again."
-- "Email not confirmed" -> "Please check your email to verify your account."
+**After spin completes (line 115-116):**
+```typescript
+if (auth.isAuthenticated) {
+  cloudSync.syncStreaks();
+  cloudSync.syncPreferences();
+}
+```
+
+**Preferences modal close handler:**
+```typescript
+onClose={() => {
+  setShowPrefs(false);
+  if (auth.isAuthenticated) {
+    cloudSync.syncPreferences();
+  }
+}}
+```
+
+This ensures that:
+- Saved cities sync across devices (migration runs on any sign-in method)
+- Spins and streaks sync after each spin
+- Preferences sync when changed and after each spin
+- Users get clear feedback that sign-in worked
 
