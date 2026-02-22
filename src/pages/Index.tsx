@@ -15,6 +15,8 @@ import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import { RotateCcw } from 'lucide-react';
+import PublisherLogoCloud from '@/components/social-proof/PublisherLogoCloud';
+import TestimonialGrid from '@/components/social-proof/TestimonialGrid';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
@@ -355,6 +357,16 @@ export default function Index() {
           streak={streak}
           spinCount={spinCount}
         />
+      )}
+
+      {/* Publisher Logo Cloud — below hero */}
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+        <PublisherLogoCloud />
+      )}
+
+      {/* Testimonial Grid — bottom social proof */}
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+        <TestimonialGrid />
       )}
 
       {/* Social Share Bar — always visible */}
