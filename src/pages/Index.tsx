@@ -15,10 +15,6 @@ import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import { RotateCcw } from 'lucide-react';
-import PublisherLogoCloud from '@/components/social-proof/PublisherLogoCloud';
-import TestimonialGrid from '@/components/social-proof/TestimonialGrid';
-import TrustBadge from '@/components/social-proof/TrustBadge';
-import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import CityTooltip from '@/components/CityTooltip';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
@@ -361,32 +357,6 @@ export default function Index() {
         />
       )}
 
-      {/* Floating HUD Overlay — pointer-events pass through to globe */}
-      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <main className="fixed inset-0 z-50 w-screen h-screen overflow-hidden pointer-events-none flex flex-col justify-between">
-          {/* Top HUD — Hero trust signals */}
-          <motion.header
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="w-full p-6 md:p-10 flex flex-col items-start gap-2 pointer-events-none"
-          >
-            <TrustBadge />
-            <AvatarCluster />
-          </motion.header>
-
-          {/* Bottom HUD — Publishers & testimonials with gradient fade */}
-          <motion.footer
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-            className="w-full bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pt-32 pb-8 px-6 md:px-12 flex flex-col gap-8 pointer-events-none"
-          >
-            <PublisherLogoCloud />
-            <TestimonialGrid />
-          </motion.footer>
-        </main>
-      )}
 
       {/* Social Share Bar — always visible */}
       <SocialShareBar
