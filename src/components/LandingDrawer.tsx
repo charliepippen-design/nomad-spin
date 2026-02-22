@@ -405,7 +405,7 @@ export default function LandingDrawer({
         )}
       </AnimatePresence>
 
-      {/* Fixed overlays — always visible on landing */}
+      {/* Overlays — fixed on desktop, rendered inline on mobile via their own logic */}
       <PublisherLogoCloud />
       <TestimonialGrid />
     </>

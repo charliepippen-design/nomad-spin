@@ -169,3 +169,17 @@
   from { width: 0; }
   to { width: 100%; }
 }
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch scrolling */
+.-webkit-overflow-scrolling-touch {
+  -webkit-overflow-scrolling: touch;
+}
