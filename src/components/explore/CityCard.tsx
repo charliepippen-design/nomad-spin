@@ -20,7 +20,11 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
 
   return (
     <div
-      className="relative w-full aspect-[3/4] rounded-lg overflow-hidden group cursor-pointer border border-white/10 hover:border-white/40 transition-all select-none"
+      className={`relative w-full aspect-[3/4] rounded-lg overflow-hidden group cursor-pointer transition-all select-none ${
+        isSelected
+          ? 'border-2 border-blue-500 ring-1 ring-blue-500/40'
+          : 'border border-white/10 hover:border-white/40'
+      }`}
       onClick={() => onToggleSelect(city.id)}
     >
       {/* Skeleton loader */}
