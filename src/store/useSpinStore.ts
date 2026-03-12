@@ -167,8 +167,21 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     // Sort descending by score
     scored.sort((a, b) => b.score - a.score);
 
-    // Top 3
-    const top3 = scored.slice(0, 3);
+    // Pick from top 10 using weighted random so we get variety, not always rank #1
+    const pool = scored.slice(0, Math.min(10, scored.length));
+    // Weights: 10 for rank-1 down to 1 for rank-10 (top-biased but not deterministic)
+    const weights = pool.map((_, i) => Math.max(1, 10 - i));
+    const totalWeight = weights.reduce((a, b) => a + b, 0);
+    const rand = Math.random() * totalWeight;
+    let cum = 0;
+    let primaryIdx = 0;
+    for (let i = 0; i < weights.length; i++) {
+      cum += weights[i];
+      if (rand <= cum) { primaryIdx = i; break; }
+    }
+    const primary = pool[primaryIdx];
+    const rest = pool.filter((_, i) => i !== primaryIdx).slice(0, 2);
+    const top3 = [primary, ...rest];
 
     const newCount = get().spinCount + 1;
     const today = new Date().toISOString().split('T')[0];

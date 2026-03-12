@@ -128,6 +128,7 @@ function CityMarkers({
         glowRef.current.visible = true;
         glowRef.current.position.copy(positions[hovered]);
         const glowPulse = (0.12 + Math.sin(t * 3) * 0.03) * zoomFactor;
+        glowRef.current.scale.setScalar(glowPulse);
         glowRef.current.lookAt(0, 0, 0);
       } else {
         glowRef.current.visible = false;
