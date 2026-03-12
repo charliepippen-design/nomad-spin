@@ -377,7 +377,7 @@ export default function LandingDrawer({
 
                 {/* Buy Me a Coffee */}
                 <a
-                  href="https://buymeacoffee.com/nomadspin"
+                  href="https://buymeacoffee.com/digitalnomadspin"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-amber-500/30 bg-amber-500/[0.06] hover:bg-amber-500/[0.14] hover:border-amber-500/50 transition-all group"
