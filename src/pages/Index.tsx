@@ -24,6 +24,7 @@ import FeaturedDestinations from '@/components/FeaturedDestinations';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import OriginSelector from '@/components/OriginSelector';
 import CityTooltip from '@/components/CityTooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
@@ -95,6 +96,11 @@ export default function Index() {
   useEffect(() => {
     const t = setTimeout(() => sound.startIdle(), 2000);
     return () => { clearTimeout(t); sound.stopIdle(); };
+  }, []);
+
+  const handleScrollToHowItWorks = useCallback(() => {
+    const el = document.getElementById('how-it-works');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   const handleConfigureMission = useCallback(() => {
@@ -486,6 +492,16 @@ export default function Index() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Featured Destinations + How It Works — landing only */}
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+        <>
+          <div id="featured">
+            <FeaturedDestinations />
+          </div>
+          <HowItWorks />
+        </>
+      )}
 
       {/* Preferences Modal */}
       <PreferencesModal
