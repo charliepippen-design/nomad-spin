@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Twitter, Instagram, Github, Coffee } from 'lucide-react';
 
 const navLinks = [
+  { to: '/guides', label: 'Guides & Articles' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
   { to: '/privacy-policy', label: 'Privacy Policy' },
