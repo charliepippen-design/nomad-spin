@@ -6,7 +6,7 @@ import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
   Compass, X, ChevronRight, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
-  BarChart3, ShoppingBag, ArrowUp
+  BarChart3, ShoppingBag, ArrowUp, Coffee
 } from 'lucide-react';
 import PublisherLogoCloud from '@/components/social-proof/PublisherLogoCloud';
 import TestimonialGrid from '@/components/social-proof/TestimonialGrid';
