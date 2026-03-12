@@ -72,6 +72,9 @@ function CityMarkers({
   const glowRef = useRef<THREE.Mesh>(null!);
   const timeRef = useRef(0);
   const hoveredRef = useRef<number | null>(null);
+  const { camera } = useThree();
+  // Track camera distance for inverse-scale of dots
+  const camDistRef = useRef(5.5);
 
   const defaultColor = useMemo(() => new THREE.Color('#00ffaa'), []);
   const hoverColor = useMemo(() => new THREE.Color('#ffdd44'), []);
