@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const testimonials = [
