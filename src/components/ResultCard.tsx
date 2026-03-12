@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTriangle, Zap, Globe, Clock, ExternalLink, Info, CheckCircle2, Sparkles, Plane, Languages, AlertOctagon } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -329,12 +330,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             >
               Find a place to stay in {city.name} <ExternalLink className="w-3.5 h-3.5" />
             </motion.a>
-            <a
-              href={`/destinations/${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
-              className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.15em] text-primary/70 hover:text-primary transition-colors uppercase"
-            >
-              Read full {city.name} guide →
-            </a>
+          <Link
+            to={`/destinations/${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+            className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.15em] text-primary/70 hover:text-primary transition-colors uppercase"
+          >
+            Read full {city.name} guide →
+          </Link>
           </div>
 
           {/* Secondary Links — Deployment Grid */}

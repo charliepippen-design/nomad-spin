@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Twitter, Instagram, Github } from 'lucide-react';
+import { Twitter, Instagram, Github, Coffee } from 'lucide-react';
 
 const navLinks = [
   { to: '/about', label: 'About' },
@@ -60,6 +60,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Buy Me a Coffee */}
+        <a
+          href="https://buymeacoffee.com/nomadspin"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-amber-500/30 bg-amber-500/[0.06] hover:bg-amber-500/[0.12] hover:border-amber-500/50 transition-all group"
+        >
+          <Coffee className="w-4 h-4 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
+          <span className="text-[11px] font-mono tracking-[0.2em] text-amber-400/70 group-hover:text-amber-400 transition-colors uppercase">
+            Buy me a coffee — support this project
+          </span>
+        </a>
+
         {/* Affiliate Disclosure */}
         <div className="rounded-lg border border-border/20 bg-muted/5 px-4 py-3">
           <p className="text-[10px] font-mono text-muted-foreground/60 leading-relaxed tracking-wide">
@@ -68,7 +81,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Copyright — extra spacing on mobile */}
+        {/* Copyright */}
         <p className="text-[10px] font-mono text-muted-foreground/40 text-center tracking-wider pt-2 md:pt-0">
           © {new Date().getFullYear()} Nomad Spin. All rights reserved.
         </p>

@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
-import { DollarSign, Wifi, Shield, Plane, Clock, Sun, Users } from 'lucide-react';
+import { DollarSign, Wifi, Shield, Plane, Clock, Sun, Users, Bookmark } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import type { City } from '@/data/cities';
+import { useSpinStore } from '@/store/useSpinStore';
+import { slugify } from '@/lib/slugify';
 
 interface CityTooltipProps {
   city: City;
@@ -9,6 +12,9 @@ interface CityTooltipProps {
 }
 
 export default function CityTooltip({ city, x, y }: CityTooltipProps) {
+  const { savedSpins, saveCity } = useSpinStore();
+  const isSaved = savedSpins.some((s) => s.city?.id === city.id);
+
   // Position tooltip so it doesn't overflow screen edges
   const tooltipStyle: React.CSSProperties = {
     left: Math.min(x + 16, window.innerWidth - 320),
@@ -28,13 +34,35 @@ export default function CityTooltip({ city, x, y }: CityTooltipProps) {
       <div className="gradient-border-wrap rounded-lg">
         <div className="bg-black/95 backdrop-blur-[60px] rounded-lg p-4 space-y-3">
           {/* Header */}
-          <div>
-            <h3 className="font-mono text-sm tracking-[0.15em] text-foreground uppercase">
-              {city.name}
-            </h3>
-            <p className="font-mono text-[10px] text-muted-foreground tracking-[0.1em]">
-              {city.country} · {city.region}
-            </p>
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <h3 className="font-mono text-sm tracking-[0.15em] text-foreground uppercase">
+                {city.name}
+              </h3>
+              <p className="font-mono text-[10px] text-muted-foreground tracking-[0.1em]">
+                {city.country} · {city.region}
+              </p>
+            </div>
+            {/* Save + Guide links — re-enable pointer events just for these */}
+            <div className="flex items-center gap-1.5 pointer-events-auto shrink-0">
+              <button
+                onClick={(e) => { e.stopPropagation(); saveCity(city); }}
+                className={`p-1.5 rounded-md border transition-colors ${
+                  isSaved
+                    ? 'bg-primary/20 border-primary/40 text-primary'
+                    : 'border-white/10 bg-white/[0.04] text-white/50 hover:text-primary hover:border-primary/40'
+                }`}
+                title={isSaved ? 'Saved' : 'Save city'}
+              >
+                <Bookmark className={`w-3 h-3 ${isSaved ? 'fill-primary' : ''}`} />
+              </button>
+              <Link
+                to={`/destinations/${slugify(city.name)}`}
+                className="px-2 py-1 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] transition-colors text-[9px] font-mono tracking-wider text-white/50 hover:text-foreground uppercase"
+              >
+                Guide →
+              </Link>
+            </div>
           </div>
 
           {/* Key metrics grid */}

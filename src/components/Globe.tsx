@@ -72,6 +72,9 @@ function CityMarkers({
   const glowRef = useRef<THREE.Mesh>(null!);
   const timeRef = useRef(0);
   const hoveredRef = useRef<number | null>(null);
+  const { camera } = useThree();
+  // Track camera distance for inverse-scale of dots
+  const camDistRef = useRef(5.5);
 
   const defaultColor = useMemo(() => new THREE.Color('#00ffaa'), []);
   const hoverColor = useMemo(() => new THREE.Color('#ffdd44'), []);
@@ -99,12 +102,16 @@ function CityMarkers({
     const stretch = spinning ? 1 + spinSpeed * 4 : 1;
     const hovered = hoveredRef.current;
 
+    // Inverse-scale: dots shrink as you zoom in so they don't crowd
+    camDistRef.current = camera.position.length();
+    const zoomFactor = Math.max(0.3, Math.min(1.0, (camDistRef.current - 3.5) / 4.0));
+
     for (let i = 0; i < count; i++) {
       const p = positions[i];
       dummy.position.copy(p);
       const isHovered = hovered === i;
-      const baseSize = isHovered ? 0.06 : 0.028;
-      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.008;
+      const baseSize = (isHovered ? 0.06 : 0.028) * zoomFactor;
+      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.006 * zoomFactor;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
       dummy.updateMatrix();
@@ -120,7 +127,7 @@ function CityMarkers({
       if (hovered !== null) {
         glowRef.current.visible = true;
         glowRef.current.position.copy(positions[hovered]);
-        const glowPulse = 0.12 + Math.sin(t * 3) * 0.03;
+        const glowPulse = (0.12 + Math.sin(t * 3) * 0.03) * zoomFactor;
         glowRef.current.scale.setScalar(glowPulse);
         glowRef.current.lookAt(0, 0, 0);
       } else {
