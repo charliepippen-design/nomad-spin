@@ -23,6 +23,7 @@ const testimonials = [
 
 export default function TestimonialGrid() {
   const [active, setActive] = useState(0);
+  const [dismissed, setDismissed] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
