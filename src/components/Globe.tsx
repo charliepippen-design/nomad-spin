@@ -102,12 +102,16 @@ function CityMarkers({
     const stretch = spinning ? 1 + spinSpeed * 4 : 1;
     const hovered = hoveredRef.current;
 
+    // Inverse-scale: dots shrink as you zoom in so they don't crowd
+    camDistRef.current = camera.position.length();
+    const zoomFactor = Math.max(0.3, Math.min(1.0, (camDistRef.current - 3.5) / 4.0));
+
     for (let i = 0; i < count; i++) {
       const p = positions[i];
       dummy.position.copy(p);
       const isHovered = hovered === i;
-      const baseSize = isHovered ? 0.06 : 0.028;
-      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.008;
+      const baseSize = (isHovered ? 0.06 : 0.028) * zoomFactor;
+      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.006 * zoomFactor;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
       dummy.updateMatrix();
