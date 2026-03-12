@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Wifi, Shield, DollarSign, Bookmark, RotateCcw, Share2, AlertTriangle, Zap, Globe, Clock, ExternalLink, Info, CheckCircle2, Sparkles, Plane, Languages, AlertOctagon } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
