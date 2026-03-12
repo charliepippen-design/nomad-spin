@@ -228,10 +228,10 @@ export default function Index() {
         )}
       </TooltipPresence>
 
-      {/* Gradient overlays — desktop only */}
+      {/* Gradient overlays — desktop only, raised starting point to keep islands visible */}
       {!isMobile && (
         <div className="absolute inset-0 z-[1] pointer-events-none">
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-background via-background/70 to-transparent" />
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/40 to-transparent" />
         </div>
       )}
