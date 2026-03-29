@@ -1,13 +1,24 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, BookOpen, Clock, Calendar } from 'lucide-react';
-import { guides } from '@/data/guides';
+import { ArrowLeft, BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
+import { useGuides } from '@/hooks/useGuides';
+import { guides as staticGuides } from '@/data/guides';
 
 export default function GuidesList() {
+  const { data: liveGuides, isLoading, isError } = useGuides();
+
+  // Merge: live Supabase guides take precedence; fall back to static for slugs not yet in DB
+  const mergedGuides = (() => {
+    if (!liveGuides) return staticGuides;
+    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
+    const staticFallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
+    return [...liveGuides, ...staticFallbacks];
+  })();
+
   return (
     <div className="noise-overlay min-h-screen bg-background pb-24">
       <Helmet>
-        <title>Guides & Articles — Nomad Spin</title>
+        <title>Guides &amp; Articles — Nomad Spin</title>
         <meta name="description" content="In-depth guides, tax residency breakdowns, and digital nomad strategies." />
       </Helmet>
 
@@ -23,7 +34,7 @@ export default function GuidesList() {
               <BookOpen className="w-5 h-5 text-primary/60" />
             </div>
             <h1 className="font-mono text-2xl tracking-[0.1em] text-foreground uppercase mb-3">
-              Guides & Articles
+              Guides &amp; Articles
             </h1>
             <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
               No fluff. No discovery calls. Just the actual mechanics of moving, living, and optimizing taxes as a remote worker.
@@ -31,31 +42,49 @@ export default function GuidesList() {
           </div>
         </div>
 
+        {/* Loading state */}
+        {isLoading && (
+          <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Loading guides…
+          </div>
+        )}
+
+        {/* Error state — still shows static guides below */}
+        {isError && (
+          <div className="flex items-center gap-2 text-xs text-yellow-500/80 font-mono mb-6 border border-yellow-500/20 bg-yellow-500/5 rounded-lg px-4 py-3">
+            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+            Could not reach the live guide database. Showing cached content.
+          </div>
+        )}
+
         {/* Guides Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {guides.map((guide) => (
-            <Link 
-              key={guide.id} 
-              to={`/guides/${guide.slug}`}
-              className="group block rounded-xl border border-border/40 bg-white/[0.02] overflow-hidden hover:bg-white/[0.04] hover:border-border transition-all duration-300 flex flex-col h-full"
-            >
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground/60 uppercase tracking-widest mb-4">
-                  <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {new Date(guide.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric'})}</span>
-                  <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {guide.readTime}</span>
+        {!isLoading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {mergedGuides.map((guide) => (
+              <Link 
+                key={guide.id} 
+                to={`/guides/${guide.slug}`}
+                className="group block rounded-xl border border-border/40 bg-white/[0.02] overflow-hidden hover:bg-white/[0.04] hover:border-border transition-all duration-300 flex flex-col h-full"
+              >
+                <div className="p-6 md:p-8 flex flex-col flex-1">
+                  <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground/60 uppercase tracking-widest mb-4">
+                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {new Date(guide.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric'})}</span>
+                    <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {guide.readTime}</span>
+                  </div>
+                  
+                  <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight mb-4 group-hover:text-primary transition-colors">
+                    {guide.title}
+                  </h2>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-auto">
+                    {guide.excerpt}
+                  </p>
                 </div>
-                
-                <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight mb-4 group-hover:text-primary transition-colors">
-                  {guide.title}
-                </h2>
-                
-                <p className="text-sm text-muted-foreground leading-relaxed mt-auto">
-                  {guide.excerpt}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

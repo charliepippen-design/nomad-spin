@@ -1,20 +1,77 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createClient } from '@supabase/supabase-js';
 
 // Provide __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import our guides data (importing directly from TS source!)
-import { guides } from '../src/data/guides';
+// ── Supabase client ────────────────────────────────────────────────────────
+const supabaseUrl = process.env.VITE_SUPABASE_URL ?? '';
+const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '';
+const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+
+// ── Static fallback guides ─────────────────────────────────────────────────
+import { guides as staticGuides } from '../src/data/guides';
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function toSlug(raw: string): string {
+  return raw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/--+/g, '-');
+}
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function excerptFromContent(html: string): string {
+  const plain = stripHtml(html);
+  if (plain.length <= 160) return plain;
+  return plain.slice(0, 157).replace(/\s+\S*$/, '') + '…';
+}
+
+function calcReadTime(html: string): string {
+  const words = stripHtml(html).split(/\s+/).filter(Boolean).length;
+  return `${Math.max(1, Math.ceil(words / 200))} min read`;
+}
+
+// ── Fetch live guides ──────────────────────────────────────────────────────
+async function fetchLiveGuides() {
+  if (!supabase) {
+    console.warn('⚠️  No Supabase credentials — using static guides only');
+    return staticGuides;
+  }
+  try {
+    const { data, error } = await supabase
+      .from('guides')
+      .select('id, city, title, content, created_at')
+      .order('created_at', { ascending: false });
+    if (error || !data) throw error ?? new Error('No data');
+    const liveGuides = data.map((row: { id: number; city: string; title: string; content: string; created_at: string }) => ({
+      id: String(row.id),
+      slug: toSlug(row.city),
+      title: row.title,
+      excerpt: excerptFromContent(row.content),
+      date: row.created_at,
+      readTime: calcReadTime(row.content),
+      content: row.content,
+    }));
+    // Merge: live takes precedence, static fills gaps
+    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
+    const fallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
+    console.log(`✅ Fetched ${liveGuides.length} live guide(s) from Supabase + ${fallbacks.length} static fallback(s)`);
+    return [...liveGuides, ...fallbacks];
+  } catch (err) {
+    console.warn('⚠️  Supabase fetch failed — falling back to static guides:', err);
+    return staticGuides;
+  }
+}
 
 const distDir = path.resolve(__dirname, '../dist');
 const indexHtmlPath = path.join(distDir, 'index.html');
 
 console.log('🚀 Starting Post-Build SEO HTML Generation...');
 
-// Make sure index.html exists in dist
 if (!fs.existsSync(indexHtmlPath)) {
   console.error('❌ Error: dist/index.html not found. Please run this after vite build.');
   process.exit(1);
@@ -22,85 +79,50 @@ if (!fs.existsSync(indexHtmlPath)) {
 
 const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
 
-// --- Helper Functions ---
-
-/**
- * Creates folders and writes the targeted HTML file.
- */
 function createHtmlFile(route: string, title: string, description: string, filename: string = 'index.html') {
   const targetDir = path.join(distDir, route);
-  
-  if (!fs.existsSync(targetDir)) {
-    fs.mkdirSync(targetDir, { recursive: true });
-  }
+  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
 
-  // Inject our custom SEO tags by replacing the default title and description
-  let customHtml = baseHtml
-    // Replace default title
-    .replace(
-      /<title>.*<\/title>/,
-      `<title>${title}</title>`
-    )
-    // Replace default meta description
-    .replace(
-      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
-      `<meta name="description" content="${description}" />`
-    )
-    // Replace Open Graph title
-    .replace(
-      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
-      `<meta property="og:title" content="${title}" />`
-    )
-    // Replace Open Graph description
-    .replace(
-      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
-      `<meta property="og:description" content="${description}" />`
-    )
-    // Replace Twitter title
-    .replace(
-      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
-      `<meta name="twitter:title" content="${title}" />`
-    )
-    // Replace Twitter description
-    .replace(
-      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
-      `<meta name="twitter:description" content="${description}" />`
-    );
+  const desc = description.replace(/"/g, '&quot;');
+  const customHtml = baseHtml
+    .replace(/<title>.*<\/title>/, `<title>${title}</title>`)
+    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${desc}" />`)
+    .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/, `<meta property="og:title" content="${title}" />`)
+    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/, `<meta property="og:description" content="${desc}" />`)
+    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
+    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${desc}" />`);
 
-  const outPath = path.join(targetDir, filename);
-  fs.writeFileSync(outPath, customHtml);
+  fs.writeFileSync(path.join(targetDir, filename), customHtml);
   console.log(`✅ Generated: /${route === '' ? filename : route + '/' + filename}`);
 }
 
+// ── Main ───────────────────────────────────────────────────────────────────
+(async () => {
+  const guides = await fetchLiveGuides();
 
-// --- 1. SPA Fallback for GitHub Pages ---
-// Copy the main index.html to 404.html to handle client-side routes gracefully
-fs.copyFileSync(indexHtmlPath, path.join(distDir, '404.html'));
-console.log('✅ Generated SPA fallback: /404.html');
+  // 1. SPA fallback
+  fs.copyFileSync(indexHtmlPath, path.join(distDir, '404.html'));
+  console.log('✅ Generated SPA fallback: /404.html');
 
-// --- 2. Generate Static Core Pages ---
-// Note: We don't overwrite the root index.html, it's already generated by Vite.
-createHtmlFile('about', 'About Us – Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
-createHtmlFile('guides', 'Digital Nomad Guides & Analysis – Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
-createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');
-createHtmlFile('privacy-policy', 'Privacy Policy – Nomad Spin', 'Read our privacy policy and how we protect your data.');
-createHtmlFile('terms-of-use', 'Terms of Use – Nomad Spin', 'Read our terms of service.');
+  // 2. Static core pages
+  createHtmlFile('about', 'About Us – Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
+  createHtmlFile('guides', 'Digital Nomad Guides & Analysis – Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
+  createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');
+  createHtmlFile('privacy-policy', 'Privacy Policy – Nomad Spin', 'Read our privacy policy and how we protect your data.');
+  createHtmlFile('terms-of-use', 'Terms of Use – Nomad Spin', 'Read our terms of service.');
 
-// --- 3. Generate Static Guide Pages ---
-console.log(`\n📚 Generating ${guides.length} guide pages...`);
-guides.forEach((guide) => {
-  const route = `guides/${guide.slug}`;
-  // We use the exact title and excerpt from the content system
-  createHtmlFile(route, `${guide.title} – Nomad Spin Guides`, guide.excerpt);
-});
+  // 3. Guide pages
+  console.log(`\n📚 Generating ${guides.length} guide pages...`);
+  guides.forEach((guide) => {
+    createHtmlFile(`guides/${guide.slug}`, `${guide.title} – Nomad Spin Guides`, guide.excerpt);
+  });
 
-// --- 4. Generate Sitemap.xml ---
-console.log('\n🗺️ Generating sitemap.xml...');
+  // 4. Sitemap
+  console.log('\n🗺️ Generating sitemap.xml...');
+  const today = new Date().toISOString().split('T')[0];
+  const baseUrl = 'https://digitalnomadspin.com';
 
-const today = new Date().toISOString().split('T')[0];
-const baseUrl = 'https://digitalnomadspin.com';
-
-let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${baseUrl}/</loc>
@@ -119,18 +141,18 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 `;
 
-// Add guides to sitemap
-guides.forEach((guide) => {
-  sitemapXml += `  <url>
+  guides.forEach((guide) => {
+    const lastmod = guide.date ? guide.date.split('T')[0] : today;
+    sitemapXml += `  <url>
     <loc>${baseUrl}/guides/${guide.slug}</loc>
-    <lastmod>${guide.date}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <priority>0.8</priority>
   </url>\n`;
-});
+  });
 
-sitemapXml += `</urlset>`;
+  sitemapXml += `</urlset>`;
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml);
+  console.log('✅ Generated: /sitemap.xml');
 
-fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml);
-console.log('✅ Generated: /sitemap.xml');
-
-console.log('\n✨ Post-Build Generation Complete!');
+  console.log('\n✨ Post-Build Generation Complete!');
+})();

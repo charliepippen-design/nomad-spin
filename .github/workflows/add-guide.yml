@@ -1,0 +1,102 @@
+name: Add New Guide
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Article Title'
+        required: true
+        type: string
+      slug:
+        description: 'URL Slug'
+        required: true
+        type: string
+      excerpt:
+        description: 'Short excerpt/description'
+        required: true
+        type: string
+      date:
+        description: 'Publication Date (YYYY-MM-DD)'
+        required: true
+        type: string
+      content:
+        description: 'HTML Content'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  add-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Inject Guide into TypeScript File
+        env:
+          TITLE: ${{ github.event.inputs.title }}
+          SLUG: ${{ github.event.inputs.slug }}
+          EXCERPT: ${{ github.event.inputs.excerpt }}
+          DATE: ${{ github.event.inputs.date }}
+          CONTENT: ${{ github.event.inputs.content }}
+        run: |
+          cat << 'EOF' > inject.js
+          const fs = require('fs');
+          const title = process.env.TITLE;
+          const slug = process.env.SLUG;
+          const excerpt = process.env.EXCERPT;
+          const date = process.env.DATE;
+          const content = process.env.CONTENT || '';
+
+          const wordCount = content.split(/\s+/).filter(w => w.length > 0).length;
+          const readTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
+
+          const contentEscaped = content
+            .replace(/\\/g, '\\\\')
+            .replace(/`/g, '\\`')
+            .replace(/\$/g, '\\$');
+
+          const newGuide = `  {
+    id: ${JSON.stringify(slug)},
+    slug: ${JSON.stringify(slug)},
+    title: ${JSON.stringify(title)},
+    excerpt: ${JSON.stringify(excerpt)},
+    date: ${JSON.stringify(date)},
+    readTime: ${JSON.stringify(readTime)},
+    content: \`\n${contentEscaped}\n\`
+  }`;
+
+          const filePath = 'src/data/guides.ts';
+          let fileContent = fs.readFileSync(filePath, 'utf8');
+
+          const insertPosition = fileContent.lastIndexOf('];');
+          if (insertPosition === -1) {
+            console.error('Could not find the end of the guides array!');
+            process.exit(1);
+          }
+
+          const beforeInsert = fileContent.substring(0, insertPosition).trimEnd();
+          const needsComma = !beforeInsert.endsWith(',') && !beforeInsert.endsWith('[');
+          const comma = needsComma ? ',' : '';
+
+          const finalContent = beforeInsert + comma + '\n' + newGuide + '\n];\n';
+
+          fs.writeFileSync(filePath, finalContent);
+          console.log('Successfully injected guide into ' + filePath);
+          EOF
+          node inject.js
+          rm inject.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/guides.ts
+          git commit -m "content: auto-publish new guide - ${{ github.event.inputs.slug }}"
+          git push

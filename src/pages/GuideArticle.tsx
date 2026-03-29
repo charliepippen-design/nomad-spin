@@ -1,12 +1,33 @@
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Clock, Calendar, ChevronLeft } from 'lucide-react';
-import { guides } from '@/data/guides';
+import { ArrowLeft, Clock, Calendar, ChevronLeft, Loader2 } from 'lucide-react';
+import { useGuides } from '@/hooks/useGuides';
+import { guides as staticGuides } from '@/data/guides';
 
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();
-  
-  const guide = guides.find(g => g.slug === slug);
+  const { data: liveGuides, isLoading } = useGuides();
+
+  // Merge live + static; Supabase takes precedence
+  const allGuides = (() => {
+    if (!liveGuides) return staticGuides;
+    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
+    const staticFallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
+    return [...liveGuides, ...staticFallbacks];
+  })();
+
+  const guide = allGuides.find(g => g.slug === slug);
+
+  if (isLoading) {
+    return (
+      <div className="noise-overlay min-h-screen bg-background flex items-center justify-center">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
+          <Loader2 className="w-4 h-4 animate-spin" />
+          Loading guide…
+        </div>
+      </div>
+    );
+  }
 
   if (!guide) {
     return (
