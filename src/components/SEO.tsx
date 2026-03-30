@@ -1,12 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
 import { getCityImageUrl } from '@/data/cityImages';
+import { slugify } from '@/lib/slugify';
+
+const SITE_URL = 'https://www.digitalnomadspin.com';
 
 interface SEOProps {
   title?: string;
   description?: string;
   image?: string;
   city?: City | null;
+  canonicalPath?: string;
 }
 
 export default function SEO({
@@ -14,6 +18,7 @@ export default function SEO({
   description = 'Stop overthinking. Spin the globe. Find your next destination. Discover nomad-friendly cities with curated stays, flights, eSIMs, and insurance.',
   image = '/og-preview.png',
   city,
+  canonicalPath,
 }: SEOProps) {
   // Dynamic overrides when a city is selected
   const finalTitle = city
@@ -25,6 +30,13 @@ export default function SEO({
   const finalImage = city
     ? getCityImageUrl(city.id, city.region, 1200)
     : image;
+
+  // Canonical URL: explicit path > city-derived path > site root
+  const canonicalUrl = city
+    ? `${SITE_URL}/destinations/${slugify(city.name)}`
+    : canonicalPath
+      ? `${SITE_URL}${canonicalPath}`
+      : SITE_URL;
 
   const jsonLd = city
     ? {
@@ -52,9 +64,11 @@ export default function SEO({
     <Helmet>
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
+      <link rel="canonical" href={canonicalUrl} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />

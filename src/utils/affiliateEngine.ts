@@ -14,6 +14,7 @@
  */
 
 import type { Vertical } from '@/utils/analytics';
+import { slugify } from '@/lib/slugify';
 
 // ── TODO: Replace partner IDs with your real values ────────────────────────
 export const AFFILIATE_CONFIG = {
@@ -54,10 +55,6 @@ const FLATIO_SUPPORTED_COUNTRIES: string[] = [
 ];
 
 // ── UTM builder ────────────────────────────────────────────────────────────
-
-function slugify(str: string): string {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
 
 /**
  * Build a URL-encoded UTM query string.
@@ -106,7 +103,9 @@ function buildAccommodationUrl(city: string, country: string, countryCode: strin
   const useFlatio = FLATIO_SUPPORTED_COUNTRIES.includes(countryCode.toUpperCase());
 
   if (!useFlatio) {
-    console.debug(`Accommodation provider: using Booking.com for ${city} (Flatio not available in ${country})`);
+    if (import.meta.env.DEV) {
+      console.debug(`Accommodation provider: using Booking.com for ${city} (Flatio not available in ${country})`);
+    }
     const q = encodeURIComponent(`${city} ${country}`);
     return {
       url: `https://www.booking.com/searchresults.html?ss=${q}&aid=${AFFILIATE_CONFIG.partners.booking.partnerId}&${utms}`,
@@ -156,7 +155,9 @@ function buildEsimUrl(city: string, countryCode: string): { url: string; partner
     };
   }
 
-  console.warn(`[AffiliateEngine] No Airalo slug for ${countryCode} — using generic homepage for "${city}"`);
+  if (import.meta.env.DEV) {
+    console.warn(`[AffiliateEngine] No Airalo slug for ${countryCode} — using generic homepage for "${city}"`);
+  }
   return {
     url: `https://www.airalo.com/?ref=${ref}&${utms}`,
     partner: 'Airalo',

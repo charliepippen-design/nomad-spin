@@ -38,6 +38,10 @@ export default function DestinationGuide() {
   const affiliateLinks = generateAffiliateLinks(city);
   const badges = generateBadges(city);
 
+  const canonicalUrl = `https://www.digitalnomadspin.com/destinations/${slugify(city.name)}`;
+  const pageTitle = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
+  const pageDescription = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
@@ -49,8 +53,18 @@ export default function DestinationGuide() {
   return (
     <div className="noise-overlay min-h-screen bg-background">
       <Helmet>
-        <title>{city.name}, {city.country} — Digital Nomad Guide | Nomad Spin</title>
-        <meta name="description" content={`Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={heroUrl} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={heroUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

@@ -67,8 +67,10 @@ export function trackEvent(eventName: AnalyticsEvent, params: Record<string, unk
     console.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
   }
 
-  // Always log to console for dev visibility
-  console.log(`📊 [Analytics]: ${eventName}`, payload);
+  // Log to console in dev only
+  if (import.meta.env.DEV) {
+    console.log(`📊 [Analytics]: ${eventName}`, payload);
+  }
 }
 
 // ── Pre-defined event helpers ──────────────────────────────────────────────
