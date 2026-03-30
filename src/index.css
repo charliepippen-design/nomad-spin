@@ -6,6 +6,52 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 210 100% 50%;
+
+    /* Custom tokens */
+    --glass-bg: 0 0% 0% / 0.03;
+    --glass-border: 0 0% 0% / 0.08;
+    --glass-border-hover: 0 0% 0% / 0.15;
+  }
+
+  .dark {
     --background: 0 0% 0%;
     --foreground: 0 0% 88%;
 
@@ -74,18 +120,18 @@
   /* Chunky yellow scrollbar – page-level */
   html {
     scrollbar-width: auto;
-    scrollbar-color: #ffeb3b #000000;
+    scrollbar-color: #ffeb3b hsl(var(--background));
   }
   ::-webkit-scrollbar {
     width: 20px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb {
     background-color: #ffeb3b;
     border-radius: 999px;
-    border: 4px solid #000000;
+    border: 4px solid hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb:hover {
     background-color: #fff176;
@@ -117,8 +163,8 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.03) 40%,
+      hsl(var(--foreground) / 0.12) 0%,
+      hsl(var(--foreground) / 0.03) 40%,
       transparent 100%
     );
   }
@@ -133,16 +179,16 @@
   width: 20px;
 }
 .scrollbar-visible::-webkit-scrollbar-track {
-  background: #000000;
+  background: hsl(var(--background));
 }
 .scrollbar-visible::-webkit-scrollbar-thumb {
   background-color: #ffeb3b;
   border-radius: 999px;
-  border: 4px solid #000000;
+  border: 4px solid hsl(var(--background));
 }
 .scrollbar-visible {
   scrollbar-width: auto;
-  scrollbar-color: #ffeb3b #000000;
+  scrollbar-color: #ffeb3b hsl(var(--background));
 }
 
 /* Noise texture overlay */
