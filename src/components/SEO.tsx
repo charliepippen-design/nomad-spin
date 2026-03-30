@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import type { City } from '@/data/cities';
 import { getCityImageUrl } from '@/data/cityImages';
+
+const BASE_URL = 'https://www.digitalnomadspin.com';
 
 interface SEOProps {
   title?: string;
@@ -15,6 +18,7 @@ export default function SEO({
   image = '/og-preview.png',
   city,
 }: SEOProps) {
+  const { pathname } = useLocation();
   // Dynamic overrides when a city is selected
   const finalTitle = city
     ? `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`
@@ -25,6 +29,8 @@ export default function SEO({
   const finalImage = city
     ? getCityImageUrl(city.id, city.region, 1200)
     : image;
+
+  const canonicalUrl = `${BASE_URL}${pathname === '/' ? '' : pathname}`;
 
   const jsonLd = city
     ? {
@@ -52,9 +58,11 @@ export default function SEO({
     <Helmet>
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
+      <link rel="canonical" href={canonicalUrl} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />
