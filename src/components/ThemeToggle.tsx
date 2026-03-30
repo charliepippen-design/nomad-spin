@@ -1,4 +1,4 @@
-import { Moon, Monitor, Sun } from "lucide-react";
+import { Moon, Monitor, Sun, Check } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,7 @@ export function ThemeToggle() {
         >
           <Sun className="h-3 w-3" />
           Light
+          {mounted && theme === "light" && <Check className="h-3 w-3 ml-auto" />}
         </DropdownMenuItem>
         <DropdownMenuItem
           onSelect={() => setTheme("dark")}
@@ -49,6 +50,7 @@ export function ThemeToggle() {
         >
           <Moon className="h-3 w-3" />
           Dark
+          {mounted && theme === "dark" && <Check className="h-3 w-3 ml-auto" />}
         </DropdownMenuItem>
         <DropdownMenuItem
           onSelect={() => setTheme("system")}
@@ -57,6 +59,7 @@ export function ThemeToggle() {
         >
           <Monitor className="h-3 w-3" />
           System
+          {mounted && theme === "system" && <Check className="h-3 w-3 ml-auto" />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
