@@ -15,21 +15,27 @@ function toSlug(raw: string): string {
     .replace(/--+/g, '-');
 }
 
-/** Strip HTML tags and return plain text */
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+/** Strip HTML tags and Markdown symbols to return plain text */
+function stripMarkdownAndHtml(raw: string): string {
+  if (!raw) return '';
+  return raw
+    .replace(/<[^>]+>/g, ' ') // strip HTML
+    .replace(/[#*`_~]/g, '') // strip simple md symbols
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links [text](url) -> text
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-/** Extract a ~160-char excerpt from raw HTML content */
-function excerptFromContent(html: string): string {
-  const plain = stripHtml(html);
+/** Extract a ~160-char excerpt from raw content */
+function excerptFromContent(content: string): string {
+  const plain = stripMarkdownAndHtml(content);
   if (plain.length <= 160) return plain;
   return plain.slice(0, 157).replace(/\s+\S*$/, '') + '…';
 }
 
 /** Estimate read time based on 200 wpm */
-function calcReadTime(html: string): string {
-  const words = stripHtml(html).split(/\s+/).filter(Boolean).length;
+function calcReadTime(content: string): string {
+  const words = stripMarkdownAndHtml(content).split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(words / 200));
   return `${minutes} min read`;
 }

@@ -20,18 +20,24 @@ function toSlug(raw: string): string {
   return raw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/--+/g, '-');
 }
 
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+function stripMarkdownAndHtml(raw: string): string {
+  if (!raw) return '';
+  return raw
+    .replace(/<[^>]+>/g, ' ') // strip HTML
+    .replace(/[#*`_~]/g, '') // strip simple md symbols
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links [text](url) -> text
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-function excerptFromContent(html: string): string {
-  const plain = stripHtml(html);
+function excerptFromContent(content: string): string {
+  const plain = stripMarkdownAndHtml(content);
   if (plain.length <= 160) return plain;
   return plain.slice(0, 157).replace(/\s+\S*$/, '') + '…';
 }
 
-function calcReadTime(html: string): string {
-  const words = stripHtml(html).split(/\s+/).filter(Boolean).length;
+function calcReadTime(content: string): string {
+  const words = stripMarkdownAndHtml(content).split(/\s+/).filter(Boolean).length;
   return `${Math.max(1, Math.ceil(words / 200))} min read`;
 }
 
