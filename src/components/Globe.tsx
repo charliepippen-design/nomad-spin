@@ -348,17 +348,11 @@ export default function Globe({
   const [userDragging, setUserDragging] = useState(false);
   const [initialRotationY, setInitialRotationY] = useState(0);
 
-  // Request geolocation on mount to set initial globe orientation
+  // Initialize globe orientation (disabled automatic geolocation request per user request)
   useEffect(() => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          setInitialRotationY(lngToYRotation(pos.coords.longitude));
-        },
-        () => {},
-        { timeout: 5000, enableHighAccuracy: false }
-      );
-    }
+    // We start at a neutral 0 rotation (facing Greenwich) 
+    // or we could set a specific default here.
+    setInitialRotationY(0);
   }, []);
 
   const handleDragStart = useCallback(() => {
