@@ -1,7 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import type { Guide } from '@/data/guides';
-import type { Tables } from '@/integrations/supabase/types';
+
+// Manual type since guides table may not be in auto-generated types yet
+interface GuidesRow {
+  id: number;
+  city: string;
+  keyword: string;
+  title: string;
+  content: string;
+  status: string;
+  created_at: string;
+  slug: string | null;
+}
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
