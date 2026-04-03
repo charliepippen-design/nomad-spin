@@ -14,36 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      guides: {
-        Row: {
-          id: number
-          city: string
-          keyword: string | null
-          title: string
-          content: string
-          status: string | null
-          created_at: string
-        }
-        Insert: {
-          id?: number
-          city: string
-          keyword?: string | null
-          title: string
-          content: string
-          status?: string | null
-          created_at?: string
-        }
-        Update: {
-          id?: number
-          city?: string
-          keyword?: string | null
-          title?: string
-          content?: string
-          status?: string | null
-          created_at?: string
-        }
-        Relationships: []
-      }
       city_enrichment_cache: {
         Row: {
           enrichment_data: Json

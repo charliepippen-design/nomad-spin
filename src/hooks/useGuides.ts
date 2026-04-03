@@ -1,7 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import type { Guide } from '@/data/guides';
-import type { Tables } from '@/integrations/supabase/types';
+
+// Manual type since guides table may not be in auto-generated types yet
+interface GuidesRow {
+  id: number;
+  city: string;
+  keyword: string;
+  title: string;
+  content: string;
+  status: string;
+  created_at: string;
+  slug: string | null;
+}
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -42,12 +53,10 @@ function calcReadTime(content: string): string {
 
 // ── mapper ────────────────────────────────────────────────────────────────────
 
-type GuidesRow = Tables<'guides'>;
-
 function rowToGuide(row: GuidesRow): Guide {
   return {
     id: String(row.id),
-    slug: toSlug(row.city),
+    slug: (row as any).slug || toSlug(row.city),
     title: row.title,
     excerpt: excerptFromContent(row.content),
     date: row.created_at,
@@ -62,9 +71,9 @@ export function useGuides() {
   return useQuery<Guide[], Error>({
     queryKey: ['guides'],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('guides')
-        .select('id, city, keyword, title, content, status, created_at')
+        .select('id, city, keyword, title, content, status, created_at, slug')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
