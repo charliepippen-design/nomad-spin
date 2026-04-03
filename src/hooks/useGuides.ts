@@ -71,7 +71,7 @@ export function useGuides() {
   return useQuery<Guide[], Error>({
     queryKey: ['guides'],
     queryFn: async () => {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('guides')
         .select('id, city, keyword, title, content, status, created_at, slug')
         .order('created_at', { ascending: false });
