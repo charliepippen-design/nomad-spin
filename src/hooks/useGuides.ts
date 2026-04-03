@@ -47,7 +47,7 @@ type GuidesRow = Tables<'guides'>;
 function rowToGuide(row: GuidesRow): Guide {
   return {
     id: String(row.id),
-    slug: toSlug(row.city),
+    slug: (row as any).slug || toSlug(row.city),
     title: row.title,
     excerpt: excerptFromContent(row.content),
     date: row.created_at,
