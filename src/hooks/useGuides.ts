@@ -64,7 +64,7 @@ export function useGuides() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('guides')
-        .select('id, city, keyword, title, content, status, created_at')
+        .select('id, city, keyword, title, content, status, created_at, slug')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
