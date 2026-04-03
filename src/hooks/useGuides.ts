@@ -53,8 +53,6 @@ function calcReadTime(content: string): string {
 
 // ── mapper ────────────────────────────────────────────────────────────────────
 
-type GuidesRow = Tables<'guides'>;
-
 function rowToGuide(row: GuidesRow): Guide {
   return {
     id: String(row.id),
