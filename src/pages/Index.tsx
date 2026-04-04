@@ -58,6 +58,7 @@ export default function Index() {
   const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const [isCityWallOpen, setIsCityWallOpen] = useState(false);
+  const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
   const hasMigrated = useRef(false);
   const { toast } = useToast();
