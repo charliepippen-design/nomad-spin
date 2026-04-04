@@ -520,7 +520,7 @@ export default function LandingDrawer({
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ delay: 0.5 }}
             onClick={() => setDesktopOpen(true)}
-            className="fixed z-30 pointer-events-auto group right-6 bottom-8 flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 hover:bg-black/80 transition-all cursor-pointer shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
+            className="fixed z-[60] pointer-events-auto group right-6 bottom-8 flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 hover:bg-black/80 transition-all cursor-pointer shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
             aria-label="Explore Destinations"
           >
             <motion.div
