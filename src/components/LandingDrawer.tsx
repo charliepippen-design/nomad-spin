@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback, type TouchEvent as ReactTouchEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import TrustBadge from '@/components/social-proof/TrustBadge';
 import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
@@ -15,17 +14,10 @@ import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
 import { Switch } from '@/components/ui/switch';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { cities } from '@/data/cities';
-import { getCityThumbnailUrl } from '@/data/cityImages';
-import { slugify } from '@/lib/slugify';
+import { featuredDestinations } from '@/data/featuredDestinations';
 import type { Origin } from '@/data/origins';
 import type { User as SupaUser } from '@supabase/supabase-js';
 
-// Featured destinations
-const FEATURED_SLUGS = ['buenos-aires', 'medellin', 'bangkok', 'lisbon', 'tbilisi', 'mexico-city'];
-const featuredCities = FEATURED_SLUGS
-  .map((slug) => cities.find((c) => slugify(c.name) === slug))
-  .filter(Boolean) as typeof cities;
 
 // How it works data
 const steps = [
@@ -61,6 +53,7 @@ interface LandingDrawerProps {
   onOpenAuth: () => void;
   streak: number;
   spinCount: number;
+  onFlyTo?: (lat: number, lng: number) => void;
 }
 
 export default function LandingDrawer({
@@ -68,7 +61,7 @@ export default function LandingDrawer({
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
   isAuthenticated, user, onSignOut, onOpenAuth,
-  streak, spinCount,
+  streak, spinCount, onFlyTo,
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
@@ -269,38 +262,48 @@ export default function LandingDrawer({
       {/* Where to Stay */}
       <Divider label="Where to Stay" />
       <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
-        Explore our top destination guides — cost breakdowns, neighborhoods, Wi-Fi intel, and more.
+        Click a destination to fly the globe to its location.
       </p>
       <div className="grid grid-cols-1 gap-3">
-        {featuredCities.map((city) => (
-          <Link
-            key={city.id}
-            to={`/destinations/${slugify(city.name)}`}
-            className="group block rounded-xl overflow-hidden border border-border/30 hover:border-border/60 transition-all"
+        {featuredDestinations.map((dest) => (
+          <button
+            key={dest.id}
+            onClick={() => onFlyTo?.(dest.coordinates.lat, dest.coordinates.lng)}
+            className="group block rounded-xl overflow-hidden border border-border/30 hover:border-primary/50 transition-all text-left"
           >
             <div className="relative h-28 overflow-hidden">
               <img
-                src={getCityThumbnailUrl(city.id, city.region)}
-                alt={`${city.name}, ${city.country}`}
+                src={dest.imageUrl}
+                alt={`${dest.city}, ${dest.country}`}
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h3 className="font-mono text-xs tracking-[0.12em] text-white uppercase truncate">
-                  {city.name}
+                <h3 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
+                  {dest.city}
                 </h3>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <MapPin className="w-2.5 h-2.5 text-white/50" />
-                  <span className="text-[9px] font-mono text-white/50">{city.country}</span>
+                  <MapPin className="w-2.5 h-2.5 text-muted-foreground" />
+                  <span className="text-[9px] font-mono text-muted-foreground">{dest.country}</span>
                 </div>
               </div>
             </div>
-            <div className="bg-card p-2.5 flex items-center gap-1.5">
-              <DollarSign className="w-3 h-3 text-muted-foreground" />
-              <span className="text-[10px] font-mono text-foreground/70">From ${city.costUSD}/mo</span>
+            <div className="bg-card p-2.5 flex items-center justify-between">
+              <div className="flex items-center gap-1.5">
+                <DollarSign className="w-3 h-3 text-muted-foreground" />
+                <span className="text-[10px] font-mono text-foreground/70">{dest.currencySymbol}{dest.priceMonthly}/mo</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[9px] font-mono text-muted-foreground/70 flex items-center gap-1">
+                  <Wifi className="w-2.5 h-2.5" /> {dest.metrics.internetSpeed}
+                </span>
+                <span className="text-[9px] font-mono text-muted-foreground/70">
+                  🛡️ {dest.metrics.safetyRating}
+                </span>
+              </div>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
 
