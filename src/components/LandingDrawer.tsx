@@ -19,11 +19,6 @@ import { featuredDestinations } from '@/data/featuredDestinations';
 import type { Origin } from '@/data/origins';
 import type { User as SupaUser } from '@supabase/supabase-js';
 
-// Featured destinations
-const FEATURED_SLUGS = ['buenos-aires', 'medellin', 'bangkok', 'lisbon', 'tbilisi', 'mexico-city'];
-const featuredCities = FEATURED_SLUGS
-  .map((slug) => cities.find((c) => slugify(c.name) === slug))
-  .filter(Boolean) as typeof cities;
 
 // How it works data
 const steps = [
