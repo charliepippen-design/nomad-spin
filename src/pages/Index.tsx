@@ -202,8 +202,8 @@ export default function Index() {
       {/* Mobile hamburger nav */}
       <MobileNav onExplore={() => setIsCityWallOpen(true)} />
 
-      {/* Globe */}
-      <div className={`${isMobile ? 'relative h-[70vh]' : 'absolute inset-0'} z-0`}>
+      {/* Globe — full-screen background layer */}
+      <div className="fixed inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
           <Globe
             spinning={isSpinning}
