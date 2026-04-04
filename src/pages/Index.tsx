@@ -542,6 +542,7 @@ export default function Index() {
           onOpenAuth={() => setShowAuth(true)}
           streak={streak}
           spinCount={spinCount}
+          onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}
         />
       )}
 
