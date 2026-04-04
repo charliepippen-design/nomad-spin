@@ -491,15 +491,7 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Featured Destinations + How It Works — landing only */}
-      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <>
-          <div id="featured">
-            <FeaturedDestinations />
-          </div>
-          <HowItWorks />
-        </>
-      )}
+      {/* Featured Destinations + How It Works now live inside the Command Drawer */}
 
       {/* Preferences Modal */}
       <PreferencesModal
