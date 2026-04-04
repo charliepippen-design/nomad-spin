@@ -382,7 +382,7 @@ export default function LandingDrawer({
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.4 }}
               onClick={() => setSheetState('peeking')}
-              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-2.5 px-7 py-4 rounded-full bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 transition-all shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] pointer-events-auto flex items-center gap-2.5 px-7 py-4 rounded-full bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 transition-all shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
               aria-label="Explore Destinations"
             >
               <motion.div
