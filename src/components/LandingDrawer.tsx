@@ -194,8 +194,8 @@ export default function LandingDrawer({
               className={`fixed z-40 pointer-events-auto ${
                 isMobile
                   ? 'bottom-0 left-0 right-0 rounded-t-2xl max-h-[85vh]'
-                  : 'left-0 top-0 bottom-0 w-[360px]'
-              } bg-black/70 backdrop-blur-2xl border-r border-white/10 flex flex-col overflow-hidden`}
+                  : 'right-0 top-0 bottom-0 w-[400px]'
+              } bg-black/75 backdrop-blur-2xl border-l border-white/[0.08] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden`}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 pt-4 pb-2 shrink-0">
