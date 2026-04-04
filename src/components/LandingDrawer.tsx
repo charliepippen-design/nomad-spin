@@ -108,9 +108,9 @@ export default function LandingDrawer({
 
 
   const desktopPanel = {
-    hidden: { x: '-100%', opacity: 0 },
+    hidden: { x: '100%', opacity: 0 },
     visible: { x: 0, opacity: 1, transition: { type: 'spring' as const, damping: 28, stiffness: 300 } },
-    exit: { x: '-100%', opacity: 0, transition: { duration: 0.25 } },
+    exit: { x: '100%', opacity: 0, transition: { duration: 0.25 } },
   };
 
   const mobilePanel = {
@@ -145,29 +145,27 @@ export default function LandingDrawer({
       <AnimatePresence>
         {!open && (
           <motion.button
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{ delay: 0.5 }}
             onClick={() => setOpen(true)}
             className={`fixed z-30 pointer-events-auto group ${
               isMobile
-                ? 'bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-6 py-3.5 rounded-full'
-                : 'left-0 top-1/2 -translate-y-1/2 flex items-center gap-2 pl-4 pr-3 py-5 rounded-r-2xl'
-            } bg-black/60 backdrop-blur-xl border border-primary/20 hover:border-primary/40 hover:bg-black/70 transition-all cursor-pointer shadow-[0_0_20px_rgba(var(--primary-rgb,139,92,246),0.15)]`}
-            aria-label="Open explore panel"
+                ? 'bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2.5 px-7 py-4 rounded-full'
+                : 'right-6 bottom-8 flex items-center gap-2.5 px-6 py-4 rounded-2xl'
+            } bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 hover:bg-black/80 transition-all cursor-pointer shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]`}
+            aria-label="Explore Destinations"
           >
             <motion.div
-              animate={{ boxShadow: ['0 0 0px rgba(var(--primary-rgb,139,92,246),0)', '0 0 12px rgba(var(--primary-rgb,139,92,246),0.4)', '0 0 0px rgba(var(--primary-rgb,139,92,246),0)'] }}
-              transition={{ repeat: 3, duration: 2, ease: 'easeInOut' }}
-              className="rounded-full"
+              animate={{ rotate: [0, 360] }}
+              transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
             >
-              <Compass className="w-5 h-5 text-primary group-hover:text-primary transition-colors" />
+              <Compass className="w-5 h-5 text-primary" />
             </motion.div>
-            <span className="text-[11px] font-mono tracking-[0.2em] text-foreground/80 group-hover:text-foreground uppercase transition-colors font-medium">
-              Explore
+            <span className="text-[11px] font-mono tracking-[0.2em] text-foreground/90 group-hover:text-foreground uppercase transition-colors font-semibold">
+              Explore Destinations
             </span>
-            {!isMobile && <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/60 group-hover:text-muted-foreground transition-colors" />}
           </motion.button>
         )}
       </AnimatePresence>
@@ -196,8 +194,8 @@ export default function LandingDrawer({
               className={`fixed z-40 pointer-events-auto ${
                 isMobile
                   ? 'bottom-0 left-0 right-0 rounded-t-2xl max-h-[85vh]'
-                  : 'left-0 top-0 bottom-0 w-[360px]'
-              } bg-black/70 backdrop-blur-2xl border-r border-white/10 flex flex-col overflow-hidden`}
+                  : 'right-0 top-0 bottom-0 w-[400px]'
+              } bg-black/75 backdrop-blur-2xl border-l border-white/[0.08] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden`}
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 pt-4 pb-2 shrink-0">

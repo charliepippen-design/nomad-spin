@@ -202,8 +202,8 @@ export default function Index() {
       {/* Mobile hamburger nav */}
       <MobileNav onExplore={() => setIsCityWallOpen(true)} />
 
-      {/* Globe */}
-      <div className={`${isMobile ? 'relative h-[70vh]' : 'absolute inset-0'} z-0`}>
+      {/* Globe — full-screen background layer */}
+      <div className="fixed inset-0 z-0">
         <Suspense fallback={<GlobeFallback />}>
           <Globe
             spinning={isSpinning}
@@ -238,16 +238,14 @@ export default function Index() {
         )}
       </TooltipPresence>
 
-      {/* Gradient overlays — desktop only, raised starting point to keep islands visible */}
-      {!isMobile && (
-        <div className="absolute inset-0 z-[1] pointer-events-none">
-          <div className="absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-background via-background/70 to-transparent" />
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/40 to-transparent" />
-        </div>
-      )}
+      {/* Subtle edge vignette — pointer-events-none so globe stays interactive */}
+      <div className="fixed inset-0 z-[1] pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background/30 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-background/20 to-transparent" />
+      </div>
 
       {/* Content */}
-      <div className={`relative z-10 ${isMobile ? '' : 'min-h-screen'} flex flex-col pointer-events-none`}>
+      <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header — desktop only (mobile uses MobileNav) */}
         {!isMobile && (
           <header className="pointer-events-auto sticky top-0 z-20 flex items-center justify-between px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md border-b border-border/10">
@@ -493,15 +491,7 @@ export default function Index() {
         </div>
       </div>
 
-      {/* Featured Destinations + How It Works — landing only */}
-      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
-        <>
-          <div id="featured">
-            <FeaturedDestinations />
-          </div>
-          <HowItWorks />
-        </>
-      )}
+      {/* Featured Destinations + How It Works now live inside the Command Drawer */}
 
       {/* Preferences Modal */}
       <PreferencesModal
