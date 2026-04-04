@@ -212,7 +212,7 @@ export default function Index() {
             resetCamera={resetCamera}
             dayMode={dayMode}
             autoSpin={autoSpin}
-            focusCity={phase === 'results' ? resultCity : null}
+            focusCity={phase === 'results' ? resultCity : flyToTarget ? ({ lat: flyToTarget.lat, lng: flyToTarget.lng } as City) : null}
             onAutoSpinOff={() => setAutoSpin(false)}
             onCityHover={handleCityHover}
           />
