@@ -62,7 +62,7 @@ export default function LandingDrawer({
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
   isAuthenticated, user, onSignOut, onOpenAuth,
-  streak, spinCount,
+  streak, spinCount, onFlyTo,
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
