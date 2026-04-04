@@ -54,6 +54,7 @@ interface LandingDrawerProps {
   onOpenAuth: () => void;
   streak: number;
   spinCount: number;
+  onFlyTo?: (lat: number, lng: number) => void;
 }
 
 export default function LandingDrawer({
