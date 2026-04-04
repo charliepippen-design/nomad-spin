@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback, type TouchEvent as ReactTouchEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import TrustBadge from '@/components/social-proof/TrustBadge';
 import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
