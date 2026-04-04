@@ -15,9 +15,7 @@ import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
 import { Switch } from '@/components/ui/switch';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { cities } from '@/data/cities';
-import { getCityThumbnailUrl } from '@/data/cityImages';
-import { slugify } from '@/lib/slugify';
+import { featuredDestinations } from '@/data/featuredDestinations';
 import type { Origin } from '@/data/origins';
 import type { User as SupaUser } from '@supabase/supabase-js';
 
