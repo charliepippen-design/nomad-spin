@@ -245,7 +245,7 @@ export default function Index() {
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 ${isMobile ? '' : 'min-h-screen'} flex flex-col pointer-events-none`}>
+      <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Header — desktop only (mobile uses MobileNav) */}
         {!isMobile && (
           <header className="pointer-events-auto sticky top-0 z-20 flex items-center justify-between px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md border-b border-border/10">
