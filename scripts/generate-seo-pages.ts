@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // ── Supabase client ────────────────────────────────────────────────────────
 const supabaseUrl = process.env.VITE_SUPABASE_URL ?? '';
-const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? '';
+const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY ?? '';
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
 // ── Static fallback guides ─────────────────────────────────────────────────
