@@ -17,8 +17,8 @@ import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
 import MobileNav from '@/components/MobileNav';
-import MobileHeroCopy from '@/components/MobileHeroCopy';
 import GlobeTapHint from '@/components/GlobeTapHint';
+
 import HowItWorks from '@/components/HowItWorks';
 import FeaturedDestinations from '@/components/FeaturedDestinations';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark, ChevronDown } from 'lucide-react';
