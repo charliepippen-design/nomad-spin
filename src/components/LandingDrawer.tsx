@@ -65,8 +65,8 @@ export default function LandingDrawer({
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
-  // Mobile: three-state bottom sheet
-  const [sheetState, setSheetState] = useState<SheetState>('peeking');
+  // Mobile: three-state bottom sheet — default hidden so the globe stays visible
+  const [sheetState, setSheetState] = useState<SheetState>('hidden');
 
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -373,28 +373,43 @@ export default function LandingDrawer({
 
     return (
       <>
-        {/* Peeking state — always-visible bottom bar */}
+        {/* Hidden state — floating action button to open the drawer */}
         <AnimatePresence>
           {sheetState === 'hidden' && (
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.4 }}
-              onClick={() => setSheetState('peeking')}
-              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] pointer-events-auto flex items-center gap-2.5 px-7 py-4 rounded-full bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 transition-all shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
-              aria-label="Explore Destinations"
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] pointer-events-auto"
             >
+              {/* Attention pulse ring */}
               <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+                className="absolute inset-0 rounded-full bg-primary/20"
+                animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-primary/10"
+                animate={{ scale: [1, 1.55, 1], opacity: [0.3, 0, 0.3] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut', delay: 0.3 }}
+              />
+              <button
+                onClick={() => setSheetState('peeking')}
+                className="relative flex items-center gap-2.5 px-7 py-4 rounded-full bg-black/70 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 transition-all shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
+                aria-label="Explore Destinations"
               >
-                <Compass className="w-5 h-5 text-primary" />
-              </motion.div>
-              <span className="text-[11px] font-mono tracking-[0.2em] text-foreground/90 uppercase font-semibold">
-                Explore
-              </span>
-            </motion.button>
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
+                >
+                  <Compass className="w-5 h-5 text-primary" />
+                </motion.div>
+                <span className="text-[11px] font-mono tracking-[0.2em] text-foreground/90 uppercase font-semibold">
+                  Explore
+                </span>
+              </button>
+            </motion.div>
           )}
         </AnimatePresence>
 
