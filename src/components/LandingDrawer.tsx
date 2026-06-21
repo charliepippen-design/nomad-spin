@@ -65,8 +65,8 @@ export default function LandingDrawer({
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
-  // Mobile: three-state bottom sheet
-  const [sheetState, setSheetState] = useState<SheetState>('peeking');
+  // Mobile: three-state bottom sheet — default hidden so the globe stays visible
+  const [sheetState, setSheetState] = useState<SheetState>('hidden');
 
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
