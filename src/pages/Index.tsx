@@ -220,12 +220,8 @@ export default function Index() {
 
         {/* Mobile tap hint */}
         {phase === 'landing' && !isSpinning && <GlobeTapHint />}
-
-        {/* Mobile hero copy overlay */}
-        {phase === 'landing' && !isSpinning && (
-          <MobileHeroCopy onCTA={handleConfigureMission} />
-        )}
       </div>
+
 
       {/* City Tooltip */}
       <TooltipPresence>
