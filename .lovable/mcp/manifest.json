@@ -95,7 +95,7 @@
       {
         "name": "spin_destination",
         "title": "Spin for a destination",
-        "description": "Run the Nomad Spin scoring engine and return the top matching destinations for the given preferences.",
+        "description": "Rank cities against nomad preferences (budget, internet, safety, region) and return the top matches with match scores.",
         "annotations": {
           "readOnlyHint": true,
           "openWorldHint": false

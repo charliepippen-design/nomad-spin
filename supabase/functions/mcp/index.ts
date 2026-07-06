@@ -22417,87 +22417,16 @@ var get_city_default = defineTool2({
 // src/lib/mcp/tools/spin-destination.ts
 import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
 import { z as z3 } from "npm:zod@^4.4.3";
-
-// src/lib/scoring.ts
-import { haversineKm, estimateFlightTimeHours, estimateFlightCost, getEffectiveDistance } from "npm:@/lib/distance";
-var defaultWeights = {
-  budget: 30,
-  internet: 25,
-  safety: 25,
-  proximity: 20
-};
-function budgetScore(cityCost, budgetMax) {
-  if (cityCost <= budgetMax) {
-    return 80 + cityCost / budgetMax * 20;
-  }
-  const overage = (cityCost - budgetMax) / budgetMax;
-  if (overage < 0.1) return 70 - overage * 200;
-  if (overage < 0.3) return 50 - (overage - 0.1) * 250;
-  return Math.max(-100, -(overage * 200));
+function score(cost, mbps, safety, budgetMax, mbpsMin, safetyMin) {
+  const budget = cost <= budgetMax ? 80 + (1 - cost / budgetMax) * 20 : Math.max(0, 80 - (cost - budgetMax) / budgetMax * 200);
+  const net = mbps >= mbpsMin ? 60 + Math.min(40, (mbps - mbpsMin) / Math.max(mbpsMin, 1) * 20) : Math.max(0, mbps / mbpsMin * 40);
+  const safe = safety >= safetyMin ? 60 + Math.min(40, (safety - safetyMin) * 8) : Math.max(0, safety / safetyMin * 30);
+  return Math.round(budget * 0.4 + net * 0.3 + safe * 0.3);
 }
-function internetScore(cityMbps, minMbps) {
-  if (cityMbps < minMbps) return Math.max(0, cityMbps / minMbps * 40);
-  const excess = (cityMbps - minMbps) / Math.max(minMbps, 1);
-  return 60 + Math.min(40, excess * 20);
-}
-function safetyScore(citySafety, minSafety) {
-  if (citySafety < minSafety) return Math.max(0, citySafety / minSafety * 30);
-  return 50 + citySafety * 5;
-}
-function proximityScore(distKm, budgetMax) {
-  const budgetFactor = budgetMax / 3e3;
-  const distPenalty = distKm / 2e4;
-  const score = 100 - distPenalty * 100 / Math.max(budgetFactor, 0.3);
-  return Math.max(0, Math.min(100, score));
-}
-function calculateMatchScore(city2, budgetMax, internetMin, safetyMin, origin) {
-  const w = defaultWeights;
-  const bScore = budgetScore(city2.costUSD, budgetMax);
-  const iScore = internetScore(city2.internetMbps, internetMin);
-  const sScore = safetyScore(city2.safety, safetyMin);
-  let pScore = 50;
-  let totalWeight = w.budget + w.internet + w.safety;
-  if (origin && origin.id !== "anywhere") {
-    const dist = haversineKm(origin.lat, origin.lng, city2.lat, city2.lng);
-    pScore = proximityScore(dist, budgetMax);
-    totalWeight += w.proximity;
-  }
-  const weighted = (bScore * w.budget + iScore * w.internet + sScore * w.safety + (origin && origin.id !== "anywhere" ? pScore * w.proximity : 0)) / totalWeight;
-  return Math.max(0, Math.min(99, Math.round(weighted)));
-}
-function generateIntel(city2, budgetMax, internetMin, origin) {
-  const intel = [];
-  if (city2.costUSD <= budgetMax * 0.7) {
-    intel.push(`${Math.round((1 - city2.costUSD / budgetMax) * 100)}% under budget ceiling`);
-  }
-  if (city2.internetMbps >= internetMin * 1.5) {
-    intel.push(`${Math.round(city2.internetMbps / internetMin * 100 - 100)}% above bandwidth threshold`);
-  }
-  if (city2.safety >= 8.5) {
-    intel.push("Threat level: MINIMAL");
-  }
-  if (origin && origin.id !== "anywhere") {
-    const dist = haversineKm(origin.lat, origin.lng, city2.lat, city2.lng);
-    const hours = Math.round(dist / 800);
-    intel.push(`~${hours}h flight from ${origin.name}`);
-  }
-  if (city2.meta.visaDays >= 180) {
-    intel.push(`Extended stay: ${city2.meta.visaDays}d visa`);
-  }
-  if (city2.infra.coworkingDensity === "High") {
-    intel.push("High coworking density");
-  }
-  if (city2.vibeMetrics.communitySize >= 7) {
-    intel.push("Large nomad community");
-  }
-  return intel.slice(0, 4);
-}
-
-// src/lib/mcp/tools/spin-destination.ts
 var spin_destination_default = defineTool3({
   name: "spin_destination",
   title: "Spin for a destination",
-  description: "Run the Nomad Spin scoring engine and return the top matching destinations for the given preferences.",
+  description: "Rank cities against nomad preferences (budget, internet, safety, region) and return the top matches with match scores.",
   inputSchema: {
     maxBudgetUSD: z3.number().positive().default(2e3).describe("Max monthly cost in USD."),
     minInternetMbps: z3.number().min(0).default(30).describe("Minimum internet speed in Mbps."),
@@ -22507,24 +22436,20 @@ var spin_destination_default = defineTool3({
   },
   annotations: { readOnlyHint: true, openWorldHint: false },
   handler: ({ maxBudgetUSD, minInternetMbps, minSafety, region, topN }) => {
-    const pool = cities.filter((c) => {
+    const ranked = cities.filter((c) => {
       if (region && c.region !== region) return false;
       return c.costUSD <= maxBudgetUSD && c.internetMbps >= minInternetMbps && c.safety >= minSafety;
-    });
-    const ranked = pool.map((c) => ({
-      city: c,
-      score: calculateMatchScore(c, maxBudgetUSD, minInternetMbps, minSafety, null)
-    })).sort((a, b) => b.score - a.score).slice(0, topN).map(({ city: city2, score }) => ({
-      id: city2.id,
-      name: city2.name,
-      country: city2.country,
-      region: city2.region,
-      costUSD: city2.costUSD,
-      internetMbps: city2.internetMbps,
-      safety: city2.safety,
-      matchScore: score,
-      intel: generateIntel(city2, maxBudgetUSD, minInternetMbps, null)
-    }));
+    }).map((c) => ({
+      id: c.id,
+      name: c.name,
+      country: c.country,
+      region: c.region,
+      costUSD: c.costUSD,
+      internetMbps: c.internetMbps,
+      safety: c.safety,
+      vibe: c.vibe,
+      matchScore: score(c.costUSD, c.internetMbps, c.safety, maxBudgetUSD, minInternetMbps, minSafety)
+    })).sort((a, b) => b.matchScore - a.matchScore).slice(0, topN);
     const text = ranked.length ? `Top ${ranked.length} destinations:
 ${ranked.map((r, i) => `${i + 1}. ${r.name}, ${r.country} \u2014 $${r.costUSD}/mo, ${r.internetMbps} Mbps, safety ${r.safety}/10 (score ${r.matchScore})`).join("\n")}` : "No cities matched those preferences. Try relaxing budget, internet, or safety.";
     return {

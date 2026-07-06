@@ -1,13 +1,19 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
 import { cities } from "../../../data/cities";
-import { calculateMatchScore, generateIntel } from "../../../lib/scoring";
+
+function score(cost: number, mbps: number, safety: number, budgetMax: number, mbpsMin: number, safetyMin: number): number {
+  const budget = cost <= budgetMax ? 80 + (1 - cost / budgetMax) * 20 : Math.max(0, 80 - ((cost - budgetMax) / budgetMax) * 200);
+  const net = mbps >= mbpsMin ? 60 + Math.min(40, ((mbps - mbpsMin) / Math.max(mbpsMin, 1)) * 20) : Math.max(0, (mbps / mbpsMin) * 40);
+  const safe = safety >= safetyMin ? 60 + Math.min(40, (safety - safetyMin) * 8) : Math.max(0, (safety / safetyMin) * 30);
+  return Math.round(budget * 0.4 + net * 0.3 + safe * 0.3);
+}
 
 export default defineTool({
   name: "spin_destination",
   title: "Spin for a destination",
   description:
-    "Run the Nomad Spin scoring engine and return the top matching destinations for the given preferences.",
+    "Rank cities against nomad preferences (budget, internet, safety, region) and return the top matches with match scores.",
   inputSchema: {
     maxBudgetUSD: z.number().positive().default(2000).describe("Max monthly cost in USD."),
     minInternetMbps: z.number().min(0).default(30).describe("Minimum internet speed in Mbps."),
@@ -19,33 +25,24 @@ export default defineTool({
   },
   annotations: { readOnlyHint: true, openWorldHint: false },
   handler: ({ maxBudgetUSD, minInternetMbps, minSafety, region, topN }) => {
-    const pool = cities.filter((c) => {
-      if (region && c.region !== region) return false;
-      return (
-        c.costUSD <= maxBudgetUSD &&
-        c.internetMbps >= minInternetMbps &&
-        c.safety >= minSafety
-      );
-    });
-
-    const ranked = pool
+    const ranked = cities
+      .filter((c) => {
+        if (region && c.region !== region) return false;
+        return c.costUSD <= maxBudgetUSD && c.internetMbps >= minInternetMbps && c.safety >= minSafety;
+      })
       .map((c) => ({
-        city: c,
-        score: calculateMatchScore(c, maxBudgetUSD, minInternetMbps, minSafety, null),
+        id: c.id,
+        name: c.name,
+        country: c.country,
+        region: c.region,
+        costUSD: c.costUSD,
+        internetMbps: c.internetMbps,
+        safety: c.safety,
+        vibe: c.vibe,
+        matchScore: score(c.costUSD, c.internetMbps, c.safety, maxBudgetUSD, minInternetMbps, minSafety),
       }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, topN)
-      .map(({ city, score }) => ({
-        id: city.id,
-        name: city.name,
-        country: city.country,
-        region: city.region,
-        costUSD: city.costUSD,
-        internetMbps: city.internetMbps,
-        safety: city.safety,
-        matchScore: score,
-        intel: generateIntel(city, maxBudgetUSD, minInternetMbps, null),
-      }));
+      .sort((a, b) => b.matchScore - a.matchScore)
+      .slice(0, topN);
 
     const text = ranked.length
       ? `Top ${ranked.length} destinations:\n${ranked
