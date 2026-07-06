@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { cities } from "@/data/cities";
+import { cities } from "../../data/cities";
 
 export default defineTool({
   name: "search_cities",
