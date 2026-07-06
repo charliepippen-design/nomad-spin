@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "nomad-spin-mcp",
+      "version": "0.1.0",
+      "title": "Digital Nomad Spin"
+    },
+    "tools": [
+      {
+        "name": "search_cities",
+        "title": "Search nomad cities",
+        "description": "Search the Digital Nomad Spin city database by name, country, region, or vibe tag. Returns matching cities with key stats.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Free-text match on city name, country, or vibe tag.",
+              "type": "string"
+            },
+            "region": {
+              "description": "Filter by region.",
+              "type": "string",
+              "enum": [
+                "Asia",
+                "Europe",
+                "LATAM",
+                "Africa",
+                "Oceania",
+                "North America"
+              ]
+            },
+            "maxCostUSD": {
+              "description": "Max monthly cost in USD.",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "minSafety": {
+              "description": "Minimum safety rating (0-10).",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "minInternetMbps": {
+              "description": "Minimum internet speed in Mbps.",
+              "type": "number",
+              "minimum": 0
+            },
+            "limit": {
+              "default": 10,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_city",
+        "title": "Get city details",
+        "description": "Fetch the full destination profile (financials, infra, weather, visa, taxation, pros/cons) for one city by id or name.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "idOrName": {
+              "type": "string",
+              "minLength": 1,
+              "description": "City id (e.g. 'lisbon') or display name (e.g. 'Lisbon')."
+            }
+          },
+          "required": [
+            "idOrName"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "spin_destination",
+        "title": "Spin for a destination",
+        "description": "Rank cities against nomad preferences (budget, internet, safety, region) and return the top matches with match scores.",
+        "annotations": {
+          "readOnlyHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "maxBudgetUSD": {
+              "default": 2000,
+              "description": "Max monthly cost in USD.",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "minInternetMbps": {
+              "default": 30,
+              "description": "Minimum internet speed in Mbps.",
+              "type": "number",
+              "minimum": 0
+            },
+            "minSafety": {
+              "default": 6,
+              "description": "Minimum safety rating (0-10).",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "region": {
+              "type": "string",
+              "enum": [
+                "Asia",
+                "Europe",
+                "LATAM",
+                "Africa",
+                "Oceania",
+                "North America"
+              ]
+            },
+            "topN": {
+              "default": 3,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
