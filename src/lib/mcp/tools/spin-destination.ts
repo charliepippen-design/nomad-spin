@@ -31,7 +31,7 @@ export default defineTool({
     const ranked = pool
       .map((c) => ({
         city: c,
-        score: calculateMatchScore(c, maxBudgetUSD, minInternetMbps, minSafety),
+        score: calculateMatchScore(c, maxBudgetUSD, minInternetMbps, minSafety, null),
       }))
       .sort((a, b) => b.score - a.score)
       .slice(0, topN)
@@ -44,7 +44,7 @@ export default defineTool({
         internetMbps: city.internetMbps,
         safety: city.safety,
         matchScore: score,
-        intel: generateIntel(city, maxBudgetUSD, minInternetMbps),
+        intel: generateIntel(city, maxBudgetUSD, minInternetMbps, null),
       }));
 
     const text = ranked.length
