@@ -1,7 +1,7 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { cities } from "../../data/cities";
-import { calculateMatchScore, generateIntel } from "../../lib/scoring";
+import { cities } from "../../data/cities.ts";
+import { calculateMatchScore, generateIntel } from "../../lib/scoring.ts";
 
 export default defineTool({
   name: "spin_destination",
