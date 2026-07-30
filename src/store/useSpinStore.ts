@@ -4,8 +4,10 @@ import type { LandscapeOption } from '@/data/cities/types';
 import { Origin, origins as originsData } from '@/data/origins';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
 
-// Log dataset size at init
-console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
+// Log dataset size at init (dev only)
+if (import.meta.env.DEV) {
+  console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
+}
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
 export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';
@@ -280,12 +282,17 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const params = new URLSearchParams(window.location.search);
     if (!params.has('b')) return false;
 
+    const validLandscapes: LandscapeOption[] = ['seaside', 'mountain', 'urban', 'rural', 'island', 'desert'];
+
     const budget = params.get('b')?.split('-').map(Number) as [number, number] | undefined;
     const internet = Number(params.get('i')) || 20;
     const safety = Number(params.get('s')) || 5;
     const vibes = (params.get('v')?.split(',') || []) as VibeOption[];
     const region = (params.get('r') || 'All') as RegionOption;
     const originId = params.get('o');
+    const landscapes = (params.get('l')?.split(',') || []).filter(
+      (l): l is LandscapeOption => validLandscapes.includes(l as LandscapeOption)
+    );
 
     const origin = originId ? originsData.find((o) => o.id === originId) || null : null;
 
@@ -295,7 +302,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
         internetMin: internet,
         safetyMin: safety,
         vibes,
-        landscapes: (params.get('l')?.split(',') || []) as any,
+        landscapes,
         region,
         origin,
       },

@@ -2,6 +2,12 @@ import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useSpinStore, SavedSpin } from '@/store/useSpinStore';
 import { origins as originsData } from '@/data/origins';
+import type { Database } from '@/integrations/supabase/types';
+import type { VibeOption, RegionOption } from '@/store/useSpinStore';
+
+type SavedSpinRow = Database['public']['Tables']['saved_spins']['Row'];
+type UserStreakRow = Database['public']['Tables']['user_streaks']['Row'];
+type UserPreferencesRow = Database['public']['Tables']['user_preferences']['Row'];
 
 export function useCloudSync(userId: string | undefined) {
   const store = useSpinStore();
@@ -16,10 +22,10 @@ export function useCloudSync(userId: string | undefined) {
       .order('created_at', { ascending: true });
 
     if (data && data.length > 0) {
-      const spins: SavedSpin[] = data.map((row: any) => ({
-        city: row.city_data,
+      const spins: SavedSpin[] = (data as SavedSpinRow[]).map((row) => ({
+        city: row.city_data as SavedSpin['city'],
         timestamp: new Date(row.created_at).toLocaleDateString(),
-        preferences: row.preferences,
+        preferences: row.preferences as SavedSpin['preferences'],
       }));
       useSpinStore.setState({ savedSpins: spins });
       localStorage.setItem('savedSpins', JSON.stringify(spins));
@@ -32,8 +38,8 @@ export function useCloudSync(userId: string | undefined) {
     await supabase.from('saved_spins').insert({
       user_id: userId,
       city_id: spin.city.id,
-      city_data: spin.city as any,
-      preferences: spin.preferences as any,
+      city_data: spin.city as Database['public']['Tables']['saved_spins']['Insert']['city_data'],
+      preferences: spin.preferences as Database['public']['Tables']['saved_spins']['Insert']['preferences'],
     });
   }, [userId]);
 
@@ -57,14 +63,15 @@ export function useCloudSync(userId: string | undefined) {
       .maybeSingle();
 
     if (data) {
+      const row = data as UserStreakRow;
       useSpinStore.setState({
-        spinCount: data.spin_count,
-        streak: data.streak,
-        lastSpinDate: data.last_spin_date,
+        spinCount: row.spin_count,
+        streak: row.streak,
+        lastSpinDate: row.last_spin_date,
       });
-      localStorage.setItem('spinCount', String(data.spin_count));
-      localStorage.setItem('streak', String(data.streak));
-      if (data.last_spin_date) localStorage.setItem('lastSpinDate', data.last_spin_date);
+      localStorage.setItem('spinCount', String(row.spin_count));
+      localStorage.setItem('streak', String(row.streak));
+      if (row.last_spin_date) localStorage.setItem('lastSpinDate', row.last_spin_date);
     }
   }, [userId]);
 
@@ -93,18 +100,19 @@ export function useCloudSync(userId: string | undefined) {
       .maybeSingle();
 
     if (data) {
-      const origin = data.origin_id
-        ? originsData.find((o) => o.id === data.origin_id) || null
+      const row = data as UserPreferencesRow;
+      const origin = row.origin_id
+        ? originsData.find((o) => o.id === row.origin_id) || null
         : null;
 
       useSpinStore.setState({
         preferences: {
-          budgetRange: [data.budget_min, data.budget_max],
-          internetMin: data.internet_min,
-          safetyMin: data.safety_min,
-          vibes: (data.vibes || []) as any,
+          budgetRange: [row.budget_min, row.budget_max],
+          internetMin: row.internet_min,
+          safetyMin: row.safety_min,
+          vibes: (row.vibes || []) as VibeOption[],
           landscapes: [],
-          region: (data.region || 'All') as any,
+          region: (row.region || 'All') as RegionOption,
           origin,
         },
       });
@@ -142,14 +150,14 @@ export function useCloudSync(userId: string | undefined) {
         .select('city_id')
         .eq('user_id', userId);
 
-      const existingIds = new Set((existing || []).map((e: any) => e.city_id));
+      const existingIds = new Set((existing || []).map((e) => e.city_id));
       const toInsert = localSpins
         .filter((s) => !existingIds.has(s.city.id))
         .map((s) => ({
           user_id: userId,
           city_id: s.city.id,
-          city_data: s.city as any,
-          preferences: s.preferences as any,
+          city_data: s.city as Database['public']['Tables']['saved_spins']['Insert']['city_data'],
+          preferences: s.preferences as Database['public']['Tables']['saved_spins']['Insert']['preferences'],
         }));
 
       if (toInsert.length > 0) {
@@ -168,14 +176,15 @@ export function useCloudSync(userId: string | undefined) {
         .maybeSingle();
 
       if (cloudStreak) {
-        const mergedCount = Math.max(localCount, cloudStreak.spin_count);
-        const mergedStreak = Math.max(localStreak, cloudStreak.streak);
+        const row = cloudStreak as UserStreakRow;
+        const mergedCount = Math.max(localCount, row.spin_count);
+        const mergedStreak = Math.max(localStreak, row.streak);
         await supabase
           .from('user_streaks')
           .update({
             spin_count: mergedCount,
             streak: mergedStreak,
-            last_spin_date: store.lastSpinDate || cloudStreak.last_spin_date,
+            last_spin_date: store.lastSpinDate || row.last_spin_date,
             updated_at: new Date().toISOString(),
           })
           .eq('user_id', userId);
@@ -197,3 +206,4 @@ export function useCloudSync(userId: string | undefined) {
     migrateLocalData,
   };
 }
+
