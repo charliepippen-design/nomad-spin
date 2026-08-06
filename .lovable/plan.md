@@ -1,51 +1,57 @@
+# SEO & Search Visibility Improvement Plan
 
+## Goal
+Fix the 8 open SEO findings so the site is fully crawlable, correctly indexed, and ranks for high-intent digital-nomad keywords.
 
-## City Wall Grid and Comparison Foundation
+## Current issues (confirmed)
+- Homepage has no `<h1>` heading.
+- `index.html` meta description is 212 characters (limit ~160).
+- Canonical URL in `index.html` points to `https://nomadspin.com`; several routes have no self-referencing canonical; `GuideArticle` points to `https://digitalnomadspin.com`.
+- `og:image` and `twitter:image` use relative paths (`/og-preview.png`) in `index.html` and `SEO.tsx`.
+- About, Contact, Guides list, and individual guide articles lack unique Open Graph tags and JSON-LD.
+- No `/sitemap.xml`; no `/llms.txt`; `robots.txt` has no `Sitemap:` directive.
+- Google Search Console is not connected or verified for the published domain.
+- No dedicated guide targeting "Best Places for Digital Nomads in 2025" (Semrush: 1,600/mo, low difficulty).
 
-### Overview
-Build a full-screen, togglable overlay modal ("City Wall") displaying a dense grid of city cards with image backgrounds and key data. Includes a comparison selection system with a floating action bar.
+## Work to do
 
-### New Files
+### 1. Fix homepage heading structure
+- Add a single visible `<h1>` to `src/pages/Index.tsx` (or `LandingDrawer.tsx`) that describes the tool, e.g. "Find your next digital nomad destination".
+- Keep the existing `<h2>` tagline as a sub-heading.
 
-**1. `src/data/mockCities.ts`**
-- Export a `MockCity` interface (separate from the existing `City` type to avoid conflicts) with: id, rank, name, country, monthlyCost, internetMbps, tempC, weatherIcon, imageUrl
-- Export a `mockCities` array with 15 cities including Asuncion, Da Nang, Lisbon, Medellin, Bangkok, Buenos Aires, Tbilisi, Mexico City, Chiang Mai, Porto, Cali, Ho Chi Minh City, Cape Town, Budapest, Kuala Lumpur
-- Uses Unsplash image URLs with `q=80&w=600&auto=format&fit=crop` params
+### 2. Correct sitewide metadata in `index.html`
+- Shorten the meta description to ≤160 characters.
+- Update `og:url` and `<link rel="canonical">` to the actual published domain `https://spin-nomad-quest.lovable.app/`.
+- Convert `og:image` and `twitter:image` to absolute URLs (`https://spin-nomad-quest.lovable.app/og-preview.png`).
+- Add sitewide `WebSite` and `Organization` JSON-LD.
 
-**2. `src/components/explore/CityCard.tsx`**
-- Props: `city: MockCity`, `isSelected: boolean`, `onToggleSelect: (id: string) => void`
-- Aspect ratio 4:5 card with full-bleed background image, gradient overlay
-- Top-left: rank badge (blurred pill)
-- Top-right: wifi icon + Mbps
-- Bottom-left: city name (bold) + country
-- Bottom-right: cost/mo pill
-- On hover: reveal a checkbox/select indicator for comparison mode
-- Uses `Wifi` icon from lucide-react
+### 3. Add per-route metadata and structured data
+- Update `src/components/SEO.tsx` to always emit absolute image URLs and a self-referencing canonical/og:url when a path prop is provided.
+- Add canonical, og:url, og:image, and JSON-LD to:
+  - `src/pages/About.tsx` (Organization / AboutPage)
+  - `src/pages/Contact.tsx` (ContactPage)
+  - `src/pages/GuidesList.tsx` (CollectionPage)
+  - `src/pages/GuideArticle.tsx` (Article, fix domain)
+  - `src/pages/DestinationGuide.tsx` (TouristDestination)
+  - `src/pages/PrivacyPolicy.tsx` and `src/pages/TermsOfUse.tsx` (WebPage)
+- Change `GuideArticle` `og:type` to `article`.
 
-**3. `src/components/explore/CityWallModal.tsx`**
-- Props: `isOpen: boolean`, `onClose: () => void`
-- Returns `null` when closed
-- Fixed full-screen overlay at `z-[100]` with dark background and blur
-- Sticky header with "Explore Destinations" title and X close button
-- Responsive grid: 2 cols mobile, 4 cols md, 6 cols lg, 8 cols xl
-- Maps `mockCities` into `CityCard` components
-- Local state for `selectedCities: string[]` array
-- Floating action bar (fixed bottom, `z-[110]`) appears when 1+ cities selected, showing count and "Compare Now" button (button is non-functional placeholder for now)
+### 4. Create sitemap and robots.txt
+- Create `scripts/generate-sitemap.ts` that lists every static route plus every dynamic city and guide slug.
+- Wire it into `package.json` as `predev` and `prebuild` scripts.
+- Update `public/robots.txt` to add `Sitemap: https://spin-nomad-quest.lovable.app/sitemap.xml`.
 
-### Modified Files
+### 5. Add `/llms.txt`
+- Create `public/llms.txt` with a site summary and links to public routes (home, about, contact, guides, destination guides, legal pages).
 
-**4. `src/pages/Index.tsx`**
-- Add state: `const [isCityWallOpen, setIsCityWallOpen] = useState(false)`
-- Import and render `<CityWallModal>` at root level (outside the z-10 content wrapper)
-- Pass open/close state as props
+### 6. Publish the 2025 guide
+- Create a new guide entry in `src/data/guides.ts` (or a dedicated route `/guides/best-places-2025`) titled "Best Places for Digital Nomads in 2025".
+- Content uses the existing 1,200-city dataset to surface top cities by cost, internet, safety, and vibe.
+- Add the route to `src/App.tsx`, the guides list, and the sitemap.
 
-**5. `src/components/LandingDrawer.tsx`**
-- Add `onOpenCityWall: () => void` to props interface
-- Add an "Explore Cities" button in the drawer (near the SpinButton area) that calls `onOpenCityWall`
-- Uses `Globe2` or `Compass` icon from existing imports
+### 7. Connect and verify Google Search Console
+- Call `standard_connectors--connect` for `google_search_console` so you can authorize the connection.
+- After the connection lands, verify ownership of `https://spin-nomad-quest.lovable.app/` via the META tag flow and submit the new sitemap.
 
-### Technical Notes
-- The `MockCity` interface is intentionally separate from the existing `City` type in `src/data/cities/types.ts` -- this keeps the dummy data self-contained and avoids requiring all the complex nested fields
-- The modal uses `z-[100]` to sit above the globe (`z-0`) and all existing UI (`z-10` to `z-40`)
-- All interaction within the modal uses `pointer-events-auto` per the existing HUD architecture pattern
-- The "Compare Now" button is a placeholder -- the comparison view itself will be a future phase
+## Outcome
+All 8 SEO findings should be addressed: proper H1, concise description, correct canonicals/OG tags, structured data, sitemap, llms.txt, the 2025 guide, and a verified Search Console property with submitted sitemap.
