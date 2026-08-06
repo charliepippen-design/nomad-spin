@@ -65,15 +65,17 @@ jobs:
             .replace(/`/g, '\\`')
             .replace(/\$/g, '\\$');
 
-          const newGuide = `  {
-    id: ${JSON.stringify(slug)},
-    slug: ${JSON.stringify(slug)},
-    title: ${JSON.stringify(title)},
-    excerpt: ${JSON.stringify(excerpt)},
-    date: ${JSON.stringify(date)},
-    readTime: ${JSON.stringify(readTime)},
-    content: \`\n${contentEscaped}\n\`
-  }`;
+          const newGuide = [
+            '  {',
+            '    id: ' + JSON.stringify(slug) + ',',
+            '    slug: ' + JSON.stringify(slug) + ',',
+            '    title: ' + JSON.stringify(title) + ',',
+            '    excerpt: ' + JSON.stringify(excerpt) + ',',
+            '    date: ' + JSON.stringify(date) + ',',
+            '    readTime: ' + JSON.stringify(readTime) + ',',
+            '    content: `\n' + contentEscaped + '\n`',
+            '  }'
+          ].join('\n');
 
           const filePath = 'src/data/guides.ts';
           let fileContent = fs.readFileSync(filePath, 'utf8');
