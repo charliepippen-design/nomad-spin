@@ -33,13 +33,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: '20'
+          bun-version: latest
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Inject Guide into TypeScript File
         env:
@@ -65,15 +65,17 @@ jobs:
             .replace(/`/g, '\\`')
             .replace(/\$/g, '\\$');
 
-          const newGuide = `  {
-    id: ${JSON.stringify(slug)},
-    slug: ${JSON.stringify(slug)},
-    title: ${JSON.stringify(title)},
-    excerpt: ${JSON.stringify(excerpt)},
-    date: ${JSON.stringify(date)},
-    readTime: ${JSON.stringify(readTime)},
-    content: \`\n${contentEscaped}\n\`
-  }`;
+          const newGuide = [
+            '  {',
+            '    id: ' + JSON.stringify(slug) + ',',
+            '    slug: ' + JSON.stringify(slug) + ',',
+            '    title: ' + JSON.stringify(title) + ',',
+            '    excerpt: ' + JSON.stringify(excerpt) + ',',
+            '    date: ' + JSON.stringify(date) + ',',
+            '    readTime: ' + JSON.stringify(readTime) + ',',
+            '    content: `\n' + contentEscaped + '\n`',
+            '  }'
+          ].join('\n');
 
           const filePath = 'src/data/guides.ts';
           let fileContent = fs.readFileSync(filePath, 'utf8');
@@ -97,11 +99,11 @@ jobs:
           rm inject.js
 
       - name: Validate build
-        run: npm run build
+        run: bun run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-          VITE_SUPABASE_PROJECT_ID: pghzfvztxztsaijybdwi
 
       - name: Commit and Push Changes
         run: |
