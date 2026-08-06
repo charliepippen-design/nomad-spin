@@ -7,6 +7,8 @@ import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();
   const { data: liveGuides, isLoading } = useGuides();
@@ -45,15 +47,44 @@ export default function GuideArticle() {
     );
   }
 
+  const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
+  const title = `${guide.title} | Nomad Spin`;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    url: pageUrl,
+    datePublished: guide.date,
+    description: guide.excerpt,
+    author: {
+      '@type': 'Organization',
+      name: 'Nomad Spin',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Nomad Spin',
+      logo: `${BASE_URL}/favicon.svg`,
+    },
+  };
+
   return (
     <div className="noise-overlay min-h-screen bg-background pb-40">
       <Helmet>
-        <title>{guide.title} | Archive | Nomad Spin</title>
+        <title>{title}</title>
         <meta name="description" content={guide.excerpt} />
+        <link rel="canonical" href={pageUrl} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:title" content={`${guide.title} | Nomad Spin`} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={guide.excerpt} />
-        <link rel="canonical" href={`https://digitalnomadspin.com/guides/${guide.slug}`} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta property="article:published_time" content={guide.date} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={guide.excerpt} />
+        <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       <div className="sticky top-0 z-50 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent backdrop-blur-md"></div>

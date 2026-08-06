@@ -6,6 +6,24 @@ import { Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
+const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const PAGE_URL = `${BASE_URL}/contact`;
+const TITLE = 'Contact — Nomad Spin';
+const DESCRIPTION = 'Get in touch with the Nomad Spin team. Share feedback, suggest a city, or ask a question.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: TITLE,
+  url: PAGE_URL,
+  description: DESCRIPTION,
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Nomad Spin',
+    url: BASE_URL,
+  },
+};
+
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -33,8 +51,19 @@ export default function Contact() {
   return (
     <div className="noise-overlay min-h-screen bg-background">
       <Helmet>
-        <title>Contact — Nomad Spin</title>
-        <meta name="description" content="Get in touch with the Nomad Spin team. Share feedback, suggest a city, or ask a question." />
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
+        <link rel="canonical" href={PAGE_URL} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       <div className="max-w-lg mx-auto px-6 py-16 md:py-24">

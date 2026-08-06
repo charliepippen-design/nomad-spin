@@ -179,9 +179,9 @@ export default function LandingDrawer({
       {/* Tagline */}
       <TrustBadge />
       <div className="flex flex-col gap-2">
-        <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight">
+        <h1 className="text-lg font-mono tracking-wide text-foreground leading-tight">
           Spin the globe.<br />Find your next digital nomad base.
-        </h2>
+        </h1>
         <p className="text-xs text-muted-foreground leading-relaxed">
           Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
         </p>
