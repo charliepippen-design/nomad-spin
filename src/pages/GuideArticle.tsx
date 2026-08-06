@@ -4,6 +4,7 @@ import { ArrowLeft, Clock, Calendar, ChevronLeft, Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -129,7 +130,7 @@ export default function GuideArticle() {
             prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-primary/[0.01] prose-blockquote:py-8 prose-blockquote:px-12 prose-blockquote:my-16 prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-foreground/90
             prose-hr:border-white/10 prose-hr:my-20
             selection:bg-primary/30 selection:text-white">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>
             {guide.content}
           </ReactMarkdown>
         </div>
