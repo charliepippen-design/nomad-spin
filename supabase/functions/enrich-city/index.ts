@@ -5,17 +5,36 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+/** Accept only plausible place names (letters, spaces, and common punctuation). */
+function isSafeName(v: unknown): v is string {
+  return typeof v === "string" && v.trim().length > 0 && v.length <= 80 &&
+    /^[\p{L}\p{M}\p{N}\s'’.\-()/,]+$/u.test(v);
+}
+
+/** Deterministic, server-derived cache key. */
+function makeSlug(cityName: string, country: string): string {
+  return `${cityName} ${country}`
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const { cityName, country, slug } = await req.json();
-    if (!cityName || !country || !slug) {
-      return new Response(JSON.stringify({ error: "Missing cityName, country, or slug" }), {
+    const { cityName, country } = await req.json();
+    if (!isSafeName(cityName) || !isSafeName(country)) {
+      return new Response(JSON.stringify({ error: "Invalid cityName or country" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+    // Cache key derived server-side from validated inputs so a request can never
+    // overwrite the cached entry of an unrelated (real) city.
+    const slug = makeSlug(cityName, country);
+
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
