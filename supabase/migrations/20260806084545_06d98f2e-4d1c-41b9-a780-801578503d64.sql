@@ -1,0 +1,2 @@
+DROP POLICY IF EXISTS "Only service role can insert enrichment cache" ON public.city_enrichment_cache;
+DROP POLICY IF EXISTS "Only service role can update enrichment cache" ON public.city_enrichment_cache;
