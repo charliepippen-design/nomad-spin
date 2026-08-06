@@ -8,7 +8,7 @@ import rehypeSanitize from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();

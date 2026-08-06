@@ -38,7 +38,7 @@ export default function DestinationGuide() {
   const affiliateLinks = generateAffiliateLinks(city);
   const badges = generateBadges(city);
 
-  const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+  const BASE_URL = 'https://www.digitalnomadspin.com';
   const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
   const title = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
   const description = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;

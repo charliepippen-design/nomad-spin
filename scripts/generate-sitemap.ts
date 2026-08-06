@@ -8,7 +8,7 @@ import { slugify } from '../src/lib/slugify';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 
 interface SitemapEntry {
   path: string;
