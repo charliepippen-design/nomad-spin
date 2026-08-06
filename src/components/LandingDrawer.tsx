@@ -179,9 +179,9 @@ export default function LandingDrawer({
       {/* Tagline */}
       <TrustBadge />
       <div className="flex flex-col gap-2">
-        <h1 className="text-lg font-mono tracking-wide text-foreground leading-tight">
+        <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight">
           Spin the globe.<br />Find your next digital nomad base.
-        </h1>
+        </h2>
         <p className="text-xs text-muted-foreground leading-relaxed">
           Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
         </p>
@@ -280,9 +280,9 @@ export default function LandingDrawer({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h3 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
+                <h2 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
                   {dest.city}
-                </h3>
+                </h2>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <MapPin className="w-2.5 h-2.5 text-muted-foreground" />
                   <span className="text-[9px] font-mono text-muted-foreground">{dest.country}</span>
@@ -316,7 +316,7 @@ export default function LandingDrawer({
               <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground">{step.number}</span>
               <step.icon className="w-4 h-4 text-foreground/70" />
             </div>
-            <h3 className="font-mono text-sm tracking-wider text-foreground">{step.title}</h3>
+            <h2 className="font-mono text-sm tracking-wider text-foreground">{step.title}</h2>
             <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
           </div>
         ))}

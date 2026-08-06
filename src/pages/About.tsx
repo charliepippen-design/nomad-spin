@@ -69,7 +69,7 @@ export default function About() {
           ].map((v) => (
             <div key={v.title} className="rounded-xl border border-border/30 bg-card p-5 flex flex-col gap-3">
               <v.icon className="w-5 h-5 text-foreground/60" />
-              <h3 className="font-mono text-xs tracking-wider text-foreground uppercase">{v.title}</h3>
+              <h2 className="font-mono text-xs tracking-wider text-foreground uppercase">{v.title}</h2>
               <p className="text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
             </div>
           ))}

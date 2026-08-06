@@ -45,6 +45,7 @@ export default function SavedSpins() {
               onClick={() => redeploySpin(index)}
               className="p-1.5 rounded-sm opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all"
               title="Search again with same filters"
+              aria-label="Search again with same filters"
             >
               <RotateCcw className="w-3 h-3 text-muted-foreground" />
             </button>
@@ -55,6 +56,7 @@ export default function SavedSpins() {
               }}
               className="p-1.5 rounded-sm opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all"
               title="Delete"
+              aria-label={`Delete saved trip ${entry.city.name}`}
             >
               <Trash2 className="w-3 h-3 text-muted-foreground" />
             </button>
