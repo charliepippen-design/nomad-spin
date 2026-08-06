@@ -4,7 +4,7 @@ import getCity from "./tools/get-city";
 import spinDestination from "./tools/spin-destination";
 
 const supabaseUrl = (
-  process.env.SUPABASE_URL ?? "https://supabase.invalid"
+  process.env.SUPABASE_URL ?? "https://fadkbkjyfqamimsicygp.supabase.co"
 ).replace(/\/+$/, "");
 
 export default defineMcp({

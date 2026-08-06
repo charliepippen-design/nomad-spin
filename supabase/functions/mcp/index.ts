@@ -22460,7 +22460,7 @@ ${ranked.map((r, i) => `${i + 1}. ${r.name}, ${r.country} \u2014 $${r.costUSD}/m
 });
 
 // src/lib/mcp/index.ts
-var supabaseUrl = (process.env.SUPABASE_URL ?? "https://supabase.invalid").replace(/\/+$/, "");
+var supabaseUrl = (process.env.SUPABASE_URL ?? "https://fadkbkjyfqamimsicygp.supabase.co").replace(/\/+$/, "");
 var mcp_default = defineMcp({
   name: "nomad-spin-mcp",
   title: "Digital Nomad Spin",
