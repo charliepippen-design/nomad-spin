@@ -22,6 +22,21 @@ const corsHeaders = {
 
 const UTM = "utm_source=digital_nomad_spin&utm_medium=referral";
 
+/** Accept only plausible place names (letters, spaces, and common punctuation). */
+function isSafeName(v: unknown): v is string {
+  return typeof v === "string" && v.trim().length > 0 && v.length <= 80 &&
+    /^[\p{L}\p{M}\p{N}\s'’.\-()/,]+$/u.test(v);
+}
+
+/** Deterministic, server-derived cache key. */
+function makeSlug(cityName: string, country?: string | null): string {
+  return `${cityName} ${country ?? ""}`
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -34,7 +49,26 @@ serve(async (req) => {
     // --- Download trigger endpoint ---
     if (body.action === "download") {
       const { downloadLocation } = body;
-      if (!downloadLocation || !unsplashKey) {
+      // SSRF guard: only ever call the official Unsplash API host
+      const isAllowed =
+        typeof downloadLocation === "string" &&
+        downloadLocation.length < 500 &&
+        (() => {
+          try {
+            const u = new URL(downloadLocation);
+            return u.protocol === "https:" && u.hostname === "api.unsplash.com";
+          } catch {
+            return false;
+          }
+        })();
+
+      if (!isAllowed) {
+        return new Response(JSON.stringify({ error: "Invalid downloadLocation" }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      if (!unsplashKey) {
         return new Response(JSON.stringify({ ok: true }), {
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
@@ -47,13 +81,17 @@ serve(async (req) => {
     }
 
     // --- Image resolve endpoint ---
-    const { slug, cityName, country, region } = body;
-    if (!slug || !cityName) {
-      return new Response(JSON.stringify({ error: "slug and cityName required" }), {
+    const { cityName, country } = body;
+    if (!isSafeName(cityName) || (country != null && !isSafeName(country))) {
+      return new Response(JSON.stringify({ error: "Invalid cityName or country" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+    // Cache key is derived server-side from the validated city name/country,
+    // never from a client-supplied slug (prevents cache poisoning of other cities).
+    const slug = makeSlug(cityName, country);
+
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
