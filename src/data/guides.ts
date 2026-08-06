@@ -236,5 +236,158 @@ export const guides: Guide[] = [
 </ul>
 <p><em>This guide was written on the ground in Asunción, Paraguay — not from a co-working space in Lisbon or a consulting office in Dubai. If something here is outdated or you’ve had a different experience, say so in the comments. This is a living document.</em></p>
 `
+  },
+  {
+    id: "best-places-digital-nomads-2025",
+    slug: "best-places-digital-nomads-2025",
+    title: "Best Places for Digital Nomads in 2025",
+    excerpt: "A data-driven look at the top digital nomad destinations for 2025 — ranked by cost, internet, safety, community, and visa access.",
+    date: "2025-01-06",
+    readTime: "10 min read",
+    content: `
+<p><strong>SEO ARTICLE DRAFT</strong></p>
+<p><em>Target keyword: best places digital nomads 2025 | KD: low | Vol: 1,600/mo</em></p>
+
+<p>Every January, the same question shows up in nomad groups, Slack channels, and airport cafés: <em>Where should I go this year?</em></p>
+
+<p>It’s a harder question than it looks. A place can be cheap and beautiful and still have internet that dies every afternoon. It can have great Wi-Fi and a thriving community and still cost more than your home city. And visa rules keep shifting, which means a destination that worked effortlessly in 2023 might now require a spreadsheet and a prayer.</p>
+
+<p>So instead of chasing hype, I ran the numbers. Using Nomad Spin’s dataset of 1,200+ cities — cost of living, internet speed, safety scores, visa access, community size, and climate — here are the destinations that actually make sense for remote workers in 2025.</p>
+
+<h2><strong>The Criteria: How These Cities Were Ranked</strong></h2>
+
+<p>Each city below was scored on a 0–100 scale weighted across six factors:</p>
+
+<ul>
+<li><strong>Budget (25%):</strong> Monthly cost for a comfortable nomad lifestyle — rent, food, coworking, transport.</li>
+<li><strong>Internet (20%):</strong> Average speed, reliability, and coworking infrastructure.</li>
+<li><strong>Safety (15%):</strong> General safety, female safety, and LGBTQ+ friendliness.</li>
+<li><strong>Community (15%):</strong> Existing nomad scene, English proficiency, and ease of meeting people.</li>
+<li><strong>Visa Access (15%):</strong> Tourist visa length, digital nomad visa availability, and border-run friction.</li>
+<li><strong>Vibe Match (10%):</strong> Weather, food, culture, and overall liveability.</li>
+</ul>
+
+<p>No sponsorships. No affiliate kickbacks influencing the order. Just the data.</p>
+
+<h2><strong>1. Chiang Mai, Thailand — Still the Starter City King</strong></h2>
+
+<p>Chiang Mai is the city that launched a million nomad careers, and it’s still one of the best places to test the lifestyle without going broke.</p>
+
+<p><strong>Why it wins:</strong> You can live well on $900–$1,200/month. Internet is reliable in most neighborhoods. The community is enormous — you’ll find coworking spaces, meetups, and people who speak your language within days. The Nimman and Santitham areas are built for remote work.</p>
+
+<p><strong>Watch out for:</strong> Burning season (February–April) is genuinely unpleasant. Visa runs are more tightly managed than they used to be, so plan ahead.</p>
+
+<p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want community immediately.</p>
+
+<h2><strong>2. Lisbon, Portugal — Europe’s Nomad Capital</strong></h2>
+
+<p>Lisbon has become the default European nomad base for good reason. It’s warm, walkable, English-friendly, and plugged into the rest of Europe.</p>
+
+<p><strong>Why it wins:</strong> Internet is excellent. Coworking spaces are everywhere. The city is beautiful, safe, and full of things to do. Portugal’s digital nomad visa (D8) is one of the more accessible routes into the EU.</p>
+
+<p><strong>Watch out for:</strong> Costs have risen sharply. A decent one-bedroom in central Lisbon can run €1,200–€1,800/month. You’ll need a real budget.</p>
+
+<p><strong>Best for:</strong> Nomads who want EU access, reliable infrastructure, and a strong social scene.</p>
+
+<h2><strong>3. Medellín, Colombia — The Best Value in the Americas</strong></h2>
+
+<p>Medellín keeps winning because it delivers 80% of what Lisbon offers at half the price. The weather is spring-like year-round. The nomad community is well-established. And the city has invested heavily in coworking and cafés.</p>
+
+<p><strong>Why it wins:</strong> Monthly living costs around $1,200–$1,600 for a good lifestyle. Fast internet in El Poblado and Laureles. A large, welcoming expat community.</p>
+
+<p><strong>Watch out for:</strong> Safety varies by neighborhood. Spanish helps a lot. Some areas still feel gritty.</p>
+
+<p><strong>Best for:</strong> North Americans on similar time zones, Spanish learners, value hunters.</p>
+
+<h2><strong>4. Bali, Indonesia — Beaches, Cafés, and Coworking</strong></h2>
+
+<p>Bali is divisive, but the numbers don’t lie: it remains one of the most popular nomad destinations in the world. Canggu and Ubud are basically built for remote workers at this point.</p>
+
+<p><strong>Why it wins:</strong> Incredible café and coworking density. Strong community. Low cost of living outside the most touristy pockets. The B211A visa and Second Home Visa give long-stay options.</p>
+
+<p><strong>Watch out for:</strong> Traffic in Canggu is brutal. Tourist prices are rising. Internet can be patchy in rural areas.</p>
+
+<p><strong>Best for:</strong> People who want surf, yoga, and a built-in social life.</p>
+
+<h2><strong>5. Mexico City, Mexico — Big-City Energy at Nomad Prices</strong></h2>
+
+<p>Mexico City is underrated as a nomad base. It’s enormous, culturally rich, surprisingly affordable, and on US time zones.</p>
+
+<p><strong>Why it wins:</strong> Neighborhoods like Roma, Condesa, and Polanco have great internet and tons of cafés. You can live well on $1,400–$2,000/month. The food scene is world-class.</p>
+
+<p><strong>Watch out for:</strong> It’s a big city — pollution, traffic, and noise are real. Safety requires neighborhood awareness.</p>
+
+<p><strong>Best for:</strong> City people, food lovers, US-based remote workers who need time-zone overlap.</p>
+
+<h2><strong>6. Buenos Aires, Argentina — The Affordable European Vibe</strong></h2>
+
+<p>Buenos Aires feels like a European capital at a fraction of the cost. The café culture, architecture, and nightlife are unmatched in Latin America.</p>
+
+<p><strong>Why it wins:</strong> With the blue-dollar exchange rate, your foreign income stretches dramatically. Great steak, wine, and culture. Strong internet in Palermo and Recoleta.</p>
+
+<p><strong>Watch out for:</strong> Inflation is constant. You need to understand how to exchange money efficiently. Bureaucracy can be slow.</p>
+
+<p><strong>Best for:</strong> People who want European lifestyle on a Latin American budget, night owls, culture lovers.</p>
+
+<h2><strong>7. Tbilisi, Georgia — The Under-the-Radar Winner</strong></h2>
+
+<p>Georgia has been quietly building one of the most nomad-friendly ecosystems in Eurasia. Tbilisi is cheap, safe, and refreshingly unpretentious.</p>
+
+<p><strong>Why it wins:</strong> One-year visa-free entry for many nationalities. Cost of living around $900–$1,300/month. Fast, reliable internet. A growing but still tight-knit nomad community.</p>
+
+<p><strong>Watch out for:</strong> Georgian is hard to learn. Winters can be gray. It’s not as polished as Western Europe.</p>
+
+<p><strong>Best for:</strong> Long-stay nomads, people who want visa simplicity, budget-focused travelers.</p>
+
+<h2><strong>8. Cape Town, South Africa — Beauty and Value</strong></h2>
+
+<p>Cape Town offers a combination that’s hard to beat: stunning nature, modern infrastructure, English-speaking, and a cost of living far below comparable cities.</p>
+
+<p><strong>Why it wins:</strong> Internet has improved dramatically. Coworking spaces are plentiful. You get mountains, beaches, and wine country in one city.</p>
+
+<p><strong>Watch out for:</strong> Load shedding (power outages) still happens, though less than before. Safety requires common sense.</p>
+
+<p><strong>Best for:</strong> Nature lovers, outdoor enthusiasts, people who want English-speaking Africa.</p>
+
+<h2><strong>9. Budapest, Hungary — Central Europe’s Hidden Gem</strong></h2>
+
+<p>Budapest delivers old-Europe charm with modern nomad infrastructure at prices lower than Vienna or Berlin.</p>
+
+<p><strong>Why it wins:</strong> Fast internet, great public transport, beautiful architecture, and a cost of living around $1,300–$1,800/month. The White Card visa is designed for remote workers.</p>
+
+<p><strong>Watch out for:</strong> Winter is cold. Hungarian is famously difficult. It’s less international than Lisbon or Berlin.</p>
+
+<p><strong>Best for:</strong> EU access seekers, history and architecture lovers, people who want four real seasons.</p>
+
+<h2><strong>10. Hanoi, Vietnam — The Budget Champion</strong></h2>
+
+<p>Hanoi is what Chiang Mai was ten years ago: cheap, authentic, slightly chaotic, and full of potential.</p>
+
+<p><strong>Why it wins:</strong> You can live comfortably on $700–$1,000/month. Internet is solid in the Old Quarter and Tay Ho. The food is exceptional. Vietnam’s e-visa is straightforward.</p>
+
+<p><strong>Watch out for:</strong> Traffic is intense. Air quality fluctuates. The nomad community is smaller than in Bali or Chiang Mai.</p>
+
+<p><strong>Best for:</strong> Extreme budget nomads, food lovers, people who prefer authenticity over infrastructure.</p>
+
+<h2><strong>How to Choose the Right One for You</strong></h2>
+
+<p>The best city isn’t the one with the highest score — it’s the one that matches your priorities.</p>
+
+<ul>
+<li><strong>Lowest cost:</strong> Hanoi, Chiang Mai, Tbilisi</li>
+<li><strong>Best internet:</strong> Lisbon, Mexico City, Budapest</li>
+<li><strong>Strongest community:</strong> Chiang Mai, Bali, Lisbon</li>
+<li><strong>Easiest visa:</strong> Georgia, Albania, Thailand (with planning)</li>
+<li><strong>Best for nature:</strong> Cape Town, Bali, Medellín</li>
+</ul>
+
+<h2><strong>Spin the Globe and Find Your Match</strong></h2>
+
+<p>These ten cities are a starting point, not the final answer. Your ideal base depends on your budget, your work schedule, your visa situation, and what kind of life you actually want to live.</p>
+
+<p>If you want a personalized recommendation, use the Nomad Spin tool. Set your budget, internet needs, and safety minimums, spin the globe, and see which cities score highest against your actual preferences — not someone else’s Instagram feed.</p>
+
+<p><em>Last updated: January 2025. Costs and visa rules change quickly; always double-check before booking.</em></p>
+`
   }
 ];
