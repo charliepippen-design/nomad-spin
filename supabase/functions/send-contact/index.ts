@@ -51,10 +51,10 @@ serve(async (req) => {
         reply_to: email.trim(),
         html: `
           <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name.trim()}</p>
-          <p><strong>Email:</strong> ${email.trim()}</p>
+          <p><strong>Name:</strong> ${escapeHtml(name.trim())}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email.trim())}</p>
           <hr />
-          <p>${message.trim().replace(/\n/g, '<br />')}</p>
+          <p>${escapeHtml(message.trim()).replace(/\n/g, '<br />')}</p>
         `,
       }),
     });
