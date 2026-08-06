@@ -258,7 +258,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
-                  <button onClick={onClose} className="p-2 rounded-sm hover:bg-white/5 transition-colors">
+                  <button onClick={onClose} aria-label="Close preferences modal" className="p-2 rounded-sm hover:bg-white/5 transition-colors">
                     <X className="w-4 h-4 text-muted-foreground" />
                   </button>
                 </div>

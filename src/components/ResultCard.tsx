@@ -351,7 +351,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
               <RotateCcw className="w-3 h-3" /> SPIN AGAIN
             </Button>
-            <Button onClick={onShare} variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+            <Button onClick={onShare} aria-label="Share destination" variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
               <Share2 className="w-3 h-3" />
             </Button>
           </div>

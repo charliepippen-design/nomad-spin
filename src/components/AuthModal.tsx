@@ -102,7 +102,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
           <div className="gradient-border-wrap rounded-xl">
             <div className="bg-black/90 backdrop-blur-[60px] rounded-xl p-6">
               {/* Close */}
-              <button onClick={onClose} className="absolute top-4 right-4 p-1 hover:bg-white/5 rounded-sm transition-colors">
+              <button onClick={onClose} aria-label="Close authentication modal" className="absolute top-4 right-4 p-1 hover:bg-white/5 rounded-sm transition-colors">
                 <X className="w-4 h-4 text-muted-foreground" />
               </button>
 
