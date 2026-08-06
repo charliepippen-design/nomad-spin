@@ -49,7 +49,16 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const title = `${guide.title} | Nomad Spin`;
+  const SUFFIX = ' | Nomad Spin';
+  const MAX_TITLE = 60;
+  const baseTitle =
+    guide.title.length + SUFFIX.length <= MAX_TITLE
+      ? `${guide.title}${SUFFIX}`
+      : guide.title;
+  const title =
+    baseTitle.length <= MAX_TITLE
+      ? baseTitle
+      : `${baseTitle.slice(0, MAX_TITLE - 1).replace(/[\s—:,-]+\S*$/, '')}…`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',

@@ -62,6 +62,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
         disabled={geo.locating}
         className="p-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-all text-muted-foreground"
         title="Detect my location"
+        aria-label="Detect my location"
       >
         <Crosshair className={`w-3 h-3 ${geo.locating ? 'animate-spin' : ''}`} />
       </button>
@@ -70,6 +71,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
         onClick={() => setOpen(o => !o)}
         className="flex items-center gap-1.5 px-2 md:px-2.5 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
         title="Filter recommendations based on your current base or target region"
+        aria-label="Choose your base location"
       >
         <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
         <span className={`text-[10px] font-mono tracking-wider max-w-[60px] md:max-w-[120px] truncate ${geo.acquiredCity ? 'text-primary' : 'text-muted-foreground'}`}>
