@@ -1,0 +1,25 @@
+# Nomad Spin
+
+> Spin a 3D globe and discover your next digital nomad destination. Compare 1,200+ cities on cost of living, internet speed, safety, and visa rules.
+
+Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. It scores destinations against your preferences — budget, internet, safety, proximity, landscape, and vibe — then surfaces the best matches and helps you book stays, flights, eSIMs, and insurance through curated partner links.
+
+## Pages
+
+- [Home](/): Spin the globe and get matched with your next digital nomad base.
+- [Guides](/guides): In-depth guides, tax residency breakdowns, and remote-work strategies.
+- [About](/about): How Nomad Spin works and the values behind the tool.
+- [Contact](/contact): Share feedback, suggest a city, or ask a question.
+- [Privacy Policy](/privacy-policy): How user data is handled.
+- [Terms of Use](/terms-of-use): Rules and conditions for using the service.
+
+## Examples
+
+- [Best Places for Digital Nomads in 2025](/guides/best-places-digital-nomads-2025): A data-driven ranking of top nomad destinations for the year.
+- [Paraguay Tax Residency for Remote Workers](/guides/paraguay-tax-residency-remote-workers): A ground-level guide to territorial taxation and residency in Asunción.
+
+## Optional
+
+- [Cape Town Digital Nomad Guide](/destinations/cape-town)
+- [Chiang Mai Digital Nomad Guide](/destinations/chiang-mai)
+- [Lisbon Digital Nomad Guide](/destinations/lisbon)
