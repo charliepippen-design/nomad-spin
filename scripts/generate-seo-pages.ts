@@ -126,7 +126,7 @@ function createHtmlFile(route: string, title: string, description: string, filen
   // 4. Sitemap
   console.log('\n🗺️ Generating sitemap.xml...');
   const today = new Date().toISOString().split('T')[0];
-  const baseUrl = 'https://digitalnomadspin.com';
+  const baseUrl = 'https://spin-nomad-quest.lovable.app';
 
   let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -144,6 +144,21 @@ function createHtmlFile(route: string, title: string, description: string, filen
     <loc>${baseUrl}/about</loc>
     <lastmod>${today}</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/contact</loc>
+    <lastmod>${today}</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/privacy-policy</loc>
+    <lastmod>${today}</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/terms-of-use</loc>
+    <lastmod>${today}</lastmod>
+    <priority>0.3</priority>
   </url>
 `;
 

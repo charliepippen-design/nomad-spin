@@ -1,12 +1,36 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const PAGE_URL = `${BASE_URL}/terms-of-use`;
+const TITLE = 'Terms of Use — Nomad Spin';
+const DESCRIPTION = 'Nomad Spin terms of use — rules and conditions for using the service.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: TITLE,
+  url: PAGE_URL,
+  description: DESCRIPTION,
+};
+
 export default function TermsOfUse() {
   return (
     <div className="noise-overlay min-h-screen bg-background">
       <Helmet>
-        <title>Terms of Use — Nomad Spin</title>
-        <meta name="description" content="Nomad Spin terms of use — rules and conditions for using the service." />
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
+        <link rel="canonical" href={PAGE_URL} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">

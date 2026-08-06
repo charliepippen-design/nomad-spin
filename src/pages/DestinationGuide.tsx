@@ -38,19 +38,35 @@ export default function DestinationGuide() {
   const affiliateLinks = generateAffiliateLinks(city);
   const badges = generateBadges(city);
 
+  const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+  const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
+  const title = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
+  const description = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
     name: `${city.name}, ${city.country}`,
     description: `Digital nomad guide to ${city.name}, ${city.country}. Monthly cost from $${city.costUSD}.`,
+    url: pageUrl,
     geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng },
   };
 
   return (
     <div className="noise-overlay min-h-screen bg-background">
       <Helmet>
-        <title>{city.name}, {city.country} — Digital Nomad Guide | Nomad Spin</title>
-        <meta name="description" content={`Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={heroUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={heroUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

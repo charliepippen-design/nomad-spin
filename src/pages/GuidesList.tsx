@@ -4,6 +4,11 @@ import { ArrowLeft, BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'luci
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 
+const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const PAGE_URL = `${BASE_URL}/guides`;
+const TITLE = 'Guides & Articles — Nomad Spin';
+const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital nomad strategies.';
+
 export default function GuidesList() {
   const { data: liveGuides, isLoading, isError } = useGuides();
 
@@ -15,11 +20,36 @@ export default function GuidesList() {
     return [...liveGuides, ...staticFallbacks];
   })();
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: TITLE,
+    url: PAGE_URL,
+    description: DESCRIPTION,
+    hasPart: mergedGuides.map(g => ({
+      '@type': 'Article',
+      headline: g.title,
+      url: `${BASE_URL}/guides/${g.slug}`,
+      datePublished: g.date,
+    })),
+  };
+
   return (
     <div className="noise-overlay min-h-screen bg-background pb-24">
       <Helmet>
-        <title>Guides &amp; Articles — Nomad Spin</title>
-        <meta name="description" content="In-depth guides, tax residency breakdowns, and digital nomad strategies." />
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
+        <link rel="canonical" href={PAGE_URL} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">

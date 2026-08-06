@@ -197,8 +197,14 @@ export default function Index() {
       <SEO
         title={resultCity ? `${resultCity.name} — Nomad Spin` : 'Digital Nomad Spin | Find Your Next Destination'}
         description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
+        path="/"
         city={resultCity}
       />
+
+      {/* Primary heading for SEO / screen readers */}
+      <h1 className="sr-only">
+        Nomad Spin — Find your next digital nomad destination
+      </h1>
 
       {/* Mobile hamburger nav */}
       <MobileNav onExplore={() => setIsCityWallOpen(true)} />

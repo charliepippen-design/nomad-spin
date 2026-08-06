@@ -2,17 +2,21 @@ import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
 import { getCityImageUrl } from '@/data/cityImages';
 
+const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+
 interface SEOProps {
   title?: string;
   description?: string;
   image?: string;
+  path?: string;
   city?: City | null;
 }
 
 export default function SEO({
   title = 'Digital Nomad Spin | Find Your Next Destination',
   description = 'Stop overthinking. Spin the globe. Find your next destination. Discover nomad-friendly cities with curated stays, flights, eSIMs, and insurance.',
-  image = '/og-preview.png',
+  image = `${BASE_URL}/og-preview.png`,
+  path = '/',
   city,
 }: SEOProps) {
   // Dynamic overrides when a city is selected
@@ -24,7 +28,10 @@ export default function SEO({
     : description;
   const finalImage = city
     ? getCityImageUrl(city.id, city.region, 1200)
-    : image;
+    : image.startsWith('http')
+      ? image
+      : `${BASE_URL}${image}`;
+  const pageUrl = `${BASE_URL}${path}`;
 
   const jsonLd = city
     ? {
@@ -32,6 +39,7 @@ export default function SEO({
         '@type': 'TouristDestination',
         name: `${city.name}, ${city.country}`,
         description: finalDescription,
+        url: pageUrl,
         geo: {
           '@type': 'GeoCoordinates',
           latitude: city.lat,
@@ -44,6 +52,7 @@ export default function SEO({
         '@type': 'WebApplication',
         name: 'Nomad Spin',
         description: finalDescription,
+        url: pageUrl,
         applicationCategory: 'TravelApplication',
         operatingSystem: 'Web',
       };
@@ -52,9 +61,11 @@ export default function SEO({
     <Helmet>
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
+      <link rel="canonical" href={pageUrl} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
+      <meta property="og:url" content={pageUrl} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />
