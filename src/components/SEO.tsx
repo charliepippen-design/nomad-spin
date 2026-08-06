@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
 import { getCityImageUrl } from '@/data/cityImages';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 
 interface SEOProps {
   title?: string;

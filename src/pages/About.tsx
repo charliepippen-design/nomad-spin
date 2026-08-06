@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Globe2, BarChart3, Heart } from 'lucide-react';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/about`;
 const TITLE = 'About — Nomad Spin';
 const DESCRIPTION = 'Learn about Nomad Spin — a travel discovery tool helping digital nomads find their next base with data-driven city recommendations.';

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/terms-of-use`;
 const TITLE = 'Terms of Use — Nomad Spin';
 const DESCRIPTION = 'Nomad Spin terms of use — rules and conditions for using the service.';

@@ -4,7 +4,7 @@ import { ArrowLeft, BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'luci
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;
 const TITLE = 'Guides & Articles — Nomad Spin';
 const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital nomad strategies.';

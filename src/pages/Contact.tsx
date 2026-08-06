@@ -6,7 +6,7 @@ import { Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
-const BASE_URL = 'https://spin-nomad-quest.lovable.app';
+const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/contact`;
 const TITLE = 'Contact — Nomad Spin';
 const DESCRIPTION = 'Get in touch with the Nomad Spin team. Share feedback, suggest a city, or ask a question.';
