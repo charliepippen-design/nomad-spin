@@ -1,10 +1,8 @@
-# The Ultimate Guide to Living in Cape Town (2026)
-
 ## Introduction
 
 Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years—and it still manages to surprise people the moment they try to live there like an adult with deadlines.
 
-If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work—reliably—you need a different mindset: you’ll be planning around load shedding, thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
+If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work—reliably—you need a different mindset: you’ll be planning around the risk of power cuts (load shedding), thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
 
 The upside is huge. Few places give you this combination: world-class nature, strong café culture, genuinely good food, a workable time zone for Europe/UK (and not brutal for the US East Coast), and enough urban energy that you don’t feel like you’re rotting in a beach town.
 
@@ -50,7 +48,7 @@ Your biggest cost drivers:
 
 ### Reality checks (what people underestimate)
 
-- **Load shedding changes your work plan.** If your building has no backup, you’ll spend time migrating between cafés/coworking.
+- **Power cuts change your work plan.** Scheduled load shedding has been rare since 2024 (Eskom reported none in late September 2026), but it has returned before at short notice. If your building has no backup, an outage means migrating between cafés and coworking.
 - **Seasonality is real.** Summer pricing and availability are very different from winter.
 - **Safety is a variable cost.** “Cheap rent” can mean you’re trading away walkability and peace of mind.
 
@@ -141,21 +139,31 @@ If you choose Camps Bay, make it intentional:
 
 ## Visas (South Africa)
 
-Visa rules shift, and your eligibility depends on passport and current policy. Treat this as a framework and verify official requirements before you book flights.
+Visa rules shift, and your eligibility depends on your passport. Treat this as a framework and verify official requirements with the Department of Home Affairs or your nearest South African mission before you book flights.
 
-### Common reality for remote workers
+### Short stays: visitor entry
 
-1) **Tourist entry (short stay)**
-- Many people arrive on a standard visitor entry (length varies by nationality).
-- Best for: trial month, scouting neighborhoods, short projects.
+- Many passports get a visa-free visitor entry on arrival (commonly 90 days, but it varies by nationality).
+- Best for: a trial month, scouting neighborhoods, short projects.
+- Don't assume you can "just extend forever." Back-to-back visa runs are not a strategy.
 
-2) **Longer stays (renewals/visa runs are not a strategy)**
-- Don’t assume you can “just extend forever.” Enforcement and rules can change.
-- If you want to stay longer, research the official long-stay options that fit your situation.
+### Longer stays: the Remote Work Visa
+
+Since October 2024 South Africa has had a dedicated **Remote Work visitor's visa** (its digital nomad visa) for people who work for a foreign employer.
+
+**Key requirements (check current figures before applying)**
+
+- A signed employment contract with an employer based outside South Africa
+- A gross salary of at least **R650,796 per year**, shown with three months of bank statements
+- Valid passport, return ticket or reservation, police clearance, and the application fee
+- Stays of more than three months and up to three years; you may not take up local employment
+
+**Tax note:** if you're in South Africa for more than 183 days in any 12-month period, you'll need to register with SARS. Get advice from a tax professional before you commit to a long stay.
 
 ### Practical visa guidance
 
-- **Don’t overstay.** It can cause future entry issues.
+- **Don't overstay.** It can lead to bans on future entry.
+- **Apply from abroad.** The Remote Work Visa is normally applied for at a South African mission before you travel.
 - **Keep documents organized.** Digital + print copies.
 - **Be consistent** when describing your plans.
 
@@ -164,7 +172,7 @@ Visa rules shift, and your eligibility depends on passport and current policy. T
 If Cape Town is your work base, infrastructure is the whole game. The city can support serious remote work—but only if you respect reality:
 
 - Internet can be excellent (fiber is common in many areas).
-- Power interruptions happen (load shedding).
+- Power interruptions can happen (load shedding has been quiet lately, but plan for it anyway).
 - Your work plan must include redundancy.
 
 ### Internet (what “good” looks like)
@@ -245,3 +253,7 @@ Day 5–7:
 ## Final thoughts
 
 Cape Town can be one of the best remote work bases in the world if you treat it like a real place—not a fantasy. Choose a neighborhood that matches your daily routine, pay for reliability (internet + power), and the city will reward you with nature, food, and a lifestyle that makes “work-life balance” feel less like a lie.
+
+See the [Cape Town data page](/destinations/cape-town) for cost, internet and safety scores side by side with other cities, or [spin the globe](/) to find a base that fits your own budget and priorities.
+
+*Last updated: October 2026. Visa rules, prices and power conditions change quickly; always double-check official sources before booking.*

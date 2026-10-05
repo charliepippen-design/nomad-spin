@@ -1,14 +1,24 @@
+import { contentGuides } from './contentGuides.generated';
+
 export interface Guide {
   id: string;
   slug: string;
   title: string;
+  /** Optional shorter/SEO-tuned <title>; falls back to `title`. */
+  seoTitle?: string;
   excerpt: string;
+  /** Publication date (YYYY-MM-DD or ISO). */
   date: string;
+  /** Last substantive update (YYYY-MM-DD or ISO); falls back to `date`. */
+  updated?: string;
   readTime: string;
+  /** Destination slugs (see src/lib/slugify.ts → citySlug) this guide is about. */
+  relatedDestinations?: string[];
+  /** HTML or Markdown (rendered with react-markdown + rehype-raw). */
   content: string;
 }
 
-export const guides: Guide[] = [
+const handWrittenGuides: Guide[] = [
   {
     id: "paraguay-tax-residency",
     slug: "paraguay-tax-residency-remote-workers",
@@ -16,6 +26,7 @@ export const guides: Guide[] = [
     excerpt: "Territorial taxation, real costs, and the actual step-by-step process of getting residency as a remote worker in Asunción.",
     date: "2024-03-12",
     readTime: "8 min read",
+    relatedDestinations: ["asuncion", "encarnacion"],
     content: `
 <p>Let me be straight with you before we go any further.</p>
 <p>I'm not a $5,000-a-session offshore consultant. I don't have a podcast where I tell you to "go where you're treated best" while I film myself in a rented villa. I'm not trying to sell you a flag theory masterclass or get you on a discovery call.</p>
@@ -242,6 +253,7 @@ export const guides: Guide[] = [
     excerpt: "A data-driven look at the top digital nomad destinations for 2025 — ranked by cost, internet, safety, community, and visa access.",
     date: "2025-01-06",
     readTime: "10 min read",
+    relatedDestinations: ["chiang-mai", "lisbon", "medellin", "bali", "mexico-city", "buenos-aires", "tbilisi", "cape-town", "budapest", "hanoi"],
     content: `
 <p>Every January, the same question shows up in nomad groups, Slack channels, and airport cafés: <em>Where should I go this year?</em></p>
 
@@ -386,3 +398,17 @@ export const guides: Guide[] = [
 `
   }
 ];
+
+/**
+ * All static guides: hand-written HTML guides above plus editorial Markdown
+ * guides compiled from content/guides by scripts/sync-content-guides.ts.
+ * Newest first.
+ */
+export const guides: Guide[] = [...contentGuides, ...handWrittenGuides].sort((a, b) =>
+  b.date.localeCompare(a.date)
+);
+
+/** Guides that list the given destination slug as related. */
+export function guidesForDestination(slug: string): Guide[] {
+  return guides.filter((g) => g.relatedDestinations?.includes(slug));
+}

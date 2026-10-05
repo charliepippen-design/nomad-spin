@@ -1,12 +1,18 @@
 {
   "slug": "living-in-bali",
   "title": "The Ultimate Guide to Living in Bali",
-  "last_updated": "2026-04-05",
-  "author": "Your Altitude",
+  "last_updated": "2026-10-05",
+  "author": "Nomad Spin",
   "status": "published",
-  "featured_image": "/assets/images/bali-guide-hero.jpg",
   "seo": {
     "meta_title": "Living in Bali 2026: The Digital Nomad's Definitive Guide",
-    "meta_description": "Everything a digital nomad needs for Bali: Costs, Visas, and the best Coworking spots in 2026."
-  }
+    "meta_description": "Bali for remote workers in 2026: real monthly costs, Canggu vs Ubud vs Uluwatu, the C1 and E33G visas, coworking that's actually open, and internet backup plans."
+  },
+  "published": "2026-10-05",
+  "related_destinations": [
+    "bali",
+    "canggu",
+    "ubud",
+    "seminyak"
+  ]
 }

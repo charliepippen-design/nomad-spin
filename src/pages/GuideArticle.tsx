@@ -51,10 +51,11 @@ export default function GuideArticle() {
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
   const SUFFIX = ' | Nomad Spin';
   const MAX_TITLE = 60;
+  const headline = guide.seoTitle ?? guide.title;
   const baseTitle =
-    guide.title.length + SUFFIX.length <= MAX_TITLE
-      ? `${guide.title}${SUFFIX}`
-      : guide.title;
+    headline.length + SUFFIX.length <= MAX_TITLE
+      ? `${headline}${SUFFIX}`
+      : headline;
   const title =
     baseTitle.length <= MAX_TITLE
       ? baseTitle
@@ -65,6 +66,7 @@ export default function GuideArticle() {
     headline: guide.title,
     url: pageUrl,
     datePublished: guide.date,
+    dateModified: guide.updated ?? guide.date,
     description: guide.excerpt,
     author: {
       '@type': 'Organization',
