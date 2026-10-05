@@ -10225,35 +10225,7 @@ var batch4EuropeCities = [
     dataSource: "estimated"
   }),
   // Ukraine, Georgia, Azerbaijan, Armenia
-  city({
-    id: "lviv-ua",
-    name: "Lviv",
-    country: "Ukraine",
-    cc: "UA",
-    lat: 49.84,
-    lng: 24.03,
-    region: "Europe",
-    vibe: ["adventure", "foodie"],
-    safety: 5,
-    cost: 1050,
-    internet: 80,
-    coworking: "Med",
-    nightlife: 4,
-    community: 4,
-    lgbt: 3,
-    femaleSafety: 4,
-    english: 5,
-    bestMonths: ["May", "Jun", "Jul", "Aug", "Sep"],
-    rainyMonths: ["Oct", "Nov"],
-    tempC: 8,
-    visaType: "Visa-free",
-    visaDays: 90,
-    tz: "UTC+2",
-    pros: ["Beautiful historic core", "Coffee culture"],
-    cons: ["War recovery", "Security concerns"],
-    landscape: ["urban"],
-    dataSource: "estimated"
-  }),
+  // Lviv lives in extra-europe.ts (duplicate 'lviv-ua' entry removed).
   city({
     id: "tbilisi-suburbs-ge",
     name: "Tbilisi Suburbs",
@@ -20222,35 +20194,7 @@ var batch6MixedBCities = [
     dataSource: "estimated"
   }),
   // ── Pacific Oceania ──
-  city({
-    id: "port-vila-b-vu",
-    name: "Port Vila",
-    country: "Vanuatu",
-    cc: "VU",
-    lat: -17.74,
-    lng: 168.31,
-    region: "Oceania",
-    vibe: ["beach", "adventure"],
-    safety: 6,
-    cost: 1700,
-    internet: 25,
-    coworking: "Low",
-    nightlife: 2,
-    community: 4,
-    lgbt: 3,
-    femaleSafety: 5,
-    english: 8,
-    bestMonths: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
-    rainyMonths: ["Jan", "Feb", "Mar"],
-    tempC: 26,
-    visaType: "Tourist Visa",
-    visaDays: 90,
-    tz: "UTC+11",
-    pros: ["South Pacific capital", "Nature"],
-    cons: ["Cyclones", "Limited internet"],
-    landscape: ["island"],
-    dataSource: "estimated"
-  }),
+  // Port Vila lives in batch4-other.ts (duplicate 'port-vila-b-vu' removed).
   city({
     id: "noumea-nc",
     name: "Noum\xE9a",

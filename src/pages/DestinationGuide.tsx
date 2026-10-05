@@ -2,8 +2,9 @@ import { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ArrowLeft, ExternalLink, Bookmark } from 'lucide-react';
-import { cities } from '@/data/cities';
-import { slugify } from '@/lib/slugify';
+import { findCityBySlug } from '@/lib/citySlug';
+import { guidesForDestination } from '@/data/guides';
+import NotFound from '@/pages/NotFound';
 import { getCityImageUrl } from '@/data/cityImages';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { generateBadges } from '@/lib/badges';
@@ -16,10 +17,8 @@ import GuideSection from '@/components/GuideSection';
 export default function DestinationGuide() {
   const { citySlug } = useParams<{ citySlug: string }>();
 
-  const city = useMemo(
-    () => cities.find((c) => slugify(c.name) === citySlug),
-    [citySlug]
-  );
+  const resolved = useMemo(() => findCityBySlug(citySlug), [citySlug]);
+  const city = resolved?.city;
 
   const { enrichedCity } = useCityEnrichment(city ?? null);
   const displayCity = enrichedCity || city;
@@ -30,8 +29,13 @@ export default function DestinationGuide() {
   const savedIndex = savedSpins.findIndex(s => s.city?.id === city?.id);
   const isSaved = savedIndex !== -1;
 
-  if (!city || !displayCity) {
-    return <Navigate to="/" replace />;
+  if (!resolved || !city || !displayCity) {
+    return <NotFound />;
+  }
+
+  // Legacy or alias slug (e.g. pre-accent-fix "medell-n") → canonical URL.
+  if (resolved.canonicalSlug !== citySlug) {
+    return <Navigate to={`/destinations/${resolved.canonicalSlug}`} replace />;
   }
 
   const heroUrl = getCityImageUrl(city.id, city.region, 1200);
@@ -253,6 +257,30 @@ export default function DestinationGuide() {
           </div>
         </GuideSection>
       </main>
+
+      {/* Related guides */}
+      {(() => {
+        const related = guidesForDestination(resolved.canonicalSlug);
+        if (related.length === 0) return null;
+        return (
+          <div className="max-w-3xl mx-auto px-6 py-10 border-t border-border/20">
+            <p className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase mb-4">Related guides</p>
+            <ul className="space-y-3">
+              {related.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    to={`/guides/${g.slug}`}
+                    className="block rounded-lg border border-border/30 bg-card px-5 py-4 hover:border-primary/40 transition-colors"
+                  >
+                    <span className="text-sm font-mono text-foreground">{g.title}</span>
+                    <span className="block text-xs text-muted-foreground mt-1">{g.excerpt}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })()}
 
       {/* Bottom CTA */}
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">

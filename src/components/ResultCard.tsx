@@ -12,6 +12,7 @@ import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { trackSpinCompleted } from '@/utils/analytics';
 import { useCityImage } from '@/hooks/useCityImage';
 import { generateBadges } from '@/lib/badges';
+import { cityPath } from '@/lib/citySlug';
 import confetti from 'canvas-confetti';
 import type { ScoredCity } from '@/lib/scoring';
 
@@ -331,7 +332,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               Find a place to stay in {city.name} <ExternalLink className="w-3.5 h-3.5" />
             </motion.a>
           <Link
-            to={`/destinations/${city.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+            to={cityPath(city)}
             className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.15em] text-primary/70 hover:text-primary transition-colors uppercase"
           >
             Read full {city.name} guide →

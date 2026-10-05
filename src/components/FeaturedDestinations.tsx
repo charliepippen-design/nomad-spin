@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, DollarSign } from 'lucide-react';
 import { getCityThumbnailUrl } from '@/data/cityImages';
-import { slugify } from '@/lib/slugify';
 import { cities } from '@/data/cities';
+import { cityPath, findCityBySlug } from '@/lib/citySlug';
 
 const FEATURED_SLUGS = ['buenos-aires', 'medellin', 'bangkok', 'lisbon', 'tbilisi', 'mexico-city'];
 
 const featuredCities = FEATURED_SLUGS
-  .map((slug) => cities.find((c) => slugify(c.name) === slug))
+  .map((slug) => findCityBySlug(slug)?.city)
   .filter(Boolean) as typeof cities;
 
 const fadeUp = {
@@ -41,7 +41,7 @@ export default function FeaturedDestinations() {
           {featuredCities.map((city) => (
             <motion.div key={city.id} variants={fadeUp}>
               <Link
-                to={`/destinations/${slugify(city.name)}`}
+                to={cityPath(city)}
                 className="group block rounded-xl overflow-hidden border border-border/30 hover:border-border/60 transition-all"
               >
                 <div className="relative h-32 md:h-40 overflow-hidden">

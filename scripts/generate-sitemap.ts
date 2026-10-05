@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { cities } from '../src/data/cities';
 import { guides } from '../src/data/guides';
-import { slugify } from '../src/lib/slugify';
+import { allCitySlugs } from '../src/lib/citySlug';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,13 +27,13 @@ const staticEntries: SitemapEntry[] = [
 
 const guideEntries: SitemapEntry[] = guides.map((guide) => ({
   path: `/guides/${guide.slug}`,
-  lastmod: guide.date.split('T')[0],
+  lastmod: (guide.updated ?? guide.date).split('T')[0],
   changefreq: 'monthly',
   priority: '0.8',
 }));
 
-const cityEntries: SitemapEntry[] = cities.map((city) => ({
-  path: `/destinations/${slugify(city.name)}`,
+const cityEntries: SitemapEntry[] = allCitySlugs().map(({ slug }) => ({
+  path: `/destinations/${slug}`,
   changefreq: 'weekly',
   priority: '0.7',
 }));

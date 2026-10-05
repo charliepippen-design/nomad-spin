@@ -197,11 +197,7 @@ export const batch4EuropeCities = [
     pros: ['On Danube', 'Near Vienna', 'Affordable'], cons: ['Smaller city', 'Limited nightlife'], landscape: ['urban'], dataSource: 'estimated',
   }),
   // Ukraine, Georgia, Azerbaijan, Armenia
-  city({ id: 'lviv-ua', name: 'Lviv', country: 'Ukraine', cc: 'UA', lat: 49.84, lng: 24.03, region: 'Europe',
-    vibe: ['adventure', 'foodie'], safety: 5, cost: 1050, internet: 80, coworking: 'Med', nightlife: 4, community: 4, lgbt: 3, femaleSafety: 4, english: 5,
-    bestMonths: ['May', 'Jun', 'Jul', 'Aug', 'Sep'], rainyMonths: ['Oct', 'Nov'], tempC: 8, visaType: 'Visa-free', visaDays: 90, tz: 'UTC+2',
-    pros: ['Beautiful historic core', 'Coffee culture'], cons: ['War recovery', 'Security concerns'], landscape: ['urban'], dataSource: 'estimated',
-  }),
+  // Lviv lives in extra-europe.ts (duplicate 'lviv-ua' entry removed).
   city({ id: 'tbilisi-suburbs-ge', name: 'Tbilisi Suburbs', country: 'Georgia', cc: 'GE', lat: 41.69, lng: 44.80, region: 'Europe',
     vibe: ['adventure', 'family'], safety: 7, cost: 750, internet: 70, coworking: 'Med', nightlife: 3, community: 4, lgbt: 3, femaleSafety: 6, english: 5,
     bestMonths: ['May', 'Jun', 'Sep', 'Oct'], rainyMonths: ['Mar', 'Nov'], tempC: 13, visaType: 'Visa-free', visaDays: 365, tz: 'UTC+4',

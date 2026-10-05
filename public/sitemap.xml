@@ -70,7 +70,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/medell-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/medellin</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -100,7 +100,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/asunci-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/asuncion</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -175,7 +175,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/bogot</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/bogota</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -270,7 +270,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/mal</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/male</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -645,7 +645,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/m-laga</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/malaga</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -780,7 +780,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/malm</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/malmo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -940,7 +940,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/d-sseldorf</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/dusseldorf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1215,12 +1215,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/valpara-so</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/valparaiso</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/s-o-paulo</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/sao-paulo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1230,7 +1230,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/florian-polis</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/florianopolis</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1245,7 +1245,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-jos</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-jose</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1265,12 +1265,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/lake-atitl-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/lake-atitlan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/roat-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/roatan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1565,7 +1565,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/kochi</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/kochi-india</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/destinations/kochi-japan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1700,7 +1705,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/m-rida</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/merida-mexico</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/destinations/merida-venezuela</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/destinations/merida-spain</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1725,17 +1740,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/quer-taro</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/queretaro</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-crist-bal-de-las-casas</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-cristobal-de-las-casas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/canc-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/cancun</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1770,7 +1785,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/granada</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/granada-nicaragua</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/destinations/granada-spain</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1795,7 +1815,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/popay-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/popayan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1810,12 +1830,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/monta-ita</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/montanita</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ba-os</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/banos</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1845,7 +1865,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/puc-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/pucon</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1885,7 +1905,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/bras-lia</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/brasilia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1965,7 +1985,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-sebasti-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-sebastian</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2080,17 +2100,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ko-ice</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/kosice</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/bratislava</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.digitalnomadspin.com/destinations/lviv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2140,7 +2155,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/reykjanesb-r</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/reykjanesbaer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2150,7 +2165,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/troms</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/tromso</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2165,7 +2180,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ume</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/umea</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2180,7 +2195,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/klaip-da</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/klaipeda</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2190,12 +2205,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/liep-ja</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/liepaja</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/j-rmala</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/jurmala</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2205,17 +2220,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/wroc-aw</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/wroclaw</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/gda-sk</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/gdansk</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/pozna</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/poznan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2275,7 +2290,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/chi-in-u-suburbs</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/chisinau-suburbs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2635,7 +2650,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/s-o-tom</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/sao-tome</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2646,11 +2661,6 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/nosy-be</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.digitalnomadspin.com/destinations/m-rida</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2670,7 +2680,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/c-rdoba</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/cordoba</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2700,7 +2710,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-jos-suburbs</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-jose-suburbs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2715,7 +2725,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-luis-potos</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-luis-potosi</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2730,7 +2740,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/le-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/leon</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2745,7 +2755,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/san-pedro-de-macor-s</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/san-pedro-de-macoris</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2950,17 +2960,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/granada</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/cadiz</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/c-diz</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.digitalnomadspin.com/destinations/a-coru-a</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/a-coruna</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2975,17 +2980,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/m-rida</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/caceres</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/c-ceres</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.digitalnomadspin.com/destinations/vora</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/evora</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2995,7 +2995,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/guimar-es</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/guimaraes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3005,7 +3005,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/set-bal</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/setubal</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3060,7 +3060,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/p-cs</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/pecs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3080,12 +3080,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/i-zmir</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/izmir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/eski-ehir</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/eskisehir</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3470,11 +3470,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/kochi</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.digitalnomadspin.com/destinations/matsuyama</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -3545,7 +3540,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/encarnaci-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/encarnacion</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3560,7 +3555,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/chilo-island</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/chiloe-island</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3585,7 +3580,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/santar-m</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/santarem</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3600,7 +3595,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ja-n</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/jaen</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3620,7 +3615,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/li-ge</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/liege</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3655,7 +3650,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/m-nster</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/munster</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3685,7 +3680,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ibenik</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/sibenik</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3735,7 +3730,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/ka</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/kas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3800,12 +3795,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/port-vila</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.digitalnomadspin.com/destinations/noum-a</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/noumea</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3815,7 +3805,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/la-r-union-interior-villages</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/la-reunion-interior-villages</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3865,7 +3855,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/t-rshavn-faroe-islands</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/torshavn-faroe-islands</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3905,7 +3895,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/destinations/poiana-bra-ov</loc>
+    <loc>https://www.digitalnomadspin.com/destinations/poiana-brasov</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -3,7 +3,7 @@ import { DollarSign, Wifi, Shield, Plane, Clock, Sun, Users, Bookmark } from 'lu
 import { Link } from 'react-router-dom';
 import type { City } from '@/data/cities';
 import { useSpinStore } from '@/store/useSpinStore';
-import { slugify } from '@/lib/slugify';
+import { cityPath } from '@/lib/citySlug';
 
 interface CityTooltipProps {
   city: City;
@@ -57,7 +57,7 @@ export default function CityTooltip({ city, x, y }: CityTooltipProps) {
                 <Bookmark className={`w-3 h-3 ${isSaved ? 'fill-primary' : ''}`} />
               </button>
               <Link
-                to={`/destinations/${slugify(city.name)}`}
+                to={cityPath(city)}
                 className="px-2 py-1 rounded-md border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] transition-colors text-[9px] font-mono tracking-wider text-white/50 hover:text-foreground uppercase"
               >
                 Guide →
