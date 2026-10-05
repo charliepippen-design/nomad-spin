@@ -2,20 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
+import { guides as staticGuides, type Guide } from '../src/data/guides';
+import { allCitySlugs } from '../src/lib/citySlug';
+import type { City } from '../src/data/cities';
 
-// Provide __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ── Supabase client ────────────────────────────────────────────────────────
+const BASE_URL = 'https://www.digitalnomadspin.com';
+
+// ── Supabase client (optional live guides) ─────────────────────────────────
 const supabaseUrl = process.env.VITE_SUPABASE_URL ?? '';
 const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY ?? '';
 const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
-// ── Static fallback guides ─────────────────────────────────────────────────
-import { guides as staticGuides } from '../src/data/guides';
-
-// ── Helpers ────────────────────────────────────────────────────────────────
 function toSlug(raw: string): string {
   return raw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/--+/g, '-');
 }
@@ -23,9 +23,9 @@ function toSlug(raw: string): string {
 function stripMarkdownAndHtml(raw: string): string {
   if (!raw) return '';
   return raw
-    .replace(/<[^>]+>/g, ' ') // strip HTML
-    .replace(/[#*`_~]/g, '') // strip simple md symbols
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links [text](url) -> text
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#*`_~]/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -41,8 +41,7 @@ function calcReadTime(content: string): string {
   return `${Math.max(1, Math.ceil(words / 200))} min read`;
 }
 
-// ── Fetch live guides ──────────────────────────────────────────────────────
-async function fetchLiveGuides() {
+async function fetchLiveGuides(): Promise<Guide[]> {
   if (!supabase) {
     console.warn('⚠️  No Supabase credentials — using static guides only');
     return staticGuides;
@@ -53,7 +52,7 @@ async function fetchLiveGuides() {
       .select('id, city, title, content, created_at')
       .order('created_at', { ascending: false });
     if (error || !data) throw error ?? new Error('No data');
-    const liveGuides = data.map((row: { id: number; city: string; title: string; content: string; created_at: string }) => ({
+    const liveGuides: Guide[] = data.map((row: { id: number; city: string; title: string; content: string; created_at: string }) => ({
       id: String(row.id),
       slug: toSlug(row.city),
       title: row.title,
@@ -62,9 +61,8 @@ async function fetchLiveGuides() {
       readTime: calcReadTime(row.content),
       content: row.content,
     }));
-    // Merge: live takes precedence, static fills gaps
-    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
-    const fallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
+    const liveSlugSet = new Set(liveGuides.map((g) => g.slug));
+    const fallbacks = staticGuides.filter((g) => !liveSlugSet.has(g.slug));
     console.log(`✅ Fetched ${liveGuides.length} live guide(s) from Supabase + ${fallbacks.length} static fallback(s)`);
     return [...liveGuides, ...fallbacks];
   } catch (err) {
@@ -85,33 +83,109 @@ if (!fs.existsSync(indexHtmlPath)) {
 
 const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
 
-const BASE_URL = 'https://www.digitalnomadspin.com';
-
-function createHtmlFile(route: string, title: string, description: string, filename: string = 'index.html') {
-  const targetDir = path.join(distDir, route);
-  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-
-  const desc = description.replace(/"/g, '&quot;');
-  const url = `${BASE_URL}/${route}`;
-  const customHtml = baseHtml
-    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, `<link rel="canonical" href="${url}" />`)
-    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/, `<meta property="og:url" content="${url}" />`)
-    .replace(/<title>.*<\/title>/, `<title>${title}</title>`)
-    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${desc}" />`)
-    .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/, `<meta property="og:title" content="${title}" />`)
-    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/, `<meta property="og:description" content="${desc}" />`)
-    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${desc}" />`);
-
-  fs.writeFileSync(path.join(targetDir, filename), customHtml);
-  console.log(`✅ Generated: /${route === '' ? filename : route + '/' + filename}`);
+function esc(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
-// ── Main ───────────────────────────────────────────────────────────────────
+function injectSeo(
+  html: string,
+  opts: {
+    title: string;
+    description: string;
+    url: string;
+    ogType?: string;
+    image?: string;
+    jsonLd?: object | object[];
+  }
+): string {
+  const desc = esc(opts.description);
+  const title = esc(opts.title);
+  const url = esc(opts.url);
+  const ogType = opts.ogType ?? 'website';
+  const image = esc(opts.image ?? `${BASE_URL}/og-preview.png`);
+  const jsonLdBlock = opts.jsonLd
+    ? `<script type="application/ld+json">${JSON.stringify(opts.jsonLd).replace(/</g, '\\u003c')}</script>`
+    : '';
+
+  let out = html
+    .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
+    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/, `<meta name="description" content="${desc}" />`)
+    .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/, `<meta property="og:title" content="${title}" />`)
+    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/, `<meta property="og:description" content="${desc}" />`)
+    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/, `<meta property="og:url" content="${url}" />`)
+    .replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/, `<meta property="og:type" content="${ogType}" />`)
+    .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/, `<meta property="og:image" content="${image}" />`)
+    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${title}" />`)
+    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:description" content="${desc}" />`)
+    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:image" content="${image}" />`)
+    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${url}" />`);
+
+  // Drop the homepage WebSite/Organization graph so destination pages don't claim to be the homepage.
+  out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdBlock || '');
+  return out;
+}
+
+function writeRoute(route: string, html: string, filename = 'index.html') {
+  const targetDir = path.join(distDir, route);
+  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+  fs.writeFileSync(path.join(targetDir, filename), html);
+  console.log(`✅ Generated: /${route === '' ? filename : `${route}/${filename}`}`);
+}
+
+function createHtmlFile(route: string, title: string, description: string, extras: { ogType?: string; jsonLd?: object } = {}) {
+  const url = `${BASE_URL}/${route}`;
+  writeRoute(route, injectSeo(baseHtml, { title, description, url, ...extras }));
+}
+
+function destinationBodyHtml(city: City, slug: string): string {
+  const pros = city.pros.slice(0, 5).map((p) => `<li>${esc(p)}</li>`).join('');
+  const cons = city.cons.slice(0, 3).map((c) => `<li>${esc(c)}</li>`).join('');
+  const vibes = city.vibe.map((v) => `<span>${esc(v)}</span>`).join(' · ');
+  return `
+<main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
+  <p><a href="/" style="color:#34d399">← Spin the globe</a> · <a href="/guides" style="color:#34d399">Guides</a></p>
+  <h1>${esc(city.name)}, ${esc(city.country)}</h1>
+  <p>Digital nomad guide to ${esc(city.name)}. Monthly cost from $${city.costUSD}, internet ${city.internetMbps} Mbps, safety ${city.safety}/10, visa up to ${city.meta.visaDays} days (${esc(city.meta.visaType)}).</p>
+  <ul>
+    <li><strong>Monthly cost:</strong> $${city.costUSD}</li>
+    <li><strong>Internet:</strong> ${city.internetMbps} Mbps</li>
+    <li><strong>Safety:</strong> ${city.safety}/10</li>
+    <li><strong>Visa:</strong> ${esc(city.meta.visaType)} · ${city.meta.visaDays} days</li>
+    <li><strong>Region:</strong> ${esc(city.region)}</li>
+    <li><strong>Vibe:</strong> ${vibes || '—'}</li>
+  </ul>
+  ${pros ? `<h2>Why go</h2><ul>${pros}</ul>` : ''}
+  ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
+  <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a> or <a href="/" style="color:#34d399">spin for a match</a>.</p>
+</main>`;
+}
+
+function guideBodyHtml(guide: Guide): string {
+  return `
+<main id="seo-guide" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
+  <p><a href="/guides" style="color:#34d399">← Guides</a> · <a href="/" style="color:#34d399">Spin the globe</a></p>
+  <h1>${esc(guide.title)}</h1>
+  <p>${esc(guide.excerpt)}</p>
+  <p>${esc(guide.readTime)} · Published ${esc(guide.date.split('T')[0])}</p>
+  <p><a href="${BASE_URL}/guides/${guide.slug}" style="color:#34d399">Open the full guide</a></p>
+</main>`;
+}
+
+function withVisibleBody(html: string, body: string): string {
+  // Put crawlable content INSIDE #root. React replace()s it on mount for users;
+  // crawlers that don't run JS still see title, meta, JSON-LD and the visible stats.
+  return html.replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
+}
+
 (async () => {
   const guides = await fetchLiveGuides();
 
-  // 1. SPA fallback
+  // 1. SPA fallback (Vercel rewrite still handles deep links; 404.html is a belt-and-braces copy)
   fs.copyFileSync(indexHtmlPath, path.join(distDir, '404.html'));
   console.log('✅ Generated SPA fallback: /404.html');
 
@@ -124,12 +198,55 @@ function createHtmlFile(route: string, title: string, description: string, filen
 
   // 3. Guide pages
   console.log(`\n📚 Generating ${guides.length} guide pages...`);
-  guides.forEach((guide) => {
-    createHtmlFile(`guides/${guide.slug}`, `${guide.seoTitle ?? guide.title} – Nomad Spin Guides`, guide.excerpt);
-  });
+  for (const guide of guides) {
+    const title = `${guide.seoTitle ?? guide.title} – Nomad Spin Guides`;
+    const url = `${BASE_URL}/guides/${guide.slug}`;
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.title,
+      url,
+      datePublished: guide.date,
+      dateModified: guide.updated ?? guide.date,
+      description: guide.excerpt,
+      author: { '@type': 'Organization', name: 'Nomad Spin', url: BASE_URL },
+      publisher: { '@type': 'Organization', name: 'Nomad Spin', logo: `${BASE_URL}/favicon.svg` },
+    };
+    writeRoute(
+      `guides/${guide.slug}`,
+      withVisibleBody(
+        injectSeo(baseHtml, { title, description: guide.excerpt, url, ogType: 'article', jsonLd }),
+        guideBodyHtml(guide)
+      )
+    );
+  }
 
-  // 4. Sitemap is generated by scripts/generate-sitemap.ts (prebuild) into public/sitemap.xml
-  //    and copied to dist by Vite. Do NOT overwrite it here — it holds all guide + destination URLs.
+  // 4. Destination pages — one HTML shell per city with title/meta/canonical/JSON-LD + visible stats
+  const destinations = allCitySlugs();
+  console.log(`\n🌍 Generating ${destinations.length} destination pages...`);
+  for (const { city, slug } of destinations) {
+    const title = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
+    const description = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;
+    const url = `${BASE_URL}/destinations/${slug}`;
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'TouristDestination',
+      name: `${city.name}, ${city.country}`,
+      description: `Digital nomad guide to ${city.name}, ${city.country}. Monthly cost from $${city.costUSD}.`,
+      url,
+      geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng },
+    };
+    writeRoute(
+      `destinations/${slug}`,
+      withVisibleBody(
+        injectSeo(baseHtml, { title, description, url, jsonLd }),
+        destinationBodyHtml(city, slug)
+      )
+    );
+  }
+
+  // 5. Sitemap is produced by scripts/generate-sitemap.ts (prebuild) into public/sitemap.xml
+  //    and copied to dist by Vite. Do NOT overwrite it here.
 
   console.log('\n✨ Post-Build Generation Complete!');
 })();

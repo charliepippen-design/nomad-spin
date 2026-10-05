@@ -147,6 +147,23 @@ export default function GuideArticle() {
         </div>
       </article>
       
+      {(guide.relatedDestinations?.length ?? 0) > 0 && (
+        <div className="max-w-3xl mx-auto px-6 mt-8">
+          <p className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase mb-3">Related destinations</p>
+          <div className="flex flex-wrap gap-2">
+            {guide.relatedDestinations!.map((slug) => (
+              <Link
+                key={slug}
+                to={`/destinations/${slug}`}
+                className="px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.02] text-[11px] font-mono tracking-wider text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors capitalize"
+              >
+                {slug.replace(/-/g, ' ')}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="max-w-3xl mx-auto px-6 mt-16 text-center border-t border-border/20 pt-16">
          <p className="text-xs font-mono tracking-widest text-muted-foreground/60 uppercase mb-6">Ready to find a base?</p>
          <Link
