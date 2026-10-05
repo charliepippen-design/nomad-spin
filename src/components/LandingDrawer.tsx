@@ -336,7 +336,7 @@ export default function LandingDrawer({
 
       {/* Data note */}
       <p className="text-[10px] text-muted-foreground/50 text-center leading-relaxed pt-2">
-        Our dataset covers 1,200+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
+        Our dataset covers 780+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
       </p>
 
       {/* Buy Me a Coffee */}

@@ -1,7 +1,5 @@
 # The Ultimate Guide to Living in Cape Town (2026)
 
-*Slug:* **ultimate-guide-to-living-in-cape-town**
-
 ## Introduction
 
 Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years—and it still manages to surprise people the moment they try to live there like an adult with deadlines.

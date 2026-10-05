@@ -17,8 +17,6 @@ export const guides: Guide[] = [
     date: "2024-03-12",
     readTime: "8 min read",
     content: `
-<p><strong>SEO ARTICLE DRAFT</strong></p>
-<p><em>Target keyword: paraguay tax residency remote workers  |  KD: 22  |  Vol: 3,400/mo</em></p>
 <p>Let me be straight with you before we go any further.</p>
 <p>I'm not a $5,000-a-session offshore consultant. I don't have a podcast where I tell you to "go where you're treated best" while I film myself in a rented villa. I'm not trying to sell you a flag theory masterclass or get you on a discovery call.</p>
 <p>I'm a remote worker living in Asunción, Paraguay, right now. I work in acquisition and run my contracts through Deel, which — as it turns out — makes the whole "proving your income is foreign-sourced" part of this process almost embarrassingly straightforward. I found out about Paraguay's tax system the same way most people do: down a rabbit hole at 1am, skeptical, mostly convinced it was too good to be true.</p>
@@ -245,14 +243,11 @@ export const guides: Guide[] = [
     date: "2025-01-06",
     readTime: "10 min read",
     content: `
-<p><strong>SEO ARTICLE DRAFT</strong></p>
-<p><em>Target keyword: best places digital nomads 2025 | KD: low | Vol: 1,600/mo</em></p>
-
 <p>Every January, the same question shows up in nomad groups, Slack channels, and airport cafés: <em>Where should I go this year?</em></p>
 
 <p>It’s a harder question than it looks. A place can be cheap and beautiful and still have internet that dies every afternoon. It can have great Wi-Fi and a thriving community and still cost more than your home city. And visa rules keep shifting, which means a destination that worked effortlessly in 2023 might now require a spreadsheet and a prayer.</p>
 
-<p>So instead of chasing hype, I ran the numbers. Using Nomad Spin’s dataset of 1,200+ cities — cost of living, internet speed, safety scores, visa access, community size, and climate — here are the destinations that actually make sense for remote workers in 2025.</p>
+<p>So instead of chasing hype, I ran the numbers. Using Nomad Spin’s dataset of 780+ cities — cost of living, internet speed, safety scores, visa access, community size, and climate — here are the destinations that actually make sense for remote workers in 2025.</p>
 
 <h2><strong>The Criteria: How These Cities Were Ranked</strong></h2>
 

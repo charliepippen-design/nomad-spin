@@ -1,6 +1,6 @@
 # Nomad Spin
 
-> Spin a 3D globe and discover your next digital nomad destination. Compare 1,200+ cities on cost of living, internet speed, safety, and visa rules.
+> Spin a 3D globe and discover your next digital nomad destination. Compare 780+ cities on cost of living, internet speed, safety, and visa rules.
 
 Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. It scores destinations against your preferences — budget, internet, safety, proximity, landscape, and vibe — then surfaces the best matches and helps you book stays, flights, eSIMs, and insurance through curated partner links.
 

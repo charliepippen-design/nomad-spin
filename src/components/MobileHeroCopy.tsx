@@ -21,7 +21,7 @@ export default function MobileHeroCopy({ onCTA }: MobileHeroCopyProps) {
           Find Your Next Destination
         </h1>
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Filter 200+ cities by WiFi, cost, safety & visa requirements.
+          Filter 780+ cities by WiFi, cost, safety & visa requirements.
         </p>
         <button
           onClick={onCTA}

@@ -12,7 +12,7 @@ export default defineMcp({
   title: "Digital Nomad Spin",
   version: "0.1.0",
   instructions:
-    "Tools for the Digital Nomad Spin app. Use `search_cities` to filter the 1,200+ city database, `get_city` for a full destination profile, and `spin_destination` to run the match-scoring engine against a nomad's budget, internet, and safety preferences.",
+    "Tools for the Digital Nomad Spin app. Use `search_cities` to filter the 780+ city database, `get_city` for a full destination profile, and `spin_destination` to run the match-scoring engine against a nomad's budget, internet, and safety preferences.",
   auth: auth.oauth.issuer({
     issuer: `${supabaseUrl}/auth/v1`,
     acceptedAudiences: "authenticated",
