@@ -1,6 +1,6 @@
 ## Introduction
 
-Bali is one of the easiest places on earth to “move to for a while” — which is exactly why it can also be one of the easiest places to do poorly if you arrive without a plan. On paper, it’s tropical, affordable, full of cafés and coworking spaces, and packed with other remote workers. In reality, it’s an island with huge micro-differences by area, traffic that can consume your day, internet that varies street-by-street, visa rules that change, and a cost of living that ranges from backpacker-cheap to “why am I paying London prices for brunch?”
+Bali is one of the easiest places on earth to “move to for a while,” which is exactly why it can also be one of the easiest places to do poorly if you arrive without a plan. On paper, it’s tropical, affordable, full of cafés and coworking spaces, and packed with other remote workers. In reality, it’s an island with huge micro-differences by area, traffic that can consume your day, internet that varies street-by-street, visa rules that change, and a cost of living that ranges from backpacker-cheap to “why am I paying London prices for brunch?”
 
 This guide is written for people who want a real, on-the-ground setup: where to base yourself (Canggu vs Ubud vs Uluwatu), what it actually costs, how to deal with visas, how to get reliable internet, and how to build a routine that doesn’t collapse into chaos after week two.
 
@@ -8,7 +8,7 @@ You’ll also see practical advice that’s not glamorous but matters: how to re
 
 ## Cost of Living
 
-Bali can be cheap, but it’s not automatically cheap — and it’s very easy to “accidentally” live like you’re in a Western resort town. The real cost of living is set by a handful of decisions:
+Bali can be cheap, but it’s not automatically cheap, and it’s very easy to “accidentally” live like you’re in a Western resort town. The real cost of living is set by a handful of decisions:
 
 - **Where you live** (Canggu and parts of Uluwatu have the highest tourist/nomad inflation; Ubud varies widely by distance from center)
 - **What you rent** (room/guesthouse vs apartment-style studio vs private villa)
@@ -54,11 +54,11 @@ To make this guide easy to plan with, here’s a **monthly budget in USD** with 
 
 ## Neighborhoods
 
-Bali isn’t one destination — it’s a collection of very different pockets. The three most common nomad bases are **Canggu**, **Ubud**, and **Uluwatu**.
+Bali isn’t one destination: it’s a collection of very different pockets. The three most common nomad bases are **Canggu**, **Ubud**, and **Uluwatu**.
 
 ### Canggu (Social)
 
-Canggu is the default “I want to plug into the nomad network fast” base. If you’re arriving solo and want a social calendar without effort, this is the easiest place on the island to do it — coworking events, fitness communities, surf circles, startup meetups, and café regulars all overlap.
+Canggu is the default “I want to plug into the nomad network fast” base. If you’re arriving solo and want a social calendar without effort, this is the easiest place on the island to do it, coworking events, fitness communities, surf circles, startup meetups, and café regulars all overlap.
 
 **Best for:** extroverts, founders, creators, people who want frequent meetups, people who like café hopping.
 
@@ -68,7 +68,7 @@ Canggu is the default “I want to plug into the nomad network fast” base. If 
 
 - **Mornings:** gym + coffee culture is strong. Many people start early to avoid peak traffic.
 - **Midday:** coworking and cafés fill up; AC and stable Wi‑Fi become worth paying for.
-- **Evenings:** social energy stays high — dinners, events, beach clubs, and casual hangouts.
+- **Evenings:** social energy stays high: dinners, events, beach clubs, and casual hangouts.
 
 If you’re productive in social environments, Canggu is a cheat code. If you’re easily distracted, it can quietly turn into a month of “networking” without output.
 
@@ -76,14 +76,14 @@ If you’re productive in social environments, Canggu is a cheat code. If you’
 
 - **Berawa:** popular, dense, and convenient. Great if you want walkable pockets and quick access to coworking/fitness. Can be noisy.
 - **Batu Bolong:** central + busy. Best if you want to be in the middle of everything. Worst if you value calm.
-- **Pererenan:** often the “grown-up Canggu” choice — close enough, but generally more livable.
+- **Pererenan:** often the “grown-up Canggu” choice: close enough, but generally more livable.
 - **Seseh:** quieter and more residential; good if you don’t mind scootering a bit.
 
 #### Housing guidance (how to avoid a productivity nightmare)
 
 - Ask directly about **construction nearby**. Canggu has constant building.
 - Check whether your room faces the road. Scooters at night can wreck sleep.
-- If you take calls, confirm you have a quiet indoor space — not just a pretty patio.
+- If you take calls, confirm you have a quiet indoor space: not just a pretty patio.
 
 #### Work setup in Canggu
 
@@ -97,7 +97,7 @@ If you’re staying more than 2–3 weeks, a coworking membership often pays for
 
 #### Food + spending traps
 
-- Café/brunch culture is excellent — and expensive. If you do it daily, your budget will drift upward.
+- Café/brunch culture is excellent: and expensive. If you do it daily, your budget will drift upward.
 - Imported groceries add up. If you cook Western meals at home, expect a higher grocery bill.
 
 #### When Canggu is the wrong choice
@@ -123,7 +123,7 @@ Ubud is where many people go to reset their nervous system and work in longer, c
 
 - **Mornings:** yoga, walking paths, and slower starts are common.
 - **Midday:** long work blocks; cafés are less “party” and more “laptop.”
-- **Evenings:** early dinners, massages, and sleep — Ubud rewards routine.
+- **Evenings:** early dinners, massages, and sleep: Ubud rewards routine.
 
 #### Micro-areas (where to base)
 
@@ -140,7 +140,7 @@ Ubud is where many people go to reset their nervous system and work in longer, c
 
 #### Wellness and the “Ubud trap”
 
-Ubud can be amazing — but it can also become a loop of wellness consumption (classes, workshops, retreats) that eats both time and money. If you’re here to get work done, schedule wellness like you schedule meetings.
+Ubud can be amazing, but it can also become a loop of wellness consumption (classes, workshops, retreats) that eats both time and money. If you’re here to get work done, schedule wellness like you schedule meetings.
 
 ### Uluwatu (Surfing)
 
@@ -247,7 +247,7 @@ Indonesia's remote-worker route is the **E33G**, a one-year limited stay permit 
 
 ## Infrastructure (Coworking / Internet)
 
-Bali is absolutely workable for remote work — but only if you build redundancy. Internet quality can be excellent in one villa and unusable 200 meters away. The difference between a smooth month and a stressful one is usually the same thing: **you planned for failure**.
+Bali is absolutely workable for remote work, but only if you build redundancy. Internet quality can be excellent in one villa and unusable 200 meters away. The difference between a smooth month and a stressful one is usually the same thing: **you planned for failure**.
 
 ### Coworking spaces worth a trial day
 
@@ -255,7 +255,7 @@ Speeds depend on time of day, the exact seat, and whether a storm is passing thr
 
 #### BWork (Canggu, Nelayan)
 
-- **Why it's popular:** the most complete "real office" in Canggu — 24/7 coworking floor, meeting rooms, focus rooms, call booths, café and pool.
+- **Why it's popular:** the most complete "real office" in Canggu: 24/7 coworking floor, meeting rooms, focus rooms, call booths, café and pool.
 - **Best for:** founders, meeting-heavy roles, and anyone working US hours (they sell night-oriented plans).
 - **Watch out for:** it's busy and social; the café side is noisy.
 
@@ -354,7 +354,7 @@ Day 5–7:
 
 ## Final thoughts
 
-Bali can be an incredible place to live and work — if you choose the right neighborhood for your personality and build redundancy into your logistics. Treat it like moving to a real place (not a permanent vacation), and it becomes easy to sustain: stable internet, a consistent work environment, a routine you like, and a community that fits.
+Bali can be an incredible place to live and work, if you choose the right neighborhood for your personality and build redundancy into your logistics. Treat it like moving to a real place (not a permanent vacation), and it becomes easy to sustain: stable internet, a consistent work environment, a routine you like, and a community that fits.
 
 Want to compare Bali with the rest of the map? Look at the data for [Canggu](/destinations/canggu), [Ubud](/destinations/ubud), [Seminyak](/destinations/seminyak) or [Bali as a whole](/destinations/bali), or [spin the globe](/) with your own budget, internet and safety filters and see what comes up.
 

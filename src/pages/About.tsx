@@ -4,8 +4,8 @@ import { Globe2, BarChart3, Heart } from 'lucide-react';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/about`;
-const TITLE = 'About — Nomad Spin';
-const DESCRIPTION = 'Learn about Nomad Spin — a travel discovery tool helping digital nomads find their next base with data-driven city recommendations.';
+const TITLE = 'About | Nomad Spin';
+const DESCRIPTION = 'Learn about Nomad Spin, a travel discovery tool helping digital nomads find their next base with data-driven city recommendations.';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -53,7 +53,7 @@ export default function About() {
 
         <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
           <p>
-            Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. We help you cut through decision paralysis and find your next destination based on what actually matters — cost of living, internet speed, safety, and vibe.
+            Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. We help you cut through decision paralysis and find your next destination based on what actually matters: cost of living, internet speed, safety, and vibe.
           </p>
           <p>
             Our database covers <strong className="text-foreground">780+ cities worldwide</strong> with curated data on budgets, Wi-Fi reliability, visa requirements, coworking density, and more. Each city is scored against your personal preferences to surface the best matches.

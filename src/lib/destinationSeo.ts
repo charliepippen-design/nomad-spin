@@ -12,7 +12,7 @@ export function formatMonths(months: string[] | undefined): string {
 
 /**
  * Deterministic intro from the same City fields the globe scores.
- * No LLM — stable output for prerender + React.
+ * No LLM: stable output for prerender + React.
  */
 export function destinationIntro(city: City): string {
   const best = formatMonths(city.weather?.bestMonths);
@@ -38,7 +38,7 @@ export function destinationIntro(city: City): string {
     ` Place feel leans ${landscapes} with vibes tagged ${vibes}. ` +
     `Stay friction: ${city.meta.visaType} for up to ${city.meta.visaDays} days` +
     (city.meta.timeZoneUtc ? ` (${city.meta.timeZoneUtc})` : '') +
-    ' — always verify current visa rules before you book.';
+    '. Always verify current visa rules before you book.';
 
   return intro;
 }
@@ -53,7 +53,7 @@ export function destinationMetaDescription(city: City): string {
 }
 
 export function destinationPageTitle(city: City): string {
-  return `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
+  return `${city.name}, ${city.country}: Digital Nomad Guide | Nomad Spin`;
 }
 
 /** Guides whose relatedDestinations include this city slug (Bali living, season calendar, etc.). */

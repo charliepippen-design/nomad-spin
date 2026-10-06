@@ -1,8 +1,8 @@
 ## Introduction
 
-Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years—and it still manages to surprise people the moment they try to live there like an adult with deadlines.
+Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years, and it still manages to surprise people the moment they try to live there like an adult with deadlines.
 
-If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work—reliably—you need a different mindset: you’ll be planning around the risk of power cuts (load shedding), thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
+If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work, reliably, you need a different mindset: you’ll be planning around the risk of power cuts (load shedding), thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
 
 The upside is huge. Few places give you this combination: world-class nature, strong café culture, genuinely good food, a workable time zone for Europe/UK (and not brutal for the US East Coast), and enough urban energy that you don’t feel like you’re rotting in a beach town.
 
@@ -15,7 +15,7 @@ This guide is built to be practical. It covers:
 
 ## Cost of Living (Monthly USD)
 
-Cape Town can be great value compared to major Western cities, but it’s not “cheap” in the way some people imagine—especially if you want a safe, walkable neighborhood, modern apartment, and consistent work conditions.
+Cape Town can be great value compared to major Western cities, but it’s not “cheap” in the way some people imagine, especially if you want a safe, walkable neighborhood, modern apartment, and consistent work conditions.
 
 Your biggest cost drivers:
 
@@ -135,7 +135,7 @@ Camps Bay is the postcard. It’s also where budgets go to die if you’re not c
 If you choose Camps Bay, make it intentional:
 
 - Pay for a place with **proven fiber** and **backup power**.
-- If you’re trying to produce output, schedule coworking days—don’t trust “vacation energy.”
+- If you’re trying to produce output, schedule coworking days, don’t trust “vacation energy.”
 
 ## Visas (South Africa)
 
@@ -169,7 +169,7 @@ Since October 2024 South Africa has had a dedicated **Remote Work visitor's visa
 
 ## Infrastructure (Internet, Coworking, Power)
 
-If Cape Town is your work base, infrastructure is the whole game. The city can support serious remote work—but only if you respect reality:
+If Cape Town is your work base, infrastructure is the whole game. The city can support serious remote work, but only if you respect reality:
 
 - Internet can be excellent (fiber is common in many areas).
 - Power interruptions can happen (load shedding has been quiet lately, but plan for it anyway).
@@ -225,7 +225,7 @@ If you do nothing else, do this:
 
 ### Safety (simple rules that help)
 
-Cape Town isn’t about paranoia—it’s about good habits:
+Cape Town isn’t about paranoia, it’s about good habits:
 
 - Avoid flashing expensive gear on empty streets.
 - Use Uber at night instead of long walks.
@@ -252,7 +252,7 @@ Day 5–7:
 
 ## Final thoughts
 
-Cape Town can be one of the best remote work bases in the world if you treat it like a real place—not a fantasy. Choose a neighborhood that matches your daily routine, pay for reliability (internet + power), and the city will reward you with nature, food, and a lifestyle that makes “work-life balance” feel less like a lie.
+Cape Town can be one of the best remote work bases in the world if you treat it like a real place, not a fantasy. Choose a neighborhood that matches your daily routine, pay for reliability (internet + power), and the city will reward you with nature, food, and a lifestyle that makes “work-life balance” feel less like a lie.
 
 See the [Cape Town data page](/destinations/cape-town) for cost, internet and safety scores side by side with other cities, or [spin the globe](/) to find a base that fits your own budget and priorities.
 

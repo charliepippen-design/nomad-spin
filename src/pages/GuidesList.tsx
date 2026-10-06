@@ -6,7 +6,7 @@ import { guides as staticGuides } from '@/data/guides';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;
-const TITLE = 'Guides & Articles — Nomad Spin';
+const TITLE = 'Guides & Articles | Nomad Spin';
 const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital nomad strategies.';
 
 export default function GuidesList() {
@@ -80,7 +80,7 @@ export default function GuidesList() {
           </div>
         )}
 
-        {/* Error state — still shows static guides below */}
+        {/* Error state, still shows static guides below */}
         {isError && (
           <div className="flex items-center gap-2 text-xs text-yellow-500/80 font-mono mb-6 border border-yellow-500/20 bg-yellow-500/5 rounded-lg px-4 py-3">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
