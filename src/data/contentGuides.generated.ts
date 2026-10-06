@@ -4,6 +4,170 @@ import type { Guide } from './guides';
 
 export const contentGuides: Guide[] = [
   {
+    id: "how-to-choose-next-nomad-base",
+    slug: "how-to-choose-next-nomad-base",
+    title: "How to Choose Your Next Nomad Base When You Don't Know Where to Go",
+    seoTitle: "How to Choose Your Next Digital Nomad Base (Decision Framework)",
+    excerpt: "Stuck on where to go next? Map budget, internet, safety, vibe, and visa days onto Nomad Spin filters, then compare real destination pages before you book.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "10 min read",
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest"],
+    content: `## You're not bad at travel planning — you're missing a decision order
+
+Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic — and zero shared framework for weighing any of it.
+
+The stuck feeling is usually a sequencing problem. People compare vibes before they lock a budget. They research digital nomad visas before they know whether they need 30 days or 180. They open a ranked "best places" list before they've defined what "best" means for *their* work week.
+
+This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and — only after that — a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
+
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali) or [Living in Cape Town](/guides/living-in-cape-town). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads 2025](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+
+## The five constraints that actually matter (and map to Spin)
+
+Every workable nomad base fails or succeeds on a small set of hard constraints. Soft preferences only matter once those are honest.
+
+### 1. Budget ceiling → cost fields
+
+Spin filters on a monthly **budget range**. The city field that matches it is \`costUSD\` (same number as \`financials.costNomadSingle\` for a solo nomad month). That figure is a planning baseline — rent, food, local transport, and typical coworking — not a promise that your Airbnb will match it.
+
+Use the supporting financials when you're comparing *how* you'd stay:
+
+- \`financials.costLongTerm\` — what a longer lease or local-rate month tends to look like vs a scouting month
+- \`financials.airbnbMedian\` — nightly scouting cost when you're still testing a neighborhood
+- \`financials.rentIndex\` — relative rent pressure vs other cities in the dataset
+
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500**, [Lisbon](/destinations/lisbon) at **$2,200**. If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+
+### 2. Work reliability → internet and infrastructure
+
+Meetings don't care about your sunset photos. Spin's **minimum internet** preference scores against \`internetMbps\` (aligned with \`infra.internetSpeedAvg\`). The fields that catch people who only look at headline Mbps are:
+
+- \`infra.internetReliability\` (1–10) — how often the connection you paid for actually holds
+- \`infra.powerGridStability\` (1–10) — load shedding and brownouts kill calls as fast as bad Wi‑Fi
+- \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`) — whether you have a fallback room when home internet fails
+
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4** — which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+
+### 3. Personal safety floor → safety scores
+
+Spin's **minimum safety** maps to the city's overall \`safety\` score (roughly 1–10). Dig one layer deeper with \`vibeMetrics.femaleSafety\` and \`vibeMetrics.lgbtFriendly\` when those are non‑negotiable for you — a city can score decently overall and still be a poor fit for your situation.
+
+Examples from verified rows: Lisbon \`safety\` **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go" — it's "budget for location choice, transport habits, and neighborhood research before you book three months."
+
+### 4. Place feel → vibe and landscape
+
+Once budget, internet, and safety clear the bar, dial soft preferences: \`vibe[]\` tags (e.g. \`workhub\`, \`beach\`, \`party\`, \`mountain\`, \`foodie\`, \`adventure\`) and \`landscape[]\` (\`seaside\`, \`mountain\`, \`urban\`, \`rural\`, \`island\`, \`desert\`). Spin also scores nightlife vs focus via \`vibeMetrics.nightlife\` and how plugged-in the scene feels via \`vibeMetrics.communitySize\`.
+
+Chiang Mai leans \`workhub\` + \`mountain\` with nightlife **5** and community **9** — productive and social without a beach. Budapest leans \`party\` + \`workhub\` with nightlife **9**. If you keep selecting "quiet deep work" in your head but leave nightlife unconstrained in the UI, Spin will happily serve party hubs that match your other numbers.
+
+### 5. Stay friction → visa, timezone, language
+
+The constraint people romanticize and under-specify: how long you can legally stay, and how annoying daily life will be.
+
+- \`meta.visaType\` + \`meta.visaDays\` (also mirrored on \`visa.type\` / \`visa.days\`) — exemption, visa on arrival, digital nomad visa, visa-free, etc.
+- \`meta.timeZoneUtc\` — brutal if you have fixed US or EU standup hours
+- \`language\` — daily friction outside coworking English bubbles
+
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. Mexico City: **Visa Exemption**, **180** days. Chiang Mai: **Visa Exemption**, **60** days. Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem — see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+
+When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
+
+## A simple scoring order (do this before you open Instagram)
+
+1. **Lock non‑negotiables** — monthly budget ceiling, minimum Mbps you actually need for your job, minimum safety score you'll accept, and minimum visa days for this trip.
+2. **Add soft preferences** — region, landscape, vibe tags, nightlife tolerance.
+3. **Only then** read \`pros\` / \`cons\` and open destination pages for lifestyle tradeoffs.
+
+Reversing that order is how people fall in love with a reel, then discover the city is $800 over budget with 40 Mbps and a 30-day stamp.
+
+On Nomad Spin, that sequence is literal: open preferences on the [home page](/), set the hard sliders first, then region/vibe/landscape, *then* spin. Hard filters (region, landscape, budget band) narrow the pool; internet and safety heavily influence the match score inside that pool.
+
+## Three undecided personas → Spin presets
+
+The preferences drawer ships three quick presets. Use them as starting points, then tighten one slider at a time.
+
+### Budget-first explorer → Budget Saver
+
+**Preset:** budget **$500–$1,500**, internet min **20** Mbps, safety min **5**, all regions.
+
+Who it's for: you're flexible on nightlife and scenery; the month has to fit a lean burn rate. Expect the pool to lean toward places like Chiang Mai (~$850 / 95 Mbps / safety 8.2) or Tbilisi (~$800 / 60 Mbps / safety 8.0). After a spin, open the destination page and check \`costLongTerm\` vs \`airbnbMedian\` so you're not planning a three-month stay on scouting-night prices.
+
+### Meeting-heavy remote worker → High Comfort
+
+**Preset:** budget **$1,500–$5,000**, internet min **150** Mbps, safety min **8**.
+
+Who it's for: video calls are the job. Headline tourism rankings matter less than \`internetMbps\`, \`internetReliability\`, and \`powerGridStability\`. Lisbon (~$2,200 / **200** Mbps / safety **8.8**) and Budapest (~$1,500 / **200** Mbps / safety **8.3**) sit naturally in this band. If High Comfort returns almost nothing, loosen *one* constraint — usually the safety floor by a point, or the internet floor from 150 to 100 — rather than widening everything at once.
+
+### Quiet deep-work month → Quiet / Productive
+
+**Preset:** budget **$500–$3,000**, internet min **50**, safety min **6**, vibes tagged toward **workhub** / **mountain**, low-nightlife intent.
+
+Who it's for: you want fewer party defaults. Watch \`vibeMetrics.nightlife\` on the result — Chiang Mai at **5** fits the brief better than Budapest at **9**, even when both clear a mid budget. If you still land party-tagged cities, add an explicit landscape (e.g. \`mountain\`) or remove \`party\` from your mental shortlist and re-spin.
+
+None of these presets replace reading the destination page. They only stop you from spinning with an empty preference set and calling the result "research."
+
+## How to read a spin result without overthinking
+
+A spin returns a primary city plus near alternatives, each with a **match score** against your preferences. Treat the score as "how well this row fits the filters you set," not as a moral ranking of cities.
+
+**Open the destination page** (\`/destinations/{slug}\`) when:
+
+- Hard numbers clear your floors (cost, Mbps, safety, visa days)
+- You need \`pros\` / \`cons\`, weather months, or timezone detail before deciding
+- You're comparing two cities that scored similarly
+
+**Spin again** when:
+
+- The result fails a non‑negotiable you forgot to encode (e.g. you need \`UTC-5\` to \`UTC-8\` overlap and got \`UTC+7\`)
+- You realize a soft preference is actually hard (no beach → set landscape; no big party scene → raise the quiet intent)
+- The pool feels identical three times in a row — loosen one slider 10–20% and retry
+
+Example path: Budget Saver → land on Chiang Mai → read [Chiang Mai](/destinations/chiang-mai) → note burning season in \`cons\` and best months Nov–Feb → either accept that calendar or re-spin with a different region for your travel window.
+
+## Compare without a spreadsheet
+
+Save **two or three** spins (or keep three destination tabs) and compare only the columns that decide bookings:
+
+| Field | Why it matters |
+|---|---|
+| \`costUSD\` vs your ceiling | Immediate yes/no |
+| \`internetMbps\` + reliability / power | Call risk |
+| \`safety\` (+ femaleSafety / lgbtFriendly if relevant) | Daily stress |
+| \`meta.visaDays\` / \`visaType\` | Trip length |
+| \`meta.timeZoneUtc\` | Meeting sanity |
+| \`pros\` / \`cons\` | Lifestyle vetoes |
+
+Ignore aesthetic rankings until those six agree. A city can win Instagram and still fail timezone or visa days.
+
+Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/chiang-mai), [Lisbon](/destinations/lisbon), [Tbilisi](/destinations/tbilisi), [Mexico City](/destinations/mexico-city), [Budapest](/destinations/budapest). Add [Bali](/destinations/bali) or [Cape Town](/destinations/cape-town) only when your filters (and appetite for traffic or load shedding) actually point there — then read the living guides before you pay a deposit.
+
+## Common failure modes
+
+**Optimizing for vibe before budget.** You fall for a beach tag, then discover \`costUSD\` is $900 over your ceiling. Fix: set budget range first; let vibe rank *inside* the affordable pool.
+
+**Ignoring power and internet reliability.** Mbps looks fine; \`powerGridStability\` or \`internetReliability\` does not. Fix: for meeting-heavy work, treat those infra fields as hard filters equal to speed.
+
+**Visa daydreaming without \`visaDays\`.** "Digital nomad friendly" is not a length of stay. Fix: require a minimum day count in your head (30 / 90 / 180 / 365) and check \`meta.visaType\` on the destination page every time.
+
+**Using a ranked list as a substitute for preferences.** Lists answer "what scores well generally." They do not answer "what fits *my* $1,200 / 80 Mbps / safety 7 / 90-day trip." Read [Best Places 2025](/guides/best-places-digital-nomads-2025) *after* you've set those numbers — or use it only to discover candidates to plug into Spin.
+
+**Treating estimated rows like verified ones.** If \`dataSource\` is estimated, verify rent and visa rules before you wire money.
+
+## Do this next
+
+1. Open Nomad Spin on the [home page](/) and set budget, internet minimum, and safety minimum — the three non‑negotiables.
+2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
+3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
+4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town)) or proceed from the destination page and current official visa sources.
+
+You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
+
+*Last updated: October 2026. Costs, visa rules, and infrastructure scores change; always confirm official sources and current listings before you travel.*
+`,
+  },
+  {
     id: "living-in-bali",
     slug: "living-in-bali",
     title: "The Ultimate Guide to Living in Bali",

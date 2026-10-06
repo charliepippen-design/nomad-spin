@@ -9,6 +9,7 @@ describe('static guides', () => {
     const slugs = guides.map((g) => g.slug);
     expect(slugs).toContain('living-in-bali');
     expect(slugs).toContain('living-in-cape-town');
+    expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
     expect(slugs).toContain('best-places-digital-nomads-2025');
   });
