@@ -5,6 +5,14 @@ import { createClient } from '@supabase/supabase-js';
 import { guides as staticGuides, type Guide } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
 import type { City } from '../src/data/cities';
+import {
+  destinationIntro,
+  destinationMetaDescription,
+  destinationPageTitle,
+  destinationJsonLd,
+  relatedGuidesForCity,
+  formatMonths,
+} from '../src/lib/destinationSeo';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -143,25 +151,53 @@ function createHtmlFile(route: string, title: string, description: string, extra
 }
 
 function destinationBodyHtml(city: City, slug: string): string {
+  const intro = destinationIntro(city);
   const pros = city.pros.slice(0, 5).map((p) => `<li>${esc(p)}</li>`).join('');
   const cons = city.cons.slice(0, 3).map((c) => `<li>${esc(c)}</li>`).join('');
-  const vibes = city.vibe.map((v) => `<span>${esc(v)}</span>`).join(' · ');
+  const vibes = (city.vibe ?? []).map((v) => `<li>${esc(v)}</li>`).join('');
+  const landscapes = (city.landscape ?? []).map((l) => `<li>${esc(l)}</li>`).join('');
+  const best = formatMonths(city.weather?.bestMonths);
+  const rainy = formatMonths(city.weather?.rainyMonths);
+  const related = relatedGuidesForCity(city);
+  const relatedHtml = related.length
+    ? `<h2>Related guides</h2><ul>${related
+        .map(
+          (g) =>
+            `<li><a href="${BASE_URL}/guides/${esc(g.slug)}" style="color:#34d399">${esc(g.title)}</a> — ${esc(g.excerpt)}</li>`
+        )
+        .join('')}</ul>`
+    : '';
+
   return `
 <main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
   <p><a href="/" style="color:#34d399">← Spin the globe</a> · <a href="/guides" style="color:#34d399">Guides</a></p>
   <h1>${esc(city.name)}, ${esc(city.country)}</h1>
-  <p>Digital nomad guide to ${esc(city.name)}. Monthly cost from $${city.costUSD}, internet ${city.internetMbps} Mbps, safety ${city.safety}/10, visa up to ${city.meta.visaDays} days (${esc(city.meta.visaType)}).</p>
+  <p>${esc(intro)}</p>
+  <h2>Key stats for digital nomads</h2>
   <ul>
-    <li><strong>Monthly cost:</strong> $${city.costUSD}</li>
-    <li><strong>Internet:</strong> ${city.internetMbps} Mbps</li>
-    <li><strong>Safety:</strong> ${city.safety}/10</li>
-    <li><strong>Visa:</strong> ${esc(city.meta.visaType)} · ${city.meta.visaDays} days</li>
+    <li><strong>Cost of living (solo / month):</strong> $${city.costUSD}</li>
+    <li><strong>Long-term monthly estimate:</strong> $${city.financials.costLongTerm}</li>
+    <li><strong>Median Airbnb (night):</strong> $${city.financials.airbnbMedian}</li>
+    <li><strong>Internet:</strong> ${city.internetMbps} Mbps (reliability ${city.infra.internetReliability}/10)</li>
+    <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10</li>
+    <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
+    <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
+    <li><strong>Visa:</strong> ${esc(city.meta.visaType)} · up to ${city.meta.visaDays} days</li>
+    <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || '—')}</li>
+    <li><strong>Language:</strong> ${esc(city.language || '—')}</li>
     <li><strong>Region:</strong> ${esc(city.region)}</li>
-    <li><strong>Vibe:</strong> ${vibes || '—'}</li>
+    ${best ? `<li><strong>Best months:</strong> ${esc(best)}</li>` : ''}
+    ${rainy ? `<li><strong>Rainy months:</strong> ${esc(rainy)}</li>` : ''}
+    ${city.weather?.tempAvgC != null ? `<li><strong>Avg temperature:</strong> ${city.weather.tempAvgC}°C</li>` : ''}
   </ul>
+  ${vibes ? `<h2>Vibe tags</h2><ul>${vibes}</ul>` : ''}
+  ${landscapes ? `<h2>Landscape</h2><ul>${landscapes}</ul>` : ''}
   ${pros ? `<h2>Why go</h2><ul>${pros}</ul>` : ''}
   ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
-  <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a> or <a href="/" style="color:#34d399">spin for a match</a>.</p>
+  ${relatedHtml}
+  <h2>Find your next base</h2>
+  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors — then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
+  <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
 </main>`;
 }
 
@@ -225,17 +261,10 @@ function withVisibleBody(html: string, body: string): string {
   const destinations = allCitySlugs();
   console.log(`\n🌍 Generating ${destinations.length} destination pages...`);
   for (const { city, slug } of destinations) {
-    const title = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
-    const description = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;
+    const title = destinationPageTitle(city);
+    const description = destinationMetaDescription(city);
     const url = `${BASE_URL}/destinations/${slug}`;
-    const jsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'TouristDestination',
-      name: `${city.name}, ${city.country}`,
-      description: `Digital nomad guide to ${city.name}, ${city.country}. Monthly cost from $${city.costUSD}.`,
-      url,
-      geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng },
-    };
+    const jsonLd = destinationJsonLd(city, url);
     writeRoute(
       `destinations/${slug}`,
       withVisibleBody(

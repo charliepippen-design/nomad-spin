@@ -13,6 +13,13 @@ import { useSpinStore } from '@/store/useSpinStore';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
 import GuideSection from '@/components/GuideSection';
+import {
+  destinationIntro,
+  destinationMetaDescription,
+  destinationPageTitle,
+  destinationJsonLd,
+  formatMonths,
+} from '@/lib/destinationSeo';
 
 export default function DestinationGuide() {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -44,17 +51,12 @@ export default function DestinationGuide() {
 
   const BASE_URL = 'https://www.digitalnomadspin.com';
   const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
-  const title = `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`;
-  const description = `Everything you need to know about living in ${city.name} as a digital nomad. Cost: $${city.costUSD}/mo, Internet: ${city.internetMbps}Mbps, Safety: ${city.safety}/10.`;
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'TouristDestination',
-    name: `${city.name}, ${city.country}`,
-    description: `Digital nomad guide to ${city.name}, ${city.country}. Monthly cost from $${city.costUSD}.`,
-    url: pageUrl,
-    geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng },
-  };
+  const title = destinationPageTitle(city);
+  const description = destinationMetaDescription(city);
+  const intro = destinationIntro(city);
+  const jsonLd = destinationJsonLd(city, pageUrl);
+  const bestMonths = formatMonths(city.weather?.bestMonths);
+  const rainyMonths = formatMonths(city.weather?.rainyMonths);
 
   return (
     <div className="noise-overlay min-h-screen bg-background">
@@ -142,6 +144,36 @@ export default function DestinationGuide() {
 
       {/* Content */}
       <main className="max-w-3xl mx-auto px-6 divide-y divide-border/20">
+        <GuideSection title="Overview" id="overview">
+          <p className="text-sm text-muted-foreground leading-relaxed">{intro}</p>
+          {(bestMonths || rainyMonths) && (
+            <dl className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {bestMonths && (
+                <div className="rounded-lg border border-border/30 bg-card p-4">
+                  <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Best months</dt>
+                  <dd className="text-sm font-mono text-foreground">{bestMonths}</dd>
+                </div>
+              )}
+              {rainyMonths && (
+                <div className="rounded-lg border border-border/30 bg-card p-4">
+                  <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Rainy months</dt>
+                  <dd className="text-sm font-mono text-foreground">{rainyMonths}</dd>
+                </div>
+              )}
+              {city.weather?.tempAvgC != null && (
+                <div className="rounded-lg border border-border/30 bg-card p-4">
+                  <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Avg temperature</dt>
+                  <dd className="text-sm font-mono text-foreground">{city.weather.tempAvgC}°C</dd>
+                </div>
+              )}
+              <div className="rounded-lg border border-border/30 bg-card p-4">
+                <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Visa</dt>
+                <dd className="text-sm font-mono text-foreground">{city.meta.visaType} · {city.meta.visaDays} days</dd>
+              </div>
+            </dl>
+          )}
+        </GuideSection>
+
         <GuideSection title="Why Go" id="why-go">
           {displayCity.pros.length > 0 ? (
             <ul className="space-y-2">
