@@ -249,152 +249,245 @@ const handWrittenGuides: Guide[] = [
   {
     id: "best-places-digital-nomads-2025",
     slug: "best-places-digital-nomads-2025",
-    title: "Best Places for Digital Nomads in 2025",
-    excerpt: "A data-driven look at the top digital nomad destinations for 2025, ranked by cost, internet, safety, community, and visa access.",
+    title: "Best Places for Digital Nomads in 2026",
+    excerpt: "A 2026 shortlist of ten digital nomad bases, using Nomad Spin’s cost, internet, safety, community, and visa data across 780+ cities.",
     date: "2025-01-06",
-    readTime: "10 min read",
+    updated: "2026-10-07",
+    readTime: "12 min read",
     relatedDestinations: ["chiang-mai", "lisbon", "medellin", "bali", "mexico-city", "buenos-aires", "tbilisi", "cape-town", "budapest", "hanoi"],
     content: `
 <p>Every January, the same question shows up in nomad groups, Slack channels, and airport cafés: <em>Where should I go this year?</em></p>
 
-<p>It’s a harder question than it looks. A place can be cheap and beautiful and still have internet that dies every afternoon. It can have great Wi-Fi and a thriving community and still cost more than your home city. And visa rules keep shifting, which means a destination that worked effortlessly in 2023 might now require a spreadsheet and a prayer.</p>
+<p>It’s a harder question in 2026 than a listicle can answer. A place can be cheap and beautiful and still have internet that dies every afternoon. It can have great Wi-Fi and a real community and still cost more than your home city. Visa rules keep moving: a border-run habit from 2023 may now be a formal visa, a savings balance, or both.</p>
 
-<p>So instead of chasing hype, I ran the numbers. Using Nomad Spin’s dataset of 780+ cities (cost of living, internet speed, safety scores, visa access, community size, and climate) here are the destinations that actually make sense for remote workers in 2025.</p>
+<p>This is the 2026 edition of Nomad Spin’s shortlist. It reads ten bases against the same fields we store for <a href="/">780+ cities</a>: monthly cost, internet, safety, community, visa access, and climate. The numbers below are the ones on each city page. The order is a conversation order (where I would send someone first). Your own order is the one you get when you set floors and <a href="/">spin the globe</a>.</p>
 
-<h2><strong>The Criteria: How These Cities Were Ranked</strong></h2>
+<p>Cost figures are Nomad Spin’s solo monthly baseline: rent, food, local transport, and ordinary coworking. A specific apartment can land above or below that number. Visa days are the typical window in the dataset for many passports. Your passport can be a different window. Confirm the rule with an official source before you book a one-way.</p>
 
-<p>Each city below was scored on a 0–100 scale weighted across six factors:</p>
+<h2><strong>The Criteria: What Actually Decides a Base</strong></h2>
+
+<p>Six things do most of the work when a remote month succeeds or fails:</p>
 
 <ul>
-<li><strong>Budget (25%):</strong> Monthly cost for a comfortable nomad lifestyle, rent, food, coworking, transport.</li>
-<li><strong>Internet (20%):</strong> Average speed, reliability, and coworking infrastructure.</li>
-<li><strong>Safety (15%):</strong> General safety, female safety, and LGBTQ+ friendliness.</li>
-<li><strong>Community (15%):</strong> Existing nomad scene, English proficiency, and ease of meeting people.</li>
-<li><strong>Visa Access (15%):</strong> Tourist visa length, digital nomad visa availability, and border-run friction.</li>
-<li><strong>Vibe Match (10%):</strong> Weather, food, culture, and overall liveability.</li>
+<li><strong>Budget:</strong> The heaviest filter. If the solo baseline is already over your ceiling, the café scene will not save the month.</li>
+<li><strong>Internet:</strong> Average speed, reliability, and whether coworking is dense enough to be a backup.</li>
+<li><strong>Safety:</strong> The headline score, plus female safety and LGBTQ+ friendliness on the city page. Read all three. They measure different things.</li>
+<li><strong>Community:</strong> How quickly you can find other remote workers, and how far English carries you.</li>
+<li><strong>Visa access:</strong> How long you can actually stay, and whether a longer season needs a real application.</li>
+<li><strong>Vibe:</strong> Weather, food, and whether the city is livable on a random Tuesday. Use this last. The <a href="/guides/where-to-go-next-by-season">season guide</a> is the right place to veto a month.</li>
 </ul>
 
-<p>No sponsorships. No affiliate kickbacks influencing the order. Just the data.</p>
+<p>No sponsorships. Nothing in the order below was placed because a program paid for the slot.</p>
 
-<h2><strong>1. Chiang Mai, Thailand: Still the Starter City King</strong></h2>
+<h2><strong>The Ten, in the Dataset</strong></h2>
 
-<p>Chiang Mai is the city that launched a million nomad careers, and it’s still one of the best places to test the lifestyle without going broke.</p>
+<p>Same fields, side by side. Open a city for the full page.</p>
 
-<p><strong>Why it wins:</strong> You can live well on $900–$1,200/month. Internet is reliable in most neighborhoods. The community is enormous, you’ll find coworking spaces, meetups, and people who speak your language within days. The Nimman and Santitham areas are built for remote work.</p>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse my-6">
+  <thead>
+    <tr>
+      <th class="border-b border-border p-2">City</th>
+      <th class="border-b border-border p-2">Solo month</th>
+      <th class="border-b border-border p-2">Internet</th>
+      <th class="border-b border-border p-2">Safety</th>
+      <th class="border-b border-border p-2">Visa window in the dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/chiang-mai">Chiang Mai</a></td>
+      <td class="border-b border-border p-2">$850</td>
+      <td class="border-b border-border p-2">95 Mbps</td>
+      <td class="border-b border-border p-2">8.2</td>
+      <td class="border-b border-border p-2">60-day exemption</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/lisbon">Lisbon</a></td>
+      <td class="border-b border-border p-2">$2,200</td>
+      <td class="border-b border-border p-2">200 Mbps</td>
+      <td class="border-b border-border p-2">8.8</td>
+      <td class="border-b border-border p-2">Digital nomad visa, up to a year</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/medellin">Medellín</a></td>
+      <td class="border-b border-border p-2">$1,100</td>
+      <td class="border-b border-border p-2">80 Mbps</td>
+      <td class="border-b border-border p-2">6.5</td>
+      <td class="border-b border-border p-2">90-day exemption</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/bali">Bali</a></td>
+      <td class="border-b border-border p-2">$1,200</td>
+      <td class="border-b border-border p-2">50 Mbps</td>
+      <td class="border-b border-border p-2">7.8</td>
+      <td class="border-b border-border p-2">30-day visa on arrival</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/mexico-city">Mexico City</a></td>
+      <td class="border-b border-border p-2">$1,300</td>
+      <td class="border-b border-border p-2">90 Mbps</td>
+      <td class="border-b border-border p-2">6.0</td>
+      <td class="border-b border-border p-2">180-day exemption</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/buenos-aires">Buenos Aires</a></td>
+      <td class="border-b border-border p-2">$900</td>
+      <td class="border-b border-border p-2">70 Mbps</td>
+      <td class="border-b border-border p-2">6.2</td>
+      <td class="border-b border-border p-2">90-day exemption</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/tbilisi">Tbilisi</a></td>
+      <td class="border-b border-border p-2">$800</td>
+      <td class="border-b border-border p-2">60 Mbps</td>
+      <td class="border-b border-border p-2">8.0</td>
+      <td class="border-b border-border p-2">365 days visa-free</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/cape-town">Cape Town</a></td>
+      <td class="border-b border-border p-2">$1,400</td>
+      <td class="border-b border-border p-2">100 Mbps</td>
+      <td class="border-b border-border p-2">5.5</td>
+      <td class="border-b border-border p-2">90-day exemption</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/budapest">Budapest</a></td>
+      <td class="border-b border-border p-2">$1,500</td>
+      <td class="border-b border-border p-2">200 Mbps</td>
+      <td class="border-b border-border p-2">8.3</td>
+      <td class="border-b border-border p-2">Digital nomad visa, up to a year</td>
+    </tr>
+    <tr>
+      <td class="border-b border-border p-2"><a href="/destinations/hanoi">Hanoi</a></td>
+      <td class="border-b border-border p-2">$1,050</td>
+      <td class="border-b border-border p-2">110 Mbps</td>
+      <td class="border-b border-border p-2">8.0</td>
+      <td class="border-b border-border p-2">90-day tourist visa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-<p><strong>Watch out for:</strong> Burning season (February–April) is genuinely unpleasant. Visa runs are more tightly managed than they used to be, so plan ahead.</p>
+<h2><strong>1. Chiang Mai, Thailand: Still the Starter City</strong></h2>
 
-<p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want community immediately.</p>
+<p><a href="/destinations/chiang-mai">Chiang Mai</a> is still the cleanest place to test the lifestyle on a modest budget. The solo baseline is about $850 a month, internet averages about 95 Mbps, and the community score is a 9. Nimman and Santitham are where remote workers actually sit.</p>
+
+<p><strong>Why it wins:</strong> You can find a desk, a meetup, and someone who speaks your language in the first week. Safety sits at 8.2, which is high for a city this social and this cheap.</p>
+
+<p><strong>Watch out for:</strong> Burning season is March and April, and it is genuinely unpleasant. February is still in the friendly dry window. Many passports get a 60-day visa exemption. A season measured in months usually means Thailand’s Destination Thailand Visa (DTV) or another long-stay category. Plan the visa that covers the trip. A border run is a fragile backup.</p>
+
+<p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want company immediately.</p>
 
 <h2><strong>2. Lisbon, Portugal: Europe’s Nomad Capital</strong></h2>
 
-<p>Lisbon has become the default European nomad base for good reason. It’s warm, walkable, English-friendly, and plugged into the rest of Europe.</p>
+<p><a href="/destinations/lisbon">Lisbon</a> is the default European base for a reason: warm, walkable, English-friendly, and connected to the rest of the continent. In the dataset it is also the expensive one.</p>
 
-<p><strong>Why it wins:</strong> Internet is excellent. Coworking spaces are everywhere. The city is beautiful, safe, and full of things to do. Portugal’s digital nomad visa (D8) is one of the more accessible routes into the EU.</p>
+<p><strong>Why it wins:</strong> About 200 Mbps, safety 8.8, community 9. Portugal’s D8 digital nomad visa is still a real route to a year in the EU for people who can document income and housing.</p>
 
-<p><strong>Watch out for:</strong> Costs have risen sharply. A decent one-bedroom in central Lisbon can run €1,200–€1,800/month. You’ll need a real budget.</p>
+<p><strong>Watch out for:</strong> The solo baseline is about $2,200 a month, the highest figure on this list, and central rent is why. The broad NHR tax incentive that used to sweeten the move has closed to new applicants. The regime that replaced it targets specific professional profiles, which leaves most remote jobs outside it. Treat the D8 as an immigration path with queues and paperwork, and budget for the city you will actually live in.</p>
 
-<p><strong>Best for:</strong> Nomads who want EU access, reliable infrastructure, and a strong social scene.</p>
+<p><strong>Best for:</strong> People who want EU infrastructure and will pay for it.</p>
 
-<h2><strong>3. Medellín, Colombia: The Best Value in the Americas</strong></h2>
+<h2><strong>3. Medellín, Colombia: Value, With a Neighborhood Plan</strong></h2>
 
-<p>Medellín keeps winning because it delivers 80% of what Lisbon offers at half the price. The weather is spring-like year-round. The nomad community is well-established. And the city has invested heavily in coworking and cafés.</p>
+<p><a href="/destinations/medellin">Medellín</a> stays on the list for the weather and the café map. The solo baseline is about $1,100 a month, against about $2,200 in Lisbon, so the budget gap is real. Internet averages about 80 Mbps. El Poblado and Laureles are where most remote workers base themselves. Many passports get about 90 days visa-free.</p>
 
-<p><strong>Why it wins:</strong> Monthly living costs around $1,200–$1,600 for a good lifestyle. Fast internet in El Poblado and Laureles. A large, welcoming expat community.</p>
+<p><strong>Why it wins:</strong> Spring temperatures through the year, a community score of 8, and a cost that leaves room for a coworking membership.</p>
 
-<p><strong>Watch out for:</strong> Safety varies by neighborhood. Spanish helps a lot. Some areas still feel gritty.</p>
+<p><strong>Watch out for:</strong> Safety is 6.5, and it is neighborhood-specific. Tourist-targeted robbery, including dating-app setups, is a known pattern, so pick the area before you pick the apartment. Female safety in the dataset is a 5. Spanish changes the month more than the Instagram version suggests.</p>
 
-<p><strong>Best for:</strong> North Americans on similar time zones, Spanish learners, value hunters.</p>
+<p><strong>Best for:</strong> North American time zones, Spanish learners, people who will choose a neighborhood on purpose.</p>
 
-<h2><strong>4. Bali, Indonesia: Beaches, Cafés, and Coworking</strong></h2>
+<h2><strong>4. Bali, Indonesia: The Social Island, With a Visa Plan</strong></h2>
 
-<p>Bali is divisive, but the numbers don’t lie: it remains one of the most popular nomad destinations in the world. Canggu and Ubud are basically built for remote workers at this point.</p>
+<p><a href="/destinations/bali">Bali</a> is popular because the community score is a 9 and the café map is ridiculous. The same dataset explains the complaints: average internet is about 50 Mbps, and the solo baseline of about $1,200 is a floor that Canggu villas and brunch leave behind quickly.</p>
 
-<p><strong>Why it wins:</strong> Incredible café and coworking density. Strong community. Low cost of living outside the most touristy pockets. The B211A visa and Second Home Visa give long-stay options.</p>
+<p><strong>Why it wins:</strong> Surf, coworking density, and a social life that can start on day two. Outside the most touristy pockets the baseline is easier to hit. Ubud and parts of the Bukit are different products from Canggu traffic.</p>
 
-<p><strong>Watch out for:</strong> Traffic in Canggu is brutal. Tourist prices are rising. Internet can be patchy in rural areas.</p>
+<p><strong>Watch out for:</strong> Visa on arrival in the dataset is 30 days. The long-stay visit visa that older posts still call the B211A is now the C1 (typically 60 days, extendable toward half a year). People employed by a company outside Indonesia who want a full year look at the E33G remote worker visa, which asks for an income bar and a foreign contract. LGBTQ+ friendliness in the dataset is low (4). Read <a href="/guides/living-in-bali">living in Bali</a> before a villa deposit.</p>
 
-<p><strong>Best for:</strong> People who want surf, yoga, and a built-in social life.</p>
+<p><strong>Best for:</strong> People who want the beach social scene and will budget a backup connection.</p>
 
-<h2><strong>5. Mexico City, Mexico: Big-City Energy at Nomad Prices</strong></h2>
+<h2><strong>5. Mexico City, Mexico: Big-City Energy on US Hours</strong></h2>
 
-<p>Mexico City is underrated as a nomad base. It’s enormous, culturally rich, surprisingly affordable, and on US time zones.</p>
+<p><a href="/destinations/mexico-city">Mexico City</a> is the big-city option on a clock that overlaps the United States. The solo baseline is about $1,300 a month, internet about 90 Mbps, community 8. Roma, Condesa, and Polanco have the café density, and they usually cost more than that baseline. The food is the reason a lot of people stay.</p>
 
-<p><strong>Why it wins:</strong> Neighborhoods like Roma, Condesa, and Polanco have great internet and tons of cafés. You can live well on $1,400–$2,000/month. The food scene is world-class.</p>
+<p><strong>Why it wins:</strong> Culture, kitchens, and a workday that lines up with US calls. The dataset lists a 180-day visa exemption, which is the common maximum for many passports.</p>
 
-<p><strong>Watch out for:</strong> It’s a big city, pollution, traffic, and noise are real. Safety requires neighborhood awareness.</p>
+<p><strong>Watch out for:</strong> Safety is 6.0, and female safety is a 5. Pollution, traffic, altitude, and noise are the city itself. The officer at the border decides the stamp you actually receive, so a six-month plan needs a fallback if the stamp is shorter.</p>
 
-<p><strong>Best for:</strong> City people, food lovers, US-based remote workers who need time-zone overlap.</p>
+<p><strong>Best for:</strong> City people, food lovers, anyone who needs overlap with US hours.</p>
 
-<h2><strong>6. Buenos Aires, Argentina: The Affordable European Vibe</strong></h2>
+<h2><strong>6. Buenos Aires, Argentina: European Texture, Updated Prices</strong></h2>
 
-<p>Buenos Aires feels like a European capital at a fraction of the cost. The café culture, architecture, and nightlife are unmatched in Latin America.</p>
+<p><a href="/destinations/buenos-aires">Buenos Aires</a> still feels like a European capital on a Latin American baseline: about $900 a month in the dataset, with internet around 70 Mbps. Palermo and Recoleta are the practical bases. Many passports get about 90 days.</p>
 
-<p><strong>Why it wins:</strong> With the blue-dollar exchange rate, your foreign income stretches dramatically. Great steak, wine, and culture. Strong internet in Palermo and Recoleta.</p>
+<p><strong>Why it wins:</strong> Café culture, architecture, nightlife, steak. The community is smaller than Medellín’s (score 6) and the price is lower.</p>
 
-<p><strong>Watch out for:</strong> Inflation is constant. You need to understand how to exchange money efficiently. Bureaucracy can be slow.</p>
+<p><strong>Watch out for:</strong> The parallel-exchange discount that made 2022 and 2023 feel unreal has narrowed. Dollar prices are higher than those meme years. Inflation is calmer than the crisis headlines and still belongs in the budget, along with how you pay. Safety is 6.2, mostly as petty crime. Bureaucracy is slow.</p>
 
-<p><strong>Best for:</strong> People who want European lifestyle on a Latin American budget, night owls, culture lovers.</p>
+<p><strong>Best for:</strong> Night owls and culture people who want that atmosphere near a $900 baseline.</p>
 
-<h2><strong>7. Tbilisi, Georgia: The Under-the-Radar Winner</strong></h2>
+<h2><strong>7. Tbilisi, Georgia: The Long-Stay Bargain</strong></h2>
 
-<p>Georgia has been quietly building one of the most nomad-friendly ecosystems in Eurasia. Tbilisi is cheap, safe, and refreshingly unpretentious.</p>
+<p><a href="/destinations/tbilisi">Tbilisi</a> is the clearest long-stay bargain on this list. The dataset lists visa-free entry up to 365 days for many passports, a solo baseline around $800, and safety 8.0.</p>
 
-<p><strong>Why it wins:</strong> One-year visa-free entry for many nationalities. Cost of living around $900–$1,300/month. Fast, reliable internet. A growing but still tight-knit nomad community.</p>
+<p><strong>Why it wins:</strong> A full year without a nomad-visa application is rare. Wine, walking, and prices that make Western Europe look theatrical. A renovated flat in the center costs more than the baseline. An ordinary solo month often stays near it.</p>
 
-<p><strong>Watch out for:</strong> Georgian is hard to learn. Winters can be gray. It’s not as polished as Western Europe.</p>
+<p><strong>Watch out for:</strong> Internet averages about 60 Mbps: fine for most calls, thinner for heavy uploads. Georgian is difficult, English thins out past the center, and winters are gray. Banking has tightened for some nationalities, so a local account can be a project. LGBTQ+ friendliness in the dataset is a 3, the low end of this shortlist. The community score is 6: real, and smaller than Chiang Mai.</p>
 
-<p><strong>Best for:</strong> Long-stay nomads, people who want visa simplicity, budget-focused travelers.</p>
+<p><strong>Best for:</strong> Long stays, visa simplicity, people who like a city that is getting on with its own life.</p>
 
-<h2><strong>8. Cape Town, South Africa: Beauty and Value</strong></h2>
+<h2><strong>8. Cape Town, South Africa: Beauty, With a Safety Plan</strong></h2>
 
-<p>Cape Town offers a combination that’s hard to beat: stunning nature, modern infrastructure, English-speaking, and a cost of living far below comparable cities.</p>
+<p><a href="/destinations/cape-town">Cape Town</a> is mountains, ocean, and English in one city, at a solo baseline of about $1,400. Dataset internet is about 100 Mbps where the fiber is actually in the unit. Many passports get about 90 days visa-free.</p>
 
-<p><strong>Why it wins:</strong> Internet has improved dramatically. Coworking spaces are plentiful. You get mountains, beaches, and wine country in one city.</p>
+<p><strong>Why it wins:</strong> Nature you can reach inside a normal week. Coworking exists. Longer stays can use South Africa’s remote-work visitor visa, in place since late 2024, which asks for a foreign contract and an income threshold. The <a href="/guides/living-in-cape-town">Cape Town living guide</a> has the current checklist.</p>
 
-<p><strong>Watch out for:</strong> Load shedding (power outages) still happens, though less than before. Safety requires common sense.</p>
+<p><strong>Watch out for:</strong> Safety is 5.5, the lowest on this list, and female safety is a 4. Neighborhood choice is the decision. Load shedding has been rare for long stretches since 2024, and it has come back before. Keep a battery or a coworking backup. Power-grid stability in the dataset is still a weak score for that reason.</p>
 
-<p><strong>Best for:</strong> Nature lovers, outdoor enthusiasts, people who want English-speaking Africa.</p>
+<p><strong>Best for:</strong> Nature, English-speaking Africa, people who will take safety and power seriously.</p>
 
-<h2><strong>9. Budapest, Hungary: Central Europe’s Hidden Gem</strong></h2>
+<h2><strong>9. Budapest, Hungary: Central Europe at a Lower Baseline</strong></h2>
 
-<p>Budapest delivers old-Europe charm with modern nomad infrastructure at prices lower than Vienna or Berlin.</p>
+<p><a href="/destinations/budapest">Budapest</a> is old-Europe texture with fast pipes. The solo baseline is about $1,500, against about $2,200 in <a href="/destinations/berlin">Berlin</a> and about $2,400 in <a href="/destinations/vienna">Vienna</a> in the same dataset. Internet is about 200 Mbps, tied with Lisbon on this list. Safety is 8.3.</p>
 
-<p><strong>Why it wins:</strong> Fast internet, great public transport, beautiful architecture, and a cost of living around $1,300–$1,800/month. The White Card visa is designed for remote workers.</p>
+<p><strong>Why it wins:</strong> Transit, baths, architecture, and a bill that is still a European city rather than a Western European capital. The White Card is Hungary’s remote-worker visa for non-EU passports. Confirm the current income rule on an official source before you build a year around it. EU citizens have a simpler path.</p>
 
-<p><strong>Watch out for:</strong> Winter is cold. Hungarian is famously difficult. It’s less international than Lisbon or Berlin.</p>
+<p><strong>Watch out for:</strong> Winter is cold. Hungarian is difficult. The international scene is thinner than Lisbon’s. The political climate belongs in a long-stay decision. For a season of baths and trains, it rarely decides the trip by itself.</p>
 
-<p><strong>Best for:</strong> EU access seekers, history and architecture lovers, people who want four real seasons.</p>
+<p><strong>Best for:</strong> People who want four real seasons and a European base under a Lisbon budget.</p>
 
-<h2><strong>10. Hanoi, Vietnam: The Budget Champion</strong></h2>
+<h2><strong>10. Hanoi, Vietnam: Food, Density, and a Corrected Budget</strong></h2>
 
-<p>Hanoi is what Chiang Mai was ten years ago: cheap, authentic, slightly chaotic, and full of potential.</p>
+<p><a href="/destinations/hanoi">Hanoi</a> is the food city on this list. Nomad Spin’s solo baseline puts it at about $1,050 a month, above Tbilisi (about $800), Chiang Mai (about $850), and Buenos Aires (about $900). Older versions of this guide said you could live well on $700. That figure does not match the current dataset.</p>
 
-<p><strong>Why it wins:</strong> You can live comfortably on $700–$1,000/month. Internet is solid in the Old Quarter and Tay Ho. The food is exceptional. Vietnam’s e-visa is straightforward.</p>
+<p><strong>Why it wins:</strong> Internet about 110 Mbps, safety 8, community 7. The Old Quarter and Tay Ho are the usual bases. The food is the point. Vietnam’s e-visa covers many passports for up to 90 days. Check the official portal for your nationality before you assume the application is a formality.</p>
 
-<p><strong>Watch out for:</strong> Traffic is intense. Air quality fluctuates. The nomad community is smaller than in Bali or Chiang Mai.</p>
+<p><strong>Watch out for:</strong> Traffic is intense. Air quality moves around. The nomad scene is smaller than Chiang Mai or Bali. LGBTQ+ friendliness in the dataset is a 4. A quiet apartment plus coworking sits on top of the baseline, which is how people blow the old budget meme.</p>
 
-<p><strong>Best for:</strong> Extreme budget nomads, food lovers, people who prefer authenticity over infrastructure.</p>
+<p><strong>Best for:</strong> Food-first travelers who want a dense Asian city and can handle the street.</p>
 
 <h2><strong>How to Choose the Right One for You</strong></h2>
 
-<p>The best city isn’t the one with the highest score, it’s the one that matches your priorities.</p>
+<p>The useful city is the one that clears your floors. If you have not written those down, start with <a href="/guides/how-to-choose-next-nomad-base">how to choose your next base</a>, then come back here.</p>
 
 <ul>
-<li><strong>Lowest cost:</strong> Hanoi, Chiang Mai, Tbilisi</li>
-<li><strong>Best internet:</strong> Lisbon, Mexico City, Budapest</li>
-<li><strong>Strongest community:</strong> Chiang Mai, Bali, Lisbon</li>
-<li><strong>Easiest visa:</strong> Georgia, Albania, Thailand (with planning)</li>
-<li><strong>Best for nature:</strong> Cape Town, Bali, Medellín</li>
+<li><strong>Lowest solo baseline:</strong> <a href="/destinations/tbilisi">Tbilisi</a> (about $800), <a href="/destinations/chiang-mai">Chiang Mai</a> (about $850), <a href="/destinations/buenos-aires">Buenos Aires</a> (about $900).</li>
+<li><strong>Fastest internet on this list:</strong> <a href="/destinations/lisbon">Lisbon</a> and <a href="/destinations/budapest">Budapest</a> (about 200 Mbps). Hanoi (about 110) and Chiang Mai (about 95) are comfortable for calls. Bali (about 50) needs a second connection.</li>
+<li><strong>Strongest community scores:</strong> Chiang Mai, Bali, and Lisbon.</li>
+<li><strong>Longest straightforward stays in the dataset:</strong> Tbilisi (365 days visa-free for many passports). Lisbon and Budapest list a digital nomad visa of up to a year, with income proof. <a href="/destinations/tirana">Tirana</a> shows the same one-year visa-free pattern if you want a smaller European city that did not make this ten. Thailand is easy for about 60 days. A season there is a DTV conversation.</li>
+<li><strong>Nature:</strong> Cape Town, Bali, and Medellín, after you check the <a href="/guides/where-to-go-next-by-season">season window</a>. Burning season, Cape Town winter, and Bali’s rains are all in the dataset.</li>
 </ul>
 
 <h2><strong>Spin the Globe and Find Your Match</strong></h2>
 
-<p>These ten cities are a starting point, not the final answer. Your ideal base depends on your budget, your work schedule, your visa situation, and what kind of life you actually want to live.</p>
+<p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>If you want a personalized recommendation, use the Nomad Spin tool. Set your budget, internet needs, and safety minimums, spin the globe, and see which cities score highest against your actual preferences, not someone else’s Instagram feed.</p>
+<p>For the two hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a> and <a href="/guides/living-in-cape-town">living in Cape Town</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
-<p><em>Last updated: January 2025. Costs and visa rules change quickly; always double-check before booking.</em></p>
+<p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
   }
 ];
@@ -402,10 +495,12 @@ const handWrittenGuides: Guide[] = [
 /**
  * All static guides: hand-written HTML guides above plus editorial Markdown
  * guides compiled from content/guides by scripts/sync-content-guides.ts.
- * Newest first.
+ * Most recently updated first (publication date when a guide has no `updated`).
  */
+const guideSortKey = (guide: Guide) => (guide.updated ?? guide.date).slice(0, 10);
+
 export const guides: Guide[] = [...contentGuides, ...handWrittenGuides].sort((a, b) =>
-  b.date.localeCompare(a.date)
+  guideSortKey(b).localeCompare(guideSortKey(a))
 );
 
 /** Guides that list the given destination slug as related. */

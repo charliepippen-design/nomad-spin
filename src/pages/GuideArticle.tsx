@@ -4,11 +4,20 @@ import { ArrowLeft, Clock, Calendar, ChevronLeft, Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
+
+/** Allow the one utility class used to scroll wide guide tables on small screens. */
+const guideSchema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    div: [...(defaultSchema.attributes?.div ?? []), ['className', 'overflow-x-auto']],
+  },
+};
 
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();
@@ -93,6 +102,7 @@ export default function GuideArticle() {
         <meta property="og:type" content="article" />
         <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
         <meta property="article:published_time" content={guide.date} />
+        <meta property="article:modified_time" content={(guide.updated ?? guide.date).slice(0, 10)} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={guide.excerpt} />
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
@@ -112,7 +122,7 @@ export default function GuideArticle() {
         
         <header className="mb-24 relative">
           <div className="flex flex-wrap items-center gap-5 text-[10px] font-mono text-primary/60 uppercase tracking-[0.3em] mb-10 pl-6 border-l-2 border-primary/50 py-1">
-            <span className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5" /> {new Date(guide.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}</span>
+            <span className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5" /> {new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
             <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {guide.readTime}</span>
           </div>
@@ -141,7 +151,7 @@ export default function GuideArticle() {
             prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-primary/[0.01] prose-blockquote:py-8 prose-blockquote:px-12 prose-blockquote:my-16 prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-foreground/90
             prose-hr:border-white/10 prose-hr:my-20
             selection:bg-primary/30 selection:text-white">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}>
             {guide.content}
           </ReactMarkdown>
         </div>
