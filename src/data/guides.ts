@@ -441,6 +441,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> Long stays, visa simplicity, people who like a city that is getting on with its own life.</p>
 
+<p>Neighborhood trade-offs, the 365-day visa-free field, and how winter and 60 Mbps internet actually feel are in the <a href="/guides/living-in-tbilisi">Tbilisi living guide</a>.</p>
+
 <h2><strong>8. Cape Town, South Africa: Beauty, With a Safety Plan</strong></h2>
 
 <p><a href="/destinations/cape-town">Cape Town</a> is mountains, ocean, and English in one city, at a solo baseline of about $1,400. Dataset internet is about 100 Mbps where the fiber is actually in the unit. Many passports get about 90 days visa-free.</p>
@@ -487,7 +489,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the two hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a> and <a href="/guides/living-in-cape-town">living in Cape Town</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the two hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a> and <a href="/guides/living-in-cape-town">living in Cape Town</a> before you pay a deposit. For the long-stay value case, read <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you treat a 365-day stamp as the whole plan. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `

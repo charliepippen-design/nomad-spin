@@ -289,7 +289,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling.
 
-If the alternative is not Asia, the other full living guide in this set is [Cape Town](/guides/living-in-cape-town): solo **$1,400**, safety **5.5**, strong scenery, and power stability **4**. Different problem. Different guide.
+If the alternative is not Asia, the other full living guide in this set is [Cape Town](/guides/living-in-cape-town): solo **$1,400**, safety **5.5**, strong scenery, and power stability **4**. Different problem. Different guide. If you want a Europe-region year at a lower solo month, read [Living in Tbilisi](/guides/living-in-tbilisi): solo **$800**, safety **8.0**, visa-free **365** days, with cold winters and **60 Mbps** on the row.
 
 ## First-week setup checklist and how to compare Chiang Mai on Nomad Spin
 
