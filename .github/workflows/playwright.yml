@@ -9,7 +9,11 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
+      # Vite inlines these at build time. The client reads VITE_SUPABASE_ANON_KEY
+      # and falls back to VITE_SUPABASE_PUBLISHABLE_KEY. Either secret may be unset;
+      # the SPA still renders so these smoke tests are not a white screen.
       VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
     steps:
     - uses: actions/checkout@v4
