@@ -524,8 +524,10 @@ export function guidesForDestination(slug: string): Guide[] {
   return guides.filter((g) => g.relatedDestinations?.includes(slug));
 }
 
-/** Prefer a living guide, then any other guide that names this destination. */
+/** Prefer this city's own living guide, then another living guide that names it. */
 export function editorialGuideForDestination(slug: string): Guide | null {
   const related = guidesForDestination(slug);
+  const ownLiving = related.find((guide) => guide.slug === `living-in-${slug}`);
+  if (ownLiving) return ownLiving;
   return related.find((guide) => guide.slug.startsWith('living-in-')) ?? related[0] ?? null;
 }
