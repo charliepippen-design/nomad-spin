@@ -26,6 +26,7 @@ describe('editorial guide lookup', () => {
     expect(editorialGuideForDestination('barcelona')?.slug).toBe('living-in-barcelona');
     expect(editorialGuideForDestination('budapest')?.slug).toBe('living-in-budapest');
     expect(editorialGuideForDestination('porto')?.slug).toBe('living-in-porto');
+    expect(editorialGuideForDestination('prague')?.slug).toBe('living-in-prague');
     expect(editorialGuideForDestination('valencia')?.slug).toBe('living-in-valencia');
   });
 
