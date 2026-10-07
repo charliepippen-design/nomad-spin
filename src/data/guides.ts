@@ -391,6 +391,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> People who want EU infrastructure and will pay for it.</p>
 
+<p>Neighborhood trade-offs, the monthly cost bands, and how a Schengen visit differs from the D8 are in the <a href="/guides/living-in-lisbon">Lisbon living guide</a>.</p>
+
 <h2><strong>3. Medellín, Colombia: Value, With a Neighborhood Plan</strong></h2>
 
 <p><a href="/destinations/medellin">Medellín</a> stays on the list for the weather and the café map. The solo baseline is about $1,100 a month, against about $2,200 in Lisbon, so the budget gap is real. Internet averages about 80 Mbps. El Poblado and Laureles are where most remote workers base themselves. Many passports get about 90 days visa-free.</p>
@@ -487,7 +489,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the two hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a> and <a href="/guides/living-in-cape-town">living in Cape Town</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, and <a href="/guides/living-in-lisbon">living in Lisbon</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
