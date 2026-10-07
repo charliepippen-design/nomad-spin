@@ -18,6 +18,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
     expect(slugs).toContain('living-in-tbilisi');
+    expect(slugs).toContain('living-in-porto');
     expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
@@ -460,6 +461,69 @@ describe('static guides', () => {
       '](/)',
     ]) {
       expect(g!.content).toContain(href);
+    }
+  });
+
+  it('publishes the Porto living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-porto');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Porto');
+    expect(g!.seoTitle).toBe("Living in Porto 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Porto for remote workers in 2026: real monthly costs, Cedofeita vs Bonfim, D8 visa notes, 200 Mbps internet, top safety, and rainy-winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['porto', 'lisbon', 'barcelona', 'madrid', 'valencia']);
+    expect(g!.content.toLowerCase()).toContain('living in porto as a digital nomad');
+    expect(g!.content).toContain('$1,800');
+    expect(g!.content).toContain('$1,400');
+    expect(g!.content).toContain('$85');
+    expect(g!.content).toContain('$400');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('9.0');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('2 years');
+    expect(g!.content).toContain('Lei 23/2007');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/little sister/i);
+    expect(g!.content).not.toMatch(/porto-alegre|porto-santo/);
+    expect(g!.content).not.toMatch(/2,?849|€|\bEUR\b/i);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/porto',
+      '/destinations/lisbon',
+      '/destinations/barcelona',
+      '/destinations/madrid',
+      '/destinations/valencia',
+      '/destinations/budapest',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-budapest',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Porto worth it for digital nomads in 2026?',
+      'Who Porto is for (and who should skip it)',
+      'Real monthly cost bands: solo $1,800, long-term $1,400, Airbnb $85 a night',
+      'Neighborhoods that work: Cedofeita, Bonfim, Baixa, Boavista, Foz and Matosinhos',
+      'Internet, power, and coworking',
+      'Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)',
+      'Best months (May-Sep) vs rainy, damp winters (Nov-Feb)',
+      'Daily life: food, the river, hills, metro, and a smaller community',
+      'Porto vs Lisbon, Barcelona, Madrid, and Valencia',
+      'First-week checklist and how to compare Porto on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
     }
   });
 
