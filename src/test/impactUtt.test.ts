@@ -14,5 +14,10 @@ describe('Impact.com Universal Tracking Tag', () => {
     expect(head.match(/utt\.impactcdn\.com\/P-A7924825-40d9-43b7-ae9a-ca7878e3bf9c1\.js/g)).toHaveLength(1);
     expect(head).toContain("impactStat('transformLinks')");
     expect(head).toContain("impactStat('trackImpression')");
+
+    const firstScript = head.indexOf('<script');
+    expect(firstScript).toBeGreaterThan(-1);
+    expect(head.slice(firstScript).startsWith(UTT_SNIPPET)).toBe(true);
+    expect(firstScript).toBeLessThan(head.indexOf('googletagmanager.com'));
   });
 });
