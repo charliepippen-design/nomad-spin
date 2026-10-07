@@ -175,11 +175,13 @@ You don't need a perfect ranking of 780+ cities. You need a repeatable filter �
     excerpt: "Bali for remote workers in 2026: real monthly costs, Canggu vs Ubud vs Uluwatu, the C1 and E33G visas, coworking that's actually open, and internet backup plans.",
     date: "2026-10-05",
     updated: "2026-10-05",
-    readTime: "13 min read",
+    readTime: "14 min read",
     relatedDestinations: ["bali","canggu","ubud","seminyak"],
     content: `## Introduction
 
 Bali is one of the easiest places on earth to “move to for a while,” which is exactly why it can also be one of the easiest places to do poorly if you arrive without a plan. On paper, it’s tropical, affordable, full of cafés and coworking spaces, and packed with other remote workers. In reality, it’s an island with huge micro-differences by area, traffic that can consume your day, internet that varies street-by-street, visa rules that change, and a cost of living that ranges from backpacker-cheap to “why am I paying London prices for brunch?”
+
+The dataset row for this island is the [Bali destination page](/destinations/bali). For the same region, compare [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Bangkok](/guides/living-in-bangkok), and [Living in Da Nang](/guides/living-in-da-nang).
 
 This guide is written for people who want a real, on-the-ground setup: where to base yourself (Canggu vs Ubud vs Uluwatu), what it actually costs, how to deal with visas, how to get reliable internet, and how to build a routine that doesn’t collapse into chaos after week two.
 
@@ -2088,6 +2090,8 @@ Still no partner IDs. These slots are last, after the week above. The buttons th
 
 Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years, and it still manages to surprise people the moment they try to live there like an adult with deadlines.
 
+The dataset row for this city is the [Cape Town destination page](/destinations/cape-town). Related living guides: [Living in Lisbon](/guides/living-in-lisbon), [Living in Bali](/guides/living-in-bali), and [Living in Buenos Aires](/guides/living-in-buenos-aires).
+
 If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work, reliably, you need a different mindset: you’ll be planning around the risk of power cuts (load shedding), thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
 
 The upside is huge. Few places give you this combination: world-class nature, strong café culture, genuinely good food, a workable time zone for Europe/UK (and not brutal for the US East Coast), and enough urban energy that you don’t feel like you’re rotting in a beach town.
@@ -2714,7 +2718,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Da Nang for remote workers in 2026: real monthly costs, An Thuong vs Hai Chau, e-visa notes, coworking, 80 Mbps internet, and typhoon-season trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "34 min read",
+    readTime: "33 min read",
     relatedDestinations: ["da-nang"],
     content: `## Is living in Da Nang worth it for digital nomads in 2026?
 
@@ -2898,7 +2902,7 @@ This is operational orientation, not legal advice. Vietnamese immigration rules 
 
 ### What Nomad Spin currently shows
 
-The Da Nang row says **E-Visa**, **90 days**, **UTC+7**. Ho Chi Minh City's row says the same visa pair. Hoi An's row says **Tourist Visa**, **90 days**, and Hanoi's row says **Tourist Visa**, **90 days**. Same country, two labels in the dataset. Use the Da Nang field as the product on [the city page](/destinations/da-nang): an e-visa measured in days, up to 90, not a residence card. Do not treat the label gap between cities as two different laws.
+The Da Nang row says **E-Visa**, **90 days**, **UTC+7**. Ho Chi Minh City, Hoi An, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Da Nang field on [the city page](/destinations/da-nang): an e-visa measured in days, up to 90, not a residence card.
 
 ### What the Immigration Department publishes
 
@@ -3000,14 +3004,14 @@ Private clinics in the central and beach districts handle the usual nomad proble
 
 ## Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. For Vietnam, read the visa section before you treat two labels as two laws.
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**.
 
 | Field | Da Nang | Chiang Mai | Bali | Hoi An | Ho Chi Minh City |
 |---|---|---|---|---|---|
 | Solo month | $700 | $850 | $1,200 | $900 | $800 |
 | Internet | 80 Mbps | 95 Mbps | 50 Mbps | 80 Mbps | 85 Mbps |
 | Safety | 8.5 | 8.2 | 7.8 | 9.0 | 7.5 |
-| Visa field in Nomad Spin | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | Tourist Visa, 90 days | E-Visa, 90 days |
+| Visa field in Nomad Spin | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | E-Visa, 90 days | E-Visa, 90 days |
 | Best months | Feb-Jul | Nov-Feb | Apr-Sep | Feb-May | Dec-Apr |
 
 **Stay with Da Nang** when you want the **$700** beach, safety **8.5**, and you can take **Feb-Jul** plus a **90-day** e-visa field. You accept community **5**, nightlife **3**, coworking **Med**, and a real **Sep-Dec** storm season.
@@ -3281,7 +3285,7 @@ This is operational orientation, not legal advice. Vietnamese immigration rules 
 
 ### What Nomad Spin currently shows
 
-The Ho Chi Minh City row says **E-Visa**, **90 days**, **UTC+7**. Da Nang's row says the same visa pair. Hoi An's row says **Tourist Visa**, **90 days**, and Hanoi's row says **Tourist Visa**, **90 days**. Same country, two labels in the dataset. Use the Ho Chi Minh City field as the product on [the city page](/destinations/ho-chi-minh-city): an e-visa measured in days, up to 90, not a residence card. Do not treat the label gap between cities as two different laws.
+The Ho Chi Minh City row says **E-Visa**, **90 days**, **UTC+7**. Da Nang, Hoi An, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Ho Chi Minh City field on [the city page](/destinations/ho-chi-minh-city): an e-visa measured in days, up to 90, not a residence card.
 
 ### What the Immigration Department publishes
 
@@ -3387,14 +3391,14 @@ Community **7** and the "growing startup scene" pro can both be true. You can me
 
 ## Ho Chi Minh City vs Da Nang, Hoi An, Bangkok, Chiang Mai
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. For Vietnam, read the visa section before you treat two labels as two laws. For Thailand, the field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. It is not the old 60-day exemption.
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**. For Thailand, the field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. It is not the old 60-day exemption.
 
 | Field | Ho Chi Minh City | Da Nang | Hoi An | Bangkok | Chiang Mai |
 |---|---|---|---|---|---|
 | Solo month | $800 | $700 | $900 | $1,100 | $850 |
 | Internet | 85 Mbps | 80 Mbps | 80 Mbps | 120 Mbps | 95 Mbps |
 | Safety | 7.5 | 8.5 | 9.0 | 7.8 | 8.2 |
-| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | Tourist Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Tourism exemption, 30 days (passport-dependent) |
+| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Tourism exemption, 30 days (passport-dependent) |
 | Best months | Dec-Apr | Feb-Jul | Feb-May | Nov-Mar | Nov-Feb |
 
 **Stay with Ho Chi Minh City** when you want the **$800** city, coworking **High**, community **7**, nightlife **7**, and you can take **Dec-Apr** plus a **90-day** e-visa field. You accept traffic, air pollution, humidity, noise, and visa complexity. The dry season is why it pairs with Chiang Mai and Bangkok, not with Da Nang's beach calendar.

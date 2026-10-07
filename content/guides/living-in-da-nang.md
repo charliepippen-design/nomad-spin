@@ -180,7 +180,7 @@ This is operational orientation, not legal advice. Vietnamese immigration rules 
 
 ### What Nomad Spin currently shows
 
-The Da Nang row says **E-Visa**, **90 days**, **UTC+7**. Ho Chi Minh City's row says the same visa pair. Hoi An's row says **Tourist Visa**, **90 days**, and Hanoi's row says **Tourist Visa**, **90 days**. Same country, two labels in the dataset. Use the Da Nang field as the product on [the city page](/destinations/da-nang): an e-visa measured in days, up to 90, not a residence card. Do not treat the label gap between cities as two different laws.
+The Da Nang row says **E-Visa**, **90 days**, **UTC+7**. Ho Chi Minh City, Hoi An, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Da Nang field on [the city page](/destinations/da-nang): an e-visa measured in days, up to 90, not a residence card.
 
 ### What the Immigration Department publishes
 
@@ -282,14 +282,14 @@ Private clinics in the central and beach districts handle the usual nomad proble
 
 ## Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. For Vietnam, read the visa section before you treat two labels as two laws.
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**.
 
 | Field | Da Nang | Chiang Mai | Bali | Hoi An | Ho Chi Minh City |
 |---|---|---|---|---|---|
 | Solo month | $700 | $850 | $1,200 | $900 | $800 |
 | Internet | 80 Mbps | 95 Mbps | 50 Mbps | 80 Mbps | 85 Mbps |
 | Safety | 8.5 | 8.2 | 7.8 | 9.0 | 7.5 |
-| Visa field in Nomad Spin | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | Tourist Visa, 90 days | E-Visa, 90 days |
+| Visa field in Nomad Spin | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | E-Visa, 90 days | E-Visa, 90 days |
 | Best months | Feb-Jul | Nov-Feb | Apr-Sep | Feb-May | Dec-Apr |
 
 **Stay with Da Nang** when you want the **$700** beach, safety **8.5**, and you can take **Feb-Jul** plus a **90-day** e-visa field. You accept community **5**, nightlife **3**, coworking **Med**, and a real **Sep-Dec** storm season.

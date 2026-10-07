@@ -10,7 +10,8 @@ import {
   destinationMetaDescription,
   destinationPageTitle,
   destinationJsonLd,
-  relatedGuidesForCity,
+  destinationFieldGuideHtml,
+  hubRelatedGuides,
   formatMonths,
 } from '../src/lib/destinationSeo';
 import { visaPathSentence } from '../src/lib/visaCopy';
@@ -162,12 +163,13 @@ function destinationBodyHtml(city: City, slug: string): string {
   const landscapes = (city.landscape ?? []).map((l) => `<li>${esc(l)}</li>`).join('');
   const best = formatMonths(city.weather?.bestMonths);
   const rainy = formatMonths(city.weather?.rainyMonths);
-  const related = relatedGuidesForCity(city);
+  const related = hubRelatedGuides(city);
+  const fieldGuideHtml = destinationFieldGuideHtml(city);
   const relatedHtml = related.length
     ? `<h2>Related guides</h2><ul>${related
         .map(
           (g) =>
-            `<li><a href="${BASE_URL}/guides/${esc(g.slug)}" style="color:#34d399">${esc(g.title)}</a> — ${esc(g.excerpt)}</li>`
+            `<li><a href="${BASE_URL}/guides/${esc(g.slug)}" style="color:#34d399">${esc(g.title)}</a>: ${esc(g.excerpt)}</li>`
         )
         .join('')}</ul>`
     : '';
@@ -176,6 +178,7 @@ function destinationBodyHtml(city: City, slug: string): string {
 <main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
   <p><a href="/" style="color:#34d399">← Spin the globe</a> · <a href="/guides" style="color:#34d399">Guides</a></p>
   <h1>${esc(city.name)}, ${esc(city.country)}</h1>
+  ${fieldGuideHtml}
   <p>${esc(intro)}</p>
   <h2>Key stats for digital nomads</h2>
   <ul>

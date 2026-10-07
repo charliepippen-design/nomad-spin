@@ -85,6 +85,23 @@ describe('Thailand tourism exemption wording', () => {
   });
 });
 
+describe('Vietnam e-visa label', () => {
+  it('uses E-Visa 90 on every Vietnam row, including Hanoi, Hoi An, and Da Nang Outskirts', () => {
+    const rows = byCountry('VN');
+    const names = new Set(rows.map((city) => city.name));
+    for (const name of ['Da Nang', 'Ho Chi Minh City', 'Hanoi', 'Hoi An', 'Da Nang Outskirts', 'Phan Thiet']) {
+      expect(names.has(name)).toBe(true);
+    }
+    expect(rows.length).toBeGreaterThanOrEqual(8);
+
+    for (const city of rows) {
+      expect(city.meta.visaType).toBe('E-Visa');
+      expect(city.meta.visaDays).toBe(90);
+      expect(city.visa).toEqual({ type: 'E-Visa', days: 90 });
+    }
+  });
+});
+
 describe('living guide visa sections', () => {
   it('cites the Vietnam e-visa portal and the Finance circular in the Hoi An guide', () => {
     const md = fs.readFileSync(

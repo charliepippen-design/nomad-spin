@@ -342,12 +342,12 @@ export const batch5OtherCities = [
   // ── Vietnam ──
   city({ id: 'da-nang-outskirts-vn', name: 'Da Nang Outskirts', country: 'Vietnam', cc: 'VN', lat: 16.07, lng: 108.22, region: 'Asia',
     vibe: ['beach', 'family'], safety: 8, cost: 750, internet: 70, coworking: 'Low', nightlife: 2, community: 4, lgbt: 4, femaleSafety: 7, english: 3,
-    bestMonths: ['Feb', 'Mar', 'Apr', 'May'], rainyMonths: ['Oct', 'Nov', 'Dec'], tempC: 26, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+7',
+    bestMonths: ['Feb', 'Mar', 'Apr', 'May'], rainyMonths: ['Oct', 'Nov', 'Dec'], tempC: 26, visaType: 'E-Visa', visaDays: 90, tz: 'UTC+7',
     pros: ['Cheaper villas', 'Quiet neighborhoods'], cons: ['Transport needed', 'Construction'], landscape: ['seaside'], dataSource: 'estimated',
   }),
   city({ id: 'phan-thiet-vn', name: 'Phan Thiet', country: 'Vietnam', cc: 'VN', lat: 10.93, lng: 108.10, region: 'Asia',
     vibe: ['beach', 'adventure'], safety: 7, cost: 900, internet: 60, coworking: 'Low', nightlife: 2, community: 4, lgbt: 4, femaleSafety: 6, english: 3,
-    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 27, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+7',
+    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 27, visaType: 'E-Visa', visaDays: 90, tz: 'UTC+7',
     pros: ['Coastal city near Mui Ne', 'Cheap'], cons: ['Very limited nomad scene'], landscape: ['seaside'], dataSource: 'estimated',
   }),
   // ── USA (more) ──

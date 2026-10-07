@@ -36,6 +36,10 @@ export const THAILAND_LEGAL_NOTES = [
   'Length depends on passport. The exemption is for tourism. The Destination Thailand Visa (DTV) is a separate long-stay path; confirm length and eligibility on the official checklist.',
 ];
 
+/** Same national e-visa for every Vietnam row. Label matches Da Nang and Ho Chi Minh City. */
+export const VIETNAM_EVISA_TYPE = 'E-Visa';
+export const VIETNAM_EVISA_DAYS = 90;
+
 function isDigitalNomadLabel(visaType: string): boolean {
   return /digital nomad/i.test(visaType);
 }
@@ -44,6 +48,7 @@ function isDigitalNomadLabel(visaType: string): boolean {
  * Attach official visa notes for Spain, Portugal, and Thailand.
  * Does not change Spain or Portugal visaDays (that remap is not high certainty).
  * Every Thailand row becomes the passport-dependent 30-day tourism exemption.
+ * Every Vietnam 90-day row uses the E-Visa label already on Da Nang and Ho Chi Minh City.
  */
 export function applyOfficialVisaFacts<T extends City>(city: T): T {
   if (city.countryCode === 'ES' && isDigitalNomadLabel(city.meta.visaType)) {
@@ -77,6 +82,18 @@ export function applyOfficialVisaFacts<T extends City>(city: T): T {
       },
       visa: { type: THAILAND_TOURISM_VISA_TYPE, days: THAILAND_TOURISM_VISA_DAYS },
       legalNotes: THAILAND_LEGAL_NOTES,
+    };
+  }
+
+  if (
+    city.countryCode === 'VN' &&
+    city.meta.visaDays === VIETNAM_EVISA_DAYS &&
+    city.meta.visaType !== VIETNAM_EVISA_TYPE
+  ) {
+    return {
+      ...city,
+      meta: { ...city.meta, visaType: VIETNAM_EVISA_TYPE },
+      visa: { type: VIETNAM_EVISA_TYPE, days: VIETNAM_EVISA_DAYS },
     };
   }
 

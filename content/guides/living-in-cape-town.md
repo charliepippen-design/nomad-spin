@@ -2,6 +2,8 @@
 
 Cape Town isn’t a “hidden gem.” It’s a loud, dramatic, complicated city that’s been on every remote worker’s radar for years, and it still manages to surprise people the moment they try to live there like an adult with deadlines.
 
+The dataset row for this city is the [Cape Town destination page](/destinations/cape-town). Related living guides: [Living in Lisbon](/guides/living-in-lisbon), [Living in Bali](/guides/living-in-bali), and [Living in Buenos Aires](/guides/living-in-buenos-aires).
+
 If you’re coming for a month of sunshine and Instagram sunsets, you can have that. If you’re coming to actually live and work, reliably, you need a different mindset: you’ll be planning around the risk of power cuts (load shedding), thinking about neighborhood safety and walkability, choosing a place based on fiber availability, and learning that two apartments at the same price can represent completely different realities.
 
 The upside is huge. Few places give you this combination: world-class nature, strong café culture, genuinely good food, a workable time zone for Europe/UK (and not brutal for the US East Coast), and enough urban energy that you don’t feel like you’re rotting in a beach town.
