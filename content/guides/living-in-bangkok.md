@@ -1,6 +1,6 @@
 ## Is living in Bangkok still worth it for digital nomads in 2026?
 
-A straight answer on living in Bangkok as a digital nomad: still a rational yes in 2026 if you want a Southeast Asian megacity that can hold a work week, and a bad default if heat, traffic, or air will decide the month for you. The row on [Bangkok](/destinations/bangkok) is the spine: solo month **$1,100**, longer stay **$800**, nightly Airbnb median **$45**, internet **120 Mbps** with reliability **8/10**, power stability **8**, coworking density **High**, safety **7.8**. The same page tags it `party`, `foodie`, and `workhub`, on an urban landscape, in Asia, in Thai, at **UTC+7**. Best months are **Nov, Dec, Jan, Feb, Mar**. Rainy months are **Jun, Jul, Aug, Sep, Oct**. Annual average temperature is **29°C**. The visa field is **Visa Exemption**. If the city page still shows up to **60 days**, that field predates the 15 September 2026 change.
+A straight answer on living in Bangkok as a digital nomad: still a rational yes in 2026 if you want a Southeast Asian megacity that can hold a work week, and a bad default if heat, traffic, or air will decide the month for you. The row on [Bangkok](/destinations/bangkok) is the spine: solo month **$1,100**, longer stay **$800**, nightly Airbnb median **$45**, internet **120 Mbps** with reliability **8/10**, power stability **8**, coworking density **High**, safety **7.8**. The same page tags it `party`, `foodie`, and `workhub`, on an urban landscape, in Asia, in Thai, at **UTC+7**. Best months are **Nov, Dec, Jan, Feb, Mar**. Rainy months are **Jun, Jul, Aug, Sep, Oct**. Annual average temperature is **29°C**. The visa field is **Tourism Visa Exemption**, **30 days**. That length depends on your passport, and the exemption is for tourism only. The Destination Thailand Visa (DTV) is the long-stay path. The [PRD notice](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) (Royal Gazette 31 Aug 2026, effective 15 Sep 2026) is the official summary.
 
 How much does it cost to live in Bangkok as a digital nomad? Nomad Spin lists about **$1,100** a month solo and about **$800** long-term, with a median Airbnb around **$45** a night. Condos near a BTS station cost more. An On Nut-style pin cuts rent. Street food keeps food spend flexible if you stay out of tourist-only zones.
 
@@ -36,7 +36,7 @@ Who should skip living in Bangkok? Skip it if you hate extreme heat, traffic, or
 - Need the **$800** figure while living on Thonglor and eating every meal in Thonglor cafes
 - Need a safety floor above **7.8**, or a female-safety floor above **7**. [Chiang Mai](/destinations/chiang-mai) is **8.2** with female safety **8**. [Lisbon](/destinations/lisbon) is **8.8** with female safety **8**
 - Need US morning calls and will not work in the evening. **UTC+7** is not a US clock. [Mexico City](/destinations/mexico-city) is **UTC-6**. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row
-- Need a year of legal stay and will not assemble a real visa file. The destination row says visa exemption. If it still shows **60 days**, that field predates the September 2026 change, which shortened the tourism exemption. The visa section is the correction
+- Need a year of legal stay and will not assemble a real visa file. The destination row is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. The DTV is the long-stay path. The visa section is the detail
 - Need a high LGBTQ+ score as a hard filter above this row. `lgbtFriendly` here is **7** (Lisbon's is **9**). Overall safety **7.8** does not answer that question
 
 If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
@@ -158,21 +158,21 @@ Malls along the BTS (the big ones at Phrom Phong, Asok, and Siam) are a daytime 
 - A quiet corner with a door, if you talk for a living
 - A named fallback (a confirmed coworking branch, or a second SIM) written down before you need it
 
-## Visas and stay length: 60-day exemption vs longer options including DTV (verify official rules)
+## Visas and stay length: 30-day tourism exemption vs longer options including DTV (verify official rules)
 
-This is operational orientation, not legal advice. Thai entry rules changed during 2026. The number on our city page did not.
+This is operational orientation, not legal advice. Thai tourism exemptions changed on 15 September 2026. The city page shows that 30-day tourism exemption.
 
-What visa or stay options do digital nomads use in Bangkok? Nomad Spin lists Visa Exemption (**UTC+7**). If the city page still shows **60 days**, that field predates the change. Longer stays often use Thailand's Destination Thailand Visa (DTV). Verify official sources before you plan past the stamp.
+What visa or stay options do digital nomads use in Bangkok? Nomad Spin lists **Tourism Visa Exemption**, **30 days**, on **UTC+7**. That length depends on your passport, and the exemption is for tourism only. Longer stays often use Thailand's Destination Thailand Visa (DTV). Verify official sources before you plan past the stamp.
 
 ### What Nomad Spin currently shows
 
-The Bangkok row says **Visa Exemption**. Chiang Mai's row uses the same type. If either city page still shows **60 days**, that field predates the 15 September 2026 change. That is the product field on [/destinations/bangkok](/destinations/bangkok) and [/destinations/chiang-mai](/destinations/chiang-mai). Do not use it as the rule.
+The Bangkok row says **Tourism Visa Exemption**, **30 days**. Chiang Mai's row uses the same pair. That is the product field on [/destinations/bangkok](/destinations/bangkok) and [/destinations/chiang-mai](/destinations/chiang-mai). It matches the common case in the government notice (**60** countries and territories). It is not a stay for every passport, and it is not permission to work locally.
 
 ### What the government published
 
 On 4 September 2026 the Government Public Relations Department summarized a revision already published in the Royal Gazette on 31 August 2026, effective **15 September 2026**. The measures include revoking the **60-day** visa exemption scheme, a **30-day** tourism exemption for **60** countries and territories, a **15-day** tourism exemption for two countries and territories, and a shorter visa-on-arrival list (three countries and territories). The notice says this review covers those exemption and visa-on-arrival schemes for tourism, and does not by itself rewrite other visa categories. Stays already stamped before the change run to the date on the stamp.
 
-If the destination page says 60 and the stamp says 30, believe the stamp. Read the [government summary](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) and the Thai mission for your passport before you pay for a non-refundable month. The Department of Consular Affairs publishes the country list. This guide will not copy all 60 countries, because that list is the government's and it can be amended. Your passport may be on the shorter scheme, on visa on arrival, or on "visa in advance."
+Read the [government summary](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) and the Thai mission for your passport before you pay for a non-refundable month. If your stamp says fewer days than the page, believe the stamp. The Department of Consular Affairs publishes the country list. This guide will not copy all 60 countries, because that list is the government's and it can be amended. Your passport may be on the shorter scheme, on visa on arrival, or on "visa in advance."
 
 Since 1 May 2025, foreigners have had to complete the Thailand Digital Arrival Card before entry. The Immigration Bureau's own site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), says the card is required, that you submit it up to three days before arrival, and that it is not a visa. Fill it in yourself on that site. Do not pay a random site to do it.
 
@@ -281,14 +281,14 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Safety | 7.8 (female 7) | 8.2 (female 8) | 7.8 | 8.5 | 6.0 (female 5) |
 | Nightlife | 9 | 5 | 8 | 3 | 9 |
 | Community | 8 | 9 | 9 | 5 | 8 |
-| Visa field in Nomad Spin | Exemption; 60 days if the page still shows it | Exemption; 60 days if the page still shows it | Visa on Arrival, 30 days | E-Visa, 90 days | Exemption, 180 days |
+| Visa field in Nomad Spin | Tourism exemption, 30 days (passport-dependent) | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | E-Visa, 90 days | Exemption, 180 days |
 | Time zone | UTC+7 | UTC+7 | UTC+8 | UTC+7 | UTC-6 |
 | Best months | Nov-Mar | Nov-Feb | Apr-Sep | Feb-Jul | Mar-May, Nov |
 | Hard part on the row | Heat, traffic, air | Burning season Mar-Apr, no beach | Patchy Wi-Fi, traffic | Typhoon season, rainy Sep-Dec | Air, altitude, safety |
 
-**Stay with Bangkok** when you want nightlife **9**, food at this scale, **120 Mbps** with reliability **8**, and a SE Asia flight hub, and you will live on a train line inside **$1,100** (or **$800** if that is the real ceiling). You accept heat, traffic, and air. If the visa field still shows 60 days, that number predates the September 2026 change.
+**Stay with Bangkok** when you want nightlife **9**, food at this scale, **120 Mbps** with reliability **8**, and a SE Asia flight hub, and you will live on a train line inside **$1,100** (or **$800** if that is the real ceiling). You accept heat, traffic, and air. The visa field is a 30-day tourism exemption and it depends on your passport. The DTV is the long-stay path.
 
-**Choose Chiang Mai** when you want community **9** at **$850**, safety **8.2**, and you can take Nov-Feb. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. If the Bangkok or Chiang Mai page still shows a 60-day exemption, that field predates the September 2026 change. Check the embassy either way. Pick Chiang Mai if the megacity cons are the thing you keep negotiating with yourself about.
+**Choose Chiang Mai** when you want community **9** at **$850**, safety **8.2**, and you can take Nov-Feb. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. The visa field is the same 30-day tourism exemption. Check the embassy either way. Pick Chiang Mai if the megacity cons are the thing you keep negotiating with yourself about.
 
 **Look at Bali** when you want the beach and community **9**, and you accept **$1,200**, internet reliability **5**, and a visa-on-arrival field of **30 days**. Read [Living in Bali](/guides/living-in-bali) before you assume the island is Bangkok with sand. [Canggu](/destinations/canggu), [Ubud](/destinations/ubud), and [Seminyak](/destinations/seminyak) are different pins on [Bali](/destinations/bali). None of them are a 120 Mbps city average.
 
@@ -302,7 +302,7 @@ If the alternative is not a peer in that table, [Cape Town](/guides/living-in-ca
 
 ### Common mistakes
 
-- Treating the **60-day** exemption field as the current rule after 15 September 2026
+- Treating the revoked **60-day** exemption as the current rule after 15 September 2026
 - Paying the **$45** nightly median for thirty nights and calling the month **$1,100**
 - Choosing Thonglor, then acting surprised that the long-stay **$800** figure did not survive contact with restaurants
 - Booking a condo that needs a taxi to the BTS, then blaming Bangkok traffic
@@ -351,6 +351,6 @@ Still no partner IDs. These slots are last, after the week above, not before the
 4. If Chiang Mai is still in the pile, open the [Chiang Mai living guide](/guides/living-in-chiang-mai) and compare nightlife **5** and **$850** against nightlife **9** and **$1,100**. If Bali is still in the pile, open [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) and compare reliability **5** against Bangkok's **8**.
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
-[Spin the globe](/) with those floors. Bangkok should win when you want the megacity, the trains, and Nov-Mar. It should lose when you need Chiang Mai's pace, a beach, a US morning, or a plan that treats a 60-day field as the current rule.
+[Spin the globe](/) with those floors. Bangkok should win when you want the megacity, the trains, and Nov-Mar. It should lose when you need Chiang Mai's pace, a beach, a US morning, or a plan that treats the revoked 60-day exemption as the current rule.
 
-*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,100, $800, $45, 120 Mbps, 8/10, and 7.8 figures are Nomad Spin's Bangkok row. If that row still shows 60 visa days, the field predates the exemption change. The exemption change and the DTV notes are the Thai government's published notices. When they disagree, the embassy and your stamp win.*
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,100, $800, $45, 120 Mbps, 8/10, and 7.8 figures are Nomad Spin's Bangkok row. The visa field is a 30-day tourism exemption (passport-dependent, tourism only). The exemption change and the DTV notes are the Thai government's published notices. When they disagree, the embassy and your stamp win.*

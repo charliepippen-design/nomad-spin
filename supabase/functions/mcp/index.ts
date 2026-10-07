@@ -3,11 +3,69 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp, auth } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineMcp, auth } from "npm:@lovable.dev/mcp-js@0.20.1";
 
 // src/lib/mcp/tools/search-cities.ts
-import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.1";
 import { z } from "npm:zod@^4.4.3";
+
+// src/data/cities/visaFacts.ts
+var SPAIN_DN_VISA_NOTE = "1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies).";
+var SPAIN_DN_LEGAL_NOTES = [
+  "Telework visa: up to 1 year at a Spanish consulate. https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx",
+  "Residence authorization up to 3 years, renewals of 2 years: Ley 14/2013 art. 74 quinquies. https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+  "Income is a share of the Spanish minimum wage (200% of SMI for the main applicant on official pages). Check the current euro amount and fees before you apply."
+];
+var PORTUGAL_DN_VISA_NOTE = "Temp-stay visa under 1 year, or D8 residency visa (4 months) then a 2-year permit, renew 3 (Lei 23/2007 art. 75).";
+var PORTUGAL_D7_LABEL_NOTE = "This row is labeled D7/Digital Nomad Visa. D7 is a separate passive-income visa. Check official MNE and AIMA sources before you treat that label as the remote-work route.";
+var PORTUGAL_DN_LEGAL_NOTES = [
+  "Visa types: https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
+  "Temporary residence permit: 2 years from issue, renewable for successive 3-year periods (Lei 23/2007 art. 75). https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445",
+  "AIMA remote-work residence permit (art. 88(1)): https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe",
+  "Income threshold, fees, and AIMA timelines: check official MNE and AIMA pages. Do not use a euro figure from a secondary site."
+];
+var THAILAND_TOURISM_VISA_TYPE = "Tourism Visa Exemption";
+var THAILAND_TOURISM_VISA_DAYS = 30;
+var THAILAND_TOURISM_VISA_NOTE = "Tourism only, and the length depends on your passport: 30 days for 60 countries and territories, 15 days for two, and visa on arrival for three (Thailand PRD, Royal Gazette 31 Aug 2026, effective 15 Sep 2026). The former 60-day exemption was revoked. Longer stays: Destination Thailand Visa (DTV). Confirm eligibility on the official notice.";
+var THAILAND_LEGAL_NOTES = [
+  "Tourism visa exemption, effective 15 Sep 2026 (the 60-day scheme was revoked): https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547",
+  "Length depends on passport. The exemption is for tourism. The Destination Thailand Visa (DTV) is a separate long-stay path; confirm length and eligibility on the official checklist."
+];
+function isDigitalNomadLabel(visaType) {
+  return /digital nomad/i.test(visaType);
+}
+function applyOfficialVisaFacts(city2) {
+  if (city2.countryCode === "ES" && isDigitalNomadLabel(city2.meta.visaType)) {
+    return {
+      ...city2,
+      meta: { ...city2.meta, visaNote: SPAIN_DN_VISA_NOTE },
+      legalNotes: SPAIN_DN_LEGAL_NOTES
+    };
+  }
+  if (city2.countryCode === "PT" && isDigitalNomadLabel(city2.meta.visaType)) {
+    const d7Label = /d7/i.test(city2.meta.visaType);
+    const visaNote = d7Label ? `${PORTUGAL_DN_VISA_NOTE} ${PORTUGAL_D7_LABEL_NOTE}` : PORTUGAL_DN_VISA_NOTE;
+    return {
+      ...city2,
+      meta: { ...city2.meta, visaNote },
+      legalNotes: PORTUGAL_DN_LEGAL_NOTES
+    };
+  }
+  if (city2.countryCode === "TH") {
+    return {
+      ...city2,
+      meta: {
+        ...city2.meta,
+        visaType: THAILAND_TOURISM_VISA_TYPE,
+        visaDays: THAILAND_TOURISM_VISA_DAYS,
+        visaNote: THAILAND_TOURISM_VISA_NOTE
+      },
+      visa: { type: THAILAND_TOURISM_VISA_TYPE, days: THAILAND_TOURISM_VISA_DAYS },
+      legalNotes: THAILAND_LEGAL_NOTES
+    };
+  }
+  return city2;
+}
 
 // src/data/cities/builder.ts
 function inferLandscape(d) {
@@ -175,7 +233,7 @@ function inferLanguage(cc) {
 }
 function city(d) {
   const developed = d.region === "Europe" || d.region === "North America" || d.region === "Oceania";
-  return {
+  return applyOfficialVisaFacts({
     id: d.id,
     name: d.name,
     country: d.country,
@@ -219,7 +277,7 @@ function city(d) {
     costUSD: d.cost,
     internetMbps: d.internet,
     visa: { type: d.visaType, days: d.visaDays }
-  };
+  });
 }
 
 // src/data/cities/new-asia.ts
@@ -272,8 +330,8 @@ var newAsiaCities = [
     bestMonths: ["Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Oct", "Nov", "Dec"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Island paradise", "Beach lifestyle", "Developed"],
     cons: ["Expensive for Thailand", "Isolated", "Tourist traps"]
@@ -299,8 +357,8 @@ var newAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Beaches", "Water sports", "Developed"],
     cons: ["Tourist traps", "Expensive", "Crowded"]
@@ -6720,8 +6778,8 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Limestone cliffs", "Beaches", "Rock climbing"],
     cons: ["Tourist season crowded"]
@@ -6747,8 +6805,8 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Sep", "Oct"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Beach resort", "Golf", "Royal town"],
     cons: ["Quiet", "Older expat crowd"]
@@ -6774,8 +6832,8 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 23,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Hippie village", "Mountains", "Chill"],
     cons: ["Very small", "Slow internet", "Remote"],
@@ -6802,8 +6860,8 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 24,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Golden Triangle", "Temples", "Less touristy"],
     cons: ["Small", "Limited nightlife"]
@@ -6829,8 +6887,8 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Beach city", "Nightlife", "Expat services"],
     cons: ["Seedy reputation", "Overdeveloped"]
@@ -17778,8 +17836,8 @@ var batch5OtherCities = [
     bestMonths: ["Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Nov", "Dec"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Southern hub", "Low costs"],
     cons: ["Few foreigners", "Transit reputation"],
@@ -17807,8 +17865,8 @@ var batch5OtherCities = [
     bestMonths: ["Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Oct", "Nov"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Cheap base for islands", "Local feel"],
     cons: ["Not very pretty", "Transit city"],
@@ -17836,8 +17894,8 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jul", "Aug", "Sep"],
     tempC: 27,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Authentic Isan", "Very cheap"],
     cons: ["Limited entertainment", "English"],
@@ -17865,8 +17923,8 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jul", "Aug", "Sep"],
     tempC: 27,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["University town", "Central Isan"],
     cons: ["Few tourists", "Basic scene"],
@@ -17894,8 +17952,8 @@ var batch5OtherCities = [
     bestMonths: ["Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Sep", "Oct", "Nov"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Gateway to quiet islands", "Cheap"],
     cons: ["Small", "Slow internet"],
@@ -17923,8 +17981,8 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["May", "Jun", "Sep", "Oct"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Cheaper housing away from beaches"],
     cons: ["Need scooter/car", "Less scenic"],
@@ -17952,8 +18010,8 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["May", "Jun", "Sep", "Oct"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Digital nomad-friendly island", "Quieter than Phuket"],
     cons: ["Seasonal", "Slower internet"],
@@ -17981,8 +18039,8 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Big island", "Nature", "Affordable"],
     cons: ["Infrastructure patchy", "Rain"],
@@ -20067,8 +20125,8 @@ var batch6MixedBCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Tiny island", "Quiet", "Few tourists"],
     cons: ["Very limited internet", "Services"],
@@ -20096,8 +20154,8 @@ var batch6MixedBCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 28,
-    visaType: "DTV",
-    visaDays: 1825,
+    visaType: "Tourism Visa Exemption",
+    visaDays: 30,
     tz: "UTC+7",
     pros: ["Off-grid feel but near Krabi"],
     cons: ["Slow internet", "Basic"],
@@ -21275,12 +21333,12 @@ var existingCitiesRaw = [
     infra: { internetSpeedAvg: 95, internetReliability: 8, coworkingDensity: "High", powerGridStability: 8 },
     vibeMetrics: { nightlife: 5, communitySize: 9, lgbtFriendly: 6, femaleSafety: 8, englishProficiency: 5 },
     weather: { bestMonths: ["Nov", "Dec", "Jan", "Feb"], rainyMonths: ["Jun", "Jul", "Aug", "Sep"], tempAvgC: 28 },
-    meta: { visaType: "Visa Exemption", visaDays: 60, timeZoneUtc: "UTC+7" },
+    meta: { visaType: "Tourism Visa Exemption", visaDays: 30, timeZoneUtc: "UTC+7" },
     pros: ["Incredible street food", "Huge nomad community", "Very affordable", "Beautiful temples", "Excellent coworking spaces"],
     cons: ["Burning season (Mar-Apr)", "No beach", "Hot season is intense", "Language barrier outside city", "Traffic congestion"],
     costUSD: 850,
     internetMbps: 95,
-    visa: { type: "Visa Exemption", days: 60 }
+    visa: { type: "Tourism Visa Exemption", days: 30 }
   },
   {
     id: "bali-id",
@@ -21485,12 +21543,12 @@ var existingCitiesRaw = [
     infra: { internetSpeedAvg: 120, internetReliability: 8, coworkingDensity: "High", powerGridStability: 8 },
     vibeMetrics: { nightlife: 9, communitySize: 8, lgbtFriendly: 7, femaleSafety: 7, englishProficiency: 5 },
     weather: { bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"], rainyMonths: ["Jun", "Jul", "Aug", "Sep", "Oct"], tempAvgC: 29 },
-    meta: { visaType: "Visa Exemption", visaDays: 60, timeZoneUtc: "UTC+7" },
+    meta: { visaType: "Tourism Visa Exemption", visaDays: 30, timeZoneUtc: "UTC+7" },
     pros: ["World-class street food", "Amazing temples", "Great nightlife", "Modern infrastructure", "Hub for SE Asia travel"],
     cons: ["Extreme heat", "Traffic nightmares", "Air pollution", "Tourist scams", "Chaotic city planning"],
     costUSD: 1100,
     internetMbps: 120,
-    visa: { type: "Visa Exemption", days: 60 }
+    visa: { type: "Tourism Visa Exemption", days: 30 }
   },
   {
     id: "barcelona-es",
@@ -22094,12 +22152,12 @@ var existingCitiesRaw = [
     infra: { internetSpeedAvg: 40, internetReliability: 5, coworkingDensity: "Low", powerGridStability: 5 },
     vibeMetrics: { nightlife: 8, communitySize: 6, lgbtFriendly: 6, femaleSafety: 7, englishProficiency: 5 },
     weather: { bestMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"], rainyMonths: ["Oct", "Nov", "Dec"], tempAvgC: 28 },
-    meta: { visaType: "Visa Exemption", visaDays: 60, timeZoneUtc: "UTC+7" },
+    meta: { visaType: "Tourism Visa Exemption", visaDays: 30, timeZoneUtc: "UTC+7" },
     pros: ["Full moon parties", "Beautiful beaches", "Yoga community", "Affordable", "Island life"],
     cons: ["Inconsistent WiFi", "Limited healthcare", "Monsoon season", "Remote", "Basic infrastructure"],
     costUSD: 900,
     internetMbps: 40,
-    visa: { type: "Visa Exemption", days: 60 }
+    visa: { type: "Tourism Visa Exemption", days: 30 }
   },
   {
     id: "santiago-cl",
@@ -22270,7 +22328,7 @@ var existingCitiesRaw = [
     visa: { type: "Visa Required", days: 180 }
   }
 ];
-var existingCities = existingCitiesRaw.map(withDefaults);
+var existingCities = existingCitiesRaw.map((c) => applyOfficialVisaFacts(withDefaults(c)));
 var cities = [
   ...existingCities,
   ...newAsiaCities,
@@ -22330,7 +22388,7 @@ var search_cities_default = defineTool({
 });
 
 // src/lib/mcp/tools/get-city.ts
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.1";
 import { z as z2 } from "npm:zod@^4.4.3";
 var get_city_default = defineTool2({
   name: "get_city",
@@ -22359,7 +22417,7 @@ var get_city_default = defineTool2({
 });
 
 // src/lib/mcp/tools/spin-destination.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
+import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.1";
 import { z as z3 } from "npm:zod@^4.4.3";
 function score(cost, mbps, safety, budgetMax, mbpsMin, safetyMin) {
   const budget = cost <= budgetMax ? 80 + (1 - cost / budgetMax) * 20 : Math.max(0, 80 - (cost - budgetMax) / budgetMax * 200);
@@ -22419,5 +22477,5 @@ var mcp_default = defineMcp({
 });
 
 // lovable-mcp-supabase-entry.ts
-import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.0/stacks/supabase";
+import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.1/stacks/supabase";
 Deno.serve(createSupabaseHandler(mcp_default, { functionName: "mcp" }));

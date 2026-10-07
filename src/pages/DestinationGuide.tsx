@@ -20,6 +20,7 @@ import {
   destinationJsonLd,
   formatMonths,
 } from '@/lib/destinationSeo';
+import { visaPathSentence } from '@/lib/visaCopy';
 
 export default function DestinationGuide() {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -129,6 +130,11 @@ export default function DestinationGuide() {
           <StatChip icon={<Shield className="w-3.5 h-3.5" />} label="Safety" value={`${city.safety}/10`} />
           <StatChip icon={<Globe className="w-3.5 h-3.5" />} label="Visa" value={`${city.meta.visaDays} days`} />
         </div>
+        {city.meta.visaNote && (
+          <p className="max-w-3xl mx-auto px-6 pb-4 text-xs text-muted-foreground leading-relaxed">
+            {visaPathSentence(city.meta)}
+          </p>
+        )}
       </div>
 
       {/* Badges */}
@@ -168,7 +174,12 @@ export default function DestinationGuide() {
               )}
               <div className="rounded-lg border border-border/30 bg-card p-4">
                 <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Visa</dt>
-                <dd className="text-sm font-mono text-foreground">{city.meta.visaType} · {city.meta.visaDays} days</dd>
+                <dd className="text-sm font-mono text-foreground">
+                  {city.meta.visaType} · {city.meta.visaDays} days
+                  {city.meta.visaNote && (
+                    <span className="block mt-1 text-xs font-sans text-muted-foreground leading-relaxed">{city.meta.visaNote}</span>
+                  )}
+                </dd>
               </div>
             </dl>
           )}
@@ -248,7 +259,7 @@ export default function DestinationGuide() {
               <p className="text-foreground font-mono text-sm">{displayCity.nearestAirport.name} ({displayCity.nearestAirport.code})</p>
               <p className="text-xs text-muted-foreground mt-1">{displayCity.nearestAirport.distKm} km from city center</p>
               <p className="text-xs text-muted-foreground mt-2">
-                Visa: <strong className="text-foreground">{displayCity.meta.visaType}</strong> · Up to {displayCity.meta.visaDays} days for most nationalities.
+                Visa: <span className="text-foreground">{visaPathSentence(displayCity.meta)}</span>
               </p>
             </div>
           </div>

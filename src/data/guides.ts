@@ -300,14 +300,14 @@ const handWrittenGuides: Guide[] = [
       <td class="border-b border-border p-2">$850</td>
       <td class="border-b border-border p-2">95 Mbps</td>
       <td class="border-b border-border p-2">8.2</td>
-      <td class="border-b border-border p-2">60-day exemption</td>
+      <td class="border-b border-border p-2">30-day tourism exemption</td>
     </tr>
     <tr>
       <td class="border-b border-border p-2"><a href="/destinations/lisbon">Lisbon</a></td>
       <td class="border-b border-border p-2">$2,200</td>
       <td class="border-b border-border p-2">200 Mbps</td>
       <td class="border-b border-border p-2">8.8</td>
-      <td class="border-b border-border p-2">Digital nomad visa, up to a year</td>
+      <td class="border-b border-border p-2">DN visa field, 365 days (longer permit possible)</td>
     </tr>
     <tr>
       <td class="border-b border-border p-2"><a href="/destinations/medellin">Medellín</a></td>
@@ -375,7 +375,7 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Why it wins:</strong> You can find a desk, a meetup, and someone who speaks your language in the first week. Safety sits at 8.2, which is high for a city this social and this cheap.</p>
 
-<p><strong>Watch out for:</strong> Burning season is March and April, and it is genuinely unpleasant. February is still in the friendly dry window. Many passports get a 60-day visa exemption. A season measured in months usually means Thailand’s Destination Thailand Visa (DTV) or another long-stay category. Plan the visa that covers the trip. A border run is a fragile backup.</p>
+<p><strong>Watch out for:</strong> Burning season is March and April, and it is genuinely unpleasant. February is still in the friendly dry window. The tourism visa exemption is 30 days for many passports, 15 days for two, and visa on arrival for three. It depends on your passport, and it is tourism only. A season measured in months usually means Thailand’s Destination Thailand Visa (DTV) or another long-stay category. Plan the visa that covers the trip. A border run is a fragile backup.</p>
 
 <p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want company immediately.</p>
 
@@ -385,7 +385,7 @@ const handWrittenGuides: Guide[] = [
 
 <p><a href="/destinations/lisbon">Lisbon</a> is the default European base for a reason: warm, walkable, English-friendly, and connected to the rest of the continent. In the dataset it is also the expensive one.</p>
 
-<p><strong>Why it wins:</strong> About 200 Mbps, safety 8.8, community 9. Portugal’s D8 digital nomad visa is still a real route to a year in the EU for people who can document income and housing.</p>
+<p><strong>Why it wins:</strong> About 200 Mbps, safety 8.8, community 9. Portugal’s remote-work route is a temporary-stay visa (under a year) or a D8 residency visa of 4 months that leads to a 2-year residence permit, renewable for 3-year periods. It is an application, not a visa-free year. Income and fees change; verify on official pages.</p>
 
 <p><strong>Watch out for:</strong> The solo baseline is about $2,200 a month, the highest figure on this list, and central rent is why. The broad NHR tax incentive that used to sweeten the move has closed to new applicants. The regime that replaced it targets specific professional profiles, which leaves most remote jobs outside it. Treat the D8 as an immigration path with queues and paperwork, and budget for the city you will actually live in.</p>
 
@@ -487,7 +487,7 @@ const handWrittenGuides: Guide[] = [
 <li><strong>Lowest solo baseline:</strong> <a href="/destinations/tbilisi">Tbilisi</a> (about $800), <a href="/destinations/chiang-mai">Chiang Mai</a> (about $850), <a href="/destinations/buenos-aires">Buenos Aires</a> (about $900).</li>
 <li><strong>Fastest internet on this list:</strong> <a href="/destinations/lisbon">Lisbon</a> and <a href="/destinations/budapest">Budapest</a> (about 200 Mbps). Hanoi (about 110) and Chiang Mai (about 95) are comfortable for calls. Bali (about 50) needs a second connection.</li>
 <li><strong>Strongest community scores:</strong> Chiang Mai, Bali, and Lisbon.</li>
-<li><strong>Longest straightforward stays in the dataset:</strong> Tbilisi (365 days visa-free for many passports). Lisbon and Budapest list a digital nomad visa of up to a year, with income proof. <a href="/destinations/tirana">Tirana</a> shows the same one-year visa-free pattern if you want a smaller European city that did not make this ten. Thailand is easy for about 60 days. A season there is a DTV conversation.</li>
+<li><strong>Longest straightforward stays in the dataset:</strong> Tbilisi (365 days visa-free for many passports). Lisbon and Budapest list a digital nomad visa field of 365 days, with income proof. For Lisbon that field is the initial visa; the residence permit can be longer. <a href="/destinations/tirana">Tirana</a> shows the same one-year visa-free pattern if you want a smaller European city that did not make this ten. Thailand’s tourism exemption is 30 days for many passports (not all) and is tourism only. A season there is a DTV conversation.</li>
 <li><strong>Nature:</strong> Cape Town, Bali, and Medellín, after you check the <a href="/guides/where-to-go-next-by-season">season window</a>. Burning season, Cape Town winter, and Bali’s rains are all in the dataset.</li>
 </ul>
 
