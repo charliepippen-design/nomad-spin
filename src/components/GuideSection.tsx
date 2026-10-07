@@ -9,7 +9,7 @@ interface GuideSectionProps {
 export default function GuideSection({ title, children, id }: GuideSectionProps) {
   return (
     <section id={id} className="py-8 md:py-10">
-      <h2 className="font-mono text-sm md:text-base tracking-[0.2em] text-foreground uppercase mb-6">
+      <h2 className="text-2xl text-foreground mb-4">
         {title}
       </h2>
       <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">

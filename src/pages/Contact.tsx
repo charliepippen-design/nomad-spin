@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Send, Loader2 } from 'lucide-react';
@@ -8,7 +7,7 @@ import { toast } from 'sonner';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/contact`;
-const TITLE = 'Contact — Nomad Spin';
+const TITLE = 'Contact | Nomad Spin';
 const DESCRIPTION = 'Get in touch with the Nomad Spin team. Share feedback, suggest a city, or ask a question.';
 
 const jsonLd = {
@@ -49,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="noise-overlay min-h-screen bg-background">
+    <div className="page-content min-h-screen bg-background">
       <Helmet>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
@@ -67,20 +66,16 @@ export default function Contact() {
       </Helmet>
 
       <div className="max-w-lg mx-auto px-6 py-16 md:py-24">
-        <Link to="/" className="inline-block text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase mb-12">
-          ← Back to Spin
-        </Link>
-
-        <h1 className="font-mono text-lg md:text-2xl tracking-[0.15em] text-foreground uppercase mb-4">
-          Contact Us
+        <h1 className="text-4xl text-foreground mb-4">
+          Contact
         </h1>
         <p className="text-sm text-muted-foreground mb-10 leading-relaxed">
           Have a question, feedback, or a city you'd like us to add? Drop us a message.
         </p>
 
         {submitted ? (
-          <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.05] p-8 text-center">
-            <p className="font-mono text-sm text-foreground tracking-wider">Thank you!</p>
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 text-center">
+            <p className="text-lg text-foreground">Thank you!</p>
             <p className="text-xs text-muted-foreground mt-2">We'll get back to you soon.</p>
           </div>
         ) : (
