@@ -102,6 +102,25 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013/);
   });
 
+  it('cites Spain statute in the Valencia guide and does not print an unofficial euro income figure', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-valencia.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/Ley 14\/2013, art\. 74 quinquies/);
+    expect(md).toMatch(/1-yr consular telework visa/);
+    expect(md).toMatch(/up to 3 years/);
+    expect(md).toMatch(/boe\.es/);
+    expect(md).toMatch(/exteriores\.gob\.es/);
+    expect(md).toMatch(/one\.gob\.es/);
+    expect(md).toMatch(/200%/);
+    expect(md).toMatch(/aemet\.es/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/€/);
+    expect(md).not.toMatch(/\bEUR\b/);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites Portugal statute in the Lisbon guide and does not print an unofficial euro income figure', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-lisbon.md'),
