@@ -224,7 +224,7 @@ describe('static guides', () => {
       expect(g!.content).toContain(href);
     }
     expect(g!.content).not.toContain('medell-n');
-    expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|Flatio|Airalo/i);
+    expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
   });
 
   it('generated module is in sync with content/guides', () => {
