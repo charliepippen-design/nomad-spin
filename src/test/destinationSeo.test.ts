@@ -76,6 +76,9 @@ describe('destinationSeo', () => {
     const mexicoCityGuides = relatedGuidesForCity(cityByName('Mexico City')).map((g) => g.slug);
     expect(mexicoCityGuides).toContain('living-in-mexico-city');
 
+    const daNangGuides = relatedGuidesForCity(cityByName('Da Nang')).map((g) => g.slug);
+    expect(daNangGuides).toContain('living-in-da-nang');
+
     const tbilisiGuides = relatedGuidesForCity(cityByName('Tbilisi')).map((g) => g.slug);
     expect(tbilisiGuides).toContain('living-in-tbilisi');
     expect(chiangMaiGuides).toContain('where-to-go-next-by-season');
