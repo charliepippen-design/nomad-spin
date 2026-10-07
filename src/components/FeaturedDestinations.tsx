@@ -33,7 +33,7 @@ export default function FeaturedDestinations() {
             Where to Stay
           </h2>
           <p className="text-xs text-muted-foreground/60 max-w-md mx-auto">
-            Explore our top destination guides — cost breakdowns, neighborhoods, Wi-Fi intel, and more.
+            Explore our top destination guides: cost breakdowns, neighborhoods, Wi-Fi intel, and more.
           </p>
         </motion.div>
 

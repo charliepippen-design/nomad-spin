@@ -43,15 +43,15 @@ Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/d
 
 Meetings don't care about your sunset photos. Spin's **minimum internet** preference scores against \`internetMbps\` (aligned with \`infra.internetSpeedAvg\`). The fields that catch people who only look at headline Mbps are:
 
-- \`infra.internetReliability\` (1–10): how often the connection you paid for actually holds
-- \`infra.powerGridStability\` (1–10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
+- \`infra.internetReliability\` (1 to 10): how often the connection you paid for actually holds
+- \`infra.powerGridStability\` (1 to 10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
 Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
-Spin's **minimum safety** maps to the city's overall \`safety\` score (roughly 1–10). Dig one layer deeper with \`vibeMetrics.femaleSafety\` and \`vibeMetrics.lgbtFriendly\` when those are non‑negotiable for you, a city can score decently overall and still be a poor fit for your situation.
+Spin's **minimum safety** maps to the city's overall \`safety\` score (roughly 1 to 10). Dig one layer deeper with \`vibeMetrics.femaleSafety\` and \`vibeMetrics.lgbtFriendly\` when those are non‑negotiable for you, a city can score decently overall and still be a poor fit for your situation.
 
 Examples from verified rows: Porto \`safety\` **9.0** (femaleSafety **9**, lgbtFriendly **8**); Lisbon **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Medellín **6.5** / **5** / **6**; Buenos Aires **6.2** / **5** / **8**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go", it's "budget for location choice, transport habits, and neighborhood research before you book three months."
 
@@ -89,19 +89,19 @@ The preferences drawer ships three quick presets. Use them as starting points, t
 
 ### Budget-first explorer → Budget Saver
 
-**Preset:** budget **$500–$1,500**, internet min **20** Mbps, safety min **5**, all regions.
+**Preset:** budget **$500 to $1,500**, internet min **20** Mbps, safety min **5**, all regions.
 
 Who it's for: you're flexible on nightlife and scenery; the month has to fit a lean burn rate. Expect the pool to lean toward places like Chiang Mai (~$850 / 95 Mbps / safety 8.2) or Tbilisi (~$800 / 60 Mbps / safety 8.0). After a spin, open the destination page and check \`costLongTerm\` vs \`airbnbMedian\` so you're not planning a three-month stay on scouting-night prices.
 
 ### Meeting-heavy remote worker → High Comfort
 
-**Preset:** budget **$1,500–$5,000**, internet min **150** Mbps, safety min **8**.
+**Preset:** budget **$1,500 to $5,000**, internet min **150** Mbps, safety min **8**.
 
 Who it's for: video calls are the job. Headline tourism rankings matter less than \`internetMbps\`, \`internetReliability\`, and \`powerGridStability\`. Lisbon (~$2,200 / **200** Mbps / safety **8.8**) and Budapest (~$1,500 / **200** Mbps / safety **8.3**) sit naturally in this band. If High Comfort returns almost nothing, loosen *one* constraint (usually the safety floor by a point, or the internet floor from 150 to 100) rather than widening everything at once.
 
 ### Quiet deep-work month → Quiet / Productive
 
-**Preset:** budget **$500–$3,000**, internet min **50**, safety min **6**, vibes tagged toward **workhub** / **mountain**, low-nightlife intent.
+**Preset:** budget **$500 to $3,000**, internet min **50**, safety min **6**, vibes tagged toward **workhub** / **mountain**, low-nightlife intent.
 
 Who it's for: you want fewer party defaults. Watch \`vibeMetrics.nightlife\` on the result: Chiang Mai at **5** fits the brief better than Budapest at **9**, even when both clear a mid budget. If you still land party-tagged cities, add an explicit landscape (e.g. \`mountain\`) or remove \`party\` from your mental shortlist and re-spin.
 
@@ -121,9 +121,9 @@ A spin returns a primary city plus near alternatives, each with a **match score*
 
 - The result fails a non‑negotiable you forgot to encode (e.g. you need \`UTC-5\` to \`UTC-8\` overlap and got \`UTC+7\`)
 - You realize a soft preference is actually hard (no beach → set landscape; no big party scene → raise the quiet intent)
-- The pool feels identical three times in a row: loosen one slider 10–20% and retry
+- The pool feels identical three times in a row: loosen one slider 10 to 20% and retry
 
-Example path: Budget Saver → land on Chiang Mai → read [Chiang Mai](/destinations/chiang-mai) and the [living guide](/guides/living-in-chiang-mai) → note burning season in \`cons\` and best months Nov–Feb → either accept that calendar or re-spin with a different region for your travel window.
+Example path: Budget Saver → land on Chiang Mai → read [Chiang Mai](/destinations/chiang-mai) and the [living guide](/guides/living-in-chiang-mai) → note burning season in \`cons\` and best months Nov to Feb → either accept that calendar or re-spin with a different region for your travel window.
 
 ## Compare without a spreadsheet
 
@@ -6073,7 +6073,7 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     excerpt: "Pick a travel window first: use Nomad Spin weather months plus cost, internet, and safety to shortlist bases by season, then spin and open destination pages.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "13 min read",
+    readTime: "14 min read",
     relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia"],
     content: `## Stop picking a city first. Pick a season window
 
@@ -6100,96 +6100,96 @@ Season picks below are **illustrative anchors** drawn from verified rows, not a 
 
 When \`dataSource\` is \`estimated\`, treat months and costs as directional and confirm before you book.
 
-## Northern-hemisphere winter (roughly Dec–Feb)
+## Northern-hemisphere winter (roughly Dec to Feb)
 
 **Goal:** escape cold/dark European or North American winters without ignoring rain seasons, heat, or visa length.
 
 ### Warm / dry-leaning candidates by region
 
-**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov–Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 30-day tourism exemption, passport-dependent). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov–Mar dry lean (\`$1,100\` / 120 Mbps). The [Bangkok living guide](/guides/living-in-bangkok) is the on-the-ground version of that row, including heat, traffic, and why the BTS pin matters. [Ho Chi Minh City](/destinations/ho-chi-minh-city) lists best months Dec, Jan, Feb, Mar, and Apr (\`$800\` / 85 Mbps / safety **7.5**). That dry window lines up with Chiang Mai and Bangkok, not with Da Nang's Feb-Jul beach season. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is the on-the-ground version, including District 1 versus Thao Dien and why traffic and air pollution stay on the cons. [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov–Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`.
+**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov to Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 30-day tourism exemption, passport-dependent). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov to Mar dry lean (\`$1,100\` / 120 Mbps). The [Bangkok living guide](/guides/living-in-bangkok) is the on-the-ground version of that row, including heat, traffic, and why the BTS pin matters. [Ho Chi Minh City](/destinations/ho-chi-minh-city) lists best months Dec, Jan, Feb, Mar, and Apr (\`$800\` / 85 Mbps / safety **7.5**). That dry window lines up with Chiang Mai and Bangkok, not with Da Nang's Feb-Jul beach season. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is the on-the-ground version, including District 1 versus Thao Dien and why traffic and air pollution stay on the cons. [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov to Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`.
 
-**Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s \`rainyMonths\` are **Dec–Mar** (best months Apr–Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep–Dec** rainy stretch.
+**Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s \`rainyMonths\` are **Dec to Mar** (best months Apr to Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep to Dec** rainy stretch.
 
-**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan–Apr** and **Oct–Dec** (\`tempAvgC\` 21, ~$1,800, 130–140 Mbps, safety 8, digital nomad visa field of 365 days). That 365 is the initial consular visa. Spain's in-country residence authorization can run longer. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
+**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan to Apr** and **Oct to Dec** (\`tempAvgC\` 21, ~$1,800, 130 to 140 Mbps, safety 8, digital nomad visa field of 365 days). That 365 is the initial consular visa. Spain's in-country residence authorization can run longer. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
 
-**Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct–Mar** (\`$1,400\` / 100 Mbps): peak nature season, but safety **5.5** and \`powerGridStability\` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher \`costUSD\`.
+**Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct to Mar** (\`$1,400\` / 100 Mbps): peak nature season, but safety **5.5** and \`powerGridStability\` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher \`costUSD\`.
 
-**LATAM “eternal spring” pockets:** [Medellín](/destinations/medellin) best months include **Dec–Mar** and **Jul–Aug** (\`$1,100\` / 80 Mbps / safety 6.5). The [Medellin living guide](/guides/living-in-medellin) is the on-the-ground version of that row, including Laureles versus Poblado and the safety scores. [Mexico City](/destinations/mexico-city) leans **Mar–May** and **Nov** more than deep winter, fine for shoulder-winter trips, less of a pure Dec–Feb beach escape. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row, including altitude and air quality.
+**LATAM “eternal spring” pockets:** [Medellín](/destinations/medellin) best months include **Dec to Mar** and **Jul to Aug** (\`$1,100\` / 80 Mbps / safety 6.5). The [Medellin living guide](/guides/living-in-medellin) is the on-the-ground version of that row, including Laureles versus Poblado and the safety scores. [Mexico City](/destinations/mexico-city) leans **Mar to May** and **Nov** more than deep winter, fine for shoulder-winter trips, less of a pure Dec to Feb beach escape. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row, including altitude and air quality.
 
 ### What to set in Spin
 
 - Region: Asia, Africa, LATAM, or Europe (for Canaries)
 - Landscape: \`seaside\` or \`mountain\` depending on beach vs altitude
-- Budget ceiling honest to $850–$1,800 vs $2,800+ Oceania
+- Budget ceiling honest to $850 to $1,800 vs $2,800+ Oceania
 - Internet / safety floors for your job: do not drop them because the weather looks nice
 - Then [spin](/)
 
 ### Winter watch-outs
 
-Peak pricing in beach hubs; short visa stamps (Bali 30 days VoA in the dataset); heat + unreliable power in some tropical rows; Chiang Mai’s **burning season (Mar–Apr)** sits right after the “best” dry months, if you overstay into March, read \`cons\` before you extend.
+Peak pricing in beach hubs; short visa stamps (Bali 30 days VoA in the dataset); heat + unreliable power in some tropical rows; Chiang Mai’s **burning season (Mar to Apr)** sits right after the “best” dry months, if you overstay into March, read \`cons\` before you extend.
 
-## Shoulder spring (Mar–May)
+## Shoulder spring (Mar to May)
 
 Shoulder months often win the **cost vs weather** trade: Europe’s best-month lists light up before July crowds, while parts of Asia are leaving peak dry season or entering heat.
 
 ### Europe city-hop window
 
-Many European rows share Apr–Jun / Sep–Oct best months:
+Many European rows share Apr to Jun / Sep to Oct best months:
 
-- [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
+- [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
-- [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
+- [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia): **Apr-Jun, Sep-Oct**: \`$1,900\` / **170** Mbps / safety **8**. October is on both \`bestMonths\` and \`rainyMonths\`, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
 - [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
-- [Seville](/destinations/seville): **Mar–May, Oct–Nov**: get there before “extremely hot summer” in \`cons\`
+- [Seville](/destinations/seville): **Mar to May, Oct to Nov**: get there before “extremely hot summer” in \`cons\`
 
 ### LATAM spring-like climates
 
-[Buenos Aires](/destinations/buenos-aires) best months **Mar-May** and **Sep-Nov** (\`$900\` / 70 Mbps, southern autumn and spring). The [Buenos Aires living guide](/guides/living-in-buenos-aires) covers why that $900 snapshot moves and why Dec-Feb heat is the hard stretch. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use \`rainyMonths\` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
+[Buenos Aires](/destinations/buenos-aires) best months **Mar-May** and **Sep-Nov** (\`$900\` / 70 Mbps, southern autumn and spring). The [Buenos Aires living guide](/guides/living-in-buenos-aires) covers why that $900 snapshot moves and why Dec-Feb heat is the hard stretch. [Mexico City](/destinations/mexico-city) **Mar to May** before the Jun to Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr to May** (and Oct to Nov)) spring can mean showers; use \`rainyMonths\` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
 
 ### Asia transition
 
-[Da Nang](/destinations/da-nang) best **Feb–Jul** (\`$700\` / 80 Mbps / safety 8.5), strong spring/early-summer beach work base before Sep–Dec rains. The [Da Nang living guide](/guides/living-in-da-nang) is the on-the-ground version of that row, including why Feb-Jul pairs with Chiang Mai's Nov-Feb and why Sep-Dec is a real work disruption. [Tokyo](/destinations/tokyo) / [Seoul](/destinations/seoul) / [Taipei](/destinations/taipei) favor spring and autumn; watch Jun–Aug rain or typhoon notes in \`cons\`.
+[Da Nang](/destinations/da-nang) best **Feb to Jul** (\`$700\` / 80 Mbps / safety 8.5), strong spring/early-summer beach work base before Sep to Dec rains. The [Da Nang living guide](/guides/living-in-da-nang) is the on-the-ground version of that row, including why Feb-Jul pairs with Chiang Mai's Nov-Feb and why Sep-Dec is a real work disruption. [Tokyo](/destinations/tokyo) / [Seoul](/destinations/seoul) / [Taipei](/destinations/taipei) favor spring and autumn; watch Jun to Aug rain or typhoon notes in \`cons\`.
 
 **Spin tip:** region Europe or LATAM, landscape \`urban\` or \`seaside\`, budget matched to Lisbon-tier vs Buenos Aires-tier, then [spin](/) and open two destination pages before you book flights.
 
-## Northern summer / southern winter (Jun–Aug)
+## Northern summer / southern winter (Jun to Aug)
 
 ### Cooler Europe / mountains
 
 Summer Europe is crowded but matches many cities’ \`bestMonths\`:
 
-- [Split](/destinations/split): **May–Sep**: \`$1,800\` / 100 Mbps / safety **9** / seaside
-- [Porto](/destinations/porto) ([living guide](/guides/living-in-porto)), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May–Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep–Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
-- [Batumi](/destinations/batumi): **Jun–Sep** Black Sea summer at \`$1,000\` / 90 Mbps
+- [Split](/destinations/split): **May to Sep**: \`$1,800\` / 100 Mbps / safety **9** / seaside
+- [Porto](/destinations/porto) ([living guide](/guides/living-in-porto)), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May to Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep to Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
+- [Batumi](/destinations/batumi): **Jun to Sep** Black Sea summer at \`$1,000\` / 90 Mbps
 
 Filter tips: set \`landscape: mountain\` for quieter deep-work summers; leave nightlife unconstrained only if you want \`party\`-tagged hubs.
 
 ### Southern-hemisphere winter bases
 
-Jun–Aug is winter in Cape Town (\`rainyMonths\` **Jun–Aug**): beautiful if you like storms and empty beaches, harder if you need outdoor “Cape Town postcard” weather and hate load shedding. Prefer Cape Town in its **Oct–Mar** best window instead, unless you are explicitly chasing off-peak rents.
+Jun to Aug is winter in Cape Town (\`rainyMonths\` **Jun to Aug**): beautiful if you like storms and empty beaches, harder if you need outdoor “Cape Town postcard” weather and hate load shedding. Prefer Cape Town in its **Oct to Mar** best window instead, unless you are explicitly chasing off-peak rents.
 
-[Santiago](/destinations/santiago) rainy **Jun–Aug**; better in **Oct–Dec / Mar–Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun-Jul as rainy (possible, not peak). Read the [Buenos Aires living guide](/guides/living-in-buenos-aires) before you treat Jun-Jul rain, or Dec-Feb heat, as a footnote. [Quito](/destinations/quito) oddly lists best **Jun–Sep** at altitude (\`tempAvgC\` 14)) a cool dry-ish Andean alternative if safety and altitude in \`cons\` are acceptable.
+[Santiago](/destinations/santiago) rainy **Jun to Aug**; better in **Oct to Dec / Mar to Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun-Jul as rainy (possible, not peak). Read the [Buenos Aires living guide](/guides/living-in-buenos-aires) before you treat Jun-Jul rain, or Dec-Feb heat, as a footnote. [Quito](/destinations/quito) oddly lists best **Jun to Sep** at altitude (\`tempAvgC\` 14)) a cool dry-ish Andean alternative if safety and altitude in \`cons\` are acceptable.
 
 ### Asia summer reality check
 
-Many SEA rows put **Jun–Sep** in \`rainyMonths\` (Chiang Mai, Bangkok, Phuket, Ho Chi Minh City). [Kuala Lumpur](/destinations/kuala-lumpur) is an exception with best months **Jun–Aug**, still humid, and haze appears in \`cons\`. Do not treat “Asia always works in summer” as true; read the rainy arrays. Ho Chi Minh City's own rainy list runs Jun, Jul, Aug, Sep, and Oct. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you book that window as if it were January.
+Many SEA rows put **Jun to Sep** in \`rainyMonths\` (Chiang Mai, Bangkok, Phuket, Ho Chi Minh City). [Kuala Lumpur](/destinations/kuala-lumpur) is an exception with best months **Jun to Aug**, still humid, and haze appears in \`cons\`. Do not treat “Asia always works in summer” as true; read the rainy arrays. Ho Chi Minh City's own rainy list runs Jun, Jul, Aug, Sep, and Oct. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you book that window as if it were January.
 
-## Autumn reset (Sep–Nov)
+## Autumn reset (Sep to Nov)
 
 Post-summer migrations are when nomads leave peak Europe and chase drier or milder windows.
 
-- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep–Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov–Feb, Split Nov–Jan, Porto Nov–Feb). The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
-- **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are Chiang Mai–bound. [Hanoi](/destinations/hanoi) best includes **Oct–Dec** and **Mar–Apr**.
-- **Cape Town spring into summer:** best months open **Oct–Nov**: prime window if you read the living guide’s power and safety notes first.
-- **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun–Sep should already be behind you by a true autumn escape.
+- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
+- **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are bound for Chiang Mai. [Hanoi](/destinations/hanoi) best includes **Oct to Dec** and **Mar to Apr**.
+- **Cape Town spring into summer:** best months open **Oct to Nov**: prime window if you read the living guide’s power and safety notes first.
+- **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun to Sep should already be behind you by a true autumn escape.
 
 **Rainy-month traps:** spinning “somewhere warm in November” without checking \`rainyMonths\` is how people land Bali’s wet season or Da Nang’s storm stretch. Always open the destination page and scan both month arrays.
 
 ## Special cases the calendar can’t hide
 
-**Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival. Budapest lists air pollution in winter on the dataset cons, outside the Apr-Jun and Sep-Oct best months. Read the [Budapest living guide](/guides/living-in-budapest) before a November arrival. Ho Chi Minh City lists air pollution on the cons in every month, including the Dec-Apr best months. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you treat a best month as a clean-air month.
+**Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar to Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival. Budapest lists air pollution in winter on the dataset cons, outside the Apr-Jun and Sep-Oct best months. Read the [Budapest living guide](/guides/living-in-budapest) before a November arrival. Ho Chi Minh City lists air pollution on the cons in every month, including the Dec-Apr best months. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you treat a best month as a clean-air month.
 
 **Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
 
@@ -6209,7 +6209,7 @@ Example workflows (adjust numbers to your real floors):
    Set budget max $1,500, internet min 50, safety min 7, region Asia or LATAM, optionally landscape \`seaside\` or \`mountain\`. [Spin](/). Compare [Chiang Mai](/destinations/chiang-mai), [Medellín](/destinations/medellin), [Penang](/destinations/penang) destination pages, check \`bestMonths\` overlap with your travel dates and \`rainyMonths\` gaps.
 
 2. **Europe shoulder, higher comfort**  
-   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) vs [Valencia](/destinations/valencia) (and the [living guide](/guides/living-in-valencia)) for Apr–Jun or Sep–Oct. For Valencia, do not treat October as an automatic shoulder month.
+   Budget $1,500 to $3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) vs [Valencia](/destinations/valencia) (and the [living guide](/guides/living-in-valencia)) for Apr to Jun or Sep to Oct. For Valencia, do not treat October as an automatic shoulder month.
 
 3. **Southern summer nature season**  
    Region Africa, landscape seaside/mountain, honest safety floor, budget ~$1,400+. Spin toward [Cape Town](/destinations/cape-town), then read the living guide before you pay a deposit, weather is only half the product.
@@ -6221,7 +6221,7 @@ Save two or three spins across *one* season window. Compare \`costUSD\`, Mbps, s
 
 ## Do this next
 
-1. Circle your travel window (Dec–Feb / Mar–May / Jun–Aug / Sep–Nov).
+1. Circle your travel window (Dec to Feb / Mar to May / Jun to Aug / Sep to Nov).
 2. On the [home page](/), set region + landscape that match that window, then budget, internet, and safety floors.
 3. Spin once. Open \`/destinations/{slug}\` and verify \`bestMonths\` includes your months and \`rainyMonths\` does not.
 4. Spin again with one constraint loosened. Deep-read a living guide when the result is Bali, Cape Town, or Chiang Mai.
