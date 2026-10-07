@@ -4,7 +4,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured `weather.bestMonths`, `weather.rainyMonths`, and `tempAvgC` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), and [Tbilisi](/guides/living-in-tbilisi).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), and [Tbilisi](/guides/living-in-tbilisi).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -67,7 +67,7 @@ Many European rows share Apr–Jun / Sep–Oct best months:
 
 ### LATAM spring-like climates
 
-[Buenos Aires](/destinations/buenos-aires) best months **Mar–May** and **Sep–Nov** (`$900` / 70 Mbps) (southern autumn/spring. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use `rainyMonths` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
+[Buenos Aires](/destinations/buenos-aires) best months **Mar-May** and **Sep-Nov** (`$900` / 70 Mbps, southern autumn and spring). The [Buenos Aires living guide](/guides/living-in-buenos-aires) covers why that $900 snapshot moves and why Dec-Feb heat is the hard stretch. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use `rainyMonths` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
 
 ### Asia transition
 
@@ -91,7 +91,7 @@ Filter tips: set `landscape: mountain` for quieter deep-work summers; leave nigh
 
 Jun–Aug is winter in Cape Town (`rainyMonths` **Jun–Aug**): beautiful if you like storms and empty beaches, harder if you need outdoor “Cape Town postcard” weather and hate load shedding. Prefer Cape Town in its **Oct–Mar** best window instead, unless you are explicitly chasing off-peak rents.
 
-[Santiago](/destinations/santiago) rainy **Jun–Aug**; better in **Oct–Dec / Mar–Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun–Jul as rainy (possible, not peak. [Quito](/destinations/quito) oddly lists best **Jun–Sep** at altitude (`tempAvgC` 14)) a cool dry-ish Andean alternative if safety and altitude in `cons` are acceptable.
+[Santiago](/destinations/santiago) rainy **Jun–Aug**; better in **Oct–Dec / Mar–Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun-Jul as rainy (possible, not peak). Read the [Buenos Aires living guide](/guides/living-in-buenos-aires) before you treat Jun-Jul rain, or Dec-Feb heat, as a footnote. [Quito](/destinations/quito) oddly lists best **Jun–Sep** at altitude (`tempAvgC` 14)) a cool dry-ish Andean alternative if safety and altitude in `cons` are acceptable.
 
 ### Asia summer reality check
 

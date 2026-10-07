@@ -437,6 +437,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> Night owls and culture people who want that atmosphere near a $900 baseline.</p>
 
+<p>Neighborhood choice, the 90-day exemption field, and why the $900 figure moves with inflation are in the <a href="/guides/living-in-buenos-aires">Buenos Aires living guide</a>.</p>
+
 <h2><strong>7. Tbilisi, Georgia: The Long-Stay Bargain</strong></h2>
 
 <p><a href="/destinations/tbilisi">Tbilisi</a> is the clearest long-stay bargain on this list. The dataset lists visa-free entry up to 365 days for many passports, a solo baseline around $800, and safety 8.0.</p>
@@ -497,7 +499,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-buenos-aires">living in Buenos Aires</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
