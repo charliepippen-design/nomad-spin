@@ -81,6 +81,9 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/destinations/saigon', destination: '/destinations/ho-chi-minh-city' },
       { source: '/destinations/hcmc', destination: '/destinations/ho-chi-minh-city' },
       { source: '/destinations/ho-chi-minh', destination: '/destinations/ho-chi-minh-city' },
+      { source: '/guides/living-in-saigon', destination: '/guides/living-in-ho-chi-minh-city' },
+      { source: '/guides/living-in-hcmc', destination: '/guides/living-in-ho-chi-minh-city' },
+      { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
     ];
     expect(redirects).toHaveLength(expected.length + aliases.length);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);

@@ -202,6 +202,21 @@ describe('living guide visa sections', () => {
     expect(tbilisi).toMatch(/Tourism exemption, 30 days/);
   });
 
+  it('cites the Vietnam Immigration Department e-visa rules in the Ho Chi Minh City guide', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-ho-chi-minh-city.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/evisa\.gov\.vn/);
+    expect(md).toMatch(/immigration\.gov\.vn\/trang-chu-ttdt/);
+    expect(md).toMatch(/\$25/);
+    expect(md).toMatch(/\$50/);
+    expect(md).toMatch(/3 working days/);
+    expect(md).toMatch(/maximum of 90 days/);
+    expect(md).toMatch(/no dedicated digital nomad visa/i);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites Czech MFA, Interior, and Industry pages for the Prague trade-licence and digital nomad paths', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-prague.md'),
