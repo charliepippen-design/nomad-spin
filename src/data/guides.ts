@@ -471,6 +471,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> People who want four real seasons and a European base under a Lisbon budget.</p>
 
+<p>District trade-offs, the White Card against a Schengen short stay, and the $1,500 versus Lisbon internet comparison are in the <a href="/guides/living-in-budapest">Budapest living guide</a>.</p>
+
 <h2><strong>10. Hanoi, Vietnam: Food, Density, and a Corrected Budget</strong></h2>
 
 <p><a href="/destinations/hanoi">Hanoi</a> is the food city on this list. Nomad Spin’s solo baseline puts it at about $1,050 a month, above Tbilisi (about $800), Chiang Mai (about $850), and Buenos Aires (about $900). Older versions of this guide said you could live well on $700. That figure does not match the current dataset.</p>
@@ -499,7 +501,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-buenos-aires">living in Buenos Aires</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-budapest">living in Budapest</a>, <a href="/guides/living-in-buenos-aires">living in Buenos Aires</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
