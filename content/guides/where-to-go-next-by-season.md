@@ -4,7 +4,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured `weather.bestMonths`, `weather.rainyMonths`, and `tempAvgC` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), and [Tbilisi](/guides/living-in-tbilisi).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Prague](/guides/living-in-prague), and [Tbilisi](/guides/living-in-tbilisi).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -82,7 +82,7 @@ Many European rows share Apr–Jun / Sep–Oct best months:
 Summer Europe is crowded but matches many cities’ `bestMonths`:
 
 - [Split](/destinations/split): **May–Sep**: `$1,800` / 100 Mbps / safety **9** / seaside
-- [Porto](/destinations/porto), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May–Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep–Oct)
+- [Porto](/destinations/porto), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May–Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep–Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
 - [Batumi](/destinations/batumi): **Jun–Sep** Black Sea summer at `$1,000` / 90 Mbps
 
 Filter tips: set `landscape: mountain` for quieter deep-work summers; leave nightlife unconstrained only if you want `party`-tagged hubs.
@@ -128,7 +128,7 @@ Example workflows (adjust numbers to your real floors):
    Set budget max $1,500, internet min 50, safety min 7, region Asia or LATAM, optionally landscape `seaside` or `mountain`. [Spin](/). Compare [Chiang Mai](/destinations/chiang-mai), [Medellín](/destinations/medellin), [Penang](/destinations/penang) destination pages, check `bestMonths` overlap with your travel dates and `rainyMonths` gaps.
 
 2. **Europe shoulder, higher comfort**  
-   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Porto](/destinations/porto) for Apr–Jun or Sep–Oct.
+   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) for Apr–Jun or Sep–Oct.
 
 3. **Southern summer nature season**  
    Region Africa, landscape seaside/mountain, honest safety floor, budget ~$1,400+. Spin toward [Cape Town](/destinations/cape-town), then read the living guide before you pay a deposit, weather is only half the product.
