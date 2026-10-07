@@ -1,20 +1,19 @@
 import { useState, useRef, useEffect, useCallback, type TouchEvent as ReactTouchEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import TrustBadge from '@/components/social-proof/TrustBadge';
-import AvatarCluster from '@/components/social-proof/AvatarCluster';
 import {
   Compass, X, ChevronUp, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
   BarChart3, ShoppingBag, ArrowUp, Coffee
 } from 'lucide-react';
-import PublisherLogoCloud from '@/components/social-proof/PublisherLogoCloud';
-import TestimonialGrid from '@/components/social-proof/TestimonialGrid';
 import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
 import { Switch } from '@/components/ui/switch';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { featuredDestinations } from '@/data/featuredDestinations';
+import { getCityThumbnailUrl } from '@/data/cityImages';
+import type { City } from '@/data/cities';
+import { cityPath, findCityBySlug } from '@/lib/citySlug';
 import type { Origin } from '@/data/origins';
 import type { User as SupaUser } from '@supabase/supabase-js';
 
@@ -23,8 +22,15 @@ import type { User as SupaUser } from '@supabase/supabase-js';
 const steps = [
   { icon: Globe2, number: '01', title: 'Spin & Select', description: 'Spin the globe and discover a city matched to your preferences.' },
   { icon: BarChart3, number: '02', title: 'Compare Metrics', description: 'Review cost of living, internet speed, safety, and more at a glance.' },
-  { icon: ShoppingBag, number: '03', title: 'Book What You Need', description: 'Find stays, flights, eSIMs, and insurance — all in one place.' },
+  { icon: ShoppingBag, number: '03', title: 'Book What You Need', description: 'Find stays, flights, eSIMs, and insurance, all in one place.' },
 ];
+
+const FEATURED_SLUGS = ['buenos-aires', 'bangkok', 'lisbon'];
+
+const featuredCities: City[] = FEATURED_SLUGS.flatMap((slug) => {
+  const match = findCityBySlug(slug);
+  return match ? [match.city] : [];
+});
 
 const benefits = [
   { icon: Wifi, text: 'Avoid slow internet traps' },
@@ -54,6 +60,7 @@ interface LandingDrawerProps {
   streak: number;
   spinCount: number;
   onFlyTo?: (lat: number, lng: number) => void;
+  howItWorksRequest: number;
 }
 
 export default function LandingDrawer({
@@ -61,7 +68,7 @@ export default function LandingDrawer({
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
   isAuthenticated, user, onSignOut, onOpenAuth,
-  streak, spinCount, onFlyTo,
+  streak, spinCount, onFlyTo, howItWorksRequest,
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
@@ -108,6 +115,26 @@ export default function LandingDrawer({
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, [isMobile]);
+
+  useEffect(() => {
+    if (howItWorksRequest === 0) return;
+    if (isMobile) setSheetState('expanded');
+    else setDesktopOpen(true);
+  }, [howItWorksRequest, isMobile]);
+
+  useEffect(() => {
+    if (howItWorksRequest === 0) return;
+    const visible = isMobile ? sheetState === 'expanded' : desktopOpen;
+    if (!visible) return;
+    const timer = window.setTimeout(() => {
+      const target = document.getElementById('how-it-works');
+      const scroller = scrollRef.current;
+      if (!target || !scroller) return;
+      const top = scroller.scrollTop + (target.getBoundingClientRect().top - scroller.getBoundingClientRect().top) - 8;
+      scroller.scrollTo({ top, behavior: 'smooth' });
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [howItWorksRequest, isMobile, sheetState, desktopOpen]);
 
   const handleSpin = useCallback(() => {
     if (isMobile) setSheetState('hidden');
@@ -177,7 +204,6 @@ export default function LandingDrawer({
       </span>
 
       {/* Tagline */}
-      <TrustBadge />
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight">
           Spin the globe.<br />Find your next digital nomad base.
@@ -185,7 +211,6 @@ export default function LandingDrawer({
         <p className="text-xs text-muted-foreground leading-relaxed">
           Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
         </p>
-        <AvatarCluster />
       </div>
 
       {/* Spin button */}
@@ -262,52 +287,61 @@ export default function LandingDrawer({
       {/* Where to Stay */}
       <Divider label="Where to Stay" />
       <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
-        Click a destination to fly the globe to its location.
+        Click a destination to fly the globe there. Monthly cost, internet, and safety match the city guide.
       </p>
       <div className="grid grid-cols-1 gap-3">
-        {featuredDestinations.map((dest) => (
-          <button
-            key={dest.id}
-            onClick={() => onFlyTo?.(dest.coordinates.lat, dest.coordinates.lng)}
-            className="group block rounded-xl overflow-hidden border border-border/30 hover:border-primary/50 transition-all text-left"
+        {featuredCities.map((city) => (
+          <div
+            key={city.id}
+            className="rounded-xl overflow-hidden border border-border/30 hover:border-primary/50 transition-all"
           >
-            <div className="relative h-28 overflow-hidden">
-              <img
-                src={dest.imageUrl}
-                alt={`${dest.city}, ${dest.country}`}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h2 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
-                  {dest.city}
-                </h2>
-                <div className="flex items-center gap-1.5 mt-0.5">
-                  <MapPin className="w-2.5 h-2.5 text-muted-foreground" />
-                  <span className="text-[9px] font-mono text-muted-foreground">{dest.country}</span>
+            <button
+              onClick={() => onFlyTo?.(city.lat, city.lng)}
+              className="group block w-full text-left"
+            >
+              <div className="relative h-28 overflow-hidden">
+                <img
+                  src={getCityThumbnailUrl(city.id, city.region)}
+                  alt={`${city.name}, ${city.country}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h2 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
+                    {city.name}
+                  </h2>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <MapPin className="w-2.5 h-2.5 text-muted-foreground" />
+                    <span className="text-[9px] font-mono text-muted-foreground">{city.country}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-card p-2.5 flex items-center justify-between">
+            </button>
+            <div className="bg-card p-2.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
               <div className="flex items-center gap-1.5">
                 <DollarSign className="w-3 h-3 text-muted-foreground" />
-                <span className="text-[10px] font-mono text-foreground/70">{dest.currencySymbol}{dest.priceMonthly}/mo</span>
+                <span className="text-[10px] font-mono text-foreground/70">${city.costUSD}/mo</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[9px] font-mono text-muted-foreground/70 flex items-center gap-1">
-                  <Wifi className="w-2.5 h-2.5" /> {dest.metrics.internetSpeed}
-                </span>
-                <span className="text-[9px] font-mono text-muted-foreground/70">
-                  🛡️ {dest.metrics.safetyRating}
-                </span>
-              </div>
+              <span className="text-[9px] font-mono text-muted-foreground/70 flex items-center gap-1">
+                <Wifi className="w-2.5 h-2.5" /> {city.internetMbps} Mbps
+              </span>
+              <span className="text-[9px] font-mono text-muted-foreground/70">
+                Safety {city.safety}/10
+              </span>
+              <Link
+                to={cityPath(city)}
+                className="text-[9px] font-mono tracking-wider text-primary uppercase shrink-0"
+              >
+                Guide
+              </Link>
             </div>
-          </button>
+          </div>
         ))}
       </div>
 
       {/* How It Works */}
+      <div id="how-it-works" className="space-y-3 scroll-mt-4">
       <Divider label="How It Works" />
       <div className="space-y-3">
         {steps.map((step) => (
@@ -336,8 +370,9 @@ export default function LandingDrawer({
 
       {/* Data note */}
       <p className="text-[10px] text-muted-foreground/50 text-center leading-relaxed pt-2">
-        Our dataset covers 780+ cities worldwide with curated cost, internet speed, safety, and visa data — updated regularly.
+        Our dataset covers 780+ cities worldwide with curated cost, internet speed, safety, and visa data, updated regularly.
       </p>
+      </div>
 
       {/* Buy Me a Coffee */}
       <a
@@ -517,8 +552,6 @@ export default function LandingDrawer({
           )}
         </AnimatePresence>
 
-        <PublisherLogoCloud />
-        <TestimonialGrid />
       </>
     );
   }
@@ -593,8 +626,6 @@ export default function LandingDrawer({
         )}
       </AnimatePresence>
 
-      <PublisherLogoCloud />
-      <TestimonialGrid />
     </>
   );
 }

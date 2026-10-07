@@ -59,6 +59,7 @@ describe('destinationSeo', () => {
 
     const medGuides = relatedGuidesForCity(cityByName('Medellín')).map((g) => g.slug);
     expect(medGuides).toContain('where-to-go-next-by-season');
+    expect(medGuides).toContain('living-in-medellin');
 
     const lisbonGuides = relatedGuidesForCity(cityByName('Lisbon')).map((g) => g.slug);
     expect(lisbonGuides).toContain('living-in-lisbon');
