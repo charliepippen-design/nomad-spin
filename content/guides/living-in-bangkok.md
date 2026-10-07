@@ -35,7 +35,7 @@ Who should skip living in Bangkok? Skip it if you hate extreme heat, traffic, or
 - Need the ocean. This row is urban. [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) are the beach comparison, with a different internet and visa story. [Da Nang](/destinations/da-nang) is the cheaper beach comparison
 - Need the **$800** figure while living on Thonglor and eating every meal in Thonglor cafes
 - Need a safety floor above **7.8**, or a female-safety floor above **7**. [Chiang Mai](/destinations/chiang-mai) is **8.2** with female safety **8**. [Lisbon](/destinations/lisbon) is **8.8** with female safety **8**
-- Need US morning calls and will not work in the evening. **UTC+7** is not a US clock. [Mexico City](/destinations/mexico-city) is **UTC-6**
+- Need US morning calls and will not work in the evening. **UTC+7** is not a US clock. [Mexico City](/destinations/mexico-city) is **UTC-6**. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row
 - Need a year of legal stay and will not assemble a real visa file. The destination row says visa exemption, **60 days**, and the rule published in 2026 is shorter than that field. The visa section is the correction
 - Need a high LGBTQ+ score as a hard filter above this row. `lgbtFriendly` here is **7** (Lisbon's is **9**). Overall safety **7.8** does not answer that question
 
@@ -294,9 +294,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**. Same **UTC+7** clock as Bangkok, different city.
 
-**Look at Mexico City** when you need US hours (**UTC-6**), food and nightlife **9**, and a visa field of up to **180 days**, and you accept safety **6.0**, altitude, and air. The solo month is **$1,300**. It is the right comparison if the question is "megacity" and the question is not "Asia."
+**Look at Mexico City** when you need US hours (**UTC-6**), food and nightlife **9**, and a visa field of up to **180 days**, and you accept safety **6.0**, altitude, and air. The solo month is **$1,300**. Read [Living in Mexico City](/guides/living-in-mexico-city) before you treat it as Bangkok on a US clock. It is the right comparison if the question is "megacity" and the question is not "Asia."
 
-If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is the other full living guide already in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a digital nomad visa field of **365 days**, **UTC+0**. Different budgets. Different guides.
+If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is another full living guide in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a digital nomad visa field of **365 days**, **UTC+0**. Read [Living in Lisbon](/guides/living-in-lisbon) for the neighborhoods and the D8. Different budgets. Different guides.
 
 ## First-week checklist + compare Bangkok on Nomad Spin
 

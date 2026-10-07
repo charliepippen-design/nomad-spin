@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
+import { isSupabaseConfigured, supabase } from '@/integrations/supabase/client';
 import type { Guide } from '@/data/guides';
+
+/** One attempt. Default React Query retries would keep isLoading true for each hung request. */
+export const GUIDE_FETCH_TIMEOUT_MS = 4_000;
 
 // Manual type since guides table may not be in auto-generated types yet
 interface GuidesRow {
@@ -53,10 +56,26 @@ function calcReadTime(content: string): string {
 
 // ── mapper ────────────────────────────────────────────────────────────────────
 
+interface GuidesQuery {
+  from(table: 'guides'): {
+    select(columns: string): {
+      order(
+        column: string,
+        options: { ascending: boolean },
+      ): {
+        abortSignal(signal: AbortSignal): PromiseLike<{
+          data: GuidesRow[] | null;
+          error: { message: string } | null;
+        }>;
+      };
+    };
+  };
+}
+
 function rowToGuide(row: GuidesRow): Guide {
   return {
     id: String(row.id),
-    slug: (row as any).slug || toSlug(row.city),
+    slug: row.slug || toSlug(row.city),
     title: row.title,
     excerpt: excerptFromContent(row.content),
     date: row.created_at,
@@ -70,15 +89,37 @@ function rowToGuide(row: GuidesRow): Guide {
 export function useGuides() {
   return useQuery<Guide[], Error>({
     queryKey: ['guides'],
-    queryFn: async () => {
-      const { data, error } = await (supabase as any)
-        .from('guides')
-        .select('id, city, keyword, title, content, status, created_at, slug')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      return (data as GuidesRow[]).map(rowToGuide);
-    },
+    retry: false,
+    queryFn: () => fetchLiveGuides(),
     staleTime: 1000 * 60 * 5, // 5 min cache
   });
+}
+
+async function fetchLiveGuides(): Promise<Guide[]> {
+  if (!isSupabaseConfigured) {
+    throw new Error('Live guide database is not configured');
+  }
+
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(new Error('Live guide database timed out'));
+    }, GUIDE_FETCH_TIMEOUT_MS);
+  });
+
+  try {
+    const pending = (supabase as unknown as GuidesQuery)
+      .from('guides')
+      .select('id, city, keyword, title, content, status, created_at, slug')
+      .order('created_at', { ascending: false })
+      .abortSignal(controller.signal);
+
+    const { data, error } = await Promise.race([pending, timeout]);
+    if (error) throw error;
+    return (data ?? []).map(rowToGuide);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
 }
