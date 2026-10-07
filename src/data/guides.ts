@@ -421,6 +421,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> City people, food lovers, anyone who needs overlap with US hours.</p>
 
+<p>Neighborhood choice, the 180-day exemption field, and how altitude and air quality actually feel are in the <a href="/guides/living-in-mexico-city">Mexico City living guide</a>.</p>
+
 <h2><strong>6. Buenos Aires, Argentina: European Texture, Updated Prices</strong></h2>
 
 <p><a href="/destinations/buenos-aires">Buenos Aires</a> still feels like a European capital on a Latin American baseline: about $900 a month in the dataset, with internet around 70 Mbps. Palermo and Recoleta are the practical bases. Many passports get about 90 days.</p>
@@ -487,7 +489,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the two hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a> and <a href="/guides/living-in-cape-town">living in Cape Town</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, and <a href="/guides/living-in-mexico-city">living in Mexico City</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
