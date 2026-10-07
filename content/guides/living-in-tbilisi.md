@@ -196,17 +196,17 @@ This guide will not copy the annex. The list is the government's to amend, and p
 
 ### Insurance you may be asked to show at the border
 
-From 1 January 2026, Georgian embassies have published the same notice under the Law of Georgia on Tourism: tourists entering Georgia must hold a health and accident insurance policy, on paper or on a phone, in Georgian or English. The policy may be from a Georgian or a foreign insurer. The coverage amount must be no less than **30,000 GEL**. It must cover the whole stay, arrival date through departure date. The English text used here is the [Embassy of Georgia in Australia's notice of 8 January 2026](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia), which points at that law. Diplomatic and a few official categories are exempt. A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
+Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. The coverage amount, the start date, and any exemptions are on that notice. This guide does not restate a sum or a date, because the page did not load when checked. Read the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia). A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
 
-That sum is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
+Whatever amount that notice sets is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
 
-### Work, from 1 March 2026
+### Work, and the right-to-work notice
 
 A visa-free stay is permission to enter and remain. It is a separate question from permission to work.
 
-The [Embassy of Georgia in Norway, on 26 February 2026](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh), summarized amendments to the Law on Labour Migration that entered into force on **1 March 2026**. The notice says that an alien with no permanent-residence permit may be employed by a local employer, including remotely, and may carry out entrepreneurial or labour activity in Georgia for economic benefit, only after obtaining a "right to work." That right is granted by the State Employment Support Agency. Applications go through [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). A labour immigrant obtains it through the local employer. A self-employed alien obtains it directly, for a stated specialty and field.
+The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. The start date, and exactly which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, are on that notice and on [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). This guide does not restate a start date, because those pages did not load when checked. Read them before you take a Georgian employer, a Georgian client, or a local registration.
 
-Read that sentence against your actual setup. A Georgian employer, a Georgian client, a local registration, or activity whose purpose is economic benefit inside Georgia sits inside the notice. Remote work performed only for a non-resident employer, with no Georgian clients and no local registration, is the case the notice does not spell out in a single line. Later amendments may narrow or widen it. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
+Read that notice against your actual setup. This guide does not spell out which remote-work cases it covers, because the page did not load. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
 
 ### Tax, at the level of a day count
 
@@ -218,7 +218,7 @@ Readers who want a territorial-tax residency project should use the [Paraguay ta
 
 - **Your passport is on the annex, and you want up to a year of stay:** the visa-free rule in Ordinance No 255, after you re-read the current annex.
 - **Your passport is not on the annex:** stop. Use the MFA checker. Do not book the year.
-- **You will have a Georgian employer, Georgian clients, or a local business:** the right-to-work notice of 1 March 2026 is required reading before you start.
+- **You will have a Georgian employer, Georgian clients, or a local business:** read the right-to-work notice linked above before you start.
 - **You work only for foreign clients and you are unsure whether that is "activity in Georgia":** ask a Georgian lawyer, using the current statute, before you rely on a forum.
 - **You will be in the country long enough to trip Article 34:** get tax advice at home and in Georgia. This page is not that advice.
 
@@ -251,7 +251,7 @@ Same three slots, still with no partner IDs. Buy them only after the month is on
 |---|---|
 | Stays | Dates inside May, Jun, Sep, or Oct, or a winter stay you chose on purpose, with a cancellation rule that survives a heating or air surprise |
 | Flights | TBS in and out around that window, with the connection written down. Few direct flights is a listed con |
-| Insurance | Cover that meets the 30,000 GEL entry rule and that you understand before you are standing in a clinic |
+| Insurance | Cover that meets the embassy insurance notice linked above, and that you understand before you are standing in a clinic |
 
 ## Daily life: wine, food, hospitality, language, flights, and tax notes
 
@@ -331,7 +331,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 - Sleep. Walk one neighborhood in daylight and once after dark
 - Buy the local SIM and test the hotspot
-- Confirm the insurance you will be asked to show, against the 30,000 GEL rule
+- Confirm the insurance you will be asked to show, against the embassy notice linked in the visa section
 - Do not stack your heaviest call day on the afternoon you land, especially if the itinerary was two connections
 
 ### Days 3-4

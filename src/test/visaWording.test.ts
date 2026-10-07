@@ -173,7 +173,8 @@ describe('living guide visa sections', () => {
       path.resolve(__dirname, '../../content/guides/living-in-porto.md'),
       'utf-8',
     );
-    expect(md).toMatch(/Lei 23\/2007, art\. 75/);
+    expect(md).toMatch(/Lei 23\/2007/);
+    expect(md).not.toMatch(/art\. 75/);
     expect(md).toMatch(/2 years from issue/);
     expect(md).toMatch(/3-year/);
     expect(md).toMatch(/vistos\.mne\.gov\.pt/);

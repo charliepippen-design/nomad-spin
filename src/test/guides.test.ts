@@ -44,6 +44,22 @@ describe('static guides', () => {
     expect(guide!.content).not.toMatch(/\$700[–-]\$1,000|\$900[–-]\$1,200|B211A visa and Second Home|blue-dollar|blue dollar/i);
   });
 
+  it('keeps em dashes and en dashes out of living guides', () => {
+    const dir = path.resolve(__dirname, '../../content/guides');
+    const files = fs.readdirSync(dir).filter((name) => /^living-in-.*\.(md|json)$/.test(name));
+    expect(files.filter((name) => name.endsWith('.md')).length).toBeGreaterThanOrEqual(16);
+    for (const name of files) {
+      const text = fs.readFileSync(path.join(dir, name), 'utf8');
+      expect(text.includes('\u2013'), `${name} contains an en dash`).toBe(false);
+      expect(text.includes('\u2014'), `${name} contains an em dash`).toBe(false);
+    }
+    for (const guide of guides.filter((guide) => guide.slug.startsWith('living-in-'))) {
+      const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
+      expect(published.includes('\u2013'), `${guide.slug} contains an en dash`).toBe(false);
+      expect(published.includes('\u2014'), `${guide.slug} contains an em dash`).toBe(false);
+    }
+  });
+
   it('has unique, URL-safe slugs', () => {
     const slugs = guides.map((g) => g.slug);
     expect(new Set(slugs).size).toBe(slugs.length);

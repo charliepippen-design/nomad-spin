@@ -172,10 +172,10 @@ You don't need a perfect ranking of 780+ cities. You need a repeatable filter �
     slug: "living-in-bali",
     title: "The Ultimate Guide to Living in Bali",
     seoTitle: "Living in Bali 2026: The Digital Nomad's Definitive Guide",
-    excerpt: "Bali for remote workers in 2026: real monthly costs, Canggu vs Ubud vs Uluwatu, the C1 and E33G visas, coworking that's actually open, and internet backup plans.",
+    excerpt: "Bali for remote workers in 2026: real monthly costs, Canggu vs Ubud vs Uluwatu, visit and remote-worker visa notes, coworking, and internet backup plans.",
     date: "2026-10-05",
     updated: "2026-10-05",
-    readTime: "14 min read",
+    readTime: "16 min read",
     relatedDestinations: ["bali","canggu","ubud","seminyak"],
     content: `## Introduction
 
@@ -209,25 +209,25 @@ To make this guide easy to plan with, here’s a **monthly budget in USD** with 
 
 | Category | Budget (USD) | Mid-range (USD) | Comfortable (USD) | Notes (what moves the number) |
 |---|---:|---:|---:|---|
-| Accommodation | 350–600 | 700–1,200 | 1,400–2,800+ | Location (Canggu/Pererenan ↑), privacy, pool, new build |
-| Utilities | 25–60 | 60–120 | 120–220 | AC use drives electricity; some rentals include water |
-| Home internet | 20–50 | 50–100 | 100–160 | Fiber availability varies by street; some villas include it |
-| Coworking | 0–60 | 80–180 | 180–350 | Membership vs day passes; meeting-room usage |
-| SIM + mobile data | 10–20 | 20–40 | 40–70 | Backup SIM/eSIM if you have critical calls |
-| Transport (scooter) | 60–120 | 120–220 | 220–400 | Monthly rental + fuel + small maintenance |
-| Transport (ride-hailing/driver) | 0–80 | 80–200 | 200–500 | If you avoid scooters, this becomes a top-3 cost |
-| Food (local-heavy) | 150–250 | 250–450 | 450–800 | Warungs vs cafés; protein + imported items |
-| Food (restaurants/cafés) | 50–150 | 150–350 | 350–900 | Brunch inflation is real in Canggu |
-| Gym / fitness | 20–50 | 50–120 | 120–250 | Basic gyms vs premium clubs / classes |
-| Health / insurance | 20–80 | 80–180 | 180–350 | Depends on policy + scooter coverage |
-| Visas / agent fees (averaged) | 20–80 | 80–200 | 200–400 | Spreads extension/agent cost across months |
-| Laundry / household | 15–40 | 40–80 | 80–150 | Laundry is cheap; household items vary |
-| Entertainment / dating / misc | 60–150 | 150–400 | 400–1,000 | Events, drinks, beach clubs, short trips |
-| **Estimated total** | **800–1,420** | **1,650–3,160** | **3,690–8,550+** | Your “Bali version” determines where you land |
+| Accommodation | 350 to 600 | 700 to 1,200 | 1,400 to 2,800+ | Location (Canggu/Pererenan ↑), privacy, pool, new build |
+| Utilities | 25 to 60 | 60 to 120 | 120 to 220 | AC use drives electricity; some rentals include water |
+| Home internet | 20 to 50 | 50 to 100 | 100 to 160 | Fiber availability varies by street; some villas include it |
+| Coworking | 0 to 60 | 80 to 180 | 180 to 350 | Membership vs day passes; meeting-room usage |
+| SIM + mobile data | 10 to 20 | 20 to 40 | 40 to 70 | Backup SIM/eSIM if you have critical calls |
+| Transport (scooter) | 60 to 120 | 120 to 220 | 220 to 400 | Monthly rental + fuel + small maintenance |
+| Transport (ride-hailing/driver) | 0 to 80 | 80 to 200 | 200 to 500 | If you avoid scooters, this becomes a top-3 cost |
+| Food (local-heavy) | 150 to 250 | 250 to 450 | 450 to 800 | Warungs vs cafés; protein + imported items |
+| Food (restaurants/cafés) | 50 to 150 | 150 to 350 | 350 to 900 | Brunch inflation is real in Canggu |
+| Gym / fitness | 20 to 50 | 50 to 120 | 120 to 250 | Basic gyms vs premium clubs / classes |
+| Health / insurance | 20 to 80 | 80 to 180 | 180 to 350 | Depends on policy + scooter coverage |
+| Visas / agent fees (averaged) | 20 to 80 | 80 to 200 | 200 to 400 | Spreads extension/agent cost across months |
+| Laundry / household | 15 to 40 | 40 to 80 | 80 to 150 | Laundry is cheap; household items vary |
+| Entertainment / dating / misc | 60 to 150 | 150 to 400 | 400 to 1,000 | Events, drinks, beach clubs, short trips |
+| **Estimated total** | **800 to 1,420** | **1,650 to 3,160** | **3,690 to 8,550+** | Your “Bali version” determines where you land |
 
 ### Reality checks that save money (and pain)
 
-- **Traffic is a hidden cost.** A “cheaper” place that forces 60–90 minute commutes becomes expensive in time and ride-hailing.
+- **Traffic is a hidden cost.** A “cheaper” place that forces 60 to 90 minute commutes becomes expensive in time and ride-hailing.
 - **Imported lifestyle costs stack fast.** Cheese, wine, specialty supplements, and some electronics can be shockingly expensive.
 - **Villa inflation is real in hot zones.** If you want Canggu + modern + quiet + walkable, expect to pay.
 - **Scooter accidents are a major risk.** If you ride, get proper insurance coverage and don’t outride your skills.
@@ -270,11 +270,11 @@ If you’re productive in social environments, Canggu is a cheat code. If you’
 
 A reliable pattern:
 
-- **Coworking 2–4 days/week** (for structure + meetings)
+- **Coworking 2 to 4 days/week** (for structure + meetings)
 - **Home deep work** on quieter days
 - A backup café list for “internet went down” moments
 
-If you’re staying more than 2–3 weeks, a coworking membership often pays for itself in saved time and reduced stress.
+If you’re staying more than 2 to 3 weeks, a coworking membership often pays for itself in saved time and reduced stress.
 
 #### Food + spending traps
 
@@ -352,7 +352,7 @@ Uluwatu is the choice for people who want a surf-forward life and quieter evenin
 
 If surfing is your priority, Uluwatu can be paradise. If you’re not surfing (or not committed), you might feel it’s “too quiet and too far,” and Canggu will suit you better.
 
-## Visa logistics (C1 visit visa vs E33G Remote Worker Visa)
+## Visa logistics (visit visa vs the remote-worker limited stay)
 
 Indonesian visa rules change often and overstays are enforced, so treat this as **operational guidance** and verify the current rules on the official e-visa portal (evisa.imigrasi.go.id) right before you apply.
 
@@ -364,13 +364,13 @@ Indonesian visa rules change often and overstays are enforced, so treat this as 
 
 The C1 is a single-entry visit visa and the usual choice for people who want longer than a short tourist window.
 
-**Typical use case:** a 2–6 month season in Bali without committing to a residence permit.
+**Typical use case:** a season in Bali without committing to a residence permit.
 
 **How it usually works in practice**
 
 - You apply online (or through an agent) before you fly.
-- The initial stay is 60 days, and it can be extended in-country up to about 180 days in total.
-- Extensions now involve an in-person visit to an immigration office for photo/interview, so budget a morning for each one (agents can handle the paperwork, not your attendance).
+- The stay length and any extension are published on the official eVisa site. This guide does not restate a day count for the C1. The Directorate General of Immigration pages checked for this edit do not label a product "C1" with a published number of days.
+- Read the extension steps on that site before you assume an agent can attend an immigration office for you.
 
 **Pros**
 
@@ -390,21 +390,21 @@ The C1 is a single-entry visit visa and the usual choice for people who want lon
 - Keep copies of passport, visa, extensions, and entry stamps (digital + printed).
 - Set calendar reminders for every extension deadline.
 
-#### Option B: E33G Remote Worker Visa (the actual "digital nomad visa")
+#### Option B: remote-worker limited stay
 
-Indonesia's remote-worker route is the **E33G**, a one-year limited stay permit (KITAS) for people employed by a company based outside Indonesia.
+The Directorate General of Immigration's eVisa site describes a limited stay of up to **1 year** for carrying out assignments from an overseas company. The [requirements page](https://evisa.imigrasi.go.id/front/faq/e076131c-0d39-469b-afaf-75fc66aff923) states:
 
-**Typical use case:** you want 6–12+ months of stability without the extension dance.
+- A bank account that proves salary or income of at least **US$60,000 per year**
+- An employment contract with a company established outside Indonesia
+- A personal bank statement with a minimum of **USD $2,000**, or the equivalent, over the last three months
 
-**What it asks for (check current figures before applying)**
+That page does not print a visa code. Open it and confirm you are on that product before you apply. The same page says you may not take pay from individuals or companies in Indonesia.
 
-- Proof of income of at least **US$60,000 per year** from a foreign employer
-- An employment contract with that foreign company (freelancers without one may not qualify)
-- A personal bank statement showing at least **US$2,000** over the last three months
+**Typical use case:** a longer base, employed by a company outside Indonesia, without repeating short extensions.
 
 **Pros**
 
-- One year of legal stay, applied for online without a local sponsor
+- Up to one year of stay for assignments from an overseas company, on the requirements page linked above
 - Cleaner logistical and psychological setup for a longer base
 
 **Cons / caveats**
@@ -422,9 +422,9 @@ Indonesia's remote-worker route is the **E33G**, a one-year limited stay permit 
 
 ### A simple decision framework
 
-- **Staying < 2 months?** A tourist entry / visa on arrival is often simplest (if your passport is eligible).
-- **Staying 2–6 months?** The C1 visit visa with extensions is the usual route.
-- **Staying 6–12+ months and employed by a foreign company?** Look at the E33G Remote Worker Visa and confirm current official requirements.
+- **Staying 30 days or less?** The Bali row is **Visa on Arrival**, **30 days**, if your passport is eligible. That is the field on [Bali](/destinations/bali). It is not a stay of up to two months.
+- **Longer than that stamp?** A visit visa. Read the current length on [evisa.imigrasi.go.id](https://evisa.imigrasi.go.id/) before you book the season.
+- **Employed by a company outside Indonesia and staying longer?** The limited-stay requirements linked above, including the US$60,000 income line and the USD $2,000 bank statement.
 
 ## Infrastructure (Coworking / Internet)
 
@@ -466,7 +466,7 @@ Use this checklist when you do a trial day:
 
 A pattern that works for most people:
 
-- **2–4 coworking days per week** for structure and reliable internet
+- **2 to 4 coworking days per week** for structure and reliable internet
 - **Home deep work** when you want silence
 - A pre-picked fallback café for “I need to send this file now” moments
 
@@ -520,17 +520,17 @@ Before you pay long-term:
 
 ## Suggested “first week” plan
 
-Day 1–2:
+Day 1 to 2:
 - Get SIM/data set up
 - Do a coworking trial day
 - Map your daily loop
 
-Day 3–4:
+Day 3 to 4:
 - View multiple accommodations; test internet
 - Confirm visa timeline and extension needs
 
-Day 5–7:
-- Commit to a base for 2–4 weeks
+Day 5 to 7:
+- Commit to a base for 2 to 4 weeks
 - Build routine: work blocks + movement + social
 
 ## Final thoughts
@@ -550,7 +550,7 @@ Want to compare Bali with the rest of the map? Look at the data for [Canggu](/de
     excerpt: "Bangkok for remote workers in 2026: real monthly costs, BTS neighborhoods, visas and DTV notes, 120 Mbps internet, heat and traffic trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "32 min read",
+    readTime: "31 min read",
     relatedDestinations: ["bangkok"],
     content: `## Is living in Bangkok still worth it for digital nomads in 2026?
 
@@ -728,9 +728,7 @@ On 4 September 2026 the Government Public Relations Department summarized a revi
 
 Read the [government summary](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) and the Thai mission for your passport before you pay for a non-refundable month. If your stamp says fewer days than the page, believe the stamp. The Department of Consular Affairs publishes the country list. This guide will not copy all 60 countries, because that list is the government's and it can be amended. Your passport may be on the shorter scheme, on visa on arrival, or on "visa in advance."
 
-Since 1 May 2025, foreigners have had to complete the Thailand Digital Arrival Card before entry. The Immigration Bureau's own site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), says the card is required, that you submit it up to three days before arrival, and that it is not a visa. Fill it in yourself on that site. Do not pay a random site to do it.
-
-The same official page restates two Immigration Act points that matter if you stay longer than a holiday: if you stay in Thailand longer than **90 days**, you notify the nearest immigration officer in writing of your address, and you do that on the 90-day cycle; and you may not work unless you have been granted a work permit. A remote-work visa category is not a Thai employment contract.
+Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
 Do not assume the old habit of extending a 60-day exemption by another 30 days inside the country survived September 2026. The published review replaced that exemption. If an extension still exists for your stamp, immigration has to be the source, not a forum post. Do not build the season on border runs.
 
@@ -742,9 +740,7 @@ A tourist visa, applied for before you fly, is a different product from the exem
 
 The DTV is the category people mean by "Thailand's digital nomad visa." It is not a program this guide is inventing, and it is not a work permit for a Thai employer.
 
-On 30 May 2024 the Ministry of Foreign Affairs, in its weekly press briefing, described the DTV as a visa for long-term travel, digital nomads, and participants in certain cultural activities, with a period of stay up to **180 days** per visit, multiple-entry, within **5 years**. The ministry's DTV infographic (July 2024) says the same shape: five years, multiple entries, up to 180 days per entry, extendable once through immigration for a period not exceeding 180 days, after which you leave and re-enter within the visa's validity. Purposes on that sheet are workcation (remote work, freelance, foreign talent), specified activities such as Muay Thai, cooking, sport, medical treatment, seminars, and festivals, and a spouse or dependent child of a DTV holder.
-
-Financial evidence on that same infographic is an amount of no less than **500,000 THB**, shown for example with bank statements, payslips, or a sponsorship letter. Workcation applicants show an employment contract or employment certificate from outside Thailand, or a professional portfolio. That is a balance the ministry printed, not a monthly income floor this guide is adding. The public e-Visa channel the infographic names is [thaievisa.go.th](https://www.thaievisa.go.th/visa/dtv-visa). Apply from outside Thailand, through the post that actually accepts your file.
+The Ministry of Foreign Affairs DTV infographic (July 2024) states a visa validity of **5 years**, multiple entries, and a period of stay of **180 days** per entry. It says that stay can be extended once, through the Thai Immigration Bureau, for a period not exceeding 180 days, after which you leave and re-enter on the same visa within its validity. Purposes on that sheet are workcation (remote work, freelance, foreign talent), specified activities such as Muay Thai, cooking, sport, medical treatment, seminars, and festivals, and a spouse or dependent child of a DTV holder. Financial evidence on the same sheet is an amount of no less than **500,000 THB**, shown for example with bank statements, payslips, or a sponsorship letter. Workcation applicants show an employment contract or employment certificate from outside Thailand, or a professional portfolio. That is a balance the ministry printed, not a monthly income floor this guide is adding. The infographic is the [DTV infographic (PDF)](https://image.mfa.go.th/mfa/0/xJ3BrCz2xe/DTV_Infographic.pdf). The public e-Visa channel it names is [thaievisa.go.th](https://www.thaievisa.go.th/visa/dtv-visa). Apply from outside Thailand, through the post that actually accepts your file.
 
 The September 2026 exemption notice says it does not rewrite other visa categories. That is not a promise that every embassy's document list froze in July 2024. Posts add documents (residence where you apply, a criminal-record certificate, and similar). Fees on the e-Visa screen are what you pay; a figure printed for one post is not automatically another post's fee. Copy the current checklist the week you apply. Do not copy a 2024 screenshot from a Facebook group, and do not treat a comment as the rule.
 
@@ -752,9 +748,9 @@ Other long-stay categories exist (education visas, Thailand Privilege, the Long-
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the TDAC done yourself.
+- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the Thailand Digital Arrival Card completed online before you travel.
 - **A season longer than that stamp:** a tourist visa from the correct mission, with the extension rules read in advance.
-- **Many months, working for foreign clients, and you can meet the file:** the DTV, using the live e-Visa checklist, including the 500,000 THB evidence the MFA materials state.
+- **Many months, working for foreign clients, and you can meet the file:** the DTV, using the live e-Visa checklist, including the 500,000 THB evidence on the MFA infographic linked above.
 - **A year via border runs:** not a plan.
 
 ## Best months, rainy season, extreme heat, and air quality
@@ -1917,7 +1913,7 @@ The disposition does not print a dollar or euro income floor. This guide will no
 Where you file:
 
 - **From abroad:** the [Tramitación de Ingreso Electrónica for digital nomads](https://www.argentina.gob.ar/servicio/tramitacion-de-ingreso-electronica-nomadas-digitales). You show the authorization to the inspector when you enter. The page states a stay of up to **180** days.
-- **From inside Argentina:** in person, not through Radex. The service page says you must be in the country. In Buenos Aires it tells you to write to asesoramiento@migraciones.gob.ar. Elsewhere, you go to the Migraciones office for your area. The page also says you do not need a gestor.
+- **From inside Argentina:** in person, not through Radex. The service page says you must be in the country. In Buenos Aires it tells you to write to asesoramiento@migraciones.gov.ar. Elsewhere, you go to the Migraciones office for your area. The page also says you do not need a gestor.
 
 The extension is once, for the same length as the residence you were granted. [Article 3](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto) requires a valid passport, proof of income actually received during the period you want to extend, a criminal-record certificate from the Registro Nacional de Reincidencia, proof you stayed in Argentina at least **50%** of that period, and the fee. The [extension service page](https://www.argentina.gob.ar/servicio/obtener-una-prorroga-de-residencia-transitoria-como-nomada-digital) is the filing version of that list. Filing is not approval.
 
@@ -2084,7 +2080,7 @@ Still no partner IDs. These slots are last, after the week above. The buttons th
     excerpt: "A practical 2026 guide to living in Cape Town as a remote worker: monthly costs, Sea Point vs Gardens vs Camps Bay, the Remote Work Visa, and power backup.",
     date: "2026-10-05",
     updated: "2026-10-05",
-    readTime: "9 min read",
+    readTime: "10 min read",
     relatedDestinations: ["cape-town"],
     content: `## Introduction
 
@@ -2122,19 +2118,19 @@ Your biggest cost drivers:
 
 | Category | Budget (USD) | Mid-range (USD) | Comfortable (USD) | Notes |
 |---|---:|---:|---:|---|
-| Rent (studio/1BR) | 600–1,000 | 1,100–1,800 | 2,000–3,500+ | Biggest swing: Sea Point/Camps Bay ↑ |
-| Utilities | 40–90 | 90–160 | 160–280 | Includes water/electricity; AC/heating minimal |
-| Internet (fiber) | 35–70 | 70–110 | 110–180 | Depends on ISP + speed tier |
-| Mobile SIM + data | 10–25 | 25–45 | 45–80 | Keep backup data for load shedding |
-| Coworking | 0–70 | 80–200 | 200–350 | Memberships vary; meeting rooms cost extra |
-| Transport (public/Uber mix) | 80–180 | 180–350 | 350–700 | If you rent a car, budget rises |
-| Groceries | 150–260 | 260–420 | 420–700 | Eating imported/organic increases cost |
-| Restaurants + cafés | 80–180 | 180–450 | 450–1,000 | Cape Town dining is addictive |
-| Gym / fitness | 15–40 | 40–90 | 90–200 | Big variance: basic gym vs premium clubs |
-| Insurance / healthcare | 40–120 | 120–250 | 250–500 | Travel/expat insurance varies a lot |
-| Power backup (amortized) | 0–30 | 30–90 | 90–200 | UPS/inverter costs spread over months |
-| Misc + fun (wine country, etc.) | 80–200 | 200–600 | 600–1,500 | Weekends can quietly become expensive |
-| **Estimated total** | **1,110–2,175** | **2,365–4,155** | **4,365–9,990+** | Your lifestyle determines the truth |
+| Rent (studio/1BR) | 600 to 1,000 | 1,100 to 1,800 | 2,000 to 3,500+ | Biggest swing: Sea Point/Camps Bay ↑ |
+| Utilities | 40 to 90 | 90 to 160 | 160 to 280 | Includes water/electricity; AC/heating minimal |
+| Internet (fiber) | 35 to 70 | 70 to 110 | 110 to 180 | Depends on ISP + speed tier |
+| Mobile SIM + data | 10 to 25 | 25 to 45 | 45 to 80 | Keep backup data for load shedding |
+| Coworking | 0 to 70 | 80 to 200 | 200 to 350 | Memberships vary; meeting rooms cost extra |
+| Transport (public/Uber mix) | 80 to 180 | 180 to 350 | 350 to 700 | If you rent a car, budget rises |
+| Groceries | 150 to 260 | 260 to 420 | 420 to 700 | Eating imported/organic increases cost |
+| Restaurants + cafés | 80 to 180 | 180 to 450 | 450 to 1,000 | Cape Town dining is addictive |
+| Gym / fitness | 15 to 40 | 40 to 90 | 90 to 200 | Big variance: basic gym vs premium clubs |
+| Insurance / healthcare | 40 to 120 | 120 to 250 | 250 to 500 | Travel/expat insurance varies a lot |
+| Power backup (amortized) | 0 to 30 | 30 to 90 | 90 to 200 | UPS/inverter costs spread over months |
+| Misc + fun (wine country, etc.) | 80 to 200 | 200 to 600 | 600 to 1,500 | Weekends can quietly become expensive |
+| **Estimated total** | **1,110 to 2,175** | **2,365 to 4,155** | **4,365 to 9,990+** | Your lifestyle determines the truth |
 
 ### Reality checks (what people underestimate)
 
@@ -2233,22 +2229,23 @@ Visa rules shift, and your eligibility depends on your passport. Treat this as a
 
 ### Short stays: visitor entry
 
-- Many passports get a visa-free visitor entry on arrival (commonly 90 days, but it varies by nationality).
+- The Cape Town row records a **Visa Exemption** of **90 days**. Your passport may not be in that group. Check the Department of Home Affairs before you treat 90 days as your stamp.
 - Best for: a trial month, scouting neighborhoods, short projects.
 - Don't assume you can "just extend forever." Back-to-back visa runs are not a strategy.
 
 ### Longer stays: the Remote Work Visa
 
-Since October 2024 South Africa has had a dedicated **Remote Work visitor's visa** (its digital nomad visa) for people who work for a foreign employer.
+The Department of Home Affairs checklist for a **Remote Work visitor's visa** (visitors visa section 11(1)(b)(iv)) is effective **9 October 2024**. The document is the [Remote Work Visa requirements PDF](https://www.dha.gov.za/images/notices/8october24/Remote_Work_Visa_-_requirements_-_9_Oct_2024.pdf), also linked from the [DHA notices page](https://www.dha.gov.za/index.php/notices/1824-remote-work-visa-requirements-9-oct-2024).
 
-**Key requirements (check current figures before applying)**
+**What that checklist states**
 
-- A signed employment contract with an employer based outside South Africa
-- A gross salary of at least **R650,796 per year**, shown with three months of bank statements
-- Valid passport, return ticket or reservation, police clearance, and the application fee
-- Stays of more than three months and up to three years; you may not take up local employment
+- A valid contract of employment signed by the applicant and the foreign-based employer
+- Proof of sufficient financial means, defined as a gross salary of no less than **R650,796 per year**, shown with three months of bank statements (the PDF prints this as R650 796,00)
+- A valid return air ticket or proof of a reservation, and proof of payment of the applicable fee
+- A stay exceeding 3 months, up to 3 years
+- The holder is not entitled to take up employment in South Africa
 
-**Tax note:** if you're in South Africa for more than 183 days in any 12-month period, you'll need to register with SARS. Get advice from a tax professional before you commit to a long stay.
+**Tax note:** the same checklist splits registration with SARS in two. If you are a tax resident of a country that has a double-tax agreement with South Africa, you register when you are in the Republic for longer than 183 days in any 12-month period. If you are not a tax resident of such a country, the checklist says you register with SARS. Get advice from a tax professional before you commit to a long stay.
 
 ### Practical visa guidance
 
@@ -2286,7 +2283,7 @@ Cape Town has a solid coworking scene. What matters:
 
 A routine that works:
 
-- 2–4 coworking days/week for meetings and stability
+- 2 to 4 coworking days/week for meetings and stability
 - Home days for deep work (if your building has backup power)
 
 ### Power / load shedding survival plan
@@ -2332,11 +2329,11 @@ Day 2:
 - Test coworking for 1 day
 - Create your fallback café list
 
-Day 3–4:
+Day 3 to 4:
 - Explore neighborhoods at the times you’ll actually live them (morning/evening)
 - If you plan a longer stay, view multiple apartments
 
-Day 5–7:
+Day 5 to 7:
 - Lock in your base
 - Build routine: work blocks + movement + one social touchpoint
 
@@ -2541,7 +2538,7 @@ The Royal Thai Consulate-General in Los Angeles, in its public visa note, tells 
 
 If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended. This guide also does not print a DTV fee, a savings balance, or a day count for the DTV. Those live on the checklist of the post that decides the file.
 
-Since 1 May 2025, Thai immigration has also required the Thailand Digital Arrival Card before entry or exit. The Los Angeles consulate points people to the official form at [tdac.immigration.go.th](https://tdac.immigration.go.th/arrival-card/#/home). Fill it in yourself. Do not pay a random site to do it.
+Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
 ### Tourist visa, if the exemption is too short
 
@@ -2563,7 +2560,7 @@ Other long-stay categories exist (education visas, Thailand Privilege, the Long-
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions.
+- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the Thailand Digital Arrival Card completed online before you travel.
 - **A season longer than that stamp:** a tourist visa from the correct embassy, with the extension rules read in advance.
 - **Many months, working for foreign clients, and you can meet the file:** look at the DTV and use the live embassy checklist.
 - **A year via border runs:** not a plan.
@@ -2906,9 +2903,9 @@ The Da Nang row says **E-Visa**, **90 days**, **UTC+7**. Ho Chi Minh City, Hoi A
 
 ### What the Immigration Department publishes
 
-Vietnam's Immigration Department describes the e-visa on its portal. The current application domains it has announced are [evisa.gov.vn](https://evisa.gov.vn/) and thithucdientu.gov.vn. The Department's own description, on the [national immigration portal](https://immigration.gov.vn/trang-chu-ttdt), says an e-visa is valid for a **maximum of 90 days**, **single or multiple entry**, for foreigners who are **outside Vietnam**, hold a valid passport, and are not barred from entry. The fee is paid online and is **not refunded** if the application is refused.
+The Department's own description, on the [national immigration portal](https://immigration.gov.vn/trang-chu-ttdt), is the source for the rule. An e-visa is valid for a **maximum of 90 days**, **single or multiple entry**, for foreigners who are **outside Vietnam**, hold a valid passport, and are not barred from entry. The fee is paid online and is **not refunded** if the application is refused. That portal names the application domains evisa.gov.vn and thithucdientu.gov.vn. Read the rule on the immigration portal.
 
-The Department's application instructions still publish the fee and the processing line in plain text: **$25** for a single-entry e-visa, **$50** for a multiple-entry e-visa, and processing in **3 working days**. Those figures are the official instructions, not a Nomad Spin price. They can change. Read them on the live portal the week you pay. Do not copy a blog's service fee and call it the government charge.
+The Department's application instructions, on the [e-visa steps page](https://immigration.gov.vn/en_US/web/guest/khai-thi-thuc-dien-tu/cap-thi-thuc-dien-tu), still publish the fee and the processing line in plain text: **$25** for a single-entry e-visa, **$50** for a multiple-entry e-visa, and processing in **3 working days**. Those figures are the official instructions, not a Nomad Spin price. They can change. Read them on the live portal the week you pay. Do not copy a blog's service fee and call it the government charge.
 
 Print the approval before you fly. A screenshot on a dead phone is a bad arrival plan. Da Nang Airport has appeared on Ministry of Foreign Affairs lists of air gates that accept e-visa entry. Confirm the live port list on the portal before you book a ticket into DAD, because gates are a government list, not a travel blog.
 
@@ -3289,7 +3286,7 @@ The Ho Chi Minh City row says **E-Visa**, **90 days**, **UTC+7**. Da Nang, Hoi A
 
 ### What the Immigration Department publishes
 
-Vietnam's Immigration Department describes the e-visa on its portal. The current application domains it has announced, from 08:00 on 11 November 2024 (GMT+7), are [evisa.gov.vn](https://evisa.gov.vn/) and thithucdientu.gov.vn. The Department's own description, on the [national immigration portal](https://immigration.gov.vn/trang-chu-ttdt), says an e-visa is valid for a **maximum of 90 days**, **single or multiple entry**, for foreigners who are **outside Vietnam**, hold a valid passport, and are not barred from entry under Article 21 of the law on foreigners' entry, exit, transit, and residence. The fee is paid online and is **not refunded** if the application is refused.
+The Department's own description, on the [national immigration portal](https://immigration.gov.vn/trang-chu-ttdt), is the source for the rule. From 08:00 on 11 November 2024 (GMT+7), that portal names the application domains evisa.gov.vn and thithucdientu.gov.vn. An e-visa is valid for a **maximum of 90 days**, **single or multiple entry**, for foreigners who are **outside Vietnam**, hold a valid passport, and are not barred from entry under Article 21 of the law on foreigners' entry, exit, transit, and residence. The fee is paid online and is **not refunded** if the application is refused. Read the rule on the immigration portal.
 
 The Department's application instructions, on the [e-visa steps page](https://immigration.gov.vn/en_US/web/guest/khai-thi-thuc-dien-tu/cap-thi-thuc-dien-tu), still publish the fee and the processing line in plain text: **$25** for a single-entry e-visa, **$50** for a multiple-entry e-visa, and processing in **3 working days**. Those figures are the official instructions, not a Nomad Spin price. They can change. Read them on the live portal the week you pay. Do not copy a blog's service fee and call it the government charge.
 
@@ -3484,7 +3481,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Lisbon for remote workers in 2026: real monthly costs, neighborhoods, D8 visa notes, coworking, 200 Mbps internet, and rising-rent trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "30 min read",
+    readTime: "31 min read",
     relatedDestinations: ["lisbon","porto","budapest","barcelona"],
     content: `## Is Lisbon still worth it for digital nomads in 2026?
 
@@ -3492,7 +3489,7 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 
 - **Cost:** about **$2,200** a month solo, about **$1,800** on a longer stay. A short Airbnb sits near **$120** a night, which is a different budget.
 - **Internet:** yes for video calls. The average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa (under a year) or a D8 residency visa of 4 months that leads to a 2-year permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa or a D8 residency visa, then a residence permit. The AIMA page says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consular visa's own length is on the MNE visa-type page. This guide does not restate it. Verify on those pages.
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
@@ -3679,10 +3676,10 @@ Portugal's remote-work route is two visas, then a permit. It is for work done fo
 
 | Route | Where | Length (official) |
 |---|---|---|
-| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
-| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+| Temporary-stay visa (remote work) | Portuguese consulate | Length and entries: MNE visa-type page |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Consular visa length: MNE page. Permit: 2 years from issue, then renewals of 3 years (AIMA) |
 
-A **temporary-stay** visa covers a stay under one year and allows multiple entries. The **residency visa** (often called the D8) allows two entries and is valid for 4 months. In that window the holder applies to **AIMA** for a residence permit. That temporary residence permit is valid for 2 years from the date the card is issued and is renewable for successive 3-year periods (Lei 23/2007, art. 75).
+A **temporary-stay** visa and the **residency visa** (often called the D8) are the two consular routes. How long each visa lasts, and how many entries it allows, are on the MNE visa-type page. This guide does not restate those figures, because that page did not return them when checked. On the residency visa, the holder applies to **AIMA** for a residence permit. The [AIMA page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consolidated statute is [Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445). The article text did not load from that URL, so the permit length above is taken from AIMA, not from a reading of article 75.
 
 Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book. This guide does not print a euro income figure.
 
@@ -4440,7 +4437,7 @@ The [Permiso de Ingreso y Permanencia (PIP)](https://portal.migracioncolombia.go
 
 A longer visa-free stay, where it exists, is a different procedure. The [Permiso Temporal de Permanencia (PTP)](https://www.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/prorroga/permiso-temporal-de-permanencia-ptp-/-prorroga), also called a prórroga, is for people who already hold a PIP and whose nationality does not require a visa. Migración Colombia says the PTP cannot exceed **180** calendar days, continuous or not, inside the same calendar year, and that you must still have a valid PIP when you apply. For a tourism PIP, the same page lists an extension of up to **90** days. Apply on the Formulario Único de Trámites at least **5** business days before the PIP expires. Filing is not approval. The page publishes a 2026 tariff and a table of payment exceptions, including some nationalities at zero. Read that table for your passport. This guide does not restate the fee as a universal price.
 
-Cancillería's own note on the digital-nomad visa says the same outer bound for visa-exempt remote workers who do not take the visa: a PIP stay no longer than **90** days, extendable to a maximum of **180** days, continuous or not, in the calendar year, and only if the stay does not generate payments from Colombian companies.
+Cancillería publishes its own note on the digital-nomad visa at the pages linked below. This guide does not copy a stay length from those pages, because they did not load when checked. The **90**-day and **180**-day figures above are Migración Colombia's, from the PIP and PTP pages.
 
 [Check-Mig](https://www.migracioncolombia.gov.co/tramites-y-servicios/aplicativos/checkmig) is Migración Colombia's free pre-registration. The current page says it is not mandatory. It lets you preload the flight, the reason for travel, and where you will stay, from 72 hours before departure until one hour before. Use the official app at [apps.migracioncolombia.gov.co/pre-registro](https://apps.migracioncolombia.gov.co/pre-registro/es). Do not pay a random site to file it.
 
@@ -4448,14 +4445,14 @@ Which passports need a visa before they fly is Cancillería's list, not this gui
 
 ### Visa V for digital nomads
 
-The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. The published validity is up to two years. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
+The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. The page states how long the visa lasts. This guide does not restate a number of years, because the page did not load when checked. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
 
 The specific requirements on that page, as checked for this guide, include:
 
 - A passport from a country or territory that is exempt from a short-stay visa, under the resolution they cite
 - A letter in Spanish or English from the foreign company or companies, stating the type of link and the type of pay, plus the contract if you have one, or proof you are a partner and that the work is remote
 - For founders, a letter explaining the venture and the financial and human resources it has or expects
-- Bank statements showing minimum income equivalent to three current monthly legal minimum wages (3 SMLMV) during the last three months
+- Bank statements for the income test on that page, set in current monthly legal minimum wages. This guide does not restate the multiple or the number of months, because the page did not load when checked.
 - A health policy covering Colombia for accident, illness, maternity, disability, hospitalization, death, or repatriation, for the time you plan to stay
 
 That income line is the Cancillería page's own condition, written in Colombian minimum wages. The wage moves. This guide does not convert it into dollars, and it does not invent a second threshold. Copy the checklist the week you apply. A forum screenshot of a dollar figure is how people build a file the ministry will not accept.
@@ -4996,7 +4993,7 @@ Living in Porto as a digital nomad is a rational Portugal base in 2026 if you wa
 - **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
 - **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
 - **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. Portugal's D8 residency visa is 4 months and leads to a 2-year residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. The consular visa's own length is on the MNE page. This guide does not restate it. The statute is Lei 23/2007. Verify on those pages.
 - **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
 
 The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
@@ -5013,7 +5010,7 @@ Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and p
 
 ### What visa do digital nomads use in Porto?
 
-Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a **2-year** residence permit, renewable for 3. Same national rules as Lisbon. Thresholds and fees change; verify on MNE and AIMA pages.
+Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. The consular visa length is on the MNE page. This guide does not restate it. Thresholds and fees change; verify on MNE and AIMA pages.
 
 ### Who should skip living in Porto?
 
@@ -5186,14 +5183,14 @@ Ribeira is a viewpoint. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
 
-**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas. A temporary-stay visa covers stays under one year with multiple entries. The residency visa (often called the D8) is valid for 4 months and is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods (Lei 23/2007, art. 75). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). How long each consular visa lasts is on the MNE visa-type page. This guide does not restate that length, because the page did not return it when checked. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
 
 Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
 
 | Route | Where | Length (official) |
 |---|---|---|
-| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
-| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+| Temporary-stay visa (remote work) | Portuguese consulate | Length and entries: MNE visa-type page |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Consular visa length: MNE page. Permit: 2 years from issue, then renewals of 3 years (AIMA) |
 
 ## Best months (May-Sep) vs rainy, damp winters (Nov-Feb)
 
@@ -5570,7 +5567,7 @@ It is for third-country nationals who intend to run a business, be self-employed
 
 You lodge the application in person at a Czech embassy or consulate, by territorial competence, with an interview and fingerprints. On the form, purpose of stay is **Business**. The purpose document is a registry extract: a trade licence extract (živnostenský list), a company-register extract, or another extract the page allows. The Ministry of the Interior decides. If it approves, the embassy that took the file issues the visa. The page says a long-term visa can be issued for a **maximum of one year**.
 
-If the purpose continues, you can ask, before the visa expires, for an extension of up to one year at the local branch of the Ministry of the Interior, or for a change of status to a long-term residence permit. The page lists long-term residence purposes that include employment, study, scientific research, family, intra-company transfer, and investment, and residence for residents of other EU member states. The Interior's [purpose-of-stay page](https://www.mvcr.cz/mvcren/article/document-on-the-purpose-of-stay.aspx) says the business purpose, for someone trading under the Trade Licensing Act, is an extract from the Trade Register.
+If the purpose continues, you can ask, before the visa expires, for an extension of up to one year at the local branch of the Ministry of the Interior, or for a change of status to a long-term residence permit. The page lists long-term residence purposes that include employment, study, scientific research, family, intra-company transfer, and investment, and residence for residents of other EU member states. The Interior's [purpose-of-stay page](https://www.mvcr.cz/mvcren/article/document-on-the-purpose-of-stay.aspx) now opens on an archive that says its content may not be current. That archived text says the business purpose, for someone trading under the Trade Licensing Act, is a statement from the Trade Register.
 
 **What else that MFA page says to expect.**
 
@@ -5584,7 +5581,7 @@ If the purpose continues, you can ask, before the visa expires, for an extension
 
 The legal sources named on the MFA page include Act No. 326/1999 Coll., on the residence of foreign nationals, and Act No. 455/1991 Coll., the Trade Licensing Act. The trade itself is declared at a trade licensing office. The MFA page points at the Ministry of Industry and Trade's trade register for that step.
 
-For a later long-term residence permit for business, the Interior also asks for proof you have no arrears with the financial administration, customs, social security, and (if you are in the public system) your health insurance company. Those confirmations must be no older than 30 days. The page is the Interior's [confirmation of non-existence of arrears](https://www.mvcr.cz/mvcren/article/confirmation-of-non-existence-of-arrears.aspx).
+For a later long-term residence permit for business, the Interior also asks for proof you have no arrears with the financial administration, customs, social security, and (if you are in the public system) your health insurance company. The Ministry of the Interior's [Information Portal for Foreigners](https://ipc.gov.cz/en/forms-and-documents/documents/proof-of-no-outstanding-debts/) says that, on the day you apply, that proof cannot be older than 30 days.
 
 ### Path B: the Digital Nomad Program, which is not the same visa
 
@@ -5739,7 +5736,7 @@ The point of the dataset is to stop arguing from postcards.
     excerpt: "Tbilisi for remote workers in 2026: real monthly costs, 365-day visa-free notes, neighborhoods, 60 Mbps internet, wine culture, and winter trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "34 min read",
+    readTime: "33 min read",
     relatedDestinations: ["tbilisi"],
     content: `## Is living in Tbilisi still worth it for digital nomads in 2026?
 
@@ -5939,17 +5936,17 @@ This guide will not copy the annex. The list is the government's to amend, and p
 
 ### Insurance you may be asked to show at the border
 
-From 1 January 2026, Georgian embassies have published the same notice under the Law of Georgia on Tourism: tourists entering Georgia must hold a health and accident insurance policy, on paper or on a phone, in Georgian or English. The policy may be from a Georgian or a foreign insurer. The coverage amount must be no less than **30,000 GEL**. It must cover the whole stay, arrival date through departure date. The English text used here is the [Embassy of Georgia in Australia's notice of 8 January 2026](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia), which points at that law. Diplomatic and a few official categories are exempt. A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
+Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. The coverage amount, the start date, and any exemptions are on that notice. This guide does not restate a sum or a date, because the page did not load when checked. Read the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia). A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
 
-That sum is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
+Whatever amount that notice sets is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
 
-### Work, from 1 March 2026
+### Work, and the right-to-work notice
 
 A visa-free stay is permission to enter and remain. It is a separate question from permission to work.
 
-The [Embassy of Georgia in Norway, on 26 February 2026](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh), summarized amendments to the Law on Labour Migration that entered into force on **1 March 2026**. The notice says that an alien with no permanent-residence permit may be employed by a local employer, including remotely, and may carry out entrepreneurial or labour activity in Georgia for economic benefit, only after obtaining a "right to work." That right is granted by the State Employment Support Agency. Applications go through [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). A labour immigrant obtains it through the local employer. A self-employed alien obtains it directly, for a stated specialty and field.
+The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. The start date, and exactly which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, are on that notice and on [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). This guide does not restate a start date, because those pages did not load when checked. Read them before you take a Georgian employer, a Georgian client, or a local registration.
 
-Read that sentence against your actual setup. A Georgian employer, a Georgian client, a local registration, or activity whose purpose is economic benefit inside Georgia sits inside the notice. Remote work performed only for a non-resident employer, with no Georgian clients and no local registration, is the case the notice does not spell out in a single line. Later amendments may narrow or widen it. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
+Read that notice against your actual setup. This guide does not spell out which remote-work cases it covers, because the page did not load. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
 
 ### Tax, at the level of a day count
 
@@ -5961,7 +5958,7 @@ Readers who want a territorial-tax residency project should use the [Paraguay ta
 
 - **Your passport is on the annex, and you want up to a year of stay:** the visa-free rule in Ordinance No 255, after you re-read the current annex.
 - **Your passport is not on the annex:** stop. Use the MFA checker. Do not book the year.
-- **You will have a Georgian employer, Georgian clients, or a local business:** the right-to-work notice of 1 March 2026 is required reading before you start.
+- **You will have a Georgian employer, Georgian clients, or a local business:** read the right-to-work notice linked above before you start.
 - **You work only for foreign clients and you are unsure whether that is "activity in Georgia":** ask a Georgian lawyer, using the current statute, before you rely on a forum.
 - **You will be in the country long enough to trip Article 34:** get tax advice at home and in Georgia. This page is not that advice.
 
@@ -5994,7 +5991,7 @@ Same three slots, still with no partner IDs. Buy them only after the month is on
 |---|---|
 | Stays | Dates inside May, Jun, Sep, or Oct, or a winter stay you chose on purpose, with a cancellation rule that survives a heating or air surprise |
 | Flights | TBS in and out around that window, with the connection written down. Few direct flights is a listed con |
-| Insurance | Cover that meets the 30,000 GEL entry rule and that you understand before you are standing in a clinic |
+| Insurance | Cover that meets the embassy insurance notice linked above, and that you understand before you are standing in a clinic |
 
 ## Daily life: wine, food, hospitality, language, flights, and tax notes
 
@@ -6074,7 +6071,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 - Sleep. Walk one neighborhood in daylight and once after dark
 - Buy the local SIM and test the hotspot
-- Confirm the insurance you will be asked to show, against the 30,000 GEL rule
+- Confirm the insurance you will be asked to show, against the embassy notice linked in the visa section
 - Do not stack your heaviest call day on the afternoon you land, especially if the itinerary was two connections
 
 ### Days 3-4
@@ -6215,7 +6212,7 @@ Valencia is flat enough to bike, small enough to cross, and different enough by 
 
 ### Ruzafa
 
-Ruzafa (the Metrovalencia station is listed as Russafa) is the usual first landing for remote workers: cafes, food, and a grid you can learn in a weekend. It is central without being the old-town maze. [Wayco](https://wayco.es/en/) lists a room here, which is useful in week one while you test calls.
+Ruzafa is the usual first landing for remote workers: cafes, food, and a grid you can learn in a weekend. Check the Metrovalencia station list for the stop name before you assume the spelling on the map. It is central without being the old-town maze. [Wayco](https://wayco.es/en/) lists a room here, which is useful in week one while you test calls.
 
 **Trade-off:** this is where the evening economy lives. A room on a bar street will lose to a booked desk every time you have a morning call. It is also not the beach. You ride or take the tram to the sand. You are still inside \`rentIndex\` **38**. A popular neighborhood is not a discount code.
 
@@ -6352,7 +6349,7 @@ The old Turia riverbed is a long park, and it is the reason a bike is a commute 
 
 ### Metro, tram, and the airport
 
-Metrovalencia runs metro and tram. Its station list includes **Russafa**, **Cabanyal**, and **Benimaclet**. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line and fare on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a tram stop you have not stood at with groceries.
+Metrovalencia runs metro and tram. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line, fare, and station list on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a stop you have not stood at with groceries. This guide does not name stations from that list, because the page did not load when it was checked.
 
 Valencia Airport (VLC) is on the metro. [Aena](https://www.aena.es/en/valencia/arriving/underground.html) says lines **3** and **5** leave from the ground floor of the regional terminal. There is also a metro bus. Check the timetable the week you land. Do not budget the **$1,425** month around a taxi each way.
 
@@ -6366,7 +6363,7 @@ The dataset language is **Spanish**. English proficiency on the row is **5**, be
 
 ### Beach and city
 
-The work-week version is a morning swim, then a desk. Metrovalencia's station list includes Platja Malva-rosa and Platja les Arenes, which is the practical hint: the sand is on the network, not a resort you fly to. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
+The work-week version is a morning swim, then a desk. Check [Metrovalencia's station list](https://www.metrovalencia.es/es/consulta-estaciones/) for whether the beach is on your line before you treat the sand as a commute. This guide does not name those stops, because the page did not load when it was checked. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
 
 Safety **8** is higher than Barcelona's **7.5**. The practical version, without a crime essay: bag in front in El Carmen and on a crowded beach, phone off the cafe table, laptop in your hand. This is a city you can walk home through after dinner. It is still a city.
 
