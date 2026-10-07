@@ -146,4 +146,18 @@ describe('living guide visa sections', () => {
     expect(tbilisi).not.toMatch(/Visa Exemption, 60 days/);
     expect(tbilisi).toMatch(/Tourism exemption, 30 days/);
   });
+
+  it('cites the Hungarian White Card factsheet and both official income figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-budapest.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/oif\.gov\.hu\/factsheets\/white-card-residency-for-digital-nomads/);
+    expect(md).toMatch(/enterhungary\.gov\.hu\/eh\/tajekoztato\/en\/okmanyfeherkartya/);
+    expect(md).toMatch(/EUR 3,000/);
+    expect(md).toMatch(/EUR 2,000/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/still shows/i);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
 });

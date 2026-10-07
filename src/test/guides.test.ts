@@ -12,6 +12,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-chiang-mai');
     expect(slugs).toContain('living-in-bangkok');
     expect(slugs).toContain('living-in-barcelona');
+    expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
@@ -354,6 +355,66 @@ describe('static guides', () => {
     expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
   });
 
+  it('publishes the Budapest living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-budapest');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Budapest');
+    expect(g!.seoTitle).toBe("Living in Budapest 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Budapest for remote workers in 2026: real monthly costs, District VII vs Buda, White Card visa notes, 200 Mbps internet, baths, and winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['budapest']);
+    expect(g!.content).toContain('Living in Budapest as a digital nomad');
+    expect(g!.content).toContain('$1,500');
+    expect(g!.content).toContain('$1,100');
+    expect(g!.content).toContain('$70');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('8.3');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('White Card');
+    expect(g!.content).toContain('oif.gov.hu');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/budapest',
+      '/destinations/lisbon',
+      '/destinations/tbilisi',
+      '/destinations/prague',
+      '/destinations/krakow',
+      '/destinations/vienna',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-tbilisi',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Budapest worth it for digital nomads in 2026?',
+      'Who Budapest is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,500, long-term $1,100, Airbnb $70/night)',
+      'Districts that work: VII (Erzsébetváros), VI (Terézváros), V, XIII (Újlipótváros), and the Buda side',
+      'Internet, power, and coworking: 200 Mbps, reliability 9, power 9, High coworking',
+      'Visas and stay length: Schengen 90/180 vs Hungary White Card (verify official rules)',
+      'Best months (Apr-Jun, Sep-Oct), rainy Nov-Dec, cold winters, and winter air quality',
+      'Daily life: thermal baths, ruin bars, the transit pass, Hungarian, forint, and community',
+      'Budapest vs Prague, Krakow, Vienna, and Lisbon',
+      'First-week checklist and how to compare Budapest on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
   it('publishes the Tbilisi living guide from dataset figures', () => {
     const g = guides.find((x) => x.slug === 'living-in-tbilisi');
     expect(g).toBeTruthy();
@@ -444,7 +505,7 @@ describe('static guides', () => {
     ]) {
       expect(g!.content).toContain(href);
     }
-    expect(g!.content).not.toContain('/guides/living-in-budapest');
+    expect(g!.content).toContain('/guides/living-in-budapest');
     for (const heading of [
       'Is living in Barcelona worth it for digital nomads in 2026?',
       'Who Barcelona is for (and who should skip it)',
