@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import type { Guide } from '@/data/guides';
+import { guideDestinationLinks, rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 
 marked.use({ gfm: true, breaks: false });
 
@@ -21,9 +22,9 @@ export function renderGuideMarkdown(markdown: string): string {
 }
 
 export function guideBodyHtml(guide: Guide): string {
-  const body = renderGuideMarkdown(guide.content);
+  const body = renderGuideMarkdown(rewriteSubAreaDestinationHrefs(guide.content));
   const published = esc(guide.date.split('T')[0] ?? guide.date);
-  const related = guide.relatedDestinations ?? [];
+  const related = guideDestinationLinks(guide.relatedDestinations);
   const relatedHtml = related.length
     ? `<h2>Related destinations</h2><ul>${related
         .map((slug) => {

@@ -113,11 +113,13 @@ describe('living guide and destination hub links', () => {
 
   it('uses the same helpers in the client page and the prerender script', () => {
     const page = fs.readFileSync(path.resolve(__dirname, '../pages/DestinationGuide.tsx'), 'utf8');
-    const prerender = fs.readFileSync(path.resolve(__dirname, '../../scripts/generate-seo-pages.ts'), 'utf8');
+    const prerender = fs.readFileSync(path.resolve(__dirname, '../lib/destinationPrerender.ts'), 'utf8');
+    const generator = fs.readFileSync(path.resolve(__dirname, '../../scripts/generate-seo-pages.ts'), 'utf8');
     expect(page).toContain('livingGuideForCity');
     expect(page).toContain('hubRelatedGuides');
     expect(prerender).toContain('destinationFieldGuideHtml');
     expect(prerender).toContain('hubRelatedGuides');
     expect(prerender).toContain('${fieldGuideHtml}');
+    expect(generator).toContain('destinationBodyHtml');
   });
 });
