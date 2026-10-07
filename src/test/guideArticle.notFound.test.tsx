@@ -31,7 +31,7 @@ describe('GuideArticle unknown slug', () => {
   it('sets a Page Not Found title and noindex, without an em dash', async () => {
     renderGuide('living-in-not-a-real-city-xyz');
 
-    expect(screen.getByRole('heading', { level: 1, name: '404: MISSING' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: 'Guide not found' })).toBeInTheDocument();
 
     await waitFor(() => {
       expect(document.title).toBe(NOT_FOUND_TITLE);

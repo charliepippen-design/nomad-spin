@@ -24,7 +24,7 @@ const jsonLd = {
 
 export default function About() {
   return (
-    <div className="noise-overlay min-h-screen bg-background">
+    <div className="page-content min-h-screen bg-background">
       <Helmet>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
@@ -42,12 +42,7 @@ export default function About() {
       </Helmet>
 
       <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        {/* Back link */}
-        <Link to="/" className="inline-block text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase mb-12">
-          ← Back to Spin
-        </Link>
-
-        <h1 className="font-mono text-lg md:text-2xl tracking-[0.15em] text-foreground uppercase mb-8">
+        <h1 className="text-4xl text-foreground mb-8">
           About Nomad Spin
         </h1>
 
@@ -69,7 +64,7 @@ export default function About() {
           ].map((v) => (
             <div key={v.title} className="rounded-xl border border-border/30 bg-card p-5 flex flex-col gap-3">
               <v.icon className="w-5 h-5 text-foreground/60" />
-              <h2 className="font-mono text-xs tracking-wider text-foreground uppercase">{v.title}</h2>
+              <h2 className="text-lg text-foreground">{v.title}</h2>
               <p className="text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
             </div>
           ))}

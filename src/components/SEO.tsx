@@ -19,31 +19,32 @@ export default function SEO({
   path = '/',
   city,
 }: SEOProps) {
-  // Dynamic overrides when a city is selected
-  const finalTitle = city
-    ? `${city.name}, ${city.country} — Digital Nomad Guide | Nomad Spin`
+  const pageUrl = `${BASE_URL}${path}`;
+  // The homepage stays a WebApplication even after a spin. City JSON-LD belongs on /destinations/:slug.
+  const citySeo = path === '/' ? null : city;
+  const finalTitle = citySeo
+    ? `${citySeo.name}, ${citySeo.country} | Digital Nomad Guide | Nomad Spin`
     : title;
-  const finalDescription = city
-    ? `Explore ${city.name}: $${city.costUSD}/mo, ${city.internetMbps}Mbps WiFi, safety ${city.safety}/10. Find stays, flights, and eSIMs for digital nomads.`
+  const finalDescription = citySeo
+    ? `Explore ${citySeo.name}: $${citySeo.costUSD}/mo, ${citySeo.internetMbps}Mbps WiFi, safety ${citySeo.safety}/10. Find stays, flights, and eSIMs for digital nomads.`
     : description;
-  const finalImage = city
-    ? getCityImageUrl(city.id, city.region, 1200)
+  const finalImage = citySeo
+    ? getCityImageUrl(citySeo.id, citySeo.region, 1200)
     : image.startsWith('http')
       ? image
       : `${BASE_URL}${image}`;
-  const pageUrl = `${BASE_URL}${path}`;
 
-  const jsonLd = city
+  const jsonLd = citySeo
     ? {
         '@context': 'https://schema.org',
         '@type': 'TouristDestination',
-        name: `${city.name}, ${city.country}`,
+        name: `${citySeo.name}, ${citySeo.country}`,
         description: finalDescription,
         url: pageUrl,
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: city.lat,
-          longitude: city.lng,
+          latitude: citySeo.lat,
+          longitude: citySeo.lng,
         },
         touristType: ['Digital Nomad', 'Remote Worker'],
       }

@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import DestinationGuide from "./pages/DestinationGuide";
+import DestinationsIndex from "./pages/DestinationsIndex";
 import GuidesList from "./pages/GuidesList";
 import GuideArticle from "./pages/GuideArticle";
 import NotFound from "./pages/NotFound";
@@ -33,6 +34,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-use" element={<TermsOfUse />} />
+                <Route path="/destinations" element={<DestinationsIndex />} />
                 <Route path="/destinations/:citySlug" element={<DestinationGuide />} />
                 <Route path="/guides" element={<GuidesList />} />
                 <Route path="/guides/:slug" element={<GuideArticle />} />

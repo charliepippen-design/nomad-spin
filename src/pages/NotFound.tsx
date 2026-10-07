@@ -10,7 +10,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
+    <div className="page-content flex min-h-screen items-center justify-center bg-background">
       <Helmet>
         <title>Page Not Found (404) | Nomad Spin</title>
         <meta
