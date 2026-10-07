@@ -222,7 +222,7 @@ The [season guide](/guides/where-to-go-next-by-season) is the calendar version o
 
 November and March are the rainy months on the row. They are not next to each other. A November stay can be a good work month if you like a quieter city and you did not come only for the beach. A March stay is the same idea: fine for calls, less honest as a swim trip. Do not "extend a perfect October" into a non-refundable winter let without reading `rainyMonths`.
 
-Valencia's row is different. October is both a best month and a rainy month there, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia).
+Valencia's row is different. October is both a best month and a rainy month there, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
 
 ### Summer crowds
 
@@ -295,7 +295,7 @@ The Spain rows share the telework path in the visa note: 1-year consular visa, i
 
 **Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
 
-**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no."
+**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October overlap and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
 
 **Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and `lgbtFriendly` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Open [Madrid](/destinations/madrid) if the sand was optional.
 

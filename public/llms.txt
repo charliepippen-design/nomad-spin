@@ -31,6 +31,7 @@ Nomad Spin matches destinations to your preferences (budget, internet, safety, p
 - [Living in Mexico City](/guides/living-in-mexico-city)
 - [Living in Porto](/guides/living-in-porto)
 - [Living in Tbilisi](/guides/living-in-tbilisi)
+- [Living in Valencia](/guides/living-in-valencia)
 - [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base)
 - [Where to Go Next by Season](/guides/where-to-go-next-by-season)
 
