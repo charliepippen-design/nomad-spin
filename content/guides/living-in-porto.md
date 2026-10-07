@@ -287,7 +287,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (`tempAvgC` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
 
-**Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. There is no Barcelona living guide on this site yet, so the destination row is the page to open.
+**Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
 **Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. It is a Spain comparison, not a reason to turn this page into a Madrid guide.
 

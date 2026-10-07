@@ -501,7 +501,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-budapest">living in Budapest</a>, <a href="/guides/living-in-buenos-aires">living in Buenos Aires</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, <a href="/guides/living-in-porto">living in Porto</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-bangkok">living in Bangkok</a>, <a href="/guides/living-in-barcelona">living in Barcelona</a>, <a href="/guides/living-in-budapest">living in Budapest</a>, <a href="/guides/living-in-buenos-aires">living in Buenos Aires</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, <a href="/guides/living-in-mexico-city">living in Mexico City</a>, <a href="/guides/living-in-porto">living in Porto</a>, and <a href="/guides/living-in-tbilisi">living in Tbilisi</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `
@@ -524,8 +524,10 @@ export function guidesForDestination(slug: string): Guide[] {
   return guides.filter((g) => g.relatedDestinations?.includes(slug));
 }
 
-/** Prefer a living guide, then any other guide that names this destination. */
+/** Prefer this city's own living guide, then another living guide that names it. */
 export function editorialGuideForDestination(slug: string): Guide | null {
   const related = guidesForDestination(slug);
+  const ownLiving = related.find((guide) => guide.slug === `living-in-${slug}`);
+  if (ownLiving) return ownLiving;
   return related.find((guide) => guide.slug.startsWith('living-in-')) ?? related[0] ?? null;
 }

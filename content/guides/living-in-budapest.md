@@ -318,7 +318,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if $1,500 is the number that failed. Tbilisi is the value comparison. It is not a district of Budapest.
 
-**Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. There is no Barcelona living guide on this site yet. Use the destination page. Do not make it the reason you are reading this one.
+**Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one.
 
 ## First-week checklist and how to compare Budapest on Nomad Spin
 
