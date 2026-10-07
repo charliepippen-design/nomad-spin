@@ -13,6 +13,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-bangkok');
     expect(slugs).toContain('living-in-barcelona');
     expect(slugs).toContain('living-in-budapest');
+    expect(slugs).toContain('living-in-prague');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
@@ -419,6 +420,71 @@ describe('static guides', () => {
     }
   });
 
+  it('publishes the Prague living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-prague');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Prague');
+    expect(g!.seoTitle).toBe("Living in Prague 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Prague for remote workers in 2026: real monthly costs, Vinohrady vs Zizkov, Freelance visa notes, 200 Mbps internet, and cold-winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['prague']);
+    expect(g!.content).toContain('Living in Prague as a digital nomad');
+    expect(g!.content).toContain('$1,700');
+    expect(g!.content).toContain('$1,300');
+    expect(g!.content).toContain('$80');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('8.8');
+    expect(g!.content).toContain('Freelance Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('živnostenský list');
+    expect(g!.content).toContain('mzv.gov.cz');
+    expect(g!.content).toContain('mvcr.cz');
+    expect(g!.content).toContain('mpo.gov.cz');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/\bEUR\b|2,?849/);
+    for (const href of [
+      '/destinations/prague',
+      '/destinations/budapest',
+      '/destinations/lisbon',
+      '/destinations/barcelona',
+      '/destinations/valencia',
+      '/guides/living-in-budapest',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-barcelona',
+      '/guides/living-in-valencia',
+      '/guides/living-in-porto',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Prague worth it for digital nomads in 2026?',
+      'Who Prague is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,700, long-term $1,300, Airbnb $80/night)',
+      'Neighborhoods that work: Vinohrady, Žižkov, Karlín, Holešovice; skip living in Old Town',
+      'Internet, power, and coworking: 200 Mbps, reliability 9, power 9, High coworking',
+      'Freelancer or employee? Czech trade licence vs digital nomad programme vs Schengen short stay (verify)',
+      'Best months (May-Sep), rainy Nov-Dec, and short winter days',
+      'Daily life: trams and metro, beer and food, Czech, party streets and quiet ones',
+      'Prague vs Budapest, Lisbon, Barcelona, and Valencia',
+      'First-week checklist and how to compare Prague on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
   it('publishes the Tbilisi living guide from dataset figures', () => {
     const g = guides.find((x) => x.slug === 'living-in-tbilisi');
     expect(g).toBeTruthy();
@@ -756,6 +822,7 @@ describe('static guides', () => {
       '/guides/living-in-valencia',
       '/guides/living-in-lisbon',
       '/guides/living-in-budapest',
+      '/guides/living-in-prague',
       '/guides/living-in-porto',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
