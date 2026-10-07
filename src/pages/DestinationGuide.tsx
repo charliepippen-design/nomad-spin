@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ExternalLink, Bookmark } from 'lucide-react';
 import { findCityBySlug } from '@/lib/citySlug';
-import { editorialGuideForDestination, guidesForDestination } from '@/data/guides';
+import { editorialGuideForDestination } from '@/data/guides';
 import NotFound from '@/pages/NotFound';
 import { getCityImageUrl } from '@/data/cityImages';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
@@ -19,6 +19,8 @@ import {
   destinationPageTitle,
   destinationJsonLd,
   formatMonths,
+  hubRelatedGuides,
+  livingGuideForCity,
 } from '@/lib/destinationSeo';
 import { visaPathSentence } from '@/lib/visaCopy';
 
@@ -58,7 +60,7 @@ export default function DestinationGuide() {
   const jsonLd = destinationJsonLd(city, pageUrl);
   const bestMonths = formatMonths(city.weather?.bestMonths);
   const rainyMonths = formatMonths(city.weather?.rainyMonths);
-  const editorial = editorialGuideForDestination(resolved.canonicalSlug);
+  const editorial = livingGuideForCity(city) ?? editorialGuideForDestination(resolved.canonicalSlug);
 
   return (
     <div className="page-content min-h-screen bg-background">
@@ -309,7 +311,7 @@ export default function DestinationGuide() {
 
       {/* Related guides */}
       {(() => {
-        const related = guidesForDestination(resolved.canonicalSlug);
+        const related = hubRelatedGuides(city);
         if (related.length === 0) return null;
         return (
           <div className="max-w-3xl mx-auto px-6 py-10 border-t border-border/20">
