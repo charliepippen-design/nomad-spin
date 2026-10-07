@@ -75,10 +75,16 @@ describe('vercel.json legacy accent redirects', () => {
     }
   });
 
-  it('lists exactly the generated server redirects', () => {
+  it('lists the generated server redirects plus Ho Chi Minh City aliases', () => {
     const expected = serverSlugRedirects();
-    expect(redirects).toHaveLength(expected.length);
+    const aliases = [
+      { source: '/destinations/saigon', destination: '/destinations/ho-chi-minh-city' },
+      { source: '/destinations/hcmc', destination: '/destinations/ho-chi-minh-city' },
+      { source: '/destinations/ho-chi-minh', destination: '/destinations/ho-chi-minh-city' },
+    ];
+    expect(redirects).toHaveLength(expected.length + aliases.length);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
+    for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
   });
 
   it('declares redirects before the SPA catch-all rewrite', () => {
@@ -86,8 +92,9 @@ describe('vercel.json legacy accent redirects', () => {
     const rewritesAt = vercelJson.indexOf('"rewrites"');
     expect(redirectsAt).toBeGreaterThan(-1);
     expect(rewritesAt).toBeGreaterThan(redirectsAt);
+    // Guide and destination slugs are filesystem-only. Misses fall through to 404.html.
     expect(config.rewrites).toEqual([
-      { source: '/((?!assets/).*)', destination: '/index.html' },
+      { source: '/((?!assets/|guides/|destinations/).*)', destination: '/index.html' },
     ]);
   });
 });

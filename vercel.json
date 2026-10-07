@@ -924,11 +924,26 @@
       "source": "/destinations/šibenik",
       "destination": "/destinations/sibenik",
       "statusCode": 301
+    },
+    {
+      "source": "/destinations/saigon",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/hcmc",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ho-chi-minh",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!assets/|guides/|destinations/).*)",
       "destination": "/index.html"
     }
   ]
