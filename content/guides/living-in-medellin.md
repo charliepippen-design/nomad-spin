@@ -287,7 +287,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Mexico City** when you want a larger food city, a visa field of up to **180** days, and **UTC-6**, and you accept safety **6.0**, altitude sickness in that row's cons, and a solo month of **$1,300**. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version.
 
-**Look at Buenos Aires** when you want a lower solo month (**$900**), a longer-stay figure of **$650**, and **UTC-3**, which sits closer to Europe than Medellín does. Coworking density there is **Med**, internet is **70 Mbps** with reliability **6**, and safety is **6.2**. Inflation instability is a listed con on [Buenos Aires](/destinations/buenos-aires). The visa field is also an exemption, **90** days.
+**Look at Buenos Aires** when you want a lower solo month (**$900**), a longer-stay figure of **$650**, and **UTC-3**, which sits closer to Europe than Medellín does. Coworking density there is **Med**, internet is **70 Mbps** with reliability **6**, and safety is **6.2**. Inflation instability is a listed con on [Buenos Aires](/destinations/buenos-aires). The visa field is also an exemption, **90** days. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version.
 
 **Look at Chiang Mai** when you want safety **8.2**, a solo month of **$850**, and community **9**, and you can live with nightlife **5**, **UTC+7**, and a **30-day** tourism exemption (passport-dependent, tourism only). Burning season is the hard seasonal con. Read [Living in Chiang Mai](/guides/living-in-chiang-mai) before a March arrival. The DTV is the long-stay path there.
 

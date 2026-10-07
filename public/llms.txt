@@ -21,6 +21,7 @@ Nomad Spin matches destinations to your preferences (budget, internet, safety, p
 - [Living in Bangkok](/guides/living-in-bangkok)
 - [Living in Barcelona](/guides/living-in-barcelona)
 - [Living in Budapest](/guides/living-in-budapest)
+- [Living in Buenos Aires](/guides/living-in-buenos-aires)
 - [Living in Cape Town](/guides/living-in-cape-town)
 - [Living in Chiang Mai](/guides/living-in-chiang-mai)
 - [Living in Da Nang](/guides/living-in-da-nang)
