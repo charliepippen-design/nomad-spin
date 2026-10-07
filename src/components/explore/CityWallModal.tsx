@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { X, BarChart3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { mockCities } from '@/data/mockCities';
+import { cities, type City } from '@/data/cities';
 import CityCard from './CityCard';
 import ComparisonMatrix from './ComparisonMatrix';
 
@@ -10,9 +10,36 @@ interface CityWallModalProps {
   onClose: () => void;
 }
 
+const REGION_LABELS: Record<City['region'], string> = {
+  Asia: 'Asia',
+  Europe: 'Europe',
+  LATAM: 'LATAM',
+  Africa: 'Africa',
+  Oceania: 'Oceania',
+  'North America': 'North America',
+};
+
+const REGIONS = ['All', ...Object.keys(REGION_LABELS)] as ['All', ...City['region'][]];
+type RegionFilter = (typeof REGIONS)[number];
+
+const exploreCities: City[] = [...cities].sort((a, b) =>
+  a.name.localeCompare(b.name) || a.country.localeCompare(b.country)
+);
+
 export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const [isComparing, setIsComparing] = useState(false);
+  const [query, setQuery] = useState('');
+  const [region, setRegion] = useState<RegionFilter>('All');
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return exploreCities.filter((city) => {
+      if (region !== 'All' && city.region !== region) return false;
+      if (!q) return true;
+      return city.name.toLowerCase().includes(q) || city.country.toLowerCase().includes(q);
+    });
+  }, [query, region]);
 
   if (!isOpen) return null;
 
@@ -22,44 +49,69 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
     );
   };
 
-  const selectedCityData = mockCities.filter((c) => selectedCities.includes(c.id));
+  const selectedCityData = exploreCities.filter((c) => selectedCities.includes(c.id));
 
   return (
     <div className="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-2xl overflow-y-auto overflow-x-hidden animate-in fade-in duration-300">
-      {/* Sticky header */}
       <div className="sticky top-0 z-[105] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06]">
-        <div className="max-w-[1600px] mx-auto flex items-center justify-between px-3 md:px-8 py-3 md:py-4">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between gap-3 px-3 md:px-8 py-3 md:py-4">
           <div className="min-w-0">
             <h1 className="text-base md:text-2xl font-bold text-foreground tracking-tight truncate">
               Explore Destinations
             </h1>
             <p className="text-[10px] md:text-xs text-muted-foreground font-mono tracking-wider mt-0.5">
-              {mockCities.length} cities · Tap to compare
+              {filtered.length} of {exploreCities.length} cities. Open a guide, or select cities to compare.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
+            className="p-2 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground shrink-0"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-1.5 sm:gap-2 p-1.5 sm:p-2 md:p-4 w-full pb-28">
-        {mockCities.map((city) => (
-          <CityCard
-            key={city.id}
-            city={city}
-            isSelected={selectedCities.includes(city.id)}
-            onToggleSelect={toggleSelect}
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row gap-2 px-3 md:px-8 pb-3">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by city or country"
+            className="flex-1 min-w-0 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-white/30"
+            aria-label="Search cities"
           />
-        ))}
+          <select
+            value={region}
+            onChange={(e) => setRegion(e.target.value as RegionFilter)}
+            className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-white/30"
+            aria-label="Filter by region"
+          >
+            {REGIONS.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      {/* Floating action bar */}
+      {filtered.length === 0 ? (
+        <p className="px-4 py-16 text-center text-xs font-mono text-muted-foreground">
+          No cities match that search.
+        </p>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-1.5 sm:gap-2 p-1.5 sm:p-2 md:p-4 w-full pb-28">
+          {filtered.map((city) => (
+            <CityCard
+              key={city.id}
+              city={city}
+              isSelected={selectedCities.includes(city.id)}
+              onToggleSelect={toggleSelect}
+            />
+          ))}
+        </div>
+      )}
+
       <AnimatePresence>
         {selectedCities.length > 0 && !isComparing && (
           <motion.div
@@ -89,7 +141,6 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
         )}
       </AnimatePresence>
 
-      {/* Comparison Matrix */}
       <AnimatePresence>
         {isComparing && selectedCityData.length > 0 && (
           <ComparisonMatrix

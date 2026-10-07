@@ -109,6 +109,17 @@ describe('living guide visa sections', () => {
     expect(md).toMatch(/\*\*30 days\*\*/);
     expect(md).not.toMatch(/row says \*\*Visa Exemption\*\*, \*\*60 days\*\*/);
     expect(md).not.toMatch(/will not show you the September 2026/);
+    expect(md).not.toMatch(/still shows/i);
     expect(md).not.toMatch(/\u2014/);
+
+    const bangkok = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-bangkok.md'),
+      'utf-8',
+    );
+    expect(bangkok).toMatch(/thailand\.prd\.go\.th\/en\/content\/category\/detail\/id\/48\/iid\/538547/);
+    expect(bangkok).toMatch(/Tourism Visa Exemption/);
+    expect(bangkok).toMatch(/\*\*30 days\*\*/);
+    expect(bangkok).not.toMatch(/still shows/i);
+    expect(bangkok).not.toMatch(/\u2014/);
   });
 });

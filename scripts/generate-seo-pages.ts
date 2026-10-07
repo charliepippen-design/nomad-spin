@@ -14,6 +14,7 @@ import {
   formatMonths,
 } from '../src/lib/destinationSeo';
 import { visaPathSentence } from '../src/lib/visaCopy';
+import { buildNotFoundHtml } from './not-found-page';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -220,13 +221,15 @@ function withVisibleBody(html: string, body: string): string {
 }
 
 (async () => {
+  // Real 404 (noindex, no canonical). Vercel serves dist/404.html with HTTP 404
+  // when /guides/:slug or /destinations/:slug has no prerendered file.
+  // Other SPA routes still rewrite to index.html.
+  fs.writeFileSync(path.join(distDir, '404.html'), buildNotFoundHtml());
+  console.log('✅ Generated noindex 404 page: /404.html');
+
   const guides = await fetchLiveGuides();
 
-  // 1. SPA fallback (Vercel rewrite still handles deep links; 404.html is a belt-and-braces copy)
-  fs.copyFileSync(indexHtmlPath, path.join(distDir, '404.html'));
-  console.log('✅ Generated SPA fallback: /404.html');
-
-  // 2. Static core pages
+  // Static core pages
   createHtmlFile('about', 'About Us – Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
   createHtmlFile('guides', 'Digital Nomad Guides & Analysis – Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
   createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');

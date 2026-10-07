@@ -20,8 +20,10 @@ Nomad Spin matches destinations to your preferences (budget, internet, safety, p
 - [Living in Bali](/guides/living-in-bali)
 - [Living in Cape Town](/guides/living-in-cape-town)
 - [Living in Chiang Mai](/guides/living-in-chiang-mai)
+- [Living in Bangkok](/guides/living-in-bangkok)
 - [Living in Lisbon](/guides/living-in-lisbon)
 - [Living in Mexico City](/guides/living-in-mexico-city)
+- [Living in Medellin](/guides/living-in-medellin)
 - [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base)
 - [Where to Go Next by Season](/guides/where-to-go-next-by-season)
 
