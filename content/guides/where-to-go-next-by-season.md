@@ -4,7 +4,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured `weather.bestMonths`, `weather.rainyMonths`, and `tempAvgC` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Bangkok](/guides/living-in-bangkok), [Lisbon](/guides/living-in-lisbon), and [Mexico City](/guides/living-in-mexico-city).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Bangkok](/guides/living-in-bangkok), [Lisbon](/guides/living-in-lisbon), [Mexico City](/guides/living-in-mexico-city), and [Medellin](/guides/living-in-medellin).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -37,7 +37,7 @@ When `dataSource` is `estimated`, treat months and costs as directional and conf
 
 **Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct–Mar** (`$1,400` / 100 Mbps): peak nature season, but safety **5.5** and `powerGridStability` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher `costUSD`.
 
-**LATAM “eternal spring” pockets:** [Medellín](/destinations/medellin) best months include **Dec–Mar** and **Jul–Aug** (`$1,100` / 80 Mbps / safety 6.5). [Mexico City](/destinations/mexico-city) leans **Mar–May** and **Nov** more than deep winter, fine for shoulder-winter trips, less of a pure Dec–Feb beach escape. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row, including altitude and air quality.
+**LATAM “eternal spring” pockets:** [Medellín](/destinations/medellin) best months include **Dec–Mar** and **Jul–Aug** (`$1,100` / 80 Mbps / safety 6.5). The [Medellin living guide](/guides/living-in-medellin) is the on-the-ground version of that row, including Laureles versus Poblado and the safety scores. [Mexico City](/destinations/mexico-city) leans **Mar–May** and **Nov** more than deep winter, fine for shoulder-winter trips, less of a pure Dec–Feb beach escape. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version of that row, including altitude and air quality.
 
 ### What to set in Spin
 
@@ -66,7 +66,7 @@ Many European rows share Apr–Jun / Sep–Oct best months:
 
 ### LATAM spring-like climates
 
-[Buenos Aires](/destinations/buenos-aires) best months **Mar–May** and **Sep–Nov** (`$900` / 70 Mbps) (southern autumn/spring. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use `rainyMonths` as a veto, not a vibe.
+[Buenos Aires](/destinations/buenos-aires) best months **Mar–May** and **Sep–Nov** (`$900` / 70 Mbps) (southern autumn/spring. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use `rainyMonths` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
 
 ### Asia transition
 
@@ -109,7 +109,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 ## Special cases the calendar can’t hide
 
-**Burning / pollution seasons.** Chiang Mai `cons` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in `cons` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month.
+**Burning / pollution seasons.** Chiang Mai `cons` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in `cons` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise.
 
 **Storm / typhoon seasons.** Da Nang `cons`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk.
 

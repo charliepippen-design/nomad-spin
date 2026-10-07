@@ -19,8 +19,6 @@ import CityWallModal from '@/components/explore/CityWallModal';
 import MobileNav from '@/components/MobileNav';
 import GlobeTapHint from '@/components/GlobeTapHint';
 
-import HowItWorks from '@/components/HowItWorks';
-import FeaturedDestinations from '@/components/FeaturedDestinations';
 import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -59,6 +57,7 @@ export default function Index() {
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const [isCityWallOpen, setIsCityWallOpen] = useState(false);
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
+  const [howItWorksRequest, setHowItWorksRequest] = useState(0);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
   const hasMigrated = useRef(false);
   const { toast } = useToast();
@@ -100,9 +99,10 @@ export default function Index() {
   }, []);
 
   const handleScrollToHowItWorks = useCallback(() => {
-    const el = document.getElementById('how-it-works');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+    if (phase === 'spinning') return;
+    if (phase !== 'landing' && phase !== 'preferences') setPhase('landing');
+    setHowItWorksRequest((n) => n + 1);
+  }, [phase, setPhase]);
 
   const handleConfigureMission = useCallback(() => {
     setShowPrefs(true);
@@ -545,6 +545,7 @@ export default function Index() {
           streak={streak}
           spinCount={spinCount}
           onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}
+          howItWorksRequest={howItWorksRequest}
         />
       )}
 
