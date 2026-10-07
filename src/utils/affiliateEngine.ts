@@ -20,8 +20,8 @@ export const AFFILIATE_CONFIG = {
   partners: {
     /** TODO: Paste your Flatio partner ID */
     flatio:     { partnerId: 'TODO_FLATIO_ID' },
-    /** TODO: Paste your Booking.com affiliate ID */
-    booking:    { partnerId: 'TODO_BOOKING_ID' },
+    /** CJ Affiliate publisher CID, passed as Booking.com `aid`. */
+    booking:    { partnerId: '8092520' },
     /** TODO: Paste your Skyscanner associate ID */
     skyscanner: { partnerId: 'TODO_SKYSCANNER_ID' },
     /** TODO: Paste your Airalo referral code */
