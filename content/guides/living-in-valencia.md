@@ -227,7 +227,7 @@ The old Turia riverbed is a long park, and it is the reason a bike is a commute 
 
 ### Metro, tram, and the airport
 
-Metrovalencia runs metro and tram. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line, fare, and station list on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a stop you have not stood at with groceries. This guide does not name stations from that list, because the page did not load when it was checked.
+Metrovalencia runs metro and tram. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line, fare, and station list on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a stop you have not stood at with groceries. Check that station list for the current stop names before you pick the flat.
 
 Valencia Airport (VLC) is on the metro. [Aena](https://www.aena.es/en/valencia/arriving/underground.html) says lines **3** and **5** leave from the ground floor of the regional terminal. There is also a metro bus. Check the timetable the week you land. Do not budget the **$1,425** month around a taxi each way.
 
@@ -241,7 +241,7 @@ The dataset language is **Spanish**. English proficiency on the row is **5**, be
 
 ### Beach and city
 
-The work-week version is a morning swim, then a desk. Check [Metrovalencia's station list](https://www.metrovalencia.es/es/consulta-estaciones/) for whether the beach is on your line before you treat the sand as a commute. This guide does not name those stops, because the page did not load when it was checked. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
+The work-week version is a morning swim, then a desk. Check [Metrovalencia's station list](https://www.metrovalencia.es/es/consulta-estaciones/) for whether the beach is on your line before you treat the sand as a commute. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
 
 Safety **8** is higher than Barcelona's **7.5**. The practical version, without a crime essay: bag in front in El Carmen and on a crowded beach, phone off the cafe table, laptop in your hand. This is a city you can walk home through after dinner. It is still a city.
 

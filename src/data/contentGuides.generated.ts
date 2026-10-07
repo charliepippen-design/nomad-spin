@@ -369,7 +369,7 @@ The C1 is a single-entry visit visa and the usual choice for people who want lon
 **How it usually works in practice**
 
 - You apply online (or through an agent) before you fly.
-- The stay length and any extension are published on the official eVisa site. This guide does not restate a day count for the C1. The Directorate General of Immigration pages checked for this edit do not label a product "C1" with a published number of days.
+- Check the official eVisa site for the current stay length and any extension before you apply.
 - Read the extension steps on that site before you assume an agent can attend an immigration office for you.
 
 **Pros**
@@ -1892,7 +1892,7 @@ The Buenos Aires row says **Visa Exemption**, **90 days**. That is what you will
 
 The [Migraciones tourist page](https://www.argentina.gob.ar/migraciones/turistas) describes a tourist as a foreigner who enters for rest or recreation, with an authorized stay of up to three months, extendable for another similar period. Which passports are exempt, which need a visa, and which can use an electronic travel authorization is the live [regime table](https://www.migraciones.gob.ar/accesos/regimenvisas.php), not a list this guide will copy. The table changes. Read your row before you fly.
 
-An extension, where you qualify, is filed at Migraciones or a delegation. The same tourist page says requests to extend a transitory residence should be filed within the **10** days before it expires. If the stay has already expired, it cannot be extended. You then need a departure authorization (habilitación de salida) to leave. This guide does not restate the fee. The page points at the current fee table. Read it the week you file.
+An extension, where you qualify, is filed at Migraciones or a delegation. The same tourist page says requests to extend a transitory residence should be filed within the **10** days before it expires. If the stay has already expired, it cannot be extended. You then need a departure authorization (habilitación de salida) to leave. The page points at the current fee table. Check that table for the current amount before you file.
 
 [Disposición 758/2022](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto) says the tourist subcategory is for rest and recreation, and that using it does not match a stay whose reason is remote work. The **90-day** field on our page is the entry product for eligible passports. It is not a published remote-work permit.
 
@@ -3481,7 +3481,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Lisbon for remote workers in 2026: real monthly costs, neighborhoods, D8 visa notes, coworking, 200 Mbps internet, and rising-rent trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "31 min read",
+    readTime: "30 min read",
     relatedDestinations: ["lisbon","porto","budapest","barcelona"],
     content: `## Is Lisbon still worth it for digital nomads in 2026?
 
@@ -3489,7 +3489,7 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 
 - **Cost:** about **$2,200** a month solo, about **$1,800** on a longer stay. A short Airbnb sits near **$120** a night, which is a different budget.
 - **Internet:** yes for video calls. The average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa or a D8 residency visa, then a residence permit. The AIMA page says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consular visa's own length is on the MNE visa-type page. This guide does not restate it. Verify on those pages.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa or a D8 residency visa, then a residence permit. The AIMA page says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. Check the MNE visa-type page for the current consular visa length before you apply, and check the AIMA page for the permit.
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
@@ -3679,7 +3679,7 @@ Portugal's remote-work route is two visas, then a permit. It is for work done fo
 | Temporary-stay visa (remote work) | Portuguese consulate | Length and entries: MNE visa-type page |
 | Residency visa (D8), then residence permit | Consulate, then AIMA | Consular visa length: MNE page. Permit: 2 years from issue, then renewals of 3 years (AIMA) |
 
-A **temporary-stay** visa and the **residency visa** (often called the D8) are the two consular routes. How long each visa lasts, and how many entries it allows, are on the MNE visa-type page. This guide does not restate those figures, because that page did not return them when checked. On the residency visa, the holder applies to **AIMA** for a residence permit. The [AIMA page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consolidated statute is [Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445). The article text did not load from that URL, so the permit length above is taken from AIMA, not from a reading of article 75.
+A **temporary-stay** visa and the **residency visa** (often called the D8) are the two consular routes. Check the MNE visa-type page for the current length and number of entries before you apply. On the residency visa, the holder applies to **AIMA** for a residence permit. The [AIMA page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consolidated statute is [Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445). Check that page and the AIMA page before you apply.
 
 Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book. This guide does not print a euro income figure.
 
@@ -4435,9 +4435,9 @@ The Medellín row says **Visa Exemption**, **90 days**. That is what you will se
 
 The [Permiso de Ingreso y Permanencia (PIP)](https://portal.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/permiso-de-ingreso-y-permanencia-pip) is the permission Migración Colombia grants at the border to foreigners whose nationality does not need a visa. It is for a short stay, without the intention to settle and without local paid work. The published maximum is **90** days from entry. There is no separate application before you fly for the PIP itself. The officer assigns it if you qualify. Read the number on the permission before you leave the desk. That number is the stay you have.
 
-A longer visa-free stay, where it exists, is a different procedure. The [Permiso Temporal de Permanencia (PTP)](https://www.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/prorroga/permiso-temporal-de-permanencia-ptp-/-prorroga), also called a prórroga, is for people who already hold a PIP and whose nationality does not require a visa. Migración Colombia says the PTP cannot exceed **180** calendar days, continuous or not, inside the same calendar year, and that you must still have a valid PIP when you apply. For a tourism PIP, the same page lists an extension of up to **90** days. Apply on the Formulario Único de Trámites at least **5** business days before the PIP expires. Filing is not approval. The page publishes a 2026 tariff and a table of payment exceptions, including some nationalities at zero. Read that table for your passport. This guide does not restate the fee as a universal price.
+A longer visa-free stay, where it exists, is a different procedure. The [Permiso Temporal de Permanencia (PTP)](https://www.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/prorroga/permiso-temporal-de-permanencia-ptp-/-prorroga), also called a prórroga, is for people who already hold a PIP and whose nationality does not require a visa. Migración Colombia says the PTP cannot exceed **180** calendar days, continuous or not, inside the same calendar year, and that you must still have a valid PIP when you apply. For a tourism PIP, the same page lists an extension of up to **90** days. Apply on the Formulario Único de Trámites at least **5** business days before the PIP expires. Filing is not approval. The page publishes a 2026 tariff and a table of payment exceptions, including some nationalities at zero. Read that table for your passport. Check it for the current amount before you apply.
 
-Cancillería publishes its own note on the digital-nomad visa at the pages linked below. This guide does not copy a stay length from those pages, because they did not load when checked. The **90**-day and **180**-day figures above are Migración Colombia's, from the PIP and PTP pages.
+Cancillería publishes its own note on the digital-nomad visa at the pages linked below. Check those pages for the current stay length before you apply. The **90**-day and **180**-day figures above are Migración Colombia's, from the PIP and PTP pages.
 
 [Check-Mig](https://www.migracioncolombia.gov.co/tramites-y-servicios/aplicativos/checkmig) is Migración Colombia's free pre-registration. The current page says it is not mandatory. It lets you preload the flight, the reason for travel, and where you will stay, from 72 hours before departure until one hour before. Use the official app at [apps.migracioncolombia.gov.co/pre-registro](https://apps.migracioncolombia.gov.co/pre-registro/es). Do not pay a random site to file it.
 
@@ -4445,14 +4445,14 @@ Which passports need a visa before they fly is Cancillería's list, not this gui
 
 ### Visa V for digital nomads
 
-The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. The page states how long the visa lasts. This guide does not restate a number of years, because the page did not load when checked. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
+The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. Check that page for the current length before you apply. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
 
 The specific requirements on that page, as checked for this guide, include:
 
 - A passport from a country or territory that is exempt from a short-stay visa, under the resolution they cite
 - A letter in Spanish or English from the foreign company or companies, stating the type of link and the type of pay, plus the contract if you have one, or proof you are a partner and that the work is remote
 - For founders, a letter explaining the venture and the financial and human resources it has or expects
-- Bank statements for the income test on that page, set in current monthly legal minimum wages. This guide does not restate the multiple or the number of months, because the page did not load when checked.
+- Bank statements for the income test on that page, set in current monthly legal minimum wages. Check that page for the current amount before you apply.
 - A health policy covering Colombia for accident, illness, maternity, disability, hospitalization, death, or repatriation, for the time you plan to stay
 
 That income line is the Cancillería page's own condition, written in Colombian minimum wages. The wage moves. This guide does not convert it into dollars, and it does not invent a second threshold. Copy the checklist the week you apply. A forum screenshot of a dollar figure is how people build a file the ministry will not accept.
@@ -4993,7 +4993,7 @@ Living in Porto as a digital nomad is a rational Portugal base in 2026 if you wa
 - **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
 - **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
 - **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. The consular visa's own length is on the MNE page. This guide does not restate it. The statute is Lei 23/2007. Verify on those pages.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. Check the MNE page for the current consular visa length before you apply. The statute is Lei 23/2007.
 - **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
 
 The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
@@ -5010,7 +5010,7 @@ Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and p
 
 ### What visa do digital nomads use in Porto?
 
-Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. The consular visa length is on the MNE page. This guide does not restate it. Thresholds and fees change; verify on MNE and AIMA pages.
+Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. Check the MNE page for the current consular visa length before you apply. Thresholds and fees change; verify them on the MNE and AIMA pages.
 
 ### Who should skip living in Porto?
 
@@ -5183,7 +5183,7 @@ Ribeira is a viewpoint. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
 
-**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). How long each consular visa lasts is on the MNE visa-type page. This guide does not restate that length, because the page did not return it when checked. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). Check the MNE visa-type page for the current consular visa length before you apply. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
 
 Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
 
@@ -5281,7 +5281,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Valencia** when you want the closest solo number under Lisbon, at **$1,900**, with **170 Mbps** and safety **8.0**. [Valencia](/destinations/valencia) is cheaper than Barcelona and still **$100** above Porto's solo month, with less internet than Porto's **200 Mbps**. Best months match Madrid's shoulders, with one catch: October is also a rainy month there. That overlap is in [Living in Valencia](/guides/living-in-valencia).
 
-Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, verify on official Spanish pages. This guide does not restate that statute.
+Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
 
 If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
 
@@ -5936,7 +5936,7 @@ This guide will not copy the annex. The list is the government's to amend, and p
 
 ### Insurance you may be asked to show at the border
 
-Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. The coverage amount, the start date, and any exemptions are on that notice. This guide does not restate a sum or a date, because the page did not load when checked. Read the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia). A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
+Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. Check the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia) for the current coverage amount, start date, and any exemptions before you travel. A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
 
 Whatever amount that notice sets is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
 
@@ -5944,9 +5944,9 @@ Whatever amount that notice sets is an entry condition from the Georgian governm
 
 A visa-free stay is permission to enter and remain. It is a separate question from permission to work.
 
-The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. The start date, and exactly which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, are on that notice and on [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). This guide does not restate a start date, because those pages did not load when checked. Read them before you take a Georgian employer, a Georgian client, or a local registration.
+The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. Check that notice and [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/) for the current start date, and for which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, before you take a Georgian employer, a Georgian client, or a local registration.
 
-Read that notice against your actual setup. This guide does not spell out which remote-work cases it covers, because the page did not load. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
+Read that notice against your actual setup. Check the current Law on Labour Migration and the agency's own page for which remote-work cases it covers, and for any exemption or income rule, before you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
 
 ### Tax, at the level of a day count
 
@@ -6349,7 +6349,7 @@ The old Turia riverbed is a long park, and it is the reason a bike is a commute 
 
 ### Metro, tram, and the airport
 
-Metrovalencia runs metro and tram. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line, fare, and station list on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a stop you have not stood at with groceries. This guide does not name stations from that list, because the page did not load when it was checked.
+Metrovalencia runs metro and tram. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line, fare, and station list on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a stop you have not stood at with groceries. Check that station list for the current stop names before you pick the flat.
 
 Valencia Airport (VLC) is on the metro. [Aena](https://www.aena.es/en/valencia/arriving/underground.html) says lines **3** and **5** leave from the ground floor of the regional terminal. There is also a metro bus. Check the timetable the week you land. Do not budget the **$1,425** month around a taxi each way.
 
@@ -6363,7 +6363,7 @@ The dataset language is **Spanish**. English proficiency on the row is **5**, be
 
 ### Beach and city
 
-The work-week version is a morning swim, then a desk. Check [Metrovalencia's station list](https://www.metrovalencia.es/es/consulta-estaciones/) for whether the beach is on your line before you treat the sand as a commute. This guide does not name those stops, because the page did not load when it was checked. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
+The work-week version is a morning swim, then a desk. Check [Metrovalencia's station list](https://www.metrovalencia.es/es/consulta-estaciones/) for whether the beach is on your line before you treat the sand as a commute. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
 
 Safety **8** is higher than Barcelona's **7.5**. The practical version, without a crime essay: bag in front in El Carmen and on a crowded beach, phone off the cafe table, laptop in your hand. This is a city you can walk home through after dinner. It is still a city.
 
