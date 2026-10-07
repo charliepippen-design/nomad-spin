@@ -1,4 +1,5 @@
 import type { City, LandscapeOption } from './types';
+import { applyOfficialVisaFacts } from './visaFacts';
 
 interface CityInput {
   id: string; name: string; country: string; cc: string;
@@ -72,7 +73,7 @@ function inferLanguage(cc: string): string {
 
 export function city(d: CityInput): City {
   const developed = d.region === 'Europe' || d.region === 'North America' || d.region === 'Oceania';
-  return {
+  return applyOfficialVisaFacts({
     id: d.id, name: d.name, country: d.country, countryCode: d.cc,
     lat: d.lat, lng: d.lng, region: d.region,
     vibe: d.vibe, safety: d.safety,
@@ -105,5 +106,5 @@ export function city(d: CityInput): City {
     pros: d.pros, cons: d.cons,
     costUSD: d.cost, internetMbps: d.internet,
     visa: { type: d.visaType, days: d.visaDays },
-  };
+  });
 }

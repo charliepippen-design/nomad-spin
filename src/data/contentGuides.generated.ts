@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. Mexico City: **Visa Exemption**, **180** days. Chiang Mai: **Visa Exemption**, **60** days. Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). Mexico City: **Visa Exemption**, **180** days. Chiang Mai: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -850,7 +850,7 @@ Chiang Mai fits people who want a work city with a ready-made scene, not a resor
 - Will be here in **Mar-Apr**. Burning season is a hard con. Do not "see how it feels" on a non-refundable lease
 - Want Bangkok-level nightlife. Bangkok's nightlife score is **9**. Chiang Mai's is **5**
 - Need the $650 figure while living in a new Nimman condo and eating every meal in Nimman cafes
-- Need a year of legal stay and will not assemble a real visa file. The destination row says visa exemption, **60 days**, and even that field lags the rule change described below
+- Need a year of legal stay and will not assemble a real visa file. The destination row is a **tourism visa exemption** of **30 days**. That length depends on your passport, and it is tourism only. A longer stay is a Destination Thailand Visa (DTV) file, described below
 - Need a high LGBTQ+ comfort score as a hard filter. \`lgbtFriendly\` on this row is **6** (Lisbon's is **9**). Overall safety **8.2** does not answer that question
 
 Female safety on the row is **8**. English proficiency is **5**: Nimman and the tourist streets of the Old City work in English, government offices and many landlords do not.
@@ -989,19 +989,19 @@ Maya and the Nimman malls are a daytime backup when you need air conditioning an
 
 ## Visas and stay length: exemption, tourist routes, and Destination Thailand Visa
 
-This is operational orientation, not legal advice. Thai entry rules changed during 2026. The number on our city page did not.
+This is operational orientation, not legal advice. Thai entry rules changed in 2026. Confirm the stamp for your passport before you book a non-refundable month.
 
 ### What Nomad Spin currently shows
 
-The Chiang Mai row says **Visa Exemption**, **60 days**. Bangkok's row says the same pair. That is what you will see on [/destinations/chiang-mai](/destinations/chiang-mai) and [/destinations/bangkok](/destinations/bangkok). Use it as the product field. Do not use it as the rule.
+The Chiang Mai row says **Tourism Visa Exemption**, **30 days**. Bangkok's row says the same pair. That is what you will see on [/destinations/chiang-mai](/destinations/chiang-mai) and [/destinations/bangkok](/destinations/bangkok), with a note that the length depends on your passport and that the exemption is for tourism. The **30 days** matches the common case in the government notice (60 countries and territories). It is not a stay for every passport, and it is not permission to work locally. Two countries and territories are listed at 15 days, and three are visa on arrival. The longer remote-work path is the Destination Thailand Visa (DTV), named in that note.
 
 ### What the government published
 
-On 4 September 2026 the Government Public Relations Department summarized a revision already published in the Royal Gazette on 31 August 2026, effective **15 September 2026**. The measures include revoking the **60-day** visa exemption scheme, a **30-day** tourism exemption for **60** countries and territories, a **15-day** tourism exemption for two countries and territories, and a shorter visa-on-arrival list. The notice says this review covers those exemption and visa-on-arrival schemes for tourism, and does not by itself rewrite other visa categories. Stays already stamped before the change run to the date on the stamp.
+On 4 September 2026 the Government Public Relations Department summarized a revision already published in the Royal Gazette on 31 August 2026, effective **15 September 2026**: [the PRD notice](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547). The measures include revoking the **60-day** visa exemption scheme, a **30-day** tourism exemption for **60** countries and territories, a **15-day** tourism exemption for two countries and territories, and a shorter visa-on-arrival list. The notice says this review covers those exemption and visa-on-arrival schemes for tourism, and does not by itself rewrite other visa categories. Stays already stamped before the change run to the date on the stamp.
 
 The Royal Thai Consulate-General in Los Angeles, in its public visa note, tells U.S. citizens that from 15 September 2026 they can enter without a visa for up to **30 days** for tourism, if they meet the conditions. Your passport may not be in that group. Some passports are on the shorter scheme, some need a visa on arrival, some need a visa in advance.
 
-If the destination page says 60 and the embassy says 30, believe the embassy and the stamp. Read the [government summary](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) and the Thai mission for your passport before you pay for a non-refundable month. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended.
+If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended. This guide also does not print a DTV fee, a savings balance, or a day count for the DTV. Those live on the checklist of the post that decides the file.
 
 Since 1 May 2025, Thai immigration has also required the Thailand Digital Arrival Card before entry or exit. The Los Angeles consulate points people to the official form at [tdac.immigration.go.th](https://tdac.immigration.go.th/arrival-card/#/home). Fill it in yourself. Do not pay a random site to do it.
 
@@ -1102,13 +1102,13 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Safety | 8.2 | 7.8 | 7.8 | 8.5 |
 | Nightlife | 5 | 8 | 9 | 3 |
 | Community | 9 | 9 | 8 | 5 |
-| Visa field in Nomad Spin | Exemption, 60 days | Visa on Arrival, 30 days | Exemption, 60 days | E-Visa, 90 days |
+| Visa field in Nomad Spin | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | Tourism exemption, 30 days (passport-dependent) | E-Visa, 90 days |
 | Best months | Nov-Feb | Apr-Sep | Nov-Mar | Feb-Jul |
 | Seasonal hard part | Burning season Mar-Apr | Rainy-season flooding, patchy Wi-Fi | Heat, traffic, air | Typhoon season, rainy Sep-Dec |
 
 **Stay with Chiang Mai** when you want community **9** at the **$850** band, you do not need a beach, and you can take Nov-Feb. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "the same idea with sand." Bali's internet reliability (**5**) and the scooter-and-traffic life in [Canggu](/destinations/canggu) are the product. [Ubud](/destinations/ubud) is the quiet version. [Seminyak](/destinations/seminyak) and [Bali](/destinations/bali) overall are the pricier, more social version. None of them are a $850 mountain city.
 
-**Look at Bangkok** when you want a real metropolis: faster headline internet (**120 Mbps**), nightlife **9**, food at another scale, and you accept heat, traffic, and air as the cons on [Bangkok](/destinations/bangkok). The solo month is **$1,100**, not $850. The visa field in our data is the same 60-day exemption as Chiang Mai, which means Spin will not show you the September 2026 exemption change for either city. Check the embassy either way.
+**Look at Bangkok** when you want a real metropolis: faster headline internet (**120 Mbps**), nightlife **9**, food at another scale, and you accept heat, traffic, and air as the cons on [Bangkok](/destinations/bangkok). The solo month is **$1,100**, not $850. The visa field is the same 30-day tourism exemption as Chiang Mai. It depends on your passport, and it is tourism only. The DTV is the long-stay path. Check the embassy either way.
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling.
 
@@ -1119,7 +1119,7 @@ If the alternative is not Asia, the other full living guides in this set are [Ca
 ### Common mistakes
 
 - Booking Mar-Apr because a weather app said "dry" and ignoring the burning-season con
-- Treating the **60-day** exemption field as the current rule after 15 September 2026
+- Treating the **30-day** tourism exemption as if every passport gets it, or as permission to work locally
 - Paying the **$35** nightly median for thirty nights and calling the month **$850**
 - Choosing Nimman, then acting surprised that the long-stay **$650** figure did not survive contact with cafes
 - Using cafe Wi-Fi for the client call you cannot drop
@@ -1167,7 +1167,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 4. If Bali is still in the pile, open [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) and compare reliability **5** against Chiang Mai's **8**, not the photos.
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
-[Spin the globe](/) with those floors. Chiang Mai should win when the floors are real and the month is Nov-Feb. It should lose when you need a beach, a March arrival, or a visa story our 60-day field no longer matches.
+[Spin the globe](/) with those floors. Chiang Mai should win when the floors are real and the month is Nov-Feb. It should lose when you need a beach, a March arrival, or a visa story that ignores your passport and the DTV.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $850, $650, $35, 95 Mbps, 8/10, and 8.2 figures are Nomad Spin's Chiang Mai row. The exemption change is the Thai government's published notice. When they disagree, the embassy and your stamp win.*
 `,
@@ -1180,7 +1180,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Lisbon for remote workers in 2026: real monthly costs, neighborhoods, D8 visa notes, coworking, 200 Mbps internet, and rising-rent trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "31 min read",
+    readTime: "30 min read",
     relatedDestinations: ["lisbon","porto","budapest","barcelona"],
     content: `## Is Lisbon still worth it for digital nomads in 2026?
 
@@ -1188,7 +1188,7 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 
 - **Cost:** about **$2,200** a month solo, about **$1,800** on a longer stay. A short Airbnb sits near **$120** a night, which is a different budget.
 - **Internet:** yes for video calls. The average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is a planning field. Verify the current Portuguese D8 rules on an official page before you treat it as permission.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa (under a year) or a D8 residency visa of 4 months that leads to a 2-year permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
@@ -1363,46 +1363,51 @@ Time Out Market is a food hall. It is not an office. Tram 28 is not a backup con
 
 ## Visas and stay length: Schengen visits vs Portugal D8 digital nomad visa (verify current rules)
 
-This is operational orientation, not legal advice. Portuguese immigration rules, income floors, and appointment backlogs move. The number on our city page is not the law.
+This is operational orientation, not legal advice. Fees, income thresholds, and AIMA timelines move. The number on our city page is not the law.
 
 ### What Nomad Spin currently shows
 
-The Lisbon row says **Digital Nomad Visa**, **365 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto). Use it as the product field: a stay that can be measured in months, up to a year, for people who qualify for the remote-work route. Do not use it as the visa already in your passport.
+The Lisbon row says **Digital Nomad Visa**, **365 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto), with a note under the visa stat. Use **365** as the initial-visa field in the dataset. It is not a visa-free allowance, and it is not a card you already hold.
+
+### Two remote-work visas, then a residence permit
+
+Portugal's remote-work route is two visas, then a permit. It is for work done for an employer or clients **outside** Portugal. It is not a permit to take a Portuguese job, and it is not a Schengen tourist stamp.
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+
+A **temporary-stay** visa covers a stay under one year and allows multiple entries. The **residency visa** (often called the D8) allows two entries and is valid for 4 months. In that window the holder applies to **AIMA** for a residence permit. That temporary residence permit is valid for 2 years from the date the card is issued and is renewable for successive 3-year periods (Lei 23/2007, art. 75).
+
+Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book. This guide does not print a euro income figure.
+
+Apply from **outside** Portugal, at the consulate that covers where you actually live. Document lists live on that post's page.
+
+AIMA is where the residence permit is finished after you enter on the residence visa. "Bureaucratic processes" is a listed con because this step has a reputation for queues. Do not fly on the assumption that the appointment will be next week.
 
 ### Schengen tourist visits
 
-A short stay in the Schengen area is a different product. For many passports that means visa-free entry of up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Portugal plus another 90 in Spain. Other passports need a short-stay visa before they fly. Your passport may not be in the visa-free group.
+A short stay in the Schengen area is a different product. For many passports that means visa-free entry of up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Portugal plus another 90 in Spain. Other passports need a short-stay visa before they fly.
 
-A tourist entry is not the D8. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp. If the trip is a season, read the residence route. If the trip is a few weeks, confirm the days and the conditions for your passport on an official source before you pay for a non-refundable month. The European Commission publishes the short-stay framework; the Portuguese consulate that covers you publishes how it applies to your passport.
+A tourist entry is not the D8. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp.
 
-### The D8, which is the route the 365-day field is pointing at
-
-Portugal's remote-work route is what people call the D8. It exists so non-EU, non-EEA, non-Swiss citizens can live in Portugal while working for employers or clients **outside** Portugal. It is not a permit to walk into a Portuguese job, and it is not the same thing as a Schengen tourist stamp.
-
-The Ministry of Foreign Affairs splits national visas into shapes that people constantly mix up. On its general visa-type page, a **temporary-stay** visa is for a stay under a year. A **residence** visa allows two entries and is valid for four months, and in that window the holder applies to **AIMA** (the agency that replaced SEF) for a residence permit. Nomad Spin's **365 days** is the dataset's "up to a year" field. It is not a description of that four-month sticker, and it is not a residence card you already hold.
-
-The income rule in the regulation is an average, over the last three months, of at least **four times** the Portuguese guaranteed minimum monthly wage. The decree states the multiple. It does not freeze a euro amount. The wage moves, and secondary sites disagree on the current euro figure, so this guide will not print one. Copy the threshold from the consulate checklist the week you apply.
-
-Apply from **outside** Portugal, at the Portuguese consulate that covers where you actually live. Documents, apostilles, translations, accommodation proof, insurance, and criminal-record rules are on that post's list. They are not on a blog screenshot from 2023.
-
-AIMA is where the residence permit is finished after you enter on the residence visa. "Bureaucratic processes" is a listed con because this step has a reputation for queues. Do not fly on the assumption that the appointment will be next week, and do not build the month on a Facebook comment about how fast someone else's file moved.
-
-EU, EEA, and Swiss citizens do not use the D8. Free-movement rules plus a registration step, if you stay, are a different and simpler path. It is still paperwork.
+EU, EEA, and Swiss citizens do not use the D8. Free-movement rules plus a registration step, if you stay, are a different path. It is still paperwork.
 
 ### What this guide will not pretend to settle
 
-Tax residence is a separate question from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. The regime that replaced it targets specific professional profiles, which leaves most remote jobs outside it. Nothing here is tax advice. If you will be in Portugal most of the year, pay for advice at home and, if needed, in Portugal.
+Tax residence is separate from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. Nothing here is tax advice. This guide does not state citizenship or permanent-residence timelines.
 
-Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. This guide does not explain them.
+Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. The D7 is not the digital nomad visa. This guide does not explain them.
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** a Schengen short stay, after you confirm the 90/180 count and the conditions.
-- **Many months, working for foreign clients or a foreign employer, and you can meet the file:** the D8, using the live consulate checklist, then AIMA if you came in on the residence visa.
-- **A year because the city page says 365:** not a plan, until the visa or the card says so.
+- **A few weeks, and your passport qualifies:** a Schengen short stay, after you confirm the 90/180 count.
+- **Many months, working for foreign clients or a foreign employer:** the temporary-stay visa or the D8 residency visa, then the AIMA permit, using the live consulate checklist.
+- **A year because the city page says 365:** not a plan. 365 is the initial-visa field. The residence permit, if granted, is 2 years and can renew for 3.
 - **"I will just stay and sort it out":** not a plan.
 
-Read the [MFA visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa) and the consulate for your passport before you pay for a non-refundable lease. When the destination page and the consulate disagree, the consulate wins.
+When the destination page and the consulate disagree, the consulate wins.
 
 ## When to go: best months, rainy season, and peak tourist reality
 
@@ -1840,7 +1845,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Female safety | 5 | 5 | 5 | 8 |
 | Nightlife | 9 | 9 | 9 | 5 |
 | Community | 8 | 8 | 6 | 9 |
-| Visa field in Nomad Spin | Exemption, 180 days | Exemption, 90 days | Exemption, 90 days | Exemption, 60 days |
+| Visa field in Nomad Spin | Exemption, 180 days | Exemption, 90 days | Exemption, 90 days | Tourism exemption, 30 days |
 | Time zone | UTC-6 | UTC-5 | UTC-3 | UTC+7 |
 | Best months | Mar, Apr, May, Nov | Jan, Feb, Mar, Jul, Aug, Dec | Mar, Apr, May, Sep, Oct, Nov | Nov, Dec, Jan, Feb |
 | Seasonal hard part | Air quality and altitude all year; rain Jun-Sep | Rain Apr-May and Oct-Nov | Inflation and payment friction; rain Jun-Jul | Burning season Mar-Apr |
@@ -1851,9 +1856,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific.
 
-**Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field in our data is still a **60-day** exemption. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains why that field and the current Thai rule can disagree, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
+**Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
-**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days, **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a visa field of **60** days at **UTC+7**. Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
+**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days (an application, with a longer residence permit possible), **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a **30-day** tourism exemption (passport-dependent) at **UTC+7**. Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
 
 ## First-week setup checklist and how to compare on Nomad Spin
 
@@ -1956,11 +1961,11 @@ When \`dataSource\` is \`estimated\`, treat months and costs as directional and 
 
 ### Warm / dry-leaning candidates by region
 
-**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov–Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 60 visa-exemption days). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov–Mar dry lean (\`$1,100\` / 120 Mbps). [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov–Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`.
+**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov–Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 30-day tourism exemption, passport-dependent). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov–Mar dry lean (\`$1,100\` / 120 Mbps). [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov–Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`.
 
 **Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s \`rainyMonths\` are **Dec–Mar** (best months Apr–Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep–Dec** rainy stretch.
 
-**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan–Apr** and **Oct–Dec** (\`tempAvgC\` 21, ~$1,800, 130–140 Mbps, safety 8, 365-day digital-nomad-visa style stay). Good when you want EU timezone overlap without northern winter weather.
+**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan–Apr** and **Oct–Dec** (\`tempAvgC\` 21, ~$1,800, 130–140 Mbps, safety 8, digital nomad visa field of 365 days). That 365 is the initial consular visa. Spain's in-country residence authorization can run longer. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
 
 **Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct–Mar** (\`$1,400\` / 100 Mbps): peak nature season, but safety **5.5** and \`powerGridStability\` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher \`costUSD\`.
 
@@ -1986,7 +1991,7 @@ Shoulder months often win the **cost vs weather** trade: Europe’s best-month l
 
 Many European rows share Apr–Jun / Sep–Oct best months:
 
-- [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / 365 days. The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
+- [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: \`$1,500\` / 200 Mbps / safety 8.3
 - [Valencia](/destinations/valencia), [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
 - [Seville](/destinations/seville): **Mar–May, Oct–Nov**: get there before “extremely hot summer” in \`cons\`
@@ -2042,7 +2047,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Power and internet under weather stress.** Cape Town’s low \`powerGridStability\` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 
-**Visa daydreaming.** A perfect climate month with **30** \`visaDays\` (Bali) is a different trip than **180** (Mexico City) or **365** (Lisbon, Tbilisi, Las Palmas). Encode trip length before you fall for \`bestMonths\`.
+**Visa daydreaming.** A perfect climate month with **30** \`visaDays\` (Bali) is a different trip than **180** (Mexico City) or **365** (Tbilisi is visa-free; Lisbon and Las Palmas list a 365-day digital nomad visa field, which is an application, not a visa-free year). Encode trip length before you fall for \`bestMonths\`.
 
 **Estimated rows.** Prefer \`dataSource: "verified"\` when the month decision is expensive; double-check official weather and visa sources either way.
 

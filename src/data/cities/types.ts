@@ -32,6 +32,11 @@ export interface CityMeta {
   visaType: string;
   visaDays: number;
   timeZoneUtc: string;
+  /**
+   * Official path behind the day count, when that count is not a visa-free stay.
+   * Rendered with the visa line. Not used as a filter.
+   */
+  visaNote?: string;
 }
 
 export interface CityAirport {

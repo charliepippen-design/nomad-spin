@@ -13,6 +13,7 @@ import {
   relatedGuidesForCity,
   formatMonths,
 } from '../src/lib/destinationSeo';
+import { visaPathSentence } from '../src/lib/visaCopy';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -182,7 +183,7 @@ function destinationBodyHtml(city: City, slug: string): string {
     <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10</li>
     <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
     <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
-    <li><strong>Visa:</strong> ${esc(city.meta.visaType)} · up to ${city.meta.visaDays} days</li>
+    <li><strong>Visa:</strong> ${esc(visaPathSentence(city.meta))}</li>
     <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || '—')}</li>
     <li><strong>Language:</strong> ${esc(city.language || '—')}</li>
     <li><strong>Region:</strong> ${esc(city.region)}</li>

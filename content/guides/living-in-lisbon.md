@@ -4,7 +4,7 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 
 - **Cost:** about **$2,200** a month solo, about **$1,800** on a longer stay. A short Airbnb sits near **$120** a night, which is a different budget.
 - **Internet:** yes for video calls. The average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is a planning field. Verify the current Portuguese D8 rules on an official page before you treat it as permission.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa (under a year) or a D8 residency visa of 4 months that leads to a 2-year permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
@@ -179,46 +179,51 @@ Time Out Market is a food hall. It is not an office. Tram 28 is not a backup con
 
 ## Visas and stay length: Schengen visits vs Portugal D8 digital nomad visa (verify current rules)
 
-This is operational orientation, not legal advice. Portuguese immigration rules, income floors, and appointment backlogs move. The number on our city page is not the law.
+This is operational orientation, not legal advice. Fees, income thresholds, and AIMA timelines move. The number on our city page is not the law.
 
 ### What Nomad Spin currently shows
 
-The Lisbon row says **Digital Nomad Visa**, **365 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto). Use it as the product field: a stay that can be measured in months, up to a year, for people who qualify for the remote-work route. Do not use it as the visa already in your passport.
+The Lisbon row says **Digital Nomad Visa**, **365 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto), with a note under the visa stat. Use **365** as the initial-visa field in the dataset. It is not a visa-free allowance, and it is not a card you already hold.
+
+### Two remote-work visas, then a residence permit
+
+Portugal's remote-work route is two visas, then a permit. It is for work done for an employer or clients **outside** Portugal. It is not a permit to take a Portuguese job, and it is not a Schengen tourist stamp.
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+
+A **temporary-stay** visa covers a stay under one year and allows multiple entries. The **residency visa** (often called the D8) allows two entries and is valid for 4 months. In that window the holder applies to **AIMA** for a residence permit. That temporary residence permit is valid for 2 years from the date the card is issued and is renewable for successive 3-year periods (Lei 23/2007, art. 75).
+
+Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book. This guide does not print a euro income figure.
+
+Apply from **outside** Portugal, at the consulate that covers where you actually live. Document lists live on that post's page.
+
+AIMA is where the residence permit is finished after you enter on the residence visa. "Bureaucratic processes" is a listed con because this step has a reputation for queues. Do not fly on the assumption that the appointment will be next week.
 
 ### Schengen tourist visits
 
-A short stay in the Schengen area is a different product. For many passports that means visa-free entry of up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Portugal plus another 90 in Spain. Other passports need a short-stay visa before they fly. Your passport may not be in the visa-free group.
+A short stay in the Schengen area is a different product. For many passports that means visa-free entry of up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Portugal plus another 90 in Spain. Other passports need a short-stay visa before they fly.
 
-A tourist entry is not the D8. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp. If the trip is a season, read the residence route. If the trip is a few weeks, confirm the days and the conditions for your passport on an official source before you pay for a non-refundable month. The European Commission publishes the short-stay framework; the Portuguese consulate that covers you publishes how it applies to your passport.
+A tourist entry is not the D8. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp.
 
-### The D8, which is the route the 365-day field is pointing at
-
-Portugal's remote-work route is what people call the D8. It exists so non-EU, non-EEA, non-Swiss citizens can live in Portugal while working for employers or clients **outside** Portugal. It is not a permit to walk into a Portuguese job, and it is not the same thing as a Schengen tourist stamp.
-
-The Ministry of Foreign Affairs splits national visas into shapes that people constantly mix up. On its general visa-type page, a **temporary-stay** visa is for a stay under a year. A **residence** visa allows two entries and is valid for four months, and in that window the holder applies to **AIMA** (the agency that replaced SEF) for a residence permit. Nomad Spin's **365 days** is the dataset's "up to a year" field. It is not a description of that four-month sticker, and it is not a residence card you already hold.
-
-The income rule in the regulation is an average, over the last three months, of at least **four times** the Portuguese guaranteed minimum monthly wage. The decree states the multiple. It does not freeze a euro amount. The wage moves, and secondary sites disagree on the current euro figure, so this guide will not print one. Copy the threshold from the consulate checklist the week you apply.
-
-Apply from **outside** Portugal, at the Portuguese consulate that covers where you actually live. Documents, apostilles, translations, accommodation proof, insurance, and criminal-record rules are on that post's list. They are not on a blog screenshot from 2023.
-
-AIMA is where the residence permit is finished after you enter on the residence visa. "Bureaucratic processes" is a listed con because this step has a reputation for queues. Do not fly on the assumption that the appointment will be next week, and do not build the month on a Facebook comment about how fast someone else's file moved.
-
-EU, EEA, and Swiss citizens do not use the D8. Free-movement rules plus a registration step, if you stay, are a different and simpler path. It is still paperwork.
+EU, EEA, and Swiss citizens do not use the D8. Free-movement rules plus a registration step, if you stay, are a different path. It is still paperwork.
 
 ### What this guide will not pretend to settle
 
-Tax residence is a separate question from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. The regime that replaced it targets specific professional profiles, which leaves most remote jobs outside it. Nothing here is tax advice. If you will be in Portugal most of the year, pay for advice at home and, if needed, in Portugal.
+Tax residence is separate from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. Nothing here is tax advice. This guide does not state citizenship or permanent-residence timelines.
 
-Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. This guide does not explain them.
+Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. The D7 is not the digital nomad visa. This guide does not explain them.
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** a Schengen short stay, after you confirm the 90/180 count and the conditions.
-- **Many months, working for foreign clients or a foreign employer, and you can meet the file:** the D8, using the live consulate checklist, then AIMA if you came in on the residence visa.
-- **A year because the city page says 365:** not a plan, until the visa or the card says so.
+- **A few weeks, and your passport qualifies:** a Schengen short stay, after you confirm the 90/180 count.
+- **Many months, working for foreign clients or a foreign employer:** the temporary-stay visa or the D8 residency visa, then the AIMA permit, using the live consulate checklist.
+- **A year because the city page says 365:** not a plan. 365 is the initial-visa field. The residence permit, if granted, is 2 years and can renew for 3.
 - **"I will just stay and sort it out":** not a plan.
 
-Read the [MFA visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa) and the consulate for your passport before you pay for a non-refundable lease. When the destination page and the consulate disagree, the consulate wins.
+When the destination page and the consulate disagree, the consulate wins.
 
 ## When to go: best months, rainy season, and peak tourist reality
 

@@ -60,7 +60,7 @@ export function useCityEnrichment(city: City | null) {
           taxation: enrichment.taxation?.incomeTax ? enrichment.taxation : city.taxation,
           healthInsurance: enrichment.healthInsurance?.costMonthly ? enrichment.healthInsurance : city.healthInsurance,
           esim: enrichment.esim ? enrichment.esim : city.esim,
-          legalNotes: enrichment.legalNotes?.length ? enrichment.legalNotes : city.legalNotes,
+          legalNotes: city.legalNotes?.length ? city.legalNotes : (enrichment.legalNotes ?? city.legalNotes),
           dataSource: 'estimated',
         });
       } catch (e) {

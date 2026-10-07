@@ -1,0 +1,114 @@
+import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+import { cities } from '@/data/cities';
+import { visaPathSentence } from '@/lib/visaCopy';
+import { destinationIntro, destinationMetaDescription } from '@/lib/destinationSeo';
+
+const MISLEADING = /up to 365 days for most nationalities/i;
+
+function byCountry(code: string) {
+  return cities.filter((c) => c.countryCode === code);
+}
+
+describe('Spain and Portugal digital nomad visa wording', () => {
+  const rows = cities.filter(
+    (c) => (c.countryCode === 'ES' || c.countryCode === 'PT') && /digital nomad/i.test(c.meta.visaType),
+  );
+
+  it('covers the named cities and does not render a stay allowance', () => {
+    const names = new Set(rows.map((c) => c.name));
+    for (const name of ['Lisbon', 'Porto', 'Barcelona', 'Madrid', 'Valencia', 'Las Palmas', 'Porto Santo']) {
+      expect(names.has(name)).toBe(true);
+    }
+    expect(rows.length).toBeGreaterThan(10);
+
+    for (const city of rows) {
+      expect(city.meta.visaDays).toBe(365);
+      expect(city.visa.days).toBe(365);
+      const line = visaPathSentence(city.meta);
+      expect(line).not.toMatch(MISLEADING);
+      expect(line).not.toMatch(/most nationalities/i);
+      expect(line).toMatch(/^Initial /);
+      expect(line).toMatch(/Application required; eligibility and renewals vary, verify official sources\./);
+      expect(destinationIntro(city)).not.toMatch(MISLEADING);
+      expect(destinationMetaDescription(city)).not.toMatch(/\(365 days\)/);
+      expect(city.meta.visaNote).toBeTruthy();
+      expect(city.legalNotes.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('keeps Spain on the consular visa plus the 3-year residence authorization', () => {
+    const madrid = rows.find((c) => c.id === 'madrid-es');
+    expect(madrid?.meta.visaNote).toMatch(/3 years/);
+    expect(madrid?.meta.visaNote).toMatch(/Ley 14\/2013/);
+    expect(madrid?.legalNotes.join(' ')).toMatch(/boe\.es/);
+  });
+
+  it('keeps Portugal on the D8 path and flags the D7 label as unverified', () => {
+    const lisbon = rows.find((c) => c.id === 'lisbon-pt');
+    expect(lisbon?.meta.visaType).toBe('Digital Nomad Visa');
+    expect(lisbon?.meta.visaNote).toMatch(/Lei 23\/2007/);
+    expect(lisbon?.meta.visaNote).toMatch(/2-year/);
+    expect(lisbon?.legalNotes.join(' ')).toMatch(/vistos\.mne\.gov\.pt/);
+
+    const portoSanto = rows.find((c) => c.id === 'porto-santo-pt');
+    expect(portoSanto?.meta.visaType).toBe('D7/Digital Nomad Visa');
+    expect(portoSanto?.meta.visaNote).toMatch(/Check official MNE and AIMA sources/);
+  });
+});
+
+describe('Thailand tourism exemption wording', () => {
+  const rows = byCountry('TH');
+
+  it('updates every Thai row off the 60-day exemption and the DTV day count', () => {
+    const names = new Set(rows.map((c) => c.name));
+    for (const name of ['Bangkok', 'Chiang Mai', 'Phuket', 'Koh Phangan', 'Pai', 'Krabi']) {
+      expect(names.has(name)).toBe(true);
+    }
+    expect(rows.length).toBeGreaterThan(10);
+
+    for (const city of rows) {
+      expect(city.meta.visaType).toBe('Tourism Visa Exemption');
+      expect(city.meta.visaDays).toBe(30);
+      expect(city.visa).toEqual({ type: 'Tourism Visa Exemption', days: 30 });
+      const line = visaPathSentence(city.meta);
+      expect(line).not.toMatch(/most nationalities/i);
+      expect(line).not.toMatch(/up to 60 days/i);
+      expect(line).toMatch(/Tourism only/i);
+      expect(line).toMatch(/passport/i);
+      expect(line).toMatch(/DTV/);
+      expect(destinationIntro(city)).not.toMatch(/up to 60 days/i);
+      expect(destinationMetaDescription(city)).not.toMatch(/60 days/);
+      expect(city.legalNotes.join(' ')).toMatch(/thailand\.prd\.go\.th/);
+    }
+  });
+});
+
+describe('living guide visa sections', () => {
+  it('cites Portugal statute in the Lisbon guide and does not print an unofficial euro income figure', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-lisbon.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/Lei 23\/2007/);
+    expect(md).toMatch(/vistos\.mne\.gov\.pt/);
+    expect(md).toMatch(/diariodarepublica\.pt/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/four times/i);
+    expect(md).not.toMatch(/\u2014/);
+  });
+
+  it('cites the Thailand PRD notice and describes the 30-day tourism exemption', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-chiang-mai.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/thailand\.prd\.go\.th\/en\/content\/category\/detail\/id\/48\/iid\/538547/);
+    expect(md).toMatch(/Tourism Visa Exemption/);
+    expect(md).toMatch(/\*\*30 days\*\*/);
+    expect(md).not.toMatch(/row says \*\*Visa Exemption\*\*, \*\*60 days\*\*/);
+    expect(md).not.toMatch(/will not show you the September 2026/);
+    expect(md).not.toMatch(/\u2014/);
+  });
+});

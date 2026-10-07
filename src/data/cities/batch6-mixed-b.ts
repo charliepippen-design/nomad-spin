@@ -4,12 +4,12 @@ export const batch6MixedBCities = [
   // ── Thai islands ──
   city({ id: 'koh-mak-th', name: 'Koh Mak', country: 'Thailand', cc: 'TH', lat: 11.82, lng: 102.47, region: 'Asia',
     vibe: ['beach', 'adventure'], safety: 8, cost: 1000, internet: 20, coworking: 'Low', nightlife: 2, community: 2, lgbt: 4, femaleSafety: 7, english: 3,
-    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 28, visaType: 'DTV', visaDays: 1825, tz: 'UTC+7',
+    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 28, visaType: 'Tourism Visa Exemption', visaDays: 30, tz: 'UTC+7',
     pros: ['Tiny island', 'Quiet', 'Few tourists'], cons: ['Very limited internet', 'Services'], landscape: ['island'], dataSource: 'estimated',
   }),
   city({ id: 'koh-jum-th', name: 'Koh Jum', country: 'Thailand', cc: 'TH', lat: 7.74, lng: 98.94, region: 'Asia',
     vibe: ['beach', 'adventure'], safety: 8, cost: 1000, internet: 20, coworking: 'Low', nightlife: 2, community: 2, lgbt: 4, femaleSafety: 7, english: 3,
-    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 28, visaType: 'DTV', visaDays: 1825, tz: 'UTC+7',
+    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 28, visaType: 'Tourism Visa Exemption', visaDays: 30, tz: 'UTC+7',
     pros: ['Off-grid feel but near Krabi'], cons: ['Slow internet', 'Basic'], landscape: ['island'], dataSource: 'estimated',
   }),
   // ── Indonesia ──

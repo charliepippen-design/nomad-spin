@@ -54,7 +54,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - `meta.timeZoneUtc`: brutal if you have fixed US or EU standup hours
 - `language`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, `UTC+4`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. Mexico City: **Visa Exemption**, **180** days. Chiang Mai: **Visa Exemption**, **60** days. Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, `UTC+4`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). Mexico City: **Visa Exemption**, **180** days. Chiang Mai: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked `dataSource: "estimated"` instead of `"verified"`, treat the numbers as directional and verify before you commit deposit money.
 
