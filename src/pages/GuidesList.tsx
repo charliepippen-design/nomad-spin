@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
+import { mergeGuides } from '@/lib/guideCatalog';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;
@@ -10,15 +11,11 @@ const TITLE = 'Guides & Articles | Nomad Spin';
 const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital nomad strategies.';
 
 export default function GuidesList() {
-  const { data: liveGuides, isLoading, isError } = useGuides();
+  const { data: liveGuides, isPending, isError } = useGuides();
 
-  // Merge: live Supabase guides take precedence; fall back to static for slugs not yet in DB
-  const mergedGuides = (() => {
-    if (!liveGuides) return staticGuides;
-    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
-    const staticFallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
-    return [...liveGuides, ...staticFallbacks];
-  })();
+  // Static catalog is shown immediately. Live rows override matching slugs when the query succeeds.
+  const mergedGuides = mergeGuides(liveGuides, staticGuides);
+  const showLiveDbWarning = isError && mergedGuides.length === 0;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -73,24 +70,24 @@ export default function GuidesList() {
           </div>
         </div>
 
-        {/* Loading state */}
-        {isLoading && (
+        {/* Only while there is nothing local to show. Known guides skip this. */}
+        {isPending && mergedGuides.length === 0 && (
           <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
             <Loader2 className="w-4 h-4 animate-spin" />
             Loading guides…
           </div>
         )}
 
-        {/* Error state, still shows static guides below */}
-        {isError && (
+        {/* The live read failed and there is no static guide to show. */}
+        {showLiveDbWarning && (
           <div className="flex items-center gap-2 text-xs text-yellow-500/80 font-mono mb-6 border border-yellow-500/20 bg-yellow-500/5 rounded-lg px-4 py-3">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-            Could not reach the live guide database. Showing cached content.
+            Could not reach the live guide database.
           </div>
         )}
 
         {/* Guides Grid */}
-        {!isLoading && (
+        {mergedGuides.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mergedGuides.map((guide) => (
               <Link 

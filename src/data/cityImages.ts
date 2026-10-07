@@ -61,7 +61,9 @@ const CITY_PHOTOS: Record<string, string> = {
   'cape-town': '1580060839134-75a5edca2014',
   'nairobi': '1611348524140-53c9a25263d6',
   'marrakech': '1597211684635-10c8f5e6c5f3',
-  'dubai': '1512453913507-36f190fea668',
+  'dubai': '1512453979798-5ea266f8880c',
+  'dubai-deira': '1512453979798-5ea266f8880c',
+  'abu-dhabi': '1512632578888-169bbbc64f33',
   'tel-aviv': '1544967082-d9d25d867d66',
 
   // East Asia
@@ -77,7 +79,7 @@ const CITY_PHOTOS: Record<string, string> = {
 
 // Region-based fallback photos for cities not in the curated map
 const REGION_FALLBACKS: Record<string, string> = {
-  'Asia':           '1506665131138-e866141fb205', // tropical coast
+  'Asia':           '1507525428034-b723cf961d3e', // tropical coast
   'Europe':         '1467269204594-9661b134dd2b', // European old town
   'LATAM':          '1518105779142-d975f22f1b0a', // colorful Latin street
   'Africa':         '1547471080-7cc2caa01a7e', // African savanna

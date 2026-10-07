@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Clock, Calendar, ChevronLeft, Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
+import { mergeGuides } from '@/lib/guideCatalog';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
@@ -21,16 +22,14 @@ const guideSchema = {
 
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();
-  const { data: liveGuides, isLoading } = useGuides();
+  const { data: liveGuides, isPending } = useGuides();
 
-  const allGuides = (() => {
-    if (!liveGuides) return staticGuides;
-    return [...liveGuides, ...staticGuides.filter(sg => !liveGuides.some(lg => lg.slug === sg.slug))];
-  })();
+  // Static guides render immediately. Live rows override the same slug when
+  // Supabase returns; a slow or failed read must not replace the article with a spinner.
+  const guide = mergeGuides(liveGuides, staticGuides).find(g => g.slug === slug);
+  const waitingForLiveOnlyGuide = !guide && isPending;
 
-  const guide = allGuides.find(g => g.slug === slug);
-
-  if (isLoading) {
+  if (waitingForLiveOnlyGuide) {
     return (
       <div className="noise-overlay min-h-screen bg-background flex items-center justify-center p-24">
         <Loader2 className="w-10 h-10 animate-spin text-primary/30" />

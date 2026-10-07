@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import type { Guide } from '@/data/guides';
+import { GUIDE_DB_TIMEOUT_MS, GuideDatabaseTimeoutError, withTimeout } from '@/lib/guideCatalog';
 
 // Manual type since guides table may not be in auto-generated types yet
 interface GuidesRow {
@@ -13,6 +14,24 @@ interface GuidesRow {
   created_at: string;
   slug: string | null;
 }
+
+interface GuidesQueryResult {
+  data: GuidesRow[] | null;
+  error: { message: string } | null;
+}
+
+interface GuidesTableQuery {
+  select: (columns: string) => {
+    order: (
+      column: string,
+      options: { ascending: boolean },
+    ) => {
+      abortSignal: (signal: AbortSignal) => PromiseLike<GuidesQueryResult>;
+    };
+  };
+}
+
+const GUIDE_COLUMNS = 'id, city, keyword, title, content, status, created_at, slug';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -56,7 +75,7 @@ function calcReadTime(content: string): string {
 function rowToGuide(row: GuidesRow): Guide {
   return {
     id: String(row.id),
-    slug: (row as any).slug || toSlug(row.city),
+    slug: row.slug || toSlug(row.city),
     title: row.title,
     excerpt: excerptFromContent(row.content),
     date: row.created_at,
@@ -65,20 +84,43 @@ function rowToGuide(row: GuidesRow): Guide {
   };
 }
 
+async function fetchLiveGuides(signal: AbortSignal, timeoutMs = GUIDE_DB_TIMEOUT_MS): Promise<Guide[]> {
+  const timeoutController = new AbortController();
+  const onParentAbort = () => timeoutController.abort(signal.reason);
+  if (signal.aborted) timeoutController.abort(signal.reason);
+  else signal.addEventListener('abort', onParentAbort, { once: true });
+
+  const timer = setTimeout(() => {
+    timeoutController.abort(new GuideDatabaseTimeoutError(timeoutMs));
+  }, timeoutMs);
+
+  try {
+    const query = (supabase as unknown as { from: (table: string) => GuidesTableQuery })
+      .from('guides')
+      .select(GUIDE_COLUMNS)
+      .order('created_at', { ascending: false })
+      .abortSignal(timeoutController.signal);
+
+    const { data, error } = await withTimeout(Promise.resolve(query), timeoutMs, timeoutController.signal);
+    if (error) throw error;
+    return (data ?? []).map(rowToGuide);
+  } finally {
+    clearTimeout(timer);
+    signal.removeEventListener('abort', onParentAbort);
+  }
+}
+
 // ── hook ──────────────────────────────────────────────────────────────────────
 
 export function useGuides() {
   return useQuery<Guide[], Error>({
     queryKey: ['guides'],
-    queryFn: async () => {
-      const { data, error } = await (supabase as any)
-        .from('guides')
-        .select('id, city, keyword, title, content, status, created_at, slug')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      return (data as GuidesRow[]).map(rowToGuide);
-    },
+    queryFn: ({ signal }) => fetchLiveGuides(signal),
     staleTime: 1000 * 60 * 5, // 5 min cache
+    // One bounded attempt. Default retries stacked on a hung request and kept
+    // guide pages on the spinner for well over 12 seconds.
+    retry: false,
+    // Don't leave the query pending forever when the browser reports offline.
+    networkMode: 'always',
   });
 }
