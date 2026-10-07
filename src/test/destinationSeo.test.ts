@@ -67,6 +67,9 @@ describe('destinationSeo', () => {
 
     const chiangMaiGuides = relatedGuidesForCity(cityByName('Chiang Mai')).map((g) => g.slug);
     expect(chiangMaiGuides).toContain('living-in-chiang-mai');
+
+    const mexicoCityGuides = relatedGuidesForCity(cityByName('Mexico City')).map((g) => g.slug);
+    expect(mexicoCityGuides).toContain('living-in-mexico-city');
     expect(chiangMaiGuides).toContain('where-to-go-next-by-season');
     expect(chiangMaiGuides).toContain('how-to-choose-next-nomad-base');
   });

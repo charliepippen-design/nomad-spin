@@ -11,6 +11,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-cape-town');
     expect(slugs).toContain('living-in-chiang-mai');
     expect(slugs).toContain('living-in-lisbon');
+    expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -134,6 +135,48 @@ describe('static guides', () => {
       'First-week setup checklist and how to compare Lisbon on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Mexico City living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-mexico-city');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Mexico City');
+    expect(g!.seoTitle).toBe("Living in Mexico City 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Mexico City for remote workers in 2026: real monthly costs, Roma vs Condesa, 180-day stay notes, coworking, internet, altitude and air-quality trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(170);
+    expect(g!.relatedDestinations).toEqual(['mexico-city']);
+    expect(g!.content).toContain('living in Mexico City as a digital nomad');
+    expect(g!.content).toContain('$1,300');
+    expect(g!.content).toContain('$1,000');
+    expect(g!.content).toContain('$60');
+    expect(g!.content).toContain('90 Mbps');
+    expect(g!.content).toContain('6.0');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('180');
+    expect(g!.content).toContain('UTC-6');
+    expect(g!.content).not.toMatch(/—/);
+    expect(g!.title).not.toMatch(/—/);
+    expect(g!.seoTitle).not.toMatch(/—/);
+    expect(g!.excerpt).not.toMatch(/—/);
+    for (const href of [
+      '/destinations/mexico-city',
+      '/destinations/medellin',
+      '/destinations/buenos-aires',
+      '/destinations/chiang-mai',
+      '/destinations/bangkok',
+      '/destinations/lisbon',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
     }
   });
 
