@@ -278,7 +278,7 @@ The **family** tag matches the safety score, the beach, and a city you can cross
 
 Private clinics in the central and beach districts handle the usual nomad problems. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
 
-[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
+[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) covers District 1 versus Thao Dien, and why its Dec-Apr dry season does not match this Feb-Jul beach window. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
 
 ## Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City
 
@@ -300,7 +300,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Hoi An** when you want the same coast, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. It is a beautiful week and a thin work month. Flooding is in the cons. It is not the upgrade for someone who found Da Nang too quiet.
 
-**Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** only partly overlap Da Nang. It is the "smaller city" trade-off, answered.
+**Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** line up with Chiang Mai and Bangkok, not with this Feb-Jul window. Neighborhoods and the e-visa are in [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city).
 
 **Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**. The visa field is the same **30-day** tourism exemption (passport-dependent, tourism only). A longer stay is a separate Destination Thailand Visa file. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
 
@@ -356,7 +356,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 ### How to compare Da Nang on Nomad Spin
 
 1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$700**, Da Nang's solo baseline is already a stretch, and the **$500** longer-stay figure is the one you have to live inside.
-2. Set an internet floor the **80 Mbps** average can clear, and a safety floor its **8.5** can clear. Then look at who else survives. Often that is [Chiang Mai](/destinations/chiang-mai) if you can drop the beach, or [Ho Chi Minh City](/destinations/ho-chi-minh-city) if you want more city, not a beach you cannot afford.
+2. Set an internet floor the **80 Mbps** average can clear, and a safety floor its **8.5** can clear. Then look at who else survives. Often that is [Chiang Mai](/destinations/chiang-mai) if you can drop the beach, or [Ho Chi Minh City](/destinations/ho-chi-minh-city) ([living guide](/guides/living-in-ho-chi-minh-city)) if you want more city, not a beach you cannot afford.
 3. Open [Da Nang](/destinations/da-nang) and read `bestMonths`, `rainyMonths`, and the typhoon con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If Chiang Mai is still in the pile, put its **Nov-Feb** next to these **Feb-Jul** months before you book both into the same storm.
 4. If Bali is still in the pile, open [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) and compare reliability **5** and **$1,200** against this row, not the photos. If you want a non-Asia beach, open [Living in Cape Town](/guides/living-in-cape-town) and compare safety **5.5** and power **4**.
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).

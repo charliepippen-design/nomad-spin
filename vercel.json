@@ -939,6 +939,21 @@
       "source": "/destinations/ho-chi-minh",
       "destination": "/destinations/ho-chi-minh-city",
       "statusCode": 301
+    },
+    {
+      "source": "/guides/living-in-saigon",
+      "destination": "/guides/living-in-ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/living-in-hcmc",
+      "destination": "/guides/living-in-ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/living-in-ho-chi-minh",
+      "destination": "/guides/living-in-ho-chi-minh-city",
+      "statusCode": 301
     }
   ],
   "rewrites": [
