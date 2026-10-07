@@ -64,6 +64,13 @@ function applyOfficialVisaFacts(city2) {
       legalNotes: THAILAND_LEGAL_NOTES
     };
   }
+  if (city2.countryCode === "VN" && city2.meta.visaDays === 90 && city2.meta.visaType !== "E-Visa") {
+    return {
+      ...city2,
+      meta: { ...city2.meta, visaType: "E-Visa" },
+      visa: { type: "E-Visa", days: 90 }
+    };
+  }
   return city2;
 }
 

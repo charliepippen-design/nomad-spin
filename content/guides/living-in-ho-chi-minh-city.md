@@ -185,7 +185,7 @@ This is operational orientation, not legal advice. Vietnamese immigration rules 
 
 ### What Nomad Spin currently shows
 
-The Ho Chi Minh City row says **E-Visa**, **90 days**, **UTC+7**. Da Nang's row says the same visa pair. Hoi An's row says **Tourist Visa**, **90 days**, and Hanoi's row says **Tourist Visa**, **90 days**. Same country, two labels in the dataset. Use the Ho Chi Minh City field as the product on [the city page](/destinations/ho-chi-minh-city): an e-visa measured in days, up to 90, not a residence card. Do not treat the label gap between cities as two different laws.
+The Ho Chi Minh City row says **E-Visa**, **90 days**, **UTC+7**. Da Nang, Hoi An, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Ho Chi Minh City field on [the city page](/destinations/ho-chi-minh-city): an e-visa measured in days, up to 90, not a residence card.
 
 ### What the Immigration Department publishes
 
@@ -291,14 +291,14 @@ Community **7** and the "growing startup scene" pro can both be true. You can me
 
 ## Ho Chi Minh City vs Da Nang, Hoi An, Bangkok, Chiang Mai
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. For Vietnam, read the visa section before you treat two labels as two laws. For Thailand, the field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. It is not the old 60-day exemption.
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**. For Thailand, the field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. It is not the old 60-day exemption.
 
 | Field | Ho Chi Minh City | Da Nang | Hoi An | Bangkok | Chiang Mai |
 |---|---|---|---|---|---|
 | Solo month | $800 | $700 | $900 | $1,100 | $850 |
 | Internet | 85 Mbps | 80 Mbps | 80 Mbps | 120 Mbps | 95 Mbps |
 | Safety | 7.5 | 8.5 | 9.0 | 7.8 | 8.2 |
-| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | Tourist Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Tourism exemption, 30 days (passport-dependent) |
+| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Tourism exemption, 30 days (passport-dependent) |
 | Best months | Dec-Apr | Feb-Jul | Feb-May | Nov-Mar | Nov-Feb |
 
 **Stay with Ho Chi Minh City** when you want the **$800** city, coworking **High**, community **7**, nightlife **7**, and you can take **Dec-Apr** plus a **90-day** e-visa field. You accept traffic, air pollution, humidity, noise, and visa complexity. The dry season is why it pairs with Chiang Mai and Bangkok, not with Da Nang's beach calendar.
