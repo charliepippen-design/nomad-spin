@@ -17,6 +17,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
     expect(slugs).toContain('living-in-tbilisi');
+    expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -458,6 +459,67 @@ describe('static guides', () => {
       '](/)',
     ]) {
       expect(g!.content).toContain(href);
+    }
+  });
+
+  it('publishes the Buenos Aires living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-buenos-aires');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Buenos Aires');
+    expect(g!.seoTitle).toBe("Living in Buenos Aires 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Buenos Aires for remote workers in 2026: real monthly costs, Palermo vs Villa Crespo, visa notes, coworking, inflation, and honest safety trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['buenos-aires']);
+    expect(g!.content).toContain('living in Buenos Aires as a digital nomad');
+    expect(g!.content).toContain('$900');
+    expect(g!.content).toContain('$650');
+    expect(g!.content).toContain('$40');
+    expect(g!.content).toContain('70 Mbps');
+    expect(g!.content).toContain('6.2');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90');
+    expect(g!.content).toContain('UTC-3');
+    expect(g!.content).toContain('Disposición 758/2022');
+    expect(g!.content).toContain('argentina.gob.ar');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/blue dollar|2,?849|TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
+    for (const href of [
+      '/destinations/buenos-aires',
+      '/destinations/medellin',
+      '/destinations/mexico-city',
+      '/destinations/santiago',
+      '/destinations/montevideo',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-medellin',
+      '/guides/living-in-mexico-city',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '/guides/paraguay-tax-residency-remote-workers',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Buenos Aires still worth it for digital nomads in 2026?',
+      'Who Buenos Aires is for (and who should skip it)',
+      'Real monthly cost bands (solo $900, long-term $650, Airbnb $40/night) and why inflation makes these move',
+      'Neighborhoods that work: Palermo (Soho / Hollywood), Villa Crespo / Chacarita, Recoleta, San Telmo, Almagro (trade-offs)',
+      'Internet, power, and coworking for video-call work',
+      'Visas and stay length: 90-day exemption vs Argentina digital nomad residence (verify official rules)',
+      'Best months (Mar-May, Sep-Nov), rainy Jun-Jul, and summer heat',
+      'Daily life: money and payments, steak and wine, tango, nightlife, Spanish, and safety habits',
+      'Buenos Aires vs Medellin, Mexico City, Santiago, and Montevideo',
+      'First-week checklist and how to compare Buenos Aires on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
     }
   });
 
