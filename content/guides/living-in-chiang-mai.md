@@ -180,7 +180,7 @@ The Royal Thai Consulate-General in Los Angeles, in its public visa note, tells 
 
 If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended. This guide also does not print a DTV fee, a savings balance, or a day count for the DTV. Those live on the checklist of the post that decides the file.
 
-Since 1 May 2025, Thai immigration has also required the Thailand Digital Arrival Card before entry or exit. The Los Angeles consulate points people to the official form at [tdac.immigration.go.th](https://tdac.immigration.go.th/arrival-card/#/home). Fill it in yourself. Do not pay a random site to do it.
+Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
 ### Tourist visa, if the exemption is too short
 
@@ -202,7 +202,7 @@ Other long-stay categories exist (education visas, Thailand Privilege, the Long-
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions.
+- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the Thailand Digital Arrival Card completed online before you travel.
 - **A season longer than that stamp:** a tourist visa from the correct embassy, with the extension rules read in advance.
 - **Many months, working for foreign clients, and you can meet the file:** look at the DTV and use the live embassy checklist.
 - **A year via border runs:** not a plan.

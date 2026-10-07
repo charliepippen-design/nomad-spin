@@ -208,7 +208,7 @@ It is for third-country nationals who intend to run a business, be self-employed
 
 You lodge the application in person at a Czech embassy or consulate, by territorial competence, with an interview and fingerprints. On the form, purpose of stay is **Business**. The purpose document is a registry extract: a trade licence extract (živnostenský list), a company-register extract, or another extract the page allows. The Ministry of the Interior decides. If it approves, the embassy that took the file issues the visa. The page says a long-term visa can be issued for a **maximum of one year**.
 
-If the purpose continues, you can ask, before the visa expires, for an extension of up to one year at the local branch of the Ministry of the Interior, or for a change of status to a long-term residence permit. The page lists long-term residence purposes that include employment, study, scientific research, family, intra-company transfer, and investment, and residence for residents of other EU member states. The Interior's [purpose-of-stay page](https://www.mvcr.cz/mvcren/article/document-on-the-purpose-of-stay.aspx) says the business purpose, for someone trading under the Trade Licensing Act, is an extract from the Trade Register.
+If the purpose continues, you can ask, before the visa expires, for an extension of up to one year at the local branch of the Ministry of the Interior, or for a change of status to a long-term residence permit. The page lists long-term residence purposes that include employment, study, scientific research, family, intra-company transfer, and investment, and residence for residents of other EU member states. The Interior's [purpose-of-stay page](https://www.mvcr.cz/mvcren/article/document-on-the-purpose-of-stay.aspx) now opens on an archive that says its content may not be current. That archived text says the business purpose, for someone trading under the Trade Licensing Act, is a statement from the Trade Register.
 
 **What else that MFA page says to expect.**
 
@@ -222,7 +222,7 @@ If the purpose continues, you can ask, before the visa expires, for an extension
 
 The legal sources named on the MFA page include Act No. 326/1999 Coll., on the residence of foreign nationals, and Act No. 455/1991 Coll., the Trade Licensing Act. The trade itself is declared at a trade licensing office. The MFA page points at the Ministry of Industry and Trade's trade register for that step.
 
-For a later long-term residence permit for business, the Interior also asks for proof you have no arrears with the financial administration, customs, social security, and (if you are in the public system) your health insurance company. Those confirmations must be no older than 30 days. The page is the Interior's [confirmation of non-existence of arrears](https://www.mvcr.cz/mvcren/article/confirmation-of-non-existence-of-arrears.aspx).
+For a later long-term residence permit for business, the Interior also asks for proof you have no arrears with the financial administration, customs, social security, and (if you are in the public system) your health insurance company. The Ministry of the Interior's [Information Portal for Foreigners](https://ipc.gov.cz/en/forms-and-documents/documents/proof-of-no-outstanding-debts/) says that, on the day you apply, that proof cannot be older than 30 days.
 
 ### Path B: the Digital Nomad Program, which is not the same visa
 

@@ -175,7 +175,7 @@ The [Permiso de Ingreso y Permanencia (PIP)](https://portal.migracioncolombia.go
 
 A longer visa-free stay, where it exists, is a different procedure. The [Permiso Temporal de Permanencia (PTP)](https://www.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/prorroga/permiso-temporal-de-permanencia-ptp-/-prorroga), also called a prórroga, is for people who already hold a PIP and whose nationality does not require a visa. Migración Colombia says the PTP cannot exceed **180** calendar days, continuous or not, inside the same calendar year, and that you must still have a valid PIP when you apply. For a tourism PIP, the same page lists an extension of up to **90** days. Apply on the Formulario Único de Trámites at least **5** business days before the PIP expires. Filing is not approval. The page publishes a 2026 tariff and a table of payment exceptions, including some nationalities at zero. Read that table for your passport. This guide does not restate the fee as a universal price.
 
-Cancillería's own note on the digital-nomad visa says the same outer bound for visa-exempt remote workers who do not take the visa: a PIP stay no longer than **90** days, extendable to a maximum of **180** days, continuous or not, in the calendar year, and only if the stay does not generate payments from Colombian companies.
+Cancillería publishes its own note on the digital-nomad visa at the pages linked below. This guide does not copy a stay length from those pages, because they did not load when checked. The **90**-day and **180**-day figures above are Migración Colombia's, from the PIP and PTP pages.
 
 [Check-Mig](https://www.migracioncolombia.gov.co/tramites-y-servicios/aplicativos/checkmig) is Migración Colombia's free pre-registration. The current page says it is not mandatory. It lets you preload the flight, the reason for travel, and where you will stay, from 72 hours before departure until one hour before. Use the official app at [apps.migracioncolombia.gov.co/pre-registro](https://apps.migracioncolombia.gov.co/pre-registro/es). Do not pay a random site to file it.
 
@@ -183,14 +183,14 @@ Which passports need a visa before they fly is Cancillería's list, not this gui
 
 ### Visa V for digital nomads
 
-The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. The published validity is up to two years. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
+The longer remote-work route is the **Visa V Nómadas digitales**, published by the Ministry of Foreign Affairs at [cancilleria.gov.co/node/26950](https://www.cancilleria.gov.co/node/26950). The page describes it as permission to do remote work or telework from Colombia, through digital means, exclusively for foreign companies, as a contractor or an employee, or to start a digital or information-technology venture of interest to the country. The page states how long the visa lasts. This guide does not restate a number of years, because the page did not load when checked. Beneficiaries of the main applicant can be requested. The visa does not allow paid work for a person or a company domiciled in Colombia.
 
 The specific requirements on that page, as checked for this guide, include:
 
 - A passport from a country or territory that is exempt from a short-stay visa, under the resolution they cite
 - A letter in Spanish or English from the foreign company or companies, stating the type of link and the type of pay, plus the contract if you have one, or proof you are a partner and that the work is remote
 - For founders, a letter explaining the venture and the financial and human resources it has or expects
-- Bank statements showing minimum income equivalent to three current monthly legal minimum wages (3 SMLMV) during the last three months
+- Bank statements for the income test on that page, set in current monthly legal minimum wages. This guide does not restate the multiple or the number of months, because the page did not load when checked.
 - A health policy covering Colombia for accident, illness, maternity, disability, hospitalization, death, or repatriation, for the time you plan to stay
 
 That income line is the Cancillería page's own condition, written in Colombian minimum wages. The wage moves. This guide does not convert it into dollars, and it does not invent a second threshold. Copy the checklist the week you apply. A forum screenshot of a dollar figure is how people build a file the ministry will not accept.
