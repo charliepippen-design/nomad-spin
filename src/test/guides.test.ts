@@ -14,6 +14,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
+    expect(slugs).toContain('living-in-tbilisi');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -238,6 +239,7 @@ describe('static guides', () => {
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
+      '/guides/living-in-bangkok',
       '/guides/how-to-choose-next-nomad-base',
       '/guides/where-to-go-next-by-season',
       '/guides/best-places-digital-nomads-2025',
@@ -291,6 +293,53 @@ describe('static guides', () => {
     }
     expect(g!.content).not.toContain('medell-n');
     expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
+  });
+
+  it('publishes the Tbilisi living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-tbilisi');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Tbilisi');
+    expect(g!.seoTitle).toBe("Living in Tbilisi 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Tbilisi for remote workers in 2026: real monthly costs, 365-day visa-free notes, neighborhoods, 60 Mbps internet, wine culture, and winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(170);
+    expect(g!.relatedDestinations).toEqual(['tbilisi']);
+    expect(g!.content).toContain('living in Tbilisi as a digital nomad');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$550');
+    expect(g!.content).toContain('$30');
+    expect(g!.content).toContain('60 Mbps');
+    expect(g!.content).toContain('8.0');
+    expect(g!.content).toContain('Visa Free');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+4');
+    expect(g!.content).not.toMatch(/—/);
+    expect(g!.title).not.toMatch(/—/);
+    expect(g!.seoTitle).not.toMatch(/—/);
+    expect(g!.excerpt).not.toMatch(/—/);
+    for (const href of [
+      '/destinations/tbilisi',
+      '/destinations/lisbon',
+      '/destinations/budapest',
+      '/destinations/chiang-mai',
+      '/destinations/medellin',
+      '/destinations/mexico-city',
+      '/destinations/bangkok',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bangkok',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-mexico-city',
+      '/guides/living-in-medellin',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
   });
 
   it('generated module is in sync with content/guides', () => {

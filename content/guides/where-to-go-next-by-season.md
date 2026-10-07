@@ -4,7 +4,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured `weather.bestMonths`, `weather.rainyMonths`, and `tempAvgC` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Bangkok](/guides/living-in-bangkok), [Lisbon](/guides/living-in-lisbon), [Mexico City](/guides/living-in-mexico-city), and [Medellin](/guides/living-in-medellin).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Bangkok](/guides/living-in-bangkok), [Lisbon](/guides/living-in-lisbon), [Mexico City](/guides/living-in-mexico-city), [Medellin](/guides/living-in-medellin), and [Tbilisi](/guides/living-in-tbilisi).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -61,6 +61,7 @@ Many European rows share Apr–Jun / Sep–Oct best months:
 
 - [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: `$2,200` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: `$1,500` / 200 Mbps / safety 8.3
+- [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (`$800` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia), [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is `estimated` and tourist-heavy in `cons`
 - [Seville](/destinations/seville): **Mar–May, Oct–Nov**: get there before “extremely hot summer” in `cons`
 
@@ -109,7 +110,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 ## Special cases the calendar can’t hide
 
-**Burning / pollution seasons.** Chiang Mai `cons` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in `cons` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise.
+**Burning / pollution seasons.** Chiang Mai `cons` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in `cons` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival.
 
 **Storm / typhoon seasons.** Da Nang `cons`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk.
 

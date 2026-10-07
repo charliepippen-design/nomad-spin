@@ -121,5 +121,13 @@ describe('living guide visa sections', () => {
     expect(bangkok).toMatch(/\*\*30 days\*\*/);
     expect(bangkok).not.toMatch(/still shows/i);
     expect(bangkok).not.toMatch(/\u2014/);
+
+    const tbilisi = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-tbilisi.md'),
+      'utf-8',
+    );
+    expect(tbilisi).not.toMatch(/still shows/i);
+    expect(tbilisi).not.toMatch(/Visa Exemption, 60 days/);
+    expect(tbilisi).toMatch(/Tourism exemption, 30 days/);
   });
 });
