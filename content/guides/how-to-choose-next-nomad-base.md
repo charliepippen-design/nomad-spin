@@ -6,7 +6,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali) or [Living in Cape Town](/guides/living-in-cape-town). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Cape Town](/guides/living-in-cape-town), or [Living in Chiang Mai](/guides/living-in-chiang-mai). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -32,7 +32,7 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - `infra.powerGridStability` (1–10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - `infra.coworkingDensity` (`High` / `Med` / `Low`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. Cape Town can show **100 Mbps** on paper while `powerGridStability` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. Cape Town can show **100 Mbps** on paper while `powerGridStability` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
@@ -108,7 +108,7 @@ A spin returns a primary city plus near alternatives, each with a **match score*
 - You realize a soft preference is actually hard (no beach → set landscape; no big party scene → raise the quiet intent)
 - The pool feels identical three times in a row: loosen one slider 10–20% and retry
 
-Example path: Budget Saver → land on Chiang Mai → read [Chiang Mai](/destinations/chiang-mai) → note burning season in `cons` and best months Nov–Feb → either accept that calendar or re-spin with a different region for your travel window.
+Example path: Budget Saver → land on Chiang Mai → read [Chiang Mai](/destinations/chiang-mai) and the [living guide](/guides/living-in-chiang-mai) → note burning season in `cons` and best months Nov–Feb → either accept that calendar or re-spin with a different region for your travel window.
 
 ## Compare without a spreadsheet
 
@@ -145,7 +145,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked `/destinations/...` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 

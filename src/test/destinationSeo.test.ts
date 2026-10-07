@@ -63,6 +63,11 @@ describe('destinationSeo', () => {
     const lisbonGuides = relatedGuidesForCity(cityByName('Lisbon')).map((g) => g.slug);
     expect(lisbonGuides).toContain('how-to-choose-next-nomad-base');
     expect(lisbonGuides).toContain('where-to-go-next-by-season');
+
+    const chiangMaiGuides = relatedGuidesForCity(cityByName('Chiang Mai')).map((g) => g.slug);
+    expect(chiangMaiGuides).toContain('living-in-chiang-mai');
+    expect(chiangMaiGuides).toContain('where-to-go-next-by-season');
+    expect(chiangMaiGuides).toContain('how-to-choose-next-nomad-base');
   });
 
   it('formats months stably', () => {

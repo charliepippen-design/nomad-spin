@@ -379,6 +379,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want company immediately.</p>
 
+<p>Neighborhood trade-offs, coworking, and how March and April actually feel are in the <a href="/guides/living-in-chiang-mai">Chiang Mai living guide</a>.</p>
+
 <h2><strong>2. Lisbon, Portugal: Europe’s Nomad Capital</strong></h2>
 
 <p><a href="/destinations/lisbon">Lisbon</a> is the default European base for a reason: warm, walkable, English-friendly, and connected to the rest of the continent. In the dataset it is also the expensive one.</p>
