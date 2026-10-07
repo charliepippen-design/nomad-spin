@@ -30,25 +30,25 @@ To make this guide easy to plan with, here’s a **monthly budget in USD** with 
 
 | Category | Budget (USD) | Mid-range (USD) | Comfortable (USD) | Notes (what moves the number) |
 |---|---:|---:|---:|---|
-| Accommodation | 350–600 | 700–1,200 | 1,400–2,800+ | Location (Canggu/Pererenan ↑), privacy, pool, new build |
-| Utilities | 25–60 | 60–120 | 120–220 | AC use drives electricity; some rentals include water |
-| Home internet | 20–50 | 50–100 | 100–160 | Fiber availability varies by street; some villas include it |
-| Coworking | 0–60 | 80–180 | 180–350 | Membership vs day passes; meeting-room usage |
-| SIM + mobile data | 10–20 | 20–40 | 40–70 | Backup SIM/eSIM if you have critical calls |
-| Transport (scooter) | 60–120 | 120–220 | 220–400 | Monthly rental + fuel + small maintenance |
-| Transport (ride-hailing/driver) | 0–80 | 80–200 | 200–500 | If you avoid scooters, this becomes a top-3 cost |
-| Food (local-heavy) | 150–250 | 250–450 | 450–800 | Warungs vs cafés; protein + imported items |
-| Food (restaurants/cafés) | 50–150 | 150–350 | 350–900 | Brunch inflation is real in Canggu |
-| Gym / fitness | 20–50 | 50–120 | 120–250 | Basic gyms vs premium clubs / classes |
-| Health / insurance | 20–80 | 80–180 | 180–350 | Depends on policy + scooter coverage |
-| Visas / agent fees (averaged) | 20–80 | 80–200 | 200–400 | Spreads extension/agent cost across months |
-| Laundry / household | 15–40 | 40–80 | 80–150 | Laundry is cheap; household items vary |
-| Entertainment / dating / misc | 60–150 | 150–400 | 400–1,000 | Events, drinks, beach clubs, short trips |
-| **Estimated total** | **800–1,420** | **1,650–3,160** | **3,690–8,550+** | Your “Bali version” determines where you land |
+| Accommodation | 350 to 600 | 700 to 1,200 | 1,400 to 2,800+ | Location (Canggu/Pererenan ↑), privacy, pool, new build |
+| Utilities | 25 to 60 | 60 to 120 | 120 to 220 | AC use drives electricity; some rentals include water |
+| Home internet | 20 to 50 | 50 to 100 | 100 to 160 | Fiber availability varies by street; some villas include it |
+| Coworking | 0 to 60 | 80 to 180 | 180 to 350 | Membership vs day passes; meeting-room usage |
+| SIM + mobile data | 10 to 20 | 20 to 40 | 40 to 70 | Backup SIM/eSIM if you have critical calls |
+| Transport (scooter) | 60 to 120 | 120 to 220 | 220 to 400 | Monthly rental + fuel + small maintenance |
+| Transport (ride-hailing/driver) | 0 to 80 | 80 to 200 | 200 to 500 | If you avoid scooters, this becomes a top-3 cost |
+| Food (local-heavy) | 150 to 250 | 250 to 450 | 450 to 800 | Warungs vs cafés; protein + imported items |
+| Food (restaurants/cafés) | 50 to 150 | 150 to 350 | 350 to 900 | Brunch inflation is real in Canggu |
+| Gym / fitness | 20 to 50 | 50 to 120 | 120 to 250 | Basic gyms vs premium clubs / classes |
+| Health / insurance | 20 to 80 | 80 to 180 | 180 to 350 | Depends on policy + scooter coverage |
+| Visas / agent fees (averaged) | 20 to 80 | 80 to 200 | 200 to 400 | Spreads extension/agent cost across months |
+| Laundry / household | 15 to 40 | 40 to 80 | 80 to 150 | Laundry is cheap; household items vary |
+| Entertainment / dating / misc | 60 to 150 | 150 to 400 | 400 to 1,000 | Events, drinks, beach clubs, short trips |
+| **Estimated total** | **800 to 1,420** | **1,650 to 3,160** | **3,690 to 8,550+** | Your “Bali version” determines where you land |
 
 ### Reality checks that save money (and pain)
 
-- **Traffic is a hidden cost.** A “cheaper” place that forces 60–90 minute commutes becomes expensive in time and ride-hailing.
+- **Traffic is a hidden cost.** A “cheaper” place that forces 60 to 90 minute commutes becomes expensive in time and ride-hailing.
 - **Imported lifestyle costs stack fast.** Cheese, wine, specialty supplements, and some electronics can be shockingly expensive.
 - **Villa inflation is real in hot zones.** If you want Canggu + modern + quiet + walkable, expect to pay.
 - **Scooter accidents are a major risk.** If you ride, get proper insurance coverage and don’t outride your skills.
@@ -91,11 +91,11 @@ If you’re productive in social environments, Canggu is a cheat code. If you’
 
 A reliable pattern:
 
-- **Coworking 2–4 days/week** (for structure + meetings)
+- **Coworking 2 to 4 days/week** (for structure + meetings)
 - **Home deep work** on quieter days
 - A backup café list for “internet went down” moments
 
-If you’re staying more than 2–3 weeks, a coworking membership often pays for itself in saved time and reduced stress.
+If you’re staying more than 2 to 3 weeks, a coworking membership often pays for itself in saved time and reduced stress.
 
 #### Food + spending traps
 
@@ -173,7 +173,7 @@ Uluwatu is the choice for people who want a surf-forward life and quieter evenin
 
 If surfing is your priority, Uluwatu can be paradise. If you’re not surfing (or not committed), you might feel it’s “too quiet and too far,” and Canggu will suit you better.
 
-## Visa logistics (C1 visit visa vs E33G Remote Worker Visa)
+## Visa logistics (visit visa vs the remote-worker limited stay)
 
 Indonesian visa rules change often and overstays are enforced, so treat this as **operational guidance** and verify the current rules on the official e-visa portal (evisa.imigrasi.go.id) right before you apply.
 
@@ -185,13 +185,13 @@ Indonesian visa rules change often and overstays are enforced, so treat this as 
 
 The C1 is a single-entry visit visa and the usual choice for people who want longer than a short tourist window.
 
-**Typical use case:** a 2–6 month season in Bali without committing to a residence permit.
+**Typical use case:** a season in Bali without committing to a residence permit.
 
 **How it usually works in practice**
 
 - You apply online (or through an agent) before you fly.
-- The initial stay is 60 days, and it can be extended in-country up to about 180 days in total.
-- Extensions now involve an in-person visit to an immigration office for photo/interview, so budget a morning for each one (agents can handle the paperwork, not your attendance).
+- The stay length and any extension are published on the official eVisa site. This guide does not restate a day count for the C1. The Directorate General of Immigration pages checked for this edit do not label a product "C1" with a published number of days.
+- Read the extension steps on that site before you assume an agent can attend an immigration office for you.
 
 **Pros**
 
@@ -211,21 +211,21 @@ The C1 is a single-entry visit visa and the usual choice for people who want lon
 - Keep copies of passport, visa, extensions, and entry stamps (digital + printed).
 - Set calendar reminders for every extension deadline.
 
-#### Option B: E33G Remote Worker Visa (the actual "digital nomad visa")
+#### Option B: remote-worker limited stay
 
-Indonesia's remote-worker route is the **E33G**, a one-year limited stay permit (KITAS) for people employed by a company based outside Indonesia.
+The Directorate General of Immigration's eVisa site describes a limited stay of up to **1 year** for carrying out assignments from an overseas company. The [requirements page](https://evisa.imigrasi.go.id/front/faq/e076131c-0d39-469b-afaf-75fc66aff923) states:
 
-**Typical use case:** you want 6–12+ months of stability without the extension dance.
+- A bank account that proves salary or income of at least **US$60,000 per year**
+- An employment contract with a company established outside Indonesia
+- A personal bank statement with a minimum of **USD $2,000**, or the equivalent, over the last three months
 
-**What it asks for (check current figures before applying)**
+That page does not print a visa code. Open it and confirm you are on that product before you apply. The same page says you may not take pay from individuals or companies in Indonesia.
 
-- Proof of income of at least **US$60,000 per year** from a foreign employer
-- An employment contract with that foreign company (freelancers without one may not qualify)
-- A personal bank statement showing at least **US$2,000** over the last three months
+**Typical use case:** a longer base, employed by a company outside Indonesia, without repeating short extensions.
 
 **Pros**
 
-- One year of legal stay, applied for online without a local sponsor
+- Up to one year of stay for assignments from an overseas company, on the requirements page linked above
 - Cleaner logistical and psychological setup for a longer base
 
 **Cons / caveats**
@@ -243,9 +243,9 @@ Indonesia's remote-worker route is the **E33G**, a one-year limited stay permit 
 
 ### A simple decision framework
 
-- **Staying < 2 months?** A tourist entry / visa on arrival is often simplest (if your passport is eligible).
-- **Staying 2–6 months?** The C1 visit visa with extensions is the usual route.
-- **Staying 6–12+ months and employed by a foreign company?** Look at the E33G Remote Worker Visa and confirm current official requirements.
+- **Staying 30 days or less?** The Bali row is **Visa on Arrival**, **30 days**, if your passport is eligible. That is the field on [Bali](/destinations/bali). It is not a stay of up to two months.
+- **Longer than that stamp?** A visit visa. Read the current length on [evisa.imigrasi.go.id](https://evisa.imigrasi.go.id/) before you book the season.
+- **Employed by a company outside Indonesia and staying longer?** The limited-stay requirements linked above, including the US$60,000 income line and the USD $2,000 bank statement.
 
 ## Infrastructure (Coworking / Internet)
 
@@ -287,7 +287,7 @@ Use this checklist when you do a trial day:
 
 A pattern that works for most people:
 
-- **2–4 coworking days per week** for structure and reliable internet
+- **2 to 4 coworking days per week** for structure and reliable internet
 - **Home deep work** when you want silence
 - A pre-picked fallback café for “I need to send this file now” moments
 
@@ -341,17 +341,17 @@ Before you pay long-term:
 
 ## Suggested “first week” plan
 
-Day 1–2:
+Day 1 to 2:
 - Get SIM/data set up
 - Do a coworking trial day
 - Map your daily loop
 
-Day 3–4:
+Day 3 to 4:
 - View multiple accommodations; test internet
 - Confirm visa timeline and extension needs
 
-Day 5–7:
-- Commit to a base for 2–4 weeks
+Day 5 to 7:
+- Commit to a base for 2 to 4 weeks
 - Build routine: work blocks + movement + social
 
 ## Final thoughts

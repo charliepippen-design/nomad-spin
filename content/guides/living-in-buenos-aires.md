@@ -238,7 +238,7 @@ The disposition does not print a dollar or euro income floor. This guide will no
 Where you file:
 
 - **From abroad:** the [Tramitación de Ingreso Electrónica for digital nomads](https://www.argentina.gob.ar/servicio/tramitacion-de-ingreso-electronica-nomadas-digitales). You show the authorization to the inspector when you enter. The page states a stay of up to **180** days.
-- **From inside Argentina:** in person, not through Radex. The service page says you must be in the country. In Buenos Aires it tells you to write to asesoramiento@migraciones.gob.ar. Elsewhere, you go to the Migraciones office for your area. The page also says you do not need a gestor.
+- **From inside Argentina:** in person, not through Radex. The service page says you must be in the country. In Buenos Aires it tells you to write to asesoramiento@migraciones.gov.ar. Elsewhere, you go to the Migraciones office for your area. The page also says you do not need a gestor.
 
 The extension is once, for the same length as the residence you were granted. [Article 3](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto) requires a valid passport, proof of income actually received during the period you want to extend, a criminal-record certificate from the Registro Nacional de Reincidencia, proof you stayed in Argentina at least **50%** of that period, and the fee. The [extension service page](https://www.argentina.gob.ar/servicio/obtener-una-prorroga-de-residencia-transitoria-como-nomada-digital) is the filing version of that list. Filing is not approval.
 

@@ -34,19 +34,19 @@ Your biggest cost drivers:
 
 | Category | Budget (USD) | Mid-range (USD) | Comfortable (USD) | Notes |
 |---|---:|---:|---:|---|
-| Rent (studio/1BR) | 600–1,000 | 1,100–1,800 | 2,000–3,500+ | Biggest swing: Sea Point/Camps Bay ↑ |
-| Utilities | 40–90 | 90–160 | 160–280 | Includes water/electricity; AC/heating minimal |
-| Internet (fiber) | 35–70 | 70–110 | 110–180 | Depends on ISP + speed tier |
-| Mobile SIM + data | 10–25 | 25–45 | 45–80 | Keep backup data for load shedding |
-| Coworking | 0–70 | 80–200 | 200–350 | Memberships vary; meeting rooms cost extra |
-| Transport (public/Uber mix) | 80–180 | 180–350 | 350–700 | If you rent a car, budget rises |
-| Groceries | 150–260 | 260–420 | 420–700 | Eating imported/organic increases cost |
-| Restaurants + cafés | 80–180 | 180–450 | 450–1,000 | Cape Town dining is addictive |
-| Gym / fitness | 15–40 | 40–90 | 90–200 | Big variance: basic gym vs premium clubs |
-| Insurance / healthcare | 40–120 | 120–250 | 250–500 | Travel/expat insurance varies a lot |
-| Power backup (amortized) | 0–30 | 30–90 | 90–200 | UPS/inverter costs spread over months |
-| Misc + fun (wine country, etc.) | 80–200 | 200–600 | 600–1,500 | Weekends can quietly become expensive |
-| **Estimated total** | **1,110–2,175** | **2,365–4,155** | **4,365–9,990+** | Your lifestyle determines the truth |
+| Rent (studio/1BR) | 600 to 1,000 | 1,100 to 1,800 | 2,000 to 3,500+ | Biggest swing: Sea Point/Camps Bay ↑ |
+| Utilities | 40 to 90 | 90 to 160 | 160 to 280 | Includes water/electricity; AC/heating minimal |
+| Internet (fiber) | 35 to 70 | 70 to 110 | 110 to 180 | Depends on ISP + speed tier |
+| Mobile SIM + data | 10 to 25 | 25 to 45 | 45 to 80 | Keep backup data for load shedding |
+| Coworking | 0 to 70 | 80 to 200 | 200 to 350 | Memberships vary; meeting rooms cost extra |
+| Transport (public/Uber mix) | 80 to 180 | 180 to 350 | 350 to 700 | If you rent a car, budget rises |
+| Groceries | 150 to 260 | 260 to 420 | 420 to 700 | Eating imported/organic increases cost |
+| Restaurants + cafés | 80 to 180 | 180 to 450 | 450 to 1,000 | Cape Town dining is addictive |
+| Gym / fitness | 15 to 40 | 40 to 90 | 90 to 200 | Big variance: basic gym vs premium clubs |
+| Insurance / healthcare | 40 to 120 | 120 to 250 | 250 to 500 | Travel/expat insurance varies a lot |
+| Power backup (amortized) | 0 to 30 | 30 to 90 | 90 to 200 | UPS/inverter costs spread over months |
+| Misc + fun (wine country, etc.) | 80 to 200 | 200 to 600 | 600 to 1,500 | Weekends can quietly become expensive |
+| **Estimated total** | **1,110 to 2,175** | **2,365 to 4,155** | **4,365 to 9,990+** | Your lifestyle determines the truth |
 
 ### Reality checks (what people underestimate)
 
@@ -145,22 +145,23 @@ Visa rules shift, and your eligibility depends on your passport. Treat this as a
 
 ### Short stays: visitor entry
 
-- Many passports get a visa-free visitor entry on arrival (commonly 90 days, but it varies by nationality).
+- The Cape Town row records a **Visa Exemption** of **90 days**. Your passport may not be in that group. Check the Department of Home Affairs before you treat 90 days as your stamp.
 - Best for: a trial month, scouting neighborhoods, short projects.
 - Don't assume you can "just extend forever." Back-to-back visa runs are not a strategy.
 
 ### Longer stays: the Remote Work Visa
 
-Since October 2024 South Africa has had a dedicated **Remote Work visitor's visa** (its digital nomad visa) for people who work for a foreign employer.
+The Department of Home Affairs checklist for a **Remote Work visitor's visa** (visitors visa section 11(1)(b)(iv)) is effective **9 October 2024**. The document is the [Remote Work Visa requirements PDF](https://www.dha.gov.za/images/notices/8october24/Remote_Work_Visa_-_requirements_-_9_Oct_2024.pdf), also linked from the [DHA notices page](https://www.dha.gov.za/index.php/notices/1824-remote-work-visa-requirements-9-oct-2024).
 
-**Key requirements (check current figures before applying)**
+**What that checklist states**
 
-- A signed employment contract with an employer based outside South Africa
-- A gross salary of at least **R650,796 per year**, shown with three months of bank statements
-- Valid passport, return ticket or reservation, police clearance, and the application fee
-- Stays of more than three months and up to three years; you may not take up local employment
+- A valid contract of employment signed by the applicant and the foreign-based employer
+- Proof of sufficient financial means, defined as a gross salary of no less than **R650,796 per year**, shown with three months of bank statements (the PDF prints this as R650 796,00)
+- A valid return air ticket or proof of a reservation, and proof of payment of the applicable fee
+- A stay exceeding 3 months, up to 3 years
+- The holder is not entitled to take up employment in South Africa
 
-**Tax note:** if you're in South Africa for more than 183 days in any 12-month period, you'll need to register with SARS. Get advice from a tax professional before you commit to a long stay.
+**Tax note:** the same checklist splits registration with SARS in two. If you are a tax resident of a country that has a double-tax agreement with South Africa, you register when you are in the Republic for longer than 183 days in any 12-month period. If you are not a tax resident of such a country, the checklist says you register with SARS. Get advice from a tax professional before you commit to a long stay.
 
 ### Practical visa guidance
 
@@ -198,7 +199,7 @@ Cape Town has a solid coworking scene. What matters:
 
 A routine that works:
 
-- 2–4 coworking days/week for meetings and stability
+- 2 to 4 coworking days/week for meetings and stability
 - Home days for deep work (if your building has backup power)
 
 ### Power / load shedding survival plan
@@ -244,11 +245,11 @@ Day 2:
 - Test coworking for 1 day
 - Create your fallback café list
 
-Day 3–4:
+Day 3 to 4:
 - Explore neighborhoods at the times you’ll actually live them (morning/evening)
 - If you plan a longer stay, view multiple apartments
 
-Day 5–7:
+Day 5 to 7:
 - Lock in your base
 - Build routine: work blocks + movement + one social touchpoint
 

@@ -174,9 +174,7 @@ On 4 September 2026 the Government Public Relations Department summarized a revi
 
 Read the [government summary](https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547) and the Thai mission for your passport before you pay for a non-refundable month. If your stamp says fewer days than the page, believe the stamp. The Department of Consular Affairs publishes the country list. This guide will not copy all 60 countries, because that list is the government's and it can be amended. Your passport may be on the shorter scheme, on visa on arrival, or on "visa in advance."
 
-Since 1 May 2025, foreigners have had to complete the Thailand Digital Arrival Card before entry. The Immigration Bureau's own site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), says the card is required, that you submit it up to three days before arrival, and that it is not a visa. Fill it in yourself on that site. Do not pay a random site to do it.
-
-The same official page restates two Immigration Act points that matter if you stay longer than a holiday: if you stay in Thailand longer than **90 days**, you notify the nearest immigration officer in writing of your address, and you do that on the 90-day cycle; and you may not work unless you have been granted a work permit. A remote-work visa category is not a Thai employment contract.
+Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
 Do not assume the old habit of extending a 60-day exemption by another 30 days inside the country survived September 2026. The published review replaced that exemption. If an extension still exists for your stamp, immigration has to be the source, not a forum post. Do not build the season on border runs.
 
@@ -188,9 +186,7 @@ A tourist visa, applied for before you fly, is a different product from the exem
 
 The DTV is the category people mean by "Thailand's digital nomad visa." It is not a program this guide is inventing, and it is not a work permit for a Thai employer.
 
-On 30 May 2024 the Ministry of Foreign Affairs, in its weekly press briefing, described the DTV as a visa for long-term travel, digital nomads, and participants in certain cultural activities, with a period of stay up to **180 days** per visit, multiple-entry, within **5 years**. The ministry's DTV infographic (July 2024) says the same shape: five years, multiple entries, up to 180 days per entry, extendable once through immigration for a period not exceeding 180 days, after which you leave and re-enter within the visa's validity. Purposes on that sheet are workcation (remote work, freelance, foreign talent), specified activities such as Muay Thai, cooking, sport, medical treatment, seminars, and festivals, and a spouse or dependent child of a DTV holder.
-
-Financial evidence on that same infographic is an amount of no less than **500,000 THB**, shown for example with bank statements, payslips, or a sponsorship letter. Workcation applicants show an employment contract or employment certificate from outside Thailand, or a professional portfolio. That is a balance the ministry printed, not a monthly income floor this guide is adding. The public e-Visa channel the infographic names is [thaievisa.go.th](https://www.thaievisa.go.th/visa/dtv-visa). Apply from outside Thailand, through the post that actually accepts your file.
+The Ministry of Foreign Affairs DTV infographic (July 2024) states a visa validity of **5 years**, multiple entries, and a period of stay of **180 days** per entry. It says that stay can be extended once, through the Thai Immigration Bureau, for a period not exceeding 180 days, after which you leave and re-enter on the same visa within its validity. Purposes on that sheet are workcation (remote work, freelance, foreign talent), specified activities such as Muay Thai, cooking, sport, medical treatment, seminars, and festivals, and a spouse or dependent child of a DTV holder. Financial evidence on the same sheet is an amount of no less than **500,000 THB**, shown for example with bank statements, payslips, or a sponsorship letter. Workcation applicants show an employment contract or employment certificate from outside Thailand, or a professional portfolio. That is a balance the ministry printed, not a monthly income floor this guide is adding. The infographic is the [DTV infographic (PDF)](https://image.mfa.go.th/mfa/0/xJ3BrCz2xe/DTV_Infographic.pdf). The public e-Visa channel it names is [thaievisa.go.th](https://www.thaievisa.go.th/visa/dtv-visa). Apply from outside Thailand, through the post that actually accepts your file.
 
 The September 2026 exemption notice says it does not rewrite other visa categories. That is not a promise that every embassy's document list froze in July 2024. Posts add documents (residence where you apply, a criminal-record certificate, and similar). Fees on the e-Visa screen are what you pay; a figure printed for one post is not automatically another post's fee. Copy the current checklist the week you apply. Do not copy a 2024 screenshot from a Facebook group, and do not treat a comment as the rule.
 
@@ -198,9 +194,9 @@ Other long-stay categories exist (education visas, Thailand Privilege, the Long-
 
 ### A simple decision frame
 
-- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the TDAC done yourself.
+- **A few weeks, and your passport qualifies:** the current exemption, after you confirm the days and the conditions, with the Thailand Digital Arrival Card completed online before you travel.
 - **A season longer than that stamp:** a tourist visa from the correct mission, with the extension rules read in advance.
-- **Many months, working for foreign clients, and you can meet the file:** the DTV, using the live e-Visa checklist, including the 500,000 THB evidence the MFA materials state.
+- **Many months, working for foreign clients, and you can meet the file:** the DTV, using the live e-Visa checklist, including the 500,000 THB evidence on the MFA infographic linked above.
 - **A year via border runs:** not a plan.
 
 ## Best months, rainy season, extreme heat, and air quality

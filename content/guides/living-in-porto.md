@@ -5,7 +5,7 @@ Living in Porto as a digital nomad is a rational Portugal base in 2026 if you wa
 - **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
 - **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
 - **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. Portugal's D8 residency visa is 4 months and leads to a 2-year residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. The consular visa's own length is on the MNE page. This guide does not restate it. The statute is Lei 23/2007. Verify on those pages.
 - **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
 
 The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
@@ -22,7 +22,7 @@ Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and p
 
 ### What visa do digital nomads use in Porto?
 
-Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a **2-year** residence permit, renewable for 3. Same national rules as Lisbon. Thresholds and fees change; verify on MNE and AIMA pages.
+Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. The consular visa length is on the MNE page. This guide does not restate it. Thresholds and fees change; verify on MNE and AIMA pages.
 
 ### Who should skip living in Porto?
 
@@ -195,14 +195,14 @@ Ribeira is a viewpoint. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
 
-**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas. A temporary-stay visa covers stays under one year with multiple entries. The residency visa (often called the D8) is valid for 4 months and is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods (Lei 23/2007, art. 75). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). How long each consular visa lasts is on the MNE visa-type page. This guide does not restate that length, because the page did not return it when checked. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
 
 Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
 
 | Route | Where | Length (official) |
 |---|---|---|
-| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
-| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+| Temporary-stay visa (remote work) | Portuguese consulate | Length and entries: MNE visa-type page |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Consular visa length: MNE page. Permit: 2 years from issue, then renewals of 3 years (AIMA) |
 
 ## Best months (May-Sep) vs rainy, damp winters (Nov-Feb)
 
