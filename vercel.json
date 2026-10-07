@@ -4,7 +4,932 @@
   "installCommand": "bun install --frozen-lockfile",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/destinations/%C3%A9vora",
+      "destination": "/destinations/evora",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/%C5%A1ibenik",
+      "destination": "/destinations/sibenik",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/a-coru%C3%B1a",
+      "destination": "/destinations/a-coruna",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/a-coru-a",
+      "destination": "/destinations/a-coruna",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/a-coruña",
+      "destination": "/destinations/a-coruna",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/asunci%C3%B3n",
+      "destination": "/destinations/asuncion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/asunci-n",
+      "destination": "/destinations/asuncion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/asunción",
+      "destination": "/destinations/asuncion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ba%C3%B1os",
+      "destination": "/destinations/banos",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ba-os",
+      "destination": "/destinations/banos",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/baños",
+      "destination": "/destinations/banos",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/bogot",
+      "destination": "/destinations/bogota",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/bogot%C3%A1",
+      "destination": "/destinations/bogota",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/bogotá",
+      "destination": "/destinations/bogota",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/bras%C3%ADlia",
+      "destination": "/destinations/brasilia",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/bras-lia",
+      "destination": "/destinations/brasilia",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/brasília",
+      "destination": "/destinations/brasilia",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c%C3%A1ceres",
+      "destination": "/destinations/caceres",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c%C3%A1diz",
+      "destination": "/destinations/cadiz",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c%C3%B3rdoba",
+      "destination": "/destinations/cordoba",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c-ceres",
+      "destination": "/destinations/caceres",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c-diz",
+      "destination": "/destinations/cadiz",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/c-rdoba",
+      "destination": "/destinations/cordoba",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/canc%C3%BAn",
+      "destination": "/destinations/cancun",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/canc-n",
+      "destination": "/destinations/cancun",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/cancún",
+      "destination": "/destinations/cancun",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chi%C8%99in%C4%83u-suburbs",
+      "destination": "/destinations/chisinau-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chi-in-u-suburbs",
+      "destination": "/destinations/chisinau-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chilo%C3%A9-island",
+      "destination": "/destinations/chiloe-island",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chilo-island",
+      "destination": "/destinations/chiloe-island",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chiloé-island",
+      "destination": "/destinations/chiloe-island",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/chișinău-suburbs",
+      "destination": "/destinations/chisinau-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/cáceres",
+      "destination": "/destinations/caceres",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/cádiz",
+      "destination": "/destinations/cadiz",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/córdoba",
+      "destination": "/destinations/cordoba",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/d%C3%BCsseldorf",
+      "destination": "/destinations/dusseldorf",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/d-sseldorf",
+      "destination": "/destinations/dusseldorf",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/düsseldorf",
+      "destination": "/destinations/dusseldorf",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/encarnaci%C3%B3n",
+      "destination": "/destinations/encarnacion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/encarnaci-n",
+      "destination": "/destinations/encarnacion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/encarnación",
+      "destination": "/destinations/encarnacion",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/eski%C5%9Fehir",
+      "destination": "/destinations/eskisehir",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/eski-ehir",
+      "destination": "/destinations/eskisehir",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/eskişehir",
+      "destination": "/destinations/eskisehir",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/florian%C3%B3polis",
+      "destination": "/destinations/florianopolis",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/florian-polis",
+      "destination": "/destinations/florianopolis",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/florianópolis",
+      "destination": "/destinations/florianopolis",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/gda%C5%84sk",
+      "destination": "/destinations/gdansk",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/gda-sk",
+      "destination": "/destinations/gdansk",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/gdańsk",
+      "destination": "/destinations/gdansk",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/granada",
+      "destination": "/destinations/granada-nicaragua",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/guimar%C3%A3es",
+      "destination": "/destinations/guimaraes",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/guimar-es",
+      "destination": "/destinations/guimaraes",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/guimarães",
+      "destination": "/destinations/guimaraes",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/i-zmir",
+      "destination": "/destinations/izmir",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ibenik",
+      "destination": "/destinations/sibenik",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/j%C5%ABrmala",
+      "destination": "/destinations/jurmala",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/j-rmala",
+      "destination": "/destinations/jurmala",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ja%C3%A9n",
+      "destination": "/destinations/jaen",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ja-n",
+      "destination": "/destinations/jaen",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/jaén",
+      "destination": "/destinations/jaen",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/jūrmala",
+      "destination": "/destinations/jurmala",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ka",
+      "destination": "/destinations/kas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ka%C5%9F",
+      "destination": "/destinations/kas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/kaş",
+      "destination": "/destinations/kas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/klaip%C4%97da",
+      "destination": "/destinations/klaipeda",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/klaip-da",
+      "destination": "/destinations/klaipeda",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/klaipėda",
+      "destination": "/destinations/klaipeda",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ko%C5%A1ice",
+      "destination": "/destinations/kosice",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ko-ice",
+      "destination": "/destinations/kosice",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/kochi",
+      "destination": "/destinations/kochi-india",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/košice",
+      "destination": "/destinations/kosice",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/la-r%C3%A9union-interior-villages",
+      "destination": "/destinations/la-reunion-interior-villages",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/la-r-union-interior-villages",
+      "destination": "/destinations/la-reunion-interior-villages",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/la-réunion-interior-villages",
+      "destination": "/destinations/la-reunion-interior-villages",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/lake-atitl%C3%A1n",
+      "destination": "/destinations/lake-atitlan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/lake-atitl-n",
+      "destination": "/destinations/lake-atitlan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/lake-atitlán",
+      "destination": "/destinations/lake-atitlan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/le%C3%B3n",
+      "destination": "/destinations/leon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/le-n",
+      "destination": "/destinations/leon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/león",
+      "destination": "/destinations/leon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/li%C3%A8ge",
+      "destination": "/destinations/liege",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/li-ge",
+      "destination": "/destinations/liege",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/liep%C4%81ja",
+      "destination": "/destinations/liepaja",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/liep-ja",
+      "destination": "/destinations/liepaja",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/liepāja",
+      "destination": "/destinations/liepaja",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/liège",
+      "destination": "/destinations/liege",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m%C3%A1laga",
+      "destination": "/destinations/malaga",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m%C3%A9rida",
+      "destination": "/destinations/merida-mexico",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m%C3%BCnster",
+      "destination": "/destinations/munster",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m-laga",
+      "destination": "/destinations/malaga",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m-nster",
+      "destination": "/destinations/munster",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/m-rida",
+      "destination": "/destinations/merida-mexico",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/mal",
+      "destination": "/destinations/male",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/mal%C3%A9",
+      "destination": "/destinations/male",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/malm",
+      "destination": "/destinations/malmo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/malm%C3%B6",
+      "destination": "/destinations/malmo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/malmö",
+      "destination": "/destinations/malmo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/malé",
+      "destination": "/destinations/male",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/medell%C3%ADn",
+      "destination": "/destinations/medellin",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/medell-n",
+      "destination": "/destinations/medellin",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/medellín",
+      "destination": "/destinations/medellin",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/merida",
+      "destination": "/destinations/merida-mexico",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/monta%C3%B1ita",
+      "destination": "/destinations/montanita",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/monta-ita",
+      "destination": "/destinations/montanita",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/montañita",
+      "destination": "/destinations/montanita",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/málaga",
+      "destination": "/destinations/malaga",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/mérida",
+      "destination": "/destinations/merida-mexico",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/münster",
+      "destination": "/destinations/munster",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/noum%C3%A9a",
+      "destination": "/destinations/noumea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/noum-a",
+      "destination": "/destinations/noumea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/nouméa",
+      "destination": "/destinations/noumea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/p%C3%A9cs",
+      "destination": "/destinations/pecs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/p-cs",
+      "destination": "/destinations/pecs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/poiana-bra%C8%99ov",
+      "destination": "/destinations/poiana-brasov",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/poiana-bra-ov",
+      "destination": "/destinations/poiana-brasov",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/poiana-brașov",
+      "destination": "/destinations/poiana-brasov",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/popay%C3%A1n",
+      "destination": "/destinations/popayan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/popay-n",
+      "destination": "/destinations/popayan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/popayán",
+      "destination": "/destinations/popayan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/pozna",
+      "destination": "/destinations/poznan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/pozna%C5%84",
+      "destination": "/destinations/poznan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/poznań",
+      "destination": "/destinations/poznan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/puc%C3%B3n",
+      "destination": "/destinations/pucon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/puc-n",
+      "destination": "/destinations/pucon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/pucón",
+      "destination": "/destinations/pucon",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/pécs",
+      "destination": "/destinations/pecs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/quer%C3%A9taro",
+      "destination": "/destinations/queretaro",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/quer-taro",
+      "destination": "/destinations/queretaro",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/querétaro",
+      "destination": "/destinations/queretaro",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/reykjanesb%C3%A6r",
+      "destination": "/destinations/reykjanesbaer",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/reykjanesb-r",
+      "destination": "/destinations/reykjanesbaer",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/reykjanesbær",
+      "destination": "/destinations/reykjanesbaer",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/roat%C3%A1n",
+      "destination": "/destinations/roatan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/roat-n",
+      "destination": "/destinations/roatan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/roatán",
+      "destination": "/destinations/roatan",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/s%C3%A3o-paulo",
+      "destination": "/destinations/sao-paulo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/s%C3%A3o-tom%C3%A9",
+      "destination": "/destinations/sao-tome",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/s-o-paulo",
+      "destination": "/destinations/sao-paulo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/s-o-tom",
+      "destination": "/destinations/sao-tome",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-crist%C3%B3bal-de-las-casas",
+      "destination": "/destinations/san-cristobal-de-las-casas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-crist-bal-de-las-casas",
+      "destination": "/destinations/san-cristobal-de-las-casas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-cristóbal-de-las-casas",
+      "destination": "/destinations/san-cristobal-de-las-casas",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-jos",
+      "destination": "/destinations/san-jose",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-jos%C3%A9",
+      "destination": "/destinations/san-jose",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-jos%C3%A9-suburbs",
+      "destination": "/destinations/san-jose-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-jos-suburbs",
+      "destination": "/destinations/san-jose-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-josé",
+      "destination": "/destinations/san-jose",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-josé-suburbs",
+      "destination": "/destinations/san-jose-suburbs",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-luis-potos",
+      "destination": "/destinations/san-luis-potosi",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-luis-potos%C3%AD",
+      "destination": "/destinations/san-luis-potosi",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-luis-potosí",
+      "destination": "/destinations/san-luis-potosi",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-pedro-de-macor%C3%ADs",
+      "destination": "/destinations/san-pedro-de-macoris",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-pedro-de-macor-s",
+      "destination": "/destinations/san-pedro-de-macoris",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-pedro-de-macorís",
+      "destination": "/destinations/san-pedro-de-macoris",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-sebasti%C3%A1n",
+      "destination": "/destinations/san-sebastian",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-sebasti-n",
+      "destination": "/destinations/san-sebastian",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/san-sebastián",
+      "destination": "/destinations/san-sebastian",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/santar%C3%A9m",
+      "destination": "/destinations/santarem",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/santar-m",
+      "destination": "/destinations/santarem",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/santarém",
+      "destination": "/destinations/santarem",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/set%C3%BAbal",
+      "destination": "/destinations/setubal",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/set-bal",
+      "destination": "/destinations/setubal",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/setúbal",
+      "destination": "/destinations/setubal",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/são-paulo",
+      "destination": "/destinations/sao-paulo",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/são-tomé",
+      "destination": "/destinations/sao-tome",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/t%C3%B3rshavn-faroe-islands",
+      "destination": "/destinations/torshavn-faroe-islands",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/t-rshavn-faroe-islands",
+      "destination": "/destinations/torshavn-faroe-islands",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/troms",
+      "destination": "/destinations/tromso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/troms%C3%B8",
+      "destination": "/destinations/tromso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/tromsø",
+      "destination": "/destinations/tromso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/tórshavn-faroe-islands",
+      "destination": "/destinations/torshavn-faroe-islands",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ume",
+      "destination": "/destinations/umea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ume%C3%A5",
+      "destination": "/destinations/umea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/umeå",
+      "destination": "/destinations/umea",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/valpara%C3%ADso",
+      "destination": "/destinations/valparaiso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/valpara-so",
+      "destination": "/destinations/valparaiso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/valparaíso",
+      "destination": "/destinations/valparaiso",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/vora",
+      "destination": "/destinations/evora",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/wroc%C5%82aw",
+      "destination": "/destinations/wroclaw",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/wroc-aw",
+      "destination": "/destinations/wroclaw",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/wrocław",
+      "destination": "/destinations/wroclaw",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/évora",
+      "destination": "/destinations/evora",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/šibenik",
+      "destination": "/destinations/sibenik",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
