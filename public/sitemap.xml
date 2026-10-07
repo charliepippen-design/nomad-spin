@@ -54,13 +54,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/guides/living-in-chiang-mai</loc>
+    <loc>https://www.digitalnomadspin.com/guides/living-in-buenos-aires</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.digitalnomadspin.com/guides/living-in-buenos-aires</loc>
+    <loc>https://www.digitalnomadspin.com/guides/living-in-chiang-mai</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -85,6 +85,12 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-mexico-city</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/guides/living-in-porto</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
