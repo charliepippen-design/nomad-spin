@@ -278,7 +278,7 @@ describe('static guides', () => {
     expect(g!.title).toBe('The Ultimate Guide to Living in Hoi An');
     expect(g!.seoTitle).toBe("Living in Hoi An 2026: The Digital Nomad's Definitive Guide");
     expect(g!.excerpt).toBe(
-      'Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, tourist visa notes, 80 Mbps internet, and flooding and size trade-offs.'
+      'Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, E-Visa notes, 80 Mbps internet, and flooding and size trade-offs.'
     );
     expect(g!.excerpt.length).toBeLessThanOrEqual(155);
     expect(g!.relatedDestinations).toEqual(['hoi-an']);
@@ -287,7 +287,8 @@ describe('static guides', () => {
     expect(g!.content).toContain('$675');
     expect(g!.content).toContain('$41');
     expect(g!.content).toContain('80 Mbps');
-    expect(g!.content).toContain('Tourist Visa');
+    expect(g!.content).toContain('E-Visa');
+    expect(g!.content).not.toContain('Tourist Visa');
     expect(g!.content).toContain('90');
     expect(g!.content).toContain('UTC+7');
     expect(g!.content).not.toContain('da-nang-outskirts');
@@ -321,7 +322,7 @@ describe('static guides', () => {
       'Real monthly cost bands (solo $900, long-term $675, short Airbnb $41/night)',
       'Neighborhoods that work: Old Town edges, An Bang beach, Cam Nam / countryside (trade-offs)',
       'Internet, power, and coworking for video-call work (80 Mbps, reliability 7, power 7, Low coworking)',
-      'Visas and stay length: Tourist Visa up to 90 days, e-visa reality, no dedicated nomad visa (verify official rules)',
+      'Visas and stay length: E-Visa up to 90 days, no dedicated nomad visa (verify official rules)',
       'Best months (Feb-May) vs rainy / flood months (Sep-Nov)',
       'Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang',
       'Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali',

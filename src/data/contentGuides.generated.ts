@@ -2718,7 +2718,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Da Nang for remote workers in 2026: real monthly costs, An Thuong vs Hai Chau, e-visa notes, coworking, 80 Mbps internet, and typhoon-season trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "33 min read",
+    readTime: "34 min read",
     relatedDestinations: ["da-nang"],
     content: `## Is living in Da Nang worth it for digital nomads in 2026?
 
@@ -3481,7 +3481,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     slug: "living-in-hoi-an",
     title: "The Ultimate Guide to Living in Hoi An",
     seoTitle: "Living in Hoi An 2026: The Digital Nomad's Definitive Guide",
-    excerpt: "Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, tourist visa notes, 80 Mbps internet, and flooding and size trade-offs.",
+    excerpt: "Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, E-Visa notes, 80 Mbps internet, and flooding and size trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "37 min read",
@@ -3492,7 +3492,7 @@ A straight answer on living in Hoi An as a digital nomad: yes for one to three m
 
 - **Cost:** about **$900** a month solo, about **$675** on a longer stay. A short Airbnb sits near **$41** a night, which is a different budget.
 - **Internet:** sometimes, with caveats. The average is **80 Mbps**, reliability **7/10**, power stability **7/10**, coworking density **Low**.
-- **Stay length:** the row says **Tourist Visa**, up to **90 days**, time zone **UTC+7**. Vietnam does not publish a dedicated digital nomad visa. The product on the official portal is an e-visa. Verify it before you treat 90 days as permission.
+- **Stay length:** the row says **E-Visa**, up to **90 days**, time zone **UTC+7**. Vietnam does not publish a dedicated digital nomad visa. The same label is on every Vietnam row. Verify it before you treat 90 days as permission.
 - **Skip it** if you need a dense scene or a dry October. The page's trade-offs are small, limited infrastructure, and flooding. Community size is **3**. Nightlife is **3**.
 - **Best months:** **Feb, Mar, Apr, May**. Rainy months are **Sep, Oct, Nov**. Average temperature on the row is **26°C**, a yearly figure, not a forecast.
 
@@ -3506,7 +3506,7 @@ Worth it as a short base beside [Da Nang](/destinations/da-nang), not as a subst
 
 **Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average, reliability 7/10, power 7/10, and Low coworking density. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
 
-**What visa do digital nomads use in Hoi An?** Nomad Spin lists a Tourist Visa for up to 90 days (UTC+7). Most remote workers also use Vietnam's e-visa path. There is no dedicated digital nomad visa. Fees and entry types change; verify on Vietnam's official immigration portal before booking.
+**What visa do digital nomads use in Hoi An?** Nomad Spin lists an E-Visa for up to 90 days (UTC+7). Vietnam has no dedicated digital nomad visa. The same E-Visa label is on the Da Nang and Ho Chi Minh City rows. Fees and entry types change; verify on Vietnam's official immigration portal before booking.
 
 **Who should skip living in Hoi An?** Skip it if you need High coworking, big-city energy, or flood-proof months. Nomad Spin flags small size, limited infrastructure, and flooding as trade-offs. If you need dense networking or Sep-Nov outdoors work, base in Da Nang or HCMC instead.
 
@@ -3657,13 +3657,13 @@ The old town and An Bang will let you open a laptop in a lot of rooms. That is n
 - Which floor, and how close the street sits to the river, if you might still be there in **Sep-Nov**
 - A named fallback (Hub Hoi An, a Da Nang desk, or a second SIM) written down before you need it
 
-## Visas and stay length: Tourist Visa up to 90 days, e-visa reality, no dedicated nomad visa (verify official rules)
+## Visas and stay length: E-Visa up to 90 days, no dedicated nomad visa (verify official rules)
 
 This is operational orientation, not legal advice. Vietnamese immigration rules move. The number on our city page is not the law. When this page and the official portal disagree, believe the portal and the stamp in your passport.
 
 ### What Nomad Spin currently shows
 
-The Hoi An row says **Tourist Visa**, **90 days**, **UTC+7**. Hanoi's row says the same pair. Da Nang and Ho Chi Minh City say **E-Visa**, **90 days**. Same country, two labels in the dataset. Use the Hoi An field as the product on [the city page](/destinations/hoi-an): a tourist stay measured in days, up to 90, not a residence card. The stay people actually apply for on the official portal is the e-visa. Do not treat the label gap between cities as two different laws.
+The Hoi An row says **E-Visa**, **90 days**, **UTC+7**. Da Nang, Ho Chi Minh City, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Hoi An field on [the city page](/destinations/hoi-an): an e-visa measured in days, up to 90, not a residence card.
 
 ### What the Immigration Department publishes
 
@@ -3765,14 +3765,14 @@ Private clinics in Da Nang handle more of the serious nomad problems than a smal
 
 ## Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. For Vietnam, read the visa section before you treat two labels as two laws. Chiang Mai's field is the current passport-dependent tourism exemption, not an old 60-day stamp.
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**. Chiang Mai's field is the current passport-dependent tourism exemption, not an old 60-day stamp.
 
 | Field | Hoi An | Da Nang | Ho Chi Minh City | Chiang Mai | Bali |
 |---|---|---|---|---|---|
 | Solo month | $900 | $700 | $800 | $850 | $1,200 |
 | Internet | 80 Mbps | 80 Mbps | 85 Mbps | 95 Mbps | 50 Mbps |
 | Safety | 9 | 8.5 | 7.5 | 8.2 | 7.8 |
-| Visa field in Nomad Spin | Tourist Visa, 90 days | E-Visa, 90 days | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days |
+| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days |
 | Best months | Feb-May | Feb-Jul | Dec-Apr | Nov-Feb | Apr-Sep |
 
 **Stay with Hoi An** when you want safety **9**, the old town, and a **$900** month you can actually live inside, for **1-3 months** in **Feb-May**. You accept coworking **Low**, community **3**, nightlife **3**, limited infrastructure, and a real **Sep-Nov** flood risk. Pair it with Da Nang when the desk or the calendar runs out. Do not pretend the two are one city.

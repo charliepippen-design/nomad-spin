@@ -111,7 +111,8 @@ describe('living guide visa sections', () => {
     expect(md).toMatch(/evisa\.gov\.vn/);
     expect(md).toMatch(/immigration\.gov\.vn\/trang-chu-ttdt/);
     expect(md).toMatch(/28\/2026\/TT-BTC/);
-    expect(md).toMatch(/Tourist Visa/);
+    expect(md).toMatch(/\*\*E-Visa\*\*/);
+    expect(md).not.toMatch(/Tourist Visa/);
     expect(md).toMatch(/no dedicated digital nomad visa/i);
     expect(md).toMatch(/\*\*25 USD\*\*/);
     expect(md).toMatch(/\*\*50 USD\*\*/);
