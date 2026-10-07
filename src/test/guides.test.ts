@@ -21,6 +21,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-porto');
     expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('living-in-valencia');
+    expect(slugs).toContain('living-in-madrid');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -688,6 +689,7 @@ describe('static guides', () => {
       '/guides/living-in-barcelona',
       '/guides/living-in-lisbon',
       '/guides/living-in-porto',
+      '/guides/living-in-madrid',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
@@ -709,6 +711,73 @@ describe('static guides', () => {
       'Daily life: bikes and metro, paella and markets, Spanish basics, beach and city rhythm',
       'Valencia vs Barcelona, Madrid, Lisbon, and Porto',
       'First-week checklist and how to compare Valencia on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Madrid living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-madrid');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Madrid');
+    expect(g!.seoTitle).toBe("Living in Madrid 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Madrid for remote workers in 2026: real monthly costs, Malasana vs Lavapies, Spain nomad visa notes, 200 Mbps internet, and hot-summer trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['madrid', 'barcelona', 'valencia', 'lisbon', 'budapest']);
+    expect(g!.content).toContain('living in Madrid as a digital nomad');
+    expect(g!.content).toContain('$2,200');
+    expect(g!.content).toContain('$1,650');
+    expect(g!.content).toContain('$100');
+    expect(g!.content).toContain('$300');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('8');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('200%');
+    expect(g!.content).toContain('Ley 14/2013');
+    expect(g!.content).toContain('art. 74 quinquies');
+    expect(g!.content).toContain('Jul-Aug');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/2,?849|€|\bEUR\b/i);
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/madrid',
+      '/destinations/barcelona',
+      '/destinations/valencia',
+      '/destinations/lisbon',
+      '/destinations/budapest',
+      '/guides/living-in-barcelona',
+      '/guides/living-in-valencia',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-budapest',
+      '/guides/living-in-porto',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Madrid worth it for digital nomads in 2026?',
+      'Who Madrid is for (and who should skip it)',
+      'Real monthly cost bands (solo $2,200, long-term $1,650, short Airbnb $100/night) and the rental market',
+      'Neighborhoods that work: Malasana, Lavapies, Salamanca, Chamberi, and Arganzuela',
+      'Internet, power, and coworking for video-call work',
+      "Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify UGE and BOE)",
+      'Best months (Apr-Jun, Sep-Oct), rainy months (Nov-Dec), and the Jul-Aug rule',
+      'Daily life: metro, late dinners, Spanish, culture, and nightlife',
+      'Madrid vs Barcelona, Valencia, Lisbon, and Budapest',
+      'First-week checklist and how to compare Madrid on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
