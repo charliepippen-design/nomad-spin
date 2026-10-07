@@ -523,3 +523,9 @@ export const guides: Guide[] = [...contentGuides, ...handWrittenGuides].sort((a,
 export function guidesForDestination(slug: string): Guide[] {
   return guides.filter((g) => g.relatedDestinations?.includes(slug));
 }
+
+/** Prefer a living guide, then any other guide that names this destination. */
+export function editorialGuideForDestination(slug: string): Guide | null {
+  const related = guidesForDestination(slug);
+  return related.find((guide) => guide.slug.startsWith('living-in-')) ?? related[0] ?? null;
+}

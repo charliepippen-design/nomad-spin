@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
+import { BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 
@@ -36,7 +36,7 @@ export default function GuidesList() {
   };
 
   return (
-    <div className="noise-overlay min-h-screen bg-background pb-24">
+    <div className="page-content min-h-screen bg-background pb-24">
       <Helmet>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
@@ -56,16 +56,12 @@ export default function GuidesList() {
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Header section */}
         <div className="flex flex-col gap-6 mb-16">
-          <Link to="/" className="w-max text-[10px] font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors uppercase flex items-center gap-2">
-            <ArrowLeft className="w-3 h-3" /> Back to Spin
-          </Link>
-          
           <div>
             <div className="rounded-full w-12 h-12 bg-primary/10 border border-primary/20 flex flex-shrink-0 items-center justify-center mb-6">
-              <BookOpen className="w-5 h-5 text-primary/60" />
+              <BookOpen className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="font-mono text-2xl tracking-[0.1em] text-foreground uppercase mb-3">
-              Guides &amp; Articles
+            <h1 className="text-4xl text-foreground mb-3">
+              Guides and articles
             </h1>
             <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
               No fluff. No discovery calls. Just the actual mechanics of moving, living, and optimizing taxes as a remote worker.
@@ -83,7 +79,7 @@ export default function GuidesList() {
 
         {/* Error state, still shows static guides below */}
         {isError && (
-          <div className="flex items-center gap-2 text-xs text-yellow-500/80 font-mono mb-6 border border-yellow-500/20 bg-yellow-500/5 rounded-lg px-4 py-3">
+          <div className="flex items-center gap-2 text-sm text-foreground mb-6 border border-border bg-muted/50 rounded-lg px-4 py-3">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
             Could not reach the live guide database. Showing cached content.
           </div>
@@ -96,7 +92,7 @@ export default function GuidesList() {
               <Link 
                 key={guide.id} 
                 to={`/guides/${guide.slug}`}
-                className="group block rounded-xl border border-border/40 bg-white/[0.02] overflow-hidden hover:bg-white/[0.04] hover:border-border transition-all duration-300 flex flex-col h-full"
+                className="group block rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all duration-300 flex flex-col h-full"
               >
                 <div className="p-6 md:p-8 flex flex-col flex-1">
                   <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground/60 uppercase tracking-widest mb-4">
@@ -104,7 +100,7 @@ export default function GuidesList() {
                     <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {guide.readTime}</span>
                   </div>
                   
-                  <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight mb-4 group-hover:text-primary transition-colors">
+                  <h2 className="text-xl text-foreground leading-tight mb-4 group-hover:text-primary transition-colors">
                     {guide.title}
                   </h2>
                   
