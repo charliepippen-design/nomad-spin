@@ -190,7 +190,7 @@ The C1 is a single-entry visit visa and the usual choice for people who want lon
 **How it usually works in practice**
 
 - You apply online (or through an agent) before you fly.
-- The stay length and any extension are published on the official eVisa site. This guide does not restate a day count for the C1. The Directorate General of Immigration pages checked for this edit do not label a product "C1" with a published number of days.
+- Check the official eVisa site for the current stay length and any extension before you apply.
 - Read the extension steps on that site before you assume an agent can attend an immigration office for you.
 
 **Pros**
