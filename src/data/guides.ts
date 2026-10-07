@@ -403,6 +403,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> North American time zones, Spanish learners, people who will choose a neighborhood on purpose.</p>
 
+<p>Laureles versus El Poblado, the 90-day exemption field, and how the safety scores actually feel are in the <a href="/guides/living-in-medellin">Medellin living guide</a>.</p>
+
 <h2><strong>4. Bali, Indonesia: The Social Island, With a Visa Plan</strong></h2>
 
 <p><a href="/destinations/bali">Bali</a> is popular because the community score is a 9 and the café map is ridiculous. The same dataset explains the complaints: average internet is about 50 Mbps, and the solo baseline of about $1,200 is a floor that Canggu villas and brunch leave behind quickly.</p>
@@ -493,7 +495,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>These ten cities are a starting point. Your base depends on your budget, your calls, your passport, and the life you want on a Tuesday.</p>
 
-<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, and <a href="/guides/living-in-mexico-city">living in Mexico City</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
+<p>For the hubs that punish a casual booking, read <a href="/guides/living-in-bali">living in Bali</a>, <a href="/guides/living-in-cape-town">living in Cape Town</a>, <a href="/guides/living-in-chiang-mai">living in Chiang Mai</a>, <a href="/guides/living-in-da-nang">living in Da Nang</a>, <a href="/guides/living-in-lisbon">living in Lisbon</a>, <a href="/guides/living-in-medellin">living in Medellin</a>, and <a href="/guides/living-in-mexico-city">living in Mexico City</a> before you pay a deposit. Then <a href="/">open Nomad Spin</a>, set your budget, internet, and safety minimums, and spin. The match should come from your constraints.</p>
 
 <p><em>First published January 2025. Last updated: October 7, 2026. Costs and visa rules change quickly. Always double-check before booking.</em></p>
 `

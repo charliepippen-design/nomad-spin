@@ -13,6 +13,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
+    expect(slugs).toContain('living-in-medellin');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -236,6 +237,52 @@ describe('static guides', () => {
     ]) {
       expect(g!.content).toContain(href);
     }
+  });
+
+  it('publishes the Medellin living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-medellin');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Medellin');
+    expect(g!.seoTitle).toBe("Living in Medellin 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Medellin for remote workers in 2026: real monthly costs, Laureles vs Poblado, visas, coworking, eternal-spring weather, and honest safety trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['medellin']);
+    expect(g!.content).toContain('living in Medellin as a digital nomad');
+    expect(g!.content).toContain('$1,100');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$45');
+    expect(g!.content).toContain('80 Mbps');
+    expect(g!.content).toContain('6.5');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90');
+    expect(g!.content).toContain('UTC-5');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/medellin',
+      '/destinations/mexico-city',
+      '/destinations/buenos-aires',
+      '/destinations/chiang-mai',
+      '/destinations/lisbon',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-mexico-city',
+      '/guides/living-in-lisbon',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '/guides/paraguay-tax-residency-remote-workers',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    expect(g!.content).not.toContain('medell-n');
+    expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
   });
 
   it('generated module is in sync with content/guides', () => {

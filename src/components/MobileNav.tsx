@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Compass, Info, Mail } from 'lucide-react';
+import { Menu, X, Compass, Info, Mail, BookOpen } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const navItems = [
   { to: '/', label: 'Home', icon: Compass },
+  { to: '/guides', label: 'Guides', icon: BookOpen },
   { to: '/about', label: 'About', icon: Info },
   { to: '/contact', label: 'Contact', icon: Mail },
 ];
+
+function isNavActive(to: string, pathname: string): boolean {
+  if (to === '/') return pathname === '/';
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
 
 interface MobileNavProps {
   onExplore?: () => void;
@@ -31,7 +37,7 @@ export default function MobileNav({ onExplore }: MobileNavProps) {
       {/* Hamburger button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed top-3 right-3 z-50 p-2.5 rounded-xl bg-background/60 backdrop-blur-md border border-border/30 pointer-events-auto"
+        className="fixed top-3 left-3 z-[110] p-2.5 rounded-xl bg-background/60 backdrop-blur-md border border-border/30 pointer-events-auto"
         aria-label="Open menu"
       >
         <Menu className="w-5 h-5 text-foreground" />
@@ -45,7 +51,7 @@ export default function MobileNav({ onExplore }: MobileNavProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[60] bg-background/60 backdrop-blur-sm pointer-events-auto"
+              className="fixed inset-0 z-[120] bg-background/60 backdrop-blur-sm pointer-events-auto"
               onClick={() => setOpen(false)}
             />
             <motion.div
@@ -53,7 +59,7 @@ export default function MobileNav({ onExplore }: MobileNavProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] z-[70] bg-background/95 backdrop-blur-2xl border-l border-border/30 pointer-events-auto flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-[280px] z-[130] bg-background/95 backdrop-blur-2xl border-l border-border/30 pointer-events-auto flex flex-col"
             >
               <div className="flex items-center justify-between p-4">
                 <span className="text-[10px] font-mono tracking-[0.25em] text-muted-foreground uppercase">Menu</span>
@@ -72,7 +78,7 @@ export default function MobileNav({ onExplore }: MobileNavProps) {
                     key={item.to}
                     to={item.to}
                     className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-colors ${
-                      location.pathname === item.to
+                      isNavActive(item.to, location.pathname)
                         ? 'bg-primary/10 text-primary'
                         : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                     }`}
