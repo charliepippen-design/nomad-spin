@@ -271,7 +271,7 @@ Use Da Nang when Hoi An is too small for the week: a call you cannot drop, a cli
 
 [Hanoi](/destinations/hanoi) is the food-and-density trip if you want a north-Vietnam contrast: solo **$1,050**, not a beach, best months Oct, Nov, Dec, Mar, and Apr. There is no Hanoi living guide on this site yet. Use the destination page.
 
-[Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if the town feels too small for a whole season. Same **90-day** field, labeled **E-Visa** on that row. There is no Ho Chi Minh City living guide on this site yet.
+[Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if the town feels too small for a whole season. Same **90-day** field, labeled **E-Visa** on that row. Neighborhoods and the e-visa are in [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city).
 
 Private clinics in Da Nang handle more of the serious nomad problems than a small town does. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
 
@@ -291,7 +291,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Da Nang** when you want the same coast for less (**$700**), coworking **Med**, and a longer good-weather window (**Feb-Jul**). Safety is **8.5**. Community is **5**, which is still small, and nightlife is **3**. Rainy months run through December, and typhoon season is on that row's cons. The [Da Nang living guide](/guides/living-in-da-nang) is the work-city version of this coast. Hoi An is the charm version. If you only have one Vietnam beach month and the job is calls, Da Nang is the more honest default.
 
-**Pick Ho Chi Minh City** when you want more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**, safety **7.5**. The visa field is **E-Visa, 90 days**, **UTC+7**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** overlap Chiang Mai and Bangkok more than they overlap Hoi An's Feb-May. It is the energetic Vietnam base. It is not a quieter Hoi An.
+**Pick Ho Chi Minh City** when you want more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**, safety **7.5**. The visa field is **E-Visa, 90 days**, **UTC+7**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** overlap Chiang Mai and Bangkok more than they overlap Hoi An's Feb-May. It is the energetic Vietnam base. It is not a quieter Hoi An. Read [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) for District 1 versus Thao Dien.
 
 **Pick Chiang Mai** when you want community **9**, coworking **High**, **95 Mbps**, and you do not need a beach or an old-town river. The solo month is **$850**. Best months are **Nov-Feb**, which sits beside Hoi An's season rather than on top of it. The visa field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. Same clock: **UTC+7**.
 

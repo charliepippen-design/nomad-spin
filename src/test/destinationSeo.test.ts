@@ -87,6 +87,9 @@ describe('destinationSeo', () => {
     const hoiAnGuides = relatedGuidesForCity(cityByName('Hoi An')).map((g) => g.slug);
     expect(hoiAnGuides).toContain('living-in-hoi-an');
 
+    const hcmcGuides = relatedGuidesForCity(cityByName('Ho Chi Minh City')).map((g) => g.slug);
+    expect(hcmcGuides).toContain('living-in-ho-chi-minh-city');
+
     const portoGuides = relatedGuidesForCity(cityByName('Porto')).map((g) => g.slug);
     expect(portoGuides).toContain('living-in-porto');
     expect(portoGuides).toContain('how-to-choose-next-nomad-base');
