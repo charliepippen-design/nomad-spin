@@ -14,6 +14,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-barcelona');
     expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-da-nang');
+    expect(slugs).toContain('living-in-ho-chi-minh-city');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
@@ -263,6 +264,71 @@ describe('static guides', () => {
       'Daily life: Grab, food, Vietnamese, and the family-friendly side',
       'Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City',
       'First-week checklist and how to compare Da Nang on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Ho Chi Minh City living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-ho-chi-minh-city');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Ho Chi Minh City');
+    expect(g!.seoTitle).toBe("Living in Ho Chi Minh City 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Ho Chi Minh City for remote workers in 2026: real costs, District 1 vs Thao Dien, e-visa notes, 85 Mbps internet, and traffic and pollution trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['ho-chi-minh-city']);
+    expect(g!.content).toContain('living in Ho Chi Minh City as a digital nomad');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$600');
+    expect(g!.content).toContain('$30');
+    expect(g!.content).toContain('85 Mbps');
+    expect(g!.content).toContain('7.5');
+    expect(g!.content).toContain('E-Visa');
+    expect(g!.content).toContain('90');
+    expect(g!.content).toContain('UTC+7');
+    expect(g!.content).toContain('evisa.gov.vn');
+    expect(g!.content).toContain('immigration.gov.vn');
+    expect(g!.content).not.toContain('/destinations/saigon');
+    expect(g!.content).not.toContain('/destinations/hcmc');
+    expect(g!.content).not.toContain('/destinations/ho-chi-minh)');
+    expect(g!.content).not.toContain('/destinations/ho-chi-minh"');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
+    for (const href of [
+      '/destinations/ho-chi-minh-city',
+      '/destinations/da-nang',
+      '/destinations/hoi-an',
+      '/destinations/bangkok',
+      '/destinations/chiang-mai',
+      '/destinations/hanoi',
+      '/guides/living-in-da-nang',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-bangkok',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Ho Chi Minh City worth it for digital nomads in 2026?',
+      'Who Ho Chi Minh City is for (and who should skip it)',
+      'Real monthly cost bands (solo $800, long-term $600, short Airbnb $30/night)',
+      'Neighborhoods that work: District 1, District 2 (Thao Dien), District 3, Binh Thanh (trade-offs)',
+      'Internet, power, and coworking for video-call work',
+      'Visas and stay length: 90-day e-visa, no dedicated nomad visa, border runs (verify official rules)',
+      'Best months (Dec-Apr) vs rainy months (Jun-Oct) and humidity reality',
+      'Daily life: Grab vs motorbike, street food, Vietnamese basics, and the startup scene',
+      'Ho Chi Minh City vs Da Nang, Hoi An, Bangkok, Chiang Mai',
+      'First-week checklist and how to compare Ho Chi Minh City on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }

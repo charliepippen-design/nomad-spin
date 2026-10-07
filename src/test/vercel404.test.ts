@@ -61,7 +61,7 @@ describe('vercel.json unknown slug 404s', () => {
     }
   });
 
-  it('301s Ho Chi Minh City aliases and leaves guide aliases alone until that guide exists', () => {
+  it('301s Ho Chi Minh City destination and guide aliases to the canonical slugs', () => {
     const redirects = config.redirects ?? [];
     const bySource = new Map(redirects.map((rule) => [rule.source, rule]));
     const canonicalSlugs = new Set(allCitySlugs().map(({ slug }) => slug));
@@ -78,9 +78,13 @@ describe('vercel.json unknown slug 404s', () => {
     }
 
     const guideExists = guides.some((guide) => guide.slug === HCMC_GUIDE_SLUG);
-    expect(guideExists).toBe(false);
+    expect(guideExists).toBe(true);
     for (const source of GUIDE_ALIASES) {
-      expect(bySource.has(source), source).toBe(false);
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe(`/guides/${HCMC_GUIDE_SLUG}`);
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
     }
 
     expect(redirects.every((rule) => rule.statusCode === 301 && rule.permanent === undefined)).toBe(true);
