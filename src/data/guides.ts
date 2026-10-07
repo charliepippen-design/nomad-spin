@@ -286,6 +286,8 @@ const handWrittenGuides: Guide[] = [
 
 <p><strong>Best for:</strong> First-time nomads, budget-conscious travelers, people who want community immediately.</p>
 
+<p>Those 2025 notes are not the live dataset. Neighborhood trade-offs, the current $850 solo baseline, and the Mar-Apr burning-season con are in the <a href="/guides/living-in-chiang-mai">Chiang Mai living guide</a>.</p>
+
 <h2><strong>2. Lisbon, Portugal: Europe’s Nomad Capital</strong></h2>
 
 <p>Lisbon has become the default European nomad base for good reason. It’s warm, walkable, English-friendly, and plugged into the rest of Europe.</p>
