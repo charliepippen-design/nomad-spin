@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { guides } from '@/data/guides';
 import { allCitySlugs } from '@/lib/citySlug';
-import { buildNotFoundHtml, NOT_FOUND_LINKS, NOT_FOUND_TITLE } from '../../scripts/not-found-page';
+import { buildNotFoundHtml, NOT_FOUND_LINKS, NOT_FOUND_NAV, NOT_FOUND_TITLE } from '../../scripts/not-found-page';
 
 type RedirectRule = {
   source: string;
@@ -108,5 +108,13 @@ describe('vercel.json unknown slug 404s', () => {
     expect(html).toContain('href="/"');
     expect(html).toContain('href="/guides"');
     expect(html).toContain('href="/destinations/lisbon"');
+    expect(html).toContain('<header>');
+    expect(html).toContain('aria-label="Site"');
+    for (const link of NOT_FOUND_NAV) {
+      expect(html).toContain(`<a href="${link.href}">${link.label}</a>`);
+    }
+
+    const published = fs.readFileSync(path.resolve(__dirname, '../../public/404.html'), 'utf8');
+    expect(published).toBe(html);
   });
 });

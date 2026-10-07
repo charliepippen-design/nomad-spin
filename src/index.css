@@ -241,3 +241,26 @@
 .-webkit-overflow-scrolling-touch {
   -webkit-overflow-scrolling: touch;
 }
+
+/* Typography draws literal backticks around inline code. Drop them and use a pill. */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.875em;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  padding: 0.15em 0.45em;
+  border-radius: 0.375rem;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}

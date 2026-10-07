@@ -143,6 +143,9 @@ export default function GuideArticle() {
             prose-table:text-sm prose-table:font-mono
             prose-th:text-left prose-th:font-medium
             prose-blockquote:border-primary/40 prose-blockquote:text-foreground/90
+            prose-code:before:content-none prose-code:after:content-none
+            prose-code:rounded-md prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
+            prose-code:font-mono prose-code:font-medium prose-code:text-foreground
             ">
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}>
             {guide.content}
