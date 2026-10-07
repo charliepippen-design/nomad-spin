@@ -69,6 +69,82 @@ export function relatedGuidesForCity(city: City): Guide[] {
   return guides.filter((g) => g.relatedDestinations?.includes(slug));
 }
 
+/**
+ * Peer living guides when a hub does not already surface 2.
+ * Same region, or the comparison the city's own guide already makes.
+ * Values are destination slugs. Only slugs with a published living guide are used.
+ */
+const LIVING_GUIDE_PEERS: Record<string, readonly string[]> = {
+  bali: ['chiang-mai', 'bangkok', 'da-nang'],
+  'cape-town': ['lisbon', 'bali', 'buenos-aires'],
+  'chiang-mai': ['bangkok', 'da-nang', 'bali'],
+  bangkok: ['chiang-mai', 'da-nang', 'bali'],
+  'da-nang': ['ho-chi-minh-city', 'chiang-mai', 'bali'],
+  'ho-chi-minh-city': ['da-nang', 'bangkok', 'chiang-mai'],
+  'mexico-city': ['medellin', 'buenos-aires', 'chiang-mai'],
+  medellin: ['mexico-city', 'buenos-aires', 'chiang-mai'],
+  'buenos-aires': ['medellin', 'mexico-city', 'lisbon'],
+  lisbon: ['porto', 'barcelona', 'valencia'],
+  porto: ['lisbon', 'valencia', 'barcelona'],
+  barcelona: ['valencia', 'lisbon', 'porto'],
+  valencia: ['barcelona', 'lisbon', 'porto'],
+  budapest: ['lisbon', 'prague', 'barcelona'],
+  prague: ['budapest', 'lisbon', 'barcelona'],
+  tbilisi: ['budapest', 'chiang-mai', 'lisbon'],
+};
+
+function escHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** This city's own living guide, when one is published. */
+export function livingGuideForCity(city: City): Guide | null {
+  return guides.find((guide) => guide.slug === `living-in-${citySlug(city)}`) ?? null;
+}
+
+function isPeerLivingGuide(guide: Guide, ownSlug: string): boolean {
+  return guide.slug.startsWith('living-in-') && guide.slug !== ownSlug;
+}
+
+/**
+ * Guides to list on a destination hub.
+ * Keeps guides that already name the city, and fills in 2 to 4 peer living
+ * guides when fewer than 2 are present.
+ */
+export function hubRelatedGuides(city: City): Guide[] {
+  const ownSlug = `living-in-${citySlug(city)}`;
+  const existing = relatedGuidesForCity(city).filter((guide) => guide.slug !== ownSlug);
+  const peers = existing.filter((guide) => isPeerLivingGuide(guide, ownSlug));
+  if (peers.length >= 2) {
+    if (peers.length <= 4) return existing;
+    const keep = new Set(peers.slice(0, 4).map((guide) => guide.slug));
+    return existing.filter((guide) => !isPeerLivingGuide(guide, ownSlug) || keep.has(guide.slug));
+  }
+
+  const extras: Guide[] = [];
+  for (const peerCity of LIVING_GUIDE_PEERS[citySlug(city)] ?? []) {
+    if (peers.length + extras.length >= 4) break;
+    const guide = guides.find((item) => item.slug === `living-in-${peerCity}`);
+    if (!guide || guide.slug === ownSlug) continue;
+    if (peers.some((item) => item.slug === guide.slug) || extras.some((item) => item.slug === guide.slug)) {
+      continue;
+    }
+    extras.push(guide);
+  }
+  return [...existing, ...extras];
+}
+
+/** Crawlable living-guide link for prerendered destination HTML. Empty when the city has no living guide. */
+export function destinationFieldGuideHtml(city: City): string {
+  const guide = livingGuideForCity(city);
+  if (!guide) return '';
+  return `<h2>Field guide</h2><p><a href="/guides/${escHtml(guide.slug)}" style="color:#34d399">${escHtml(guide.title)}</a></p>`;
+}
+
 export function destinationJsonLd(city: City, pageUrl: string): Record<string, unknown> {
   const description = destinationIntro(city);
   const additionalProperty = [

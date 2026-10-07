@@ -2,6 +2,8 @@
 
 Bali is one of the easiest places on earth to “move to for a while,” which is exactly why it can also be one of the easiest places to do poorly if you arrive without a plan. On paper, it’s tropical, affordable, full of cafés and coworking spaces, and packed with other remote workers. In reality, it’s an island with huge micro-differences by area, traffic that can consume your day, internet that varies street-by-street, visa rules that change, and a cost of living that ranges from backpacker-cheap to “why am I paying London prices for brunch?”
 
+The dataset row for this island is the [Bali destination page](/destinations/bali). For the same region, compare [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Bangkok](/guides/living-in-bangkok), and [Living in Da Nang](/guides/living-in-da-nang).
+
 This guide is written for people who want a real, on-the-ground setup: where to base yourself (Canggu vs Ubud vs Uluwatu), what it actually costs, how to deal with visas, how to get reliable internet, and how to build a routine that doesn’t collapse into chaos after week two.
 
 You’ll also see practical advice that’s not glamorous but matters: how to rent a scooter safely (or choose not to), how to handle healthcare, the trade-offs of each neighborhood, and how to avoid the most common “Bali mistakes” that burn money and time.
