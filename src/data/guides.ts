@@ -283,6 +283,7 @@ const handWrittenGuides: Guide[] = [
 
 <p>Same fields, side by side. Open a city for the full page.</p>
 
+<div class="overflow-x-auto">
 <table class="w-full text-left border-collapse my-6">
   <thead>
     <tr>
@@ -366,6 +367,7 @@ const handWrittenGuides: Guide[] = [
     </tr>
   </tbody>
 </table>
+</div>
 
 <h2><strong>1. Chiang Mai, Thailand: Still the Starter City</strong></h2>
 
