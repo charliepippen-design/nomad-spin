@@ -210,7 +210,7 @@ A stay that covers most of a year can raise tax-residence questions at home and 
 
 - **The trip fits inside 90 days, and your passport can use the e-visa:** apply on the official portal, from outside Vietnam, and read the entry type (single or multiple) before you pay.
 - **Your passport has a current exemption:** use that only after you have read the official notice, and do not assume it lasts 90 days.
-- **You need longer than the e-visa maximum:** a sponsored route under the residence law, or a new e-visa applied for from outside. Not a nomad-visa product, because that product is not on the portal.
+- **You need longer than the e-visa maximum:** a sponsored route under the residence law, or a new e-visa applied for from outside. Not a nomad-visa product, because that product is not on the portal. A different country with a **365-day** visa-free field is [Living in Tbilisi](/guides/living-in-tbilisi), solo **$800**, **UTC+4**. That is a different base, not a Vietnam extension.
 - **"I will just stay and sort it out":** not a plan.
 
 ## Best months (Feb-Jul) vs rainy and typhoon season (Sep-Dec)
@@ -302,7 +302,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** only partly overlap Da Nang. It is the "smaller city" trade-off, answered.
 
-**Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**, visa field **60 days**. There is no Bangkok living guide on this site yet. Use the destination page.
+**Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**, visa field **60 days**. Neighborhoods, heat, and why that visa field can lag the current Thai rule are in [Living in Bangkok](/guides/living-in-bangkok).
+
+**Look at Tbilisi** when the constraint is stay length, not a beach. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast in this dataset: **Visa Free**, **365** days, solo **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.
 
 **Look outside Asia** when you want another beach and you have a different budget. [Living in Cape Town](/guides/living-in-cape-town) is the non-Asia beach contrast: solo **$1,400**, safety **5.5**, power stability **4**, best months **Oct-Mar**. Different ocean, different risk list. If the comparison is a big food city on US hours, or a European coast, the live guides are [Living in Mexico City](/guides/living-in-mexico-city) and [Living in Lisbon](/guides/living-in-lisbon). They are not cheaper Da Nangs.
 

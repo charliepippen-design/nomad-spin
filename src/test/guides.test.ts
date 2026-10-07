@@ -10,10 +10,12 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-bali');
     expect(slugs).toContain('living-in-cape-town');
     expect(slugs).toContain('living-in-chiang-mai');
+    expect(slugs).toContain('living-in-bangkok');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
+    expect(slugs).toContain('living-in-tbilisi');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -60,7 +62,7 @@ describe('static guides', () => {
     expect(g!.excerpt).toBe(
       'Chiang Mai for remote workers in 2026: real monthly costs, Nimman vs Old City, visas and DTV notes, coworking, internet, and burning season trade-offs.'
     );
-    expect(g!.relatedDestinations).toEqual(['chiang-mai']);
+    expect(g!.relatedDestinations).toEqual(['chiang-mai', 'bangkok']);
     expect(g!.content).toContain('$850');
     expect(g!.content).toContain('$650');
     expect(g!.content).toContain('$35');
@@ -85,6 +87,71 @@ describe('static guides', () => {
       '/guides/best-places-digital-nomads-2025',
     ]) {
       expect(g!.content).toContain(href);
+    }
+  });
+
+  it('publishes the Bangkok living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-bangkok');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Bangkok');
+    expect(g!.seoTitle).toBe("Living in Bangkok 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Bangkok for remote workers in 2026: real monthly costs, BTS neighborhoods, visas and DTV notes, 120 Mbps internet, heat and traffic trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['bangkok']);
+    expect(g!.content).toContain('living in Bangkok as a digital nomad');
+    expect(g!.content).toContain('$1,100');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$45');
+    expect(g!.content).toContain('120 Mbps');
+    expect(g!.content).toContain('7.8');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('60');
+    expect(g!.content).toContain('UTC+7');
+    expect(g!.content).not.toMatch(/—/);
+    expect(g!.title).not.toMatch(/—/);
+    expect(g!.seoTitle).not.toMatch(/—/);
+    expect(g!.excerpt).not.toMatch(/—/);
+    expect(g!.content).not.toMatch(/–/);
+    expect(g!.title).not.toMatch(/–/);
+    expect(g!.seoTitle).not.toMatch(/–/);
+    expect(g!.excerpt).not.toMatch(/–/);
+    for (const href of [
+      '/destinations/bangkok',
+      '/destinations/chiang-mai',
+      '/destinations/bali',
+      '/destinations/da-nang',
+      '/destinations/mexico-city',
+      '/destinations/lisbon',
+      '/destinations/canggu',
+      '/destinations/ubud',
+      '/destinations/seminyak',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-mexico-city',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Bangkok still worth it for digital nomads in 2026?',
+      'Who Bangkok is for (and who should skip it)',
+      'Real monthly cost bands (solo, long-term, short Airbnb)',
+      'Neighborhoods on the BTS/MRT: Ari, Sukhumvit / Thonglor / Ekkamai, On Nut, Silom (trade-offs)',
+      'Internet, power, and coworking for video-call work',
+      'Visas and stay length: 60-day exemption vs longer options including DTV (verify official rules)',
+      'Best months, rainy season, extreme heat, and air quality',
+      'Daily life: street food, transit, nightlife, SE Asia hub logistics',
+      'Bangkok vs Chiang Mai, Bali, Da Nang, Mexico City',
+      'First-week checklist + compare Bangkok on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
     }
   });
 
@@ -230,6 +297,7 @@ describe('static guides', () => {
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
+      '/guides/living-in-bangkok',
       '/guides/how-to-choose-next-nomad-base',
       '/guides/where-to-go-next-by-season',
       '/guides/best-places-digital-nomads-2025',
@@ -283,6 +351,53 @@ describe('static guides', () => {
     }
     expect(g!.content).not.toContain('medell-n');
     expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
+  });
+
+  it('publishes the Tbilisi living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-tbilisi');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Tbilisi');
+    expect(g!.seoTitle).toBe("Living in Tbilisi 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Tbilisi for remote workers in 2026: real monthly costs, 365-day visa-free notes, neighborhoods, 60 Mbps internet, wine culture, and winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(170);
+    expect(g!.relatedDestinations).toEqual(['tbilisi']);
+    expect(g!.content).toContain('living in Tbilisi as a digital nomad');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$550');
+    expect(g!.content).toContain('$30');
+    expect(g!.content).toContain('60 Mbps');
+    expect(g!.content).toContain('8.0');
+    expect(g!.content).toContain('Visa Free');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+4');
+    expect(g!.content).not.toMatch(/—/);
+    expect(g!.title).not.toMatch(/—/);
+    expect(g!.seoTitle).not.toMatch(/—/);
+    expect(g!.excerpt).not.toMatch(/—/);
+    for (const href of [
+      '/destinations/tbilisi',
+      '/destinations/lisbon',
+      '/destinations/budapest',
+      '/destinations/chiang-mai',
+      '/destinations/medellin',
+      '/destinations/mexico-city',
+      '/destinations/bangkok',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bangkok',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-mexico-city',
+      '/guides/living-in-medellin',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
   });
 
   it('generated module is in sync with content/guides', () => {
