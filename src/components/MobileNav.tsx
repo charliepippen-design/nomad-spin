@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Compass, Info, Mail } from 'lucide-react';
+import { Menu, X, Compass, Info, Mail, BookOpen } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const navItems = [
   { to: '/', label: 'Home', icon: Compass },
+  { to: '/guides', label: 'Guides', icon: BookOpen },
   { to: '/about', label: 'About', icon: Info },
   { to: '/contact', label: 'Contact', icon: Mail },
 ];
+
+function isNavActive(to: string, pathname: string): boolean {
+  if (to === '/') return pathname === '/';
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
 
 interface MobileNavProps {
   onExplore?: () => void;
@@ -72,7 +78,7 @@ export default function MobileNav({ onExplore }: MobileNavProps) {
                     key={item.to}
                     to={item.to}
                     className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-colors ${
-                      location.pathname === item.to
+                      isNavActive(item.to, location.pathname)
                         ? 'bg-primary/10 text-primary'
                         : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                     }`}
