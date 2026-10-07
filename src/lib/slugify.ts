@@ -24,3 +24,15 @@ export function slugify(str: string): string {
 export function legacySlugify(str: string): string {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
+
+/**
+ * Lowercase path slug that keeps accented letters.
+ * "São Paulo" -> "são-paulo", "Medellín" -> "medellín".
+ */
+export function accentPreservingSlug(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize('NFC')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/(^-|-$)/g, '');
+}
