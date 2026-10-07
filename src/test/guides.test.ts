@@ -11,6 +11,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-cape-town');
     expect(slugs).toContain('living-in-chiang-mai');
     expect(slugs).toContain('living-in-bangkok');
+    expect(slugs).toContain('living-in-barcelona');
     expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-prague');
     expect(slugs).toContain('living-in-da-nang');
@@ -18,7 +19,9 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
     expect(slugs).toContain('living-in-tbilisi');
+    expect(slugs).toContain('living-in-porto');
     expect(slugs).toContain('living-in-buenos-aires');
+    expect(slugs).toContain('living-in-valencia');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -452,6 +455,9 @@ describe('static guides', () => {
       '/destinations/valencia',
       '/guides/living-in-budapest',
       '/guides/living-in-lisbon',
+      '/guides/living-in-barcelona',
+      '/guides/living-in-valencia',
+      '/guides/living-in-porto',
       '/guides/living-in-chiang-mai',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
@@ -525,6 +531,69 @@ describe('static guides', () => {
     }
   });
 
+  it('publishes the Porto living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-porto');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Porto');
+    expect(g!.seoTitle).toBe("Living in Porto 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Porto for remote workers in 2026: real monthly costs, Cedofeita vs Bonfim, D8 visa notes, 200 Mbps internet, top safety, and rainy-winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['porto', 'lisbon', 'barcelona', 'madrid', 'valencia']);
+    expect(g!.content.toLowerCase()).toContain('living in porto as a digital nomad');
+    expect(g!.content).toContain('$1,800');
+    expect(g!.content).toContain('$1,400');
+    expect(g!.content).toContain('$85');
+    expect(g!.content).toContain('$400');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('9.0');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('2 years');
+    expect(g!.content).toContain('Lei 23/2007');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/little sister/i);
+    expect(g!.content).not.toMatch(/porto-alegre|porto-santo/);
+    expect(g!.content).not.toMatch(/2,?849|€|\bEUR\b/i);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/porto',
+      '/destinations/lisbon',
+      '/destinations/barcelona',
+      '/destinations/madrid',
+      '/destinations/valencia',
+      '/destinations/budapest',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-budapest',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Porto worth it for digital nomads in 2026?',
+      'Who Porto is for (and who should skip it)',
+      'Real monthly cost bands: solo $1,800, long-term $1,400, Airbnb $85 a night',
+      'Neighborhoods that work: Cedofeita, Bonfim, Baixa, Boavista, Foz and Matosinhos',
+      'Internet, power, and coworking',
+      'Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)',
+      'Best months (May-Sep) vs rainy, damp winters (Nov-Feb)',
+      'Daily life: food, the river, hills, metro, and a smaller community',
+      'Porto vs Lisbon, Barcelona, Madrid, and Valencia',
+      'First-week checklist and how to compare Porto on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
   it('publishes the Buenos Aires living guide from dataset figures', () => {
     const g = guides.find((x) => x.slug === 'living-in-buenos-aires');
     expect(g).toBeTruthy();
@@ -581,6 +650,131 @@ describe('static guides', () => {
       'Daily life: money and payments, steak and wine, tango, nightlife, Spanish, and safety habits',
       'Buenos Aires vs Medellin, Mexico City, Santiago, and Montevideo',
       'First-week checklist and how to compare Buenos Aires on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Barcelona living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-barcelona');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Barcelona');
+    expect(g!.seoTitle).toBe("Living in Barcelona 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Barcelona for remote workers in 2026: real costs, Poblenou vs Gracia, Spain nomad visa notes, 300 Mbps internet, and rent and pickpocket trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['barcelona', 'valencia', 'madrid', 'lisbon', 'budapest']);
+    expect(g!.content).toContain('living in Barcelona as a digital nomad');
+    expect(g!.content).toContain('$2,500');
+    expect(g!.content).toContain('$2,000');
+    expect(g!.content).toContain('$130');
+    expect(g!.content).toContain('300 Mbps');
+    expect(g!.content).toContain('7.5');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('200%');
+    expect(g!.content).toContain('Ley 14/2013');
+    expect(g!.content).not.toMatch(/2,?849|€|EUR\s*\d/i);
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/barcelona',
+      '/destinations/valencia',
+      '/destinations/madrid',
+      '/destinations/lisbon',
+      '/destinations/budapest',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-budapest',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Barcelona worth it for digital nomads in 2026?',
+      'Who Barcelona is for (and who should skip it)',
+      'Real monthly cost bands (solo $2,500, long-term $2,000, Airbnb $130/night) and the rental market',
+      'Neighborhoods that work: Poblenou, Gracia, Eixample, Sant Antoni, Barceloneta, and El Born',
+      'Internet, power, and coworking',
+      "Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)",
+      'Best months: May, Jun, Sep, Oct, and the rainy and crowd months',
+      'Daily life: beach, food, languages, metro, pickpockets, and noise',
+      'If $2,500 does not fit: Barcelona vs Valencia, Madrid, Lisbon, and Budapest',
+      'First-week checklist and how to compare Barcelona on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Valencia living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-valencia');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Valencia');
+    expect(g!.seoTitle).toBe("Living in Valencia 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Valencia for remote workers in 2026: real monthly costs, Ruzafa vs Cabanyal, Spain nomad visa notes, 170 Mbps internet, and flooding trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['valencia', 'barcelona', 'madrid', 'lisbon', 'porto']);
+    expect(g!.content).toContain('living in Valencia as a digital nomad');
+    expect(g!.content).toContain('$1,900');
+    expect(g!.content).toContain('$1,425');
+    expect(g!.content).toContain('$86');
+    expect(g!.content).toContain('$2,580');
+    expect(g!.content).toContain('170 Mbps');
+    expect(g!.content).toContain('8.0');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('200%');
+    expect(g!.content).toContain('Ley 14/2013');
+    expect(g!.content).toContain('art. 74 quinquies');
+    expect(g!.content).toContain('October problem');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/2,?849|€|\bEUR\b/i);
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/valencia',
+      '/destinations/barcelona',
+      '/destinations/madrid',
+      '/destinations/lisbon',
+      '/destinations/porto',
+      '/guides/living-in-barcelona',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-porto',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Valencia worth it for digital nomads in 2026?',
+      'Who Valencia is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,900, long-term $1,425, Airbnb $86/night)',
+      'Neighborhoods that work: Ruzafa, El Carmen, Cabanyal, and Benimaclet',
+      'Internet, power, and coworking for video-call work',
+      "Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)",
+      'Best months and the October problem: rain, DANA and flood-aware housing',
+      'Daily life: bikes and metro, paella and markets, Spanish basics, beach and city rhythm',
+      'Valencia vs Barcelona, Madrid, Lisbon, and Porto',
+      'First-week checklist and how to compare Valencia on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }

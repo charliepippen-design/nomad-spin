@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 210 100% 50%;
+    --primary: 160 100% 24%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4.8% 95.9%;
@@ -32,18 +32,18 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 210 100% 50%;
+    --ring: 160 100% 24%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 210 100% 50%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 160 100% 24%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-ring: 160 100% 24%;
 
     /* Custom tokens */
     --glass-bg: 0 0% 0% / 0.03;
@@ -61,7 +61,7 @@
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 88%;
 
-    --primary: 210 100% 60%;
+    --primary: 160 100% 50%;
     --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 14%;
@@ -78,18 +78,18 @@
 
     --border: 0 0% 12%;
     --input: 0 0% 12%;
-    --ring: 210 100% 60%;
+    --ring: 160 100% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 3%;
     --sidebar-foreground: 0 0% 88%;
-    --sidebar-primary: 210 100% 60%;
+    --sidebar-primary: 160 100% 50%;
     --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 0 0% 8%;
     --sidebar-accent-foreground: 0 0% 88%;
     --sidebar-border: 0 0% 12%;
-    --sidebar-ring: 210 100% 60%;
+    --sidebar-ring: 160 100% 50%;
 
     /* Custom tokens */
     --glass-bg: 0 0% 100% / 0.03;
@@ -117,24 +117,36 @@
     text-transform: uppercase;
   }
 
-  /* Chunky yellow scrollbar – page-level */
+  /* Article and page copy stays readable. The HUD rule above is for the spin chrome. */
+  .page-content {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 400;
+  }
+
+  .page-content :is(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    text-transform: none;
+  }
+
   html {
-    scrollbar-width: auto;
-    scrollbar-color: #ffeb3b hsl(var(--background));
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
   }
   ::-webkit-scrollbar {
-    width: 20px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
     background: hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #ffeb3b;
+    background-color: hsl(var(--primary));
     border-radius: 999px;
-    border: 4px solid hsl(var(--background));
+    border: 2px solid hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #fff176;
+    background-color: hsl(var(--primary) / 0.75);
   }
 }
 
@@ -176,19 +188,19 @@
   -webkit-overflow-scrolling: auto;
 }
 .scrollbar-visible::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 .scrollbar-visible::-webkit-scrollbar-track {
   background: hsl(var(--background));
 }
 .scrollbar-visible::-webkit-scrollbar-thumb {
-  background-color: #ffeb3b;
+  background-color: hsl(var(--primary));
   border-radius: 999px;
-  border: 4px solid hsl(var(--background));
+  border: 2px solid hsl(var(--background));
 }
 .scrollbar-visible {
-  scrollbar-width: auto;
-  scrollbar-color: #ffeb3b hsl(var(--background));
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) hsl(var(--background));
 }
 
 /* Noise texture overlay */
@@ -228,4 +240,27 @@
 /* Touch scrolling */
 .-webkit-overflow-scrolling-touch {
   -webkit-overflow-scrolling: touch;
+}
+
+/* Typography draws literal backticks around inline code. Drop them and use a pill. */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.875em;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  padding: 0.15em 0.45em;
+  border-radius: 0.375rem;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
 }

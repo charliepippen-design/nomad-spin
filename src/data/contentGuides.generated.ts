@@ -11,8 +11,8 @@ export const contentGuides: Guide[] = [
     excerpt: "Stuck on where to go next? Map budget, internet, safety, vibe, and visa days onto Nomad Spin filters, then compare real destination pages before you book.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "14 min read",
-    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest"],
+    readTime: "15 min read",
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
 Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic, and zero shared framework for weighing any of it.
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Lisbon](/guides/living-in-lisbon), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Prague](/guides/living-in-prague), or [Living in Tbilisi](/guides/living-in-tbilisi). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Lisbon](/guides/living-in-lisbon), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Tbilisi](/guides/living-in-tbilisi), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Lisbon](/destinations/lisbon) at **$2,200**. If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,13 +47,13 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1–10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
 Spin's **minimum safety** maps to the city's overall \`safety\` score (roughly 1–10). Dig one layer deeper with \`vibeMetrics.femaleSafety\` and \`vibeMetrics.lgbtFriendly\` when those are non‑negotiable for you, a city can score decently overall and still be a poor fit for your situation.
 
-Examples from verified rows: Lisbon \`safety\` **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Medellín **6.5** / **5** / **6**; Buenos Aires **6.2** / **5** / **8**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go", it's "budget for location choice, transport habits, and neighborhood research before you book three months."
+Examples from verified rows: Porto \`safety\` **9.0** (femaleSafety **9**, lgbtFriendly **8**); Lisbon **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Medellín **6.5** / **5** / **6**; Buenos Aires **6.2** / **5** / **8**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go", it's "budget for location choice, transport habits, and neighborhood research before you book three months."
 
 ### 4. Place feel → vibe and landscape
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Valencia and Barcelona list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Prague](/guides/living-in-prague), [Tbilisi](/guides/living-in-tbilisi)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tbilisi](/guides/living-in-tbilisi), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -909,6 +909,382 @@ Still no partner IDs. These slots are last, after the week above, not before the
 `,
   },
   {
+    id: "living-in-barcelona",
+    slug: "living-in-barcelona",
+    title: "The Ultimate Guide to Living in Barcelona",
+    seoTitle: "Living in Barcelona 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Barcelona for remote workers in 2026: real costs, Poblenou vs Gracia, Spain nomad visa notes, 300 Mbps internet, and rent and pickpocket trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "31 min read",
+    relatedDestinations: ["barcelona","valencia","madrid","lisbon","budapest"],
+    content: `## Is living in Barcelona worth it for digital nomads in 2026?
+
+The case for living in Barcelona as a digital nomad is a budget decision before it is a beach decision. The short answers come from the [Barcelona](/destinations/barcelona) row, not from a terrace photo.
+
+**How much does it cost to live in Barcelona as a digital nomad?** Nomad Spin lists about **$2,500** a month solo and about **$2,000** a month long-term, with a median Airbnb near **$130** a night. That is the most expensive solo month among Valencia, Madrid, Lisbon, and Budapest. Rent is the swing factor. Poblenou and Esquerra de l'Eixample are where people look when beachfront and the Born are too much.
+
+**Is Barcelona internet good enough for video calls?** Yes. The row shows about **300 Mbps**, reliability **9/10**, power **9/10**, and coworking density **High**. That is the fastest speed among these Europe peers. The bigger work risk is street noise. Check which way the bedroom faces, and whether the windows close, before you book.
+
+**What visa do digital nomads use in Barcelona?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. The in-Spain teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income is **200%** of the Spanish minimum wage. Fees and the euro amount change. Verify on official Spanish pages.
+
+**Who should skip living in Barcelona?** Skip it if your budget is under about **$2,000** a month, or if you hate crowds. The row flags expensive rent, pickpocketing, and tourist crowds. Safety is **7.5** (female safety **7**). If you want a Spanish beach city for less, start with [Valencia](/destinations/valencia) at about **$1,900**.
+
+**What are the best months to live in Barcelona?** The friendliest months on the row are **May, Jun, Sep, and Oct**. Rainy months are **Nov** and **Mar**. The average temperature in the dataset is **16°C**. July and August bring heat and peak tourist crowds, so the shoulder months are the work months.
+
+Worth it, with conditions. You are paying the top of this Europe set for a real beach inside a big city, **300 Mbps**, and a social scene (nightlife **9**, community **8**, \`lgbtFriendly\` **9**). You are also taking the lowest safety score in the set, plus rent, pickpockets, crowds, bureaucracy, and noise. If **$2,500** or even **$2,000** does not fit, the cheaper peers are later in this guide, with their numbers. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Barcelona is for (and who should skip it)
+
+Barcelona fits people who want the beach and the metropolis in the same week, and who can fund the bill. It is a poor fit if the month has to be cheap, or if crowds and street noise ruin the work.
+
+The row tags it **beach**, **party**, and **foodie**. Landscape is **seaside**. Region is **Europe**. Language on the row is **Spanish**. Catalan is the other language of the city, and you will see it on signs, leases, and the town hall. Time zone on the row is **UTC+1**.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$2,500**) or will actually live inside the longer-stay figure (**$2,000**)
+- Need calls to work. **300 Mbps**, reliability **9/10**, and power **9/10** are the point of paying this much
+- Want nightlife **9**, community **8**, and English proficiency **7** in the work rooms
+- Care about LGBTQ+ comfort. \`lgbtFriendly\` on this row is **9**
+- Can put the serious months in **May, Jun, Sep, or Oct**, or you have a real plan for rain, and for July and August crowds
+- Can work **UTC+1** (the row's field). Mainland Spain moves clocks forward in summer, so civil time is **UTC+2** from roughly late March to late October. UK calls stay about an hour off. US East Coast calls land in the Barcelona afternoon and evening
+
+**Skip it, or pick a cheaper peer, if you:**
+
+- Cannot clear **$2,000** even on a monthly lease with local food. The **$130** nightly median will not save you. [Budapest](/destinations/budapest) is **$1,500** solo. [Valencia](/destinations/valencia) is **$1,900**
+- Want the beach without the metropolis bill. Valencia is the Spanish beach row at **$600** less per month, with coworking **Med** instead of **High**
+- Want the same country and a capital routine without the sea. [Madrid](/destinations/madrid) is **$2,200** solo, coworking **High**, nightlife **9**, \`lgbtFriendly\` **9**, and no beach
+- Want a coastal European workhub with a higher safety score. [Lisbon](/destinations/lisbon) is **$2,200** solo and safety **8.8**. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the two coasts as the same product
+- Hate crowds, pocket checks, or bureaucracy. Those are listed cons, not a vibe you can ignore
+
+Female safety on the row is **7**. That matches Valencia, Madrid, and Budapest in this set. Lisbon is **8**. A **7** is not a promise about a specific street at 2am. English at **7** means the work scene functions in English. A lease, the padrón desk, and a lot of shops still run in Catalan or Spanish.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another viewpoint list.
+
+## Real monthly cost bands (solo $2,500, long-term $2,000, Airbnb $130/night) and the rental market
+
+Nomad Spin does not publish a fake "comfortable" total for Barcelona. It publishes three money fields. Those are the bands. If **$2,500** does not fit, stop here and use the peer table later. Do not talk yourself into the city with a lunch special.
+
+| Band | Figure | Field on the Barcelona row | How to read it |
+|---|---:|---|---|
+| Longer stay | $2,000 / month | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $2,500 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $130 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget |
+
+\`rentIndex\` is **60** (Lisbon **55**, Madrid **44**, Valencia **38**, Budapest **32**). That is relative rent pressure inside the dataset, not a dollar rent. Barcelona is the highest of this comparison. The "expensive rent" con is the whole story of the month. The dataset does not publish a barrio-by-barrio rent. Anyone who quotes you a street price as if it were this row is using a different source.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the published **$130** median is **$3,900** in lodging before food. That is already above the entire **$2,500** solo month, and it is almost double the **$2,000** longer stay. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the menu del dia looks. The $2,000 and $2,500 figures assume a monthly place.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter.
+
+| Choice | Stays near $2,000 to $2,500 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in Poblenou, Esquerra de l'Eixample, Gracia (off the plaza), or Sant Antoni | Thirty nights at the $130 median, or a beachfront Barceloneta flat as the default |
+| Food | Menu del dia, markets, and groceries on workdays | Born tasting menus and "just one more" terrace dinner as the meal plan |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping on La Rambla, plus a desk you do not use |
+| Transport | Walking plus metro | A ride-hail across Eixample twice a day |
+| Calendar | **May, Jun, Sep, or Oct**, one neighborhood | July or August in Barceloneta or the Gothic Quarter, then acting surprised by the rate |
+
+Annual average temperature on the row is **16°C**. That is a coarse yearly figure, not a forecast. It does not tell you August will be empty or March will be a beach month.
+
+### The rental market, without invented street prices
+
+A long stay and a tourist let are different products. The **$2,000** band assumes a monthly place you can actually sign, not thirty nights of a holiday apartment. Barcelona regulates tourist-use housing. A listing that looks like a home and behaves like a hotel is not a workaround this guide will help you build. Read the city rules on the Ajuntament site before you treat a short let as a residence.
+
+Practical checks, in order:
+
+- See the flat before you send a deposit. A video tour plus a rush transfer is how people lose the month
+- Ask which sum is the legal housing deposit and which is an extra guarantee the landlord wants on top. Get both amounts in the contract
+- Ask whether the contract is a residential lease or a temporary stay, and what happens at the end of month one
+- Confirm who you are paying, and that the name matches the person who can let the flat
+- Run the speed test in the bedroom, and stand in that room after 10pm if the street has bars
+
+This guide does not quote a deposit in euros. The amount is a contract question, and it moves.
+
+### Reality checks
+
+- The **$2,500** number is a city baseline, not a Barceloneta lifestyle quote.
+- Imported groceries, specialty coffee, and Born dinners are how people blow a city that already is not cheap. The dataset cannot see your receipt.
+- A cheaper room on a plaza in Gracia, or above a bar in the Born, is not cheaper if you cannot sleep or take a call.
+- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+
+### Booking placeholders
+
+No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Barcelona destination page](/destinations/barcelona), not in this article.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 4 to 6 week mid-term landing stay in Poblenou, Gracia, or Eixample while you search for a lease |
+| Flights | Flights into BCN only after the month survives the season section |
+| Insurance | Health cover that can meet Spain's insurer rule if you apply for the telework visa, plus travel cover for a Schengen stay |
+
+## Neighborhoods that work: Poblenou, Gracia, Eixample, Sant Antoni, Barceloneta, and El Born
+
+Barcelona is large enough that the wrong pin wastes the month. There are no separate Nomad Spin destination pages for these areas. The canonical numbers live on [Barcelona](/destinations/barcelona). The trade-offs below are how people actually use the city. The Gothic Quarter and La Rambla are the postcard defaults. They are usually the wrong work address.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Poblenou | A work month near Bogatell, with the 22@ district and a shot at the longer-stay logic | Gothic texture, and any coworking room you have not confirmed is open |
+| Gracia | A village grid, plazas, food, a social week | Flat streets, and quiet if your windows face the plaza |
+| Esquerra de l'Eixample | Metro, a residential grid, a month that is not the beachfront | The sea at the end of the street |
+| Sant Antoni | The market, a central week that is less of a set than the Born | The beach, and the idea that "central" means cheap |
+| Barceloneta / El Born | A short scenic stay | Sleep, a work month, and the $2,000 band |
+
+### Poblenou
+
+Poblenou sits on the L4 metro, east of the old center, between the old factory blocks and the beach. Bogatell and Mar Bella are the swim. Rambla del Poblenou is the walk. The 22@ blocks are offices, new buildings, and construction, which is the trade for living near the water without sleeping on the sand.
+
+**Trade-off:** this is not a secret discount. \`rentIndex\` **60** is the city. Poblenou is where people look when Barceloneta and the Born have already failed the budget, not a code that turns **$2,500** into **$1,500**. Some streets are still warehouses. Some new buildings are fine for fiber and bad for a shop on the corner. Ask.
+
+Pick Poblenou if you will use the beach on workday mornings and you will test the internet in the room. Skip it if you came for stone alleys and you will resent the walk to the Gothic Quarter every evening. You can go there for a Saturday. You do not have to sleep there.
+
+**Housing tell:** confirm fiber in the unit, not "the building has internet." A speed test in the room beats a listing adjective. OneCoWork's own site has listed a Poblenou room as opening in October 2026. Treat that as unconfirmed until you can book a desk. Do not plan the month around a room that is still a launch page.
+
+### Gracia
+
+Gracia is the village that the city absorbed: a tight grid, plazas, bakeries, and a night life that is local rather than cruise-ship. Fontana (L3) and Joanic (L4) are the usual metro edges. If you arrive alone and want a neighborhood that feels like a town by day three, this is the one.
+
+**Trade-off:** the plazas are the product and the problem. Plaça del Sol and the streets around it get loud. Noise pollution is a listed city con, and a bedroom over that square is where you meet it. Ask which way the windows face, and stand there on a Thursday night before you pay. The streets are also not flat. A "five minute walk to the metro" can be a hill with a laptop.
+
+Pick Gracia if you will use the plazas and you can sleep off them. Skip it if your calls are at the hour the bars get going and the listing is on the square.
+
+### Esquerra de l'Eixample
+
+The Eixample is the grid. Esquerra, the side toward Sant Antoni and Urgell rather than the Sagrada Familia blocks, is the residential version: metro, shops, wider streets, and a normal week. It is the sensible answer when you want to work and you do not need to see the sea from the desk.
+
+**Trade-off:** you are not at the beach. You are also not in a village. The grid can feel anonymous for the first week, which is fine if the point is calls and a lease. The blocks nearest a monument or a famous avenue behave like a tourist street. Sleep two or three blocks off that pin.
+
+Pick Esquerra if the month is about a quiet room and the metro. Skip it if the only reason you chose Barcelona over Madrid was the sand. Madrid matches this row on coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** at **$2,200**. The beach is the thing you would be paying the extra **$300** for.
+
+### Sant Antoni
+
+Sant Antoni is the market neighborhood on the L2, between the Eixample grid and the older streets toward the Raval. The market is the practical reason to live here: groceries, a Sunday feel, and enough cafes that week one is not barren. It is central without being La Rambla.
+
+**Trade-off:** central is not cheap, and the streets closer to the Raval change character fast. Walk the block at night. You are still inside \`rentIndex\` **60**. You are choosing a more usable center, not a workaround for the cons.
+
+Best for a month if you want the market and the metro and you will not pretend the beach is downstairs.
+
+### Barceloneta and El Born, and why they are usually the wrong month
+
+**Barceloneta** is the beach neighborhood: the sand, the small flats, the promenade, and, in summer, the crowd the dataset is warning you about. Pickpocketing is a listed con, and the beach and the metro stop are where that habit pays. It is a beautiful weekend and a frustrating address for calls. Stay a few nights if the swim is the point of the trip. Do not sign a month because the photo had a balcony.
+
+**El Born** is the pretty one: stone, restaurants, and a night economy. It is a good dinner and a bad default home. Tourist crowds and noise are both on the row. A room above a bar will lose to a booked desk every time you have a call. You can eat here from Poblenou or Sant Antoni. You do not have to sleep here.
+
+**The Gothic Quarter and La Rambla** are the same mistake in a narrower street. Errands look easy on a map. The street is a parade. Call quality in a holiday apartment on a stair is a gamble against a city average of **300 Mbps**. Use them as a walk. Do not use them as the month.
+
+## Internet, power, and coworking
+
+The city average is **300 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**. That is a yes for video calls. It is the fastest headline speed in this Europe set (Valencia **170**, Madrid **200**, Lisbon **200**, Budapest **200**). Reliability **9** and power **9** tie those peers. You are paying for speed and for the beach, not for a more reliable plug than Lisbon.
+
+It is a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Barcelona's power score is **9**. You do not need a personal inverter strategy to have a work week here. Keep a charged laptop for cafes.
+
+The 9/10 is still an average. A fibered flat in Esquerra and a holiday let in the Gothic Quarter are not the same connection. Test the room. The failure mode that actually shows up is noise, not the megabit figure.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Movistar, Orange, Vodafone, and Digi are the ordinary apartment providers. Ask which one is already in the unit, and run a speed test from the desk at the hour you take calls. "Wi-Fi included" in a short let is not that test.
+2. **A local SIM with real data.** The same networks sell prepaid and eSIM plans in the city and at the airport. If a call would hurt you to drop, keep a second SIM. Learn the hotspot before the day you need it.
+3. **One coworking room you have already used for a call.** Not a Rambla cafe you liked for the walk.
+
+### Coworking that is actually listed
+
+Coworking density **High** means you have options. It does not mean every brand you remember is still at the old address, or that a launch page is a desk.
+
+**MOB (Makers of Barcelona)** publishes rooms in Eixample (Bailen), El Born, and Sants, with day passes and longer desk plans on its own site. Hours and prices on that site do not all match each other. Believe the operator's page the week you go, not a number copied into a guide.
+
+Treat a Poblenou desk as something you have booked, not something a 2024 roundup promised. A trial morning beats a list.
+
+### Cafes
+
+Gracia, Sant Antoni, and the Eixample will let you open a laptop in a lot of rooms. That is not the same as a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. A tiled room with the door open onto a scooter street will lose to a booked booth every time.
+
+La Rambla is a walk. It is not an office. The beach is not a backup connection.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, not a screenshot from the lobby
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which way the windows face, if the street has bars or a plaza
+- A named fallback (a MOB room you have confirmed, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
+
+Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Barcelona](/destinations/barcelona). That is Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Telework visa | Spanish consulate abroad | Up to 1 year |
+| Telework residence authorization | UGE-CE, filed in Spain | Up to 3 years, renew 2 years |
+
+You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, Spain-authorized health insurance, and income of at least **200%** of the monthly SMI. Official pages state that rule, not a euro amount. Family add-ons there are **75%** of SMI, then **25%** each. Check the figure and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), and [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa).
+
+Short visits for many passports are Schengen **90 days in any 180**. The NIE is the identity number. The TIE is the residence card. [Barcelona's padrón page](https://ajuntament.barcelona.cat/novaciutadania/es/empadronamiento) registers where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria. This is not tax advice. When this page and the consulate disagree, the consulate wins.
+
+## Best months: May, Jun, Sep, Oct, and the rainy and crowd months
+
+The weather fields are short, and they are enough to avoid the expensive mistake.
+
+| Window | What the Barcelona row says | Practical read |
+|---|---|---|
+| May, Jun, Sep, Oct | \`bestMonths\` | The work season. Milder than August, and still short of the worst crowds |
+| Nov, Mar | \`rainyMonths\` | The wet months to plan around. Not a monsoon. A reason to read the forecast |
+| Jul, Aug | Not listed as best, and not listed as rainy | Heat and peak tourist crowds. Housing behaves like a resort |
+| Year-round | \`tempAvgC\` **16** | A coarse yearly average. Not a claim that March is a swim month |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. People still book July because a photo was sunny. Sunny is not the same as easy when Barceloneta, the Gothic Quarter, and the beaches are full and the nightly rate has left the **$130** median behind. June is still a best month on the row, and it can already feel busy. July and August are the months the dataset does not call best.
+
+### Rain
+
+November and March are the rainy months on the row. They are not next to each other. A November stay can be a good work month if you like a quieter city and you did not come only for the beach. A March stay is the same idea: fine for calls, less honest as a swim trip. Do not "extend a perfect October" into a non-refundable winter let without reading \`rainyMonths\`.
+
+Valencia's row is different. October is both a best month and a rainy month there, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
+
+### Summer crowds
+
+Tourist crowds are a listed con. July and August are the peak: the beach as a queue, menus in four languages, and housing that is priced like a holiday. Book the neighborhood on purpose. Barceloneta in August is the mistake. If you only have those months, look at the peer table before you pay a peak rate for the most expensive city in the set.
+
+### Booking placeholders
+
+Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows. The modules sit on the [Barcelona destination page](/destinations/barcelona).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside May, Jun, Sep, or Oct, or a rainy-month stay you chose on purpose |
+| Flights | Flights into BCN around that window, not a one-way into a crowd month you have not priced |
+| Insurance | Cover you understand before you are standing in a clinic |
+
+## Daily life: beach, food, languages, metro, pickpockets, and noise
+
+### Beach
+
+"Beach + city combo" is a listed pro, and it is the reason to pick this row over Madrid. The work-week version is a morning swim at Bogatell or Mar Bella, then a desk. The holiday version is Barceloneta in August, which is the crowd con. If the sand was the whole point and the **$2,500** bill is not, Valencia is the cheaper Spanish beach. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean and a different internet score.
+
+### Food
+
+"Great food & wine" is a listed pro. Lunch is still the meal that can fit the band: a menu del dia, the market, groceries. Dinner starts late. Planning to eat at 7pm every night is how you end up in the restaurants that exist for people who just landed. Boqueria, on La Rambla, is a visit, not the weekly shop. Sant Antoni market and the grocery store on your own street are the weekly shop.
+
+Wine and a terrace are also how the **$2,500** month leaks. Do the market version on workdays.
+
+### Catalan and Spanish
+
+The dataset language is **Spanish**. Catalan is co-official, and a lot of public life is in Catalan first: signs, the city website, some leases, some shops. People switch. English at **7** covers a coworking front desk. It does not cover every counter. A little Spanish, or a little Catalan, matters more for a lease than for a menu. Showing up annoyed that the town hall is not in English is the bureaucracy con, experienced on a Tuesday.
+
+### Metro
+
+"Excellent transit" is a listed pro, and it is the logistical advantage over a scooter city. Metro and bus cover a normal week. L4 is the practical line for Poblenou and Barceloneta. L3 reaches Gracia (Fontana). L2 reaches Sant Antoni. The monthly transit pass is the product for a stay. Occasional tickets are the product for a weekend.
+
+Ride-hail exists for the late night and the suitcase. It is not how you cross town twice a day if you wanted the **$2,000** band.
+
+### Pickpockets
+
+Pickpocketing is a listed con. Safety **7.5** is the lowest of Valencia (**8**), Madrid (**8**), Lisbon (**8.8**), and Budapest (**8.3**). Female safety is **7**. The practical version, without a crime essay: bag in front on La Rambla, on the metro, on the beach, and in Gothic Quarter crowds. Phone off the cafe table. Laptop in your hand, not on the chair. This is still a city you can walk home through after dinner. It is not a city where you leave a bag under the table because the lunch was pleasant.
+
+### Noise
+
+Noise pollution is a dataset con, even when a short pros-and-cons widget only shows rent, pickpockets, and crowds. Scooters, plaza bars, and a bedroom on a busy street are the work problem that **300 Mbps** does not fix. Ask. If the answer is vague, assume the room faces the noise.
+
+### A winter elsewhere
+
+If the plan is to leave Europe for the cold months, [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter-city contrast: about **$850** solo, best months **Nov-Feb**, no beach, and a burning-season con. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide in this set, at about **$1,400** solo, with safety **5.5** and power stability **4**. Different products. The budget section above is still the Barcelona decision.
+
+## If $2,500 does not fit: Barcelona vs Valencia, Madrid, Lisbon, and Budapest
+
+Choose with the rows, not with tiles. Figures below are the live dataset fields. Barcelona wins this set on speed and on the beach-plus-city pro. It loses on price and on safety. Say both, then pick.
+
+| Field | Barcelona | Valencia | Madrid | Lisbon | Budapest |
+|---|---|---|---|---|---|
+| Solo month | $2,500 | $1,900 | $2,200 | $2,200 | $1,500 |
+| Longer stay | $2,000 | $1,425 | $1,650 | $1,800 | $1,100 |
+| Airbnb night | $130 | $86 | $100 | $120 | $70 |
+| Internet | 300 Mbps, reliability 9 | 170 Mbps, reliability 9 | 200 Mbps, reliability 9 | 200 Mbps, reliability 9 | 200 Mbps, reliability 9 |
+| Power | 9 | 9 | 9 | 9 | 9 |
+| Coworking | High | Med | High | High | High |
+| Safety | 7.5 (female 7) | 8 (female 7) | 8 (female 7) | 8.8 (female 8) | 8.3 (female 7) |
+| Nightlife | 9 | 7 | 9 | 8 | 9 |
+| \`lgbtFriendly\` | 9 | 7 | 9 | 9 | 5 |
+| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Best months | May, Jun, Sep, Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
+| Hard part on the row | Rent, pickpockets, crowds | Hot summers, flooding risk | Expensive, very hot summers | Rising rents, summer crowds, bureaucracy | Cold winters, language |
+
+The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+
+**Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
+
+**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October overlap and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
+
+**Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Open [Madrid](/destinations/madrid) if the sand was optional.
+
+**Look at Lisbon** when you want another coastal workhub and a higher safety score. **$2,200** solo, **$1,800** longer stay, **$120** a night, **200 Mbps**, safety **8.8**, community **9**. The [Lisbon living guide](/guides/living-in-lisbon) treats the beach as a train, not a sand path. You save **$300** on the solo field and you give up the **300 Mbps** and the swim downstairs. That is the honest trade.
+
+**Look at Porto** when you want that same **200 Mbps** Portugal internet for less than Lisbon. Solo **$1,800** is **$700** under Barcelona. Longer stay **$1,400**. Safety is **9.0**. Coworking is **Med**. Best months are **May-Sep**. Neighborhoods and the wet winter are in [Living in Porto](/guides/living-in-porto).
+
+**Look at Budapest** when the bill is the whole objection and you still want European internet. **$1,500** solo is **$1,000** less. Longer stay **$1,100**, Airbnb **$70**, **200 Mbps**, reliability **9**, safety **8.3**, nightlife **9**. There is no beach. \`tempAvgC\` is **11**. Rainy months are **Nov** and **Dec**. \`lgbtFriendly\` is **5**, against Barcelona's **9**. [Budapest](/destinations/budapest) is the dataset's answer when Barcelona's price fails and a colder city is acceptable. Districts and the White Card are in [Living in Budapest](/guides/living-in-budapest).
+
+If the objection is "I needed the beach outside my door and a third of the bill," none of these Europe peers become that. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the winter escape at about **$850**, with no beach. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide, at about **$1,400**, with safety **5.5** and power **4**. [Living in Buenos Aires](/guides/living-in-buenos-aires) is the **$900** city, with **70 Mbps**, reliability **6**, and a **90-day** exemption field.
+
+## First-week checklist and how to compare Barcelona on Nomad Spin
+
+### Common mistakes
+
+- Treating the **365-day** field as a stamp you already have
+- Paying the **$130** nightly median for thirty nights and calling the month **$2,500**
+- Booking Barceloneta, the Born, or a Gothic view apartment for the month, then discovering the noise and the tourists
+- Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
+- Arriving in July or August because a weather app said sunny, and ignoring the tourist-crowds con
+- Using cafe Wi-Fi on La Rambla for the client call you cannot drop
+- Comparing Barcelona only with photos, and never opening Valencia, Madrid, Lisbon, or Budapest
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- One coworking trial, including a real call, in a room you have confirmed is open
+- Walk the neighborhood at night, and walk it once with groceries
+
+**Days 3-4**
+
+- See more than one monthly place. Run the speed test in the room. Stand in the bedroom after 10pm
+- If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
+- If you are on the telework visa, write down the TIE window and the padrón documents. Do not discover them in week three
+
+**Days 5-7**
+
+- Commit to one neighborhood for four to six weeks, not to "Barcelona" in the abstract
+- Fix the work loop: home deep work, coworking on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above, not before the flight is emotional. Book them from the [Barcelona destination page](/destinations/barcelona).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test and the noise test, in Poblenou, Gracia, or Eixample |
+| Flights | The onward or return date your visa or stamp actually supports, into or out of BCN |
+| Insurance | Health cover that matches the telework rule if you are applying, and travel cover you have read |
+
+### How to compare Barcelona on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Barcelona should win only when your floors are honest. The budget filter matters most here.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$2,500**, or a plan to live inside **$2,000**. If your ceiling is under **$2,000**, Barcelona is already out, and the spin should be allowed to say so. The cheaper peers in this set are [Budapest](/destinations/budapest) at **$1,500** and [Valencia](/destinations/valencia) at **$1,900**.
+2. Set an internet floor the **300 Mbps** and reliability **9** can clear, and a safety floor **7.5** can clear. Then look at who else survives. Often that is [Madrid](/destinations/madrid) or [Lisbon](/destinations/lisbon) at **$2,200**, not a cheaper version of Barceloneta.
+3. Open [Barcelona](/destinations/barcelona) and read \`bestMonths\`, \`rainyMonths\`, and the tourist-crowds con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Lisbon is still in the pile, open [Living in Lisbon](/guides/living-in-lisbon) and compare **$2,200** and safety **8.8** against **$2,500** and **7.5**, not the word "coast." If the beach has to be cheaper, open [Valencia](/destinations/valencia). If the beach is optional, open [Madrid](/destinations/madrid).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Barcelona should win when you want the beach and the city, the calls matter, and the month is a shoulder season you can afford. It should lose when you are under the budget, you will not do the paperwork, or you wanted the photos without the rent.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $2,500, $2,000, $130, 300 Mbps, 9/10, and 7.5 figures are Nomad Spin's Barcelona row. The telework and Schengen notes are orientation. When they disagree with the consulate or with UGE, the official source wins.*
+`,
+  },
+  {
     id: "living-in-budapest",
     slug: "living-in-budapest",
     title: "The Ultimate Guide to Living in Budapest",
@@ -1238,7 +1614,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if $1,500 is the number that failed. Tbilisi is the value comparison. It is not a district of Budapest.
 
-**Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. There is no Barcelona living guide on this site yet. Use the destination page. Do not make it the reason you are reading this one.
+**Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one.
 
 ## First-week checklist and how to compare Budapest on Nomad Spin
 
@@ -3033,7 +3409,7 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields,
 
 **Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field is also a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
-**Look at Barcelona** when you want another coastal workhub and you will pay more, not less. [Barcelona](/destinations/barcelona) is **$2,500** solo, **$2,000** longer stay, **$130** a night, with **300 Mbps**. Safety is **7.5**. Best months overlap Lisbon's shoulders (May, Jun, Sep, Oct). It is the upgrade, or the sideways move, not the discount.
+**Look at Barcelona** when you want another coastal workhub and you will pay more, not less. [Barcelona](/destinations/barcelona) is **$2,500** solo, **$2,000** longer stay, **$130** a night, with **300 Mbps**. Safety is **7.5**. Best months overlap Lisbon's shoulders (May, Jun, Sep, Oct). It is the upgrade, or the sideways move, not the discount. Neighborhoods, the rent strategy, and Spain's telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
 **Look at Cape Town** when you want mountains and ocean at **$1,400** solo and you will take safety **5.5** and power stability **4** seriously. That is a different product. Read [Living in Cape Town](/guides/living-in-cape-town) before you treat "coastal city" as one category. The visa field there is an exemption, **90 days**, not a 365-day nomad visa.
 
@@ -3089,7 +3465,7 @@ Nomad Spin scores **780+ cities**. Lisbon should win only when your floors are h
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$2,200**, or a plan to live inside **$1,800**. If your ceiling is $1,400, Lisbon is already out, and the spin should be allowed to say so.
 2. Set an internet floor the **200 Mbps** and reliability **9** can clear, and a safety floor **8.8** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) or [Budapest](/destinations/budapest), not a cheaper version of Principe Real.
 3. Open [Lisbon](/destinations/lisbon) and read \`bestMonths\`, \`rainyMonths\`, and the tourist-crowds con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
-4. If Barcelona is still in the pile, open [Barcelona](/destinations/barcelona) and compare **$2,500** and safety **7.5** against Lisbon's **$2,200** and **8.8**, not the beaches. If Cape Town or Bali is still in the pile, open [Cape Town](/destinations/cape-town), [Bali](/destinations/bali), and their living guides, and compare power and reliability, not the word "coast."
+4. If Barcelona is still in the pile, open [Barcelona](/destinations/barcelona) and [Living in Barcelona](/guides/living-in-barcelona) and compare **$2,500** and safety **7.5** against Lisbon's **$2,200** and **8.8**, not the beaches. If Cape Town or Bali is still in the pile, open [Cape Town](/destinations/cape-town), [Bali](/destinations/bali), and their living guides, and compare power and reliability, not the word "coast."
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
 [Spin the globe](/) with those floors. Lisbon should win when you want a European workhub, the calls matter, and the month is a shoulder season you can afford. It should lose when you are under the budget, you will not do the paperwork, or you wanted a beach apartment and a starter-city bill.
@@ -3824,6 +4200,377 @@ Still no partner IDs. These slots are last, after the week above, not before the
 `,
   },
   {
+    id: "living-in-porto",
+    slug: "living-in-porto",
+    title: "The Ultimate Guide to Living in Porto",
+    seoTitle: "Living in Porto 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Porto for remote workers in 2026: real monthly costs, Cedofeita vs Bonfim, D8 visa notes, 200 Mbps internet, top safety, and rainy-winter trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "31 min read",
+    relatedDestinations: ["porto","lisbon","barcelona","madrid","valencia"],
+    content: `## Is living in Porto worth it for digital nomads in 2026?
+
+Living in Porto as a digital nomad is a rational Portugal base in 2026 if you want Lisbon-grade internet, a higher safety score, and a lower solo month, and you do not need a large scene. The short answers come from the [Porto](/destinations/porto) row, not from a cafe thread:
+
+- **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
+- **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
+- **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
+- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. Portugal's D8 residency visa is 4 months and leads to a 2-year residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Verify on MNE and AIMA pages.
+- **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
+
+The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
+
+Worth it, with conditions. You are choosing a compact river city with call-ready internet and the dataset's strongest safety number in this peer set, at a solo month that is cheaper than Lisbon and still not a starter-city budget. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Portugal on the Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+### How much does it cost to live in Porto as a digital nomad?
+
+Nomad Spin lists about **$1,800** a month solo and about **$1,400** a month long-term, with a median Airbnb around **$85** a night. That is about **$400** a month below Lisbon's **$2,200** solo figure. Cedofeita and Bonfim are the usual work bases. Foz and the riverfront Ribeira cost more.
+
+### Is Porto internet good enough for video calls?
+
+Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and power **9/10**, with Medium coworking density, so fewer rooms than Lisbon. Test the apartment connection, and check heating and damp, before you book a winter stay.
+
+### What visa do digital nomads use in Porto?
+
+Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a **2-year** residence permit, renewable for 3. Same national rules as Lisbon. Thresholds and fees change; verify on MNE and AIMA pages.
+
+### Who should skip living in Porto?
+
+Skip it if you want big nightlife, a large nomad scene, or dry winters. Nomad Spin flags rainy winters, hilly terrain, and a smaller city than Lisbon as trade-offs. Community on the row is **6**, against Lisbon's **9**. If scene size is the product, Lisbon may suit you better despite the higher cost.
+
+### What are the best months to live in Porto?
+
+Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, Jan, and Feb**. Average temperature in the dataset is **15°C**. Winters are mild but wet, so a warm, dry apartment matters more than the pin on the map.
+
+## Who Porto is for (and who should skip it)
+
+Porto fits people who want a European work city with serious safety numbers, food and a river, and a bill that is lower than Lisbon's without dropping to a cheap-Asia budget. It is a poor fit if the month only works when the scene is large or the winter is dry.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,800**) or will actually live inside the longer-stay figure (**$1,400**)
+- Need calls to work. **200 Mbps** and reliability **9/10** are the point of picking this city, and they match Lisbon's internet fields
+- Want safety **9.0** and female safety **9** as a hard filter, not a nice-to-have
+- Are fine with community **6**, nightlife **6**, and coworking **Med**
+- Care about LGBTQ+ comfort. \`lgbtFriendly\` on this row is **8**
+- Can put the serious months in **May-Sep**, or you have a real plan for a wet **Nov-Feb** and a heated apartment
+- Can work **UTC+0** (the row's field). Mainland Portugal moves clocks forward in summer, so civil time is an hour ahead of that field from roughly late March to late October. UK overlap stays close all year. US East Coast calls land in the Porto afternoon and evening
+
+**Skip it, or pick another city, if you:**
+
+- Need nightlife as the product. Nightlife on this row is **6**. Lisbon's is **8**. Barcelona's is **9**
+- Need a large nomad scene. Community **6** will not become Lisbon's **9** because the river is pretty
+- Want a dry winter. Rainy winters are a listed con. Nov-Feb is the rainy array
+- Cannot clear **$1,400** even on a monthly lease with local food. The **$85** nightly median will not save you
+- Need the **$1,400** figure while living in Foz and eating every meal on the Ribeira
+- Need a walk-out-the-door beach town. The landscape tag is **urban**. Foz and Matosinhos are the Atlantic edge, a ride from the center, not the product the row is scoring
+
+Female safety on the row is **9**. That is the strongest female-safety figure in this peer set. It is not a promise about a specific alley at 2am. English proficiency is **7**: Cedofeita cafes and coworking front desks work in English. Leases, many shops, and immigration appointments still run in Portuguese.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another viewpoint list. Lisbon's own case, including why someone pays the extra **$400**, lives in the [Lisbon living guide](/guides/living-in-lisbon). Open that when scene size is the question. Stay on this page when Porto is the question.
+
+## Real monthly cost bands: solo $1,800, long-term $1,400, Airbnb $85 a night
+
+Nomad Spin does not publish a fake "comfortable" total for Porto. It publishes three money fields. Those are the bands.
+
+| Band | Figure | Field on the Porto row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,400 / month | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $1,800 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $85 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget |
+
+\`rentIndex\` is **42** (Lisbon **55**, Barcelona **60**). That is relative rent pressure inside the dataset, not a dollar rent. Porto is the cheaper Portugal row. It is still a Western European city. "Affordable for Europe" is a listed pro next to those two higher indexes, not a claim that the month is cheap in absolute terms.
+
+The gap versus Lisbon is the same **$400** on both monthly fields: **$1,800** against **$2,200** solo, and **$1,400** against Lisbon's **$1,800** longer stay. Use that gap as the price of Lisbon's larger scene, not as a coupon you can stack on top of a Foz apartment.
+
+### The nightly median will quietly beat the monthly baseline
+
+Thirty nights at the published **$85** median is **$2,550** in lodging before food. That is already above the entire **$1,800** solo month, and it is well above the **$1,400** longer stay. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the coffee is. The $1,400 and $1,800 figures assume a monthly place.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter.
+
+| Choice | Stays near $1,400 to $1,800 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in Bonfim, a simpler Cedofeita flat, or a Boavista place you will actually use | Thirty nights at the $85 median, or a Foz apartment as the default |
+| Food | Tascas, markets, and groceries on workdays | Ribeira dinners and "just one more" port flight as the meal plan |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping, plus a desk you do not use |
+| Transport | Walking inside one neighborhood, plus metro and the Andante card | Ride-hailing up the hills twice a day |
+| Calendar | **May-Sep**, one neighborhood | A non-refundable winter let with no heating, then acting surprised |
+
+Annual average temperature on the row is **15°C**. That is a coarse yearly figure, not a forecast. It does not tell you February will be a terrace month.
+
+### Reality checks
+
+- The **$1,800** number is a city baseline, not a Foz or Ribeira lifestyle quote.
+- Imported groceries, specialty coffee, and riverfront dinners are how people blow a city that is only cheaper than Lisbon on the row. The dataset cannot see your receipt.
+- A cheaper room with street noise, a tram outside the window, or a damp north wall is not cheaper if you cannot work or sleep.
+- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+
+## Neighborhoods that work: Cedofeita, Bonfim, Baixa, Boavista, Foz and Matosinhos
+
+Porto is hilly, small enough to cross, and different enough by neighborhood that the wrong pin wastes the month. There are no separate Nomad Spin destination pages for these areas. The canonical numbers live on [Porto](/destinations/porto). The trade-offs below are how people actually use the city. Ribeira is the postcard. It is usually the wrong work address.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Cedofeita | Cafes, a central pin, week-one orientation | Quiet nights, the bottom of the $1,400 band |
+| Bonfim | A longer stay, more residential streets, still central | The feeling of being in the old core |
+| Baixa and Ribeira | Errands, São Bento, the river, a first walk | Sleep, easy calls, a local week |
+| Boavista | Wider streets, metro, a business-residential grid | The river walk outside your door |
+| Foz and Matosinhos | Atlantic air, a quieter evening | Walking to the center, the monthly baseline |
+
+### Cedofeita
+
+Cedofeita is the default "I want the city and a desk" base. It sits uphill from Aliados, with galleries, cafes, and the kind of street where a laptop does not look lost. CRU Creative Hub publishes a coworking room on Rua do Rosário 211, inside this area. If you arrive alone and want a walkable week, this is the easiest parish to start in.
+
+**Trade-off:** you are still in the center. Some streets are lively past the hour you wanted quiet. Hills are not optional. A pretty tiled building with a shared router will not hold the **200 Mbps** average until you test the room.
+
+Pick Cedofeita if you will use the cafes and you will test the internet. Skip it if you already know you want a residential month and you came to write.
+
+### Bonfim
+
+Bonfim sits east of the old center. It is more residential, still close, and the parish long-stayers keep recommending once the postcard week is over. Bon Coworking publishes a room on Rua Joaquim António de Aguiar 150 and says it opened in October 2025, with a call booth and day access on its own site. That is a reason Bonfim can be a work neighborhood, not only a cheaper-looking pin.
+
+**Trade-off:** you will not step out into the density of Cedofeita's cafe streets. Campanhã, on the rail edge, is not "central Bonfim" just because it shares a side of the map. Ask which street, and whether the walk home is up a stair street after dark.
+
+Best for a second month, or for a first month if you already know you do not need the Cedofeita scene to feel oriented.
+
+### Baixa and Ribeira
+
+Baixa is the downtown grid around Aliados, Clérigos, and São Bento. It is the practical first-week map: station, banks, the flatter streets, the metro. Ribeira is the riverfront at the bottom of that hill. "Beautiful riverfront" is a listed pro, and Ribeira is where that pro is most obvious. It is also where tourist crowds, the extra dataset con, concentrate, along with the pickpocket spots people actually mean: the Ribeira quay, São Bento, and crowded historic trams.
+
+**Trade-off:** a view apartment over the quay is a holiday. It is a bad default for calls, for sleep, and for the **$1,400** band. Do the river on purpose. Sleep up the hill unless you have tested the noise at the hour you work.
+
+### Boavista
+
+Boavista is the Casa da Música side: wider avenues, more offices and apartments, metro access, less granite-alley romance. Parts of it are easier to walk than Cedofeita's stair streets. It is a serious work base if your week is the apartment, a gym, and the metro, and the old town is a trip you take rather than the place you sleep.
+
+**Trade-off:** you give up the "I live in the postcard" feeling, and you will ride back when you want the river or a Cedofeita dinner. That is a fair trade if the avenue is quiet and the fiber is real.
+
+### Foz and Matosinhos
+
+Foz do Douro is Porto's Atlantic parish. Matosinhos is the next municipality west, with the beach and the metro toward Senhor de Matosinhos. Both are where people go when they want ocean air and a calmer evening. They are also where the monthly baseline goes to die if you treat them as the default address.
+
+The old Porto i/o farewell note points Matosinhos readers to Seaside Cowork. Confirm it is open the week you go. Do not plan the month around a 2022 roundup.
+
+**Trade-off:** you are no longer in the compact center. A beach afternoon is a feature. A commute up and down the coast twice a day is how a cheaper Portugal row stops being cheaper. The dataset landscape is **urban**, not a beach tag. If the sand is the product, this is the wrong row. Read [Living in Bali](/guides/living-in-bali) for that product, and read its internet caveats before you compare photos.
+
+### Booking placeholders
+
+No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Porto destination page](/destinations/porto), not in this article.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2 to 4 week landing stay in Cedofeita or Bonfim while you view longer leases. For Nov-Feb, ask about heating and damp before you pay |
+| Flights | Flights into OPO (Francisco Sá Carneiro) aimed at May-Sep, or a winter arrival you chose on purpose |
+| Insurance | Health cover that meets the D8 requirements you verified, plus travel cover for a Schengen stay |
+
+## Internet, power, and coworking
+
+The city average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **Med**. That is a yes for video calls. It is the same speed and reliability class as Lisbon, and a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Porto's power score is **9**. You do not need a personal inverter strategy to have a work week here. Keep a charged laptop for cafes.
+
+The 9/10 is still an average. A fibered Bonfim flat and a guesthouse router in Ribeira are not the same connection. **Med** coworking is the other half of the honesty: you have rooms, and you have fewer of them than Lisbon's **High**.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** MEO, NOS, and Vodafone are the ordinary apartment providers. Ask which one is already in the unit, and run a speed test from the desk at the hour you take calls. "Wi-Fi included" in a short let is not that test.
+2. **A local SIM with real data.** The same three networks sell prepaid and eSIM plans in the city and at the airport. If a call would hurt you to drop, keep a second SIM. Learn the hotspot before the day you need it.
+3. **One coworking room you have already used for a call.** Not a Ribeira cafe you liked for the view.
+
+### Coworking that is actually listed
+
+Hours, day-pass rules, and which brand still has a door change. Believe the operator's page the week you go.
+
+- **CRU Creative Hub** publishes a room at Rua do Rosário 211. Its own page lists weekday hours 9:30 to 19:30 and Saturday 10:00 to 19:30, a call cabin, and no day pass. The flexible product it publishes is a 10-day pack, not a walk-in morning. Book a visit.
+- **Bon Coworking** publishes a Bonfim room at Rua Joaquim António de Aguiar 150, and says it opened in October 2025. The site lists day access, a call booth, and 24/7 entry only for some memberships. Check which product you are actually buying.
+- **Porto i/o** is the name older lists still lead with. Its own farewell on porto.io says the Downtown building keys were handed over and that it was ending as a physical space. That note points people to CRU, Typographia, Marechal 1551, and, in Matosinhos, Seaside Cowork. Do not walk to a Porto i/o address from an old blog.
+
+Treat any other famous name as closed or moved until you see it operating this month. A trial morning beats a 2022 roundup. **Med** density means the backup room is a plan you make on day one, not a block you assume is downstairs.
+
+### Cafes
+
+Cedofeita will let you open a laptop in more than one room. That is not the same as a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. Lunch rush, a tiled room with no door, and a speaker pointed at your head will lose to a booked booth every time.
+
+Ribeira is a viewpoint. It is not an office.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, not a screenshot from the lobby
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which way the windows face, and whether the street has bars or a tram
+- Heating that works, and a look for damp or mold, if the lease touches Nov-Feb
+- A named fallback (CRU, Bon, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
+
+**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas. A temporary-stay visa covers stays under one year with multiple entries. The residency visa (often called the D8) is valid for 4 months and is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods (Lei 23/2007, art. 75). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+
+Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Temporary-stay visa (remote work) | Portuguese consulate | Under 1 year, multiple entries |
+| Residency visa (D8), then residence permit | Consulate, then AIMA | Visa 4 months; permit 2 years, renew 3 years |
+
+## Best months (May-Sep) vs rainy, damp winters (Nov-Feb)
+
+The weather fields are short, and they are enough to avoid the expensive mistake.
+
+| Window | What the Porto row says | Practical read |
+|---|---|---|
+| May, Jun, Jul, Aug, Sep | \`bestMonths\` | The work season. Mild, long light, terraces that match the photos |
+| Nov, Dec, Jan, Feb | \`rainyMonths\`, and the "rainy winters" con | Atlantic rain, short days, damp apartments. Fine if you chose it |
+| Mar, Apr, Oct | Not listed as best, and not listed as rainy | Shoulders. Possible, not the dataset's friendliest claim |
+| Year-round | \`tempAvgC\` **15** | Mild versus northern Europe. Not a claim that February is dry |
+
+Lisbon lists the same rainy months, **Nov-Feb**, and a different best window (**Apr-Jun, Sep-Oct**). Porto's own case is that **Jul** and **Aug** are inside the best array here. The winter problem to plan for is not a surprise millimeter comparison. It is the listed con: rainy winters, plus hills, plus housing that was not built for someone who sits indoors all day. A warm, dry apartment matters more than which parish wins a blog poll.
+
+### What the rainy season does to a work month
+
+November through February is wet and gray, not a tropical monsoon and not a reason to cancel a fibered, heated apartment. Outdoor lunches shrink. Granite streets stay slick. Some older buildings hold damp. If you came only for terraces and a dry walk to dinner, you will be unhappy. If you came to work, this window can be honest and quieter, which is often when the **$1,400** band is easier to recognize.
+
+Before a winter lease, ask five things and look at them yourself: how the place is heated, whether heat is included, whether the windows seal, whether you can see mold or a tide line on an exterior wall, and whether anyone has a dehumidifier that is not a decoration. A north-facing ground-floor room in an old building is the version of "cheap" that taxes the month. Do not take a screenshot of blue sky in a listing as evidence.
+
+### Using the best months, and leaving on purpose
+
+May through September is the row's answer. Book the landing stay inside that window unless you have already decided the winter is what you want. July and August are best months here and still tourist months on the river. Ribeira will be crowded. That is the "tourist crowds" con in the dataset, which the short trade-off list on the page does not lead with. It is real on the quay. It is not a reason to avoid Bonfim in August.
+
+If Nov-Feb is when you are free and you do not want a wet European winter, leave on purpose. [Living in Chiang Mai](/guides/living-in-chiang-mai) puts its best months on **Nov, Dec, Jan, Feb**, which is this city's rainy list, with burning season as its own con in Mar-Apr. [Living in Cape Town](/guides/living-in-cape-town) is the southern-hemisphere summer escape in that same window, and it asks you to take safety and power seriously. Those are different products. They are the calendar move when Porto's winter is the problem and you are not staying to work through it.
+
+### Booking placeholders
+
+Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows. Use the modules on [Porto](/destinations/porto).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside May-Sep, or a rainy-season stay whose heating you have checked |
+| Flights | In and out of OPO around that window |
+| Insurance | Cover you understand before you need a clinic |
+
+## Daily life: food, the river, hills, metro, and a smaller community
+
+### Food and port
+
+"Port wine culture" is a listed pro, and it is a real part of the week: a glass, a cave visit across the river in Vila Nova de Gaia, a meal that is better than the square it sits near. It is also how the **$1,800** month leaks if every dinner is a flight of port on the quay. The market and tasca version is how you eat inside the band. Do that on workdays. Do the Gaia cellars once, on purpose, then go back to the bakery on your own street.
+
+Francesinha is the local plate people will tell you to eat. Eat it once. It is not a lunch strategy for a call day.
+
+### The riverfront
+
+The river is the city's front room. Walk the Ribeira, cross the Dom Luís I bridge, look back. Then decide where you sleep using the neighborhood section, not the photograph. A beautiful riverfront and a good work address can be a twenty-minute walk apart. That walk is uphill.
+
+### Hills, metro, and Andante
+
+"Hilly terrain" is a listed con, and it is the daily tax. Cedofeita to the river is a descent you will feel on the way back. The metro is how you stop paying that tax twice a day.
+
+Metro do Porto's Line E (violet) runs between Trindade and the airport. The operator's line status lists that airport link as its own service. Other lines in the center pick up Campanhã, Bolhão, São Bento, Aliados, Casa da Música, and the run out toward Matosinhos. Andante is the card that covers metro, STCP buses, and the urban trains in the Andante network. Validate before you ride. Fares and zone maps change. Check [Metro do Porto](https://www.metrodoporto.pt/) and [Andante](https://andante.pt/) for the current title instead of a number copied from a blog.
+
+Ride-hailing exists for the suitcase and the late hill. It is not the way you cross town twice a day if you wanted the **$1,400** band.
+
+### Portuguese, safety, and the size of the scene
+
+English at **7** covers a coworking desk and a lot of cafes. It does not cover every landlord or every counter. A little Portuguese, or a patient friend, matters more for a lease than for a menu.
+
+Safety **9.0** and female safety **9** are why a lot of people pick this row over louder European cities. The practical risks in the tourist core are ordinary: pickpockets around Ribeira, São Bento, and crowded trams, plus normal nightlife sense where the bars are. Watch the bag. Do not leave a laptop on a cafe chair. This is not a city that asks you to build a security plan to walk home from dinner in Cedofeita. It is still a city.
+
+Community **6** and nightlife **6** are the social facts. "Limited nightlife" is a dataset con the short trade-off list does not lead with, and it matches the nightlife score. You can meet people if you go back to the same room: a CRU visit, a Bon desk, the same cafe three days running. You can also spend a month in Ribeira and only meet people who are leaving on Friday. The growing tech scene is a listed pro. **Med** coworking is the limit on how automatically you find the room. A smaller scene is the trade for the **$400** and for safety **9.0**. It is not a defect you fix by wishing.
+
+## Porto vs Lisbon, Barcelona, Madrid, and Valencia
+
+One decision rule, then the rows. Lisbon is the peer to open beside this page. It is not the subject of this guide.
+
+**Choose Porto** when you want the same **200 Mbps** as Lisbon, safety **9.0** instead of **8.8**, and a solo month about **$400** lower, and you can live with a smaller scene and a wet winter. **Choose Lisbon** when community size is what you are paying for. That case is the [Lisbon living guide](/guides/living-in-lisbon) and the [Lisbon](/destinations/lisbon) row. Do not expect Porto to hand you Lisbon's community **9** or coworking **High** at Porto's price.
+
+Figures below are the live dataset fields. The visa column is the dataset label on every one of these rows. It is not the residence-permit length. Portugal's permit lengths are in the visa section above.
+
+| City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
+|---|---:|---:|---:|---|---|
+| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
+| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May, Jun, Sep, Oct |
+| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+
+**Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
+
+**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
+
+**Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona).
+
+**Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. It is a Spain comparison, not a reason to turn this page into a Madrid guide.
+
+**Valencia** when you want the closest solo number under Lisbon, at **$1,900**, with **170 Mbps** and safety **8.0**. [Valencia](/destinations/valencia) is cheaper than Barcelona and still **$100** above Porto's solo month, with less internet than Porto's **200 Mbps**. Best months match Madrid's shoulders, with one catch: October is also a rainy month there. That overlap is in [Living in Valencia](/guides/living-in-valencia).
+
+Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, verify on official Spanish pages. This guide does not restate that statute.
+
+If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
+
+## First-week checklist and how to compare Porto on Nomad Spin
+
+### Common mistakes
+
+- Treating the **365-day** field as a stamp you already have, or as the 2-year permit
+- Paying the **$85** nightly median for thirty nights and calling the month **$1,800**
+- Booking a Ribeira view for the month, then discovering the hill, the noise, and the crowds
+- Choosing Foz, then acting surprised that the long-stay **$1,400** figure did not survive the address
+- Using cafe Wi-Fi on the quay for the client call you cannot drop
+- Signing a Nov-Feb lease without asking about heat, damp, and mold
+- Walking to a Porto i/o address because a 2024 list still leads with it
+- Assuming the D8 income floor is a euro number you saw in a screenshot
+- Reading Porto as a smaller Lisbon and never deciding whether you needed community **9**
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- Andante card, and one airport-to-Trindade ride on Line E so the metro is not a theory
+- One coworking trial you have confirmed is open (CRU or Bon), including a real call
+- Walk the neighborhood at night, and walk it once with groceries, so you know the hill
+
+**Days 3-4**
+
+- See more than one monthly place. Run the speed test in the room
+- If the dates touch Nov-Feb, check heating, windows, and any sign of damp before you like the tile
+- If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
+- If you are on a D8 residence visa, write down the AIMA date and which office. Do not discover it in week three
+
+**Days 5-7**
+
+- Commit to one neighborhood for two to four weeks, not to "Porto" in the abstract
+- Fix the work loop: home deep work, coworking on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above, not before the flight is emotional. Buy them from the [Porto destination page](/destinations/porto).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the damp test |
+| Flights | The onward or return date your visa or stamp actually supports, into or out of OPO |
+| Insurance | Travel medical cover you have read, plus the health cover your consulate list actually asks for |
+
+### How to compare Porto on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Porto should win only when your floors are honest.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside **$1,400**. If your ceiling is under **$1,400**, Porto is already out.
+2. Set an internet floor the **200 Mbps** and reliability **9** can clear, and a safety floor **9.0** can clear. Then look at who else survives.
+3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon). If you want the same **200 Mbps** for less and can take safety **8.3**, open [Budapest](/destinations/budapest) and the [Budapest living guide](/guides/living-in-budapest) (**$1,500** solo).
+4. Open \`bestMonths\` and \`rainyMonths\` against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If you are trying to escape Nov-Feb, open [Chiang Mai](/guides/living-in-chiang-mai) or [Cape Town](/guides/living-in-cape-town) instead of arguing with the rain.
+5. If Barcelona, Madrid, or Valencia is still in the pile, open [Barcelona](/destinations/barcelona), [Madrid](/destinations/madrid), and [Valencia](/destinations/valencia) and use the table above. Do not promote a city that costs more and scores lower on safety unless the beach or the scene is the actual requirement.
+6. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Porto should win when you want call-ready internet, a high safety score, and a Portugal month you can hold near **$1,800**, and you have already accepted a smaller scene and a wet winter. It should lose when you needed Lisbon's community, a dry winter, or a beach apartment.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,800, $1,400, $85, 200 Mbps, 9/10, and 9.0 figures are Nomad Spin's Porto row. The D8 and Schengen notes are orientation. When they disagree with the consulate or with AIMA, the official source wins.*
+`,
+  },
+  {
     id: "living-in-prague",
     slug: "living-in-prague",
     title: "The Ultimate Guide to Living in Prague",
@@ -4146,11 +4893,11 @@ The comparison that matters is the one in the opening: the same safety score as 
 
 **Look at [Lisbon](/destinations/lisbon)** when you want the same **8.8** safety and the same **200 Mbps**, and you will pay **$2,200** for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. The longer stay is **$1,800**. The nightly median is **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat "digital nomad visa" as the same paperwork as Prague's Freelance Visa field. The question is whether community size and the coast are worth about **$500** a month to you. Rising rents are Lisbon's version of Prague's rising prices.
 
-**Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says 365 days. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). There is no Barcelona living guide on this site yet. Use the destination page. Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
+**Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says 365 days. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). Neighborhoods, rent, and that path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
 
-**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep-Oct**. October is also on Valencia's rainy-month list, and flooding risk is one of that row's cons. There is no Valencia living guide on this site yet. Use the destination page, and do not treat a beach month as a copy of this visa section.
+**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep-Oct**. October is also on Valencia's rainy-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
 
-**Look at [Porto](/destinations/porto)** only as a coast check, not as a second topic. Solo **$1,800**, **200 Mbps**, safety **9.0**, coworking **Med**. There is no Porto living guide on this site yet. If the question is "Lisbon's pipes without Lisbon's bill," Prague and Budapest are the comparisons this page is built for. Porto is a different country and a different visa.
+**Look at [Porto](/destinations/porto)** only as a coast check, not as a second topic. Solo **$1,800**, **200 Mbps**, safety **9.0**, coworking **Med**. The district choice and the wet-winter trade-off are in [Living in Porto](/guides/living-in-porto). If the question is "Lisbon's pipes without Lisbon's bill," Prague and Budapest are the comparisons this page is built for. Porto is a different country and a different visa.
 
 If the European bill is still too high, [Living in Chiang Mai](/guides/living-in-chiang-mai) and [Living in Bali](/guides/living-in-bali) are the other full guides in the set for a lower solo number. They are not districts of Prague. Different pipes, different visas, different months.
 
@@ -4587,6 +5334,349 @@ Still no partner IDs. These slots are last, after the week above, not before the
 `,
   },
   {
+    id: "living-in-valencia",
+    slug: "living-in-valencia",
+    title: "The Ultimate Guide to Living in Valencia",
+    seoTitle: "Living in Valencia 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Valencia for remote workers in 2026: real monthly costs, Ruzafa vs Cabanyal, Spain nomad visa notes, 170 Mbps internet, and flooding trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "29 min read",
+    relatedDestinations: ["valencia","barcelona","madrid","lisbon","porto"],
+    content: `## Is living in Valencia worth it for digital nomads in 2026?
+
+The case for living in Valencia as a digital nomad is a calendar decision before it is a cheaper-Barcelona decision. On the [Valencia](/destinations/valencia) row, October is both a best month and a rainy month, and flooding risk is a listed con. The short answers come from that row, not from a paella photo.
+
+**How much does it cost to live in Valencia as a digital nomad?** Nomad Spin lists about **$1,900** a month for a solo nomad and about **$1,425** a month long-term, with a median Airbnb around **$86** a night. Ruzafa and beach-side Cabanyal cost more than Benimaclet. Coworking, eating out often, and a central flat push you above the baseline.
+
+**Is Valencia internet good enough for video calls?** Yes for most remote roles. Nomad Spin shows about **170 Mbps** on average, reliability **9/10**, power **9/10**, and Medium coworking density. Test upload speed in the actual unit before signing, and keep a mobile data backup for storm days in Oct-Nov.
+
+**What visa do digital nomads use in Valencia?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+
+**Who should skip living in Valencia?** Skip it if you need Barcelona-scale nightlife, hate heat, or cannot plan around flooding risk. Nomad Spin flags hot summers and flooding risk as trade-offs. If Jul-Aug heat or Oct-Nov storms disrupt your work, pick another base for those months.
+
+**What are the best months to live in Valencia?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Oct and Nov**. Average temperature in the dataset is **18°C**. Spring and early autumn are the sweet spot. Summers run hot.
+
+Read the month lists twice. October is on both. That overlap, plus the flooding-risk con, is the reason this page exists. The **$600** gap versus [Barcelona](/destinations/barcelona) (**$2,500** solo, **300 Mbps**, coworking **High**) is supporting evidence. It is not a reason to book a ground-floor flat in late October and call the month settled.
+
+Worth it, with conditions. You are choosing a seaside Spanish city tagged **beach**, **foodie**, and **workhub**, at **$1,900**, with call-ready internet and safety **8** (female safety **7**). You are also taking hot summers and a flood calendar the other Spain rows in this comparison do not share. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Valencia is for (and who should skip it)
+
+Valencia fits people who want a beach and a real city in the same week, at a bill under Barcelona, and who will plan the year around heat and autumn water. It is a poor fit if the month only works when the scene is huge, the summer is mild, or October is "just another best month."
+
+The row's landscape is **seaside**. Region is **Europe**. Language on the row is **Spanish**. Valencian is co-official, and you will see it on signs, the city site, and some leases. Time zone on the row is **UTC+1**.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,900**) or will actually live inside the longer-stay figure (**$1,425**)
+- Need calls to work. **170 Mbps**, reliability **9/10**, and power **9/10** are enough for most remote roles. Coworking is **Med**, not **High**
+- Want a beach city that the row itself calls less touristy, with paella as a listed pro, and you will still do the Tuesday version (market, metro, a desk)
+- Can put arrivals in **Apr-Jun** or **September**, and will treat **Oct-Nov** as a forecast-and-flood check rather than an automatic yes
+- Can work **UTC+1** (the row's field). Mainland Spain moves clocks forward in summer, so civil time is **UTC+2** from roughly late March to late October. UK calls stay about an hour off. US East Coast calls land in the Valencia afternoon and evening
+- Are fine with nightlife **7**, community **5**, English **5**, and \`lgbtFriendly\` **7**
+
+**Skip it, or pick another row, if you:**
+
+- Need Barcelona-scale nightlife or a large nomad scene. Nightlife here is **7**. Community is **5**. Barcelona's nightlife is **9** and its community is **8**. [Living in Barcelona](/guides/living-in-barcelona) is that product, at **$2,500**
+- Hate heat. Hot summers are a listed con. July and August are not best months
+- Cannot plan around flooding risk. That con is on the row. October 2024 showed what a DANA can do in this province. The month section below is the practical version, not a scare paragraph
+- Cannot clear **$1,425** even on a monthly lease with local food. The **$86** nightly median will not save you
+- Need the **$1,425** figure while living on the Cabanyal beachfront and eating out every night
+- Want Lisbon's scene and safety. [Lisbon](/destinations/lisbon) is **$2,200** solo, safety **8.8**, community **9**. Read [Living in Lisbon](/guides/living-in-lisbon)
+
+Female safety on the row is **7**. That matches Barcelona and Madrid in this set. Lisbon is **8**. A **7** is not a promise about a specific street at 2am. English at **5** means a coworking front desk may work in English. A lease, the padrón desk, and a lot of shops still run in Spanish or Valencian.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another viewpoint list.
+
+## Real monthly cost bands (solo $1,900, long-term $1,425, Airbnb $86/night)
+
+Nomad Spin does not publish a fake "comfortable" total for Valencia. It publishes three money fields. Those are the bands. If **$1,900** does not fit, stop here and use the peer table later. Do not talk yourself into the city with a lunch menu.
+
+| Band | Figure | Field on the Valencia row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,425 / month | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $1,900 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $86 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget |
+
+\`rentIndex\` is **38** (Barcelona **60**, Madrid **44**, Lisbon **55**, Porto **42**). That is relative rent pressure inside the dataset, not a dollar rent. Valencia is the cheaper Spain beach row next to Barcelona. It is still a Western European city. "Less touristy" is a listed pro. It is not a claim that the month is cheap in absolute terms.
+
+The solo gap versus Barcelona is **$600** (**$1,900** against **$2,500**). The longer-stay gap is **$575** (**$1,425** against Barcelona's **$2,000**). Use the solo gap as the price of Barcelona's **300 Mbps**, coworking **High**, and bigger scene. Do not stack it on top of a beachfront Cabanyal flat and a restaurant every night.
+
+### The nightly median will quietly beat the monthly baseline
+
+Thirty nights at the published **$86** median is **$2,580** in lodging before food. That is already above the entire **$1,900** solo month, and it is well above the **$1,425** longer stay. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the menu del dia looks. The $1,425 and $1,900 figures assume a monthly place.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter.
+
+| Choice | Stays near $1,425 to $1,900 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in Benimaclet, a simpler Ruzafa flat, or a Cabanyal place you will actually use | Thirty nights at the $86 median, or a beachfront flat as the default |
+| Food | Menu del dia, markets, and groceries on workdays | A tasting-menu version of "paella" as the meal plan |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping, plus a desk you do not use |
+| Transport | Walking, Valenbisi, metro, and the tram | Ride-hail across town twice a day |
+| Calendar | **Apr-Jun** or **September**, one neighborhood, flood exposure checked | A non-refundable October let on the ground floor, then acting surprised |
+
+Annual average temperature on the row is **18°C**. That is a coarse yearly figure, not a forecast. It does not tell you August will be mild or that October will be dry.
+
+### Reality checks
+
+- The **$1,900** number is a city baseline, not a Cabanyal or Ruzafa-Saturday lifestyle quote.
+- The dataset does not publish a barrio-by-barrio rent. Anyone who quotes you a street price in euros as if it were this row is using a different source.
+- Imported groceries, specialty coffee, and dinner out every night are how people blow a city that is only cheaper than Barcelona on the row.
+- A cheaper room on a plaza in El Carmen, or a ground-floor unit in a low-lying block, is not cheaper if you cannot sleep, take a call, or stay dry.
+- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+
+## Neighborhoods that work: Ruzafa, El Carmen, Cabanyal, and Benimaclet
+
+Valencia is flat enough to bike, small enough to cross, and different enough by neighborhood that the wrong pin wastes the month. The dataset does not price these streets. The trade-offs below are about work, noise, the beach, and flood exposure. Check a flood map before you treat any of them as "safe."
+
+### Ruzafa
+
+Ruzafa (the Metrovalencia station is listed as Russafa) is the usual first landing for remote workers: cafes, food, and a grid you can learn in a weekend. It is central without being the old-town maze. [Wayco](https://wayco.es/en/) lists a room here, which is useful in week one while you test calls.
+
+**Trade-off:** this is where the evening economy lives. A room on a bar street will lose to a booked desk every time you have a morning call. It is also not the beach. You ride or take the tram to the sand. You are still inside \`rentIndex\` **38**. A popular neighborhood is not a discount code.
+
+Best for a month if you want food and a walkable work base, and you will check the floor and the street noise before you sign.
+
+### El Carmen
+
+El Carmen is the old town, inside Ciutat Vella: narrow streets, bars, and the part of the city that looks like the postcard. It is a good dinner and a bad default home if your job is calls.
+
+**Trade-off:** tourist foot traffic and night noise. Less touristy is a city-level pro on the row. It is not a promise about this neighborhood on a Saturday. A holiday apartment above a bar is how people miss the **$1,900** band and still cannot work. Walk it. Do not sleep there unless the room faces a quiet courtyard and you have stood in it after 10pm.
+
+Best for a few nights. Usually the wrong month.
+
+### Cabanyal
+
+Cabanyal is the beach neighborhood in the maritime district: the sand, the grid of tiled houses, and a [Wayco room](https://wayco.es/en/) near the port. This is the address if the reason you picked Valencia over Madrid was the sea.
+
+**Trade-off:** beach-side costs more than a residential inland neighborhood, and the coast is not automatically the dry choice. The October 2024 floods were not "it rained on the pretty street." [AEMET's report](https://www.aemet.es/documentos/es/conocermas/recursos_en_linea/publicaciones_y_estudios/estudios/informe_episodio_dana_29_oct_2024_.pdf) describes torrential rain inland and pre-coastal, then rivers and ramblas overflowing into low ground nearer the sea, including places that did not take the heaviest rain. A Cabanyal flat can be a great April. A ground-floor unit on low ground is a question for the flood map, not for the listing photo. Ask which floor, and look up the block on the regional flood plan before you send a deposit.
+
+Best for a month if the beach is the point and the unit is not a ground floor in a mapped risk zone.
+
+### Benimaclet
+
+Benimaclet is the more local option: a former village north of the center, with its own metro stop, groceries, and fewer people who arrived for the weekend. This is where the longer-stay **$1,425** figure is more honest, if you will actually live like a resident.
+
+**Trade-off:** community **5** will feel even smaller here. You are not in the Ruzafa cafe circuit. The beach is a ride, not downstairs. That is the point. You came for a work month, not for a scene that the row does not score as large.
+
+Best for a monthly lease if you want quiet and you have already done a week in Ruzafa or Cabanyal so you know the city.
+
+### What "less touristy" does not mean
+
+The pro is real next to Barcelona's tourist-crowds con. It does not mean El Carmen in August is empty, and it does not mean a neighborhood name is a flood certificate. Pick the block, the floor, and the month. Then pick the barrio.
+
+## Internet, power, and coworking for video-call work
+
+The city average is **170 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **Med**. That is a yes for video calls for most remote roles. It is not Barcelona's **300 Mbps** or Lisbon's and Porto's **200 Mbps**. Reliability **9** and power **9** tie those peers. You are not paying for the fastest headline in the set. You are paying less, and keeping a plug that does not ask for a personal inverter.
+
+It is a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Valencia's power score is **9**. You do not need a battery strategy to have a normal week. You do need a backup on storm days. Oct-Nov is when that backup stops being theoretical.
+
+The 9/10 is still an average. A fibered flat in Benimaclet and a holiday Wi-Fi router in El Carmen are not the same connection. Test the room.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Movistar, Orange, Vodafone, and Digi are the ordinary national providers. Ask which one is already in the unit, and whether the bill is included or a contract you take over. Run a speed test from the desk, including upload, at the hour you take calls. "Wi-Fi included" in a short let is not that test.
+2. **A local SIM or eSIM with real data.** The same networks sell prepaid and eSIM plans in the city and at the airport. If a call would hurt you to drop, keep a second line. Learn the hotspot before an Oct-Nov storm day.
+3. **One coworking room you have already used for a call.** Not a plaza cafe you liked for the walk.
+
+### Coworking that is actually listed
+
+Coworking density **Med** means you have rooms, and fewer of them than Barcelona's **High**. It does not mean every brand a 2024 roundup named is still at the old address.
+
+**Wayco** publishes rooms in Ruzafa, Cabanyal, Abastos, and Pizarro on its own site, with hours listed by location. Day passes and monthly desks live on that site, and they move. Believe the operator the week you go, not a number copied into a guide. A trial morning beats a list.
+
+### Cafes
+
+Ruzafa will let you open a laptop in a lot of rooms. That is not the same as a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. A tiled room with the door open onto a scooter street will lose to a booked booth every time.
+
+The beach is not a backup connection.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, not a screenshot from the lobby
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which floor, and what the flood map says about the block
+- Which way the windows face, if the street has bars
+- A named fallback (a Wayco room you have confirmed, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
+
+Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Valencia](/destinations/valencia). That matches Spain's consular telework visa, which is valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, Spain's teleworker residence authorization can be granted for up to 3 years and renewed in 2-year periods (Ley 14/2013, art. 74 quinquies). The row's visa note says the same thing: 1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies). Do not read the **365** as a stamp you already have, and do not read it as "enter as a tourist and convert."
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Telework visa | Spanish consulate abroad | Up to 1 year |
+| Telework residence authorization | UGE-CE, filed in Spain | Up to 3 years, renew 2 years |
+
+You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, health insurance with an insurer authorized in Spain, and income of at least **200%** of the monthly SMI. Official pages state that share of the minimum wage, not a euro amount for this guide to copy. Family add-ons on those pages are **75%** of SMI for the first family member and **25%** for each additional member. Check the current euro amount and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), and [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa).
+
+Same national rules as Barcelona. The neighborhood and the flood calendar change. The statute does not. Read [Living in Barcelona](/guides/living-in-barcelona) if you want the same path next to the expensive beach. Short visits for many passports fall under Schengen **90 days in any 180**, which is a different thing. The NIE is the identity number. The TIE is the residence card. The padrón is how the Ajuntament records where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and UGE or the consulate disagree, the official source wins.
+
+Anyone filtering the globe on visa days will see **365**. That field is the initial consular visa. It is not the 3-year residence authorization.
+
+## Best months and the October problem: rain, DANA and flood-aware housing
+
+The weather fields are short, and the overlap is the whole decision.
+
+| Window | What the Valencia row says | Practical read |
+|---|---|---|
+| Apr, May, Jun, Sep | \`bestMonths\`, and not in \`rainyMonths\` | The arrival window. Book these if you want the row's friendliest months without the rain flag |
+| Oct | On both \`bestMonths\` and \`rainyMonths\` | The problem month. Mild on a good year, and the month a DANA does not ask your permission |
+| Nov | \`rainyMonths\` only | Plan around it. Not a best month on this row |
+| Jul, Aug | Not listed as best, and not listed as rainy | Hot summers, the other listed con. Leave, or accept the heat on purpose |
+| Year-round | \`tempAvgC\` **18** | A coarse yearly average. Not a claim that August is a work month |
+
+Among the Spain rows, Valencia is the one that puts October on both lists. Barcelona's rainy months are **Nov** and **Mar**. Madrid's are **Nov** and **Dec**. Their October can still be a best month without this flag. Do not copy a Barcelona October plan onto this city. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+
+### What to do with October
+
+Arrive in **April, May, June, or September** if you want the dataset's friendly window without arguing with the rain array. If your dates have to touch **October or November**, treat them as "check forecasts and flood advisories," not as a shoulder season you already won.
+
+On **29 October 2024** a DANA brought extraordinary rainfall to the province of Valencia. AEMET's report calls it an extraordinary episode, with historic totals inland, rivers and ramblas overflowing into low-lying areas nearer the coast, and the loss of more than 200 lives, most of them in the Valencian Community. Read the [AEMET informe](https://www.aemet.es/documentos/es/conocermas/recursos_en_linea/publicaciones_y_estudios/estudios/informe_episodio_dana_29_oct_2024_.pdf) if you want the meteorology. This guide will not turn that into a ranking of which barrio "felt fine." People died. The useful lesson for a remote worker is narrower: flood exposure is about low ground and watercourses, not about whether your street looked dry in a September photo.
+
+### Flood-aware housing
+
+Before you send a deposit, especially for an Oct-Nov stay:
+
+- Prefer an upper floor. Avoid a ground-level unit on low ground or beside a rambla or barranco
+- Look the block up on the regional flood plan, [PATRICOVA](https://mediambient.gva.es/es/web/planificacion-territorial-e-infraestructura-verde/patricova-docs), instead of trusting a neighborhood nickname
+- In Oct-Nov, check [AEMET](https://www.aemet.es) warnings before you treat a storm day as a cafe day. Keep the mobile backup from the internet section
+- Do not sign a non-refundable October month because September was perfect
+
+A neighborhood name is not a flood certificate. Ruzafa, El Carmen, Cabanyal, and Benimaclet can each hide a bad ground floor and a sensible third floor. Verify with the map and with the landlord, in that order.
+
+### Hot summers
+
+Hot summers are the other con. July and August are not best months. The **18°C** average will not save a top-floor flat with a west window. If those are your only free months, compare [Porto](/destinations/porto), whose best months include high summer, or leave Spain for that stretch. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the winter contrast (best months **Nov-Feb**, about **$850** solo), not a summer escape from Valencia heat. Its hard months are a different calendar.
+
+### Booking placeholders
+
+No partner IDs live in this guide. Buy the slots from the [Valencia destination page](/destinations/valencia), and only after the month is one the table above allows.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2-4 week landing stay in Ruzafa or Cabanyal while you tour monthly leases, inside Apr-Jun or September, or an Oct-Nov stay you chose after the flood check |
+| Flights | Flights into VLC for that window, not a one-way into late October you have not checked against AEMET |
+| Insurance | Health cover that meets the telework rule if you are applying (Spain-authorized insurer, not a casual travel policy), and travel cover you have read |
+
+## Daily life: bikes and metro, paella and markets, Spanish basics, beach and city rhythm
+
+### Bikes and the old riverbed
+
+The old Turia riverbed is a long park, and it is the reason a bike is a commute here rather than a photo. [Valenbisi](https://www.valenbisi.es/) is the public bike share. Use it for the center. Do not assume a dock is outside your door until you have opened the map. The city is flat next to Porto's hills. That is a real daily-life difference. It does not make a 40-minute ride with a laptop pleasant in August.
+
+### Metro, tram, and the airport
+
+Metrovalencia runs metro and tram. Its station list includes **Russafa**, **Cabanyal**, and **Benimaclet**. EMT runs the city buses. The SUMA card is the integrated ticket Metrovalencia describes for metro, EMT, and Metrobus. Check the current line and fare on [Metrovalencia](https://www.metrovalencia.es/es/consulta-estaciones/) before you pick a flat for the commute. A listing that says "near the metro" can mean a tram stop you have not stood at with groceries.
+
+Valencia Airport (VLC) is on the metro. [Aena](https://www.aena.es/en/valencia/arriving/underground.html) says lines **3** and **5** leave from the ground floor of the regional terminal. There is also a metro bus. Check the timetable the week you land. Do not budget the **$1,425** month around a taxi each way.
+
+### Paella and markets
+
+Paella is a listed pro, and the edible version is lunch: a rice dish you order for the table, not a beach photo at 9pm. The Mercado Central and the market in your own neighborhood are the weekly shop. Ruzafa's restaurants are how the **$1,900** month leaks if they become the default. Do the menu del dia and the market on workdays. Save the long lunch for when you meant to stop working.
+
+### Spanish basics
+
+The dataset language is **Spanish**. English proficiency on the row is **5**, below Barcelona's **7**. Valencian shows up on signs and public sites. People switch. A little Spanish matters more for a lease and the padrón than for a menu. Showing up annoyed that the town hall is not in English is how a simple errand becomes the week.
+
+### Beach and city
+
+The work-week version is a morning swim, then a desk. Metrovalencia's station list includes Platja Malva-rosa and Platja les Arenes, which is the practical hint: the sand is on the network, not a resort you fly to. The holiday version is Cabanyal in August, which is the heat con plus whatever crowd "less touristy" did not cancel. If the sand was the whole point and you need a bigger scene, you are describing Barcelona and you should read that guide before you pretend Valencia will grow nightlife **9**. If you wanted a sand path and a starter-city bill, [Living in Bali](/guides/living-in-bali) is a different ocean, about **$1,200** solo, with reliability **5**.
+
+Safety **8** is higher than Barcelona's **7.5**. The practical version, without a crime essay: bag in front in El Carmen and on a crowded beach, phone off the cafe table, laptop in your hand. This is a city you can walk home through after dinner. It is still a city.
+
+## Valencia vs Barcelona, Madrid, Lisbon, and Porto
+
+Choose with the rows. Valencia's headline is the October problem. The price gap is what you check after the calendar survives.
+
+| City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
+|---|---:|---:|---:|---|---|
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May-Jun, Sep-Oct |
+| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
+
+The visa column is the dataset label on every one of these rows. It is not the residence-permit length. Spain's path is in the visa section above: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon and Porto use Portugal's D8. That permit is 2 years from issue. Read [Living in Lisbon](/guides/living-in-lisbon) and [Living in Porto](/guides/living-in-porto). Do not paste Spain's statute onto Portugal.
+
+**Stay with Valencia** when you want a Spanish beach under Barcelona's bill, **170 Mbps** is enough, and you will plan around October and the heat. Solo **$1,900**, longer stay **$1,425**, Airbnb **$86**, coworking **Med**, safety **8**, community **5**.
+
+**Look at Barcelona** when you want the faster headline (**300 Mbps**), coworking **High**, nightlife **9**, and you will pay **$2,500** with safety **7.5**. Best months are May, Jun, Sep, Oct, and October there is not also a rainy month. Neighborhoods and the rent are in [Living in Barcelona](/guides/living-in-barcelona). The **$600** is the price of that scene and that speed. Flooding risk is not the con on that row. Rent, pickpockets, and crowds are.
+
+**Look at Madrid** when the beach was optional. **$2,200** solo is **$300** more than Valencia, with **200 Mbps**, coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** against Valencia's **7**. Safety is **8**, the same headline. Very hot summers are Madrid's con. Open [Madrid](/destinations/madrid). There is no Madrid living guide on this site yet.
+
+**Look at Lisbon** when you want another coastal workhub and a higher safety score. **$2,200** solo, **200 Mbps**, safety **8.8**, community **9**, coworking **High**. You pay **$300** more than Valencia and you get the larger scene. October is a best month there and not a rainy month (rainy months run **Nov-Feb**). The beach is a train, not a sand path. That case is the [Lisbon living guide](/guides/living-in-lisbon).
+
+**Look at Porto** when you want **200 Mbps** and safety **9.0** for **$100** less than Valencia (**$1,800** solo, **$1,400** longer stay). Coworking is also **Med**. Best months are **May-Sep**, so high summer is inside the friendly window, and the wet stretch is **Nov-Feb**, not an October that the row also calls a best month. There is no Valencia-style beach-in-the-city product. The river, the hills, and the smaller scene are in [Living in Porto](/guides/living-in-porto).
+
+If the objection is "I needed the beach and a third of this bill," none of these Europe peers become that. [Living in Chiang Mai](/guides/living-in-chiang-mai) is about **$850**, with no beach and a burning-season con. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide, at about **$1,400**, with safety **5.5** and power **4**. Different products.
+
+## First-week checklist and how to compare Valencia on Nomad Spin
+
+### Common mistakes
+
+- Treating the **365-day** field as a stamp you already have, or as the 3-year residence authorization
+- Paying the **$86** nightly median for thirty nights and calling the month **$1,900**
+- Booking a ground-floor October let because October is on \`bestMonths\`, and never opening \`rainyMonths\` or PATRICOVA
+- Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
+- Arriving in July or August because a weather app showed sun, and ignoring the hot-summers con
+- Using cafe Wi-Fi in El Carmen for the client call you cannot drop
+- Picking Cabanyal for the photo, then acting surprised the beach is not the **$1,425** band
+- Comparing Valencia only with Barcelona's price, and never deciding whether you can live with October
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- One metro ride from VLC on line 3 or 5, so the airport link is not a theory
+- One coworking trial you have confirmed is open, including a real call
+- Walk the neighborhood at night, and walk it once with groceries
+
+**Days 3-4**
+
+- See more than one monthly place. Run the speed test in the room, upload included
+- Ask the floor. If the dates touch Oct-Nov, check the block on PATRICOVA before you like the tile
+- If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
+- If you are on the telework visa, write down the TIE window and the padrón documents. Do not discover them in week three
+
+**Days 5-7**
+
+- Commit to one neighborhood for four to six weeks, not to "Valencia" in the abstract
+- Fix the work loop: home deep work, coworking on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above, not before the flight is emotional. Book them from the [Valencia destination page](/destinations/valencia).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the floor test |
+| Flights | The onward or return date your visa or stamp actually supports, into or out of VLC, aimed at Apr-Jun or September unless you have already done the October check |
+| Insurance | Health cover that matches the telework rule if you are applying, and travel cover you have read |
+
+### How to compare Valencia on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Valencia should win only when your floors are honest, and when your dates survive the October overlap.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,900**, or a plan to live inside **$1,425**. If your ceiling is under **$1,425**, Valencia is already out.
+2. Set an internet floor the **170 Mbps** and reliability **9** can clear, and a safety floor **8** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at **$1,800** and **200 Mbps**, or [Madrid](/destinations/madrid) if you do not need the beach.
+3. Open [Valencia](/destinations/valencia) and read \`bestMonths\` and \`rainyMonths\` on the same screen. If October is in your dates, it is on both lists. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Barcelona is still in the pile, open [Living in Barcelona](/guides/living-in-barcelona) and compare **$2,500**, **300 Mbps**, and safety **7.5** against **$1,900**, **170 Mbps**, and safety **8**. Pay the **$600** only if the scene and the speed are the actual requirement. If the beach can be a river instead, open [Living in Porto](/guides/living-in-porto). If the beach can be a train, open [Living in Lisbon](/guides/living-in-lisbon).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Valencia should win when you want the beach and the city, the calls clear **170 Mbps**, the month is Apr-Jun or September, and you have already decided what to do if the dates slip into October. It should lose when you needed Barcelona's scene, you will not check a flood map, or you wanted the **$1,900** figure on a ground-floor beach let in late October.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,900, $1,425, $86, 170 Mbps, 9/10, and 8 figures are Nomad Spin's Valencia row. The telework, Schengen, and DANA notes are orientation. When they disagree with the consulate, with UGE, or with AEMET, the official source wins.*
+`,
+  },
+  {
     id: "where-to-go-next-by-season",
     slug: "where-to-go-next-by-season",
     title: "Where to Go Next by Season: A Digital Nomad Calendar",
@@ -4594,15 +5684,15 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Pick a travel window first: use Nomad Spin weather months plus cost, internet, and safety to shortlist bases by season, then spin and open destination pages.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "11 min read",
-    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split"],
+    readTime: "12 min read",
+    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia"],
     content: `## Stop picking a city first. Pick a season window
 
 Undecided nomads often start with a city name. That is backwards. The same place can be a dream in November and a productivity tax in March, burning haze in [Chiang Mai](/destinations/chiang-mai), peak tourist rents in [Lisbon](/destinations/lisbon), typhoon weeks in [Da Nang](/destinations/da-nang), or load-shedding plus winter rain in [Cape Town](/destinations/cape-town).
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Prague](/guides/living-in-prague), and [Tbilisi](/guides/living-in-tbilisi).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tbilisi](/guides/living-in-tbilisi), and [Valencia](/guides/living-in-valencia).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -4658,9 +5748,11 @@ Shoulder months often win the **cost vs weather** trade: Europe’s best-month l
 Many European rows share Apr–Jun / Sep–Oct best months:
 
 - [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
+- [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
-- [Valencia](/destinations/valencia), [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
+- [Valencia](/destinations/valencia): **Apr-Jun, Sep-Oct**: \`$1,900\` / **170** Mbps / safety **8**. October is on both \`bestMonths\` and \`rainyMonths\`, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
+- [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
 - [Seville](/destinations/seville): **Mar–May, Oct–Nov**: get there before “extremely hot summer” in \`cons\`
 
 ### LATAM spring-like climates
@@ -4680,7 +5772,7 @@ Many European rows share Apr–Jun / Sep–Oct best months:
 Summer Europe is crowded but matches many cities’ \`bestMonths\`:
 
 - [Split](/destinations/split): **May–Sep**: \`$1,800\` / 100 Mbps / safety **9** / seaside
-- [Porto](/destinations/porto), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May–Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep–Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
+- [Porto](/destinations/porto) ([living guide](/guides/living-in-porto)), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May–Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep–Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
 - [Batumi](/destinations/batumi): **Jun–Sep** Black Sea summer at \`$1,000\` / 90 Mbps
 
 Filter tips: set \`landscape: mountain\` for quieter deep-work summers; leave nightlife unconstrained only if you want \`party\`-tagged hubs.
@@ -4699,7 +5791,7 @@ Many SEA rows put **Jun–Sep** in \`rainyMonths\` (Chiang Mai, Bangkok, Phuket,
 
 Post-summer migrations are when nomads leave peak Europe and chase drier or milder windows.
 
-- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep–Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov–Feb, Split Nov–Jan, Porto Nov–Feb).
+- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep–Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov–Feb, Split Nov–Jan, Porto Nov–Feb). The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
 - **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are Chiang Mai–bound. [Hanoi](/destinations/hanoi) best includes **Oct–Dec** and **Mar–Apr**.
 - **Cape Town spring into summer:** best months open **Oct–Nov**: prime window if you read the living guide’s power and safety notes first.
 - **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun–Sep should already be behind you by a true autumn escape.
@@ -4711,6 +5803,8 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 **Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival. Budapest lists air pollution in winter on the dataset cons, outside the Apr-Jun and Sep-Oct best months. Read the [Budapest living guide](/guides/living-in-budapest) before a November arrival.
 
 **Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
+
+**Flood risk on a best month.** Valencia lists October in both \`bestMonths\` and \`rainyMonths\`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
 
 **Power and internet under weather stress.** Cape Town’s low \`powerGridStability\` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 
@@ -4726,7 +5820,7 @@ Example workflows (adjust numbers to your real floors):
    Set budget max $1,500, internet min 50, safety min 7, region Asia or LATAM, optionally landscape \`seaside\` or \`mountain\`. [Spin](/). Compare [Chiang Mai](/destinations/chiang-mai), [Medellín](/destinations/medellin), [Penang](/destinations/penang) destination pages, check \`bestMonths\` overlap with your travel dates and \`rainyMonths\` gaps.
 
 2. **Europe shoulder, higher comfort**  
-   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) for Apr–Jun or Sep–Oct.
+   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) vs [Valencia](/destinations/valencia) (and the [living guide](/guides/living-in-valencia)) for Apr–Jun or Sep–Oct. For Valencia, do not treat October as an automatic shoulder month.
 
 3. **Southern summer nature season**  
    Region Africa, landscape seaside/mountain, honest safety floor, budget ~$1,400+. Spin toward [Cape Town](/destinations/cape-town), then read the living guide before you pay a deposit, weather is only half the product.

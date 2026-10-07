@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Clock, Calendar, ChevronLeft, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 import rehypeRaw from 'rehype-raw';
@@ -34,7 +34,7 @@ export default function GuideArticle() {
   // upgrade that copy when it arrives; it must not replace it with a spinner.
   if (isLoading && !guide) {
     return (
-      <div className="noise-overlay min-h-screen bg-background flex items-center justify-center p-24">
+      <div className="min-h-screen bg-background flex items-center justify-center p-24">
         <Loader2 className="w-10 h-10 animate-spin text-primary/30" />
       </div>
     );
@@ -42,19 +42,21 @@ export default function GuideArticle() {
 
   if (!guide) {
     return (
-      <div className="noise-overlay min-h-screen bg-background">
+      <div className="page-content min-h-screen bg-background">
         <Helmet>
           <title>Page Not Found (404) | Nomad Spin</title>
           <meta name="description" content="Entry not found." />
           <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div className="max-w-2xl mx-auto px-6 py-24 text-center">
-          <Link to="/guides" className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mb-16 inline-flex items-center gap-2 px-4 py-2 border border-white/5 bg-white/[0.01] hover:text-primary transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Database
+          <h1 className="text-3xl text-foreground mb-4">Guide not found</h1>
+          <p className="text-base text-muted-foreground mb-8">This guide is not in the library.</p>
+          <Link
+            to="/guides"
+            className="inline-flex items-center px-5 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            Browse guides
           </Link>
-          <h1 className="font-mono text-3xl tracking-[0.2em] text-foreground uppercase mt-12 mb-6 font-bold">404: MISSING</h1>
-          <p className="text-sm text-muted-foreground mb-12 font-mono">SEGMENT_NOT_FOUND // The requested archive page does not exist in this sector.</p>
-          <Link to="/guides" className="px-8 py-4 rounded-sm bg-primary/10 border border-primary/40 text-xs font-mono tracking-widest text-primary uppercase hover:bg-primary/20 transition-all">Re-initialize lookup</Link>
         </div>
       </div>
     );
@@ -91,9 +93,14 @@ export default function GuideArticle() {
       logo: `${BASE_URL}/favicon.svg`,
     },
   };
+  const updatedLabel = new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
 
   return (
-    <div className="noise-overlay min-h-screen bg-background pb-40">
+    <div className="page-content min-h-screen bg-background pb-24">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={guide.excerpt} />
@@ -112,79 +119,65 @@ export default function GuideArticle() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="sticky top-0 z-50 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent backdrop-blur-md"></div>
-
-      <article className="max-w-3xl mx-auto px-6 py-16 md:py-28">
-        <Link 
-          to="/guides" 
-          className="inline-flex items-center gap-3 text-[10px] font-mono tracking-[0.3em] text-primary/70 hover:text-primary transition-all duration-300 uppercase mb-24 bg-white/[0.01] border border-white/10 px-6 py-3 rounded-none hover:bg-primary/5 hover:border-primary/40"
-        >
-          <ChevronLeft className="w-4 h-4" /> 
-          Archive_Database
-        </Link>
-        
-        <header className="mb-24 relative">
-          <div className="flex flex-wrap items-center gap-5 text-[10px] font-mono text-primary/60 uppercase tracking-[0.3em] mb-10 pl-6 border-l-2 border-primary/50 py-1">
-            <span className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5" /> {new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
-            <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {guide.readTime}</span>
-          </div>
-          <h1 className="font-mono text-4xl md:text-5xl lg:text-6xl tracking-tighter text-foreground leading-[1.05] mb-12 font-black uppercase text-balance">
+      <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+        <header className="mb-10">
+          <p className="font-mono text-xs tracking-wider text-muted-foreground mb-4">
+            {updatedLabel} · {guide.readTime}
+          </p>
+          <h1 className="text-4xl md:text-5xl leading-tight text-foreground mb-6">
             {guide.title}
           </h1>
-          <div className="h-0.5 w-24 bg-primary/30 mb-12"></div>
-          <p className="text-xl text-muted-foreground/80 leading-relaxed font-light italic pl-10 border-l border-white/5 py-2">
+          <p className="text-xl leading-relaxed text-muted-foreground">
             {guide.excerpt}
           </p>
         </header>
 
-        <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none
-            prose-headings:font-mono prose-headings:tracking-widest prose-headings:text-foreground prose-headings:uppercase prose-headings:font-black prose-headings:mb-8
-            prose-h2:text-3xl prose-h2:mt-24 prose-h2:mb-10 prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-6
-            prose-h3:text-xl prose-h3:mt-16 prose-h3:mb-8 prose-h3:text-primary/80 prose-h3:tracking-widest
-            prose-p:text-muted-foreground/90 prose-p:leading-9 prose-p:mb-10 prose-p:text-[1.1rem] prose-p:font-light
-            prose-a:text-primary prose-a:underline prose-a:underline-offset-8 prose-a:decoration-primary/30 hover:prose-a:decoration-primary transition-all
-            prose-ul:text-muted-foreground/80 prose-ul:my-12 prose-ul:list-disc prose-ul:pl-10
-            prose-li:my-4 prose-li:pl-2
-            prose-strong:text-foreground prose-strong:font-bold prose-strong:text-primary/90
-            prose-em:text-primary/80 prose-em:italic
-            prose-table:w-full prose-table:border prose-table:border-white/10 prose-table:my-16 prose-table:font-mono prose-table:text-xs
-            prose-th:bg-white/[0.03] prose-th:border prose-th:border-white/10 prose-th:p-5 prose-th:text-left prose-th:font-bold prose-th:tracking-widest prose-th:text-primary/70 prose-th:uppercase
-            prose-td:border prose-td:border-white/10 prose-td:p-5 prose-td:text-muted-foreground/80
-            prose-blockquote:border-l-4 prose-blockquote:border-primary/50 prose-blockquote:bg-primary/[0.01] prose-blockquote:py-8 prose-blockquote:px-12 prose-blockquote:my-16 prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-foreground/90
-            prose-hr:border-white/10 prose-hr:my-20
-            selection:bg-primary/30 selection:text-white">
+        <div className="prose prose-lg dark:prose-invert max-w-none
+            prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-normal prose-headings:normal-case prose-headings:text-foreground
+            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+            prose-p:text-foreground/90 prose-p:leading-relaxed prose-p:font-normal
+            prose-a:text-primary prose-a:underline prose-a:underline-offset-4
+            prose-strong:text-foreground prose-strong:font-semibold
+            prose-li:my-1
+            prose-table:text-sm prose-table:font-mono
+            prose-th:text-left prose-th:font-medium
+            prose-blockquote:border-primary/40 prose-blockquote:text-foreground/90
+            prose-code:before:content-none prose-code:after:content-none
+            prose-code:rounded-md prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
+            prose-code:font-mono prose-code:font-medium prose-code:text-foreground
+            ">
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}>
             {guide.content}
           </ReactMarkdown>
         </div>
       </article>
-      
+
       {(guide.relatedDestinations?.length ?? 0) > 0 && (
-        <div className="max-w-3xl mx-auto px-6 mt-8">
-          <p className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase mb-3">Related destinations</p>
+        <div className="max-w-3xl mx-auto px-6 mt-4">
+          <p className="font-mono text-xs tracking-wider text-muted-foreground mb-3">Related destinations</p>
           <div className="flex flex-wrap gap-2">
-            {guide.relatedDestinations!.map((slug) => (
+            {guide.relatedDestinations!.map((destinationSlug) => (
               <Link
-                key={slug}
-                to={`/destinations/${slug}`}
-                className="px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.02] text-[11px] font-mono tracking-wider text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors capitalize"
+                key={destinationSlug}
+                to={`/destinations/${destinationSlug}`}
+                className="px-3 py-1.5 rounded-lg border border-border bg-card text-sm text-foreground hover:border-primary/50 hover:text-primary transition-colors capitalize"
               >
-                {slug.replace(/-/g, ' ')}
+                {destinationSlug.replace(/-/g, ' ')}
               </Link>
             ))}
           </div>
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto px-6 mt-16 text-center border-t border-border/20 pt-16">
-         <p className="text-xs font-mono tracking-widest text-muted-foreground/60 uppercase mb-6">Ready to find a base?</p>
-         <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/10 border border-primary/30 text-xs font-mono tracking-wider text-primary hover:bg-primary/20 transition-colors uppercase"
-          >
-            Spin the Globe
-          </Link>
+      <div className="max-w-3xl mx-auto px-6 mt-12 text-center border-t border-border pt-12">
+        <p className="text-base text-muted-foreground mb-4">Ready to find a base?</p>
+        <Link
+          to="/"
+          className="inline-flex items-center px-5 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+        >
+          Spin the globe
+        </Link>
       </div>
     </div>
   );

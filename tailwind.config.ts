@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Source Serif 4', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
@@ -85,6 +86,21 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 1.5s infinite",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            code: {
+              backgroundColor: 'hsl(var(--muted))',
+              borderRadius: '0.375rem',
+              color: 'hsl(var(--foreground))',
+              fontWeight: '500',
+              padding: '0.15em 0.45em',
+            },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
+          },
+        },
       },
     },
   },
