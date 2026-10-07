@@ -31,6 +31,7 @@ export default function GuidesList() {
       headline: g.title,
       url: `${BASE_URL}/guides/${g.slug}`,
       datePublished: g.date,
+      dateModified: g.updated ?? g.date,
     })),
   };
 
@@ -99,7 +100,7 @@ export default function GuidesList() {
               >
                 <div className="p-6 md:p-8 flex flex-col flex-1">
                   <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground/60 uppercase tracking-widest mb-4">
-                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {new Date(guide.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric'})}</span>
+                    <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3" /> {new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric'})}</span>
                     <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {guide.readTime}</span>
                   </div>
                   

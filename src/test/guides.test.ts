@@ -15,6 +15,20 @@ describe('static guides', () => {
     expect(slugs).toContain('best-places-digital-nomads-2025');
   });
 
+  it('keeps the nomad places shortlist on its original URL and current for 2026', () => {
+    const guide = guides.find((g) => g.slug === 'best-places-digital-nomads-2025');
+    expect(guide).toBeDefined();
+    expect(guide!.title).toBe('Best Places for Digital Nomads in 2026');
+    expect(guide!.excerpt).toContain('2026');
+    expect(guide!.excerpt).not.toContain('2025');
+    expect(guide!.date.startsWith('2025-01-06')).toBe(true);
+    expect(guide!.updated?.startsWith('2026-10-07')).toBe(true);
+    expect(guide!.content).not.toContain('—');
+    expect(guide!.content).toContain('780+');
+    expect(guide!.content).toContain('href="/"');
+    expect(guide!.content).not.toMatch(/\$700[–-]\$1,000|\$900[–-]\$1,200|B211A visa and Second Home|blue-dollar|blue dollar/i);
+  });
+
   it('has unique, URL-safe slugs', () => {
     const slugs = guides.map((g) => g.slug);
     expect(new Set(slugs).size).toBe(slugs.length);

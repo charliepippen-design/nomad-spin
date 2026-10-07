@@ -4,7 +4,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured `weather.bestMonths`, `weather.rainyMonths`, and `tempAvgC` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads 2025](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali) and [Cape Town](/guides/living-in-cape-town).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali) and [Cape Town](/guides/living-in-cape-town).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -143,7 +143,7 @@ Save two or three spins across *one* season window. Compare `costUSD`, Mbps, saf
 2. On the [home page](/), set region + landscape that match that window, then budget, internet, and safety floors.
 3. Spin once. Open `/destinations/{slug}` and verify `bestMonths` includes your months and `rainyMonths` does not.
 4. Spin again with one constraint loosened. Deep-read a living guide when the result is Bali or Cape Town.
-5. Only then look at yearly shortlists like [Best Places 2025](/guides/best-places-digital-nomads-2025): as confirmation, not as a substitute for season + filters.
+5. Only then look at yearly shortlists like [Best Places 2026](/guides/best-places-digital-nomads-2025): as confirmation, not as a substitute for season + filters.
 
 You do not need a perfect ranking of 780+ cities. You need a season window, honest floors, and two destination pages that survive contact with real months.
 

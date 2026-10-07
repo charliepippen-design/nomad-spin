@@ -93,6 +93,7 @@ export default function GuideArticle() {
         <meta property="og:type" content="article" />
         <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
         <meta property="article:published_time" content={guide.date} />
+        <meta property="article:modified_time" content={(guide.updated ?? guide.date).slice(0, 10)} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={guide.excerpt} />
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
@@ -112,7 +113,7 @@ export default function GuideArticle() {
         
         <header className="mb-24 relative">
           <div className="flex flex-wrap items-center gap-5 text-[10px] font-mono text-primary/60 uppercase tracking-[0.3em] mb-10 pl-6 border-l-2 border-primary/50 py-1">
-            <span className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5" /> {new Date(guide.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}</span>
+            <span className="flex items-center gap-2"><Calendar className="w-3.5 h-3.5" /> {new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-primary/30"></span>
             <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {guide.readTime}</span>
           </div>
