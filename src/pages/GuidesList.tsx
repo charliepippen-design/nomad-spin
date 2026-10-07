@@ -73,8 +73,8 @@ export default function GuidesList() {
           </div>
         </div>
 
-        {/* Loading state */}
-        {isLoading && (
+        {/* Spinner only when there is nothing cached to show. */}
+        {isLoading && mergedGuides.length === 0 && (
           <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
             <Loader2 className="w-4 h-4 animate-spin" />
             Loading guides…
@@ -89,8 +89,8 @@ export default function GuidesList() {
           </div>
         )}
 
-        {/* Guides Grid */}
-        {!isLoading && (
+        {/* Guides Grid. Static guides stay visible while the live query is in flight. */}
+        {mergedGuides.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mergedGuides.map((guide) => (
               <Link 

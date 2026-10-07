@@ -254,6 +254,6 @@ Day 5–7:
 
 Cape Town can be one of the best remote work bases in the world if you treat it like a real place, not a fantasy. Choose a neighborhood that matches your daily routine, pay for reliability (internet + power), and the city will reward you with nature, food, and a lifestyle that makes “work-life balance” feel less like a lie.
 
-See the [Cape Town data page](/destinations/cape-town) for cost, internet and safety scores side by side with other cities, or [spin the globe](/) to find a base that fits your own budget and priorities.
+See the [Cape Town data page](/destinations/cape-town) for cost, internet and safety scores side by side with other cities, or [spin the globe](/) to find a base that fits your own budget and priorities. If you want a coastal European workhub and the budget clears about $2,200, the comparison is [Living in Lisbon](/guides/living-in-lisbon): faster, safer on the dataset, and a different visa and rent problem.
 
 *Last updated: October 2026. Visa rules, prices and power conditions change quickly; always double-check official sources before booking.*
