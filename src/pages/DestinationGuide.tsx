@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ArrowLeft, ExternalLink, Bookmark } from 'lucide-react';
+import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ExternalLink, Bookmark } from 'lucide-react';
 import { findCityBySlug } from '@/lib/citySlug';
-import { guidesForDestination } from '@/data/guides';
+import { editorialGuideForDestination, guidesForDestination } from '@/data/guides';
 import NotFound from '@/pages/NotFound';
 import { getCityImageUrl } from '@/data/cityImages';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
@@ -58,9 +58,10 @@ export default function DestinationGuide() {
   const jsonLd = destinationJsonLd(city, pageUrl);
   const bestMonths = formatMonths(city.weather?.bestMonths);
   const rainyMonths = formatMonths(city.weather?.rainyMonths);
+  const editorial = editorialGuideForDestination(resolved.canonicalSlug);
 
   return (
-    <div className="noise-overlay min-h-screen bg-background">
+    <div className="page-content min-h-screen bg-background">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -82,10 +83,7 @@ export default function DestinationGuide() {
         <img src={heroUrl} alt={`${city.name}, ${city.country}`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-black/30" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 md:pb-8 max-w-3xl mx-auto w-full">
-          <Link to="/" className="inline-flex items-center gap-1 text-[10px] font-mono tracking-[0.2em] text-white/60 hover:text-white transition-colors uppercase mb-4">
-            <ArrowLeft className="w-3 h-3" /> Back
-          </Link>
-          <h1 className="font-mono text-2xl md:text-4xl tracking-[0.15em] text-white uppercase">
+          <h1 className="text-4xl md:text-5xl text-white leading-tight">
             {city.name}
           </h1>
           <div className="flex items-center gap-3 mt-2">
@@ -190,7 +188,7 @@ export default function DestinationGuide() {
             <ul className="space-y-2">
               {displayCity.pros.map((pro, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Zap className="w-3.5 h-3.5 text-emerald-400/70 mt-0.5 shrink-0" />
+                  <Zap className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                   <span>{pro}</span>
                 </li>
               ))}
@@ -201,7 +199,7 @@ export default function DestinationGuide() {
           {displayCity.vibe.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-4">
               {displayCity.vibe.map((v) => (
-                <span key={v} className="px-2.5 py-1 rounded-lg border border-border/40 bg-white/[0.02] text-[10px] font-mono tracking-wider text-muted-foreground">
+                <span key={v} className="px-2.5 py-1 rounded-lg border border-border bg-muted/40 text-[10px] font-mono tracking-wider text-muted-foreground">
                   {v}
                 </span>
               ))}
@@ -209,29 +207,37 @@ export default function DestinationGuide() {
           )}
         </GuideSection>
 
-        <GuideSection title="Best Neighborhoods" id="neighborhoods">
-          <p className="text-muted-foreground/70 italic">
-            Neighborhood deep-dives are coming soon. In the meantime, look for areas with good coworking density and expat communities.
-          </p>
+        <GuideSection title="Field guide" id="field-guide">
+          {editorial ? (
+            <p>
+              <Link to={`/guides/${editorial.slug}`} className="text-primary underline underline-offset-4">
+                {editorial.title}
+              </Link>
+            </p>
+          ) : (
+            <p>No field guide yet</p>
+          )}
         </GuideSection>
 
-        <GuideSection title="Where to Stay" id="where-to-stay">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <StayTier tier="Budget" price={`$${Math.round(displayCity.financials.airbnbMedian * 0.6)}/night`} desc="Hostels, guesthouses, and budget Airbnbs. Good for short scouting stays." />
-            <StayTier tier="Mid-Range" price={`$${displayCity.financials.airbnbMedian}/night`} desc="Private apartments with Wi-Fi. The sweet spot for most nomads." />
-            <StayTier tier="High-End" price={`$${Math.round(displayCity.financials.airbnbMedian * 1.8)}/night`} desc="Serviced apartments or boutique hotels with coworking amenities." />
+        <GuideSection title="Where to stay" id="where-to-stay">
+          <div className="rounded-lg border border-border bg-card p-5">
+            <p className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground">Median nightly stay</p>
+            <p className="font-mono text-2xl text-foreground mt-2">${city.financials.airbnbMedian}/night</p>
+            {city.dataSource === 'estimated' ? (
+              <p className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground mt-2">Estimate</p>
+            ) : null}
           </div>
           <a
             href={affiliateLinks.accommodation.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono tracking-wider text-emerald-400 hover:bg-emerald-500/20 transition-colors uppercase"
+            className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary/10 border border-primary/30 text-sm text-primary hover:bg-primary/20 transition-colors"
           >
             Find a place to stay in {city.name} <ExternalLink className="w-3 h-3" />
           </a>
         </GuideSection>
 
-        <GuideSection title="Coworking & Wi-Fi" id="coworking">
+        <GuideSection title="Coworking and Wi-Fi" id="coworking">
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-lg border border-border/30 bg-card p-4">
               <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Avg Speed</p>
@@ -252,7 +258,7 @@ export default function DestinationGuide() {
           </div>
         </GuideSection>
 
-        <GuideSection title="Getting There" id="getting-there">
+        <GuideSection title="Getting there" id="getting-there">
           <div className="rounded-lg border border-border/30 bg-card p-5 flex items-start gap-4">
             <Plane className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
             <div>
@@ -290,10 +296,10 @@ export default function DestinationGuide() {
               </div>
             </div>
             {displayCity.legalNotes && displayCity.legalNotes.length > 0 && (
-              <div className="rounded-lg border border-amber-500/20 bg-amber-500/[0.04] px-4 py-3 mt-4">
-                <p className="text-[9px] font-mono tracking-[0.15em] text-amber-400/80 uppercase mb-2">Local Laws & Regulations</p>
+              <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 mt-4">
+                <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-2">Local laws</p>
                 {displayCity.legalNotes.map((note, i) => (
-                  <p key={i} className="text-[11px] text-amber-200/60 font-mono leading-relaxed mb-1">• {note}</p>
+                  <p key={i} className="text-sm text-foreground/80 leading-relaxed mb-1">{note}</p>
                 ))}
               </div>
             )}
@@ -330,7 +336,7 @@ export default function DestinationGuide() {
         <p className="text-xs text-muted-foreground mb-4">Not sure where to go next?</p>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary/10 border border-primary/30 text-sm font-mono tracking-wider text-primary hover:bg-primary/20 transition-colors uppercase"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
         >
           Spin for a new city
         </Link>
@@ -351,12 +357,3 @@ function StatChip({ icon, label, value }: { icon: React.ReactNode; label: string
   );
 }
 
-function StayTier({ tier, price, desc }: { tier: string; price: string; desc: string }) {
-  return (
-    <div className="rounded-lg border border-border/30 bg-card p-5 flex flex-col gap-2">
-      <p className="text-[10px] font-mono tracking-[0.15em] text-muted-foreground uppercase">{tier}</p>
-      <p className="text-lg font-mono text-foreground">{price}</p>
-      <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-    </div>
-  );
-}

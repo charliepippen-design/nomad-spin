@@ -23,7 +23,7 @@ export function ThemeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full bg-background/50 backdrop-blur-sm border-white/10 hover:border-primary/50 transition-all duration-300"
+          className="rounded-full bg-background/80 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300"
         >
           {mounted && resolvedTheme === "light" ? (
             <Sun className="h-[1.2rem] w-[1.2rem]" />
@@ -33,7 +33,7 @@ export function ThemeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-background/95 backdrop-blur-md border-white/10 font-mono text-[10px] tracking-widest uppercase">
+      <DropdownMenuContent align="end" className="bg-background/95 backdrop-blur-md border-border font-mono text-[10px] tracking-widest uppercase">
         <DropdownMenuItem
           onSelect={() => setTheme("light")}
           className="gap-2 focus:bg-primary/10 focus:text-primary transition-colors cursor-pointer"

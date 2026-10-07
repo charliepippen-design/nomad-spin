@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
-import dnsLogo from '@/assets/dns-logo.png';
 import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
@@ -16,11 +15,9 @@ import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
-import MobileNav from '@/components/MobileNav';
 import GlobeTapHint from '@/components/GlobeTapHint';
 
-import { RotateCcw, Volume2, VolumeX, Flame, User, LogOut, Sun, Moon, Globe2, Bookmark, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import OriginSelector from '@/components/OriginSelector';
 import CityTooltip from '@/components/CityTooltip';
@@ -165,7 +162,7 @@ export default function Index() {
     if (navigator.share) {
       navigator.share({
         title: `Destination: ${resultCity.name}`,
-        text: `Next stop: ${resultCity.name}, ${resultCity.country} — Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
+        text: `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
         url,
       }).catch(() => {});
     } else {
@@ -195,19 +192,15 @@ export default function Index() {
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-x-hidden bg-background">
       <SEO
-        title={resultCity ? `${resultCity.name} — Nomad Spin` : 'Digital Nomad Spin | Find Your Next Destination'}
-        description={resultCity ? `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo.` : 'Stop overthinking. Spin the globe. Find your next destination.'}
+        title="Digital Nomad Spin | Find Your Next Destination"
+        description="Stop overthinking. Spin the globe. Find your next destination."
         path="/"
-        city={resultCity}
       />
 
       {/* Primary heading for SEO / screen readers */}
       <h1 className="sr-only">
-        Nomad Spin — Find your next digital nomad destination
+        Nomad Spin. Find your next digital nomad destination
       </h1>
-
-      {/* Mobile hamburger nav */}
-      <MobileNav onExplore={() => setIsCityWallOpen(true)} />
 
       {/* Globe — full-screen background layer */}
       <div className="fixed inset-0 z-0">
@@ -249,40 +242,27 @@ export default function Index() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
-        {/* Header — desktop only (mobile uses MobileNav) */}
-        {!isMobile && (
-          <header className="pointer-events-auto sticky top-0 z-20 flex items-center justify-between px-4 md:px-8 py-2 bg-background/60 backdrop-blur-md border-b border-border/10">
-            {/* LEFT: Brand + Nav */}
-            <div className="flex items-center gap-5">
-              <Link to="/" className="flex items-center">
-                 <img src={dnsLogo} alt="Digital Nomad Spin" className="h-10 w-auto" />
-              </Link>
-              <nav className="flex items-center gap-4">
-                <button
-                  onClick={handleConfigureMission}
-                  className="text-[11px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
-                >
-                  Explore
-                </button>
-                <button
-                  onClick={handleScrollToHowItWorks}
-                  className="text-[11px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
-                >
-                  How it Works
-                </button>
-                <Link
-                  to="/guides"
-                  className="text-[11px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
-                >
-                  Guides
-                </Link>
-              </nav>
+        {/* Globe controls. Site links live in the persistent header. */}
+        <div className="pointer-events-auto hidden lg:flex items-center justify-between gap-3 px-4 md:px-8 py-2">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={handleConfigureMission}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Explore
+              </button>
+              <button
+                onClick={handleScrollToHowItWorks}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                How it works
+              </button>
             </div>
 
             {/* CENTER: Streak + Spins (desktop only) */}
             <div className="flex items-center gap-3">
               {streak > 0 && (
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03]">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60">
                   <Flame className="w-3.5 h-3.5 text-orange-400" />
                   <span className="text-[11px] font-mono text-foreground/70 tracking-wider font-medium">
                     {streak}D STREAK
@@ -306,7 +286,7 @@ export default function Index() {
                       className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-colors ${
                         autoSpin
                           ? 'border-primary/50 bg-primary/10 text-primary'
-                          : 'border-border/40 bg-white/[0.03] text-muted-foreground hover:bg-white/[0.06]'
+                          : 'border-border/40 bg-background/60 text-muted-foreground hover:bg-muted'
                       }`}
                       aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
                     >
@@ -327,7 +307,7 @@ export default function Index() {
                   <TooltipTrigger asChild>
                     <button
                       onClick={() => setDayMode(d => !d)}
-                      className="p-2 rounded-lg hover:bg-white/5 transition-colors text-muted-foreground"
+                      className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
                       aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
                     >
                       {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
@@ -344,7 +324,7 @@ export default function Index() {
                   <TooltipTrigger asChild>
                     <button
                       onClick={sound.toggleMute}
-                      className={`p-2 rounded-lg hover:bg-white/5 transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
+                      className={`p-2 rounded-lg hover:bg-muted transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
                       aria-label={sound.muted ? 'Unmute' : 'Mute'}
                     >
                       {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -369,7 +349,7 @@ export default function Index() {
                     <TooltipTrigger asChild>
                       <button
                         onClick={auth.signOut}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60 hover:bg-muted transition-colors"
                       >
                         <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                           <span className="text-[9px] font-mono font-bold text-primary">
@@ -407,8 +387,7 @@ export default function Index() {
                 </TooltipProvider>
               )}
             </div>
-          </header>
-        )}
+          </div>
 
         {/* Main */}
         <div className={`flex-1 flex flex-col items-center justify-end ${isMobile ? 'pb-4 px-3' : 'pb-8 px-4'}`}>

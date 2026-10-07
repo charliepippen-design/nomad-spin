@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Twitter, Instagram, Github, Coffee } from 'lucide-react';
 
 const navLinks = [
+  { to: '/destinations', label: 'Destinations' },
   { to: '/guides', label: 'Guides & Articles' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
@@ -70,7 +71,7 @@ export default function Footer() {
         >
           <Coffee className="w-4 h-4 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
           <span className="text-[11px] font-mono tracking-[0.2em] text-amber-400/70 group-hover:text-amber-400 transition-colors uppercase">
-            Buy me a coffee — support this project
+            Buy me a coffee. Support this project
           </span>
         </a>
 

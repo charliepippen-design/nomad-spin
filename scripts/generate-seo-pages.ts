@@ -14,6 +14,8 @@ import {
   formatMonths,
 } from '../src/lib/destinationSeo';
 import { visaPathSentence } from '../src/lib/visaCopy';
+import { guideBodyHtml } from '../src/lib/guideHtml';
+import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { buildNotFoundHtml } from './not-found-page';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -203,14 +205,24 @@ function destinationBodyHtml(city: City, slug: string): string {
 </main>`;
 }
 
-function guideBodyHtml(guide: Guide): string {
+function destinationsIndexBodyHtml(): string {
+  const sections = citiesByRegion()
+    .map((group) => {
+      const items = group.cities
+        .map(
+          ({ city, slug }) =>
+            `<li><a href="/destinations/${esc(slug)}" style="color:#007a52">${esc(city.name)}, ${esc(city.country)}</a> ($${city.costUSD}/mo)</li>`,
+        )
+        .join('');
+      return `<h2>${esc(regionLabel(group.region))}</h2><ul>${items}</ul>`;
+    })
+    .join('');
+
   return `
-<main id="seo-guide" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
-  <p><a href="/guides" style="color:#34d399">← Guides</a> · <a href="/" style="color:#34d399">Spin the globe</a></p>
-  <h1>${esc(guide.title)}</h1>
-  <p>${esc(guide.excerpt)}</p>
-  <p>${esc(guide.readTime)} · Published ${esc(guide.date.split('T')[0])}</p>
-  <p><a href="${BASE_URL}/guides/${guide.slug}" style="color:#34d399">Open the full guide</a></p>
+<main id="seo-destinations" style="max-width:48rem;margin:2rem auto;padding:0 1.25rem;font-family:Georgia,'Source Serif 4',serif;font-weight:400;line-height:1.6;color:#1c1917;background:#fff">
+  <h1>Destinations</h1>
+  <p>City pages from the Nomad Spin dataset, grouped by region.</p>
+  ${sections}
 </main>`;
 }
 
@@ -235,6 +247,29 @@ function withVisibleBody(html: string, body: string): string {
   createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');
   createHtmlFile('privacy-policy', 'Privacy Policy – Nomad Spin', 'Read our privacy policy and how we protect your data.');
   createHtmlFile('terms-of-use', 'Terms of Use – Nomad Spin', 'Read our terms of service.');
+
+  const destinationsIndexUrl = `${BASE_URL}/destinations`;
+  const destinationsIndexTitle = 'Destinations | Nomad Spin';
+  const destinationsIndexDescription =
+    'Browse digital nomad cities by region. Each page lists cost, internet, safety, and visa notes from the Nomad Spin dataset.';
+  writeRoute(
+    'destinations',
+    withVisibleBody(
+      injectSeo(baseHtml, {
+        title: destinationsIndexTitle,
+        description: destinationsIndexDescription,
+        url: destinationsIndexUrl,
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Destinations',
+          url: destinationsIndexUrl,
+          description: destinationsIndexDescription,
+        },
+      }),
+      destinationsIndexBodyHtml(),
+    ),
+  );
 
   // 3. Guide pages
   console.log(`\n📚 Generating ${guides.length} guide pages...`);
