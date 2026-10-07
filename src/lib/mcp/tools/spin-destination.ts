@@ -46,7 +46,7 @@ export default defineTool({
 
     const text = ranked.length
       ? `Top ${ranked.length} destinations:\n${ranked
-          .map((r, i) => `${i + 1}. ${r.name}, ${r.country} — $${r.costUSD}/mo, ${r.internetMbps} Mbps, safety ${r.safety}/10 (score ${r.matchScore})`)
+          .map((r, i) => `${i + 1}. ${r.name}, ${r.country}: $${r.costUSD}/mo, ${r.internetMbps} Mbps, safety ${r.safety}/10 (score ${r.matchScore})`)
           .join("\n")}`
       : "No cities matched those preferences. Try relaxing budget, internet, or safety.";
 

@@ -12,6 +12,11 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
+/** Guide <title>, og:title, and twitter:title. Shared by the article page and prerender. */
+export function guidePageTitle(headline: string): string {
+  return `${headline} | Nomad Spin Guides`;
+}
+
 /** Full article HTML for crawlers. Markdown and existing HTML both render. */
 export function renderGuideMarkdown(markdown: string): string {
   const parsed = marked.parse(markdown, { async: false });

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
+import { guidePageTitle } from '@/lib/guideHtml';
 import { guideDestinationLinks, rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
@@ -64,17 +65,7 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const SUFFIX = ' | Nomad Spin';
-  const MAX_TITLE = 60;
-  const headline = guide.seoTitle ?? guide.title;
-  const baseTitle =
-    headline.length + SUFFIX.length <= MAX_TITLE
-      ? `${headline}${SUFFIX}`
-      : headline;
-  const title =
-    baseTitle.length <= MAX_TITLE
-      ? baseTitle
-      : `${baseTitle.slice(0, MAX_TITLE - 1).replace(/[\s—:,-]+\S*$/, '')}…`;
+  const title = guidePageTitle(guide.seoTitle ?? guide.title);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',

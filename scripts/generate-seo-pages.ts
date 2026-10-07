@@ -11,7 +11,7 @@ import {
 } from '../src/lib/destinationSeo';
 import { destinationBodyHtml } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
-import { guideBodyHtml } from '../src/lib/guideHtml';
+import { guideBodyHtml, guidePageTitle } from '../src/lib/guideHtml';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { buildNotFoundHtml } from './not-found-page';
 
@@ -188,11 +188,11 @@ function withVisibleBody(html: string, body: string): string {
   const guides = await fetchLiveGuides();
 
   // Static core pages
-  createHtmlFile('about', 'About Us – Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
-  createHtmlFile('guides', 'Digital Nomad Guides & Analysis – Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
-  createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');
-  createHtmlFile('privacy-policy', 'Privacy Policy – Nomad Spin', 'Read our privacy policy and how we protect your data.');
-  createHtmlFile('terms-of-use', 'Terms of Use – Nomad Spin', 'Read our terms of service.');
+  createHtmlFile('about', 'About Us | Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
+  createHtmlFile('guides', 'Digital Nomad Guides & Analysis | Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
+  createHtmlFile('contact', 'Contact Us | Nomad Spin', 'Get in touch with the Nomad Spin team.');
+  createHtmlFile('privacy-policy', 'Privacy Policy | Nomad Spin', 'Read our privacy policy and how we protect your data.');
+  createHtmlFile('terms-of-use', 'Terms of Use | Nomad Spin', 'Read our terms of service.');
 
   const destinationsIndexUrl = `${BASE_URL}/destinations`;
   const destinationsIndexTitle = 'Destinations | Nomad Spin';
@@ -220,7 +220,7 @@ function withVisibleBody(html: string, body: string): string {
   // 3. Guide pages
   console.log(`\n📚 Generating ${guides.length} guide pages...`);
   for (const guide of guides) {
-    const title = `${guide.seoTitle ?? guide.title} – Nomad Spin Guides`;
+    const title = guidePageTitle(guide.seoTitle ?? guide.title);
     const url = `${BASE_URL}/guides/${guide.slug}`;
     const jsonLd = {
       '@context': 'https://schema.org',

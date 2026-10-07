@@ -62,8 +62,8 @@ export function destinationBodyHtml(city: City, slug: string): string {
     <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
     <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
     <li><strong>Visa:</strong> ${esc(visaPathSentence(city.meta))}</li>
-    <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || '—')}</li>
-    <li><strong>Language:</strong> ${esc(city.language || '—')}</li>
+    <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || 'n/a')}</li>
+    <li><strong>Language:</strong> ${esc(city.language || 'n/a')}</li>
     <li><strong>Region:</strong> ${esc(city.region)}</li>
     ${best ? `<li><strong>Best months:</strong> ${esc(best)}</li>` : ''}
     ${rainy ? `<li><strong>Rainy months:</strong> ${esc(rainy)}</li>` : ''}
@@ -75,7 +75,7 @@ export function destinationBodyHtml(city: City, slug: string): string {
   ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
   ${relatedHtml}
   <h2>Find your next base</h2>
-  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors — then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
+  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors, then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
   <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
 </main>`;
 }
