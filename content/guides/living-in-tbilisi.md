@@ -196,7 +196,7 @@ This guide will not copy the annex. The list is the government's to amend, and p
 
 ### Insurance you may be asked to show at the border
 
-Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. The coverage amount, the start date, and any exemptions are on that notice. This guide does not restate a sum or a date, because the page did not load when checked. Read the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia). A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
+Georgian embassies have published a notice, under the Law of Georgia on Tourism, that tourists may be asked to show health and accident insurance for the stay. Check the [Embassy of Georgia in Australia's notice](https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia) for the current coverage amount, start date, and any exemptions before you travel. A remote worker on a visa-free stamp should assume the tourist rule applies until a Georgian official tells them otherwise.
 
 Whatever amount that notice sets is an entry condition from the Georgian government. It is not a Nomad Spin price, and it is not a recommendation of a brand. The insurance slot below, and the insurance module on the destination page, are where you buy cover you have actually read.
 
@@ -204,9 +204,9 @@ Whatever amount that notice sets is an entry condition from the Georgian governm
 
 A visa-free stay is permission to enter and remain. It is a separate question from permission to work.
 
-The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. The start date, and exactly which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, are on that notice and on [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/). This guide does not restate a start date, because those pages did not load when checked. Read them before you take a Georgian employer, a Georgian client, or a local registration.
+The [Embassy of Georgia in Norway](https://norway.mfa.gov.ge/en/news/929284-new-rules-for-the-employed-self-employed-aliens-with-no-permit-for-permanent-residence-in-georgia-sh) has published a notice on amendments to the Law on Labour Migration. Check that notice and [labourmigration.moh.gov.ge](https://labourmigration.moh.gov.ge/) for the current start date, and for which local employment or entrepreneurial activity needs a "right to work" from the State Employment Support Agency, before you take a Georgian employer, a Georgian client, or a local registration.
 
-Read that notice against your actual setup. This guide does not spell out which remote-work cases it covers, because the page did not load. This guide will not invent an exemption, and it will not invent an income threshold. Open the current Law on Labour Migration and the agency's own page the month you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
+Read that notice against your actual setup. Check the current Law on Labour Migration and the agency's own page for which remote-work cases it covers, and for any exemption or income rule, before you go. If a blog promises a clean "digital nomad visa" with a salary floor, that program is not in the sources above.
 
 ### Tax, at the level of a day count
 
