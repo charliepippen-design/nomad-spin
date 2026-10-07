@@ -4,7 +4,27 @@
   "installCommand": "bun install --frozen-lockfile",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/destinations/saigon",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/hcmc",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
+    },
+    {
+      "source": "/destinations/ho-chi-minh",
+      "destination": "/destinations/ho-chi-minh-city",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!assets/|guides/|destinations/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
