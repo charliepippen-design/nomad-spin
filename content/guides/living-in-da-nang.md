@@ -289,12 +289,12 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Solo month | $700 | $850 | $1,200 | $900 | $800 |
 | Internet | 80 Mbps | 95 Mbps | 50 Mbps | 80 Mbps | 85 Mbps |
 | Safety | 8.5 | 8.2 | 7.8 | 9.0 | 7.5 |
-| Visa field in Nomad Spin | E-Visa, 90 days | Visa Exemption, 60 days | Visa on Arrival, 30 days | Tourist Visa, 90 days | E-Visa, 90 days |
+| Visa field in Nomad Spin | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days | Tourist Visa, 90 days | E-Visa, 90 days |
 | Best months | Feb-Jul | Nov-Feb | Apr-Sep | Feb-May | Dec-Apr |
 
 **Stay with Da Nang** when you want the **$700** beach, safety **8.5**, and you can take **Feb-Jul** plus a **90-day** e-visa field. You accept community **5**, nightlife **3**, coworking **Med**, and a real **Sep-Dec** storm season.
 
-**Pick Chiang Mai** when you want community **9**, coworking **High**, **95 Mbps**, and you do not need a beach. The solo month is **$850**. Best months are **Nov-Feb**, the opposite window, which is why the two cities pair in one year. The visa field in our data is a **60-day** exemption. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains why that field and the current Thai rule can disagree, and why Mar-Apr is a hard stop there. Same clock: **UTC+7**.
+**Pick Chiang Mai** when you want community **9**, coworking **High**, **95 Mbps**, and you do not need a beach. The solo month is **$850**. Best months are **Nov-Feb**, the opposite window, which is why the two cities pair in one year. The visa field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. Same clock: **UTC+7**.
 
 **Pick Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days**. Best months **Apr-Sep** overlap Da Nang's, so Bali is a rival for the same season, not a complement. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Da Nang with more cafes." It is a different bill, a different connection, and **UTC+8**.
 
@@ -302,7 +302,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** only partly overlap Da Nang. It is the "smaller city" trade-off, answered.
 
-**Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**, visa field **60 days**. Neighborhoods, heat, and why that visa field can lag the current Thai rule are in [Living in Bangkok](/guides/living-in-bangkok).
+**Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**. The visa field is the same **30-day** tourism exemption (passport-dependent, tourism only). A longer stay is a separate Destination Thailand Visa file. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
 
 **Look at Tbilisi** when the constraint is stay length, not a beach. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast in this dataset: **Visa Free**, **365** days, solo **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.
 
