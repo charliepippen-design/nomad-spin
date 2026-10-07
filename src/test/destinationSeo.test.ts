@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import path from 'path';
 import { cities } from '@/data/cities';
 import { citySlug } from '@/lib/citySlug';
 import {
@@ -115,5 +117,55 @@ describe('destinationSeo', () => {
   it('formats months stably', () => {
     expect(formatMonths(['Nov', 'Dec'])).toBe('Nov, Dec');
     expect(formatMonths([])).toBe('');
+  });
+
+  it('gives Madrid, Valencia, Las Palmas, and Hoi An at least 5 pros and 3 cons', () => {
+    const generator = fs.readFileSync(
+      path.resolve(__dirname, '../../scripts/generate-seo-pages.ts'),
+      'utf8',
+    );
+    expect(generator).toContain('city.pros.slice(0, 5)');
+    expect(generator).toContain('city.cons.slice(0, 3)');
+    expect(generator).toContain('<h2>Why go</h2>');
+    expect(generator).toContain('<h2>Trade-offs</h2>');
+
+    const hubs: { name: string; pros: string[]; cons: string[] }[] = [
+      {
+        name: 'Madrid',
+        pros: ['Culture', 'Central location', 'EU access', 'Barajas airport metro link', 'Great nightlife'],
+        cons: ['Expensive', 'Very hot summers', 'Limited English'],
+      },
+      {
+        name: 'Valencia',
+        pros: ['Beach city', 'Paella', 'Less touristy', 'Turia gardens through the city', 'Metro and tram'],
+        cons: ['Hot summers', 'Flooding risk', 'Limited English'],
+      },
+      {
+        name: 'Las Palmas',
+        pros: ['Year-round sun', 'Beach', 'EU but affordable', 'Spring-like climate year round', 'Same hours as the UK'],
+        cons: ['Island life', 'Fewer amenities', 'Limited nightlife'],
+      },
+      {
+        name: 'Hoi An',
+        pros: ['Charming old town', 'Cheap', 'Tailoring', 'UNESCO-listed Ancient Town', 'Very safe'],
+        cons: ['Small', 'Limited infrastructure', 'Flooding'],
+      },
+    ];
+
+    for (const hub of hubs) {
+      const city = cityByName(hub.name);
+      expect(city.pros.length).toBeGreaterThanOrEqual(5);
+      expect(city.cons.length).toBeGreaterThanOrEqual(3);
+      expect(city.pros).toEqual(hub.pros);
+      expect(city.cons).toEqual(hub.cons);
+      const whyGo = city.pros.slice(0, 5).map((p) => `<li>${p}</li>`).join('');
+      const tradeoffs = city.cons.slice(0, 3).map((c) => `<li>${c}</li>`).join('');
+      for (const bullet of hub.pros) expect(whyGo).toContain(`<li>${bullet}</li>`);
+      for (const bullet of hub.cons) expect(tradeoffs).toContain(`<li>${bullet}</li>`);
+      for (const bullet of [...city.pros, ...city.cons]) {
+        expect(bullet).not.toContain('\u2014');
+        expect(bullet).not.toContain('\u2013');
+      }
+    }
   });
 });
