@@ -200,6 +200,22 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013/);
   });
 
+  it('cites Czech MFA, Interior, and Industry pages for the Prague trade-licence and digital nomad paths', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-prague.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mzv\.gov\.cz\/jnp\/en\/information_for_aliens\/long_stay_visa\/entrepreneurship\.html/);
+    expect(md).toMatch(/mvcr\.cz\/mvcren\/article\/document-on-the-purpose-of-stay\.aspx/);
+    expect(md).toMatch(/mpo\.gov\.cz\/en\/foreign-trade\/economic-migration\/programs-and-projects\/digital-nomad-program--275799/);
+    expect(md).toMatch(/1\.5 times/);
+    expect(md).toMatch(/Freelance Visa/);
+    expect(md).not.toMatch(/\bEUR\b/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/still shows/i);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites the Hungarian White Card factsheet and both official income figures', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-budapest.md'),
