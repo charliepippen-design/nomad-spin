@@ -13,19 +13,22 @@ const SUPABASE_ANON_KEY = (import.meta.env.VITE_SUPABASE_ANON_KEY ||
 const PLACEHOLDER_URL = 'https://placeholder.supabase.co';
 const PLACEHOLDER_KEY = 'public-anon-key';
 
-function createSupabaseClient(): SupabaseClient<Database> {
+function createSupabaseClient(): { client: SupabaseClient<Database>; configured: boolean } {
   const url = SUPABASE_URL?.trim() ?? '';
   const key = SUPABASE_ANON_KEY?.trim() ?? '';
 
   if (url && key) {
     try {
-      return createClient<Database>(url, key, {
-        auth: {
-          storage: localStorage,
-          persistSession: true,
-          autoRefreshToken: true,
-        },
-      });
+      return {
+        configured: true,
+        client: createClient<Database>(url, key, {
+          auth: {
+            storage: localStorage,
+            persistSession: true,
+            autoRefreshToken: true,
+          },
+        }),
+      };
     } catch (error) {
       console.warn('[supabase] Invalid project config; auth and live data are disabled.', error);
     }
@@ -35,13 +38,20 @@ function createSupabaseClient(): SupabaseClient<Database> {
     );
   }
 
-  return createClient<Database>(PLACEHOLDER_URL, PLACEHOLDER_KEY, {
-    auth: {
-      storage: localStorage,
-      persistSession: false,
-      autoRefreshToken: false,
-    },
-  });
+  return {
+    configured: false,
+    client: createClient<Database>(PLACEHOLDER_URL, PLACEHOLDER_KEY, {
+      auth: {
+        storage: localStorage,
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    }),
+  };
 }
 
-export const supabase = createSupabaseClient();
+const supabaseClient = createSupabaseClient();
+
+export const supabase = supabaseClient.client;
+/** False when env is missing or createClient rejected the config. Live queries must not call the placeholder host. */
+export const isSupabaseConfigured = supabaseClient.configured;

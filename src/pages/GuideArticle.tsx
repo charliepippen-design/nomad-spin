@@ -30,7 +30,9 @@ export default function GuideArticle() {
 
   const guide = allGuides.find(g => g.slug === slug);
 
-  if (isLoading) {
+  // A known static article renders on the first paint. The live query may
+  // upgrade that copy when it arrives; it must not replace it with a spinner.
+  if (isLoading && !guide) {
     return (
       <div className="noise-overlay min-h-screen bg-background flex items-center justify-center p-24">
         <Loader2 className="w-10 h-10 animate-spin text-primary/30" />
