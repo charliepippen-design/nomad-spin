@@ -285,6 +285,8 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 
+**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (`tempAvgC` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
+
 **Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. There is no Barcelona living guide on this site yet, so the destination row is the page to open.
 
 **Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. It is a Spain comparison, not a reason to turn this page into a Madrid guide.
@@ -293,7 +295,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, verify on official Spanish pages. This guide does not restate that statute.
 
-If the Europe price is still the objection after Porto, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
+If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
 
 ## First-week checklist and how to compare Porto on Nomad Spin
 
@@ -347,7 +349,7 @@ Nomad Spin scores **780+ cities**. Porto should win only when your floors are ho
 
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside **$1,400**. If your ceiling is under **$1,400**, Porto is already out.
 2. Set an internet floor the **200 Mbps** and reliability **9** can clear, and a safety floor **9.0** can clear. Then look at who else survives.
-3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon).
+3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon). If you want the same **200 Mbps** for less and can take safety **8.3**, open [Budapest](/destinations/budapest) and the [Budapest living guide](/guides/living-in-budapest) (**$1,500** solo).
 4. Open `bestMonths` and `rainyMonths` against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If you are trying to escape Nov-Feb, open [Chiang Mai](/guides/living-in-chiang-mai) or [Cape Town](/guides/living-in-cape-town) instead of arguing with the rain.
 5. If Barcelona, Madrid, or Valencia is still in the pile, open [Barcelona](/destinations/barcelona), [Madrid](/destinations/madrid), and [Valencia](/destinations/valencia) and use the table above. Do not promote a city that costs more and scores lower on safety unless the beach or the scene is the actual requirement.
 6. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).

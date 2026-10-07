@@ -11,12 +11,14 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-cape-town');
     expect(slugs).toContain('living-in-chiang-mai');
     expect(slugs).toContain('living-in-bangkok');
+    expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
     expect(slugs).toContain('living-in-tbilisi');
     expect(slugs).toContain('living-in-porto');
+    expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -354,6 +356,66 @@ describe('static guides', () => {
     expect(g!.content).not.toMatch(/TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
   });
 
+  it('publishes the Budapest living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-budapest');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Budapest');
+    expect(g!.seoTitle).toBe("Living in Budapest 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Budapest for remote workers in 2026: real monthly costs, District VII vs Buda, White Card visa notes, 200 Mbps internet, baths, and winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['budapest']);
+    expect(g!.content).toContain('Living in Budapest as a digital nomad');
+    expect(g!.content).toContain('$1,500');
+    expect(g!.content).toContain('$1,100');
+    expect(g!.content).toContain('$70');
+    expect(g!.content).toContain('200 Mbps');
+    expect(g!.content).toContain('8.3');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('White Card');
+    expect(g!.content).toContain('oif.gov.hu');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/budapest',
+      '/destinations/lisbon',
+      '/destinations/tbilisi',
+      '/destinations/prague',
+      '/destinations/krakow',
+      '/destinations/vienna',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-tbilisi',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Budapest worth it for digital nomads in 2026?',
+      'Who Budapest is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,500, long-term $1,100, Airbnb $70/night)',
+      'Districts that work: VII (Erzsébetváros), VI (Terézváros), V, XIII (Újlipótváros), and the Buda side',
+      'Internet, power, and coworking: 200 Mbps, reliability 9, power 9, High coworking',
+      'Visas and stay length: Schengen 90/180 vs Hungary White Card (verify official rules)',
+      'Best months (Apr-Jun, Sep-Oct), rainy Nov-Dec, cold winters, and winter air quality',
+      'Daily life: thermal baths, ruin bars, the transit pass, Hungarian, forint, and community',
+      'Budapest vs Prague, Krakow, Vienna, and Lisbon',
+      'First-week checklist and how to compare Budapest on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
   it('publishes the Tbilisi living guide from dataset figures', () => {
     const g = guides.find((x) => x.slug === 'living-in-tbilisi');
     expect(g).toBeTruthy();
@@ -435,7 +497,9 @@ describe('static guides', () => {
       '/destinations/barcelona',
       '/destinations/madrid',
       '/destinations/valencia',
+      '/destinations/budapest',
       '/guides/living-in-lisbon',
+      '/guides/living-in-budapest',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
@@ -457,6 +521,67 @@ describe('static guides', () => {
       'Daily life: food, the river, hills, metro, and a smaller community',
       'Porto vs Lisbon, Barcelona, Madrid, and Valencia',
       'First-week checklist and how to compare Porto on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Buenos Aires living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-buenos-aires');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Buenos Aires');
+    expect(g!.seoTitle).toBe("Living in Buenos Aires 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Buenos Aires for remote workers in 2026: real monthly costs, Palermo vs Villa Crespo, visa notes, coworking, inflation, and honest safety trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['buenos-aires']);
+    expect(g!.content).toContain('living in Buenos Aires as a digital nomad');
+    expect(g!.content).toContain('$900');
+    expect(g!.content).toContain('$650');
+    expect(g!.content).toContain('$40');
+    expect(g!.content).toContain('70 Mbps');
+    expect(g!.content).toContain('6.2');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90');
+    expect(g!.content).toContain('UTC-3');
+    expect(g!.content).toContain('Disposición 758/2022');
+    expect(g!.content).toContain('argentina.gob.ar');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/blue dollar|2,?849|TODO_|8092520|SafetyWing|Booking\.com|Skyscanner|\bFlatio\b|\bAiralo\b/i);
+    for (const href of [
+      '/destinations/buenos-aires',
+      '/destinations/medellin',
+      '/destinations/mexico-city',
+      '/destinations/santiago',
+      '/destinations/montevideo',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-medellin',
+      '/guides/living-in-mexico-city',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '/guides/paraguay-tax-residency-remote-workers',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Buenos Aires still worth it for digital nomads in 2026?',
+      'Who Buenos Aires is for (and who should skip it)',
+      'Real monthly cost bands (solo $900, long-term $650, Airbnb $40/night) and why inflation makes these move',
+      'Neighborhoods that work: Palermo (Soho / Hollywood), Villa Crespo / Chacarita, Recoleta, San Telmo, Almagro (trade-offs)',
+      'Internet, power, and coworking for video-call work',
+      'Visas and stay length: 90-day exemption vs Argentina digital nomad residence (verify official rules)',
+      'Best months (Mar-May, Sep-Nov), rainy Jun-Jul, and summer heat',
+      'Daily life: money and payments, steak and wine, tango, nightlife, Spanish, and safety habits',
+      'Buenos Aires vs Medellin, Mexico City, Santiago, and Montevideo',
+      'First-week checklist and how to compare Buenos Aires on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }

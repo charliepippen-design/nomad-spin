@@ -11,7 +11,7 @@ export const contentGuides: Guide[] = [
     excerpt: "Stuck on where to go next? Map budget, internet, safety, vibe, and visa days onto Nomad Spin filters, then compare real destination pages before you book.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "12 min read",
+    readTime: "13 min read",
     relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","porto"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Lisbon](/guides/living-in-lisbon), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), or [Living in Tbilisi](/guides/living-in-tbilisi). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Lisbon](/guides/living-in-lisbon), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), or [Living in Tbilisi](/guides/living-in-tbilisi). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500**, [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Lisbon](/destinations/lisbon) at **$2,200**. If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Lisbon](/destinations/lisbon) at **$2,200**. If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,13 +47,13 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1–10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
 Spin's **minimum safety** maps to the city's overall \`safety\` score (roughly 1–10). Dig one layer deeper with \`vibeMetrics.femaleSafety\` and \`vibeMetrics.lgbtFriendly\` when those are non‑negotiable for you, a city can score decently overall and still be a poor fit for your situation.
 
-Examples from verified rows: Porto \`safety\` **9.0** (femaleSafety **9**, lgbtFriendly **8**); Lisbon **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Medellín **6.5** / **5** / **6**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go", it's "budget for location choice, transport habits, and neighborhood research before you book three months."
+Examples from verified rows: Porto \`safety\` **9.0** (femaleSafety **9**, lgbtFriendly **8**); Lisbon **8.8** (femaleSafety **8**, lgbtFriendly **9**); Chiang Mai **8.2** / **8** / **6**; Mexico City **6.0** / **5** / **7**; Medellín **6.5** / **5** / **6**; Buenos Aires **6.2** / **5** / **8**; Cape Town **5.5** / **4** / **7**. A lower score is not "never go", it's "budget for location choice, transport habits, and neighborhood research before you book three months."
 
 ### 4. Place feel → vibe and landscape
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -140,7 +140,7 @@ Save **two or three** spins (or keep three destination tabs) and compare only th
 
 Ignore aesthetic rankings until those six agree. A city can win Instagram and still fail timezone or visa days.
 
-Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/chiang-mai), [Lisbon](/destinations/lisbon), [Tbilisi](/destinations/tbilisi), [Mexico City](/destinations/mexico-city), [Budapest](/destinations/budapest). If Lisbon survives the budget filter, read [Living in Lisbon](/guides/living-in-lisbon) before you pay a deposit. Add [Bali](/destinations/bali) or [Cape Town](/destinations/cape-town) only when your filters (and appetite for traffic or load shedding) actually point there, then read the living guides before you pay a deposit.
+Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/chiang-mai), [Lisbon](/destinations/lisbon), [Tbilisi](/destinations/tbilisi), [Mexico City](/destinations/mexico-city), [Budapest](/destinations/budapest). If Lisbon survives the budget filter, read [Living in Lisbon](/guides/living-in-lisbon) before you pay a deposit. If Budapest survives it, read [Living in Budapest](/guides/living-in-budapest) before you pay a deposit. Add [Bali](/destinations/bali) or [Cape Town](/destinations/cape-town) only when your filters (and appetite for traffic or load shedding) actually point there, then read the living guides before you pay a deposit.
 
 ## Common failure modes
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Tbilisi](/guides/living-in-tbilisi)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Tbilisi](/guides/living-in-tbilisi)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -909,6 +909,796 @@ Still no partner IDs. These slots are last, after the week above, not before the
 `,
   },
   {
+    id: "living-in-budapest",
+    slug: "living-in-budapest",
+    title: "The Ultimate Guide to Living in Budapest",
+    seoTitle: "Living in Budapest 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Budapest for remote workers in 2026: real monthly costs, District VII vs Buda, White Card visa notes, 200 Mbps internet, baths, and winter trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "38 min read",
+    relatedDestinations: ["budapest"],
+    content: `## Is living in Budapest worth it for digital nomads in 2026?
+
+Living in Budapest as a digital nomad is a specific trade in 2026: Lisbon-level internet for about two thirds of Lisbon's solo cost. The row on [Budapest](/destinations/budapest) shows **200 Mbps**, reliability **9/10**, power **9/10**, and coworking density **High**. The [Lisbon](/destinations/lisbon) row shows the same **200 Mbps**, the same reliability **9**, and the same power **9**, at **$2,200** a month solo. Budapest's solo month is **$1,500**. That is **$700** less. $1,500 is about two thirds of $2,200. The longer stay on the Budapest row is **$1,100**. The nightly Airbnb median is **$70**.
+
+That is the go. The no-go is the rest of the row. Best months are **Apr, May, Jun, Sep, and Oct**. Rainy months are **Nov and Dec**. Average temperature is **11°C**. The live trade-offs are cold winters, a language barrier, and rising prices. Safety is **8.3** (female safety **7**). The visa field is **Digital Nomad Visa**, up to **365 days**, time zone **UTC+1**, language Hungarian, region Europe. The vibe tags are \`party\`, \`foodie\`, and \`workhub\`, on an urban landscape. Pros on the page: beautiful architecture, thermal baths, great nightlife, affordable for Europe, fast internet.
+
+Worth it if you want a European capital that can hold a video call, you can live near the **$1,500** band on purpose, and you will spend the grey months somewhere else or you already know you can work through them. A weak default if winter mood, Hungarian admin, or a ruin-bar bedroom is the thing you keep negotiating with yourself about.
+
+If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Budapest on the Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+### Plain answers
+
+**How much does it cost to live in Budapest as a digital nomad?** Nomad Spin lists about **$1,500** a month solo and about **$1,100** long-term, with a median Airbnb around **$70** a night. That is cheap for an EU capital, and it is no longer a bargain. Rising prices are a listed trade-off. District VII nightlife blocks cost more than XIII or Buda.
+
+**Is Budapest internet good enough for video calls?** Yes. Nomad Spin shows about **200 Mbps**, reliability **9/10**, power **9/10**, and High coworking density. That is one of the strongest work setups in our Europe data. Test the unit, because older buildings vary, and pick a quiet room off the nightlife streets.
+
+**What visa do digital nomads use in Budapest?** Nomad Spin lists a **Digital Nomad Visa** for up to **365 days** (**UTC+1**). Hungary calls that permit the White Card: remote work for a foreign employer or company, and no gainful activity in Hungary. A short stay is often Schengen, **90 days in 180**. Official income pages disagree. Verify on the OIF factsheet.
+
+**Who should skip living in Budapest?** Skip it if grey, cold winters wreck your mood, or if you want easy local-language integration. Nomad Spin flags cold winters, a language barrier, and rising prices. Female safety is **7/10** against overall safety of **8.3**. District VII at night is a poor fit for light sleepers.
+
+**What are the best months to live in Budapest?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature on the row is **11°C**. Winter is the weak season. Many nomads pair a Budapest spring or autumn with a warmer winter base.
+
+## Who Budapest is for (and who should skip it)
+
+Budapest fits people who want a European work city with a real social week and a bill that is still under a Western European capital. It is a party city and a food city that also has the pipes. Those three tags are on the row. Picking the city means picking a district that matches the tag you actually came for.
+
+**It tends to fit if you:**
+
+- Want the solo baseline (about **$1,500**) or the longer-stay figure (**$1,100**), and you will actually live like that
+- Need call-grade internet. **200 Mbps**, reliability **9**, power **9**, coworking **High** is the same headline stack as Lisbon, at about two thirds of Lisbon's solo cost
+- Like nightlife at **9** and can sleep somewhere that is not the loudest block in District VII
+- Can put the serious months inside **Apr-Jun** or **Sep-Oct**, or you have a real plan for winter
+- Work **UTC+1**. That is a normal European day. US East Coast afternoons land in the Budapest evening. US West Coast office hours are a night shift
+- Are fine with English at **7** for cafes and coworking, and with Hungarian for a lease, a clinic, and a lot of landlords
+
+**Skip it, or pick a different month, if you:**
+
+- Need a mild winter. Cold winters are a listed trade-off. Average temperature **11°C** is a yearly figure, not a promise about January
+- Want the month to feel like 2016 prices. Rising prices are a listed trade-off. Affordable for Europe means cheaper than Lisbon and Vienna in this dataset. It does not mean cheap in the abstract
+- Need easy local-language integration. The language on the row is Hungarian. The language barrier is a listed trade-off
+- Are a light sleeper and your pin is a ruin-bar street. Nightlife **9** is a product. It is also a bedroom problem
+- Need a high LGBTQ+ score as a hard filter. \`lgbtFriendly\` on this row is **5**. Lisbon's is **9**. Overall safety **8.3** does not answer that question
+- Need female safety at the overall safety number. Female safety is **7**, against **8.3** overall
+- Will treat **365** visa days as a stamp you already hold. The field is an application. The rule is the White Card, below, and you verify it
+
+The dataset also lists political climate and winter air pollution as cons. The short trade-off list on the destination page shows three items: cold winters, the language barrier, and rising prices. This guide does not score parties or tell you how to feel about Hungarian politics. If a political environment decides whether you stay a year, read current reporting and decide for yourself. Winter air is a practical filter, covered in the season section. This guide does not invent an index number for it.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another bath list.
+
+## Real monthly cost bands (solo $1,500, long-term $1,100, Airbnb $70/night)
+
+Nomad Spin does not publish a fake "comfortable" total for Budapest. It publishes three money fields. Those are the bands.
+
+| Band | Figure | Field on the Budapest row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,100 / month | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $1,500 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $70 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget |
+
+\`rentIndex\` is **32**. Lisbon's is **55**. Vienna's solo month is **$2,400**. Prague's is **$1,700**. Krakow's is **$1,450**. Budapest is the cheaper European capital next to Lisbon in this dataset. It is not the cheapest city on the continent, and the rising-prices con is there because the gap has been closing.
+
+### The nightly median will quietly beat the monthly baseline
+
+Thirty nights at the published **$70** median is **$2,100** in lodging before food. That is already **$600** above the entire **$1,500** solo month, and almost double the **$1,100** longer stay. If you "try the city" on nightly Airbnb for a month, you are not on the $1,500 band, no matter how cheap the lunch menu looks. The $1,100 and $1,500 figures assume a monthly place.
+
+A 2 to 4 week landing stay is a different product. Use it to see flats. Do not multiply it by four and call the result your cost of living.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter. Nomad Spin does not publish a separate rent for District VII, District XIII, or Buda.
+
+| Choice | Stays near $1,100 to $1,500 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in XIII, a quieter Buda street, or a side street in VI | Thirty nights at the $70 median, or a new flat on a ruin-bar corner as the default |
+| Food | Markets, bakeries, and weekday menus | Tourist menus in District V, and euro prices you did not check |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping in the Jewish Quarter, plus a desk you do not use |
+| Transport | A monthly BKK pass and walking inside one district | Taxis as the way you cross the river, and airport tickets you buy twice a week |
+| Calendar | One district, **Apr-Jun** or **Sep-Oct** | Arriving in November, then moving in January because the flat is dark and loud |
+
+### Reality checks
+
+- The **$1,500** number is a city baseline, not a District V lifestyle quote.
+- Imported groceries, natural wine, and "just one more" ruin-bar night are how people blow a mid-priced city. The dataset cannot see your receipt.
+- A cheaper room on a nightlife street is not cheaper if you cannot sleep or take a call.
+- Heating is inside a winter month and easy to forget in a September quote. Ask what last January's bill was before you sign.
+- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+
+## Districts that work: VII (Erzsébetváros), VI (Terézváros), V, XIII (Újlipótváros), and the Buda side
+
+Budapest is two cities split by the river, and Pest is several products stacked on top of each other. There is no separate Nomad Spin page for these districts. The canonical numbers live on [Budapest](/destinations/budapest). The trade-offs below are how people actually use the city. Rents move faster than this paragraph. Believe the flats you view, not a blog's district spreadsheet.
+
+| Base | Best for | You give up |
+|---|---|---|
+| VII, Erzsébetváros | Week-one friends, ruin bars, food, a short landing in the scene | Quiet nights, easy sleep, a local feel after 10pm |
+| VI, Terézváros | Andrássy, Opera, coworking, still central | The calm of XIII, and any block that faces a bar street |
+| V, Belváros | A few postcard days, the river, walking to everything tourist | The $1,100 band, and a normal Tuesday |
+| XIII, Újlipótváros | A monthly flat, cafes, sleep, trams to the center | Stepping out the door into the nightlife product |
+| Buda (I, II, XI, XII) | Hills, quieter nights, baths on the Buda bank | Spontaneous Pest evenings, a short walk to District VII |
+
+### VII, Erzsébetváros
+
+District VII is the Jewish Quarter and the ruin-bar map. It is the default "I want the scene without trying" base. You can eat well, meet people, and walk home. If you arrive alone and want a social calendar in the first week, this is the easiest place in the city to get one. Nightlife **9** lives here more than it lives in the hills.
+
+**Trade-off:** the same streets that make week one easy make month two loud. A bedroom over a courtyard bar is a productivity tax. Light sleepers should visit VII and sleep in VI, XIII, or Buda. The AEO line above is the practical version: nightlife blocks here cost more, in rent pressure and in noise, than XIII or Buda. This guide does not invent a forint rent for the district.
+
+Pick VII if you will use the scene. Skip sleeping there if you came to take calls at 9am and you already know bars wreck your night.
+
+**Housing tell:** ask which courtyard the bedroom faces, and whether the bar below has a license past midnight. A cheap flat on Kazinczy or a side street off Gozsdu is not cheap if you cannot work.
+
+### VI, Terézváros
+
+District VI sits above VII, along Andrássy út toward the Opera and Oktogon. It is still the center. It is also where a lot of the practical city is: the yellow M1 metro, tram lines, and more than one coworking room. Kaptár publishes its space on Révay köz, which is in VI. Loffice publishes coworking on Paulay Ede utca, also in VI. You can live here and walk to a desk without living inside the ruin-bar grid.
+
+Side streets are calmer than the avenue and calmer than inner VII. The avenue itself is traffic. "District VI" is not one product. A flat facing Andrássy is a different month from a flat two streets off it.
+
+Best for a first month if you want to be central and you want a door you can close.
+
+### V, Belváros
+
+District V is the postcard: the Basilica, Váci utca, the river promenade, the hotels. It is pleasant for a weekend and a poor default for a work month. Tourist pricing shows up in coffee and in short lets. You are never far from a view. You are also never far from a group that arrived that morning.
+
+Use V as a place you walk to. Sign a month there only if you have viewed the flat, tested the internet, and you are honestly fine leaving the **$1,500** band.
+
+### XIII, Újlipótváros
+
+Újlipótváros, the southern part of District XIII along Pozsonyi út and Szent István park, is the compromise long-stayers keep recommending. More residential, more local cafes, the Danube a few blocks away, trams back to VI and VII when you want them. You sleep. You still live in Pest.
+
+You will not step out of your door into twenty ruin bars. That is the point. If your work is meeting-heavy, name the coworking room you will actually ride to on call days before you sign.
+
+Best for a second month, or for a first month if you already know you do not need District VII to feel oriented.
+
+### The Buda side
+
+Buda is the west bank: the Castle District in I, the residential hills of II and XII, and Újbuda around Móricz Zsigmond körtér and Bartók Béla út in XI. It is quieter. The Gellért and Rudas baths sit on this bank. A flat with a hill view is a different life from a flat on Kazinczy.
+
+**Trade-off:** you commute to the Pest scene. Metro line M2 crosses the river. Trams and buses do too. "Close to the center" on a listing can mean a pleasant walk or a connection you will resent at night. Ask which line, and ride it once before you pay a deposit. This guide does not publish a commute-time score. Your own ride is the score.
+
+Pick Buda if sleep, a park, and a bath matter more than stumbling home from VII. Skip it if your whole social plan is "I will just go out."
+
+### Booking slots
+
+No partner IDs live in this guide. After you pick the district, these three slots are the booking order. The live modules are on the [Budapest destination page](/destinations/budapest), not in this article.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2 to 4 week landing stay in VI, VII, or XIII while you view a longer lease |
+| Flights | Flights into Budapest (BUD) for an Apr-Jun or Sep-Oct window, after the month survives the season section |
+| Insurance | Health and travel cover for a Schengen stay, and the health-cover proof a White Card file asks for |
+
+## Internet, power, and coworking: 200 Mbps, reliability 9, power 9, High coworking
+
+The city average is **200 Mbps**, reliability **9/10**, power stability **9**, coworking density **High**. That is a yes for video calls. It is the same headline stack as Lisbon, which is why the cost gap is the decision and the pipes are not. It is a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Budapest's power score is **9**. You do not need a personal inverter strategy to have a work week here. Keep a charged laptop for cafes.
+
+The 9/10 is still an average. A renovated flat in XIII with fiber and a courtyard guesthouse in VII are not the same connection. Older buildings vary. Test the room.
+
+### A setup that holds calls
+
+1. **Home line you have tested.** Ask which provider is already in the unit, and run a speed test from the desk at the hour you take calls. "Wi-Fi included" in a short let is not that test. Upload matters as much as the 200 Mbps headline.
+2. **A local SIM with real data.** Magyar Telekom, Yettel, and Vodafone are the ordinary networks. Airport counters and city shops sell prepaid and eSIM plans. If a call would hurt you to drop, keep a second line and learn the hotspot before the day you need it. The eSIM module on the [Budapest destination page](/destinations/budapest) is the site's booking path for that backup. This guide does not add a partner code.
+3. **One coworking room you have already used for a call.** Not a ruin-bar cafe you liked for the courtyard.
+
+### Coworking that is actually listed
+
+These are spaces whose own sites still publish Budapest rooms, checked for this guide. Hours and prices change. Believe the operator's page the week you go. Day-pass and monthly rates below are not Nomad Spin figures, because the dataset does not publish them. Read the rate card. Do not trust a 2022 roundup.
+
+- **Kaptár** publishes a coworking space at Révay köz 4, in District VI (1065). Its contact page lists weekday hours of 8:00 to 18:00, and 24/7 access on named monthly passes. Visitor hours and membership access are different products. Confirm which one you are buying.
+- **Loffice** publishes coworking at Paulay Ede utca 55, also in District VI (1061). Its services page lists coworking at that Paulay address. Other Loffice buildings in the city are offices. Do not assume every Loffice door is a day-pass room.
+
+Treat other famous names as open only when you can see them operating this month. Coworking density **High** means you have options. It does not mean every brand you remember is still at the old address. A trial morning beats a recommendation.
+
+### Cafes
+
+District VI and the calmer edges of VII will let you open a laptop. That is not the same as a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. A courtyard with a playlist and a tiled room with no door will lose to a booked booth every time. Ruin bars are for the evening. They are not a backup office.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, not a screenshot from the lobby
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which way the windows face, if the street has bars
+- How the flat is heated, and what last winter's bill looked like
+- A named fallback (Kaptár, Loffice, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 vs Hungary White Card (verify official rules)
+
+This is operational orientation, not legal advice. Income figures, fees, and forms move. The number on our city page is not the law. When this section and a Hungarian government page disagree, the government page wins. Read it the week you apply.
+
+### What Nomad Spin currently shows
+
+The Budapest row says **Digital Nomad Visa**, **365 days**, **UTC+1**. That is what you will see on [Budapest](/destinations/budapest). Use **365** as the dataset field. It is not a stamp you receive on arrival, and it is not a card you already hold. In Hungarian rules the remote-work residence permit is the White Card.
+
+### A short stay is Schengen, not the White Card
+
+You do not need a White Card for a short visit. The European Commission's [visa policy page](https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy_en) describes the Schengen short stay: up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Hungary plus another 90 in Austria. Many passports enter visa-free. Others need a short-stay visa before they fly. Stays longer than 90 days are national procedures. The same page says visa-exempt travellers will need an ETIAS authorisation, tied to the Entry/Exit System, on the timetable the Commission publishes. Check that page for your travel date. This guide does not guess whether ETIAS is already in force for you.
+
+A tourist entry is not the White Card. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp.
+
+EU and EEA citizens, and family members who have the right of free movement, are not the audience for the White Card. The official definition is below. Free-movement registration, if you stay, is a different path.
+
+### The White Card, from the official factsheet
+
+The National Directorate-General for Aliens Policing (NDGAP) publishes the rules on its [White Card factsheet](https://oif.gov.hu/factsheets/white-card-residency-for-digital-nomads). The summary here follows that page. Verify it before you rely on it.
+
+A White Card is for a third-country national who either:
+
+- has a verified employment relationship in a country other than Hungary and does that work from Hungary using an advanced digital technology solution, or
+- owns a share in a company with a verified profit in a country other than Hungary, and does the work or manages that company from Hungary the same way.
+
+The factsheet is explicit about the limit: the card is only for someone who does **not** pursue any gainful activity in Hungary and does **not** hold a share in a Hungarian company. NDGAP will withdraw the permit if you work for or on behalf of an employer in Hungary, or if you acquire a share in a company in Hungary.
+
+Third-country nationals, on that page, are non-Hungarian nationals who are not persons with the right of free movement and residence (not EEA nationals, and not family members of an EEA national), plus stateless persons.
+
+The factsheet also has a list of people who shall not be granted a White Card. It includes people who qualify for several other named Hungarian permits, students and short traineeships, posted workers, people in a protection procedure or with a protection status, and people admitted to the EU as highly qualified workers. Read the list on the factsheet. This paragraph is not a substitute for it.
+
+**Length.** The validity of the document is maximised at **1 year**. It may be extended **once**, for another year. A residence permit can only be extended once for the same purpose.
+
+**Where to apply.**
+
+| Situation | Where the factsheet says to file |
+|---|---|
+| You have no residence permit, and your entry is not visa-exempt travel | Outside Hungary, at a Hungarian diplomatic or consular mission in the country of your nationality or habitual residence. A separate visa application is not required. The residence-permit application includes the visa that lets you collect the permit |
+| You hold citizenship of a visa-free country and you are legally in Hungary without a residence permit | In Hungary: online on [Enter Hungary](https://enterhungary.gov.hu/eh/), or in person at the NDGAP regional directorate for your place of accommodation |
+| You already hold a White Card and want the one extension | In Hungary only, and only on Enter Hungary |
+
+If your representative is a lawyer or a legal person, the factsheet says in-country filing is only via Enter Hungary. If there is no consulate in your country of nationality or habitual residence, exceptional filing from a country where you are staying legally is possible if you prove why. Contact the mission. Do not invent an exception.
+
+If the application is approved abroad, the entry visa that lets you collect the permit is a type D visa: single entry, a stay of not more than 30 days, valid for 3 months. If you do not enter Hungary within 3 months of approval and start the residence, the approval lapses.
+
+**Extension timing.** File no more than 90 days before the permit expires, and no later than 30 days before it expires. You must still hold a valid permit, and you must have resided in Hungary at least **90 days within any 180-day period** before you file the extension. That 90-in-180 line is a minimum presence test for the extension. It is not the Schengen tourist maximum. Do not mix them up.
+
+**What else the factsheet says you cannot do with this card.** During the White Card and after it expires, you may not apply for a residence permit for another purpose. Family members are not granted a residence permit for family reunification, except a child born in Hungary during the permit, after the birth is notified. Holders may not be granted a national residence card. The travel document must stay valid at least 3 months after the permit's expiry date.
+
+**Procedural time and fees.** The factsheet gives a procedural administration time of 21 days, and says the authority adopts a decision on the merits within 30 days of submission. Time spent fixing missing documents is not part of that clock. Fees are on the separate [OIF procedural fees page](https://oif.gov.hu/factsheets/procedural-fees). Read the current fee the week you file. This guide does not freeze a fee that the fee page can change.
+
+**Attachments you should expect.** A certified employer statement (scope of activity, the remote-work clause and its duration, your duties and position), plus proof the employer actually operates. Or, for the company route, documents of real operation, your role, the company's activity, and your ownership. Accommodation in Hungary (a lease, a courtesy document, proof of ownership, or a paid reservation). Proof you can exit (a valid passport, and a ticket or the money for one). Health cover, below. The [Enter Hungary White Card checklist](https://enterhungary.gov.hu/eh/tajekoztato/en/okmanyfeherkartya) is the document list the portal itself shows. Use it next to the factsheet.
+
+### The income figure: two official pages, two numbers
+
+Do not take a euro income number from a blog, a forum, or this sentence without opening the official page.
+
+The [OIF factsheet](https://oif.gov.hu/factsheets/white-card-residency-for-digital-nomads) says the applicant has sufficient resources if monthly legal income is equal to or exceeds **EUR 3,000 net** for at least **6 months** prior to entry, and that the applicant must have this income throughout the stay. It accepts a bank statement for the previous 6 months, or a certificate of regular income from the employer or the tax authority.
+
+The [Enter Hungary checklist](https://enterhungary.gov.hu/eh/tajekoztato/en/okmanyfeherkartya) says legal income per month was at least **EUR 2,000** for at least **6 months** prior to entry, and that the applicant must have this income throughout the stay.
+
+Both pages are Hungarian government pages. They do not match. This guide will not tell you to rely on the lower number because it is easier, or on the higher number because it feels safer. Open both the week you file, and use the figure the form and the case officer are actually applying. If you remember one habit, make it that one.
+
+### Health cover
+
+The factsheet requires documentary proof of comprehensive health insurance covering all healthcare services, or proof you can cover those costs. Its examples include Hungarian social-security cover, cover under an international agreement, or means to pay. The Enter Hungary checklist asks for one of: a Hungarian TAJ card, accident or health insurance that is not social security, treaty cover on the same terms as a Hungarian insured person, or a bank statement for potential healthcare costs. Travel medical insurance and the White Card file are related and not identical. Match the document to the checklist, not to a blog's "any policy is fine."
+
+The insurance slot on the [Budapest destination page](/destinations/budapest) is where this site's cover links are built. This guide does not name a partner or invent a premium.
+
+### Tax residence, at a high level
+
+Tax residence is separate from the White Card. A long stay can raise tax questions in Hungary and at home. The National Tax and Customs Administration (NAV) publishes [guidance for foreigners](https://nav.gov.hu/en/contact/tax_foreigners/tax-issues-of-foreigners), including where your file sits if you have a Hungarian address, and a route for non-residents to declare that they were not taxable in Hungary. This guide does not state a tax rate, does not turn a day count into a verdict, and does not tell you whether your foreign salary is Hungarian-source income. If Budapest is most of your year, pay for advice from someone who will sign it. Nothing here is tax advice.
+
+### Which path is actually yours
+
+- **A few weeks, and your passport qualifies:** a Schengen short stay, after you count 90 days in 180 across the whole area. The White Card is not required for that trip.
+- **Up to a year, working only for a foreign employer or a foreign company, with no Hungarian clients and no Hungarian company share:** the White Card, using the live OIF factsheet and the Enter Hungary checklist, including whichever income figure those pages show when you file.
+- **A second year:** the one extension, filed on Enter Hungary inside the window above, after you have actually been in Hungary for the 90-in-180 presence test.
+- **A Hungarian employer, Hungarian clients, or a share in a Hungarian company:** not this card. The factsheet says that activity gets the permit withdrawn.
+- **A year because the city page says 365:** not a plan. 365 is the dataset field. The permit, if granted, is up to one year, plus one extension.
+
+## Best months (Apr-Jun, Sep-Oct), rainy Nov-Dec, cold winters, and winter air quality
+
+The friendliest months on the row are **Apr, May, Jun, Sep, and Oct**. Rainy months are **Nov and Dec**. Annual average temperature is **11°C**. That yearly figure hides the split that actually decides the trip: a long, usable spring and autumn, and a winter a lot of people underestimate because the Danube photos were taken in May.
+
+**Apr to Jun** is the easy arrival. The city is outside, the terraces open, and you can tell whether you like the district before you sign a long lease. **Sep and Oct** are the other good window: still walkable, the summer crowds thinner, heating not yet the whole story. Book the landing stay inside one of those blocks if you can.
+
+**Nov and Dec** are the rainy months on the row. They are also the start of the grey stretch. Cold winters are a listed trade-off, not a surprise you discover in a caption. Daylight is short. A flat that felt charming in September can feel dark in January. If your work depends on leaving the apartment, test that against a real winter week before you commit the dark months.
+
+**Winter air.** The dataset lists air pollution in winter as a con. The three trade-offs on the destination page do not include it. This guide will not invent a PM2.5 number or a "worst city" rank. If you are sensitive to air quality, check a current reading from Hungary's official monitoring network for the week you arrive, and prefer a flat off the busiest roads. The season is the filter. A single blogged index from another winter is not.
+
+**Pair the winter, do not pretend it away.** Many nomads do Budapest in spring or autumn and put the cold months somewhere else. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the dataset's Nov-Feb work city (solo **$850**, best months **Nov-Feb**, with burning season in Mar-Apr as the hard stop). [Living in Cape Town](/guides/living-in-cape-town) is the other winter-sun contrast (solo **$1,400**, best months **Oct-Mar**, safety **5.5**, power stability **4**). Those are different products. They are not cheaper Budapests. [Living in Tbilisi](/guides/living-in-tbilisi) is cheaper (solo **$800**) and also lists cold winters, so it is a weak escape from this particular con. Read those guides when the month is the question. This page stays about Budapest.
+
+July and August are not on the best-month list and not on the rainy list. They are hot by local standards, busy, and workable. They are not the reason to pick the city, and they are not a reason to avoid it if your only window is midsummer.
+
+## Daily life: thermal baths, ruin bars, the transit pass, Hungarian, forint, and community
+
+The daily texture is why people stay after the spreadsheet says yes. Architecture, baths, and nightlife are the three pros that show up in a normal week. Fast internet and "affordable for Europe" are the other two, and they are the work week. You can have both. You cannot have them in the same room at 1am if you chose the room badly.
+
+**Baths.** Széchenyi in City Park, Gellért and Rudas on the Buda bank, and Lukács are the public baths people actually use, not only the ones on postcards. They are a real Wednesday, not a personality. Check the operator's current ticket before you go. This guide does not invent an entry price. A bath is also not a coworking plan. Leave the laptop at home.
+
+**Ruin bars.** They are concentrated in District VII, and they are the nightlife **9** score in physical form. Go when you want the city. Do not sign a lease because the courtyard was perfect on a Thursday. The housing tell in the district section is the whole advice.
+
+**Transit.** BKK runs the metro, trams, buses, and trolleybuses. The M1 line under Andrássy is the useful one for District VI. M2 is the one that crosses to Buda. Trams 4 and 6 are the ring that connects the Pest districts people actually live in. BKK's [price list](https://bkk.hu/en/tickets-and-passes/prices/) publishes a monthly Budapest pass at **8,950 Ft** and an airport shuttle bus single ticket at **2,500 Ft**. BKK's airport page describes the **100E** Airport Express as the fast public link between the airport and the city centre. Confirm on bkk.hu that the shuttle fare you buy is the 100E, and whether your monthly pass covers that line, before you assume one ticket does both jobs. The BudapestGO app is BKK's own app for planning and mobile tickets.
+
+**Hungarian.** English proficiency on the row is **7**. Menus, cafes, and coworking front desks in VI and VII cope. A lease, a clinic form, a pharmacy label, and a message from a landlord often do not. A few phrases (jó napot, köszönöm, igen, nem) plus a translation app you have tested offline will carry more of the month than another cafe. The language barrier is a listed trade-off because this is the week, not a quirk.
+
+**Forint, not euro.** Everyday prices and BKK fares are in forint. Some tourist menus in District V print a euro price beside the forint price. Pay the forint line, and look at the card terminal before you approve a conversion into euro. Cards are normal in the center. Carry some forint for a market, a bath locker, or a smaller bar. This guide does not publish an exchange rate. Your bank's rate that week is the rate.
+
+**Community.** Community size on the row is **7**. Lisbon's is **9**. You can meet people in the first week if you go back to the same coworking room. You can also spend a month in District VII and only meet people who are leaving on Friday. XIII and Buda put more of the actual city in the week, and you have to be slightly more deliberate about the social part. There is no single official nomad office. Recurring desks, language exchanges, and the same cafe three times are the scene.
+
+Admin friction matches the language score. A longer stay wants a landlord who will put the lease in writing, patience with offices, and a plan for mail. English at **7** covers the easy counters. It does not cover all of them.
+
+## Budapest vs Prague, Krakow, Vienna, and Lisbon
+
+The comparison that matters is the one in the opening: same internet class as Lisbon, about two thirds of the solo cost. The peers below are the other cities readers actually put on the same list. Every figure is from that city's Nomad Spin row. Visa labels are the dataset field. They are not a ruling that you already qualify.
+
+| City | Solo $/mo | Mbps | Safety | Visa field in Nomad Spin | Best months |
+|---|---:|---:|---:|---|---|
+| Budapest | $1,500 | 200 | 8.3 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Prague | $1,700 | 200 | 8.8 | Freelance Visa, 365 days | May-Sep |
+| Krakow | $1,450 | 120 | 8.0 | Temporary Visa, 365 days | May-Sep |
+| Vienna | $2,400 | 120 | 9.0 | Red-White-Red Card, 365 days | Apr-Sep |
+| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
+
+**Stay with Budapest** when you want **200 Mbps**, reliability **9**, power **9**, coworking **High**, and nightlife **9**, and **$1,500** is a number you can actually pay. You accept Hungarian, a winter plan, female safety **7**, and \`lgbtFriendly\` **5**. The White Card is an application with a foreign-income test, not a stamp on arrival.
+
+**Look at [Prague](/destinations/prague)** when you want the same **200 Mbps** and High coworking, safety **8.8** (female safety **8**), and you can pay **$1,700** solo (**$1,300** long-term on that row). Best months run **May-Sep**. Rainy months are **Nov-Dec**. The visa field is a **Freelance Visa**, **365 days**, which is a different label from Budapest's digital nomad field. This guide does not describe Czech rules. Verify them on an official Czech page before you treat the two 365s as the same product. Cold winters are on Prague's cons too.
+
+**Look at [Krakow](/destinations/krakow)** when the solo month has to come in under Budapest and **$1,450** is the target. You give up the pipes: **120 Mbps**, coworking **Med**, community **5**. Safety is **8.0**. The visa field is a **Temporary Visa**, **365 days**. Best months are **May-Sep**. Cold winters and air quality are on that row's cons. Krakow is the smaller, slightly cheaper cousin. It is not the same work setup.
+
+**Look at [Vienna](/destinations/vienna)** when you want safety **9.0**, female safety **9**, and you will pay **$2,400** for it. Internet on that row is **120 Mbps**, coworking **Med**, community **5**. The visa field is a **Red-White-Red Card**, **365 days**. Best months run **Apr-Sep**. Vienna is the polished, expensive version of this climate. It is the wrong comparison if the reason you opened this page was the $1,500.
+
+**Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat the two "digital nomad visa" labels as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
+
+**Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if $1,500 is the number that failed. Tbilisi is the value comparison. It is not a district of Budapest.
+
+**Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. There is no Barcelona living guide on this site yet. Use the destination page. Do not make it the reason you are reading this one.
+
+## First-week checklist and how to compare Budapest on Nomad Spin
+
+### Common mistakes
+
+- Treating thirty nights at **$70** as if you were "living on $1,500"
+- Sleeping on a ruin-bar street and deciding the whole city is unworkable
+- Reading **365** on the city page as a stamp you receive at the airport
+- Copying a euro income figure from a blog when the OIF factsheet and Enter Hungary do not currently match
+- Arriving in November and judging April by that week
+- Assuming Lisbon's D8 paperwork is what Hungary asks for, or the other way around
+- Booking the 100E price in your head and then finding your monthly pass does not cover it
+
+### Before you fly
+
+- Read the [Budapest destination page](/destinations/budapest) and write down **$1,500**, **$1,100**, **$70**, **200 Mbps**, **8.3**, and **UTC+1**
+- Pick the month from the row: **Apr, May, Jun, Sep, or Oct** unless you have a winter plan
+- Pick the district for sleep first, and the district for going out second
+- If you are on a Schengen stamp, write the 90-in-180 date across the whole Schengen area, not just Hungary
+- If you want the year, open the [OIF White Card factsheet](https://oif.gov.hu/factsheets/white-card-residency-for-digital-nomads) and the [Enter Hungary checklist](https://enterhungary.gov.hu/eh/tajekoztato/en/okmanyfeherkartya). Note which income figure each page shows that week
+- Buy health cover that matches the trip you are actually taking: a short Schengen stay, or the White Card file
+- Book the landing stay from the destination page. This guide does not embed a partner link
+
+### In the first seven days
+
+- Run a speed test in the room, at call time, upload included
+- Buy the BKK pass you will actually use, and check the airport line separately on [BKK's price list](https://bkk.hu/en/tickets-and-passes/prices/)
+- Get a local SIM and learn the hotspot once
+- Do one real call from Kaptár, Loffice, or whichever room you confirmed is open
+- Walk VII at night, then go home to the quieter district if that is where you sleep
+- Pay in forint. Check the card terminal
+- Learn four Hungarian phrases before you need the pharmacy
+- If the flat is dark, loud, or on a shared Wi-Fi story you do not believe, move before you sign the long lease
+
+### Compare it on the globe
+
+The point of the dataset is to stop arguing from postcards.
+
+1. Open [Nomad Spin](/) and set a solo budget around **$1,500**, internet at **150** or better, and safety at **8**.
+2. Set the region to Europe. Spin.
+3. Open [Budapest](/destinations/budapest) and [Lisbon](/destinations/lisbon) side by side. Same **200 Mbps**. **$1,500** against **$2,200**. That gap is the decision.
+4. If Lisbon is still in the pile, read the [Lisbon living guide](/guides/living-in-lisbon) and decide whether community **9** and the coast are worth the premium. If the bill has to fall further, open the [Tbilisi living guide](/guides/living-in-tbilisi) and compare **60 Mbps** and a visa-free year against this row.
+5. If the month is November through February, open the [Chiang Mai living guide](/guides/living-in-chiang-mai) or the [Cape Town living guide](/guides/living-in-cape-town) before you force Budapest to be a winter beach.
+6. If you still do not know which filters matter, go back to [how to choose a base](/guides/how-to-choose-next-nomad-base). If you know the month and not the city, use [where to go next by season](/guides/where-to-go-next-by-season).
+
+[Spin the globe](/) with those floors. Budapest should win when you want Lisbon's pipes, you can pay about two thirds of Lisbon's solo cost, and the month is Apr-Jun or Sep-Oct. It should lose when you need a mild winter, English for the lease, a high LGBTQ+ score, or a visa-free year at Tbilisi's **$800**.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,500, $1,100, $70, 200 Mbps, reliability 9, power 9, safety 8.3, female safety 7, and 11°C figures are Nomad Spin's Budapest row. The White Card rules are the NDGAP factsheet on oif.gov.hu. The second income figure is the Enter Hungary checklist. The Schengen 90-in-180 rule is the European Commission's visa policy page. The BKK fares are BKK's published price list. When a later official page disagrees, the official page wins.*
+`,
+  },
+  {
+    id: "living-in-buenos-aires",
+    slug: "living-in-buenos-aires",
+    title: "The Ultimate Guide to Living in Buenos Aires",
+    seoTitle: "Living in Buenos Aires 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Buenos Aires for remote workers in 2026: real monthly costs, Palermo vs Villa Crespo, visa notes, coworking, inflation, and honest safety trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "37 min read",
+    relatedDestinations: ["buenos-aires"],
+    content: `## Is living in Buenos Aires still worth it for digital nomads in 2026?
+
+A straight answer on living in Buenos Aires as a digital nomad: still a yes in 2026 if you want a culture-heavy capital on a clock that overlaps the US East Coast, and you will live inside the row. Among [Medellín](/destinations/medellin), [Mexico City](/destinations/mexico-city), [Santiago](/destinations/santiago), and [Montevideo](/destinations/montevideo), the [Buenos Aires](/destinations/buenos-aires) row is the cheapest solo month and the weakest internet reliability. Both facts are the decision. Solo month **$900**, longer stay **$650**, nightly Airbnb median **$40**, internet **70 Mbps** with reliability **6/10**, power stability **6**, coworking density **Med**, safety **6.2**, female safety **5**. The same page tags it \`party\`, \`foodie\`, and \`adventure\`. Landscape is urban. Language is Spanish. Region is LATAM. Best months are **Mar, Apr, May, Sep, Oct, and Nov**. Rainy months are **Jun and Jul**. The visa field is **Visa Exemption**, up to **90** days. Time zone is **UTC-3**. Annual average temperature is **18°C**.
+
+The pros on that row are why people book: European-style architecture, amazing steak and wine, tango culture, affordable due to the exchange rate, and vibrant nightlife. The cons are why a casual booking goes wrong: inflation instability, bureaucratic processes, petty crime risk, long travel distances, and summer heat. "Affordable due to the exchange rate" means the **$900** baseline is the anchor in this dataset. It does not mean a Palermo Hollywood month, paid like a 2022 meme, still lands on that number.
+
+Worth it if you want that mix and you will live inside it: one barrio you chose on purpose, basic Spanish, a backup for a reliability **6** line, and a stay length you have checked against your passport. A bad default if you need price stability, a top safety score, or internet you never have to think about. The rest of this guide is how to read the row before you pay a deposit.
+
+**Is Buenos Aires still cheap in 2026?** $900 is a dataset snapshot. In week one, price a monthly rental in two barrios, including building fees, plus a week of groceries and one coworking day. If that basket clears both $900 and the $650 long-stay figure, the snapshot is already stale for your trip. Palermo will clear it faster than Villa Crespo or Almagro.
+
+**How much does it cost to live in Buenos Aires as a digital nomad?** Nomad Spin lists about $900 a month solo and about $650 a month long-term, with a median Airbnb around $40 a night. Inflation and the exchange rate move real prices fast, so treat those figures as a baseline. Palermo costs more than Villa Crespo or Almagro.
+
+**Is Buenos Aires internet good enough for video calls?** Mostly, with a backup. Nomad Spin shows about 70 Mbps, reliability 6/10, power 6/10, and Medium coworking density. Ask for fiber in the listing, test upload on arrival, and keep mobile data or a coworking desk for the days the line drops.
+
+**What visa do digital nomads use in Buenos Aires?** Nomad Spin lists Visa Exemption for up to 90 days. Argentina also offers a transitory residence for remote workers paid from abroad, up to 180 days and extendable once, under Disposición 758/2022. Your passport matters. Verify on the official Migraciones pages before you rely on either.
+
+**Who should skip living in Buenos Aires?** Skip it if you need price stability, a top safety score, or bulletproof internet. Nomad Spin rates safety 6.2/10 and female safety 5/10, and the row flags inflation instability, bureaucratic processes, and petty crime risk. If a predictable budget matters most, compare a more stable base first.
+
+**What are the best months to live in Buenos Aires?** The friendliest months on the row are March, April, May, September, October, and November. Rainy months are June and July. The dataset average is 18°C. Summer heat is a listed con, so December to February is the hardest stretch.
+
+If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). Southern Hemisphere seasons are flipped relative to Europe and the US. The shortlist that still puts Buenos Aires in the conversation is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Buenos Aires is for (and who should skip it)
+
+Skip Buenos Aires if you need a budget that sits still, a high safety score without street habits, or a line you never test. Overall safety is **6.2** and female safety is **5**. Internet reliability is **6** and power is **6**. Also skip it if you will not learn basic Spanish. Inflation instability, bureaucratic processes, and petty crime risk are listed cons. A higher-safety, higher-reliability base is the better fit when any of those floors is non-negotiable.
+
+Buenos Aires fits people who want a big, late-night, food-first capital with European streets, hours that still overlap the US East Coast, and the lowest solo month in this set of capitals, and who will treat the exchange rate, the barrio, and the backup connection as part of the job.
+
+**It tends to fit if you:**
+
+- Want the dataset's solo baseline (about **$900**) or the longer-stay figure (**$650**), and you will actually live like that
+- Need **UTC-3**. Argentina stays on that offset all year. A 9:00 call in US Eastern is 11:00 here when the US is on standard time, and 10:00 here when the US is on daylight time. A 9:00 call in London is 6:00 or 5:00 here, depending on UK summer time
+- Want nightlife at **9** and a real food city, with \`lgbtFriendly\` **8**, and you can live with a smaller scene (community **6**) than Medellín or Mexico City (both **8**)
+- Can put the trip inside **Mar, Apr, May, Sep, Oct, or Nov**, or you have a real plan for rainy **Jun and Jul** and for summer heat in **Dec, Jan, and Feb**
+- Can work with safety **6.2** and female safety **5**, which means the block you sleep on, where the phone sits, and the way you get home at night are part of the plan
+- Will learn enough Spanish to handle a lease, a clinic form, and a Migraciones email. English proficiency on the row is **4**
+- Can keep a second connection. Reliability **6** and power **6** are enough for calls when the fiber is real and the backup exists. They are a bad surprise when the cafe is the only office
+
+**Skip it, or pick a different city, if you:**
+
+- Need a safety floor above **6.2**, or a female-safety floor above **5**. [Chiang Mai](/destinations/chiang-mai) is **8.2** with female safety **8**. [Lisbon](/destinations/lisbon) is **8.8** with female safety **8**. Read [Living in Chiang Mai](/guides/living-in-chiang-mai) and [Living in Lisbon](/guides/living-in-lisbon) if that floor is the decision
+- Need reliability above **6** as a hard filter. [Mexico City](/destinations/mexico-city) is **90 Mbps** at reliability **7**. [Santiago](/destinations/santiago) is **120 Mbps** at reliability **8**. The [Mexico City living guide](/guides/living-in-mexico-city) is the closer megacity comparison
+- Need the ocean. This row is urban, party, and food. The [Bali living guide](/guides/living-in-bali) is the beach comparison, with a different internet and visa story
+- Need the **$650** figure while living in Palermo Soho and eating every meal out
+- Need a full year of legal stay and will not assemble a Migraciones file. The destination row says visa exemption, **90** days. The remote-work residence is a real application, capped and extendable once
+- Need price stability month to month. Inflation instability is a listed con. A city with a calmer currency is a different product
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
+
+## Real monthly cost bands (solo $900, long-term $650, Airbnb $40/night) and why inflation makes these move
+
+Nomad Spin lists about **$900** a month solo and about **$650** long-term, with a median Airbnb around **$40** a night. Villa Crespo, Chacarita, and Almagro are how people stay near those bands. Palermo and Recoleta are where the same month becomes a different receipt. The low cost is real when housing is monthly and lunch is local. It moves because inflation instability is a listed con, and because the exchange rate that made the city feel cheap is not a fixed discount.
+
+Those three money fields are the bands. Nomad Spin does not publish a fake "comfortable" total on top of them. Other 2026 write-ups publish higher monthly totals. This page does not average them in. The row is the anchor. The week-one basket, below, is how you find out whether the anchor still fits your receipts.
+
+| Band | Figure | Field on the Buenos Aires row | How to read it |
+|---|---:|---|---|
+| Longer stay | $650 / month | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $900 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $40 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, separate from a monthly budget |
+
+\`rentIndex\` is **18** (Medellín **22**, Mexico City **28**, Santiago **30**, Chiang Mai **15**, Lisbon **55**). That is relative rent pressure inside the dataset, separate from a dollar rent. Buenos Aires sits under the other capitals in this comparison, and far under Lisbon.
+
+### The nightly median will quietly beat the monthly baseline
+
+Thirty nights at the published **$40** median is **$1,200** in lodging before food. That is already above the entire **$900** solo month. If you "try the city" on nightly Airbnb for a month, you are off both published bands, however cheap the steak is. The **$650** and **$900** figures assume a monthly place.
+
+### Why the number moves
+
+As of October 2026, this guide does not publish a parallel-market premium or a card-versus-cash gap. Those gaps have narrowed and widened before, and a forum screenshot goes stale inside a month. Inflation instability is the listed con that explains the variance: peso prices can move inside a stay, and the dollar figure you feel depends on how you pay. Ask whether rent is quoted in pesos or dollars, and what happens to the building fees (expensas) if the peso moves. Then run the basket below before you treat **$900** as this month's truth.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter.
+
+| Choice | Stays near $650 to $900 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in Villa Crespo, Chacarita, Almagro, or a simpler Palermo block, with expensas read before you sign | Nightly Airbnb at the $40 median, or a Palermo Soho or Recoleta apartment as the default |
+| Food | Neighborhood parrillas, markets, and cooking most days | Palermo Hollywood tasting menus as the lunch plan |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping, plus a premium desk you do not use |
+| Transport | Walking inside one barrio, subte for a planned hop, a registered ride app at night | Ride apps as the way you cross the city twice a day |
+| Calendar | One barrio, **Mar-May** or **Sep-Nov** | A non-refundable lease through **Dec-Feb** heat, or through **Jun-Jul** rain, that you did not mean to book |
+| Payments | You checked, this week, what your card and your cash actually buy | A 2022 exchange-rate story used as this month's budget |
+
+Annual average temperature on the row is **18°C**. That is a coarse yearly figure. It does not tell you January is hot, and it does not tell you the peso will sit still.
+
+### The week-one sanity check
+
+Do this before you call the city cheap, or finished as a bargain:
+
+1. Price one monthly apartment in Palermo and one in Villa Crespo, Chacarita, or Almagro. Write down rent and expensas as separate lines.
+2. Buy a normal week of groceries and note the peso total and the dollar amount your card or your cash actually produced.
+3. Price one coworking day at a space whose own site is live this week.
+4. Add that basket and set it next to **$900** and next to **$650**.
+
+If the basket clears both figures, the dataset snapshot is already stale for your trip. If it fits, you have a month you can plan. Either result is more useful than another blog's annual average.
+
+### Reality checks
+
+- The **$900** number is a city baseline. Palermo Soho and the most photographed blocks of Palermo Hollywood are where that number goes to die if every meal is a restaurant meal.
+- The "affordable due to the exchange rate" pro is real next to [Lisbon](/destinations/lisbon) at **$2,200** and next to [Mexico City](/destinations/mexico-city) at **$1,300**. It is also the receipt that leaves the band when the landing month never becomes a lease.
+- A cheaper room on a loud nightlife street, or on a block you will not walk at night, is a productivity and safety tax. The dataset cannot see your street.
+- Long travel distances are a listed con. A "cheap" apartment that needs two ride apps a day is not inside **$650**.
+- Insurance is outside those three money fields. Budget it separately. This guide does not invent a premium.
+
+## Neighborhoods that work: Palermo (Soho / Hollywood), Villa Crespo / Chacarita, Recoleta, San Telmo, Almagro (trade-offs)
+
+The city is large enough that the wrong pin wastes the month. Long travel distances are a listed con for that reason. There are no separate Nomad Spin destination pages for these barrios. The canonical numbers live on [Buenos Aires](/destinations/buenos-aires). The trade-offs below are how people actually use the city. This guide does not invent a dollar rent for each neighborhood.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Palermo Soho | Week-one landing, cafes, a social calendar around Plaza Serrano | The $650 band, quiet nights if you land on a bar street |
+| Palermo Hollywood | Restaurants, nightlife **9**, a short social landing | Sleep, the long-stay figure, a work apartment |
+| Villa Crespo / Chacarita | A monthly lease near Palermo without paying Soho prices | Cafe density and English on every corner |
+| Recoleta | Classic architecture, parks, a calmer prestigious address | The baseline, once expensas in an older building show up |
+| San Telmo | Older streets, Sunday energy, a south-of-center feel | Sleep on market weekends, a modern work apartment by default |
+| Almagro | A residential month, local food, a shot at the $650 band | Spontaneous Palermo plans, "I'll walk to the scene" |
+
+Subte Line D is the practical rail line for Palermo and Recoleta. Line B reaches parts of Almagro, Villa Crespo, and Chacarita. A pin that is "near Palermo" on a map can still be a ride. Ask which station the door actually uses.
+
+### Palermo Soho
+
+Palermo Soho, around Plaza Serrano, is the default "I want the scene without trying" base. Cafes, shops, and apartments cluster here. If you arrive alone and want a social calendar in the first week, this is the easiest place in the city to get one.
+
+**Trade-off:** you pay for that in rent, in food, and often in noise. Palermo Soho is where the **$900** baseline goes to die if you treat every meal as a cafe meal. A cheap apartment on a bar street is a productivity tax.
+
+Pick Palermo Soho if you will use the scene for the first two to four weeks, then decide whether to stay. Skip it as a default lease if you came to write and you already know cafes wreck your day.
+
+**Housing tell:** ask which street the bedroom faces, and whether you can hear the plaza on a Friday. Ask for the expensas number, not a vibe.
+
+### Palermo Hollywood
+
+Palermo Hollywood, the restaurant and nightlife side of Palermo, is where a lot of the score of **9** actually happens. It is a landing zone for dinners and a short social stay. It is a weak place to sleep if your calls start with the US East Coast morning, and a weak place to hunt the **$650** figure.
+
+You can eat in Hollywood from a quieter Soho block, or from Villa Crespo. You do not have to sleep on the restaurant street.
+
+Best for a first long weekend inside a longer landing stay. A poor default for the month you meant to work.
+
+### Villa Crespo and Chacarita
+
+Villa Crespo, west of Palermo, is the compromise long-stayers keep recommending, and they are usually right. It is more residential, often kinder to the **$650** to **$900** bands, with everyday restaurants that are not performing for a visitor. Chacarita, next to it, is quieter still, with more local blocks and a longer walk to the Palermo cafe map.
+
+You will not step out of your door into a street of laptop cafes. You will eat better for less, and you will sleep. English at **4** shows up here faster than it does in Palermo. If your work is meeting-heavy, identify the fiber plan and the coworking room you will actually use on call days before you sign anything. Line B helps. It does not put every block on a station.
+
+Best for a second month, or for a first month if you already know you do not need Soho to feel oriented.
+
+### Recoleta
+
+Recoleta is the classic Buenos Aires postcard: wide streets, the cemetery, parks, and the architecture people mean by the "European-style" pro. It can be a calm, walkable base on Line D. It is also where an older building's expensas can move a pretty rent off the **$900** band before you have bought groceries. Read the fee line. A low rent with a high building charge is not a deal.
+
+Best for people who want that texture and will pay for it on purpose. A poor place to pretend you are hunting **$650**.
+
+### San Telmo
+
+San Telmo, south of the center, is older, more tourist on the weekend, and full of the cobblestone version of the city. The Sunday market is the product people come for. It is a weak default for sleep if your block faces that market, and a weak default for a modern work setup unless you have tested the line in the unit. Many blocks are a bus or a walk, not a doorstep metro.
+
+Best for a short stay you chose for the streets, or for a longer stay on a quiet block after you have walked it on a Sunday and on a Tuesday.
+
+### Almagro
+
+Almagro is the residential month. Local food, a real neighborhood, and a more plausible path to **$650** if the lease is monthly and lunch is not a Palermo reservation. The scene does not come to you. Spontaneous plans in Palermo become a subte ride or a car. Test the internet in the unit. A pretty apartment with a weak upload is still a bad office.
+
+Boedo, further out on the same side of the city, is the same idea with even less nomad traffic. Use it once you already know the city, not as the landing pin.
+
+### Booking placeholders
+
+No partner IDs live in this guide. After you pick the area, these three slots are the booking order. The live modules are on the [Buenos Aires destination page](/destinations/buenos-aires), where the affiliate links are generated. This article does not name a partner or paste a tracking ID.
+
+| Slot | What to book |
+|---|---|
+| Stays | A first 2-4 week landing stay in Palermo or Villa Crespo while you tour longer leases |
+| Flights | Flights into EZE only after the month survives the season section |
+| Insurance | Health and travel cover for a stay that may run past 90 days. The nomad residence checklist below does not, today, list an insurance line. Re-read it before you assume it is required |
+
+## Internet, power, and coworking for video-call work
+
+Mostly, with a backup. The row shows about **70 Mbps**, reliability **6/10**, power **6/10**, and coworking density **Med**. That average is the city, so confirm the upload in the unit and keep mobile data or a coworking desk for the days the line drops. This is the weakest reliability score in the capital comparison later in this guide. Treat it as a work constraint, not a footnote under the steak.
+
+Power is also a different product from Cape Town. [Living in Cape Town](/guides/living-in-cape-town) has to plan around \`powerGridStability\` **4**. Buenos Aires power is **6**. That is not a personal-inverter project, and it is not a promise of a quiet week. Keep a hotspot. Bali's row, by comparison, shows **50 Mbps** and reliability **5**, which is why the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber.
+
+### A setup that holds calls
+
+1. **Home line you have tested.** Ask whether fiber is already in the unit, and which provider (Personal, Movistar, and Claro are the usual consumer networks). Run a speed test from the room at the hour you take calls. A hallway network, or a screenshot from the lobby, is not the line you will use.
+2. **A local SIM with real data.** Personal, Claro, and Movistar are the practical prepaid networks. If a call would hurt you to drop, keep a second SIM. Learn the hotspot before the day you need it. An eSIM is useful when the operator you pick actually sells one that week. Confirm it on that operator's own site.
+3. **One coworking room you have already used for a call.** A cafe you liked for breakfast is a different test. Coworking density **Med** means a fallback exists. It does not mean a room on every corner, the way a **High** city does.
+
+### Coworking that is actually listed
+
+This guide does not copy day-pass prices. A peso rate pasted into an article goes stale.
+
+**La Maquinita** is a current operator with its own pages up. Palermo Soho locations it lists include Niceto Vega, at Av. Cnel. Niceto Vega 4736, and Godoy Cruz, at Godoy Cruz 1550. The same site says space can be rented by the hour, the day, or the month. Read the rate on [lamaquinita.co](https://lamaquinita.co/) the week you go. Do a trial morning, including a real call, before you tell a client the room is your office.
+
+Treat other famous names you will see in old roundups as unconfirmed until you see them on the operator's own site this month. Spaces in this city open, rebrand, and disappear. A trial morning beats a recommendation.
+
+### Cafes
+
+Palermo will let you open a laptop in a lot of rooms. That is a different product from a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. Hollywood in the evening will lose to a booth every time. Villa Crespo is quieter and thinner on laptop cafes, which is a reason to have the coworking room named before you need it.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether anyone else on the booking can knock the line over
+- A quiet corner with a door, if you talk for a living
+- A named fallback (a confirmed coworking room, or a second SIM) written down before you need it
+
+## Visas and stay length: 90-day exemption vs Argentina digital nomad residence (verify official rules)
+
+Nomad Spin lists **Visa Exemption** for up to **90** days, on **UTC-3**. Argentina's tourist page describes a stay of up to three months, extendable once for a similar period. Dirección Nacional de Migraciones also publishes a transitory residence for remote workers, up to **180** days, extendable once. Verify both on the official pages for your passport before you book a long lease. Checked against those pages in October 2026.
+
+This is operational orientation, not legal advice. The number on our city page and the number on the government page answer different questions. When they disagree, the stamp and the official page win.
+
+### What Nomad Spin currently shows
+
+The Buenos Aires row says **Visa Exemption**, **90 days**. That is what you will see on [/destinations/buenos-aires](/destinations/buenos-aires). Use it as the product field. Your passport may not be in the exempt group, and the officer can write fewer days than the maximum.
+
+### Tourist entry, and the one extension
+
+The [Migraciones tourist page](https://www.argentina.gob.ar/migraciones/turistas) describes a tourist as a foreigner who enters for rest or recreation, with an authorized stay of up to three months, extendable for another similar period. Which passports are exempt, which need a visa, and which can use an electronic travel authorization is the live [regime table](https://www.migraciones.gob.ar/accesos/regimenvisas.php), not a list this guide will copy. The table changes. Read your row before you fly.
+
+An extension, where you qualify, is filed at Migraciones or a delegation. The same tourist page says requests to extend a transitory residence should be filed within the **10** days before it expires. If the stay has already expired, it cannot be extended. You then need a departure authorization (habilitación de salida) to leave. This guide does not restate the fee. The page points at the current fee table. Read it the week you file.
+
+[Disposición 758/2022](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto) says the tourist subcategory is for rest and recreation, and that using it does not match a stay whose reason is remote work. The **90-day** field on our page is the entry product for eligible passports. It is not a published remote-work permit.
+
+### The digital nomad transitory residence
+
+The longer remote-work route is the transitory residence in [Disposición DNM 758/2022](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto), under article 24, inciso h) of Ley 25.871 and Decreto 616/2010. The [service page](https://www.argentina.gob.ar/servicio/obtener-una-residencia-transitoria-como-nomada-digital) describes it as up to **180** days, extendable for the same length, for people who enter to provide remote services, through digital means, for people or companies domiciled abroad. It is only for nationals of countries that do not need a tourist visa to enter.
+
+Article 2 of the disposition, as published, requires:
+
+- A signed request with your details and the independent work you will do, plus a short CV and your level of study
+- A valid passport and a photo
+- Proof of the activity (a contract, a company letter, or receipts) and at least one work reference
+- The fee for the channel you use
+- Foreign documents legalized or apostilled, and translated into Spanish by a traductor público when they are not in Spanish
+
+The disposition does not print a dollar or euro income floor. This guide will not invent one. Article 2 also does not list a health-insurance line. The service page says Migraciones can ask for more documents than the list. Re-read the live checklist the week you apply. Buy travel medical cover because you want a clinic to take you, and check that week whether the file now requires it. Do not copy a blog's insurance rule into the folder.
+
+Where you file:
+
+- **From abroad:** the [Tramitación de Ingreso Electrónica for digital nomads](https://www.argentina.gob.ar/servicio/tramitacion-de-ingreso-electronica-nomadas-digitales). You show the authorization to the inspector when you enter. The page states a stay of up to **180** days.
+- **From inside Argentina:** in person, not through Radex. The service page says you must be in the country. In Buenos Aires it tells you to write to asesoramiento@migraciones.gob.ar. Elsewhere, you go to the Migraciones office for your area. The page also says you do not need a gestor.
+
+The extension is once, for the same length as the residence you were granted. [Article 3](https://www.argentina.gob.ar/normativa/nacional/disposicion-758-2022-364601/texto) requires a valid passport, proof of income actually received during the period you want to extend, a criminal-record certificate from the Registro Nacional de Reincidencia, proof you stayed in Argentina at least **50%** of that period, and the fee. The [extension service page](https://www.argentina.gob.ar/servicio/obtener-una-prorroga-de-residencia-transitoria-como-nomada-digital) is the filing version of that list. Filing is not approval.
+
+### Tax, at the level this guide will go
+
+A stay that runs through much of the year can raise tax-residence questions. This guide does not tell you whether that applies to you, and it does not quote a day-count test as if it were advice. Ask a tax professional where you are tax resident today and, if needed, in Argentina. [Paraguay tax residency for remote workers](/guides/paraguay-tax-residency-remote-workers) is a different country and a different system. It is not an Argentina plan.
+
+### A simple decision frame
+
+- **A few weeks to the days on your stamp, and your passport qualifies:** the visa exemption, after you read the stamp. Remote work is a different product under Disposición 758/2022.
+- **Longer than that stamp, still as a tourist, and you qualify:** the one extension, filed before the stay expires.
+- **Many months of remote work for foreign clients, and you can meet the file:** the transitory residence, using the live Migraciones checklist, from abroad or in person once you are in the country.
+- **A year via border runs, or local clients on a tourist stamp:** not a plan.
+
+## Best months (Mar-May, Sep-Nov), rainy Jun-Jul, and summer heat
+
+The friendliest months on the Buenos Aires row are **Mar, Apr, May, Sep, Oct, and Nov**. Rainy months are **Jun and Jul**. The annual average is **18°C**. Summer heat is a listed con, so December to February is the hardest stretch. These are southern seasons. March to May is autumn. September to November is spring. December to February is summer, which is when a lot of northern visitors want to arrive, and when the row says the heat is the trade-off.
+
+| Window | What the Buenos Aires row says | Practical read |
+|---|---|---|
+| Mar, Apr, May | \`bestMonths\` | Southern autumn. One of the two friendlier windows |
+| Sep, Oct, Nov | \`bestMonths\` | Southern spring. The other friendlier window |
+| Jun, Jul | \`rainyMonths\` | The rainy pair. Fine if you chose it. A bad surprise on a lease you meant to be dry |
+| Dec, Jan, Feb | Summer heat, in \`cons\` | The hardest stretch on the row. Not a best-month list |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. Use \`rainyMonths\` as a veto when you care about getting around the city, and use the summer-heat con as a veto when you care about sleeping and working through January. A best-month headline does not cancel either one. [Living in Cape Town](/guides/living-in-cape-town) is the other Southern Hemisphere living guide in this set, with its own flipped calendar. It is a peer for the season logic, not a cheaper Buenos Aires.
+
+### Booking placeholders
+
+Same three slots, still with no partner IDs. The live modules stay on the [destination page](/destinations/buenos-aires). Buy them only after the month is one the table above allows.
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Mar-May or Sep-Nov, or a Jun-Jul or Dec-Feb stay you chose on purpose, with a cancellation rule that survives a forecast |
+| Flights | EZE (Ministro Pistarini) is the long-haul airport. The ride into town is part of the arrival. AEP (Aeroparque Jorge Newbery) is the in-city airport, mostly a shorter-haul product |
+| Insurance | Cover that you understand before you are standing in a clinic, sized for the length of the stay |
+
+## Daily life: money and payments, steak and wine, tango, nightlife, Spanish, and safety habits
+
+### Money and payments
+
+Date this section: October 2026. Do not budget from a 2022 parallel-rate story. This guide does not state a current gap between cash, a foreign card, and a transfer, because that gap moves and the dataset does not publish it. In week one, pay for the same kind of purchase two ways if you can, and write down what each one cost you in dollars. Rent is the large line: confirm the currency, the due date, and the expensas before you send a deposit. Cards are common in restaurants and supermarkets. Confirm, that same week, which payment methods the places you actually use will take. Sort the card you will use for rent before you arrive. Bureaucratic processes are a listed con. A tourist stamp is a thin file for a local account. Many people run the month on foreign cards and cash. This guide does not name a bank product or a fee.
+
+### Steak, wine, and tango
+
+Amazing steak and wine, and tango culture, are listed pros. A neighborhood parrilla is how that pro stays inside the band. A Hollywood tasting menu is how it leaves. You can live here and never take a tango class. The city still runs on the culture: late dinners, music, and a street that is busier at 11 than at 7. Treat the pro as a reason to be here, not as a mandatory itinerary.
+
+### Nightlife
+
+Nightlife **9** is a real product, and Palermo Hollywood is where a lot of it concentrates. Dinner starts late. A 7pm table is early. The "vibrant nightlife" pro and the sleep you need for a US-morning call are the same map. Eat there when you want the scene. Sleep on a quieter block if the laptop opens at 8. Community **6** shows up as recurring coworking, a language exchange, and the same cafe twice, not as a single official nomad office. The scene is smaller than Medellín or Mexico City. You can meet people in the first week if you go back to the same room. You can also spend a month in Soho cafes and only meet people who are leaving on Friday.
+
+### Getting around
+
+Long travel distances are a listed con. Pick one barrio for the work week. Crossing from Palermo to San Telmo for a laptop cafe is a commute. Subte and buses use a SUBE card. Registered ride apps cover the night, which is also how you keep the safety score honest. Walking a familiar block in daylight is the point of choosing the barrio well.
+
+### Spanish
+
+English proficiency **4** is the number. Service English in parts of Palermo will get you a coffee. A lease, a clinic intake, and an email from Migraciones are Spanish. Basic Spanish is a feature of a good month here, not a footnote you add if you have time.
+
+### Safety habits
+
+Safety **6.2**, female safety **5**, and \`lgbtFriendly\` **8** are the scores to plan with. The practical version, without a crime essay: phone stays in a pocket on the street, not in your hand at the curb. Laptop stays with you. Walk the block in daylight and again at night before you sign. Meet new people in a public place you already know. Use a registered ride app after dark, and check the plate before you get in. Dating-app meetings belong in that public place, not in an apartment you have not seen. Petty crime risk is a listed con. A lower score is a set of habits. It is also a reason to choose [Lisbon](/guides/living-in-lisbon) or [Chiang Mai](/guides/living-in-chiang-mai) if you wanted a city where those habits are optional.
+
+\`lgbtFriendly\` **8** is higher than Medellín (**6**) and Mexico City (**7**) on those rows. It does not cancel female safety **5** or the street habits above.
+
+Private clinics in Palermo and Recoleta handle the usual problems. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
+
+## Buenos Aires vs Medellin, Mexico City, Santiago, and Montevideo
+
+Choose with the rows, not with photos. Buenos Aires is the cheapest solo month in this set, and the weakest internet reliability. Figures below are the live dataset fields. Best-month lists are shortened the way the comparison is usually read. The full arrays are on each destination page.
+
+| Field | Buenos Aires | Medellín | Mexico City | Santiago | Montevideo |
+|---|---|---|---|---|---|
+| Solo month | $900 | $1,100 | $1,300 | $1,400 | $1,700 |
+| Longer stay | $650 | $800 | $1,000 | $1,100 | $1,275 |
+| Airbnb night | $40 | $45 | $60 | $65 | $77 |
+| Internet | 70 Mbps | 80 Mbps | 90 Mbps | 120 Mbps | 100 Mbps |
+| Reliability | 6 | 7 | 7 | 8 | 8 |
+| Power | 6 | 7 | 7 | 8 | 8 |
+| Coworking | Med | High | High | Med | Med |
+| Safety | 6.2 | 6.5 | 6.0 | 6.8 | 8.0 |
+| Visa field in Nomad Spin | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 180 days | Visa Exemption, 90 days | Tourist Visa, 90 days |
+| Time zone | UTC-3 | UTC-5 | UTC-6 | UTC-4 | UTC-3 |
+| Best months | Mar-May, Sep-Nov | Jan-Mar, Jul-Aug, Dec | Mar-May, Nov | Oct-Dec, Mar-Apr | Oct-Dec, Mar-Apr |
+
+**Stay with Buenos Aires** when you want the **$900** band, nightlife **9**, European streets, and **UTC-3**, and you accept reliability **6**, safety **6.2**, female safety **5**, Spanish, and a 90-day field you may need to extend or replace with the Migraciones residence. Read the four cities below before you assume they are the same trip with a different postcard.
+
+**Look at Medellín** when you want a warmer mountain city, community **8**, coworking **High**, reliability **7**, and **UTC-5**, and you can pay **$1,100**. Safety there is **6.5**. Female safety is the same **5**. Best months come in two blocks. The [Medellin living guide](/guides/living-in-medellin) is the on-the-ground version.
+
+**Look at Mexico City** when you want a larger food city, a visa field of up to **180** days, reliability **7**, and **UTC-6**, and you accept safety **6.0**, altitude, and a solo month of **$1,300**. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version. It is the usual "other capital" comparison, at a higher bill and a stronger line.
+
+**Look at Santiago** when you want **120 Mbps**, reliability **8**, power **8**, and safety **6.8**, and you can pay **$1,400**. The visa field is also an exemption, **90** days. Time zone is **UTC-4**. Best months are **Oct-Dec** and **Mar-Apr**. Open [Santiago](/destinations/santiago) when the Buenos Aires reliability score is the thing you keep circling. There is no Santiago living guide yet. The destination row is the comparison.
+
+**Look at Montevideo** when you want safety **8.0**, **100 Mbps**, reliability **8**, and the same **UTC-3**, and you can pay **$1,700**. The visa field is **Tourist Visa**, **90** days. Best months are **Oct-Dec** and **Mar-Apr**. The ferry is a real neighbor trip. It is not a way to pretend Montevideo prices are Buenos Aires prices. Open [Montevideo](/destinations/montevideo) when safety is the filter and the bill can rise.
+
+If the alternative is not South America, the other full living guides in this set include [Chiang Mai](/guides/living-in-chiang-mai) (solo **$850**, safety **8.2**, reliability **8**), [Cape Town](/guides/living-in-cape-town) (solo **$1,400**, safety **5.5**, power **4**), and [Bali](/guides/living-in-bali) (solo **$1,200**, reliability **5**). Different clocks. Different guides.
+
+## First-week checklist and how to compare Buenos Aires on Nomad Spin
+
+### Common mistakes
+
+- Paying the **$40** nightly median for thirty nights and calling the month **$900**
+- Choosing Palermo Soho or Hollywood, then acting surprised that the long-stay **$650** figure did not survive contact with restaurants
+- Treating safety **6.2** and female safety **5** as a mood, and walking with the phone out at the curb
+- Treating the **90-day** exemption field as a promise for every passport, or as permission for remote work. Disposición 758/2022 is the remote-work residence
+- Copying a dollar income figure or an insurance rule into the nomad file when the published checklist does not state one
+- Using cafe Wi-Fi for the client call you cannot drop, on a reliability **6** row
+- Booking **Dec, Jan, or Feb** because a northern winter escape was the headline and the summer-heat con went unread
+- Booking **Jun or Jul** because "18°C average" sounded mild and \`rainyMonths\` went unread
+- Budgeting from a 2022 exchange-rate story instead of the week-one basket
+- Using [Paraguay](/guides/paraguay-tax-residency-remote-workers) as if it answered an Argentina tax question
+- Signing a lease a long ride from the barrio you actually live in, then calling the distance a surprise
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- Read the stamp. Write down the date it ends
+- One confirmed coworking trial, including a real call
+- Walk the block in daylight and again at night before you decide you can sleep there
+- Note what a normal meal and a grocery run cost you, in dollars, with the payment method you actually used
+
+**Days 3-4**
+
+- See more than one monthly place, in at least two barrios. Run the speed test in the room. Write rent and expensas on separate lines
+- Run the week-one basket against **$900** and **$650**. If it clears both, change the plan before you sign
+- If you might stay past the stamp, read the tourist extension page and the nomad residence page. Do not start with a forum checklist
+
+**Days 5-7**
+
+- Commit to one barrio for two to four weeks, not to "Buenos Aires" in the abstract
+- Fix the work loop: home deep work, coworking on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above. The buttons that carry affiliate links live on the [Buenos Aires destination page](/destinations/buenos-aires).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the expensas line, the noise test, and the night walk |
+| Flights | The onward or return date your stamp, extension, or residence actually supports, into EZE unless you mean AEP |
+| Insurance | Travel medical cover you have read, sized for a stay that can run past 90 days, and checked against the live Migraciones list if you are filing the residence |
+
+### How to compare Buenos Aires on Nomad Spin
+
+1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$900**, the solo baseline is already a stretch, and the **$650** longer-stay figure is the one you have to live inside.
+2. Set an internet floor Buenos Aires can clear, and a safety floor its **6.2** can clear. Reliability **6** loses on purpose if your floor is **8**. Often the survivor is [Santiago](/destinations/santiago) or [Chiang Mai](/destinations/chiang-mai), not a softer reading of **6**.
+3. Open [Buenos Aires](/destinations/buenos-aires) and read \`bestMonths\`, \`rainyMonths\`, and the summer-heat con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Medellín or Mexico City is still in the pile, open [Medellín](/destinations/medellin), the [Medellin living guide](/guides/living-in-medellin), [Mexico City](/destinations/mexico-city), and the [Mexico City living guide](/guides/living-in-mexico-city). Compare **$1,100** and **$1,300**, reliability **7**, and visa days against this row's **$900**, reliability **6**, and **90** days.
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Buenos Aires should win when the floors are real, the month is on the friendlier list, the week-one basket still fits **$900** or **$650**, and Spanish is a yes. It should lose when you need a higher safety score, a line you never test, or a visa story our 90-day field does not match.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $900, $650, $40, 70 Mbps, reliability 6, power 6, safety 6.2, female safety 5, 90-day, and UTC-3 figures are Nomad Spin's Buenos Aires row. The tourist stay, the extension, and the 180-day residence are Dirección Nacional de Migraciones, including Disposición 758/2022. When they disagree, the official page and your stamp win.*
+`,
+  },
+  {
     id: "living-in-cape-town",
     slug: "living-in-cape-town",
     title: "The Ultimate Guide to Living in Cape Town",
@@ -1480,7 +2270,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling. The [Da Nang living guide](/guides/living-in-da-nang) is the longer version of that comparison, including the neighborhoods and why the two seasons pair.
 
-If the alternative is not Asia, the other full living guides in this set are [Cape Town](/guides/living-in-cape-town) (solo **$1,400**, safety **5.5**, power stability **4**), [Lisbon](/guides/living-in-lisbon) (solo **$2,200**, safety **8.8**, reliability **9**), [Mexico City](/guides/living-in-mexico-city) (solo **$1,300**, safety **6.0**, visa exemption **180** days, with air quality and altitude in the cons), [Medellin](/guides/living-in-medellin) (solo **$1,100**, safety **6.5**, visa exemption **90** days, on **UTC-5**), and [Tbilisi](/guides/living-in-tbilisi) (solo **$800**, safety **8.0**, visa-free **365** days, with cold winters and **60 Mbps** on the row). Different budgets. Different guides.
+If the alternative is not Asia, the other full living guides in this set are [Budapest](/guides/living-in-budapest) (solo **$1,500**, **200 Mbps**, safety **8.3**, with cold winters), [Buenos Aires](/guides/living-in-buenos-aires) (solo **$900**, safety **6.2**, reliability **6**, visa exemption **90** days, on **UTC-3**), [Cape Town](/guides/living-in-cape-town) (solo **$1,400**, safety **5.5**, power stability **4**), [Lisbon](/guides/living-in-lisbon) (solo **$2,200**, safety **8.8**, reliability **9**), [Mexico City](/guides/living-in-mexico-city) (solo **$1,300**, safety **6.0**, visa exemption **180** days, with air quality and altitude in the cons), [Medellin](/guides/living-in-medellin) (solo **$1,100**, safety **6.5**, visa exemption **90** days, on **UTC-5**), and [Tbilisi](/guides/living-in-tbilisi) (solo **$800**, safety **8.0**, visa-free **365** days, with cold winters and **60 Mbps** on the row). Different budgets. Different guides.
 
 ## First-week setup checklist and how to compare Chiang Mai on Nomad Spin
 
@@ -2241,7 +3031,7 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields,
 
 **Look at Porto** when you want the same country, the same **200 Mbps** and reliability **9**, the same D8 field, and a lower solo month (**$1,800**, longer stay **$1,400**). Safety on the [Porto](/destinations/porto) row is **9.0**. You give up scale: community **6**, coworking **Med**, nightlife **6**. Rainy months are also **Nov-Feb**. Porto is the cheaper Portugal answer, not a smaller Lisbon with the same social density.
 
-**Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field is also a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub.
+**Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field is also a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
 **Look at Barcelona** when you want another coastal workhub and you will pay more, not less. [Barcelona](/destinations/barcelona) is **$2,500** solo, **$2,000** longer stay, **$130** a night, with **300 Mbps**. Safety is **7.5**. Best months overlap Lisbon's shoulders (May, Jun, Sep, Oct). It is the upgrade, or the sideways move, not the discount.
 
@@ -2606,7 +3396,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Mexico City** when you want a larger food city, a visa field of up to **180** days, and **UTC-6**, and you accept safety **6.0**, altitude sickness in that row's cons, and a solo month of **$1,300**. The [Mexico City living guide](/guides/living-in-mexico-city) is the on-the-ground version.
 
-**Look at Buenos Aires** when you want a lower solo month (**$900**), a longer-stay figure of **$650**, and **UTC-3**, which sits closer to Europe than Medellín does. Coworking density there is **Med**, internet is **70 Mbps** with reliability **6**, and safety is **6.2**. Inflation instability is a listed con on [Buenos Aires](/destinations/buenos-aires). The visa field is also an exemption, **90** days.
+**Look at Buenos Aires** when you want a lower solo month (**$900**), a longer-stay figure of **$650**, and **UTC-3**, which sits closer to Europe than Medellín does. Coworking density there is **Med**, internet is **70 Mbps** with reliability **6**, and safety is **6.2**. Inflation instability is a listed con on [Buenos Aires](/destinations/buenos-aires). The visa field is also an exemption, **90** days. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version.
 
 **Look at Chiang Mai** when you want safety **8.2**, a solo month of **$850**, and community **9**, and you can live with nightlife **5**, **UTC+7**, and a **30-day** tourism exemption (passport-dependent, tourism only). Burning season is the hard seasonal con. Read [Living in Chiang Mai](/guides/living-in-chiang-mai) before a March arrival. The DTV is the long-stay path there.
 
@@ -2967,7 +3757,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Medellín** when you want a lower solo month (**$1,100**), a similar community and nightlife, and a milder "eternal spring" calendar, and you can live with a **90-day** exemption field plus neighborhood-level safety planning. Overall safety there is **6.5**. Female safety is the same **5**. The internet average is **80 Mbps**, reliability **7**, the same reliability band as Mexico City with a slightly lower headline speed. It is the smaller-city comparison, not the megacity one.
 
-**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific.
+**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
 
 **Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
@@ -3041,7 +3831,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Porto for remote workers in 2026: real monthly costs, Cedofeita vs Bonfim, D8 visa notes, 200 Mbps internet, top safety, and rainy-winter trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "30 min read",
+    readTime: "31 min read",
     relatedDestinations: ["porto","lisbon","barcelona","madrid","valencia"],
     content: `## Is living in Porto worth it for digital nomads in 2026?
 
@@ -3330,6 +4120,8 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 
+**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
+
 **Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. There is no Barcelona living guide on this site yet, so the destination row is the page to open.
 
 **Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. It is a Spain comparison, not a reason to turn this page into a Madrid guide.
@@ -3338,7 +4130,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, verify on official Spanish pages. This guide does not restate that statute.
 
-If the Europe price is still the objection after Porto, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
+If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
 
 ## First-week checklist and how to compare Porto on Nomad Spin
 
@@ -3392,7 +4184,7 @@ Nomad Spin scores **780+ cities**. Porto should win only when your floors are ho
 
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside **$1,400**. If your ceiling is under **$1,400**, Porto is already out.
 2. Set an internet floor the **200 Mbps** and reliability **9** can clear, and a safety floor **9.0** can clear. Then look at who else survives.
-3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon).
+3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon). If you want the same **200 Mbps** for less and can take safety **8.3**, open [Budapest](/destinations/budapest) and the [Budapest living guide](/guides/living-in-budapest) (**$1,500** solo).
 4. Open \`bestMonths\` and \`rainyMonths\` against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If you are trying to escape Nov-Feb, open [Chiang Mai](/guides/living-in-chiang-mai) or [Cape Town](/guides/living-in-cape-town) instead of arguing with the rain.
 5. If Barcelona, Madrid, or Valencia is still in the pile, open [Barcelona](/destinations/barcelona), [Madrid](/destinations/madrid), and [Valencia](/destinations/valencia) and use the table above. Do not promote a city that costs more and scores lower on safety unless the beach or the scene is the actual requirement.
 6. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
@@ -3716,7 +4508,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Stay with Tbilisi** when the **$800** / **$550** bands are the point, your passport can use the visa-free year, and you can live with **60 Mbps**, coworking **Med**, English **4**, and \`lgbtFriendly\` **3**. The mountain and food tags are the week you get. Winter is the week you have to plan.
 
-**Look at Budapest** when you want a European city with **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.3**, and you can pay the **$1,500** solo month. The visa field is a **Digital Nomad Visa**, **365** days, which is an application with conditions, not a stamp on arrival. Cold winters are on [Budapest](/destinations/budapest)'s cons too. The pipes and the English score (**7**) are the upgrade. The bill is the cost of it.
+**Look at Budapest** when you want a European city with **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.3**, and you can pay the **$1,500** solo month. The visa field is a **Digital Nomad Visa**, **365** days, which is an application with conditions, not a stamp on arrival. Cold winters are on [Budapest](/destinations/budapest)'s cons too. The pipes and the English score (**7**) are the upgrade. The bill is the cost of it. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
 **Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, \`lgbtFriendly\` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is also a digital nomad visa, **365** days, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the year is the same idea.
 
@@ -3800,7 +4592,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), and [Tbilisi](/guides/living-in-tbilisi).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), and [Tbilisi](/guides/living-in-tbilisi).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -3856,14 +4648,14 @@ Shoulder months often win the **cost vs weather** trade: Europe’s best-month l
 Many European rows share Apr–Jun / Sep–Oct best months:
 
 - [Lisbon](/destinations/lisbon): **Apr–Jun, Sep–Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
-- [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: \`$1,500\` / 200 Mbps / safety 8.3
+- [Budapest](/destinations/budapest): **Apr–Jun, Sep–Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia), [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
 - [Seville](/destinations/seville): **Mar–May, Oct–Nov**: get there before “extremely hot summer” in \`cons\`
 
 ### LATAM spring-like climates
 
-[Buenos Aires](/destinations/buenos-aires) best months **Mar–May** and **Sep–Nov** (\`$900\` / 70 Mbps) (southern autumn/spring. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use \`rainyMonths\` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
+[Buenos Aires](/destinations/buenos-aires) best months **Mar-May** and **Sep-Nov** (\`$900\` / 70 Mbps, southern autumn and spring). The [Buenos Aires living guide](/guides/living-in-buenos-aires) covers why that $900 snapshot moves and why Dec-Feb heat is the hard stretch. [Mexico City](/destinations/mexico-city) **Mar–May** before the Jun–Sep rainy list ([living guide](/guides/living-in-mexico-city)). [Medellín](/destinations/medellin) rainy months **Apr–May** (and Oct–Nov)) spring can mean showers; use \`rainyMonths\` as a veto, not a vibe ([living guide](/guides/living-in-medellin)).
 
 ### Asia transition
 
@@ -3887,7 +4679,7 @@ Filter tips: set \`landscape: mountain\` for quieter deep-work summers; leave ni
 
 Jun–Aug is winter in Cape Town (\`rainyMonths\` **Jun–Aug**): beautiful if you like storms and empty beaches, harder if you need outdoor “Cape Town postcard” weather and hate load shedding. Prefer Cape Town in its **Oct–Mar** best window instead, unless you are explicitly chasing off-peak rents.
 
-[Santiago](/destinations/santiago) rainy **Jun–Aug**; better in **Oct–Dec / Mar–Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun–Jul as rainy (possible, not peak. [Quito](/destinations/quito) oddly lists best **Jun–Sep** at altitude (\`tempAvgC\` 14)) a cool dry-ish Andean alternative if safety and altitude in \`cons\` are acceptable.
+[Santiago](/destinations/santiago) rainy **Jun–Aug**; better in **Oct–Dec / Mar–Apr**. [Buenos Aires](/destinations/buenos-aires) lists Jun-Jul as rainy (possible, not peak). Read the [Buenos Aires living guide](/guides/living-in-buenos-aires) before you treat Jun-Jul rain, or Dec-Feb heat, as a footnote. [Quito](/destinations/quito) oddly lists best **Jun–Sep** at altitude (\`tempAvgC\` 14)) a cool dry-ish Andean alternative if safety and altitude in \`cons\` are acceptable.
 
 ### Asia summer reality check
 
@@ -3906,7 +4698,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 ## Special cases the calendar can’t hide
 
-**Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival.
+**Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar–Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival. Budapest lists air pollution in winter on the dataset cons, outside the Apr-Jun and Sep-Oct best months. Read the [Budapest living guide](/guides/living-in-budapest) before a November arrival.
 
 **Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
 
@@ -3924,7 +4716,7 @@ Example workflows (adjust numbers to your real floors):
    Set budget max $1,500, internet min 50, safety min 7, region Asia or LATAM, optionally landscape \`seaside\` or \`mountain\`. [Spin](/). Compare [Chiang Mai](/destinations/chiang-mai), [Medellín](/destinations/medellin), [Penang](/destinations/penang) destination pages, check \`bestMonths\` overlap with your travel dates and \`rainyMonths\` gaps.
 
 2. **Europe shoulder, higher comfort**  
-   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) for Apr–Jun or Sep–Oct.
+   Budget $1,500–$3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) for Apr–Jun or Sep–Oct.
 
 3. **Southern summer nature season**  
    Region Africa, landscape seaside/mountain, honest safety floor, budget ~$1,400+. Spin toward [Cape Town](/destinations/cape-town), then read the living guide before you pay a deposit, weather is only half the product.

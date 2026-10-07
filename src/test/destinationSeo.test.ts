@@ -86,6 +86,12 @@ describe('destinationSeo', () => {
 
     const tbilisiGuides = relatedGuidesForCity(cityByName('Tbilisi')).map((g) => g.slug);
     expect(tbilisiGuides).toContain('living-in-tbilisi');
+
+    const buenosAiresGuides = relatedGuidesForCity(cityByName('Buenos Aires')).map((g) => g.slug);
+    expect(buenosAiresGuides).toContain('living-in-buenos-aires');
+
+    const budapestGuides = relatedGuidesForCity(cityByName('Budapest')).map((g) => g.slug);
+    expect(budapestGuides).toContain('living-in-budapest');
     expect(chiangMaiGuides).toContain('where-to-go-next-by-season');
     expect(chiangMaiGuides).toContain('how-to-choose-next-nomad-base');
   });
