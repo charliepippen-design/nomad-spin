@@ -272,7 +272,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Female safety | 5 | 5 | 5 | 8 |
 | Nightlife | 9 | 9 | 9 | 5 |
 | Community | 8 | 8 | 6 | 9 |
-| Visa field in Nomad Spin | Exemption, 180 days | Exemption, 90 days | Exemption, 90 days | Exemption, 60 days |
+| Visa field in Nomad Spin | Exemption, 180 days | Exemption, 90 days | Exemption, 90 days | Tourism exemption, 30 days |
 | Time zone | UTC-6 | UTC-5 | UTC-3 | UTC+7 |
 | Best months | Mar, Apr, May, Nov | Jan, Feb, Mar, Jul, Aug, Dec | Mar, Apr, May, Sep, Oct, Nov | Nov, Dec, Jan, Feb |
 | Seasonal hard part | Air quality and altitude all year; rain Jun-Sep | Rain Apr-May and Oct-Nov | Inflation and payment friction; rain Jun-Jul | Burning season Mar-Apr |
@@ -283,9 +283,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific.
 
-**Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field in our data is still a **60-day** exemption. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains why that field and the current Thai rule can disagree, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
+**Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
-**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days, **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a visa-exemption field at **UTC+7**. If the city page still shows **60** days, that number predates the September 2026 change. Read the [Bangkok living guide](/guides/living-in-bangkok). Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
+**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days (an application, with a longer residence permit possible), **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a **30-day** tourism exemption (passport-dependent, tourism only) at **UTC+7**. The DTV is the long-stay path. Read the [Bangkok living guide](/guides/living-in-bangkok). Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
 
 ## First-week setup checklist and how to compare on Nomad Spin
 

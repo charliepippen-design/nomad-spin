@@ -145,7 +145,7 @@ describe('static guides', () => {
       'Real monthly cost bands (solo, long-term, short Airbnb)',
       'Neighborhoods on the BTS/MRT: Ari, Sukhumvit / Thonglor / Ekkamai, On Nut, Silom (trade-offs)',
       'Internet, power, and coworking for video-call work',
-      'Visas and stay length: 60-day exemption vs longer options including DTV (verify official rules)',
+      'Visas and stay length: 30-day tourism exemption vs longer options including DTV (verify official rules)',
       'Best months, rainy season, extreme heat, and air quality',
       'Daily life: street food, transit, nightlife, SE Asia hub logistics',
       'Bangkok vs Chiang Mai, Bali, Da Nang, Mexico City',

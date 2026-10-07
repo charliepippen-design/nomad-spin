@@ -1,6 +1,7 @@
 import type { City } from '../data/cities';
 import { guides, type Guide } from '../data/guides';
 import { citySlug } from './citySlug';
+import { visaPathSentence } from './visaCopy';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 
@@ -34,20 +35,26 @@ export function destinationIntro(city: City): string {
     intro += ` Rainy months to plan around are ${rainy}.`;
   }
 
+  const tz = city.meta.timeZoneUtc ? ` Time zone ${city.meta.timeZoneUtc}.` : '';
   intro +=
     ` Place feel leans ${landscapes} with vibes tagged ${vibes}. ` +
-    `Stay friction: ${city.meta.visaType} for up to ${city.meta.visaDays} days` +
-    (city.meta.timeZoneUtc ? ` (${city.meta.timeZoneUtc})` : '') +
-    '. Always verify current visa rules before you book.';
+    `Visa: ${visaPathSentence(city.meta)}` +
+    tz;
 
   return intro;
+}
+
+function visaMetaClause(city: City): string {
+  if (city.countryCode === 'TH') return 'tourism exemption (passport-dependent)';
+  if (city.meta.visaNote) return `${city.meta.visaType} (permit path; verify)`;
+  return `${city.meta.visaType} (${city.meta.visaDays} days)`;
 }
 
 export function destinationMetaDescription(city: City): string {
   const best = formatMonths(city.weather?.bestMonths);
   const base =
     `${city.name} for digital nomads: $${city.costUSD}/mo, ${city.internetMbps} Mbps, ` +
-    `safety ${city.safety}/10, ${city.meta.visaType} (${city.meta.visaDays} days)`;
+    `safety ${city.safety}/10, ${visaMetaClause(city)}`;
   const withMonths = best ? `${base}. Best months: ${best}.` : `${base}.`;
   return withMonths.length <= 160 ? withMonths : `${withMonths.slice(0, 157).replace(/\s+\S*$/, '')}…`;
 }
@@ -71,6 +78,13 @@ export function destinationJsonLd(city: City, pageUrl: string): Record<string, u
     { '@type': 'PropertyValue', name: 'Visa days', value: city.meta.visaDays },
     { '@type': 'PropertyValue', name: 'Visa type', value: city.meta.visaType },
   ];
+  if (city.meta.visaNote) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Visa note',
+      value: city.meta.visaNote,
+    });
+  }
   if (city.weather?.bestMonths?.length) {
     additionalProperty.push({
       '@type': 'PropertyValue',

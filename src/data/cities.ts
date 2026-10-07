@@ -7,6 +7,7 @@ export type {
 export type { City as CityType } from './cities/types';
 
 import type { City, LandscapeOption } from './cities/types';
+import { applyOfficialVisaFacts } from './cities/visaFacts';
 import { newAsiaCities } from './cities/new-asia';
 import { newEuropeCities } from './cities/new-europe';
 import { newAmericasCities } from './cities/new-americas';
@@ -78,10 +79,10 @@ const existingCitiesRaw: LegacyCity[] = [
     infra: { internetSpeedAvg: 95, internetReliability: 8, coworkingDensity: 'High', powerGridStability: 8 },
     vibeMetrics: { nightlife: 5, communitySize: 9, lgbtFriendly: 6, femaleSafety: 8, englishProficiency: 5 },
     weather: { bestMonths: ['Nov', 'Dec', 'Jan', 'Feb'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempAvgC: 28 },
-    meta: { visaType: 'Visa Exemption', visaDays: 60, timeZoneUtc: 'UTC+7' },
+    meta: { visaType: 'Tourism Visa Exemption', visaDays: 30, timeZoneUtc: 'UTC+7' },
     pros: ['Incredible street food', 'Huge nomad community', 'Very affordable', 'Beautiful temples', 'Excellent coworking spaces'],
     cons: ['Burning season (Mar-Apr)', 'No beach', 'Hot season is intense', 'Language barrier outside city', 'Traffic congestion'],
-    costUSD: 850, internetMbps: 95, visa: { type: 'Visa Exemption', days: 60 },
+    costUSD: 850, internetMbps: 95, visa: { type: 'Tourism Visa Exemption', days: 30 },
   },
   {
     id: 'bali-id', name: 'Bali', country: 'Indonesia', countryCode: 'ID',
@@ -208,10 +209,10 @@ const existingCitiesRaw: LegacyCity[] = [
     infra: { internetSpeedAvg: 120, internetReliability: 8, coworkingDensity: 'High', powerGridStability: 8 },
     vibeMetrics: { nightlife: 9, communitySize: 8, lgbtFriendly: 7, femaleSafety: 7, englishProficiency: 5 },
     weather: { bestMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'], tempAvgC: 29 },
-    meta: { visaType: 'Visa Exemption', visaDays: 60, timeZoneUtc: 'UTC+7' },
+    meta: { visaType: 'Tourism Visa Exemption', visaDays: 30, timeZoneUtc: 'UTC+7' },
     pros: ['World-class street food', 'Amazing temples', 'Great nightlife', 'Modern infrastructure', 'Hub for SE Asia travel'],
     cons: ['Extreme heat', 'Traffic nightmares', 'Air pollution', 'Tourist scams', 'Chaotic city planning'],
-    costUSD: 1100, internetMbps: 120, visa: { type: 'Visa Exemption', days: 60 },
+    costUSD: 1100, internetMbps: 120, visa: { type: 'Tourism Visa Exemption', days: 30 },
   },
   {
     id: 'barcelona-es', name: 'Barcelona', country: 'Spain', countryCode: 'ES',
@@ -585,10 +586,10 @@ const existingCitiesRaw: LegacyCity[] = [
     infra: { internetSpeedAvg: 40, internetReliability: 5, coworkingDensity: 'Low', powerGridStability: 5 },
     vibeMetrics: { nightlife: 8, communitySize: 6, lgbtFriendly: 6, femaleSafety: 7, englishProficiency: 5 },
     weather: { bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], rainyMonths: ['Oct', 'Nov', 'Dec'], tempAvgC: 28 },
-    meta: { visaType: 'Visa Exemption', visaDays: 60, timeZoneUtc: 'UTC+7' },
+    meta: { visaType: 'Tourism Visa Exemption', visaDays: 30, timeZoneUtc: 'UTC+7' },
     pros: ['Full moon parties', 'Beautiful beaches', 'Yoga community', 'Affordable', 'Island life'],
     cons: ['Inconsistent WiFi', 'Limited healthcare', 'Monsoon season', 'Remote', 'Basic infrastructure'],
-    costUSD: 900, internetMbps: 40, visa: { type: 'Visa Exemption', days: 60 },
+    costUSD: 900, internetMbps: 40, visa: { type: 'Tourism Visa Exemption', days: 30 },
   },
   {
     id: 'santiago-cl', name: 'Santiago', country: 'Chile', countryCode: 'CL',
@@ -696,7 +697,7 @@ const existingCitiesRaw: LegacyCity[] = [
   },
 ];
 
-const existingCities: City[] = existingCitiesRaw.map(withDefaults);
+const existingCities: City[] = existingCitiesRaw.map((c) => applyOfficialVisaFacts(withDefaults(c)));
 
 // Merge all cities
 export const cities: City[] = [
