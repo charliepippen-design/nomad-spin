@@ -6,7 +6,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Cape Town](/guides/living-in-cape-town), or [Living in Chiang Mai](/guides/living-in-chiang-mai). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads 2025](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Cape Town](/guides/living-in-cape-town), or [Living in Chiang Mai](/guides/living-in-chiang-mai). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -135,7 +135,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 
 **Visa daydreaming without `visaDays`.** "Digital nomad friendly" is not a length of stay. Fix: require a minimum day count in your head (30 / 90 / 180 / 365) and check `meta.visaType` on the destination page every time.
 
-**Using a ranked list as a substitute for preferences.** Lists answer "what scores well generally." They do not answer "what fits *my* $1,200 / 80 Mbps / safety 7 / 90-day trip." Read [Best Places 2025](/guides/best-places-digital-nomads-2025) *after* you've set those numbers, or use it only to discover candidates to plug into Spin.
+**Using a ranked list as a substitute for preferences.** Lists answer "what scores well generally." They do not answer "what fits *my* $1,200 / 80 Mbps / safety 7 / 90-day trip." Read [Best Places 2026](/guides/best-places-digital-nomads-2025) *after* you've set those numbers, or use it only to discover candidates to plug into Spin.
 
 **Treating estimated rows like verified ones.** If `dataSource` is estimated, verify rent and visa rules before you wire money.
 

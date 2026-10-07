@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Cape Town](/guides/living-in-cape-town), or [Living in Chiang Mai](/guides/living-in-chiang-mai). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads 2025](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Cape Town](/guides/living-in-cape-town), or [Living in Chiang Mai](/guides/living-in-chiang-mai). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -150,7 +150,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 
 **Visa daydreaming without \`visaDays\`.** "Digital nomad friendly" is not a length of stay. Fix: require a minimum day count in your head (30 / 90 / 180 / 365) and check \`meta.visaType\` on the destination page every time.
 
-**Using a ranked list as a substitute for preferences.** Lists answer "what scores well generally." They do not answer "what fits *my* $1,200 / 80 Mbps / safety 7 / 90-day trip." Read [Best Places 2025](/guides/best-places-digital-nomads-2025) *after* you've set those numbers, or use it only to discover candidates to plug into Spin.
+**Using a ranked list as a substitute for preferences.** Lists answer "what scores well generally." They do not answer "what fits *my* $1,200 / 80 Mbps / safety 7 / 90-day trip." Read [Best Places 2026](/guides/best-places-digital-nomads-2025) *after* you've set those numbers, or use it only to discover candidates to plug into Spin.
 
 **Treating estimated rows like verified ones.** If \`dataSource\` is estimated, verify rent and visa rules before you wire money.
 
@@ -827,7 +827,7 @@ Living in Chiang Mai as a digital nomad is still a rational default in 2026, and
 
 It is a bad default if you need a beach, a nightlife product, or a March arrival. The same page lists **no beach** and **burning season (Mar-Apr)** as cons, and its best months are **Nov, Dec, Jan, Feb**. Hot season is a separate con. Read those lines before you read anyone's cafe list.
 
-This guide is the on-the-ground version of that row: where the $850 actually bends, how Nimman differs from the Old City and Santitham, what to do when the visa field and the embassy disagree, and how to keep a video call alive. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Chiang Mai first is [Best Places for Digital Nomads in 2025](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, for the 2026 decision.
+This guide is the on-the-ground version of that row: where the $850 actually bends, how Nimman differs from the Old City and Santitham, what to do when the visa field and the embassy disagree, and how to keep a video call alive. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Chiang Mai first is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
 Worth it, with conditions. The rest of the guide is the conditions.
 
@@ -1165,7 +1165,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 2. Set an internet floor Chiang Mai's **95 Mbps** can clear, and a safety floor its **8.2** can clear. Then look at who else survives. Often that is [Da Nang](/destinations/da-nang) or [Bangkok](/destinations/bangkok), not a beach you cannot afford.
 3. Open [Chiang Mai](/destinations/chiang-mai) and read \`bestMonths\`, \`rainyMonths\`, and the burning-season con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
 4. If Bali is still in the pile, open [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) and compare reliability **5** against Chiang Mai's **8**, not the photos.
-5. If you want the ranked context, read [Best Places for Digital Nomads in 2025](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
 [Spin the globe](/) with those floors. Chiang Mai should win when the floors are real and the month is Nov-Feb. It should lose when you need a beach, a March arrival, or a visa story our 60-day field no longer matches.
 
@@ -1188,7 +1188,7 @@ Undecided nomads often start with a city name. That is backwards. The same place
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads 2025](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), and [Chiang Mai](/guides/living-in-chiang-mai).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Cape Town](/guides/living-in-cape-town), and [Chiang Mai](/guides/living-in-chiang-mai).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -1327,7 +1327,7 @@ Save two or three spins across *one* season window. Compare \`costUSD\`, Mbps, s
 2. On the [home page](/), set region + landscape that match that window, then budget, internet, and safety floors.
 3. Spin once. Open \`/destinations/{slug}\` and verify \`bestMonths\` includes your months and \`rainyMonths\` does not.
 4. Spin again with one constraint loosened. Deep-read a living guide when the result is Bali, Cape Town, or Chiang Mai.
-5. Only then look at yearly shortlists like [Best Places 2025](/guides/best-places-digital-nomads-2025): as confirmation, not as a substitute for season + filters.
+5. Only then look at yearly shortlists like [Best Places 2026](/guides/best-places-digital-nomads-2025): as confirmation, not as a substitute for season + filters.
 
 You do not need a perfect ranking of 780+ cities. You need a season window, honest floors, and two destination pages that survive contact with real months.
 

@@ -21,7 +21,7 @@ export default function Layout() {
           />
         )}
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <Outlet />
       </div>
       <Footer />

@@ -4,7 +4,7 @@ Living in Chiang Mai as a digital nomad is still a rational default in 2026, and
 
 It is a bad default if you need a beach, a nightlife product, or a March arrival. The same page lists **no beach** and **burning season (Mar-Apr)** as cons, and its best months are **Nov, Dec, Jan, Feb**. Hot season is a separate con. Read those lines before you read anyone's cafe list.
 
-This guide is the on-the-ground version of that row: where the $850 actually bends, how Nimman differs from the Old City and Santitham, what to do when the visa field and the embassy disagree, and how to keep a video call alive. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Chiang Mai first is [Best Places for Digital Nomads in 2025](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, for the 2026 decision.
+This guide is the on-the-ground version of that row: where the $850 actually bends, how Nimman differs from the Old City and Santitham, what to do when the visa field and the embassy disagree, and how to keep a video call alive. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Chiang Mai first is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
 Worth it, with conditions. The rest of the guide is the conditions.
 
@@ -342,7 +342,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 2. Set an internet floor Chiang Mai's **95 Mbps** can clear, and a safety floor its **8.2** can clear. Then look at who else survives. Often that is [Da Nang](/destinations/da-nang) or [Bangkok](/destinations/bangkok), not a beach you cannot afford.
 3. Open [Chiang Mai](/destinations/chiang-mai) and read `bestMonths`, `rainyMonths`, and the burning-season con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
 4. If Bali is still in the pile, open [Bali](/destinations/bali) and the [Bali living guide](/guides/living-in-bali) and compare reliability **5** against Chiang Mai's **8**, not the photos.
-5. If you want the ranked context, read [Best Places for Digital Nomads in 2025](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
 [Spin the globe](/) with those floors. Chiang Mai should win when the floors are real and the month is Nov-Feb. It should lose when you need a beach, a March arrival, or a visa story our 60-day field no longer matches.
 
