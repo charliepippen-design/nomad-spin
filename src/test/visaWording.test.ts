@@ -86,6 +86,22 @@ describe('Thailand tourism exemption wording', () => {
 });
 
 describe('living guide visa sections', () => {
+  it('cites Spain statute in the Barcelona guide and does not print an unofficial euro income figure', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-barcelona.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/Ley 14\/2013/);
+    expect(md).toMatch(/art\. 74 quinquies/);
+    expect(md).toMatch(/boe\.es/);
+    expect(md).toMatch(/exteriores\.gob\.es/);
+    expect(md).toMatch(/200%/);
+    expect(md).toMatch(/up to 3 years/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/€/);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites Portugal statute in the Lisbon guide and does not print an unofficial euro income figure', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-lisbon.md'),
