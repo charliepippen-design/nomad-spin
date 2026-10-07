@@ -278,7 +278,7 @@ The **family** tag matches the safety score, the beach, and a city you can cross
 
 Private clinics in the central and beach districts handle the usual nomad problems. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
 
-[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
+[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). The [Hoi An living guide](/guides/living-in-hoi-an) covers Old Town versus An Bang, and why that row is a 1-3 month base rather than a second Da Nang. [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
 
 ## Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City
 
@@ -298,7 +298,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days**. Best months **Apr-Sep** overlap Da Nang's, so Bali is a rival for the same season, not a complement. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Da Nang with more cafes." It is a different bill, a different connection, and **UTC+8**.
 
-**Pick Hoi An** when you want the same coast, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. It is a beautiful week and a thin work month. Flooding is in the cons. It is not the upgrade for someone who found Da Nang too quiet.
+**Pick Hoi An** when you want the same coast, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. It is a beautiful week and a thin work month. Flooding is in the cons. It is not the upgrade for someone who found Da Nang too quiet. Read [Living in Hoi An](/guides/living-in-hoi-an) for the neighborhoods and the flood calendar. Pair the two cities. Do not paste this city's beach grid onto that one.
 
 **Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** only partly overlap Da Nang. It is the "smaller city" trade-off, answered.
 

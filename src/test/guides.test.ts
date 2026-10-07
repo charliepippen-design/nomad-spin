@@ -14,6 +14,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-barcelona');
     expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-da-nang');
+    expect(slugs).toContain('living-in-hoi-an');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
     expect(slugs).toContain('living-in-medellin');
@@ -263,6 +264,64 @@ describe('static guides', () => {
       'Daily life: Grab, food, Vietnamese, and the family-friendly side',
       'Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City',
       'First-week checklist and how to compare Da Nang on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Hoi An living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-hoi-an');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Hoi An');
+    expect(g!.seoTitle).toBe("Living in Hoi An 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, tourist visa notes, 80 Mbps internet, and flooding and size trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['hoi-an']);
+    expect(g!.content).toContain('living in Hoi An as a digital nomad');
+    expect(g!.content).toContain('$900');
+    expect(g!.content).toContain('$675');
+    expect(g!.content).toContain('$41');
+    expect(g!.content).toContain('80 Mbps');
+    expect(g!.content).toContain('Tourist Visa');
+    expect(g!.content).toContain('90');
+    expect(g!.content).toContain('UTC+7');
+    expect(g!.content).not.toContain('da-nang-outskirts');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/hoi-an',
+      '/destinations/da-nang',
+      '/destinations/ho-chi-minh-city',
+      '/destinations/bangkok',
+      '/destinations/chiang-mai',
+      '/destinations/hanoi',
+      '/guides/living-in-da-nang',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-bangkok',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Hoi An worth it for digital nomads in 2026?',
+      'Who Hoi An is for (and who should skip it)',
+      'Real monthly cost bands (solo $900, long-term $675, short Airbnb $41/night)',
+      'Neighborhoods that work: Old Town edges, An Bang beach, Cam Nam / countryside (trade-offs)',
+      'Internet, power, and coworking for video-call work (80 Mbps, reliability 7, power 7, Low coworking)',
+      'Visas and stay length: Tourist Visa up to 90 days, e-visa reality, no dedicated nomad visa (verify official rules)',
+      'Best months (Feb-May) vs rainy / flood months (Sep-Nov)',
+      'Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang',
+      'Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali',
+      'First-week checklist + spin the globe / compare Hoi An on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
