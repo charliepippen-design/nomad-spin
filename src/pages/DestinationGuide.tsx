@@ -23,6 +23,12 @@ import {
   livingGuideForCity,
 } from '@/lib/destinationSeo';
 import { visaPathSentence } from '@/lib/visaCopy';
+import {
+  SUB_AREA_ROBOTS,
+  rewriteSubAreaDestinationHrefs,
+  subAreaBySlug,
+  subAreaParentNotice,
+} from '@/lib/subAreaDestinations';
 
 export default function DestinationGuide() {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -61,6 +67,8 @@ export default function DestinationGuide() {
   const bestMonths = formatMonths(city.weather?.bestMonths);
   const rainyMonths = formatMonths(city.weather?.rainyMonths);
   const editorial = livingGuideForCity(city) ?? editorialGuideForDestination(resolved.canonicalSlug);
+  const subArea = subAreaBySlug(resolved.canonicalSlug);
+  const parentNotice = subArea ? subAreaParentNotice(subArea) : null;
 
   return (
     <div className="page-content min-h-screen bg-background">
@@ -68,6 +76,7 @@ export default function DestinationGuide() {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={pageUrl} />
+        {subArea ? <meta name="robots" content={SUB_AREA_ROBOTS} /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
@@ -121,6 +130,31 @@ export default function DestinationGuide() {
           </div>
         </div>
       </header>
+
+      {parentNotice ? (
+        <p className="max-w-3xl mx-auto px-6 pt-4 text-sm text-muted-foreground">
+          Part of the {parentNotice.parentName} area. See the full{' '}
+          <Link
+            to={`/destinations/${parentNotice.parentSlug}`}
+            className="text-primary underline underline-offset-4"
+          >
+            {parentNotice.parentName} guide
+          </Link>
+          {parentNotice.livingGuideSlug ? (
+            <>
+              {' '}
+              and the{' '}
+              <Link
+                to={`/guides/${parentNotice.livingGuideSlug}`}
+                className="text-primary underline underline-offset-4"
+              >
+                living guide
+              </Link>
+            </>
+          ) : null}
+          .
+        </p>
+      ) : null}
 
       {/* Key Stats Bar */}
       <div className="border-b border-border/30 bg-card">
@@ -324,7 +358,7 @@ export default function DestinationGuide() {
                     className="block rounded-lg border border-border/30 bg-card px-5 py-4 hover:border-primary/40 transition-colors"
                   >
                     <span className="text-sm font-mono text-foreground">{g.title}</span>
-                    <span className="block text-xs text-muted-foreground mt-1">{g.excerpt}</span>
+                    <span className="block text-xs text-muted-foreground mt-1">{rewriteSubAreaDestinationHrefs(g.excerpt)}</span>
                   </Link>
                 </li>
               ))}
