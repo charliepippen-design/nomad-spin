@@ -44,8 +44,9 @@ export default function GuideArticle() {
     return (
       <div className="noise-overlay min-h-screen bg-background">
         <Helmet>
-          <title>{slug ? `${slug.replace(/-/g, ' ')} — Nomad Spin Guides` : 'Guides — Nomad Spin'}</title>
+          <title>Page Not Found (404) | Nomad Spin</title>
           <meta name="description" content="Entry not found." />
+          <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div className="max-w-2xl mx-auto px-6 py-24 text-center">
           <Link to="/guides" className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mb-16 inline-flex items-center gap-2 px-4 py-2 border border-white/5 bg-white/[0.01] hover:text-primary transition-colors">
