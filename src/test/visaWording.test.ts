@@ -234,6 +234,26 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013/);
   });
 
+  it('cites Estonian D-visa, e-Residency, and Schengen pages for the Tallinn guide', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-tallinn.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/vm\.ee\/en\/consular-visa-and-travel-information\/visa-information\/application-long-stay-d-visa/);
+    expect(md).toMatch(/politsei\.ee\/en\/instructions\/visa-and-extending-period-of-stay\/long-term-visa/);
+    expect(md).toMatch(/learn\.e-resident\.gov\.ee\/hc\/en-gb\/articles\/360000711978-What-is-e-Residency/);
+    expect(md).toMatch(/home-affairs\.ec\.europa\.eu\/policies\/schengen-borders-and-visa\/visa-policy_en/);
+    expect(md).toMatch(/emta\.ee\/en\/private-client\/foreigner-non-resident\/tax-residency\/determining-residency/);
+    expect(md).toMatch(/132 euros per day \(3,960 euros per month\)/);
+    expect(md).toMatch(/Digital Nomad Visa/);
+    expect(md).not.toMatch(/3,?504/);
+    expect(md).not.toMatch(/2,?849/);
+    expect(md).not.toMatch(/\bEUR\b/);
+    expect(md).not.toMatch(/€/);
+    expect(md).not.toMatch(/still shows/i);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites the Hungarian White Card factsheet and both official income figures', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-budapest.md'),

@@ -17,6 +17,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-barcelona');
     expect(slugs).toContain('living-in-budapest');
     expect(slugs).toContain('living-in-prague');
+    expect(slugs).toContain('living-in-tallinn');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-ho-chi-minh-city');
     expect(slugs).toContain('living-in-lisbon');
@@ -586,6 +587,70 @@ describe('static guides', () => {
       'Daily life: trams and metro, beer and food, Czech, party streets and quiet ones',
       'Prague vs Budapest, Lisbon, Barcelona, and Valencia',
       'First-week checklist and how to compare Prague on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Tallinn living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-tallinn');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Tallinn');
+    expect(g!.seoTitle).toBe("Living in Tallinn 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Tallinn for remote workers in 2026: real monthly costs, e-Residency vs the D-visa, Kalamaja, 300 Mbps internet, and dark-winter trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['tallinn']);
+    expect(g!.content).toContain('Living in Tallinn as a digital nomad');
+    expect(g!.content).toContain('$1,600');
+    expect(g!.content).toContain('$1,200');
+    expect(g!.content).toContain('$75');
+    expect(g!.content).toContain('300 Mbps');
+    expect(g!.content).toContain('9.2');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+2');
+    expect(g!.content).toContain('3,960 euros');
+    expect(g!.content).toContain('132 euros per day');
+    expect(g!.content).toContain('vm.ee');
+    expect(g!.content).toContain('politsei.ee');
+    expect(g!.content).toContain('e-resident.gov.ee');
+    expect(g!.content).not.toMatch(/—|–/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    expect(g!.content).not.toMatch(/3,?504|3,?500|2,?849/);
+    for (const href of [
+      '/destinations/tallinn',
+      '/destinations/helsinki',
+      '/destinations/prague',
+      '/destinations/budapest',
+      '/destinations/riga',
+      '/destinations/lisbon',
+      '/destinations/tbilisi',
+      '/guides/living-in-prague',
+      '/guides/living-in-budapest',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-tbilisi',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Tallinn worth it for digital nomads in 2026?',
+      'Who Tallinn is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,600, long-term $1,200, Airbnb $75/night)',
+      'Neighborhoods that work: Kalamaja, Telliskivi, Kesklinn, Kadriorg; skip living in Old Town',
+      'Internet, power, and coworking: 300 Mbps, reliability 10, power 9, Med coworking',
+      'e-Residency is not the visa: Schengen 90/180 vs the telework D-visa (verify)',
+      'Best months (Jun-Aug), rainy Oct-Nov, and dark winters',
+      'Daily life: free resident rides, Estonian, a small scene, and expensive alcohol',
+      'Tallinn vs Helsinki, Prague, Budapest, and Riga',
+      'First-week checklist and how to compare Tallinn on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
