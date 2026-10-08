@@ -62,6 +62,18 @@ export interface CityEsim {
 
 export type DataSource = 'verified' | 'estimated';
 
+/**
+ * True when `city()` filled the field from a formula because the row
+ * did not pass an observed value. The number is still stored. Callers
+ * should label it as an estimate.
+ */
+export interface FormulaEstimates {
+  costLongTerm: boolean;
+  airbnbMedian: boolean;
+  internetReliability: boolean;
+  powerGridStability: boolean;
+}
+
 export interface City {
   id: string;
   name: string;
@@ -87,6 +99,8 @@ export interface City {
   dataSource: DataSource;
   pros: string[];
   cons: string[];
+  /** Set by the city builder when a figure came from a formula, not an observed input. */
+  formulaEstimates?: FormulaEstimates;
   costUSD: number;
   internetMbps: number;
   visa: { type: string; days: number };

@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
+import { guidePageTitle } from '@/lib/guideHtml';
+import { guideDestinationLinks, rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
@@ -63,17 +65,7 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const SUFFIX = ' | Nomad Spin';
-  const MAX_TITLE = 60;
-  const headline = guide.seoTitle ?? guide.title;
-  const baseTitle =
-    headline.length + SUFFIX.length <= MAX_TITLE
-      ? `${headline}${SUFFIX}`
-      : headline;
-  const title =
-    baseTitle.length <= MAX_TITLE
-      ? baseTitle
-      : `${baseTitle.slice(0, MAX_TITLE - 1).replace(/[\s—:,-]+\S*$/, '')}…`;
+  const title = guidePageTitle(guide.seoTitle ?? guide.title);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -93,6 +85,7 @@ export default function GuideArticle() {
       logo: `${BASE_URL}/favicon.svg`,
     },
   };
+  const relatedDestinationLinks = guideDestinationLinks(guide.relatedDestinations);
   const updatedLabel = new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
@@ -148,16 +141,16 @@ export default function GuideArticle() {
             prose-code:font-mono prose-code:font-medium prose-code:text-foreground
             ">
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}>
-            {guide.content}
+            {rewriteSubAreaDestinationHrefs(guide.content)}
           </ReactMarkdown>
         </div>
       </article>
 
-      {(guide.relatedDestinations?.length ?? 0) > 0 && (
+      {relatedDestinationLinks.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">
           <p className="font-mono text-xs tracking-wider text-muted-foreground mb-3">Related destinations</p>
           <div className="flex flex-wrap gap-2">
-            {guide.relatedDestinations!.map((destinationSlug) => (
+            {relatedDestinationLinks.map((destinationSlug) => (
               <Link
                 key={destinationSlug}
                 to={`/destinations/${destinationSlug}`}

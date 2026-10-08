@@ -4,18 +4,13 @@ import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
 import { guides as staticGuides, type Guide } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
-import type { City } from '../src/data/cities';
 import {
-  destinationIntro,
   destinationMetaDescription,
   destinationPageTitle,
-  destinationJsonLd,
-  destinationFieldGuideHtml,
-  hubRelatedGuides,
-  formatMonths,
 } from '../src/lib/destinationSeo';
-import { visaPathSentence } from '../src/lib/visaCopy';
-import { guideBodyHtml } from '../src/lib/guideHtml';
+import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
+import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
+import { guideBodyHtml, guidePageTitle } from '../src/lib/guideHtml';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { buildNotFoundHtml } from './not-found-page';
 
@@ -155,66 +150,13 @@ function createHtmlFile(route: string, title: string, description: string, extra
   writeRoute(route, injectSeo(baseHtml, { title, description, url, ...extras }));
 }
 
-function destinationBodyHtml(city: City, slug: string): string {
-  const intro = destinationIntro(city);
-  const pros = city.pros.slice(0, 5).map((p) => `<li>${esc(p)}</li>`).join('');
-  const cons = city.cons.slice(0, 3).map((c) => `<li>${esc(c)}</li>`).join('');
-  const vibes = (city.vibe ?? []).map((v) => `<li>${esc(v)}</li>`).join('');
-  const landscapes = (city.landscape ?? []).map((l) => `<li>${esc(l)}</li>`).join('');
-  const best = formatMonths(city.weather?.bestMonths);
-  const rainy = formatMonths(city.weather?.rainyMonths);
-  const related = hubRelatedGuides(city);
-  const fieldGuideHtml = destinationFieldGuideHtml(city);
-  const relatedHtml = related.length
-    ? `<h2>Related guides</h2><ul>${related
-        .map(
-          (g) =>
-            `<li><a href="${BASE_URL}/guides/${esc(g.slug)}" style="color:#34d399">${esc(g.title)}</a>: ${esc(g.excerpt)}</li>`
-        )
-        .join('')}</ul>`
-    : '';
-
-  return `
-<main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
-  <p><a href="/" style="color:#34d399">← Spin the globe</a> · <a href="/guides" style="color:#34d399">Guides</a></p>
-  <h1>${esc(city.name)}, ${esc(city.country)}</h1>
-  ${fieldGuideHtml}
-  <p>${esc(intro)}</p>
-  <h2>Key stats for digital nomads</h2>
-  <ul>
-    <li><strong>Cost of living (solo / month):</strong> $${city.costUSD}</li>
-    <li><strong>Long-term monthly estimate:</strong> $${city.financials.costLongTerm}</li>
-    <li><strong>Median Airbnb (night):</strong> $${city.financials.airbnbMedian}</li>
-    <li><strong>Internet:</strong> ${city.internetMbps} Mbps (reliability ${city.infra.internetReliability}/10)</li>
-    <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10</li>
-    <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
-    <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
-    <li><strong>Visa:</strong> ${esc(visaPathSentence(city.meta))}</li>
-    <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || '—')}</li>
-    <li><strong>Language:</strong> ${esc(city.language || '—')}</li>
-    <li><strong>Region:</strong> ${esc(city.region)}</li>
-    ${best ? `<li><strong>Best months:</strong> ${esc(best)}</li>` : ''}
-    ${rainy ? `<li><strong>Rainy months:</strong> ${esc(rainy)}</li>` : ''}
-    ${city.weather?.tempAvgC != null ? `<li><strong>Avg temperature:</strong> ${city.weather.tempAvgC}°C</li>` : ''}
-  </ul>
-  ${vibes ? `<h2>Vibe tags</h2><ul>${vibes}</ul>` : ''}
-  ${landscapes ? `<h2>Landscape</h2><ul>${landscapes}</ul>` : ''}
-  ${pros ? `<h2>Why go</h2><ul>${pros}</ul>` : ''}
-  ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
-  ${relatedHtml}
-  <h2>Find your next base</h2>
-  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors — then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
-  <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
-</main>`;
-}
-
 function destinationsIndexBodyHtml(): string {
   const sections = citiesByRegion()
     .map((group) => {
       const items = group.cities
         .map(
           ({ city, slug }) =>
-            `<li><a href="/destinations/${esc(slug)}" style="color:#007a52">${esc(city.name)}, ${esc(city.country)}</a> ($${city.costUSD}/mo)</li>`,
+            `<li><a href="${esc(canonicalDestinationPath(slug))}" style="color:#007a52">${esc(city.name)}, ${esc(city.country)}</a> ($${city.costUSD}/mo)</li>`,
         )
         .join('');
       return `<h2>${esc(regionLabel(group.region))}</h2><ul>${items}</ul>`;
@@ -245,11 +187,11 @@ function withVisibleBody(html: string, body: string): string {
   const guides = await fetchLiveGuides();
 
   // Static core pages
-  createHtmlFile('about', 'About Us – Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
-  createHtmlFile('guides', 'Digital Nomad Guides & Analysis – Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
-  createHtmlFile('contact', 'Contact Us – Nomad Spin', 'Get in touch with the Nomad Spin team.');
-  createHtmlFile('privacy-policy', 'Privacy Policy – Nomad Spin', 'Read our privacy policy and how we protect your data.');
-  createHtmlFile('terms-of-use', 'Terms of Use – Nomad Spin', 'Read our terms of service.');
+  createHtmlFile('about', 'About Us | Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
+  createHtmlFile('guides', 'Digital Nomad Guides & Analysis | Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
+  createHtmlFile('contact', 'Contact Us | Nomad Spin', 'Get in touch with the Nomad Spin team.');
+  createHtmlFile('privacy-policy', 'Privacy Policy | Nomad Spin', 'Read our privacy policy and how we protect your data.');
+  createHtmlFile('terms-of-use', 'Terms of Use | Nomad Spin', 'Read our terms of service.');
 
   const destinationsIndexUrl = `${BASE_URL}/destinations`;
   const destinationsIndexTitle = 'Destinations | Nomad Spin';
@@ -277,7 +219,7 @@ function withVisibleBody(html: string, body: string): string {
   // 3. Guide pages
   console.log(`\n📚 Generating ${guides.length} guide pages...`);
   for (const guide of guides) {
-    const title = `${guide.seoTitle ?? guide.title} – Nomad Spin Guides`;
+    const title = guidePageTitle(guide.seoTitle ?? guide.title);
     const url = `${BASE_URL}/guides/${guide.slug}`;
     const jsonLd = {
       '@context': 'https://schema.org',
@@ -306,13 +248,15 @@ function withVisibleBody(html: string, body: string): string {
     const title = destinationPageTitle(city);
     const description = destinationMetaDescription(city);
     const url = `${BASE_URL}/destinations/${slug}`;
-    const jsonLd = destinationJsonLd(city, url);
+    const jsonLd = destinationPageJsonLd(city, url, slug);
+    // Self canonical stays on this URL. noindex sub-area pages do not canonical to the parent hub.
+    const head = insertRobotsMeta(
+      injectSeo(baseHtml, { title, description, url, jsonLd }),
+      destinationRobotsContent(slug),
+    );
     writeRoute(
       `destinations/${slug}`,
-      withVisibleBody(
-        injectSeo(baseHtml, { title, description, url, jsonLd }),
-        destinationBodyHtml(city, slug)
-      )
+      withVisibleBody(head, destinationBodyHtml(city, slug)),
     );
   }
 

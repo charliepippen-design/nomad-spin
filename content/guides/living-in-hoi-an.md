@@ -2,8 +2,8 @@
 
 A straight answer on living in Hoi An as a digital nomad: yes for one to three months in Feb-May if you want a small, safe, slow coast town and you can work without a big coworking scene. It is a no if you need High coworking, a year on one stamp, or a flood-proof autumn. The short answers come from the [Hoi An](/destinations/hoi-an) row, not from a lantern photo. Beautiful, and thin infrastructure. That is the decision.
 
-- **Cost:** about **$900** a month solo, about **$675** on a longer stay. A short Airbnb sits near **$41** a night, which is a different budget.
-- **Internet:** sometimes, with caveats. The average is **80 Mbps**, reliability **7/10**, power stability **7/10**, coworking density **Low**.
+- **Cost:** about **$900** a month solo. The longer stay is about **$675** (an estimate). A short Airbnb sits near **$41** a night (an estimate), which is a different budget.
+- **Internet:** sometimes, with caveats. The average is **80 Mbps**. Reliability **7/10** and power stability **7/10** are estimates. Coworking density is **Low**.
 - **Stay length:** the row says **E-Visa**, up to **90 days**, time zone **UTC+7**. Vietnam does not publish a dedicated digital nomad visa. The same label is on every Vietnam row. Verify it before you treat 90 days as permission.
 - **Skip it** if you need a dense scene or a dry October. The page's trade-offs are small, limited infrastructure, and flooding. Community size is **3**. Nightlife is **3**.
 - **Best months:** **Feb, Mar, Apr, May**. Rainy months are **Sep, Oct, Nov**. Average temperature on the row is **26°C**, a yearly figure, not a forecast.
@@ -14,9 +14,9 @@ Worth it as a short base beside [Da Nang](/destinations/da-nang), not as a subst
 
 ### Straight answers
 
-**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists about $900 a month for a solo nomad and about $675 a month long-term, with a median Airbnb around $41 a night. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
+**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists about $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
 
-**Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average, reliability 7/10, power 7/10, and Low coworking density. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
+**Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average. Reliability 7/10 and power 7/10 are estimates. Coworking density is Low. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
 
 **What visa do digital nomads use in Hoi An?** Nomad Spin lists an E-Visa for up to 90 days (UTC+7). Vietnam has no dedicated digital nomad visa. The same E-Visa label is on the Da Nang and Ho Chi Minh City rows. Fees and entry types change; verify on Vietnam's official immigration portal before booking.
 
@@ -32,8 +32,8 @@ Hoi An fits people who want the old town and a beach in the same week, a bill th
 
 **It tends to fit if you:**
 
-- Can fund the solo baseline (about **$900**) or will actually live inside the longer-stay figure (**$675**)
-- Do mostly async work, and you will test the room. **80 Mbps** and reliability **7/10** can hold ordinary calls. They are not a booth on every corner, because coworking is **Low**
+- Can fund the solo baseline (about **$900**) or will actually live inside the longer-stay estimate (**$675**)
+- Do mostly async work, and you will test the room. **80 Mbps** can hold ordinary calls. Reliability **7/10** is an estimate. They are not a booth on every corner, because coworking is **Low**
 - Want safety **9** and female safety **8**, and you do not need nightlife above **3**
 - Can put the serious months in **Feb-May**, or you have a real plan for **Sep-Nov**
 - Like a small seaside town: food, a bicycle, tailoring, and an early evening
@@ -41,7 +41,7 @@ Hoi An fits people who want the old town and a beach in the same week, a bill th
 
 **Skip it, or pick another city, if you:**
 
-- Cannot clear **$675** even on a monthly lease with local food. The **$41** nightly median will not save you
+- Cannot clear the **$675** longer-stay estimate even on a monthly lease with local food. The **$41** nightly estimate will not save you
 - Need coworking **High** and a cafe full of other nomads by default. That is [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**, coworking **High**) or [Living in Bali](/guides/living-in-bali), not this row (community **3**, coworking **Low**)
 - Need a bigger Vietnamese work city. [Ho Chi Minh City](/destinations/ho-chi-minh-city) is **$800** solo, coworking **High**, community **7**. [Living in Da Nang](/guides/living-in-da-nang) is the beach city next door: **$700**, coworking **Med**, a longer Feb-Jul window
 - Need English for the lease, the clinic, and the landlord. English proficiency is **4**. Menus in the old town cope. Contracts often do not
@@ -52,31 +52,31 @@ Hoi An fits people who want the old town and a beach in the same week, a bill th
 
 If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another lantern list.
 
-## Real monthly cost bands (solo $900, long-term $675, short Airbnb $41/night)
+## Real monthly cost bands (solo $900, long-term $675 estimate, short Airbnb $41 estimate)
 
 Nomad Spin does not publish a fake "comfortable" total for Hoi An. It publishes three money fields. Those are the bands.
 
 | Band | Figure | Field on the Hoi An row | How to read it |
 |---|---:|---|---|
-| Longer stay | $675 / month | `financials.costLongTerm` | A local-rate month: monthly housing, local food, modest transport |
+| Longer stay | $675 / month, estimate | `financials.costLongTerm` | A local-rate month: monthly housing, local food, modest transport. The row fills this from a formula |
 | Solo nomad baseline | $900 / month | `costUSD` (same as `costNomadSingle`) | The planning number for a solo remote worker |
-| Nightly scouting | $41 / night | `financials.airbnbMedian` | What a short test stay tends to cost per night, not a monthly budget |
+| Nightly scouting | $41 / night, estimate | `financials.airbnbMedian` | What a short test stay tends to cost per night, not a monthly budget. The row fills this from a formula |
 
 `rentIndex` is **18** (Da Nang **10**, Ho Chi Minh City **14**, Chiang Mai **15**, Bangkok **22**, Bali **25**). That is relative rent pressure inside the dataset, not a dollar rent. Hoi An is cheap next to Bali. It is not the cheapest beach on this coast. Da Nang's solo month is **$700**, and "cheap" on the Hoi An page still has to survive old-town tourist pricing. Do not add a lantern discount.
 
 ### The nightly median will quietly wreck the monthly baseline
 
-Thirty nights at the published **$41** median is **$1,230** in lodging before food. That is already **$330** above the entire **$900** solo month, and it is **$555** above the **$675** longer stay. If you "try the town" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the cao lau is. The $675 and $900 figures assume a monthly place.
+Thirty nights at the **$41** nightly estimate is **$1,230** in lodging before food. That is already **$330** above the entire **$900** solo month, and it is **$555** above the **$675** longer-stay estimate. If you "try the town" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the cao lau is. The $675 estimate and the $900 figure assume a monthly place.
 
-A 2-4 week landing stay near An Bang or the old-town edges is a scout. It is not the month. Use it to see leases. Do not call it the **$675** life.
+A 2-4 week landing stay near An Bang or the old-town edges is a scout. It is not the month. Use it to see leases. Do not call it the **$675** estimate.
 
 ### What moves you off the band
 
 No extra dollar totals here. The dataset does not publish a rent for each ward. These are the levers, in the order they actually matter.
 
-| Choice | Stays near $675 to $900 | Leaves the baseline |
+| Choice | Stays near the $675 estimate to $900 | Leaves the baseline |
 |---|---|---|
-| Housing | A monthly lease in Cam Nam, a local ward, or a simple An Bang place you have priced against the row | Thirty nights at the $41 median, or an old-town heritage room as the default home |
+| Housing | A monthly lease in Cam Nam, a local ward, or a simple An Bang place you have priced against the row | Thirty nights at the $41 estimate, or an old-town heritage room as the default home |
 | Food | Com, cao lau, markets, and the dishes priced for residents | Old Town set menus, imported groceries, and "just one more" tourist dinner as the meal plan |
 | Work | Home fiber you have tested, plus the one coworking desk on call days | A cafe day-pass habit on top of a lantern-street room you already overpaid for |
 | Transport | A bicycle inside one area, plus Grab when you cross to Da Nang | A motorbike you are not licensed to ride, or a car transfer every evening as a personality |
@@ -87,7 +87,7 @@ No extra dollar totals here. The dataset does not publish a rent for each ward. 
 - The **$900** number is a town baseline, not an ancient-house quote on the pedestrian streets.
 - Tailoring is a listed pro. A wardrobe is not inside the three money fields. Budget it separately if that is why you came.
 - A cheaper room on a bar alley in the old town is not cheaper if you cannot sleep or take a call. Nightlife is thin townwide. It is not thin on every lantern street at 9pm.
-- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+- Insurance is not inside those three fields. Budget it separately. Price a policy before you need the clinic.
 
 ## Neighborhoods that work: Old Town edges, An Bang beach, Cam Nam / countryside (trade-offs)
 
@@ -95,7 +95,7 @@ Hoi An is small, and the wrong pin still wastes the month. The ancient core floo
 
 | Base | Best for | You give up |
 |---|---|---|
-| Old Town edges | Walking the ancient streets, food, tailoring, week one without a vehicle | The $675 band, quiet nights, and a dry ground floor in Sep-Nov |
+| Old Town edges | Walking the ancient streets, food, tailoring, week one without a vehicle | The $675 estimate, quiet nights, and a dry ground floor in Sep-Nov |
 | An Bang beach | Sand, a slower week, a bit of height off the river | Stepping outside into the lantern streets. The scene will not come to you |
 | Cam Nam / countryside | A local monthly lease, quieter nights, food priced for residents | A flat walk to the beach and to the old town |
 
@@ -105,7 +105,7 @@ The pedestrian core (the lantern streets, the Japanese bridge, the market) is a 
 
 **Trade-off:** obvious costs more, and it floods first. Tourist pricing is how the **$900** month leaks. Some alleys stay lively late even though the town's nightlife score is **3**. Ask which way the bedroom faces, and walk the block after 9pm before you pay. In **Sep-Nov**, ask which street took water the last time the river rose. A ground-floor room on Bach Dang or Nguyen Thai Hoc is a different risk from a higher floor two blocks back.
 
-Pick the edges for a 2-4 week landing stay while you tour monthly leases. Skip a room inside the pedestrian core as the default home if you came for the **$675** figure or for sleep.
+Pick the edges for a 2-4 week landing stay while you tour monthly leases. Skip a room inside the pedestrian core as the default home if you came for the **$675** estimate or for sleep.
 
 **Housing tell:** confirm fiber in the unit, not "the building has internet." A speed test in the room beats a listing adjective. Ground floors on the river are the ones that flood first.
 
@@ -127,7 +127,7 @@ Best for people who will cook or eat locally, and who already know they do not n
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance buttons are on the [Hoi An destination page](/destinations/hoi-an). They come from Nomad Spin's booking modules. This article does not add a second set of partner links.
+No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance buttons are on the [Hoi An destination page](/destinations/hoi-an). Use those buttons. Do not hunt for a second set of partner links here.
 
 | Slot | What to book |
 |---|---|
@@ -135,21 +135,21 @@ No partner IDs live in this guide. After you pick the neighborhood, these three 
 | Flights | Flights into Da Nang (DAD) for the Feb-May window, then a transfer to Hoi An, only after the month survives the season section |
 | Insurance | Travel and health cover for a 90-day Vietnam stay, including flood-season disruption |
 
-## Internet, power, and coworking for video-call work (80 Mbps, reliability 7, power 7, Low coworking)
+## Internet, power, and coworking for video-call work (80 Mbps, reliability 7 estimate, power 7 estimate, Low coworking)
 
-The town average is **80 Mbps**, reliability **7/10**, power stability **7/10**, coworking density **Low**. That is a maybe for ordinary video calls, and a poor default for a call-heavy job. It matches Da Nang's **80 Mbps** and **7/10** scores, and it loses the comparison on desks: Da Nang's coworking density is **Med**, and the [Da Nang living guide](/guides/living-in-da-nang) has more than one named room. Chiang Mai, in the [Chiang Mai living guide](/guides/living-in-chiang-mai), is working with **95 Mbps**, reliability **8**, and coworking **High**. Bali's dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. Power at **7** means you do not import a Cape Town load-shedding plan. [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Storm weeks in **Sep-Nov** can still drop a Hoi An call. Keep a charged laptop and a second connection.
+The town average is **80 Mbps**. Reliability **7/10** and power stability **7/10** are estimates. Coworking density is **Low**. That is a maybe for ordinary video calls, and a poor default for a call-heavy job. It matches Da Nang's **80 Mbps** and **7/10** scores, and it loses the comparison on desks: Da Nang's coworking density is **Med**, and the [Da Nang living guide](/guides/living-in-da-nang) has more than one named room. Chiang Mai, in the [Chiang Mai living guide](/guides/living-in-chiang-mai), is working with **95 Mbps**, reliability **8**, and coworking **High**. Bali's dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. The Hoi An power estimate of **7** means you do not import a Cape Town load-shedding plan. [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Storm weeks in **Sep-Nov** can still drop a Hoi An call. Keep a charged laptop and a second connection.
 
-The 7/10 is an average. A fibered flat in Cam Nam and a guesthouse Wi-Fi network over a lantern street are not the same product. Test the room at the hour you take calls.
+The reliability **7/10** is an estimate and an average. A fibered flat in Cam Nam and a guesthouse Wi-Fi network over a lantern street are not the same product. Test the room at the hour you take calls.
 
 ### A setup that holds calls
 
 1. **Home fiber you have tested.** Viettel, VNPT, and FPT are the ordinary apartment providers in Vietnam. Ask which one is already in the unit, and run a speed test from the desk. "Wi-Fi included" in a short let is not that test. A serviced stay often bundles a line. A local monthly lease often does not. Confirm which one you signed.
-2. **A local SIM with real data.** Viettel, MobiFone, and VinaPhone sell prepaid SIMs in town and at Da Nang airport, and eSIM is widely offered. If a call would hurt you to drop, keep the second line. Learn the hotspot before the storm day you need it. This guide does not invent a SIM price.
+2. **A local SIM with real data.** Viettel, MobiFone, and VinaPhone sell prepaid SIMs in town and at Da Nang airport, and eSIM is widely offered. If a call would hurt you to drop, keep the second line. Learn the hotspot before the storm day you need it. Check the shop price the day you buy.
 3. **One coworking room you have already used for a call.** Not a beach cafe you liked for the view. Coworking density **Low** means the list is short. Treat that as the fact, not as a challenge to find a hidden district of desks.
 
 ### Coworking that is actually listed
 
-**Hub Hoi An** is the dedicated room whose own site still publishes a Hoi An campus, at Hem 98 Le Thanh Tong, between the old town and the beach, in the rice fields. The operator describes a silent indoor room, a calls-allowed room, outdoor areas, and phone booths. New visitors are published as Monday to Saturday, 9am to 5pm. Existing members are published as 24/7. The same site says walk-ins are not the plan: book ahead. Day passes and monthly memberships are theirs to price. This guide does not freeze a dollar or a dong figure. Believe the operator's page the week you go.
+**Hub Hoi An** is the dedicated room whose own site still publishes a Hoi An campus, at Hem 98 Le Thanh Tong, between the old town and the beach, in the rice fields. The operator describes a silent indoor room, a calls-allowed room, outdoor areas, and phone booths. New visitors are published as Monday to Saturday, 9am to 5pm. Existing members are published as 24/7. The same site says walk-ins are not the plan: book ahead. Day passes and monthly memberships are theirs to price. Check the operator's page the week you go.
 
 That is the desk. A laptop-friendly cafe at An Bang, including rooms that market themselves as coworking, can cover a quiet afternoon. It is not a second campus, and it is not a booth with a door. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office.
 
@@ -183,7 +183,7 @@ Vietnam's Immigration Department describes the e-visa on its portal. The current
 
 The fee schedule is a Ministry of Finance instrument, not a blog. Circular No. 28/2026/TT-BTC (27 March 2026, effective 1 April 2026) sets **25 USD** for a single-entry visa and **50 USD** for a multiple-entry visa valid for up to 90 days. The English text is on the government legal page [asemconnectvietnam.gov.vn](https://asemconnectvietnam.gov.vn/Law.aspx?ID1=2&MaVB_id=3127&ZID1=10). The Department's application instructions, the same ones cited in the [Da Nang living guide](/guides/living-in-da-nang), also publish **$25** single-entry, **$50** multiple-entry, and processing in **3 working days**. Those figures are the official instructions and the circular, not a Nomad Spin price. They can change. Read the live portal and the circular the week you pay. Do not copy a service fee from an agent and call it the government charge. Longer multiple-entry prices in that circular (beyond 90 days) are other visa products. They are not a way to stretch the e-visa past the 90-day maximum the portal states.
 
-Print the approval before you fly. A screenshot on a dead phone is a bad arrival plan. Most people flying to this coast use Da Nang Airport (DAD). Da Nang Airport has appeared on Ministry of Foreign Affairs lists of air gates that accept e-visa entry. Confirm the live port list on the portal before you book a ticket into DAD, because gates are a government list, not a travel blog. Then transfer to Hoi An. This guide does not invent a kilometer distance.
+Print the approval before you fly. A screenshot on a dead phone is a bad arrival plan. Most people flying to this coast use Da Nang Airport (DAD). Da Nang Airport has appeared on Ministry of Foreign Affairs lists of air gates that accept e-visa entry. Confirm the live port list on the portal before you book a ticket into DAD, because gates are a government list, not a travel blog. Then transfer to Hoi An. Time the transfer yourself.
 
 ### There is no digital nomad visa
 
@@ -245,13 +245,13 @@ Same three slots, still with no partner IDs. Buy them only after the month is on
 
 ### Food
 
-"Cheap" survives contact with Vietnamese food and dies in old-town tourist menus. Cao lau, com ga, mi quang, markets, and ordinary seafood are how you eat inside **$675** to **$900**. The lantern streets are how you eat like the month is a holiday. You can tell which life you are living by where lunch happens. Cam Nam and the local wards make the local version easier. The pedestrian core makes the leak easier.
+"Cheap" survives contact with Vietnamese food and dies in old-town tourist menus. Cao lau, com ga, mi quang, markets, and ordinary seafood are how you eat inside the **$675** longer-stay estimate to **$900**. The lantern streets are how you eat like the month is a holiday. You can tell which life you are living by where lunch happens. Cam Nam and the local wards make the local version easier. The pedestrian core makes the leak easier.
 
 The **foodie** tag is real. It is also how a careful month becomes an expensive one. Water: drink filtered or bottled. That is normal here.
 
 ### Tailoring
 
-Tailoring is a listed pro, and it is one of the few things this town does that Da Nang does not lead with. A shirt or a suit can be a good reason to stay an extra week in Feb-May. It is not a reason the internet gets better, and it is not inside the **$900** figure. Pay the shop, not this guide. This page does not name a house or a price.
+Tailoring is a listed pro, and it is one of the few things this town does that Da Nang does not lead with. A shirt or a suit can be a good reason to stay an extra week in Feb-May. It is not a reason the internet gets better, and it is not inside the **$900** figure. Pay the shop. Ask the tailor which house and which price.
 
 ### Getting around
 
@@ -259,7 +259,7 @@ A bicycle covers the old town, the ride to An Bang if you have timed it, and mos
 
 Grab, car or motorbike with a licensed driver, is the tool for the airport, for a night you are carrying a laptop, and for the day you go to Da Nang. Da Nang International (DAD) is the airport people actually use. Use Grab or the official taxi desk the airport currently publishes. Skip the unsolicited offer at the curb. The coast road is short enough that Da Nang works as a day trip and as an overflow desk. A common planning figure is about 30 to 45 minutes. Time it yourself. Rain and a flooded approach change it, and the Hoi An row does not publish a travel time.
 
-Riding yourself is a different legal question. Circular No. 29/2015/TT-BGTVT is the Ministry of Transport rule on international driving permits: a person using a permit issued by a state that is party to the 1968 Vienna Convention has to carry that permit **and** the national licence for the category of vehicle, and follow Vietnam's road law. A rental shop that hands over keys without looking is not that rule. If your licence does not cover a motorbike, or your country does not issue a 1968-convention permit Vietnam recognizes, do not ride. Unlicensed riding is a common mistake here, not a strategy, and it is how insurance arguments go badly after a crash. This guide will not walk you through an unlicensed rental.
+Riding yourself is a different legal question. Circular No. 29/2015/TT-BGTVT is the Ministry of Transport rule on international driving permits: a person using a permit issued by a state that is party to the 1968 Vienna Convention has to carry that permit **and** the national licence for the category of vehicle, and follow Vietnam's road law. A rental shop that hands over keys without looking is not that rule. If your licence does not cover a motorbike, or your country does not issue a 1968-convention permit Vietnam recognizes, do not ride. Unlicensed riding is a common mistake here, not a strategy, and it is how insurance arguments go badly after a crash. Do not ride without a permit Vietnam recognizes.
 
 ### Vietnamese
 
@@ -267,7 +267,7 @@ English proficiency on the row is **4**. Menus in the old town and at An Bang co
 
 ### Day trips, and the Da Nang overflow
 
-Use Da Nang when Hoi An is too small for the week: a call you cannot drop, a clinic, a flight, a beach that is a city rather than a village. The numbers and the neighborhoods are in [Living in Da Nang](/guides/living-in-da-nang). Read that guide for An Thuong, My Khe, and Hai Chau. Do not import them into a Hoi An lease. The two rows share a coast, **80 Mbps**, power **7**, and **UTC+7**. They do not share a coworking score, a solo price, or a flood calendar.
+Use Da Nang when Hoi An is too small for the week: a call you cannot drop, a clinic, a flight, a beach that is a city rather than a village. The numbers and the neighborhoods are in [Living in Da Nang](/guides/living-in-da-nang). Read that guide for An Thuong, My Khe, and Hai Chau. Do not import them into a Hoi An lease. The two rows share a coast, **80 Mbps**, and **UTC+7**. Hoi An's power **7** is an estimate. They do not share a coworking score, a solo price, or a flood calendar.
 
 [Hanoi](/destinations/hanoi) is the food-and-density trip if you want a north-Vietnam contrast: solo **$1,050**, not a beach, best months Oct, Nov, Dec, Mar, and Apr. There is no Hanoi living guide on this site yet. Use the destination page.
 
@@ -307,9 +307,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 ### Common mistakes
 
-- Treating the **90-day** tourist-visa field as a nomad visa, or as a promise that an agent can extend it inside Vietnam
-- Paying the **$41** nightly median for thirty nights and calling the month **$900**
-- Sleeping in the pedestrian core, then acting surprised that the long-stay **$675** figure did not survive contact with tourist menus
+- Treating the **90-day** e-visa field as a nomad visa, or as a promise that an agent can extend it inside Vietnam
+- Paying the **$41** nightly estimate for thirty nights and calling the month **$900**
+- Sleeping in the pedestrian core, then acting surprised that the long-stay **$675** estimate did not survive contact with tourist menus
 - Using cafe Wi-Fi for the client call you cannot drop, in a town whose coworking score is **Low**
 - Booking **Sep-Nov** in a ground-floor river room because a best-month photo was nearby
 - Pasting Da Nang neighborhoods, or a Da Nang outskirts URL, onto a Hoi An month
@@ -350,7 +350,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 
 ### How to compare Hoi An on Nomad Spin
 
-1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$900**, Hoi An's solo baseline is already a stretch, and the **$675** longer-stay figure is the one you have to live inside.
+1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$900**, Hoi An's solo baseline is already a stretch, and the **$675** longer-stay estimate is the one you have to live inside.
 2. Set an internet floor the **80 Mbps** average can clear, and a safety floor its **9** can clear. Then look at who else survives. Often that is [Da Nang](/destinations/da-nang) if you can trade charm for a Med coworking score, or [Ho Chi Minh City](/destinations/ho-chi-minh-city) if you want a real city.
 3. Open [Hoi An](/destinations/hoi-an) and read `bestMonths`, `rainyMonths`, and the flooding con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If Da Nang is still in the pile, put its **Feb-Jul** next to these **Feb-May** months before you book both into October.
 4. If Chiang Mai or Bali is still in the pile, open [Living in Chiang Mai](/guides/living-in-chiang-mai) or [Living in Bali](/guides/living-in-bali) and compare community and coworking, not the photos. If you want a non-Asia beach, open [Living in Cape Town](/guides/living-in-cape-town) and compare safety **5.5** and power **4**.
@@ -358,4 +358,4 @@ Still no partner IDs. These slots are last, after the week above, not before the
 
 [Spin the globe](/) with those floors. Hoi An should win when the floors are real, the month is Feb-May, and you want a small seaside town on **UTC+7** for a season, with Da Nang as the overflow. It should lose when you need a big scene, a call-heavy week with no backup desk, or a September arrival you cannot leave.
 
-*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $900, $675, $41, 80 Mbps, reliability 7, power 7, and safety 9 figures are Nomad Spin's Hoi An row. The 90-day e-visa maximum, the single- and multiple-entry fees, and the "outside Vietnam" rule are the Immigration Department text and Circular No. 28/2026/TT-BTC cited above. When they disagree, the portal and your stamp win.*
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $900 solo month, 80 Mbps, and safety 9 are Nomad Spin's Hoi An row. The $675 long-term cost, the $41 nightly median, reliability 7, and power 7 are estimates on that row. The 90-day e-visa maximum, the single- and multiple-entry fees, and the "outside Vietnam" rule are the Immigration Department text and Circular No. 28/2026/TT-BTC cited above. When they disagree, the portal and your stamp win.*

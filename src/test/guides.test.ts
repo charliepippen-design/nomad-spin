@@ -2,6 +2,9 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { guides } from '@/data/guides';
+import { allCitySlugs } from '@/lib/citySlug';
+import { destinationBodyHtml } from '@/lib/destinationPrerender';
+import { guidePageTitle } from '@/lib/guideHtml';
 import { buildContentGuidesModule } from '../../scripts/sync-content-guides';
 
 describe('static guides', () => {
@@ -46,18 +49,40 @@ describe('static guides', () => {
 
   it('keeps em dashes and en dashes out of living guides', () => {
     const dir = path.resolve(__dirname, '../../content/guides');
-    const files = fs.readdirSync(dir).filter((name) => /^living-in-.*\.(md|json)$/.test(name));
-    expect(files.filter((name) => name.endsWith('.md')).length).toBeGreaterThanOrEqual(16);
+    const files = fs.readdirSync(dir).filter((name) => /\.(md|json)$/.test(name));
+    expect(files.filter((name) => name.startsWith('living-in-') && name.endsWith('.md')).length).toBeGreaterThanOrEqual(16);
     for (const name of files) {
       const text = fs.readFileSync(path.join(dir, name), 'utf8');
       expect(text.includes('\u2013'), `${name} contains an en dash`).toBe(false);
       expect(text.includes('\u2014'), `${name} contains an em dash`).toBe(false);
     }
-    for (const guide of guides.filter((guide) => guide.slug.startsWith('living-in-'))) {
+    for (const guide of guides) {
       const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
       expect(published.includes('\u2013'), `${guide.slug} contains an en dash`).toBe(false);
       expect(published.includes('\u2014'), `${guide.slug} contains an em dash`).toBe(false);
+      const documentTitle = guidePageTitle(guide.seoTitle ?? guide.title);
+      expect(documentTitle.endsWith(' | Nomad Spin Guides'), guide.slug).toBe(true);
+      expect(documentTitle.includes('\u2013'), `${guide.slug} title contains an en dash`).toBe(false);
+      expect(documentTitle.includes('\u2014'), `${guide.slug} title contains an em dash`).toBe(false);
     }
+
+    const destinations = allCitySlugs();
+    expect(destinations.length).toBeGreaterThan(0);
+    for (const { city, slug } of destinations) {
+      const html = destinationBodyHtml(city, slug);
+      expect(html.includes('\u2013'), `${slug} destination HTML contains an en dash`).toBe(false);
+      expect(html.includes('\u2014'), `${slug} destination HTML contains an em dash`).toBe(false);
+      expect(html).toContain('safety floors, then');
+    }
+
+    const sample = destinations[0];
+    const missingHtml = destinationBodyHtml(
+      { ...sample.city, language: '', meta: { ...sample.city.meta, timeZoneUtc: '' } },
+      sample.slug,
+    );
+    expect(missingHtml).toContain('<strong>Timezone:</strong> n/a');
+    expect(missingHtml).toContain('<strong>Language:</strong> n/a');
+    expect(missingHtml.includes('\u2014'), 'missing timezone fallback').toBe(false);
   });
 
   it('has unique, URL-safe slugs', () => {
@@ -335,9 +360,9 @@ describe('static guides', () => {
     for (const heading of [
       'Is living in Hoi An worth it for digital nomads in 2026?',
       'Who Hoi An is for (and who should skip it)',
-      'Real monthly cost bands (solo $900, long-term $675, short Airbnb $41/night)',
+      'Real monthly cost bands (solo $900, long-term $675 estimate, short Airbnb $41 estimate)',
       'Neighborhoods that work: Old Town edges, An Bang beach, Cam Nam / countryside (trade-offs)',
-      'Internet, power, and coworking for video-call work (80 Mbps, reliability 7, power 7, Low coworking)',
+      'Internet, power, and coworking for video-call work (80 Mbps, reliability 7 estimate, power 7 estimate, Low coworking)',
       'Visas and stay length: E-Visa up to 90 days, no dedicated nomad visa (verify official rules)',
       'Best months (Feb-May) vs rainy / flood months (Sep-Nov)',
       'Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang',
@@ -911,7 +936,7 @@ describe('static guides', () => {
     for (const heading of [
       'Is living in Valencia worth it for digital nomads in 2026?',
       'Who Valencia is for (and who should skip it)',
-      'Real monthly cost bands (solo $1,900, long-term $1,425, Airbnb $86/night)',
+      'Monthly cost bands (solo $1,900, long-term $1,425 estimate, Airbnb $86 estimate)',
       'Neighborhoods that work: Ruzafa, El Carmen, Cabanyal, and Benimaclet',
       'Internet, power, and coworking for video-call work',
       "Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)",

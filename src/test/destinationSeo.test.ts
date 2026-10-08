@@ -124,7 +124,7 @@ describe('destinationSeo', () => {
 
   it('gives Madrid, Valencia, Las Palmas, and Hoi An at least 5 pros and 3 cons', () => {
     const generator = fs.readFileSync(
-      path.resolve(__dirname, '../../scripts/generate-seo-pages.ts'),
+      path.resolve(__dirname, '../lib/destinationPrerender.ts'),
       'utf8',
     );
     expect(generator).toContain('city.pros.slice(0, 5)');
