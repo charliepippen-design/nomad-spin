@@ -90,14 +90,17 @@ describe('vercel.json legacy accent redirects', () => {
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
   });
 
-  it('declares redirects before the SPA catch-all rewrite', () => {
+  it('declares redirects before the allowlisted SPA rewrites', () => {
     const redirectsAt = vercelJson.indexOf('"redirects"');
     const rewritesAt = vercelJson.indexOf('"rewrites"');
     expect(redirectsAt).toBeGreaterThan(-1);
     expect(rewritesAt).toBeGreaterThan(redirectsAt);
     // Guide and destination slugs are filesystem-only. Misses fall through to 404.html.
-    expect(config.rewrites).toEqual([
-      { source: '/((?!assets/|guides/|destinations/).*)', destination: '/index.html' },
-    ]);
+    const sources = (config.rewrites ?? []).map((rule) => rule.source);
+    expect(sources).toContain('/');
+    expect(sources).toContain('/guides');
+    expect(sources).toContain('/destinations');
+    expect(sources).not.toContain('/((?!assets/|guides/|destinations/).*)');
+    expect(config.rewrites?.every((rule) => rule.destination === '/index.html')).toBe(true);
   });
 });
