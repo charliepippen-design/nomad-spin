@@ -103,6 +103,11 @@ describe('destinationSeo', () => {
     const budapestGuides = relatedGuidesForCity(cityByName('Budapest')).map((g) => g.slug);
     expect(budapestGuides).toContain('living-in-budapest');
 
+    const madridGuides = relatedGuidesForCity(cityByName('Madrid')).map((g) => g.slug);
+    expect(madridGuides).toContain('living-in-madrid');
+    expect(madridGuides).toContain('how-to-choose-next-nomad-base');
+    expect(madridGuides).toContain('where-to-go-next-by-season');
+
     const pragueGuides = relatedGuidesForCity(cityByName('Prague')).map((g) => g.slug);
     expect(pragueGuides).toContain('living-in-prague');
 
