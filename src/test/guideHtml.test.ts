@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { editorialGuideForDestination, guides } from '@/data/guides';
-import { guideBodyHtml } from '@/lib/guideHtml';
+import { guideBodyHtml, guidesIndexBodyHtml } from '@/lib/guideHtml';
 import { allCitySlugs } from '@/lib/citySlug';
 
 describe('guide prerender body', () => {
@@ -37,6 +37,28 @@ describe('editorial guide lookup', () => {
     const unlinked = allCitySlugs().find(({ slug }) => !linked.has(slug));
     expect(unlinked).toBeTruthy();
     expect(editorialGuideForDestination(unlinked!.slug)).toBeNull();
+  });
+});
+
+describe('prerendered guides index', () => {
+  it('has one link per published guide, with its meta description', () => {
+    const html = guidesIndexBodyHtml(guides);
+    const hrefs = [...html.matchAll(/href="(\/guides\/[^"]+)"/g)].map((match) => match[1]);
+
+    expect(hrefs).toEqual(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(new Set(hrefs).size).toBe(guides.length);
+    for (const guide of guides) {
+      expect(html).toContain(`<a href="/guides/${guide.slug}">${guide.title}</a>`);
+      expect(html).toContain(`<p>${guide.excerpt}</p>`);
+    }
+    expect(html.includes('\u2013')).toBe(false);
+    expect(html.includes('\u2014')).toBe(false);
+
+    const generator = fs.readFileSync(path.resolve(__dirname, '../../scripts/generate-seo-pages.ts'), 'utf8');
+    expect(generator).toContain('guidesIndexBodyHtml(staticGuides)');
+    const sitemap = fs.readFileSync(path.resolve(__dirname, '../../scripts/generate-sitemap.ts'), 'utf8');
+    expect(sitemap).toContain('guides.map');
+    expect(sitemap).toContain('/guides/${guide.slug}');
   });
 });
 

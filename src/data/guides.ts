@@ -521,6 +521,16 @@ export const guides: Guide[] = [...contentGuides, ...handWrittenGuides].sort((a,
   guideSortKey(b).localeCompare(guideSortKey(a))
 );
 
+/**
+ * Guides index rows. Same slugs, in the same order, as the sitemap.
+ * A live row may refresh a slug that is already published. It cannot add one.
+ */
+export function indexGuides(live?: readonly Guide[] | null): Guide[] {
+  if (!live) return guides;
+  const liveBySlug = new Map(live.map((guide) => [guide.slug, guide]));
+  return guides.map((guide) => liveBySlug.get(guide.slug) ?? guide);
+}
+
 /** Guides that list the given destination slug as related. */
 export function guidesForDestination(slug: string): Guide[] {
   return guides.filter((g) => g.relatedDestinations?.includes(slug));

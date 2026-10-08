@@ -10,7 +10,7 @@ import {
 } from '../src/lib/destinationSeo';
 import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
-import { guideBodyHtml, guidePageTitle } from '../src/lib/guideHtml';
+import { guideBodyHtml, guidePageTitle, guidesIndexBodyHtml } from '../src/lib/guideHtml';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { buildNotFoundHtml } from './not-found-page';
 
@@ -179,8 +179,8 @@ function withVisibleBody(html: string, body: string): string {
 
 (async () => {
   // Real 404 (noindex, no canonical). Vercel serves dist/404.html with HTTP 404
-  // when /guides/:slug or /destinations/:slug has no prerendered file.
-  // Other SPA routes still rewrite to index.html.
+  // when no static file matches and the path is not an allowlisted SPA route.
+  // Unknown /guides and /destinations slugs stay filesystem-only, same as before.
   fs.writeFileSync(path.join(distDir, '404.html'), buildNotFoundHtml());
   console.log('✅ Generated noindex 404 page: /404.html');
 
@@ -188,7 +188,26 @@ function withVisibleBody(html: string, body: string): string {
 
   // Static core pages
   createHtmlFile('about', 'About Us | Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
-  createHtmlFile('guides', 'Digital Nomad Guides & Analysis | Nomad Spin', 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.');
+  const guidesIndexTitle = 'Digital Nomad Guides & Analysis | Nomad Spin';
+  const guidesIndexDescription = 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.';
+  writeRoute(
+    'guides',
+    withVisibleBody(
+      injectSeo(baseHtml, {
+        title: guidesIndexTitle,
+        description: guidesIndexDescription,
+        url: `${BASE_URL}/guides`,
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: guidesIndexTitle,
+          url: `${BASE_URL}/guides`,
+          description: guidesIndexDescription,
+        },
+      }),
+      guidesIndexBodyHtml(staticGuides),
+    ),
+  );
   createHtmlFile('contact', 'Contact Us | Nomad Spin', 'Get in touch with the Nomad Spin team.');
   createHtmlFile('privacy-policy', 'Privacy Policy | Nomad Spin', 'Read our privacy policy and how we protect your data.');
   createHtmlFile('terms-of-use', 'Terms of Use | Nomad Spin', 'Read our terms of service.');
