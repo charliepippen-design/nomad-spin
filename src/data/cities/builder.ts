@@ -104,6 +104,12 @@ export function city(d: CityInput): City {
     weather: { bestMonths: d.bestMonths, rainyMonths: d.rainyMonths, tempAvgC: d.tempC },
     meta: { visaType: d.visaType, visaDays: d.visaDays, timeZoneUtc: d.tz },
     pros: d.pros, cons: d.cons,
+    formulaEstimates: {
+      costLongTerm: d.costLong == null,
+      airbnbMedian: d.airbnb == null,
+      internetReliability: d.netReliability == null,
+      powerGridStability: d.power == null,
+    },
     costUSD: d.cost, internetMbps: d.internet,
     visa: { type: d.visaType, days: d.visaDays },
   });

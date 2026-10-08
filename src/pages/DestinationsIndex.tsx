@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { citiesByRegion, regionLabel } from '@/lib/destinationIndex';
+import { canonicalDestinationPath } from '@/lib/subAreaDestinations';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/destinations`;
@@ -75,7 +76,7 @@ export default function DestinationsIndex() {
                   {group.cities.map(({ city, slug }) => (
                     <li key={slug}>
                       <Link
-                        to={`/destinations/${slug}`}
+                        to={canonicalDestinationPath(slug)}
                         className="flex items-baseline justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3 hover:border-primary/50 transition-colors"
                       >
                         <span>

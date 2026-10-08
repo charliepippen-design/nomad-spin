@@ -320,7 +320,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           {geo.acquiredCity
                             ? `Located: ${geo.acquiredCity}`
                             : preferences.origin
-                              ? `${preferences.origin.name}${preferences.origin.country ? ` — ${preferences.origin.country}` : ''}`
+                              ? `${preferences.origin.name}${preferences.origin.country ? `, ${preferences.origin.country}` : ''}`
                               : 'Select origin...'}
                         </span>
                         <motion.div animate={{ rotate: originOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -355,7 +355,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                                 onClick={() => selectOrigin(o)}
                                 className="w-full text-left px-5 py-2.5 text-sm text-foreground/70 hover:bg-white/[0.05] hover:text-foreground transition-colors font-mono tracking-wider flex items-center justify-between"
                               >
-                                <span>{o.name}{o.country ? ` — ${o.country}` : ''}</span>
+                                <span>{o.name}{o.country ? `, ${o.country}` : ''}</span>
                                 {preferences.origin?.id === o.id && <Check className="w-3 h-3 text-foreground/50" />}
                               </button>
                             ))}
@@ -379,7 +379,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       className="mb-4"
                     >
                       <span className={`text-2xl font-mono font-light tracking-wider transition-all duration-150 ${budgetAnimating ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-white'}`}>
-                        ${localBudget[0].toLocaleString()} — ${localBudget[1].toLocaleString()}
+                        ${localBudget[0].toLocaleString()} to ${localBudget[1].toLocaleString()}
                       </span>
                     </motion.div>
                     <div className="relative z-10 py-2">
@@ -393,7 +393,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       INTERNET SPEED
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localInternetRange[0]} — {localInternetRange[1]} MBPS
+                      {localInternetRange[0]} to {localInternetRange[1]} MBPS
                     </span>
                     <div className="relative z-10 py-2">
                       <Slider min={10} max={500} step={10} value={localInternetRange} onValueChange={(v) => setLocalInternetRange(v as [number, number])} />
@@ -406,7 +406,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       SAFETY RATING
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localSafetyRange[0]} — {localSafetyRange[1]} / 10
+                      {localSafetyRange[0]} to {localSafetyRange[1]} / 10
                     </span>
                     <div className="relative z-10 py-2">
                       <Slider min={1} max={10} step={0.5} value={localSafetyRange} onValueChange={(v) => setLocalSafetyRange(v as [number, number])} />
@@ -523,7 +523,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <div className="space-y-1.5 max-h-24 overflow-y-auto">
                           {nearMisses.slice(0, 5).map((city) => (
                             <div key={city.id} className="flex items-center justify-between px-3 py-1.5 rounded-sm bg-white/[0.03] text-[10px] font-mono text-foreground/50">
-                              <span>{city.name} — {city.country}</span>
+                              <span>{city.name}, {city.country}</span>
                               <span>${city.costUSD}/mo</span>
                             </div>
                           ))}

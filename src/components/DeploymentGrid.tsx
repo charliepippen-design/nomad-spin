@@ -101,7 +101,7 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
 
       {/* Affiliate disclaimer */}
       <p className="text-[8px] font-mono text-muted-foreground/30 text-center tracking-wider leading-relaxed">
-        Some outbound links are affiliate links — we may earn a commission at no extra cost to you.
+        Some outbound links are affiliate links, and we may earn a commission at no extra cost to you.
       </p>
     </div>
   );

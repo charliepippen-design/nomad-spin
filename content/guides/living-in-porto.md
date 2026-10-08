@@ -281,7 +281,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 | Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
 | Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May, Jun, Sep, Oct |
 | Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 

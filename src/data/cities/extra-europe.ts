@@ -118,7 +118,7 @@ export const extraEuropeCities = [
     lat: 40.1792, lng: 44.4991, region: 'Europe',
     vibe: ['foodie', 'adventure'], safety: 8, cost: 1050, internet: 80, coworking: 'Low',
     nightlife: 5, community: 2, lgbt: 2, femaleSafety: 6, english: 4,
-    bestMonths: ['Apr', 'May', 'Jun', 'Sep', 'Oct'], rainyMonths: ['Apr', 'May'], tempC: 13,
+    bestMonths: ['Jun', 'Sep', 'Oct'], rainyMonths: ['Apr', 'May'], tempC: 13,
     visaType: 'Visa-Free', visaDays: 180, tz: 'UTC+4',
     pros: ['Ancient culture', 'Mt Ararat views', 'Cheap'], cons: ['Language barrier', 'Landlocked'],
   }),

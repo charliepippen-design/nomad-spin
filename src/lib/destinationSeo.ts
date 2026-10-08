@@ -1,7 +1,7 @@
 import type { City } from '../data/cities';
 import { guides, type Guide } from '../data/guides';
 import { citySlug } from './citySlug';
-import { visaPathSentence } from './visaCopy';
+import { isMaxInitialNomadVisa, visaPathSentence } from './visaCopy';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 
@@ -152,7 +152,13 @@ export function destinationJsonLd(city: City, pageUrl: string): Record<string, u
     { '@type': 'PropertyValue', name: 'Monthly cost (USD)', value: city.costUSD },
     { '@type': 'PropertyValue', name: 'Internet Mbps', value: city.internetMbps },
     { '@type': 'PropertyValue', name: 'Safety score', value: city.safety },
-    { '@type': 'PropertyValue', name: 'Visa days', value: city.meta.visaDays },
+    {
+      '@type': 'PropertyValue',
+      name: isMaxInitialNomadVisa(city.countryCode, city.meta.visaType)
+        ? 'Visa days (maximum initial validity of the nomad visa)'
+        : 'Visa days',
+      value: city.meta.visaDays,
+    },
     { '@type': 'PropertyValue', name: 'Visa type', value: city.meta.visaType },
   ];
   if (city.meta.visaNote) {

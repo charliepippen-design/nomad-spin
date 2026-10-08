@@ -22,7 +22,14 @@ import {
   hubRelatedGuides,
   livingGuideForCity,
 } from '@/lib/destinationSeo';
-import { visaPathSentence } from '@/lib/visaCopy';
+import { destinationFaq, destinationFaqJsonLd, type DestinationFaqItem } from '@/lib/destinationFaq';
+import { visaChipValue, visaPathSentence } from '@/lib/visaCopy';
+import {
+  SUB_AREA_ROBOTS,
+  rewriteSubAreaDestinationHrefs,
+  subAreaBySlug,
+  subAreaParentNotice,
+} from '@/lib/subAreaDestinations';
 
 export default function DestinationGuide() {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -61,6 +68,10 @@ export default function DestinationGuide() {
   const bestMonths = formatMonths(city.weather?.bestMonths);
   const rainyMonths = formatMonths(city.weather?.rainyMonths);
   const editorial = livingGuideForCity(city) ?? editorialGuideForDestination(resolved.canonicalSlug);
+  const subArea = subAreaBySlug(resolved.canonicalSlug);
+  const parentNotice = subArea ? subAreaParentNotice(subArea) : null;
+  const faqItems = subArea ? [] : destinationFaq(city);
+  const faqJsonLd = subArea ? null : destinationFaqJsonLd(city, pageUrl);
 
   return (
     <div className="page-content min-h-screen bg-background">
@@ -68,6 +79,7 @@ export default function DestinationGuide() {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={pageUrl} />
+        {subArea ? <meta name="robots" content={SUB_AREA_ROBOTS} /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
@@ -78,6 +90,7 @@ export default function DestinationGuide() {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={heroUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        {faqJsonLd ? <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script> : null}
       </Helmet>
 
       {/* Hero */}
@@ -122,13 +135,38 @@ export default function DestinationGuide() {
         </div>
       </header>
 
+      {parentNotice ? (
+        <p className="max-w-3xl mx-auto px-6 pt-4 text-sm text-muted-foreground">
+          Part of the {parentNotice.parentName} area. See the full{' '}
+          <Link
+            to={`/destinations/${parentNotice.parentSlug}`}
+            className="text-primary underline underline-offset-4"
+          >
+            {parentNotice.parentName} guide
+          </Link>
+          {parentNotice.livingGuideSlug ? (
+            <>
+              {' '}
+              and the{' '}
+              <Link
+                to={`/guides/${parentNotice.livingGuideSlug}`}
+                className="text-primary underline underline-offset-4"
+              >
+                living guide
+              </Link>
+            </>
+          ) : null}
+          .
+        </p>
+      ) : null}
+
       {/* Key Stats Bar */}
       <div className="border-b border-border/30 bg-card">
         <div className="max-w-3xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
           <StatChip icon={<DollarSign className="w-3.5 h-3.5" />} label="Monthly Cost" value={`$${city.costUSD}`} />
           <StatChip icon={<Wifi className="w-3.5 h-3.5" />} label="Internet" value={`${city.internetMbps} Mbps`} />
           <StatChip icon={<Shield className="w-3.5 h-3.5" />} label="Safety" value={`${city.safety}/10`} />
-          <StatChip icon={<Globe className="w-3.5 h-3.5" />} label="Visa" value={`${city.meta.visaDays} days`} />
+          <StatChip icon={<Globe className="w-3.5 h-3.5" />} label="Visa" value={visaChipValue(city.countryCode, city.meta.visaType, city.meta.visaDays)} />
         </div>
         {city.meta.visaNote && (
           <p className="max-w-3xl mx-auto px-6 pb-4 text-xs text-muted-foreground leading-relaxed">
@@ -175,7 +213,7 @@ export default function DestinationGuide() {
               <div className="rounded-lg border border-border/30 bg-card p-4">
                 <dt className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Visa</dt>
                 <dd className="text-sm font-mono text-foreground">
-                  {city.meta.visaType} · {city.meta.visaDays} days
+                  {city.meta.visaType} · {visaChipValue(city.countryCode, city.meta.visaType, city.meta.visaDays)}
                   {city.meta.visaNote && (
                     <span className="block mt-1 text-xs font-sans text-muted-foreground leading-relaxed">{city.meta.visaNote}</span>
                   )}
@@ -225,7 +263,7 @@ export default function DestinationGuide() {
           <div className="rounded-lg border border-border bg-card p-5">
             <p className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground">Median nightly stay</p>
             <p className="font-mono text-2xl text-foreground mt-2">${city.financials.airbnbMedian}/night</p>
-            {city.dataSource === 'estimated' ? (
+            {city.dataSource === 'estimated' || city.formulaEstimates?.airbnbMedian ? (
               <p className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground mt-2">Estimate</p>
             ) : null}
           </div>
@@ -248,6 +286,9 @@ export default function DestinationGuide() {
             <div className="rounded-lg border border-border/30 bg-card p-4">
               <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Reliability</p>
               <p className="text-lg font-mono text-foreground">{displayCity.infra.internetReliability}/10</p>
+              {city.formulaEstimates?.internetReliability ? (
+                <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mt-1">Estimate</p>
+              ) : null}
             </div>
             <div className="rounded-lg border border-border/30 bg-card p-4">
               <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Coworking</p>
@@ -256,6 +297,9 @@ export default function DestinationGuide() {
             <div className="rounded-lg border border-border/30 bg-card p-4">
               <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mb-1">Power Grid</p>
               <p className="text-lg font-mono text-foreground">{displayCity.infra.powerGridStability}/10</p>
+              {city.formulaEstimates?.powerGridStability ? (
+                <p className="text-[10px] font-mono tracking-wider text-muted-foreground uppercase mt-1">Estimate</p>
+              ) : null}
             </div>
           </div>
         </GuideSection>
@@ -307,6 +351,19 @@ export default function DestinationGuide() {
             )}
           </div>
         </GuideSection>
+
+        {faqItems.length > 0 ? (
+          <GuideSection title="Quick answers" id="faq">
+            {faqItems.map((item) => (
+              <details key={item.q}>
+                <summary className="cursor-pointer text-foreground">{item.q}</summary>
+                <p className="mt-2">
+                  <FaqAnswer item={item} />
+                </p>
+              </details>
+            ))}
+          </GuideSection>
+        ) : null}
       </main>
 
       {/* Related guides */}
@@ -324,7 +381,7 @@ export default function DestinationGuide() {
                     className="block rounded-lg border border-border/30 bg-card px-5 py-4 hover:border-primary/40 transition-colors"
                   >
                     <span className="text-sm font-mono text-foreground">{g.title}</span>
-                    <span className="block text-xs text-muted-foreground mt-1">{g.excerpt}</span>
+                    <span className="block text-xs text-muted-foreground mt-1">{rewriteSubAreaDestinationHrefs(g.excerpt)}</span>
                   </Link>
                 </li>
               ))}
@@ -345,6 +402,31 @@ export default function DestinationGuide() {
       </div>
     </div>
   );
+}
+
+function FaqAnswer({ item }: { item: DestinationFaqItem }) {
+  if (item.officialLinks.length === 0) return <>{item.a}</>;
+  const nodes: React.ReactNode[] = [];
+  let rest = item.a;
+  item.officialLinks.forEach((link, index) => {
+    const at = rest.indexOf(link.phrase);
+    if (at < 0) return;
+    if (at > 0) nodes.push(rest.slice(0, at));
+    nodes.push(
+      <a
+        key={`${link.href}-${index}`}
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary underline underline-offset-4"
+      >
+        {link.phrase}
+      </a>,
+    );
+    rest = rest.slice(at + link.phrase.length);
+  });
+  if (rest) nodes.push(rest);
+  return <>{nodes}</>;
 }
 
 function StatChip({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {

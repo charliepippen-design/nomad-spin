@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { guides } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
+import { listSubAreaDestinations, omitSubAreaDestinationLines } from '../src/lib/subAreaDestinations';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,11 +34,15 @@ const guideEntries: SitemapEntry[] = guides.map((guide) => ({
   priority: '0.8',
 }));
 
-const cityEntries: SitemapEntry[] = allCitySlugs().map(({ slug }) => ({
-  path: `/destinations/${slug}`,
-  changefreq: 'weekly',
-  priority: '0.7',
-}));
+const subAreaSlugs = new Set(listSubAreaDestinations().map((row) => row.slug));
+
+const cityEntries: SitemapEntry[] = allCitySlugs()
+  .filter(({ slug }) => !subAreaSlugs.has(slug))
+  .map(({ slug }) => ({
+    path: `/destinations/${slug}`,
+    changefreq: 'weekly' as const,
+    priority: '0.7',
+  }));
 
 const entries = [...staticEntries, ...guideEntries, ...cityEntries];
 
@@ -66,3 +71,11 @@ const outputPath = path.resolve(__dirname, '../public/sitemap.xml');
 const sitemap = generateSitemap(entries);
 fs.writeFileSync(outputPath, sitemap);
 console.log(`sitemap.xml written with ${entries.length} entries`);
+
+const llmsPath = path.resolve(__dirname, '../public/llms.txt');
+const llms = fs.readFileSync(llmsPath, 'utf8');
+const nextLlms = omitSubAreaDestinationLines(llms);
+if (nextLlms !== llms) {
+  fs.writeFileSync(llmsPath, nextLlms);
+  console.log('llms.txt updated to drop sub-area destination URLs');
+}

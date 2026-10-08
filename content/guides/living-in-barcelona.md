@@ -222,7 +222,7 @@ The [season guide](/guides/where-to-go-next-by-season) is the calendar version o
 
 November and March are the rainy months on the row. They are not next to each other. A November stay can be a good work month if you like a quieter city and you did not come only for the beach. A March stay is the same idea: fine for calls, less honest as a swim trip. Do not "extend a perfect October" into a non-refundable winter let without reading `rainyMonths`.
 
-Valencia's row is different. October is both a best month and a rainy month there, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
+Valencia's row is different. October is a rainy month there, not a best month, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
 
 ### Summer crowds
 
@@ -288,14 +288,14 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Nightlife | 9 | 7 | 9 | 8 | 9 |
 | `lgbtFriendly` | 9 | 7 | 9 | 9 | 5 |
 | Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
-| Best months | May, Jun, Sep, Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
+| Best months | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Rent, pickpockets, crowds | Hot summers, flooding risk | Expensive, very hot summers | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
 The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
 
-**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October overlap and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
+**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October rain flag and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
 
 **Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and `lgbtFriendly` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Neighborhoods and the Jul-Aug rule are in [Living in Madrid](/guides/living-in-madrid). Open [Madrid](/destinations/madrid) if the sand was optional.
 

@@ -303,7 +303,7 @@ The comparison that matters is the one in the opening: the same safety score as 
 | Budapest | $1,500 | 200 | 8.3 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
 | Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
 | Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days (initial field; in-Spain residence authorization up to 3 years) | May-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days (same Spain note as Barcelona) | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days (same Spain note as Barcelona) | Apr-Jun, Sep |
 
 **Stay with Prague** when you want safety **8.8**, **200 Mbps**, reliability **9**, power **9**, coworking **High**, and **$1,700** is a number you can actually pay. You accept Czech, a winter plan, tourist crowds if you wander into Prague 1, and a visa that is a trade licence or a narrow Digital Nomad Program, not a stamp on arrival. Female safety is **8**. `lgbtFriendly` is **7**. Community is **7**.
 
@@ -313,7 +313,7 @@ The comparison that matters is the one in the opening: the same safety score as 
 
 **Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says 365 days. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). Neighborhoods, rent, and that path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
 
-**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep-Oct**. October is also on Valencia's rainy-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
+**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep**. October is on Valencia's rainy-month list, not its best-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
 
 **Look at [Porto](/destinations/porto)** only as a coast check, not as a second topic. Solo **$1,800**, **200 Mbps**, safety **9.0**, coworking **Med**. The district choice and the wet-winter trade-off are in [Living in Porto](/guides/living-in-porto). If the question is "Lisbon's pipes without Lisbon's bill," Prague and Budapest are the comparisons this page is built for. Porto is a different country and a different visa.
 
