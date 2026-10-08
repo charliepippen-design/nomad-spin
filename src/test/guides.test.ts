@@ -60,7 +60,8 @@ describe('static guides', () => {
       expect(published.includes('\u2013'), `${guide.slug} contains an en dash`).toBe(false);
       expect(published.includes('\u2014'), `${guide.slug} contains an em dash`).toBe(false);
       const documentTitle = guidePageTitle(guide.seoTitle ?? guide.title);
-      expect(documentTitle.endsWith(' | Nomad Spin Guides'), guide.slug).toBe(true);
+      expect(documentTitle.endsWith(' | Nomad Spin'), guide.slug).toBe(true);
+      expect(documentTitle.endsWith(' | Nomad Spin Guides'), guide.slug).toBe(false);
       expect(documentTitle.includes('\u2013'), `${guide.slug} title contains an en dash`).toBe(false);
       expect(documentTitle.includes('\u2014'), `${guide.slug} title contains an em dash`).toBe(false);
     }
