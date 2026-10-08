@@ -118,7 +118,7 @@ async function fetchLiveGuides(): Promise<Guide[]> {
 
     const { data, error } = await Promise.race([pending, timeout]);
     if (error) throw error;
-    return (data ?? []).map(rowToGuide);
+    return (data ?? []).filter((row) => row.status === 'published').map(rowToGuide);
   } finally {
     if (timer) clearTimeout(timer);
   }

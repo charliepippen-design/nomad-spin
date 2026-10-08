@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ReactNode } from 'react';
+import { guides } from '@/data/guides';
 import { GUIDE_FETCH_TIMEOUT_MS, useGuides } from '@/hooks/useGuides';
 import GuideArticle from '@/pages/GuideArticle';
 import GuidesList from '@/pages/GuidesList';
@@ -30,6 +31,16 @@ function livePayload() {
         status: 'published',
         created_at: '2026-10-07T00:00:00.000Z',
         slug: 'living-in-chiang-mai',
+      },
+      {
+        id: 100,
+        city: 'Draftville',
+        keyword: 'draft',
+        title: 'Draft Guide Should Not Appear',
+        content: 'A draft that must not be linked from the index.',
+        status: 'draft',
+        created_at: '2026-10-08T00:00:00.000Z',
+        slug: 'draft-should-not-appear',
       },
     ],
     error: null,
@@ -164,6 +175,16 @@ describe('guide pages when the live database does not answer', () => {
 
     expect(await screen.findByRole('heading', { level: 1, name: /live chiang mai guide/i })).toBeInTheDocument();
     expect(screen.getByText(/LIVE_GUIDE_BODY from the database/)).toBeInTheDocument();
+  });
+
+  it('does not link a live draft or a slug outside the published list', async () => {
+    queryState.mode = 'live';
+    renderList();
+
+    expect(await screen.findByRole('link', { name: /live chiang mai guide/i })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /draft guide should not appear/i })).not.toBeInTheDocument();
+    expect(document.querySelector('a[href="/guides/draft-should-not-appear"]')).toBeNull();
+    expect(document.querySelectorAll('a[href^="/guides/"]')).toHaveLength(guides.length);
   });
 
   it('keeps the guides grid visible while the live query hangs, then shows the cached-content warning', async () => {

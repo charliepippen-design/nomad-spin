@@ -26,38 +26,63 @@ const DESTINATION_ALIASES = ['/destinations/saigon', '/destinations/hcmc', '/des
 const GUIDE_ALIASES = ['/guides/living-in-saigon', '/guides/living-in-hcmc', '/guides/living-in-ho-chi-minh'] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
 
-function rewritePattern(): RegExp {
-  const source = config.rewrites?.[0]?.source;
-  expect(source).toBeTruthy();
-  return new RegExp(`^${source}$`);
+/** Exact paths that may fall back to the homepage shell. Everything else is a file or a 404. */
+const SPA_FALLBACK_PATHS = [
+  '/',
+  '/about',
+  '/about/',
+  '/contact',
+  '/contact/',
+  '/privacy-policy',
+  '/privacy-policy/',
+  '/terms-of-use',
+  '/terms-of-use/',
+  '/guides',
+  '/guides/',
+  '/destinations',
+  '/destinations/',
+] as const;
+
+function escapeRegex(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function rewriteMatches(pathname: string): boolean {
+  return (config.rewrites ?? []).some((rule) => new RegExp(`^${escapeRegex(rule.source)}$`).test(pathname));
 }
 
 describe('vercel.json unknown slug 404s', () => {
-  it('keeps one SPA rewrite that skips prerendered guide and destination trees', () => {
-    expect(config.rewrites).toEqual([
-      {
-        source: '/((?!assets/|guides/|destinations/).*)',
-        destination: '/index.html',
-      },
-    ]);
+  it('allowlists SPA fallbacks and leaves unknown paths, files, and slug trees alone', () => {
+    expect(config.rewrites).toEqual(
+      SPA_FALLBACK_PATHS.map((source) => ({ source, destination: '/index.html' })),
+    );
 
-    const rewrite = rewritePattern();
+    for (const pathname of SPA_FALLBACK_PATHS) {
+      expect(rewriteMatches(pathname), pathname).toBe(true);
+    }
+
     const misses = [
+      '/zzz-random-xyz',
+      '/spin-only',
+      '/about/extra',
       '/guides/living-in-lisbon',
       '/guides/living-in-not-a-real-city-xyz',
       '/guides/living-in-saigon',
       '/destinations/lisbon',
+      '/destinations/tbilisi-suburbs',
       '/destinations/not-a-real-city-xyz',
       '/destinations/saigon',
+      '/destinations/medellín',
       '/assets/index.js',
+      '/sitemap.xml',
+      '/robots.txt',
+      '/llms.txt',
+      '/favicon.ico',
+      '/og-preview.png',
+      '/api/health',
     ];
     for (const pathname of misses) {
-      expect(rewrite.test(pathname), pathname).toBe(false);
-    }
-
-    const spaFallback = ['/', '/about', '/contact', '/privacy-policy', '/terms-of-use', '/guides', '/spin-only'];
-    for (const pathname of spaFallback) {
-      expect(rewrite.test(pathname), pathname).toBe(true);
+      expect(rewriteMatches(pathname), pathname).toBe(false);
     }
   });
 

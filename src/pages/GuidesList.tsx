@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
-import { guides as staticGuides } from '@/data/guides';
+import { indexGuides } from '@/data/guides';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;
@@ -12,13 +12,8 @@ const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital noma
 export default function GuidesList() {
   const { data: liveGuides, isLoading, isError } = useGuides();
 
-  // Merge: live Supabase guides take precedence; fall back to static for slugs not yet in DB
-  const mergedGuides = (() => {
-    if (!liveGuides) return staticGuides;
-    const liveSlugSet = new Set(liveGuides.map(g => g.slug));
-    const staticFallbacks = staticGuides.filter(g => !liveSlugSet.has(g.slug));
-    return [...liveGuides, ...staticFallbacks];
-  })();
+  // Same published list as the sitemap. Live rows can refresh those slugs only.
+  const mergedGuides = indexGuides(liveGuides);
 
   const jsonLd = {
     '@context': 'https://schema.org',
