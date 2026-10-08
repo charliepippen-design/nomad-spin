@@ -244,7 +244,7 @@ export const batch5OtherCities = [
   // ── India ──
   city({ id: 'kanchipuram-in', name: 'Kanchipuram', country: 'India', cc: 'IN', lat: 12.83, lng: 79.70, region: 'Asia',
     vibe: ['adventure'], safety: 6, cost: 700, internet: 40, coworking: 'Low', nightlife: 2, community: 2, lgbt: 2, femaleSafety: 5, english: 3,
-    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb'], rainyMonths: ['Oct', 'Nov'], tempC: 29, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+5:30',
+    bestMonths: ['Dec', 'Jan', 'Feb'], rainyMonths: ['Oct', 'Nov'], tempC: 29, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+5:30',
     pros: ['Temple silk city', 'Ultra cheap'], cons: ['Basic', 'Hot', 'Noisy'], landscape: ['urban'], dataSource: 'estimated',
   }),
   city({ id: 'raipur-in', name: 'Raipur', country: 'India', cc: 'IN', lat: 21.25, lng: 81.63, region: 'Asia',

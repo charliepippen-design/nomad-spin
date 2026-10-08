@@ -7,9 +7,8 @@ import { allCitySlugs } from '../src/lib/citySlug';
 import {
   destinationMetaDescription,
   destinationPageTitle,
-  destinationJsonLd,
 } from '../src/lib/destinationSeo';
-import { destinationBodyHtml } from '../src/lib/destinationPrerender';
+import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
 import { guideBodyHtml, guidePageTitle } from '../src/lib/guideHtml';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
@@ -249,7 +248,7 @@ function withVisibleBody(html: string, body: string): string {
     const title = destinationPageTitle(city);
     const description = destinationMetaDescription(city);
     const url = `${BASE_URL}/destinations/${slug}`;
-    const jsonLd = destinationJsonLd(city, url);
+    const jsonLd = destinationPageJsonLd(city, url, slug);
     // Self canonical stays on this URL. noindex sub-area pages do not canonical to the parent hub.
     const head = insertRobotsMeta(
       injectSeo(baseHtml, { title, description, url, jsonLd }),

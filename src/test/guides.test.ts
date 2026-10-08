@@ -874,7 +874,7 @@ describe('static guides', () => {
     for (const heading of [
       'Is living in Valencia worth it for digital nomads in 2026?',
       'Who Valencia is for (and who should skip it)',
-      'Real monthly cost bands (solo $1,900, long-term $1,425, Airbnb $86/night)',
+      'Monthly cost bands (solo $1,900, long-term $1,425 estimate, Airbnb $86 estimate)',
       'Neighborhoods that work: Ruzafa, El Carmen, Cabanyal, and Benimaclet',
       'Internet, power, and coworking for video-call work',
       "Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)",

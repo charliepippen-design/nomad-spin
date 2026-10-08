@@ -1140,7 +1140,7 @@ The [season guide](/guides/where-to-go-next-by-season) is the calendar version o
 
 November and March are the rainy months on the row. They are not next to each other. A November stay can be a good work month if you like a quieter city and you did not come only for the beach. A March stay is the same idea: fine for calls, less honest as a swim trip. Do not "extend a perfect October" into a non-refundable winter let without reading \`rainyMonths\`.
 
-Valencia's row is different. October is both a best month and a rainy month there, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
+Valencia's row is different. October is a rainy month there, not a best month, and flooding risk is on its cons. Do not copy Barcelona's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia).
 
 ### Summer crowds
 
@@ -1206,14 +1206,14 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Nightlife | 9 | 7 | 9 | 8 | 9 |
 | \`lgbtFriendly\` | 9 | 7 | 9 | 9 | 5 |
 | Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
-| Best months | May, Jun, Sep, Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
+| Best months | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Rent, pickpockets, crowds | Hot summers, flooding risk | Expensive, very hot summers | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
 The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
 
-**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October overlap and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
+**Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October rain flag and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
 
 **Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Open [Madrid](/destinations/madrid) if the sand was optional.
 
@@ -3719,7 +3719,7 @@ The weather fields are short, and they are enough to avoid the expensive mistake
 | Apr, May, Jun, Sep, Oct | \`bestMonths\` | The work season. Mild, long light, and still short of the August crush |
 | Nov, Dec, Jan, Feb | \`rainyMonths\` | Atlantic rain, short days, a real city rather than a set. Fine if you like it |
 | Jul, Aug | Not listed as best, and not listed as rainy | Peak tourist crowds, the con the dataset names. Heat, sold-out terraces, worse housing |
-| Year-round | Pro: great weather year-round. \`tempAvgC\` **18** | Mild versus northern Europe. Not a claim that February is a beach month |
+| Year-round | \`tempAvgC\` **18**. No year-round weather pro | Mild versus northern Europe. Rainy months are still Nov to Feb |
 
 The [season guide](/guides/where-to-go-next-by-season) makes the same split: Lisbon's friendliest months are the shoulders, and November flips into the rainy list. People still book July because a photo was sunny. Sunny is not the same as easy when Alfama, Belém, and the trams are full and the nightly rate has left the **$120** median behind. June is still a best month on the row, and it can already feel busy. July and August are the months the dataset does not call best.
 
@@ -3876,7 +3876,7 @@ Nomad Spin scores **780+ cities**. Lisbon should win only when your floors are h
 
 A straight answer on living in Medellin as a digital nomad: still a rational yes in 2026, with a short list of hard stops. The row on [Medellín](/destinations/medellin) is a spring-climate LATAM base on a clock that overlaps the US East Coast: solo month **$1,100**, longer stay **$800**, nightly Airbnb median **$45**, internet **80 Mbps** with reliability **7/10**, power stability **7**, coworking density **High**, safety **6.5**. The same page tags it \`party\`, \`mountain\`, and \`adventure\`. Landscape is mountain. Language is Spanish. Region is LATAM. Best months are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The visa field is **Visa Exemption**, up to **90** days. Time zone is **UTC-5**. Annual average temperature is **22°C**.
 
-The pros on that row are why people book: perfect weather year-round, low cost of living, vibrant nightlife, friendly locals, and a growing tech scene. The cons are why a casual booking goes wrong: safety concerns in some areas, altitude adjustment, language barrier, bureaucratic banking, and air quality issues. "Low cost of living" means the **$1,100** baseline is real. It does not mean a Provenza apartment and a Poblado brunch habit are inside that number.
+The pros on that row are why people book: low cost of living, vibrant nightlife, friendly locals, and a growing tech scene. The cons are why a casual booking goes wrong: safety concerns in some areas, altitude adjustment, language barrier, bureaucratic banking, and air quality issues. "Low cost of living" means the **$1,100** baseline is real. It does not mean a Provenza apartment and a Poblado brunch habit are inside that number.
 
 Worth it if you want that mix and you will live inside it: a neighborhood you chose on purpose, basic Spanish, and a stay length you have checked against your passport. A bad default if you need a top-tier safety score, if you will not learn Spanish, or if air quality is a hard filter. The rest of this guide is how to read the row before you pay a deposit.
 
@@ -4084,7 +4084,7 @@ A stay that runs through much of the year can raise tax-residence questions, inc
 
 ## Best months, rainy season, altitude, and air quality
 
-The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The row also lists perfect weather year-round as a pro, and the annual average is **22°C**. Rain weeks still need an indoor plan for calls.
+The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The annual average is **22°C**. The row does not list a year-round weather pro. Rain weeks still need an indoor plan for calls.
 
 | Window | What the Medellín row says | Practical read |
 |---|---|---|
@@ -4094,7 +4094,7 @@ The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and D
 | Apr, May | \`rainyMonths\` | First rainy window. Fine if you chose it. A bad surprise on a lease you meant to be dry |
 | Oct, Nov | \`rainyMonths\` | Second rainy window. Same rule |
 
-"Eternal spring" is the sentence people repeat. The row is more specific than that sentence. Perfect weather year-round is a listed pro, and two rainy pairs are listed next to it. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. Use \`rainyMonths\` as a veto when you care about afternoon call plans, not as a vibe to talk yourself out of.
+"Eternal spring" is the sentence people repeat. The row is more specific than that sentence. Two rainy pairs are listed on the row, so the weather is not a year-round promise. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. Use \`rainyMonths\` as a veto when you care about afternoon call plans, not as a vibe to talk yourself out of.
 
 ### Altitude and air
 
@@ -4881,7 +4881,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 | Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
 | Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May, Jun, Sep, Oct |
 | Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 
@@ -5274,7 +5274,7 @@ The comparison that matters is the one in the opening: the same safety score as 
 | Budapest | $1,500 | 200 | 8.3 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
 | Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
 | Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days (initial field; in-Spain residence authorization up to 3 years) | May-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days (same Spain note as Barcelona) | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days (same Spain note as Barcelona) | Apr-Jun, Sep |
 
 **Stay with Prague** when you want safety **8.8**, **200 Mbps**, reliability **9**, power **9**, coworking **High**, and **$1,700** is a number you can actually pay. You accept Czech, a winter plan, tourist crowds if you wander into Prague 1, and a visa that is a trade licence or a narrow Digital Nomad Program, not a stamp on arrival. Female safety is **8**. \`lgbtFriendly\` is **7**. Community is **7**.
 
@@ -5284,7 +5284,7 @@ The comparison that matters is the one in the opening: the same safety score as 
 
 **Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says 365 days. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). Neighborhoods, rent, and that path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
 
-**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep-Oct**. October is also on Valencia's rainy-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
+**Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep**. October is on Valencia's rainy-month list, not its best-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
 
 **Look at [Porto](/destinations/porto)** only as a coast check, not as a second topic. Solo **$1,800**, **200 Mbps**, safety **9.0**, coworking **Med**. The district choice and the wet-winter trade-off are in [Living in Porto](/guides/living-in-porto). If the question is "Lisbon's pipes without Lisbon's bill," Prague and Budapest are the comparisons this page is built for. Porto is a different country and a different visa.
 
@@ -5734,19 +5734,19 @@ Still no partner IDs. These slots are last, after the week above, not before the
     relatedDestinations: ["valencia","barcelona","madrid","lisbon","porto"],
     content: `## Is living in Valencia worth it for digital nomads in 2026?
 
-The case for living in Valencia as a digital nomad is a calendar decision before it is a cheaper-Barcelona decision. On the [Valencia](/destinations/valencia) row, October is both a best month and a rainy month, and flooding risk is a listed con. The short answers come from that row, not from a paella photo.
+The case for living in Valencia as a digital nomad is a calendar decision before it is a cheaper-Barcelona decision. On the [Valencia](/destinations/valencia) row, October is a rainy month (with November), not a best month, and flooding risk is a listed con. The short answers come from that row, not from a paella photo.
 
-**How much does it cost to live in Valencia as a digital nomad?** Nomad Spin lists about **$1,900** a month for a solo nomad and about **$1,425** a month long-term, with a median Airbnb around **$86** a night. Ruzafa and beach-side Cabanyal cost more than Benimaclet. Coworking, eating out often, and a central flat push you above the baseline.
+**How much does it cost to live in Valencia as a digital nomad?** Nomad Spin lists about **$1,900** a month for a solo nomad. The long-term **$1,425** and the median Airbnb around **$86** a night are estimates on this row. Ruzafa and beach-side Cabanyal cost more than Benimaclet. Coworking, eating out often, and a central flat push you above the baseline.
 
-**Is Valencia internet good enough for video calls?** Yes for most remote roles. Nomad Spin shows about **170 Mbps** on average, reliability **9/10**, power **9/10**, and Medium coworking density. Test upload speed in the actual unit before signing, and keep a mobile data backup for storm days in Oct-Nov.
+**Is Valencia internet good enough for video calls?** Yes for most remote roles. Nomad Spin shows about **170 Mbps** on average. Reliability **9/10** and power **9/10** are estimates. Coworking density is Medium. Test upload speed in the actual unit before signing, and keep a mobile data backup for storm days in Oct-Nov.
 
 **What visa do digital nomads use in Valencia?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
 
 **Who should skip living in Valencia?** Skip it if you need Barcelona-scale nightlife, hate heat, or cannot plan around flooding risk. Nomad Spin flags hot summers and flooding risk as trade-offs. If Jul-Aug heat or Oct-Nov storms disrupt your work, pick another base for those months.
 
-**What are the best months to live in Valencia?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Oct and Nov**. Average temperature in the dataset is **18°C**. Spring and early autumn are the sweet spot. Summers run hot.
+**What are the best months to live in Valencia?** Nomad Spin's friendliest months are **Apr, May, Jun, and Sep**. Rainy months to plan around are **Oct and Nov**. Average temperature in the dataset is **18°C**. Spring and early autumn are the sweet spot. Summers run hot.
 
-Read the month lists twice. October is on both. That overlap, plus the flooding-risk con, is the reason this page exists. The **$600** gap versus [Barcelona](/destinations/barcelona) (**$2,500** solo, **300 Mbps**, coworking **High**) is supporting evidence. It is not a reason to book a ground-floor flat in late October and call the month settled.
+Read the month lists twice. October is on the rainy list, not the best-month list. That rain flag, plus the flooding-risk con, is the reason this page exists. The **$600** gap versus [Barcelona](/destinations/barcelona) (**$2,500** solo, **300 Mbps**, coworking **High**) is supporting evidence. It is not a reason to book a ground-floor flat in late October and call the month settled.
 
 Worth it, with conditions. You are choosing a seaside Spanish city tagged **beach**, **foodie**, and **workhub**, at **$1,900**, with call-ready internet and safety **8** (female safety **7**). You are also taking hot summers and a flood calendar the other Spain rows in this comparison do not share. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
@@ -5778,7 +5778,7 @@ Female safety on the row is **7**. That matches Barcelona and Madrid in this set
 
 If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another viewpoint list.
 
-## Real monthly cost bands (solo $1,900, long-term $1,425, Airbnb $86/night)
+## Monthly cost bands (solo $1,900, long-term $1,425 estimate, Airbnb $86 estimate)
 
 Nomad Spin does not publish a fake "comfortable" total for Valencia. It publishes three money fields. Those are the bands. If **$1,900** does not fit, stop here and use the peer table later. Do not talk yourself into the city with a lunch menu.
 
@@ -5910,17 +5910,17 @@ Anyone filtering the globe on visa days will see **365**. That field is the init
 
 ## Best months and the October problem: rain, DANA and flood-aware housing
 
-The weather fields are short, and the overlap is the whole decision.
+The weather fields are short, and October rain is the whole decision.
 
 | Window | What the Valencia row says | Practical read |
 |---|---|---|
 | Apr, May, Jun, Sep | \`bestMonths\`, and not in \`rainyMonths\` | The arrival window. Book these if you want the row's friendliest months without the rain flag |
-| Oct | On both \`bestMonths\` and \`rainyMonths\` | The problem month. Mild on a good year, and the month a DANA does not ask your permission |
+| Oct | \`rainyMonths\` only, not \`bestMonths\` | The problem month. Mild on a good year, and the month a DANA does not ask your permission |
 | Nov | \`rainyMonths\` only | Plan around it. Not a best month on this row |
 | Jul, Aug | Not listed as best, and not listed as rainy | Hot summers, the other listed con. Leave, or accept the heat on purpose |
 | Year-round | \`tempAvgC\` **18** | A coarse yearly average. Not a claim that August is a work month |
 
-Among the Spain rows, Valencia is the one that puts October on both lists. Barcelona's rainy months are **Nov** and **Mar**. Madrid's are **Nov** and **Dec**. Their October can still be a best month without this flag. Do not copy a Barcelona October plan onto this city. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+Among the Spain rows, Valencia is the one that puts October on the rainy list beside a flood con. Barcelona's rainy months are **Nov** and **Mar**. Madrid's are **Nov** and **Dec**. Their October can still be a best month. Do not copy a Barcelona October plan onto this city. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
 
 ### What to do with October
 
@@ -5985,7 +5985,7 @@ Choose with the rows. Valencia's headline is the October problem. The price gap 
 
 | City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
 |---|---:|---:|---:|---|---|
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
 | Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May-Jun, Sep-Oct |
 | Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
 | Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
@@ -6011,7 +6011,7 @@ If the objection is "I needed the beach and a third of this bill," none of these
 
 - Treating the **365-day** field as a stamp you already have, or as the 3-year residence authorization
 - Paying the **$86** nightly median for thirty nights and calling the month **$1,900**
-- Booking a ground-floor October let because October is on \`bestMonths\`, and never opening \`rainyMonths\` or PATRICOVA
+- Booking a ground-floor October let without opening \`rainyMonths\` or PATRICOVA
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
 - Arriving in July or August because a weather app showed sun, and ignoring the hot-summers con
 - Using cafe Wi-Fi in El Carmen for the client call you cannot drop
@@ -6052,11 +6052,11 @@ Still no partner IDs. These slots are last, after the week above, not before the
 
 ### How to compare Valencia on Nomad Spin
 
-Nomad Spin scores **780+ cities**. Valencia should win only when your floors are honest, and when your dates survive the October overlap.
+Nomad Spin scores **780+ cities**. Valencia should win only when your floors are honest, and when your dates survive the October rain flag.
 
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,900**, or a plan to live inside **$1,425**. If your ceiling is under **$1,425**, Valencia is already out.
 2. Set an internet floor the **170 Mbps** and reliability **9** can clear, and a safety floor **8** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at **$1,800** and **200 Mbps**, or [Madrid](/destinations/madrid) if you do not need the beach.
-3. Open [Valencia](/destinations/valencia) and read \`bestMonths\` and \`rainyMonths\` on the same screen. If October is in your dates, it is on both lists. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+3. Open [Valencia](/destinations/valencia) and read \`bestMonths\` and \`rainyMonths\` on the same screen. If October is in your dates, it is on \`rainyMonths\`, not \`bestMonths\`. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
 4. If Barcelona is still in the pile, open [Living in Barcelona](/guides/living-in-barcelona) and compare **$2,500**, **300 Mbps**, and safety **7.5** against **$1,900**, **170 Mbps**, and safety **8**. Pay the **$600** only if the scene and the speed are the actual requirement. If the beach can be a river instead, open [Living in Porto](/guides/living-in-porto). If the beach can be a train, open [Living in Lisbon](/guides/living-in-lisbon).
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
@@ -6140,7 +6140,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
-- [Valencia](/destinations/valencia): **Apr-Jun, Sep-Oct**: \`$1,900\` / **170** Mbps / safety **8**. October is on both \`bestMonths\` and \`rainyMonths\`, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
+- [Valencia](/destinations/valencia): **Apr-Jun, Sep**: \`$1,900\` / **170** Mbps / safety **8**. October is a rainy month (with November), not a best month, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
 - [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is \`estimated\` and tourist-heavy in \`cons\`
 - [Seville](/destinations/seville): **Mar to May, Oct to Nov**: get there before “extremely hot summer” in \`cons\`
 
@@ -6193,7 +6193,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
 
-**Flood risk on a best month.** Valencia lists October in both \`bestMonths\` and \`rainyMonths\`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
+**Flood risk.** Valencia lists October in \`rainyMonths\`, not in \`bestMonths\`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
 
 **Power and internet under weather stress.** Cape Town’s low \`powerGridStability\` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 
