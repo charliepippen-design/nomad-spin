@@ -2,7 +2,7 @@
 
 A straight answer on living in Medellin as a digital nomad: still a rational yes in 2026, with a short list of hard stops. The row on [Medellín](/destinations/medellin) is a spring-climate LATAM base on a clock that overlaps the US East Coast: solo month **$1,100**, longer stay **$800**, nightly Airbnb median **$45**, internet **80 Mbps** with reliability **7/10**, power stability **7**, coworking density **High**, safety **6.5**. The same page tags it `party`, `mountain`, and `adventure`. Landscape is mountain. Language is Spanish. Region is LATAM. Best months are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The visa field is **Visa Exemption**, up to **90** days. Time zone is **UTC-5**. Annual average temperature is **22°C**.
 
-The pros on that row are why people book: perfect weather year-round, low cost of living, vibrant nightlife, friendly locals, and a growing tech scene. The cons are why a casual booking goes wrong: safety concerns in some areas, altitude adjustment, language barrier, bureaucratic banking, and air quality issues. "Low cost of living" means the **$1,100** baseline is real. It does not mean a Provenza apartment and a Poblado brunch habit are inside that number.
+The pros on that row are why people book: low cost of living, vibrant nightlife, friendly locals, and a growing tech scene. The cons are why a casual booking goes wrong: safety concerns in some areas, altitude adjustment, language barrier, bureaucratic banking, and air quality issues. "Low cost of living" means the **$1,100** baseline is real. It does not mean a Provenza apartment and a Poblado brunch habit are inside that number.
 
 Worth it if you want that mix and you will live inside it: a neighborhood you chose on purpose, basic Spanish, and a stay length you have checked against your passport. A bad default if you need a top-tier safety score, if you will not learn Spanish, or if air quality is a hard filter. The rest of this guide is how to read the row before you pay a deposit.
 
@@ -210,7 +210,7 @@ A stay that runs through much of the year can raise tax-residence questions, inc
 
 ## Best months, rainy season, altitude, and air quality
 
-The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The row also lists perfect weather year-round as a pro, and the annual average is **22°C**. Rain weeks still need an indoor plan for calls.
+The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and Dec**. Rainy months are **Apr, May, Oct, and Nov**. The annual average is **22°C**. The row does not list a year-round weather pro. Rain weeks still need an indoor plan for calls.
 
 | Window | What the Medellín row says | Practical read |
 |---|---|---|
@@ -220,7 +220,7 @@ The friendliest months on the Medellín row are **Jan, Feb, Mar, Jul, Aug, and D
 | Apr, May | `rainyMonths` | First rainy window. Fine if you chose it. A bad surprise on a lease you meant to be dry |
 | Oct, Nov | `rainyMonths` | Second rainy window. Same rule |
 
-"Eternal spring" is the sentence people repeat. The row is more specific than that sentence. Perfect weather year-round is a listed pro, and two rainy pairs are listed next to it. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. Use `rainyMonths` as a veto when you care about afternoon call plans, not as a vibe to talk yourself out of.
+"Eternal spring" is the sentence people repeat. The row is more specific than that sentence. Two rainy pairs are listed on the row, so the weather is not a year-round promise. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. Use `rainyMonths` as a veto when you care about afternoon call plans, not as a vibe to talk yourself out of.
 
 ### Altitude and air
 

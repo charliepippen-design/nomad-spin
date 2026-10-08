@@ -1,7 +1,9 @@
 import type { City } from '@/data/cities';
+import { destinationFaq, destinationFaqBodyHtml, destinationFaqJsonLd } from '@/lib/destinationFaq';
 import {
   destinationFieldGuideHtml,
   destinationIntro,
+  destinationJsonLd,
   formatMonths,
   hubRelatedGuides,
 } from '@/lib/destinationSeo';
@@ -36,6 +38,11 @@ export function destinationBodyHtml(city: City, slug: string): string {
   const fieldGuideHtml = destinationFieldGuideHtml(city);
   const subArea = subAreaBySlug(slug);
   const noticeHtml = subArea ? subAreaParentNoticeHtml(subArea) : '';
+  const faqHtml = destinationFaqBodyHtml(subArea ? [] : destinationFaq(city));
+  const airbnbEstimate =
+    city.formulaEstimates?.airbnbMedian || city.dataSource === 'estimated' ? ' (estimate)' : '';
+  const reliabilityEstimate = city.formulaEstimates?.internetReliability ? ' (estimate)' : '';
+  const powerEstimate = city.formulaEstimates?.powerGridStability ? ' (estimate)' : '';
   const noticeBlock = noticeHtml ? `${noticeHtml}\n  ` : '';
   const relatedHtml = related.length
     ? `<h2>Related guides</h2><ul>${related
@@ -56,9 +63,9 @@ export function destinationBodyHtml(city: City, slug: string): string {
   <ul>
     <li><strong>Cost of living (solo / month):</strong> $${city.costUSD}</li>
     <li><strong>Long-term monthly estimate:</strong> $${city.financials.costLongTerm}</li>
-    <li><strong>Median Airbnb (night):</strong> $${city.financials.airbnbMedian}</li>
-    <li><strong>Internet:</strong> ${city.internetMbps} Mbps (reliability ${city.infra.internetReliability}/10)</li>
-    <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10</li>
+    <li><strong>Median Airbnb (night):</strong> $${city.financials.airbnbMedian}${airbnbEstimate}</li>
+    <li><strong>Internet:</strong> ${city.internetMbps} Mbps (reliability ${city.infra.internetReliability}/10${reliabilityEstimate})</li>
+    <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10${powerEstimate}</li>
     <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
     <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
     <li><strong>Visa:</strong> ${esc(visaPathSentence(city.meta))}</li>
@@ -73,9 +80,17 @@ export function destinationBodyHtml(city: City, slug: string): string {
   ${landscapes ? `<h2>Landscape</h2><ul>${landscapes}</ul>` : ''}
   ${pros ? `<h2>Why go</h2><ul>${pros}</ul>` : ''}
   ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
+  ${faqHtml}
   ${relatedHtml}
   <h2>Find your next base</h2>
   <p>Compare ${esc(city.name)} against your budget, internet, and safety floors, then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
   <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
 </main>`;
+}
+
+/** Place JSON-LD, plus FAQPage on indexable destination pages. */
+export function destinationPageJsonLd(city: City, pageUrl: string, slug: string): object | object[] {
+  const place = destinationJsonLd(city, pageUrl);
+  if (subAreaBySlug(slug)) return place;
+  return [place, destinationFaqJsonLd(city, pageUrl)];
 }

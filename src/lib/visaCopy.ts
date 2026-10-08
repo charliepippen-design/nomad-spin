@@ -14,6 +14,24 @@ export function isStayAllowanceVisa(visaType: string): boolean {
   return STAY_ALLOWANCE.test(visaType.trim());
 }
 
+/**
+ * Spain and Portugal digital nomad rows store 365 as the maximum initial
+ * consular or temporary-stay visa, not a visa-free stay. D7-labeled rows
+ * stay unlabeled until that label is resolved.
+ */
+export function isMaxInitialNomadVisa(countryCode: string, visaType: string): boolean {
+  if (countryCode !== 'ES' && countryCode !== 'PT') return false;
+  if (/d7/i.test(visaType)) return false;
+  return /digital nomad/i.test(visaType);
+}
+
+export function visaChipValue(countryCode: string, visaType: string, visaDays: number): string {
+  if (isMaxInitialNomadVisa(countryCode, visaType)) {
+    return `${visaDays} days (max initial visa)`;
+  }
+  return `${visaDays} days`;
+}
+
 export function isApplicationBasedVisa(visaType: string): boolean {
   if (isStayAllowanceVisa(visaType)) return false;
   return APPLICATION_BASED.test(visaType.trim());
