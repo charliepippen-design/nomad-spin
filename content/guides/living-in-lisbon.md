@@ -234,7 +234,7 @@ The weather fields are short, and they are enough to avoid the expensive mistake
 | Apr, May, Jun, Sep, Oct | `bestMonths` | The work season. Mild, long light, and still short of the August crush |
 | Nov, Dec, Jan, Feb | `rainyMonths` | Atlantic rain, short days, a real city rather than a set. Fine if you like it |
 | Jul, Aug | Not listed as best, and not listed as rainy | Peak tourist crowds, the con the dataset names. Heat, sold-out terraces, worse housing |
-| Year-round | Pro: great weather year-round. `tempAvgC` **18** | Mild versus northern Europe. Not a claim that February is a beach month |
+| Year-round | `tempAvgC` **18**. No year-round weather pro | Mild versus northern Europe. Rainy months are still Nov to Feb |
 
 The [season guide](/guides/where-to-go-next-by-season) makes the same split: Lisbon's friendliest months are the shoulders, and November flips into the rainy list. People still book July because a photo was sunny. Sunny is not the same as easy when Alfama, Belém, and the trams are full and the nightly rate has left the **$120** median behind. June is still a best month on the row, and it can already feel busy. July and August are the months the dataset does not call best.
 

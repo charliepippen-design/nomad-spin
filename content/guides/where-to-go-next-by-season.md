@@ -63,7 +63,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: `$2,500` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: `$1,500` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (`$800` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
-- [Valencia](/destinations/valencia): **Apr-Jun, Sep-Oct**: `$1,900` / **170** Mbps / safety **8**. October is on both `bestMonths` and `rainyMonths`, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
+- [Valencia](/destinations/valencia): **Apr-Jun, Sep**: `$1,900` / **170** Mbps / safety **8**. October is a rainy month (with November), not a best month, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
 - [Athens](/destinations/athens), [Dubrovnik](/destinations/dubrovnik): similar spring/fall peaks; Dubrovnik is `estimated` and tourist-heavy in `cons`
 - [Seville](/destinations/seville): **Mar to May, Oct to Nov**: get there before “extremely hot summer” in `cons`
 
@@ -116,7 +116,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Storm / typhoon seasons.** Da Nang `cons`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
 
-**Flood risk on a best month.** Valencia lists October in both `bestMonths` and `rainyMonths`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
+**Flood risk.** Valencia lists October in `rainyMonths`, not in `bestMonths`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
 
 **Power and internet under weather stress.** Cape Town’s low `powerGridStability` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 

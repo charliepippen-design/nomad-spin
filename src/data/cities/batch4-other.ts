@@ -172,7 +172,7 @@ export const batch4OtherCities = [
   }),
   city({ id: 'madurai-in', name: 'Madurai', country: 'India', cc: 'IN', lat: 9.93, lng: 78.12, region: 'Asia',
     vibe: ['adventure', 'foodie'], safety: 6, cost: 800, internet: 60, coworking: 'Med', nightlife: 3, community: 4, lgbt: 3, femaleSafety: 5, english: 5,
-    bestMonths: ['Nov', 'Dec', 'Jan', 'Feb'], rainyMonths: ['Sep', 'Oct', 'Nov'], tempC: 29, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+5:30',
+    bestMonths: ['Dec', 'Jan', 'Feb'], rainyMonths: ['Sep', 'Oct', 'Nov'], tempC: 29, visaType: 'Tourist Visa', visaDays: 90, tz: 'UTC+5:30',
     pros: ['Temple city', 'Cheap'], cons: ['Very hot', 'Chaotic traffic'], landscape: ['urban'], dataSource: 'estimated',
   }),
   city({ id: 'visakhapatnam-in', name: 'Visakhapatnam', country: 'India', cc: 'IN', lat: 17.69, lng: 83.22, region: 'Asia',
