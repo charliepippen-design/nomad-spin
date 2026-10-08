@@ -10,7 +10,7 @@ If budget, internet, and safety are not locked yet, start with [How to Choose Yo
 
 ### Plain answers
 
-**How much does it cost to live in Tallinn as a digital nomad?** Nomad Spin lists **$1,600** a month solo and **$1,200** a month long-term, with a median Airbnb of **$75** a night. Old Town and a month of nightly stays leave that band. A monthly place in Kalamaja, Kesklinn, or Kadriorg is the planning number, and this guide does not publish a separate rent for any of them.
+**How much does it cost to live in Tallinn as a digital nomad?** Nomad Spin lists **$1,600** a month solo and **$1,200** a month long-term, with a median Airbnb of **$75** a night. Old Town and a month of nightly stays leave that band. A monthly place in Kalamaja, Kesklinn, or Kadriorg is the planning number. The rent is the one on the flat you are viewing.
 
 **Is Tallinn internet good enough for video calls?** Yes, on the city averages. The row shows **300 Mbps**, reliability **10/10**, power **9/10**, and coworking density **Med**. Test the upload in the actual room. A medieval building and a renovated flat are not the same line. Reliability **10** is the top of this scale. It is still an average, not a promise about an apartment you have not tested.
 
@@ -36,7 +36,7 @@ Tallinn fits people who want a small European work city with fast pipes, a medie
 
 **Skip it, or pick a different month, if you:**
 
-- Need a mild winter or a long December afternoon. Very cold winters and dark winters are listed cons. Average temperature **6°C** is a yearly figure. This guide does not invent an hour count for sunset. Stand in the flat in the afternoon before you sign a winter lease
+- Need a mild winter or a long December afternoon. Very cold winters and dark winters are listed cons. Average temperature **6°C** is a yearly figure. A flat that feels fine in June can be dark by mid-afternoon in December. Stand in the flat in the afternoon before you sign a winter lease
 - Wanted the e-Residency pro to mean you can live in Estonia. The knowledge base says it does not
 - Need a high LGBTQ+ score. `lgbtFriendly` is **6**. Helsinki's is **9**. Lisbon's is **9**. Safety **9.2** does not soften that
 - Need a big scene. Community is **5**. Nightlife is **5**. "Small city" is a listed con. Lisbon's community score is **9**. The [Lisbon living guide](/guides/living-in-lisbon) is that larger scene, at **$2,200**
@@ -45,15 +45,15 @@ Tallinn fits people who want a small European work city with fast pipes, a medie
 - Need the **$1,200** figure while sleeping in Old Town on nightly stays at the **$75** median
 - Need coworking on every corner. Density is **Med**. Have a home line before you assume a second room is next door
 
-Limited diversity is a listed con. This guide does not turn that into a story the row does not tell. If that con is a hard filter, the city fails it on the page you already have.
+Limited diversity is a listed con. If that is a hard filter, skip Tallinn.
 
-If you wanted a visa-free year at a lower bill, this is the wrong row. [Living in Tbilisi](/guides/living-in-tbilisi) is the dataset's visa-free year, at **$800**, with **60 Mbps** and a different clock (**UTC+4**). If you wanted a European digital-nomad field that is actually a White Card, read the [Budapest living guide](/guides/living-in-budapest). If you wanted a trade licence rather than a telework D-visa, read the [Prague living guide](/guides/living-in-prague). Those are different files.
+If you wanted a visa-free year at a lower bill, this is the wrong row. [Living in Tbilisi](/guides/living-in-tbilisi) is the dataset's visa-free year, at **$800**, with **60 Mbps** and a different clock (**UTC+4**). If you wanted a European digital-nomad field that is actually a White Card, read the [Budapest living guide](/guides/living-in-budapest). If you wanted a trade licence rather than a telework D-visa, read the [Prague living guide](/guides/living-in-prague). Those are different paths.
 
 If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another old-town list.
 
 ## Real monthly cost bands (solo $1,600, long-term $1,200, Airbnb $75/night)
 
-Nomad Spin does not publish a fake "comfortable" total for Tallinn. It publishes three money fields. Those are the bands.
+Three money fields on the Tallinn row are the bands.
 
 | Band | Figure | Field on the Tallinn row | How to read it |
 |---|---:|---|---|
@@ -71,7 +71,7 @@ A 2 to 4 week landing stay is a different product. Use it to see flats. Do not m
 
 ### What moves you off the band
 
-No extra dollar totals here. These are the levers, in the order they actually matter. Nomad Spin does not publish a separate rent for Kalamaja, Telliskivi, Kesklinn, Kadriorg, or Old Town.
+These are the levers, in the order they actually matter. Rent is the asking price on the flat you view.
 
 | Choice | Stays near $1,200 to $1,600 | Leaves the baseline |
 |---|---|---|
@@ -84,18 +84,18 @@ No extra dollar totals here. These are the levers, in the order they actually ma
 ### Reality checks
 
 - The **$1,600** number is a city baseline, not an Old Town lifestyle quote.
-- Expensive alcohol is a listed con. This guide does not invent a price for a drink. A bar-first week is how a mid-priced city leaves the band.
-- A cheaper room on a loud street, or behind a wall that kills the upload, is a productivity tax. The dataset cannot see your building.
+- Expensive alcohol is a listed con. A bar-first week is how a mid-priced city leaves the band.
+- A cheaper room on a loud street, or behind a wall that kills the upload, costs you the work week.
 - Heating is inside a winter month and easy to forget in a June quote. Ask whether heat is included, and what last January's bill was, before you sign.
-- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+- Insurance is not inside those three fields. Budget it separately.
 
 ## Neighborhoods that work: Kalamaja, Telliskivi, Kesklinn, Kadriorg; skip living in Old Town
 
-Tallinn's work month is a neighborhood decision. The old town is why the photos exist. It is a poor default address. There is no separate Nomad Spin page for these neighborhoods. Do not book a suburbs or outskirts URL. The canonical numbers live on [Tallinn](/destinations/tallinn). The trade-offs below are how people actually use the centre. Rents move faster than this paragraph. Believe the flats you view. This guide does not invent a euro rent for any of them.
+Tallinn's work month is a neighborhood decision. The old town is why the photos exist. It is a poor default address. The city numbers live on [Tallinn](/destinations/tallinn). The trade-offs below are how people actually use the centre. Believe the rent on the flat you view.
 
 | Base | Best for | You give up |
 |---|---|---|
-| Kalamaja | A first month with wooden houses, cafes, and a walk toward Telliskivi | The quietest nights, and any blog rent this page refused to print |
+| Kalamaja | A first month with wooden houses, cafes, and a walk toward Telliskivi | The quietest nights |
 | Telliskivi | The creative complex, a known coworking room, the market hall nearby | A residential street. It is a complex inside the north, not a whole district |
 | Kesklinn | Errands, trams, a practical week in the centre | Neighborhood character |
 | Kadriorg | The park, the palace, a quieter residential month | Stepping out into the Telliskivi scene |
@@ -105,7 +105,7 @@ Tallinn's work month is a neighborhood decision. The old town is why the photos 
 
 Kalamaja is the default "I want the city with some texture" landing, in north Tallinn: wooden houses, small cafes, and a walk that reaches Telliskivi and the Balti jaam market without a project. If you arrive alone and want a first week you can do on foot, this is the easiest pin in the set. You can work from a flat here when the line in the room is real, and you can still reach the old town when you want the postcard.
 
-**Trade-off:** demand is why people treat Kalamaja as the nomad default. That is a pattern in listings, not a Nomad Spin rent field. A flat on a busy corner is a different month from a flat two streets off it. Ask which way the bedroom faces.
+**Trade-off:** demand is why people treat Kalamaja as the nomad default, and why listings there often ask more than a quieter northern street. A flat on a busy corner is a different month from a flat two streets off it. Ask which way the bedroom faces.
 
 Pick Kalamaja if you will view the unit and you want the walkable north. Skip it if the only flats in your budget are the loud ones and you have not stood in the room at night.
 
@@ -113,7 +113,7 @@ Pick Kalamaja if you will view the unit and you want the walkable north. Skip it
 
 Telliskivi Creative City sits in that same northern pocket: old industrial buildings, courtyards, food, and rooms people rent by the day. [LIFT99](https://lift99.co/) publishes its Tallinn hub at Telliskivi 60a/5, B-building. That is a useful week-one address because you can sleep nearby, work once in a real room, and see whether the creative version of the city is the one you wanted. The market at Balti jaam is the orientation walk, not a second neighborhood.
 
-**Trade-off:** a creative complex is a social product. A bedroom that faces a courtyard will learn the weekend. Coworking density on the city row is **Med**, so this block is a concentration, not a map of the whole city. Confirm the operator's current page before you plan the month around a desk a 2024 list invented.
+**Trade-off:** a creative complex is a social product. A bedroom that faces a courtyard will hear the weekend. Coworking density on the city row is **Med**, so this block is a concentration, not a map of the whole city. Confirm the room is open on the operator's page before you plan the month around it.
 
 Best for a first landing and for people who want other people building things in the same complex. A weaker fit if you need quiet by 10.
 
@@ -121,7 +121,7 @@ Best for a first landing and for people who want other people building things in
 
 Kesklinn is the practical centre: errands, trams, offices, and less of a story. You live here when the week is calls and you want the city to be obvious. You can still walk to the old town. You are not buying the wooden-house photo.
 
-**Trade-off:** a main road and a courtyard are different products. "Central" is not automatically quiet, and it is not automatically inside **$1,200**. Run the speed test in the unit. This guide does not publish a commute-time score.
+**Trade-off:** a main road and a courtyard are different products. "Central" is not automatically quiet, and it is not automatically inside **$1,200**. Run the speed test in the unit, and walk the route at the hour you would commute.
 
 Pick Kesklinn for a monthly flat if your week is the centre and you have viewed the street. Skip it if you will resent a practical block and spend every evening trying to feel like you live in the postcard.
 
@@ -135,13 +135,13 @@ Best for people who want the city nearby and a residential week. Pair it with on
 
 ### Old Town
 
-Vanalinn is the medieval centre. It is pleasant for an afternoon and a poor default for a work month. Tourist pricing shows up in short lets and in rooms shared with weekend guests. The dataset does not list "tourist crowds" as its own con. It does list a small city, and the old town is where a small city feels least like a place you live.
+Vanalinn is the medieval centre. It is pleasant for an afternoon and a poor default for a work month. Tourist pricing shows up in short lets and in rooms shared with weekend guests. "Small city" is a listed con, and the old town is where that small city feels least like a place you live.
 
 Use the old town as a place you walk to. Sign a month there only if you have viewed the flat, tested the internet at call time, and you are honestly fine leaving the **$1,600** band.
 
 ### Booking slots
 
-No partner IDs live in this guide. After you pick the district, these three slots are the booking order. The live modules are on the [Tallinn destination page](/destinations/tallinn), not in this article.
+After you pick the district, book in this order. Stays, flights, and insurance are on the [Tallinn destination page](/destinations/tallinn).
 
 | Slot | What to book |
 |---|---|
@@ -157,15 +157,15 @@ The **10/10** is still an average. A renovated flat with its own line and a gues
 
 ### A setup that holds calls
 
-1. **Home line you have tested.** Ask which provider is already in the unit, and whether the building's Wi-Fi is shared with other guests. "Wi-Fi included" in a short let is not a speed test. Run one from the desk at the hour you take calls. Upload matters as much as the 300 Mbps headline. This dataset does not say internet is bundled into every lease. Ask.
-2. **A local SIM with real data.** If a call would hurt you to drop, keep a second line and learn the hotspot before the day you need it. The eSIM module on the [Tallinn destination page](/destinations/tallinn) is the site's booking path for that backup. This guide does not add a partner code and does not invent a monthly SIM price.
+1. **Home line you have tested.** Ask which provider is already in the unit, whether internet is included in the rent, and whether the building's Wi-Fi is shared with other guests. "Wi-Fi included" in a short let is not a speed test. Run one from the desk at the hour you take calls. Upload matters as much as the 300 Mbps headline.
+2. **A local SIM with real data.** If a call would hurt you to drop, keep a second line and learn the hotspot before the day you need it. Buy that backup from the eSIM module on the [Tallinn destination page](/destinations/tallinn).
 3. **One coworking room you have already used for a call.** Not a cafe in the old town you liked for the view.
 
 ### Coworking that is actually listed
 
-**LIFT99** publishes a Tallinn hub at Telliskivi 60a/5, B-building, and a second Telliskivi address on its own site. Use the Telliskivi hub as a known room for a trial call. Read the rate card on [lift99.co](https://lift99.co/) the week you go. Those rates are the operator's, not Nomad Spin figures, and they are not part of the **$1,200** or **$1,600** bands. This guide does not copy a day-pass price from an old roundup.
+**LIFT99** publishes a Tallinn hub at Telliskivi 60a/5, B-building, and a second Telliskivi address on its own site. Use the Telliskivi hub as a known room for a trial call. A day pass is not part of the **$1,200** or **$1,600** bands. Check the current price on [lift99.co](https://lift99.co/).
 
-Treat other famous names as open only when you can see them operating this month. Spaces here get placed in the wrong district by old lists. A trial morning beats a recommendation. Because density is **Med**, have the home line and the mobile backup before you assume a second room is around the corner.
+Treat other names as open only when you can see them operating this month. Visit once before you plan the week around a room. Because density is **Med**, have the home line and the mobile backup before you assume a second room is around the corner.
 
 ### Cafes
 
@@ -182,7 +182,7 @@ Kalamaja and the Telliskivi courtyards will let you open a laptop. That is not t
 
 ## e-Residency is not the visa: Schengen 90/180 vs the telework D-visa (verify)
 
-This is operational orientation, not legal advice. Forms, fees, and processing move. The number on our city page is the product field. When this section and an Estonian government page disagree, the government page wins. Read it the week you apply.
+This is orientation, not legal advice. Forms, fees, and processing move. When this section and an Estonian government page disagree, the government page wins. Read it the week you apply.
 
 The fork is the reason to read this page. The row can show **Digital Nomad Visa** and **E-residency program** in the same breath. They are different products. A third product, the Schengen short stay, is what a lot of people are actually using when they say they "tried Tallinn."
 
@@ -200,33 +200,33 @@ Read the note on that page before you pay for a card:
 - e-Residency does not confer citizenship, tax residency, physical residency, or the right of entry to Estonia or the European Union without a visa if one is required.
 - e-Residency status alone does not guarantee access to banking services.
 
-If your plan is "I will get e-Residency and then live in Tallinn," you have two projects. The card does not complete the second one. This guide does not print a card fee. The knowledge base is the place to read the current charge.
+If your plan is "I will get e-Residency and then live in Tallinn," you have two projects. The card does not complete the second one. Read the current card charge on the knowledge base.
 
 ### A short stay is Schengen, not the digital nomad field
 
 You do not need the Estonian D-visa for a short visit. The European Commission's [visa policy page](https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy_en) describes the Schengen short stay: up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Estonia plus another 90 somewhere else. The Foreign Ministry's [who-does-not-need-a-visa page](https://www.vm.ee/en/consular-visa-and-travel-information/visa-information/who-does-not-need-visa-visit-estonia) says the same 90-in-180 limit for the third-country citizens it lists, and it says EU and EEA nationals do not need a visa to enter Estonia. Many passports enter visa-free. Others need a short-stay visa before they fly.
 
-The same Commission page says visa-exempt travellers will need an ETIAS authorisation, tied to the Entry/Exit System, on the timetable the Commission publishes. Check that page for your travel date. This guide does not guess whether ETIAS is already in force for you.
+The same Commission page says visa-exempt travellers will need an ETIAS authorisation, tied to the Entry/Exit System, on the timetable the Commission publishes. Check that page for your travel date.
 
-A tourist entry is not the telework D-visa and not e-Residency. This guide will not tell you that remote work is allowed on a tourist stamp.
+A tourist entry is not the telework D-visa and not e-Residency. A tourist stamp is not permission to telework.
 
 EU and EEA citizens are not the audience for the long-stay D-visa described below. Free-movement registration, if you stay, is a different path. If you are an EU citizen, skip the third-country D-visa and read the tax section only if the length of the stay is the question.
 
-### The D-visa the dataset is pointing at
+### The telework D-visa
 
-The [Foreign Ministry D-visa page](https://vm.ee/en/consular-visa-and-travel-information/visa-information/application-long-stay-d-visa) is the summary this section follows for length, funds, and the fee. The [Police and Border Guard long-term visa page](https://www.politsei.ee/en/instructions/visa-and-extending-period-of-stay/long-term-visa) is the summary for the teleworking evidence and for an application accepted at a service office. Verify both before you rely on them. The Foreign Ministry also says to refer to the Aliens Act. This guide does not paraphrase that act past what those two pages print.
+Use the [Foreign Ministry D-visa page](https://vm.ee/en/consular-visa-and-travel-information/visa-information/application-long-stay-d-visa) for length, funds, and the fee. Use the [Police and Border Guard long-term visa page](https://www.politsei.ee/en/instructions/visa-and-extending-period-of-stay/long-term-visa) for the teleworking evidence and for an application accepted at a service office. Verify both before you rely on them. The Foreign Ministry also says to refer to the Aliens Act. Use that act for anything those two pages do not cover.
 
-**Length.** A long-stay (D) visa may be issued for a stay of up to **365 days** within twelve consecutive months. The Police and Border Guard page says a long-term visa can have a term of validity of up to 12 months and up to 365 days of stay within 12 consecutive months. In the case of two consecutive long-stay visas, the Foreign Ministry says the whole period of stay shall not be longer than **548 days** within **730** consecutive days. That cap is the page. It is not a residence permit, and those pages do not describe a residence permit as the next automatic step. If you want to stay past what they allow, read the current Aliens Act and ask the authority. Do not book year two off a blog.
+**Length.** A long-stay (D) visa may be issued for a stay of up to **365 days** within twelve consecutive months. The Police and Border Guard page says a long-term visa can have a term of validity of up to 12 months and up to 365 days of stay within 12 consecutive months. In the case of two consecutive long-stay visas, the Foreign Ministry says the whole period of stay shall not be longer than **548 days** within **730** consecutive days. That cap is on the Foreign Ministry page. It is not a residence permit, and those pages do not describe a residence permit as the next automatic step. If you want to stay past what they allow, read the current Aliens Act and ask the authority before you plan a second year.
 
 **Where it lets you be.** The same Foreign Ministry page says the D-visa allows a stay in other Schengen states of up to **90 days** within **180 days**. It is not a work permit for Finland or Latvia.
 
-**Where you file.** The Foreign Ministry says you apply in person, in your country of residence, at an Estonian representation that handles visa applications, or in Estonia at a Police and Border Guard service point. If no representation in your country of residence handles long-stay visas, you confirm the appointment in advance with the accredited or nearest representation. The Police and Border Guard page describes the in-country route: you may apply at a service office if you are already staying on one of the grounds that page lists, and you submit at least **30 days** before that stay expires. It says the Board reviews an application within **30 days** of acceptance. That clock is the service-office page. This guide does not copy an embassy processing time the Foreign Ministry page did not print.
+**Where you file.** The Foreign Ministry says you apply in person, in your country of residence, at an Estonian representation that handles visa applications, or in Estonia at a Police and Border Guard service point. If no representation in your country of residence handles long-stay visas, you confirm the appointment in advance with the accredited or nearest representation. The Police and Border Guard page describes the in-country route: you may apply at a service office if you are already staying on one of the grounds that page lists, and you submit at least **30 days** before that stay expires. It says the Board reviews an application within **30 days** of acceptance. That 30-day clock starts after a service office accepts the file. Ask the representation for its current appointment wait.
 
-**What "teleworking" means on the Police and Border Guard page.** You submit documents that the work does not depend on location and can be done with telecommunications, and documents that you continue in one of three setups: work for an employer registered in a foreign country, business activity for a foreign-registered company in which you hold a stake, or services mainly to customers whose place of business is in a foreign country and with whom you have a contract. The page also asks for legal income during the **six months** before the application, showing size, regularity, and source, plus a CV. The proof list on that page includes a written explanation, an employer confirmation that the work can be done as telework, a contract, and tax or social-security certificates from the competent authority. Read the list on the page. A forum checklist goes stale.
+**What "teleworking" means on the Police and Border Guard page.** You submit documents that the work does not depend on location and can be done with telecommunications, and documents that you continue in one of three setups: work for an employer registered in a foreign country, business activity for a foreign-registered company in which you hold a stake, or services mainly to customers whose place of business is in a foreign country and with whom you have a contract. The page also asks for legal income during the **six months** before the application, showing size, regularity, and source, plus a CV. The proof list on that page includes a written explanation, an employer confirmation that the work can be done as telework, a contract, and tax or social-security certificates from the competent authority. Read the list on the page the week you file.
 
-**Funds, printed by the Foreign Ministry.** Every applicant shows proof of financial means, including income for the **three months** immediately before the application. The table on that page has a row labeled **Teleworking (digital nomad visa)**: **132 euros per day (3,960 euros per month)** for the applicant. The spouse column and the minor-child column on that row say **not applicable**. Do not invent a family add-on from a blog, and do not assume a dependent is covered because the cell is blank. Ask the representation. Open the page the week you file. If it prints a different figure, the page wins. This guide will not repeat the older monthly euro bars that used to circulate. They are not the figure on that table.
+**Funds.** Every applicant shows proof of financial means, including income for the **three months** immediately before the application. The table on the Foreign Ministry page has a row labeled **Teleworking (digital nomad visa)**: **132 euros per day (3,960 euros per month)** for the applicant. The spouse column and the minor-child column on that row say **not applicable**. Ask the representation before you plan a spouse or a child on that row. Open the page the week you file. If it shows a different figure, use that figure.
 
-**Fee.** The same page says the visa fee is **120 euros**, and **60 euros** for children 6 to 11 years old. It lists exemptions. Read them there. This guide does not freeze a consular surcharge a representation may add on top.
+**Fee.** The same page says the visa fee is **120 euros**, and **60 euros** for children 6 to 11 years old. It lists exemptions. Read them there, and ask the representation if it adds a charge of its own.
 
 **Insurance and documents.** The Foreign Ministry asks for travel medical insurance that covers treatment for illness or injury during the validity of the visa, as a rule for the whole period requested. Foreign public documents must be legalized or certified with an apostille and translated into Estonian or English. The Police and Border Guard page says a foreign-language document needs a translation by a sworn translator, into Estonian or English, and legalization or an apostille. Follow the page for the route you are actually filing.
 
@@ -244,9 +244,9 @@ Tax residence is separate from the visa and from e-Residency. The e-Residency pa
 
 The Tax and Customs Board's [page on determining residency](https://www.emta.ee/en/private-client/foreigner-non-resident/tax-residency/determining-residency) explains subsection 6 (1) of the Income Tax Act. A natural person is a resident if their place of residence is in Estonia, or they stay in Estonia for at least **183 days** over 12 consecutive calendar months, or they are an Estonian diplomat in foreign service. The same page says a resident natural person pays income tax on income derived in Estonia and outside Estonia, and a non-resident pays income tax only on income received in Estonia. A tax treaty can point the other way. The Board tells you to file form R when residency changes.
 
-This guide does not quote an income-tax percentage. The drafts that still say a flat 20, or a rate "rising toward" something else, are not a figure this page will freeze. Read the current act and the Board's page, and pay for advice from someone who will sign it if Tallinn is most of your year. Nothing here is tax advice. A long stay can also raise tax questions in your home country.
+Read the current income-tax rate on the Board's page and in the Income Tax Act. Pay for advice from someone who will sign it if Tallinn is most of your year. Nothing here is tax advice. A long stay can also raise tax questions in your home country.
 
-The insurance slot on the [Tallinn destination page](/destinations/tallinn) is where this site's cover links are built. This guide does not name a partner or invent a premium.
+Buy cover from the insurance slot on the [Tallinn destination page](/destinations/tallinn).
 
 ## Best months (Jun-Aug), rainy Oct-Nov, and dark winters
 
@@ -254,7 +254,7 @@ The friendliest months on the row are **Jun, Jul, and Aug**. Rainy months are **
 
 **June to August** is the easy arrival. The best-month list is only those three. Days are long, the courtyards in Telliskivi are the point of the neighborhood, and you can tell whether you like Kalamaja before you sign a long lease. July and August are on the best-month list. They are also when the old town is busiest. Live in Kalamaja, Kesklinn, or Kadriorg and visit the walls. Do not judge the whole summer by an afternoon in Vanalinn.
 
-**October and November** are the rainy months on the row. They are also the start of the grey stretch. Cold and dark are listed cons, not a surprise you discover in a caption. This guide does not invent an hour count for sunset and does not invent a Celsius range for January. It does tell you to stand in a flat in the afternoon before you sign a winter lease, and to ask about heating. If your work depends on leaving the apartment, test that against a real winter week before you commit the dark months.
+**October and November** are the rainy months on the row. They are also the start of the grey stretch. Cold and dark are listed cons. Stand in a flat in the afternoon before you sign a winter lease, and ask about heating. If your work depends on leaving the apartment, test that against a real winter week before you commit the dark months.
 
 **Pair the winter, do not pretend it away.** Many people do Tallinn from June through August and put the cold months somewhere else. The [season guide](/guides/where-to-go-next-by-season) is the calendar for that decision. Helsinki does not save you: its row has the same best months, the same rainy months, the same **6°C** average, and the cons "Very expensive" and "Extremely cold dark." You would be paying **$3,100** to keep the winter.
 
@@ -266,21 +266,21 @@ The daily texture is a compact centre, a tram ride, and a city that is very good
 
 **Getting around.** Tallinn's [public transport page](https://www.tallinn.ee/en/mobility/public-transport) says residents travel free of charge with a personalised Public Transport Card, and the free-ride table says that means Tallinn is your place of residence in the population register, with the card validated and an identification document. The [registration page](https://www.tallinn.ee/en/register-tallinn-resident) says you need a valid national identification number to register that address, and that you apply for one first if you do not have it. A D-visa is not itself the free-ride card. If you are not a registered resident, the same transport page describes one-hour tickets, a Public Transport Card it prices at **3 euros**, and a day cap: once one-hour tickets in a transport day pass the day-ticket price of **5.50 euros**, later rides that day are free for the cardholder. Confirm the fares on that page the week you arrive. A resident ride and a visitor ticket are different products.
 
-The same page lists a ticket machine in the airport public transport centre. This guide does not invent a bus number, a taxi fare, or a kilometre count for the airport.
+The same page lists a ticket machine in the airport public transport centre. Buy the ticket there.
 
 **Estonian.** English proficiency on the row is **8**. Menus, cafes, and a coworking front desk in Kalamaja cope more often than they do in a city with a lower score. A lease, a clinic form, a pharmacy label, and a message from a landlord can still be Estonian. A few phrases (tere, aitäh, palun, jah, ei) plus a translation app you have tested offline will carry more of the ordinary week than another cafe. English **8** is a high score. It is not a translated city.
 
-**Food and alcohol.** Expensive alcohol is a listed con, and it is a Tuesday, not a personality. Cooking and a normal lunch are how the **$1,600** band stays intact. A week of old-town dinners is how it does not. This guide does not invent a menu price. Cards are normal in the centre. Your bank's rate that week is the rate.
+**Food and alcohol.** Expensive alcohol is a listed con, and it shows up on an ordinary weeknight. Cooking and a normal lunch are how the **$1,600** band stays intact. A week of old-town dinners is how it does not. Cards are normal in the centre. Your bank's rate that week is the rate.
 
-**The scene.** Nightlife on the row is **5**. Community is **5**. You can meet people in the first week if you go back to the same coworking room. You can also spend a month in the old town and only meet people who are leaving on Sunday. There is no single official nomad office in the sources above. Recurring desks and the same cafe three times are the scene. "Small city" is the con that matches those scores.
+**The scene.** Nightlife on the row is **5**. Community is **5**. You can meet people in the first week if you go back to the same coworking room. You can also spend a month in the old town and only meet people who are leaving on Sunday. Recurring desks and the same cafe three times are the scene. "Small city" is the con that matches those scores.
 
 **Safety.** Safety on the row is **9.2**, female safety **9**. Those are high scores next to the other cities in the comparison below. They still mean neighborhood choice and a night walk are part of the plan. Walk the block after dark before you decide you live there. `lgbtFriendly` is **6**. Overall safety **9.2** does not soften it. If that score is a hard filter, compare Helsinki's **9** before you treat "very safe" as the whole answer.
 
-**Money and admin.** Everyday life is in euros. This guide does not publish an exchange rate against the dollar figures on the row. A longer stay wants a landlord who will put the lease in writing, because a visa file wants an address you can document. English at **8** covers a lot of counters. It does not cover the representation's checklist, which asks for Estonian or English on purpose.
+**Money and admin.** Everyday life is in euros. Convert the dollar figures on the row at your bank's rate that week. A longer stay wants a landlord who will put the lease in writing, because a visa file wants an address you can document. English at **8** covers a lot of counters. It does not cover the representation's checklist, which asks for Estonian or English on purpose.
 
 ## Tallinn vs Helsinki, Prague, Budapest, and Riga
 
-The comparison that matters is the one in the opening: same summer and the same **UTC+2** as Helsinki, for **$1,500** a month less, with faster pipes, and a visa field people confuse with a company card. The peers below are the other cities readers actually put on the same list. Every figure is from that city's Nomad Spin row. Visa labels are the dataset field. They are not a ruling that you already qualify.
+The comparison that matters is the one in the opening: same summer and the same **UTC+2** as Helsinki, for **$1,500** a month less, with faster pipes, and a visa field people confuse with a company card. The cities below are the ones people put on the same shortlist. Every figure is from that city's Nomad Spin row. A visa label is the field on that row. It is not a ruling that you already qualify.
 
 | City | Solo $/mo | Mbps | Safety | Visa field in Nomad Spin | Best months |
 |---|---:|---:|---:|---|---|
@@ -292,13 +292,13 @@ The comparison that matters is the one in the opening: same summer and the same 
 
 **Stay with Tallinn** when you want safety **9.2**, **300 Mbps**, reliability **10**, power **9**, and **$1,600** is a number you can actually pay. You accept Estonian, a winter plan or a Jun-Aug limit, coworking **Med**, community **5**, `lgbtFriendly` **6**, and a visa that is a telework D-visa with a published funds line, not an e-Residency card and not a stamp on arrival. Female safety is **9**.
 
-**Look at [Helsinki](/destinations/helsinki)** when the point was the Nordic summer and you will pay **$3,100** (longer stay **$2,325**, nightly median **$141** on that row) for **130 Mbps**, reliability **8**, and `lgbtFriendly` **9**. Safety is **9**. English is **9**. Community is **3**, which is lower than Tallinn's **5**. Best months and rainy months match. The cons on that row are "Very expensive" and "Extremely cold dark." The visa field is **Temporary Visa**, **365 days**. This guide does not describe Finnish immigration. Verify it on an official Finnish page before you treat that 365 as Estonia's D-visa. The bill is the reason Tallinn is the base and Helsinki is the comparison.
+**Look at [Helsinki](/destinations/helsinki)** when the point was the Nordic summer and you will pay **$3,100** (longer stay **$2,325**, nightly median **$141** on that row) for **130 Mbps**, reliability **8**, and `lgbtFriendly` **9**. Safety is **9**. English is **9**. Community is **3**, which is lower than Tallinn's **5**. Best months and rainy months match. The cons on that row are "Very expensive" and "Extremely cold dark." The visa field is **Temporary Visa**, **365 days**. That is Finland's field, not Estonia's D-visa. Check the current rule on an official Finnish page before you plan the year there. The bill is the reason Tallinn is the base and Helsinki is the comparison.
 
-**Look at [Prague](/destinations/prague)** when you want **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.8**, and you can pay **$1,700** solo (**$1,300** long-term). That is **$100** more than Tallinn, with a longer best-month list (**May-Sep**) and rainy **Nov-Dec**. The visa field is a **Freelance Visa**, **365 days**, **UTC+1**. The [Prague living guide](/guides/living-in-prague) separates a Czech trade licence from the Czech Digital Nomad Program. That is a different file from Estonia's telework D-visa. Cold winters are on Prague's cons too. English there is **7**, against Tallinn's **8**.
+**Look at [Prague](/destinations/prague)** when you want **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.8**, and you can pay **$1,700** solo (**$1,300** long-term). That is **$100** more than Tallinn, with a longer best-month list (**May-Sep**) and rainy **Nov-Dec**. The visa field is a **Freelance Visa**, **365 days**, **UTC+1**. The [Prague living guide](/guides/living-in-prague) separates a Czech trade licence from the Czech Digital Nomad Program. That is a different path from Estonia's telework D-visa. Cold winters are on Prague's cons too. English there is **7**, against Tallinn's **8**.
 
 **Look at [Budapest](/destinations/budapest)** when **$1,500** is the ceiling and you still want **200 Mbps**, reliability **9**, power **9**, and coworking **High**. Safety is **8.3** (female safety **7**). You save about **$100** a month against Tallinn and you give up the **300 Mbps** and the safety lead. Best months are **Apr-Jun** and **Sep-Oct**. The visa field is a **Digital Nomad Visa**, **365 days**, which in Hungarian rules is the White Card. Read the [Budapest living guide](/guides/living-in-budapest) before you treat the two 365s as the same product. The time zone there is **UTC+1**.
 
-**Look at [Riga](/destinations/riga)** when you want the same Jun-Aug window and the same **UTC+2** for less money. Solo **$1,300**, longer stay **$950**, nightly median **$60**, internet **200 Mbps**, reliability **9**, power **8**, safety **8.5**. The visa field is also **Digital Nomad Visa**, **365 days**. This page does not describe Latvian rules. Verify them on an official Latvian page before you treat the matching label as the same paperwork. There is no Riga living guide on this site. Cold dark winters are on that row too.
+**Look at [Riga](/destinations/riga)** when you want the same Jun-Aug window and the same **UTC+2** for less money. Solo **$1,300**, longer stay **$950**, nightly median **$60**, internet **200 Mbps**, reliability **9**, power **8**, safety **8.5**. The visa field is also **Digital Nomad Visa**, **365 days**. The matching label is not the same paperwork. Check the current rule on an official Latvian page before you plan the year there. Cold dark winters are on that row too.
 
 **Look at [Lisbon](/destinations/lisbon)** when you want coast, English **8**, community **9**, female safety **8**, and `lgbtFriendly` **9**, and you will pay **$2,200** solo (**$1,800** long-term, nightly median **$120**). Internet is **200 Mbps**, not Tallinn's **300**. Safety is **8.8**, a step under **9.2**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a longer residence permit. Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat "digital nomad visa" as the same paperwork. The question is whether the coast and the community are worth about **$600** a month to you.
 
@@ -312,7 +312,7 @@ The comparison that matters is the one in the opening: same summer and the same 
 - Sleeping in the old town and deciding the whole city is unworkable
 - Buying e-Residency and calling it a visa, a residence permit, or a right to enter
 - Reading **365** on the city page as a stamp you receive at the airport
-- Copying an older monthly euro bar when the Foreign Ministry table says **132 euros per day (3,960 euros per month)** for teleworking
+- Using any income figure other than the Foreign Ministry table: **132 euros per day (3,960 euros per month)** for teleworking
 - Assuming a D-visa is a free public-transport card. The city page requires a registered Tallinn address and a personalised card
 - Arriving in November and judging June by that week
 - Assuming Prague's trade licence, or Budapest's White Card, is what Estonia asks for
@@ -325,7 +325,7 @@ The comparison that matters is the one in the opening: same summer and the same 
 - If you are on a Schengen stamp, write the 90-in-180 date across the whole Schengen area, not just Estonia
 - If you want the year, open the [Foreign Ministry D-visa page](https://vm.ee/en/consular-visa-and-travel-information/visa-information/application-long-stay-d-visa) and the [Police and Border Guard page](https://www.politsei.ee/en/instructions/visa-and-extending-period-of-stay/long-term-visa). If you want a company, open the [e-Residency page](https://learn.e-resident.gov.ee/hc/en-gb/articles/360000711978-What-is-e-Residency) and keep it in a separate folder
 - Buy health cover that matches the trip you are actually taking: a short Schengen stay, or the insurance the D-visa page asks for
-- Book the landing stay from the destination page. This guide does not embed a partner link
+- Book the landing stay from the [Tallinn destination page](/destinations/tallinn)
 
 ### In the first seven days
 
@@ -335,7 +335,7 @@ The comparison that matters is the one in the opening: same summer and the same 
 - Do one real call from LIFT99, or from whichever room you confirmed is open
 - Walk the old town in the afternoon, then go home to Kalamaja, Kesklinn, or Kadriorg
 - Learn five Estonian phrases before you need the pharmacy
-- If the flat is dark, loud, or on a shared Wi-Fi story you do not believe, move before you sign the long lease
+- If the flat is dark, loud, or on shared Wi-Fi you do not trust, move before you sign the long lease
 
 ### Compare it on the globe
 
