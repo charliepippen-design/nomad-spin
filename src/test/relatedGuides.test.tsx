@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 import { guides } from '@/data/guides';
+import { findCityBySlug } from '@/lib/citySlug';
 import { guideBodyHtml } from '@/lib/guideHtml';
 import {
   relatedDestinationEntries,
@@ -50,14 +51,27 @@ describe('related guides', () => {
     ]);
   });
 
-  it('marks Valencia internet as an estimate and keeps Porto on the city row', () => {
+  it('notes formula estimates at the end of the line and keeps Porto on the city row', () => {
     const lisbon = relatedGuideEntries('living-in-lisbon');
     const valencia = lisbon.find((item) => item.slug === 'living-in-valencia');
     const porto = lisbon.find((item) => item.slug === 'living-in-porto');
-    expect(valencia?.detail).toBe('$1,900 solo, 170 Mbps est., best Apr-Jun, Sep');
-    expect(valencia?.detail).toContain(' est.');
+    expect(valencia?.detail).toBe('$1,900 solo, 170 Mbps, best Apr-Jun, Sep, some figures est.');
     expect(porto?.detail).toBe('$1,800 solo, 200 Mbps, best May-Sep');
     expect(porto?.name).toBe('Living in Porto');
+  });
+
+  it('never suffixes Mbps est. from internet reliability', () => {
+    const city = findCityBySlug('valencia')?.city;
+    expect(city?.formulaEstimates?.internetReliability).toBe(true);
+    const valencia = relatedGuideEntries('living-in-lisbon').find((item) => item.slug === 'living-in-valencia');
+    expect(valencia?.detail).not.toMatch(/Mbps est\./);
+    expect(valencia?.detail).not.toMatch(/solo est\./);
+
+    for (const guide of guides) {
+      for (const item of relatedGuideEntries(guide.slug)) {
+        expect(item.detail, `${guide.slug} -> ${item.slug}`).not.toMatch(/Mbps est\./);
+      }
+    }
   });
 
   it('uses a short description for general guides and Paraguay', () => {
@@ -90,8 +104,8 @@ describe('related guides', () => {
       'how-to-choose-next-nomad-base',
       'where-to-go-next-by-season',
     ]);
-    expect(relatedGuideEntries('living-in-madrid', withMadrid).find((item) => item.slug === 'living-in-valencia')?.detail).toContain(
-      ' est.',
+    expect(relatedGuideEntries('living-in-madrid', withMadrid).find((item) => item.slug === 'living-in-valencia')?.detail).toBe(
+      '$1,900 solo, 170 Mbps, best Apr-Jun, Sep, some figures est.',
     );
   });
 
@@ -142,7 +156,8 @@ describe('related guides', () => {
     ]);
     expect(block).toContain('>Living in Porto</a>');
     expect(block).toContain('$1,800 solo, 200 Mbps, best May-Sep');
-    expect(block).toContain('$1,900 solo, 170 Mbps est., best Apr-Jun, Sep');
+    expect(block).toContain('$1,900 solo, 170 Mbps, best Apr-Jun, Sep, some figures est.');
+    expect(block).not.toContain('Mbps est.');
     expect(block).not.toContain('nofollow');
     expect(block.includes('\u2013')).toBe(false);
     expect(block.includes('\u2014')).toBe(false);
@@ -208,7 +223,7 @@ describe('GuideArticle related guides', () => {
     expect(porto).toHaveAttribute('href', '/guides/living-in-porto');
     expect(porto).not.toHaveAttribute('rel', expect.stringContaining('nofollow'));
     expect(screen.getByText('$1,800 solo, 200 Mbps, best May-Sep')).toBeInTheDocument();
-    expect(screen.getByText('$1,900 solo, 170 Mbps est., best Apr-Jun, Sep')).toBeInTheDocument();
+    expect(screen.getByText('$1,900 solo, 170 Mbps, best Apr-Jun, Sep, some figures est.')).toBeInTheDocument();
     const capeTown = screen.getAllByRole('link', { name: 'Cape Town' });
     expect(capeTown.some((link) => link.getAttribute('href') === '/destinations/cape-town' && link.closest('article') === null)).toBe(
       true,

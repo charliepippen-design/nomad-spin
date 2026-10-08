@@ -150,17 +150,28 @@ function formatUsd(amount: number): string {
 }
 
 /**
- * Solo cost, headline Mbps, and best months from the destination city row.
- * " est." follows a figure the destination page already flags: solo cost when
- * dataSource is estimated, and Mbps when internet reliability is a formula default
- * (Valencia, Madrid, and Hoi An today).
+ * True when the destination page has at least one formula default.
+ * DestinationGuide and the destination prerender label Airbnb, reliability, and
+ * power in that case. They do not label solo cost or Mbps.
+ */
+function hasFormulaEstimate(city: City): boolean {
+  const flags = city.formulaEstimates;
+  if (!flags) return false;
+  return Object.values(flags).some(Boolean);
+}
+
+/**
+ * Solo cost, Mbps, and best months from the destination city row.
+ * Neither solo cost nor Mbps is suffixed: the destination page leaves both unlabeled
+ * (dataSource "estimated" marks Airbnb, and internetReliability marks the reliability
+ * score, not the speed). A row with any formulaEstimates flag ends with
+ * ", some figures est."
  */
 export function cityDataLine(city: City): string {
-  const soloEstimate = city.dataSource === 'estimated' ? ' est.' : '';
-  const mbpsEstimate = city.formulaEstimates?.internetReliability ? ' est.' : '';
   const months = compactMonthRange(city.weather?.bestMonths ?? []);
   const best = months ? `, best ${months}` : '';
-  return `${formatUsd(city.costUSD)} solo${soloEstimate}, ${city.internetMbps} Mbps${mbpsEstimate}${best}`;
+  const some = hasFormulaEstimate(city) ? ', some figures est.' : '';
+  return `${formatUsd(city.costUSD)} solo, ${city.internetMbps} Mbps${best}${some}`;
 }
 
 export function guideDisplayName(slug: string): string {
