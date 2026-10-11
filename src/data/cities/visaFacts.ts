@@ -40,6 +40,132 @@ export const THAILAND_LEGAL_NOTES = [
 export const VIETNAM_EVISA_TYPE = 'E-Visa';
 export const VIETNAM_EVISA_DAYS = 90;
 
+/**
+ * One official visa rule per country, applied to every row of that country so
+ * rows can't contradict each other. Values and sources come from the hub data
+ * error list (batch 2). Each rule names its official source.
+ */
+export interface CountryVisaRule {
+  visaType: string;
+  visaDays: number;
+  visaNote?: string;
+  /** Official source pages the rule was checked against. */
+  sources: string[];
+}
+
+export const SCHENGEN_SHORT_STAY = 'Schengen short stay: 90 days in any 180.';
+
+export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
+  DE: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Germany has no digital nomad visa. Freelance residence permit (s.21 AufenthG); the length is set by the local immigration office.`,
+    sources: [
+      'https://www.auswaertiges-amt.de/en/visa-service/231148-231148',
+      'https://www.gesetze-im-internet.de/aufenthg_2004/__21.html',
+    ],
+  },
+  PL: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Poland has no digital nomad visa; a national D visa or a residence permit needs a qualifying purpose.`,
+    sources: ['https://www.gov.pl/web/udsc-en/visas'],
+  },
+  MX: {
+    visaType: 'Visa Exemption',
+    visaDays: 180,
+    visaNote: 'Maximum stay; the immigration officer sets the days at entry. Temporary residence is a consular application.',
+    sources: ['https://www.inm.gob.mx/micrositio/1/docs/mj/LMig.pdf', 'https://www.sectur.gob.mx/guia-de-viaje/visa/'],
+  },
+  BR: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'US, Canadian and Australian citizens need an e-visa (since 10 Apr 2025). Digital nomad visa: VITEM XIV.',
+    sources: [
+      'https://www.gov.br/mre/pt-br/consulado-nova-york/noticias-do-consulado/2025/visitor-visa-requirement-for-nationals-of-australia-canada-and-the-usa-obrigatoriedade-de-visto-para-cidadaos-da-australia-canada-e-eua',
+      'https://www.gov.br/mre/pt-br/consulado-lisboa/servicos-consulares/vistos-destinados-a-estrangeiros-para-entrada-no-brasil/visto-temporario-xiv-2013-nomade-digital-vitem-xiv',
+    ],
+  },
+  CL: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'Chile has no dedicated digital nomad visa; longer stays need a temporary residence permit.',
+    sources: ['https://serviciomigraciones.cl/residencia-temporal/'],
+  },
+  ID: {
+    visaType: 'Visa on Arrival',
+    visaDays: 30,
+    sources: ['https://imigrasi.go.id/wna/daftar-visa-indonesia/B1'],
+  },
+  CO: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'PIP up to 90 days, extendable to 180 days per calendar year.',
+    sources: [
+      'https://www.migracioncolombia.gov.co/tramites-y-servicios/tramites-generales/permiso-de-ingreso-y-permanencia-pip',
+    ],
+  },
+  JP: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'Designated Activities (digital nomad) status, separate application.',
+    sources: [
+      'https://www.mofa.go.jp/ca/fna/pagewe_000001_00046.html',
+      'https://www.moj.go.jp/isa/applications/status/designatedactivities10_00001.html?lang=en',
+    ],
+  },
+  KR: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'K-ETA may apply. F-1-D Workation (digital nomad) visa, separate application.',
+    sources: [
+      'https://overseas.mofa.go.kr/us-en/brd/m_4500/view.do?seq=761106',
+      'https://overseas.mofa.go.kr/sg-en/brd/m_2444/view.do?seq=761493',
+    ],
+  },
+  TW: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'Digital nomad visitor visa (BOCA), separate application. The Gold Card is a skilled-talent permit, not the default route.',
+    sources: ['https://www.boca.gov.tw/cp-158-7718-c0382-2.html', 'https://goldcard.nat.gov.tw/en/'],
+  },
+  PE: {
+    visaType: 'Visa Exemption',
+    visaDays: 183,
+    visaNote: 'Maximum per year; the immigration officer sets the days at entry.',
+    sources: ['https://www.gob.pe/institucion/migraciones/campa%C3%B1as/64003-informacion-fundamental-para-turistas-en-peru'],
+  },
+  BG: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Digital nomad residence permit (Foreigners Act amendment, State Gazette 52/2025), 1 year, renewable once, needs a D visa first.`,
+    sources: ['https://www.mvr.bg/', 'https://www.mfa.bg/'],
+  },
+  GR: {
+    visaType: 'Digital Nomad Visa',
+    visaDays: 365,
+    visaNote: `Digital Nomad Visa up to 1 year, then a digital nomad residence permit applied for in Greece. ${SCHENGEN_SHORT_STAY}`,
+    sources: ['https://workfromgreece.gr/', 'https://www.mfa.gr/'],
+  },
+  HR: {
+    visaType: 'Digital Nomad Visa',
+    visaDays: 548,
+    visaNote: 'Temporary stay for digital nomads, up to 18 months (MUP).',
+    sources: ['https://mup.gov.hr/aliens-281621/stay-and-work/digital-nomads/286833'],
+  },
+  TR: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: '90 days in any 180; depending on nationality this is visa-free entry, an e-visa or a consular visa. Longer stays need a short-term residence permit (Law 6458).',
+    sources: ['https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa'],
+  },
+};
+
+/** Row-level note additions on top of the country rule. */
+const ROW_VISA_NOTE_EXTRA: Record<string, string> = {
+  'fukuoka-jp': "Fukuoka's startup visa is for founders, not a general nomad route.",
+};
+
 function isDigitalNomadLabel(visaType: string): boolean {
   return /digital nomad/i.test(visaType);
 }
@@ -49,6 +175,7 @@ function isDigitalNomadLabel(visaType: string): boolean {
  * Does not change Spain or Portugal visaDays (that remap is not high certainty).
  * Every Thailand row becomes the passport-dependent 30-day tourism exemption.
  * Every Vietnam 90-day row uses the E-Visa label already on Da Nang and Ho Chi Minh City.
+ * Countries in COUNTRY_VISA_RULES get one official type, day count and note on every row.
  */
 export function applyOfficialVisaFacts<T extends City>(city: T): T {
   if (city.countryCode === 'ES' && isDigitalNomadLabel(city.meta.visaType)) {
@@ -94,6 +221,20 @@ export function applyOfficialVisaFacts<T extends City>(city: T): T {
       ...city,
       meta: { ...city.meta, visaType: VIETNAM_EVISA_TYPE },
       visa: { type: VIETNAM_EVISA_TYPE, days: VIETNAM_EVISA_DAYS },
+    };
+  }
+
+  const rule = COUNTRY_VISA_RULES[city.countryCode];
+  if (rule) {
+    const extra = ROW_VISA_NOTE_EXTRA[city.id];
+    const visaNote = [rule.visaNote, extra].filter(Boolean).join(' ') || undefined;
+    const meta = { ...city.meta, visaType: rule.visaType, visaDays: rule.visaDays };
+    if (visaNote) meta.visaNote = visaNote;
+    else delete meta.visaNote;
+    return {
+      ...city,
+      meta,
+      visa: { type: rule.visaType, days: rule.visaDays },
     };
   }
 
