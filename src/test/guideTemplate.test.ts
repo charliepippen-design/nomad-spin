@@ -154,3 +154,17 @@ describe('guide FAQPage', () => {
     expect(destinationPage).not.toContain('guideFaqJsonLd');
   });
 });
+
+describe('week of Oct 12 guide updates', () => {
+  const cases: [string, string, string[]][] = [
+    ['living-in-lisbon', 'Living in Lisbon 2026: Cost, D8 Visa and Areas | Nomad Spin', ['/guides/living-in-porto', '/guides/living-in-prague', '/guides/living-in-valencia', '/guides/living-in-tbilisi']],
+    ['living-in-chiang-mai', 'Living in Chiang Mai 2026: Cost, Visa, Nimman | Nomad Spin', ['/guides/living-in-ho-chi-minh-city']],
+    ['living-in-mexico-city', 'Living in Mexico City 2026: Cost, Visa, Roma | Nomad Spin', ['/guides/living-in-medellin']],
+  ];
+  it.each(cases)('%s has its short title, 6 FAQ entries and the new body links', (slug, title, hrefs) => {
+    const guide = guides.find((g) => g.slug === slug)!;
+    expect(guideTitleTag(guide)).toBe(title);
+    expect(guideFaqJsonLd(guide)!.mainEntity).toHaveLength(6);
+    for (const href of hrefs) expect(guide.content).toContain(`](${href})`);
+  });
+});
