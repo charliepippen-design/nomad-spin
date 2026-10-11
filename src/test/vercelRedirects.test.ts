@@ -16,6 +16,14 @@ type VercelConfig = {
 
 const config = JSON.parse(vercelJson) as VercelConfig;
 
+const KUALA_LUMPUR_GUIDE_ALIASES = [
+  '/guides/kuala-lumpur',
+  '/guides/kuala-lumpur-digital-nomad-guide-2026',
+  '/guides/kuala-lumpur-digital-nomad-guide-cost-living-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-costs-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-remote-work',
+] as const;
+
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
 }
@@ -84,6 +92,7 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/guides/living-in-saigon', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-hcmc', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
+      ...KUALA_LUMPUR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kuala-lumpur' })),
     ];
     expect(redirects).toHaveLength(expected.length + aliases.length);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);

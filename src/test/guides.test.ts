@@ -381,10 +381,18 @@ describe('static guides', () => {
     const g = guides.find((x) => x.slug === 'living-in-kuala-lumpur');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Kuala Lumpur');
-    expect(g!.seoTitle).toBe("Living in Kuala Lumpur 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.seoTitle).toBe('Living in Kuala Lumpur 2026: Costs, Visa, Areas');
+    expect(g!.seoTitle.length).toBeLessThanOrEqual(47);
+    expect(guidePageTitle(g!.seoTitle).length).toBeLessThanOrEqual(60);
     expect(g!.excerpt).toBe(
       'Kuala Lumpur for remote workers in 2026: real monthly costs, Bangsar vs Mont Kiara, DE Rantau Nomad Pass, 100 Mbps internet, haze and rain.'
     );
+    const qas = [...g!.content.matchAll(/^\*\*([^*\n]+\?)\*\* (.+)$/gm)].map((m) => ({
+      question: m[1],
+      words: m[2].trim().split(/\s+/).length,
+    }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const qa of qas) expect(qa.words, qa.question).toBeLessThan(50);
     expect(g!.excerpt.length).toBeLessThanOrEqual(165);
     expect(g!.excerpt.length).toBeLessThanOrEqual(155);
     expect(g!.relatedDestinations).toEqual([

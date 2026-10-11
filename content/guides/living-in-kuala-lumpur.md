@@ -14,17 +14,19 @@ Worth it as a work-first base that costs less than [Bangkok](/destinations/bangk
 
 ### Straight answers
 
-**How much does it cost to live in Kuala Lumpur as a digital nomad?** Nomad Spin lists about $1,000 a month for a solo nomad. The long-term $750 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $40 a night. A serviced tower in the KLCC area costs more than an older block in Bangsar or Brickfields. Coworking, delivery apps, and imported groceries are how people drift above the baseline.
+**How much does it cost to live in Kuala Lumpur as a digital nomad?** Nomad Spin lists about $1,000 a month for a solo nomad. The long-term $750 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $40 a night. Coworking, delivery apps, and imported groceries are how people drift above the baseline.
 
 **Is Kuala Lumpur internet good enough for video calls?** Yes. Nomad Spin shows about 100 Mbps average. Reliability is 8/10 and power is 8/10. Coworking density is High. Test upload speed in the actual unit before signing, and keep a second SIM for the day a building line drops.
 
-**What visa do digital nomads use in Kuala Lumpur?** Nomad Spin lists a Digital Nomad Visa for up to 365 days (UTC+8). The official route is the DE Rantau Nomad Pass, run by Malaysia Digital Economy Corporation (MDEC): 3 to 12 months, renewable once, with an income test and a non-refundable fee. Fees, income thresholds, and rules change. Verify on mdec.my before you pay anything.
+**What visa do digital nomads use in Kuala Lumpur?** Nomad Spin lists a Digital Nomad Visa label for 365 days. The official route is MDEC's DE Rantau Nomad Pass: 3 to 12 months, renewable for 12 more, with an income test and a non-refundable fee. Verify on mdec.my before paying.
 
-**Who should skip living in Kuala Lumpur?** Skip it if you need a beach, a tight community, or a dry, clean-air month with no planning. Nomad Spin flags humidity, haze season, and monsoon rains as trade-offs. If the sea is the point, look at [Penang](/destinations/penang) or a coast base instead.
+**Who should skip living in Kuala Lumpur?** Skip it if you need a beach, a tight community, or a dry, clean-air month. Nomad Spin flags humidity, haze season, and monsoon rains as trade-offs. If the sea is the point, look at Penang instead.
 
-**What are the best months to live in Kuala Lumpur?** Nomad Spin's friendliest months are Jun, Jul, and Aug. Rainy months to plan around are Nov, Dec, and Jan. Average temperature in the dataset is 28°C. Haze season moves from year to year, so check a current air quality reading before you book any month.
+**What are the best months to live in Kuala Lumpur?** Nomad Spin's friendliest months are Jun, Jul, and Aug. Rainy months to plan around are Nov, Dec, and Jan. Average temperature is 28°C. Haze season moves from year to year, so check a current air quality reading before you book.
 
-**Can you work remotely from Kuala Lumpur full-time?** Yes, including call-heavy roles. Coworking is High, English is 8, and the time zone is workable for Europe's morning. The constraint is the legal stay, not the desk.
+**Which neighborhood should I choose in Kuala Lumpur?** Bukit Bintang and KLCC suit a 2-4 week landing stay. Bangsar offers cafes and rail access. Mont Kiara is quiet and family-friendly but car-dependent. KL Sentral and Brickfields are the cheaper transit base. Confirm fiber in the unit before signing.
+
+**Can you work remotely from Kuala Lumpur full-time?** Yes, including call-heavy roles. Coworking is High, English is 8, and the time zone is UTC+8, so Europe's morning calls land in your afternoon and evening. The constraint is the legal stay, not the desk.
 
 ## Who Kuala Lumpur is for (and who should skip it)
 
@@ -195,6 +197,7 @@ The pass is applied for online at [mdec.my/derantau](https://mdec.my/derantau). 
 - **Fee:** a non-refundable processing fee of **RM1,080** per applicant and **RM540** per dependent, including 8% SST, regardless of outcome. Separate immigration pass fees (the FAQ lists **RM90** for three months or **RM360** for one year) are paid at endorsement.
 - **Family:** a spouse or partner, children, and parents of the main holder can apply as dependants. The FAQ says a spouse cannot work on the pass.
 - **Passport:** it must be valid for more than 14 months when you submit.
+- **Sponsor:** the FAQ requires a Malaysia-registered sponsoring company, or MDEC acts as sponsor and you pay a personal bond that is refunded when the pass expires (the amount depends on your nationality) and sign a bond agreement. This must be done before endorsement.
 
 Those figures are the official FAQ, not a Nomad Spin price. They can change. Read the live document before you pay, and do not copy a service fee from an agent and call it the government charge.
 
@@ -225,13 +228,13 @@ Most Malaysian banks do not accept the Professional Visit Pass for opening an ac
 
 ### Entry without the pass
 
-Many people will first arrive without a pass. The Immigration Department of Malaysia publishes a [visa requirement by country](https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/) page. It sorts passports into lists: countries whose citizens must apply for a visa to enter, and countries whose citizens need no visa for any purpose of entry. It also carries time-limited exemptions, so read the date beside your country. The page does not print a stay length for visa-free arrivals, so the days on your entry stamp are what count. Do not assume your last trip's number.
+Many people will first arrive without a pass. The Immigration Department of Malaysia publishes a [visa requirement by country](https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/) page. It sorts passports into lists: countries whose citizens must apply for a visa to enter, and countries whose citizens need no visa for any purpose of entry. It also carries time-limited exemptions, so read the date beside your country. The page prints a stay limit only for ASEAN nationals (under one month, with exceptions), so for everyone else the days on your entry stamp are what count. Do not assume your last trip's number.
 
 The Immigration Department also runs the [Malaysia Digital Arrival Card](https://imigresen-online.imi.gov.my/mdac/main) on its online portal. MDEC's FAQ tells DE Rantau holders to register on it three days before arrival to use the KLIA autogate on return. Check the MDAC page for what applies to your arrival.
 
 ### Tax, at a high level only
 
-The FAQ carries its own tax table. Treatment turns on whether you are a freelancer or a remote worker and on day counts in Malaysia, including 60 and 182 days. Read it, then ask the Inland Revenue Board through its [contact page](https://www.hasil.gov.my/en/contact-us) or a tax adviser. Your home country may tax you as well. That is not tax advice. If Kuala Lumpur is going to be most of your year, pay for advice at home and in Malaysia before you sign a lease.
+The FAQ carries its own tax table. Treatment turns on whether you are a freelancer or a remote worker and on day counts in Malaysia, including 60 and 182 days. Read it, then ask the Inland Revenue Board ([hasil.gov.my](https://www.hasil.gov.my/en/); the FAQ lists the Hasil Careline at 03-8911 1000, or +603-8911 1100 from overseas) or a tax adviser. Your home country may tax you as well. That is not tax advice. If Kuala Lumpur is going to be most of your year, pay for advice at home and in Malaysia before you sign a lease.
 
 ### A simple decision frame
 

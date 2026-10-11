@@ -25,6 +25,14 @@ const HCMC_DESTINATION = '/destinations/ho-chi-minh-city';
 const DESTINATION_ALIASES = ['/destinations/saigon', '/destinations/hcmc', '/destinations/ho-chi-minh'] as const;
 const GUIDE_ALIASES = ['/guides/living-in-saigon', '/guides/living-in-hcmc', '/guides/living-in-ho-chi-minh'] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
+const KUALA_LUMPUR_GUIDE_ALIASES = [
+  '/guides/kuala-lumpur',
+  '/guides/kuala-lumpur-digital-nomad-guide-2026',
+  '/guides/kuala-lumpur-digital-nomad-guide-cost-living-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-costs-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-remote-work',
+] as const;
+const KUALA_LUMPUR_GUIDE_SLUG = 'living-in-kuala-lumpur';
 
 /** Exact paths that may fall back to the homepage shell. Everything else is a file or a 404. */
 const SPA_FALLBACK_PATHS = [
@@ -110,6 +118,17 @@ describe('vercel.json unknown slug 404s', () => {
       expect(rule?.destination).toBe(`/guides/${HCMC_GUIDE_SLUG}`);
       expect(rule?.statusCode).toBe(301);
       expect(rule?.permanent).toBeUndefined();
+    }
+
+    expect(guides.some((guide) => guide.slug === KUALA_LUMPUR_GUIDE_SLUG)).toBe(true);
+    for (const source of KUALA_LUMPUR_GUIDE_ALIASES) {
+      expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe(`/guides/${KUALA_LUMPUR_GUIDE_SLUG}`);
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
+      expect(rewriteMatches(source), source).toBe(false);
     }
 
     expect(redirects.every((rule) => rule.statusCode === 301 && rule.permanent === undefined)).toBe(true);
