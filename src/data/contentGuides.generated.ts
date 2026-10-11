@@ -6163,25 +6163,25 @@ The point of the dataset is to stop arguing from postcards.
     excerpt: "Split for remote workers in 2026: real monthly costs, Old Town vs Varos and Meje, Croatia nomad stay notes, 100 Mbps internet, and summer-crowd trade-offs.",
     date: "2026-10-12",
     updated: "2026-10-12",
-    readTime: "38 min read",
+    readTime: "39 min read",
     relatedDestinations: ["split","dubrovnik","zadar","porto","valencia","athens"],
     content: `## Is living in Split worth it for digital nomads in 2026?
 
 The case for living in Split as a digital nomad is a quality-of-days decision, not a spreadsheet win. You are paying a mid-priced Western European budget for a safe Adriatic city with a real old center, ferries to islands, and a working-day rhythm that starts with a swim. Who Split is for: people who want the sea and a calm, small city, and who can accept thin nomad infrastructure and a summer that fills with visitors. The short answers come from the [Split](/destinations/split) row, not from a sunset photo.
 
-**How much does it cost to live in Split as a digital nomad?** Nomad Spin lists about **$1,800** a month for a solo nomad. The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night. Old Town and July or August leases cost more.
+**How much does it cost to live in Split as a digital nomad?** Nomad Spin lists about **$1,800** a month for a solo nomad. The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night. Old Town and July or August leases cost more. Thirty nights at that median is **$2,700**, so sign a monthly lease.
 
-**Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing.
+**Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing. Keep a second SIM as a fallback. Porto's row shows **200 Mbps** if speed decides it.
 
-**What visa do digital nomads use in Split?** Croatia offers a [temporary stay for digital nomads](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853) of up to **18 months** for non-EU, non-EEA, non-Swiss nomads earning at least **EUR 3,622.50** a month.
+**What visa do digital nomads use in Split?** Up to 90 days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants non-EU digital nomads a temporary stay of up to 18 months, with an income test. Verify current rules with Croatia's Ministry of the Interior before you book.
 
-**Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, and crowded summers as trade-offs.
+**Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, and crowded summers as trade-offs. Community is **4**, and the solo month is **$1,800**.
 
-**What are the best months to live in Split?** Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, and Jan**. July and August are also the crowded-summer months.
+**What are the best months to live in Split?** Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, and Jan**. July and August are also the crowded-summer months. Dubrovnik, Zadar, and Athens list Apr-Jun and Sep-Oct instead.
 
-**Which neighborhood is best for a digital nomad in Split?** Varos and Meje suit a quiet working month. Bacvice and Firule put the beach after work. Old Town edges are lively but cost more, and Znjan is residential and less central.
+**Which neighborhood is best for a digital nomad in Split?** Varos and Meje suit a quiet working month. Bacvice and Firule put the beach after work. Old Town edges are lively but cost more, and Znjan is residential and less central. Confirm fiber in the unit, and ask whether the lease survives June to August.
 
-**Is Split safe for digital nomads?** Yes. Nomad Spin's Split safety score is **9.0** and female safety is **9**, the strongest numbers on the row. Community is **4** and nightlife is **6**, so it is calm rather than social.
+**Is Split safe for digital nomads?** Yes. Nomad Spin's Split safety score is **9.0** and female safety is **9**, the strongest numbers on the row. Community is **4** and nightlife is **6**, so it is calm rather than social. Walk the block at night before you sign.
 
 Worth it, with conditions. The row is tagged **beach**, **adventure**, and **foodie**, on a **seaside** landscape, in **Europe**, language **Croatian**. Safety is **9.0** (female safety **9**), which is the strongest number on the page. English proficiency is **7**. Community is **4** and nightlife is **6**, so this is a place you settle into rather than a place that catches you. Time zone on the row is **UTC+1**. The row's own pros are the Adriatic coastline, rich history, island hopping, safe streets, and great weather.
 
@@ -6202,11 +6202,11 @@ Split fits people who want a safe seaside city, a monthly bill near **$1,800**, 
 
 **Skip it, or pick another city, if you:**
 
-- Cannot clear the **$1,400** longer-stay estimate even on a monthly lease with market food. The **$90** nightly median will not save you. [Athens](/destinations/athens) is **$1,600** solo and [Budapest](/destinations/budapest) is **$1,500**
+- Cannot clear the **$1,400** longer-stay estimate even on a monthly lease with market food. The **$90** nightly median will not save you. On the same longer-stay estimate, [Athens](/destinations/athens) is **$1,200** and [Budapest](/destinations/budapest) is **$1,100**
 - Need a nomad campus. Community here is **4**. Lisbon is **9**. Read [Living in Lisbon](/guides/living-in-lisbon) if the campus is the product, or [Living in Chiang Mai](/guides/living-in-chiang-mai) for the starter-city version
 - Need coworking **High** and a desk for every call. Split is **Med**. [Budapest](/destinations/budapest) and [Prague](/destinations/prague) are **High** at **200 Mbps**. Read [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague)
 - Need winter nightlife. "Limited winter nightlife" is a listed con, and it is the filter for anyone arriving in December
-- Need a year on one stamp without paperwork. Croatia's temporary stay for digital nomads runs up to **18 months**, but it is an application to the Croatian authorities. The visa section lays out how it works
+- Need more than **90 days in any 180** without paperwork. Visa-exempt passports get that Schengen short stay, and Croatia's temporary stay for digital nomads runs up to **18 months**, but it is an application to the Croatian authorities. The visa section lays out how it works
 - Need a big-city job market feel. "Small city feel" is on the cons list. That is a feature for a quiet work month and a problem for a networker
 
 \`lgbtFriendly\` on this row is **5**. That matches Budapest and sits below Porto (**8**), Valencia (**7**), and Madrid and Lisbon (**9**). Read it before you treat safety **9.0** as a claim about every part of daily life. Female safety **9** is strong in this dataset. It is not a promise about one empty seafront at 2am. Walk the block at night before you sign.
@@ -6364,9 +6364,13 @@ Treat any name you cannot find on a current operator page as closed or moved. Me
 - Heating that you have switched on if the stay touches **Nov-Jan**, and cooling if it touches July or August
 - A named fallback (a coworking trial you have confirmed, or a second SIM) written down before you need it
 
-## Visas and stay length: Croatia's digital nomad temporary stay vs Schengen 90/180 (verify MUP)
+## Visas and stay length: Schengen 90/180 visa exemption vs Croatia's digital nomad temporary stay (verify MUP)
 
-Not legal advice. Croatia offers a **temporary stay for digital nomads** of up to **18 months**, a residence permit that you apply for and do not collect at the border. The Croatian Ministry of the Interior (MUP) sets out the rules on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
+Not legal advice. Visa-exempt passports can enter Croatia for a short stay of **90 days in any 180**, under the European Commission's [Schengen short-stay rule](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area_en). For longer, Croatia offers a **temporary stay for digital nomads** of up to **18 months**, a residence permit that you apply for and do not collect at the border. The Croatian Ministry of the Interior (MUP) sets out the rules on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
+
+### Short visits under Schengen, and who needs what
+
+Many passports can visit Schengen states for short stays without a visa. The European Commission's [Schengen page](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area_en) states the short-stay rule as up to **90 days within a 180-day period**. Time in Croatia counts toward it, because Croatia is in Schengen. A visa-free passport is not the same as a nomad permit, and a 90-day visit is not a way to work from Split for a year. If you hold an EU, EEA, or Swiss passport, none of this applies.
 
 Croatia uses the euro and is in the Schengen area. The European Commission records that Croatia [joined the euro area on 1 January 2023](https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/croatia-and-euro_en), and the European Parliament states that on 1 January 2023 [Croatia joined the Schengen area](https://www.europarl.europa.eu/topics/en/article/20180216STO98008/schengen-enlargement-of-europe-s-border-free-area).
 
@@ -6394,10 +6398,6 @@ The ministry says up to **eighteen months** (possibly less), and a stay granted 
 
 One more disagreement worth knowing: the Ministry of Foreign Affairs [consular page on temporary stay](https://mvep.gov.hr/consular-information-130483/temporary-stay-of-foreigners/264503) describes the nomad stay as up to a year that cannot be extended. The Ministry of the Interior is the body that decides the permit, and its page is the more detailed one, but two government pages differ. Confirm the length and the extension with the police administration or your nearest Croatian consulate before you book a year of anything.
 
-### Short visits, and who needs what
-
-Many passports can visit Schengen states for short stays without a visa. The European Commission's [Schengen page](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area_en) states the short-stay rule as up to **90 days within a 180-day period**. Time in Croatia counts toward it, because Croatia is in Schengen. A visa-free passport is not the same as a nomad permit, and a 90-day visit is not a way to work from Split for a year. If you hold an EU, EEA, or Swiss passport, none of this applies.
-
 ### Tax, at a high level only
 
 The Croatian Tax Administration's list of [tax changes from 1 January 2021](https://porezna-uprava.gov.hr/hr/porezne-promjene-od-1-sijecnja-2021/4750) records, under the Income Tax Act, a provision that defines the tax position of income earned by digital nomads, described as an exemption from taxation. Check the conditions, the scope, and how it interacts with your home country with the tax administration or an adviser before relying on it. Your home country can still tax you, and a long stay can raise tax-residence questions in either place. This page is not tax advice. If Split is going to be most of your year rather than a May-Sep season, pay for advice at home and in Croatia.
@@ -6409,7 +6409,7 @@ The Croatian Tax Administration's list of [tax changes from 1 January 2021](http
 - **You would be working for Croatian clients or a Croatian employer:** the nomad route is not built for it. The MUP definition requires a company not registered in Croatia. Ask the authority.
 - **"I will just stay and sort it out":** not a plan.
 
-A different country with a **365**-day visa-free field is [Living in Tbilisi](/guides/living-in-tbilisi), solo **$800**, **UTC+4**. That is a different base, not a Croatian extension. For another EU telework route with a published statute, see how [Living in Madrid](/guides/living-in-madrid) handles Spain's.
+A different base with a **365**-day visa-free stay for many passports is [Living in Tbilisi](/guides/living-in-tbilisi), solo **$800**, **UTC+4**. That is a different base, not a Croatian extension. For another EU telework route with a published statute, see how [Living in Madrid](/guides/living-in-madrid) handles Spain's.
 
 ## Best months (May-Sep), rainy months (Nov-Jan), and the Jul-Aug crush
 
@@ -6475,7 +6475,7 @@ Nightlife is **6** and community is **4**. In season there is a real evening sce
 
 ## Split vs Dubrovnik, Zadar, Porto, Valencia, and Athens
 
-Choose with the rows, not with tiles. Figures below are the live dataset fields. Dubrovnik and Zadar are Croatian peers whose rows are marked estimated across the board, so read their numbers as directional. Split is cheaper than Dubrovnik and the same solo price as Zadar and Porto. Porto beats it on internet and community. Valencia is the Spanish beach peer. Athens is the cheaper Mediterranean row.
+Choose with the rows, not with tiles. Figures below are the live dataset fields. Entry rules are not in the table: each country's current visa line sits on its destination page, linked in the last row. Dubrovnik and Zadar are Croatian peers whose rows are marked estimated across the board, so read their numbers as directional. Split is cheaper than Dubrovnik and the same solo price as Zadar and Porto. Porto beats it on internet and community. Valencia is the Spanish beach peer. Athens is the cheaper Mediterranean row.
 
 | Field | Split | Dubrovnik | Zadar | Porto | Valencia | Athens |
 |---|---|---|---|---|---|---|
@@ -6491,11 +6491,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | \`lgbtFriendly\` | 5 | 5 | 5 | 8 | 7 | 7 |
 | English | 7 | 7 | 7 | 7 | 5 | 7 |
 | Time zone | UTC+1 | UTC+1 | UTC+1 | UTC+0 | UTC+1 | UTC+2 |
-| Visa field | Temporary stay for digital nomads, up to 18 months (MUP) | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
 | Best months | May-Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | May-Sep | Apr-Jun, Sep | Apr-Jun, Sep-Oct |
 | Hard part on the row | Seasonal tourism, rising prices, crowded summers | Very touristy, expensive | Seasonal, quieter winters | Rainy winters, hilly terrain, tourist crowds | Hot summers, flooding risk, limited English | Hot summers, bureaucracy, economic instability |
+| Entry rules | [Split page](/destinations/split) | [Dubrovnik page](/destinations/dubrovnik) | [Zadar page](/destinations/zadar) | [Porto page](/destinations/porto) | [Valencia page](/destinations/valencia) | [Athens page](/destinations/athens) |
 
-The peers do not share Croatia's rule. Split's is the MUP temporary stay described above. Porto's 365 is Portugal's initial visa field. Valencia's is Spain's consular telework visa. Athens is Greece's field. Verify each country on its own official pages. Do not paste Croatia's statute onto them.
+The peers share the Schengen 90/180 short stay, but not Croatia's nomad rule. Split's long-stay route is the MUP temporary stay described above, and Dubrovnik and Zadar follow the same Croatian rules. Porto, Valencia, and Athens sit under Portugal's, Spain's, and Greece's own nomad routes. Verify each country on its own official pages. Do not paste Croatia's statute onto them.
 
 **Stay with Split** when you want the safest score in this set (**9.0**, tied with Porto), a real old town, sea and islands, and you can fund **$1,800** or live inside the **$1,400** estimate on purpose. You accept coworking **Med**, community **4**, and the summer crush.
 
@@ -6561,7 +6561,7 @@ These slots are last, after the week above, not before the flight is emotional. 
 
 Nomad Spin scores **780+ cities**. Split should win only when your floors are honest. The crowd filter and the coworking filter matter most here.
 
-1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside the **$1,400** estimate. If your ceiling is under that **$1,400** estimate, Split is already out, and the spin should be allowed to say so. The cheaper peers in this set are [Athens](/destinations/athens) at **$1,600** and [Budapest](/destinations/budapest) at **$1,500**.
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside the **$1,400** estimate. If your ceiling is under that **$1,400** estimate, Split is already out, and the spin should be allowed to say so. On the same longer-stay estimate, the cheaper peers are [Athens](/destinations/athens) at **$1,200** and [Budapest](/destinations/budapest) at **$1,100**.
 2. Set an internet floor the **100 Mbps** and reliability **8** can clear, and a safety floor **9** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at the same **$1,800** with faster internet, or [Zadar](/destinations/zadar) if you want the Croatian coast with a smaller crowd.
 3. Open [Split](/destinations/split) and read \`bestMonths\`, \`rainyMonths\`, and the crowded-summers con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. July and August pass the weather and fail the quiet unless you have planned for them.
 4. If Porto is still in the pile, open [Living in Porto](/guides/living-in-porto) and compare **200 Mbps**, community **6**, and an urban setting against **100 Mbps**, community **4**, and the sea. If Valencia is still in the pile, open [Living in Valencia](/guides/living-in-valencia). If the desk has to be High, open [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague). If the scene has to be bigger, open [Living in Lisbon](/guides/living-in-lisbon) or [Living in Madrid](/guides/living-in-madrid).

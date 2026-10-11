@@ -1120,7 +1120,9 @@ describe('static guides', () => {
       .filter((m): m is RegExpMatchArray => m !== null);
     expect(qas.length).toBeGreaterThanOrEqual(6);
     for (const [, question, answer] of qas) {
-      expect(answer.trim().split(/\s+/).length, question).toBeLessThan(50);
+      const words = answer.trim().split(/\s+/).length;
+      expect(words, question).toBeGreaterThanOrEqual(35);
+      expect(words, question).toBeLessThanOrEqual(50);
     }
     expect(g!.content).not.toMatch(/\bkuna\b|\bHRK\b/i);
     expect(g!.content).toContain('EUR 3,622.50');
@@ -1139,9 +1141,18 @@ describe('static guides', () => {
     expect(g!.content).toContain('reliability **8/10** and power **8/10**');
     expect(g!.content).not.toContain('This guide does not');
     expect(g!.content).toContain('100 Mbps');
-    expect(g!.content).toContain('Digital Nomad Visa');
-    expect(g!.content).toContain('365');
     expect(g!.content).toContain('UTC+1');
+    // Visa convention: Schengen default first, nomad stay second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Split?** Up to 90 days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants non-EU digital nomads a temporary stay of up to 18 months, with an income test. Verify current rules with Croatia's Ministry of the Interior before you book."
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toContain("Porto's 365");
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Split page](/destinations/split) |');
+    // Like-with-like cost comparison: longer-stay peers are cheaper than Split's $1,400 estimate.
+    expect(g!.content).toContain('[Athens](/destinations/athens) is **$1,200** and [Budapest](/destinations/budapest) is **$1,100**');
+    expect(g!.content).not.toMatch(/\$1,400\*\* (?:longer-stay )?estimate[^\n]*Athens\]\(\/destinations\/athens\) (?:is|at) \*\*\$1,600/);
     expect(g!.content).toContain('**May, Jun, Jul, Aug, and Sep**');
     expect(g!.content).toContain('**Nov, Dec, and Jan**');
     expect(g!.content).toContain('Jul-Aug');
@@ -1177,7 +1188,7 @@ describe('static guides', () => {
       'Monthly cost bands (solo $1,800, long-term $1,400 estimate, Airbnb $90) and the rental market',
       'Neighborhoods that work: Old Town edges, Varos, Meje, Bacvice and Firule, and Znjan',
       'Internet, power, and coworking for video-call work',
-      "Visas and stay length: Croatia's digital nomad temporary stay vs Schengen 90/180 (verify MUP)",
+      "Visas and stay length: Schengen 90/180 visa exemption vs Croatia's digital nomad temporary stay (verify MUP)",
       'Best months (May-Sep), rainy months (Nov-Jan), and the Jul-Aug crush',
       'Daily life: walking, ferries, markets, Croatian, and winter',
       'Split vs Dubrovnik, Zadar, Porto, Valencia, and Athens',
