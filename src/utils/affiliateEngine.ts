@@ -1,33 +1,42 @@
 /**
- * Affiliate Engine — Nomad Spin
+ * Affiliate Engine, Nomad Spin
  *
- * Generates dynamic, tracking-ready affiliate URLs for each monetization vertical.
- * 
- * ═══════════════════════════════════════════════════════════════════════════════
- *  HOW TO CONFIGURE:
- *  1. Edit AFFILIATE_CONFIG below — replace each "TODO_*" with your real ID.
- *  2. UTM schema is auto-applied via buildUtmParams(). Adjust utm_source /
- *     utm_medium in AFFILIATE_CONFIG.utm if you need different tracking.
- *  3. Regional overrides live in REGIONAL_OVERRIDES — add country codes to
- *     switch providers per-region.
- * ═══════════════════════════════════════════════════════════════════════════════
+ * Builds tracking-ready outbound URLs for each monetization vertical.
+ * A partner is "live" only when a real ID / tracking base is configured.
+ * Until then links are clean (no placeholder or empty affiliate params).
+ *
+ * How to set partner IDs
+ * Set the env var in Vercel (Project Settings > Environment Variables,
+ * Production + Preview), then redeploy. Or edit the one-line constant in
+ * AFFILIATE_CONFIG. The env var wins when both are set.
+ *
+ * | Partner    | Env var                                         | Constant                       |
+ * |------------|-------------------------------------------------|--------------------------------|
+ * | Booking    | VITE_BOOKING_AID (optional, default is set)     | partners.booking.partnerId     |
+ * | Flatio     | VITE_FLATIO_ID                                  | partners.flatio.partnerId      |
+ * | Airalo     | VITE_AIRALO_TRACKING_URL (Impact tracking link) | partners.airalo.trackingUrl    |
+ * | iVisa      | VITE_IVISA_PARTNER_BASE_URL (or VITE_VISA_PARTNER_BASE_URL) | partners.ivisa.baseUrl |
+ * | Skyscanner | VITE_SKYSCANNER_ID                              | partners.skyscanner.partnerId  |
+ * | SafetyWing | VITE_SAFETYWING_ID                              | partners.safetywing.partnerId  |
+ *
+ * Regional behavior lives in FLATIO_SUPPORTED_COUNTRIES. UTM schema is
+ * applied by buildUtmParams().
  */
 
 import type { Vertical } from '@/utils/analytics';
 
-// ── TODO: Replace partner IDs with your real values ────────────────────────
+export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing';
+
 export const AFFILIATE_CONFIG = {
   partners: {
-    /** TODO: Paste your Flatio partner ID */
-    flatio:     { partnerId: 'TODO_FLATIO_ID' },
+    flatio:     { partnerId: '' },
     /** CJ Affiliate publisher CID, passed as Booking.com `aid`. */
     booking:    { partnerId: '8092520' },
-    /** TODO: Paste your Skyscanner associate ID */
-    skyscanner: { partnerId: 'TODO_SKYSCANNER_ID' },
-    /** TODO: Paste your Airalo referral code */
-    airalo:     { partnerId: 'TODO_AIRALO_ID' },
-    /** TODO: Paste your SafetyWing referral ID */
-    safetywing: { partnerId: 'TODO_SAFETYWING_ID' },
+    skyscanner: { partnerId: '' },
+    /** Impact tracking link base, e.g. https://airalo.pxf.io/c/<publisherId>/<adId>/<campaignId> */
+    airalo:     { trackingUrl: '' },
+    ivisa:      { baseUrl: '' },
+    safetywing: { partnerId: '' },
   },
   utm: {
     utm_source: 'nomadspin',
@@ -37,10 +46,34 @@ export const AFFILIATE_CONFIG = {
     /** Template: vertical name */
     contentTemplate: (vertical: string) => vertical,
   },
-} as const;
+};
 
-// ── Flatio supported countries (whitelist) ─────────────────────────────────
-// If a country is listed here, Flatio is used; otherwise Booking.com is the fallback.
+function envValue(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+/** Resolved at call time so tests can stub env. Env var wins over the constant. */
+function partnerValue(partner: PartnerKey): string {
+  const env = import.meta.env;
+  const p = AFFILIATE_CONFIG.partners;
+  switch (partner) {
+    case 'flatio':     return envValue(env.VITE_FLATIO_ID) || p.flatio.partnerId;
+    case 'booking':    return envValue(env.VITE_BOOKING_AID) || p.booking.partnerId;
+    case 'skyscanner': return envValue(env.VITE_SKYSCANNER_ID) || p.skyscanner.partnerId;
+    case 'safetywing': return envValue(env.VITE_SAFETYWING_ID) || p.safetywing.partnerId;
+    case 'airalo':     return envValue(env.VITE_AIRALO_TRACKING_URL) || p.airalo.trackingUrl;
+    case 'ivisa':
+      return envValue(env.VITE_IVISA_PARTNER_BASE_URL) || envValue(env.VITE_VISA_PARTNER_BASE_URL) || p.ivisa.baseUrl;
+  }
+}
+
+/** True when a real partner ID / tracking base is in effect. */
+export function isPartnerLive(partner: PartnerKey): boolean {
+  return partnerValue(partner) !== '';
+}
+
+// Flatio supported countries (whitelist). Used only when a Flatio ID is set;
+// otherwise, and for every other country, Booking.com is used.
 const FLATIO_SUPPORTED_COUNTRIES: string[] = [
   // Europe
   'PT', 'ES', 'CZ', 'PL', 'HU', 'HR', 'GR', 'IT', 'DE', 'AT', 'NL',
@@ -53,7 +86,7 @@ const FLATIO_SUPPORTED_COUNTRIES: string[] = [
   'AE', 'GE', 'TR', 'AM',
 ];
 
-// ── UTM builder ────────────────────────────────────────────────────────────
+// UTM builder
 
 function slugify(str: string): string {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -74,7 +107,7 @@ export function buildUtmParams(citySlug: string, vertical: string): string {
   return params.toString();
 }
 
-// ── Country → Airalo slug mapping ──────────────────────────────────────────
+// Country to Airalo slug mapping
 
 const AIRALO_SLUGS: Record<string, string> = {
   TH: 'thailand', VN: 'vietnam', ID: 'indonesia', MY: 'malaysia', PH: 'philippines',
@@ -98,109 +131,121 @@ const AIRALO_SLUGS: Record<string, string> = {
   UA: 'ukraine', MD: 'moldova', MN: 'mongolia', UZ: 'uzbekistan', KG: 'kyrgyzstan',
 };
 
-// ── Per-vertical URL builders ──────────────────────────────────────────────
+// Per-vertical URL builders
 
-function buildAccommodationUrl(city: string, country: string, countryCode: string): { url: string; partner: string } {
+interface BuiltLink {
+  url: string;
+  partner: string;
+  affiliate: boolean;
+}
+
+/** The single Booking.com URL builder. Always carries the Booking aid. */
+export function buildBookingStayUrl(opts: { city?: string; country?: string; campaign: string }): string {
+  const aid = encodeURIComponent(partnerValue('booking'));
+  const utms = new URLSearchParams({
+    utm_source: AFFILIATE_CONFIG.utm.utm_source,
+    utm_medium: AFFILIATE_CONFIG.utm.utm_medium,
+    utm_campaign: opts.campaign,
+    utm_content: AFFILIATE_CONFIG.utm.contentTemplate('accommodation'),
+  }).toString();
+  if (opts.city) {
+    const q = encodeURIComponent([opts.city, opts.country].filter(Boolean).join(' '));
+    return `https://www.booking.com/searchresults.html?ss=${q}&aid=${aid}&${utms}`;
+  }
+  return `https://www.booking.com/index.html?aid=${aid}&${utms}`;
+}
+
+function buildAccommodationUrl(city: string, country: string, countryCode: string): BuiltLink {
   const citySlug = slugify(city);
-  const utms = buildUtmParams(citySlug, 'accommodation');
-  const useFlatio = FLATIO_SUPPORTED_COUNTRIES.includes(countryCode.toUpperCase());
+  const useFlatio =
+    FLATIO_SUPPORTED_COUNTRIES.includes(countryCode.toUpperCase()) && isPartnerLive('flatio');
 
   if (!useFlatio) {
-    console.debug(`Accommodation provider: using Booking.com for ${city} (Flatio not available in ${country})`);
-    const q = encodeURIComponent(`${city} ${country}`);
     return {
-      url: `https://www.booking.com/searchresults.html?ss=${q}&aid=${AFFILIATE_CONFIG.partners.booking.partnerId}&${utms}`,
+      url: buildBookingStayUrl({ city, country, campaign: AFFILIATE_CONFIG.utm.campaignTemplate(citySlug) }),
       partner: 'Booking.com',
+      affiliate: isPartnerLive('booking'),
     };
   }
 
+  const utms = buildUtmParams(citySlug, 'accommodation');
   return {
-    url: `https://www.flatio.com/searches/${encodeURIComponent(city)}?partner=${AFFILIATE_CONFIG.partners.flatio.partnerId}&${utms}`,
+    url: `https://www.flatio.com/searches/${encodeURIComponent(city)}?partner=${encodeURIComponent(partnerValue('flatio'))}&${utms}`,
     partner: 'Flatio',
+    affiliate: true,
   };
 }
 
-function buildFlightsUrl(
-  destinationCity: string,
-  originCity?: string,
-): { url: string; partner: string } {
+function buildFlightsUrl(destinationCity: string, originCity?: string): BuiltLink {
   const destSlug = slugify(destinationCity);
   const utms = buildUtmParams(destSlug, 'flights');
   const dest = encodeURIComponent(destinationCity);
-  const aid = AFFILIATE_CONFIG.partners.skyscanner.partnerId;
-
-  if (originCity) {
-    const orig = encodeURIComponent(originCity);
-    return {
-      url: `https://www.skyscanner.com/transport/flights/${orig}/${dest}/?associateid=${aid}&${utms}`,
-      partner: 'Skyscanner',
-    };
-  }
-
+  const orig = originCity ? encodeURIComponent(originCity) : 'anywhere';
+  const aid = partnerValue('skyscanner');
+  const assoc = aid ? `associateid=${encodeURIComponent(aid)}&` : '';
   return {
-    url: `https://www.skyscanner.com/transport/flights/anywhere/${dest}/?associateid=${aid}&${utms}`,
+    url: `https://www.skyscanner.com/transport/flights/${orig}/${dest}/?${assoc}${utms}`,
     partner: 'Skyscanner',
+    affiliate: aid !== '',
   };
 }
 
-function buildEsimUrl(city: string, countryCode: string): { url: string; partner: string } {
+function buildEsimUrl(city: string, countryCode: string): BuiltLink {
   const citySlug = slugify(city);
   const utms = buildUtmParams(citySlug, 'esim');
-  const ref = AFFILIATE_CONFIG.partners.airalo.partnerId;
   const slug = AIRALO_SLUGS[countryCode.toUpperCase()];
+  const deepLink = slug
+    ? `https://www.airalo.com/${slug}-esim?${utms}`
+    : `https://www.airalo.com/?${utms}`;
 
-  if (slug) {
-    return {
-      url: `https://www.airalo.com/${slug}-esim?ref=${ref}&${utms}`,
-      partner: 'Airalo',
-    };
+  // Airalo runs through Impact. The Impact UTT tag in index.html runs
+  // transformLinks, so plain airalo.com links can be converted automatically
+  // once the program approves Nomad Spin. Until a tracking base is set we
+  // return the clean deep link with no ref param.
+  const base = partnerValue('airalo');
+  if (base) {
+    const sep = base.includes('?') ? '&' : '?';
+    return { url: `${base}${sep}u=${encodeURIComponent(deepLink)}`, partner: 'Airalo', affiliate: true };
   }
-
-  console.warn(`[AffiliateEngine] No Airalo slug for ${countryCode} — using generic homepage for "${city}"`);
-  return {
-    url: `https://www.airalo.com/?ref=${ref}&${utms}`,
-    partner: 'Airalo',
-  };
+  return { url: deepLink, partner: 'Airalo', affiliate: false };
 }
 
-function buildInsuranceUrl(city: string): { url: string; partner: string } {
+function buildInsuranceUrl(city: string): BuiltLink {
   const citySlug = slugify(city);
   const utms = buildUtmParams(citySlug, 'insurance');
+  const id = partnerValue('safetywing');
+  const ref = id ? `referenceID=${encodeURIComponent(id)}&` : '';
   return {
-    url: `https://safetywing.com/nomad-insurance/?referenceID=${AFFILIATE_CONFIG.partners.safetywing.partnerId}&${utms}`,
+    url: `https://safetywing.com/nomad-insurance/?${ref}${utms}`,
     partner: 'SafetyWing',
+    affiliate: id !== '',
   };
 }
 
 /**
- * Visa affiliate link builder.
+ * Visa link builder. Base URL comes from VITE_IVISA_PARTNER_BASE_URL, then
+ * VITE_VISA_PARTNER_BASE_URL. Without either, a clean ivisa.com link is
+ * returned and affiliate is false.
  *
- * Reads the base URL from VITE_VISA_PARTNER_BASE_URL (env variable).
- * If unset, returns null so the UI hides the CTA (no dead links).
- *
- * Final URL pattern:
- *   {VITE_VISA_PARTNER_BASE_URL}?country={countryCode}&city={citySlug}&{UTMs}
- *
- * To enable:  set VITE_VISA_PARTNER_BASE_URL in .env or hosting config.
- * Example:    VITE_VISA_PARTNER_BASE_URL=https://www.ivisa.com/apply
+ * Final URL pattern: {base}?country={countryCode}&city={citySlug}&{UTMs}
  */
-export function buildVisaUrl(
-  city: string,
-  countryCode: string,
-): { url: string; partner: string } {
-  const base = import.meta.env.VITE_VISA_PARTNER_BASE_URL || 'https://www.ivisa.com';
+export function buildVisaUrl(city: string, countryCode: string): BuiltLink {
+  const configured = partnerValue('ivisa');
+  const base = configured || 'https://www.ivisa.com';
   const citySlug = slugify(city);
   const utms = buildUtmParams(citySlug, 'visa');
   const sep = base.includes('?') ? '&' : '?';
   const url = `${base}${sep}country=${countryCode.toUpperCase()}&city=${citySlug}&${utms}`;
-  return { url, partner: 'iVisa' };
+  return { url, partner: 'iVisa', affiliate: configured !== '' };
 }
 
-// ── Public interface ───────────────────────────────────────────────────────
+// Public interface
 
 export interface AffiliateLinkData {
   url: string;
   partner: string;
+  /** True only when a real partner ID / tracking base is in effect. */
+  affiliate: boolean;
   label: string;
   vertical: Vertical;
 }
