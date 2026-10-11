@@ -154,3 +154,79 @@ describe('guide FAQPage', () => {
     expect(destinationPage).not.toContain('guideFaqJsonLd');
   });
 });
+
+describe('guide FAQPage: both Q&A formats', () => {
+  function expectMatchesPage(slug: string, count: number) {
+    const guide = guides.find((g) => g.slug === slug)!;
+    const ld = guideFaqJsonLd(guide)!;
+    expect(ld, slug).not.toBeNull();
+    expect(ld.mainEntity).toHaveLength(count);
+    const text = visibleText(guideBodyHtml(guide));
+    for (const q of ld.mainEntity) {
+      expect(q.name.endsWith('?')).toBe(true);
+      expect(q.acceptedAnswer.text.length).toBeGreaterThan(20);
+      expect(text).toContain(q.name);
+      expect(text).toContain(q.acceptedAnswer.text);
+    }
+    return ld;
+  }
+
+  it('parses the heading format (### Question, then answer paragraph) on Porto', () => {
+    expect(guides.find((g) => g.slug === 'living-in-porto')!.content).toMatch(/^### .+\?$/m);
+    const ld = expectMatchesPage('living-in-porto', 5);
+    expect(ld.mainEntity[0].name).toBe('How much does it cost to live in Porto as a digital nomad?');
+    expect(ld.mainEntity[0].acceptedAnswer.text).toMatch(/^Nomad Spin lists about \$1,800 a month solo/);
+    // The H2 section title is not a Q&A.
+    expect(ld.mainEntity.some((q) => q.name.startsWith('Is living in Porto worth it'))).toBe(false);
+  });
+
+  it('parses the paragraph format (**Question?** answer) on Budapest', () => {
+    expect(guides.find((g) => g.slug === 'living-in-budapest')!.content).toMatch(/^\*\*.+\?\*\* /m);
+    const ld = expectMatchesPage('living-in-budapest', 5);
+    expect(ld.mainEntity[0].name).toBe('How much does it cost to live in Budapest as a digital nomad?');
+  });
+
+  it('handles heading answers of several paragraphs, H4 questions and mixed formats in page order', () => {
+    const content = [
+      '## Is this a section title?',
+      '',
+      'Intro paragraph.',
+      '',
+      '### First question?',
+      '',
+      'First paragraph.',
+      '',
+      'Second paragraph.',
+      '',
+      '- a list ends the answer',
+      '',
+      '**Second question?** Paragraph answer.',
+      '',
+      '#### Third question?',
+      '',
+      'Third answer with a [link](/guides/living-in-porto).',
+    ].join('\n');
+    expect(guideFaqEntries(content)).toEqual([
+      { question: 'First question?', answer: 'First paragraph. Second paragraph.' },
+      { question: 'Second question?', answer: 'Paragraph answer.' },
+      { question: 'Third question?', answer: 'Third answer with a link.' },
+    ]);
+  });
+
+  it('never emits an empty FAQPage', () => {
+    const noAnswers = ['### Question one?', '', '### Question two?', '', '## Next section'].join('\n');
+    expect(guideFaqEntries(noAnswers)).toEqual([]);
+    expect(guideFaqJsonLd({ content: noAnswers })).toBeNull();
+    const oneValid = ['### Only one?', '', 'Yes.', '', '### Empty?', '', '## End'].join('\n');
+    expect(guideFaqJsonLd({ content: oneValid })).toBeNull();
+    for (const guide of guides) {
+      const ld = guideFaqJsonLd(guide);
+      if (!ld) continue;
+      expect(ld.mainEntity.length, guide.slug).toBeGreaterThanOrEqual(2);
+      for (const q of ld.mainEntity) {
+        expect(q.name.trim(), guide.slug).not.toBe('');
+        expect(q.acceptedAnswer.text.trim(), guide.slug).not.toBe('');
+      }
+    }
+  });
+});
