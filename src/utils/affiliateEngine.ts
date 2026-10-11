@@ -26,6 +26,7 @@
 
 import { slugify } from '@/lib/slugify';
 import type { Vertical } from '@/utils/analytics';
+import { getCtaVariant } from '@/utils/analytics';
 
 export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing' | 'nordvpn';
 
@@ -150,6 +151,8 @@ export function buildBookingStayUrl(opts: { city?: string; country?: string; cam
     utm_medium: AFFILIATE_CONFIG.utm.utm_medium,
     utm_campaign: opts.campaign,
     utm_content: AFFILIATE_CONFIG.utm.contentTemplate('accommodation'),
+    // CTA test group, so GA's built-in outbound click (link_url) shows the variant.
+    utm_term: `v_${getCtaVariant()}`,
   }).toString();
   if (opts.city) {
     const q = encodeURIComponent([opts.city, opts.country].filter(Boolean).join(' '));

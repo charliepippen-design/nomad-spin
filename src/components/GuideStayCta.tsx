@@ -17,7 +17,7 @@ export default function GuideStayCta({ slug }: { slug: string }) {
         <a
           href={cta.url}
           target="_blank"
-          rel="sponsored noopener noreferrer"
+          rel="sponsored nofollow noopener noreferrer"
           onClick={() => trackAffiliateClick(cta.partner, 'accommodation', cta.city ?? '', cta.url, label, { placement: 'guide_stay_box', citySlug: cta.destinationSlug })}
           className="mt-4 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary/10 border border-primary/30 text-sm text-primary hover:bg-primary/20 transition-colors"
         >
