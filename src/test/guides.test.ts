@@ -95,6 +95,20 @@ describe('static guides', () => {
     for (const s of slugs) expect(s).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
   });
 
+  it('keeps every content guide meta description at 155 characters or less', () => {
+    const dir = path.resolve(__dirname, '../../content/guides');
+    for (const name of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      const meta = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+      if (meta.status !== 'published') continue;
+      const description: string | undefined = meta.seo?.meta_description;
+      expect(description, `${name} has no meta_description`).toBeTruthy();
+      expect(description!.length, `${name}: ${description!.length} chars`).toBeLessThanOrEqual(155);
+    }
+    const season = guides.find((g) => g.slug === 'where-to-go-next-by-season')!;
+    expect(season.excerpt.length).toBeLessThanOrEqual(155);
+    expect(season.excerpt).not.toMatch(/\u2013|\u2014/);
+  });
+
   it('has complete metadata and no leftover draft/editor chrome', () => {
     for (const g of guides) {
       expect(g.title.length).toBeGreaterThan(10);
