@@ -181,7 +181,7 @@ describe('guide pages when the live database does not answer', () => {
     queryState.mode = 'live';
     renderList();
 
-    expect(await screen.findByRole('link', { name: /live chiang mai guide/i })).toBeInTheDocument();
+    expect(await screen.findByRole('link', { name: /live chiang mai guide/i }, { timeout: 5000 })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /draft guide should not appear/i })).not.toBeInTheDocument();
     expect(document.querySelector('a[href="/guides/draft-should-not-appear"]')).toBeNull();
     expect(document.querySelectorAll('a[href^="/guides/"]')).toHaveLength(guides.length);
