@@ -6,7 +6,7 @@ The case for living in Split as a digital nomad is a quality-of-days decision, n
 
 **Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing.
 
-**What visa do digital nomads use in Split?** Nomad Spin lists a Digital Nomad Visa for **365** days. Croatia's own rule is a temporary stay of up to 18 months for non-EU, non-EEA, non-Swiss nomads earning at least **EUR 3,622.50** a month. Verify on the Ministry of the Interior page.
+**What visa do digital nomads use in Split?** Croatia offers a [temporary stay for digital nomads](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853) of up to **18 months** for non-EU, non-EEA, non-Swiss nomads earning at least **EUR 3,622.50** a month.
 
 **Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, and crowded summers as trade-offs.
 
@@ -39,7 +39,7 @@ Split fits people who want a safe seaside city, a monthly bill near **$1,800**, 
 - Need a nomad campus. Community here is **4**. Lisbon is **9**. Read [Living in Lisbon](/guides/living-in-lisbon) if the campus is the product, or [Living in Chiang Mai](/guides/living-in-chiang-mai) for the starter-city version
 - Need coworking **High** and a desk for every call. Split is **Med**. [Budapest](/destinations/budapest) and [Prague](/destinations/prague) are **High** at **200 Mbps**. Read [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague)
 - Need winter nightlife. "Limited winter nightlife" is a listed con, and it is the filter for anyone arriving in December
-- Need a year on one stamp without paperwork. The row says **365** days, and the real route is an application to the Croatian authorities. The visa section lays out how it works
+- Need a year on one stamp without paperwork. Croatia's temporary stay for digital nomads runs up to **18 months**, but it is an application to the Croatian authorities. The visa section lays out how it works
 - Need a big-city job market feel. "Small city feel" is on the cons list. That is a feature for a quiet work month and a problem for a networker
 
 `lgbtFriendly` on this row is **5**. That matches Budapest and sits below Porto (**8**), Valencia (**7**), and Madrid and Lisbon (**9**). Read it before you treat safety **9.0** as a claim about every part of daily life. Female safety **9** is strong in this dataset. It is not a promise about one empty seafront at 2am. Walk the block at night before you sign.
@@ -199,7 +199,7 @@ Treat any name you cannot find on a current operator page as closed or moved. Me
 
 ## Visas and stay length: Croatia's digital nomad temporary stay vs Schengen 90/180 (verify MUP)
 
-Not legal advice. Nomad Spin lists a **Digital Nomad Visa** with **365** days on [Split](/destinations/split). That label is a planning field. Croatia does not run it as a visa you collect at the border. The Croatian Ministry of the Interior (MUP) describes it as a **temporary stay of digital nomads**, a residence permit, on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
+Not legal advice. Croatia offers a **temporary stay for digital nomads** of up to **18 months**, a residence permit that you apply for and do not collect at the border. The Croatian Ministry of the Interior (MUP) sets out the rules on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
 
 Croatia uses the euro and is in the Schengen area. The European Commission records that Croatia [joined the euro area on 1 January 2023](https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/croatia-and-euro_en), and the European Parliament states that on 1 January 2023 [Croatia joined the Schengen area](https://www.europarl.europa.eu/topics/en/article/20180216STO98008/schengen-enlargement-of-europe-s-border-free-area).
 
@@ -221,9 +221,9 @@ The MUP page defines a digital nomad as a third-country national, meaning a non-
 
 That euro amount is the ministry's own "at this moment" figure. It is the number to check on the live page before you plan around it. The ministry also lists fees. Filed at a consulate: **EUR 55.74** for the temporary stay, **EUR 93.00** for the long-term D visa, or **EUR 41.14** for the biometric card. Filed at a police office, paid after the stay is granted: **EUR 46.45** for the temporary stay, **EUR 9.29** administrative fee and **EUR 31.85** for the biometric card (**EUR 59.73** accelerated). The page also lists the full document list (passport, proof of work, proof of funds, insurance, a criminal-record certificate, and more). Read the table on the page the week you apply. Do not copy a fee from an agent site and call it the government charge.
 
-### Reconciling the row with the rule
+### Length and the consular wording
 
-The Split row says **365** days. The ministry says up to **eighteen months**, and a stay granted for less than 18 months can be extended by up to six months. The 365 on the row matches the 12-month lump-sum line on the ministry page, and it is the simpler figure to plan around, so treat it as a rounded orientation field and not as a guaranteed length. Your own permit may be shorter.
+The ministry says up to **eighteen months** (possibly less), and a stay granted for less than 18 months can be extended by up to six months. Your own permit may be shorter than the maximum, so plan around the length written on your decision.
 
 One more disagreement worth knowing: the Ministry of Foreign Affairs [consular page on temporary stay](https://mvep.gov.hr/consular-information-130483/temporary-stay-of-foreigners/264503) describes the nomad stay as up to a year that cannot be extended. The Ministry of the Interior is the body that decides the permit, and its page is the more detailed one, but two government pages differ. Confirm the length and the extension with the police administration or your nearest Croatian consulate before you book a year of anything.
 
@@ -324,11 +324,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | `lgbtFriendly` | 5 | 5 | 5 | 8 | 7 | 7 |
 | English | 7 | 7 | 7 | 7 | 5 | 7 |
 | Time zone | UTC+1 | UTC+1 | UTC+1 | UTC+0 | UTC+1 | UTC+2 |
-| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Visa field | Temporary stay for digital nomads, up to 18 months (MUP) | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
 | Best months | May-Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | May-Sep | Apr-Jun, Sep | Apr-Jun, Sep-Oct |
 | Hard part on the row | Seasonal tourism, rising prices, crowded summers | Very touristy, expensive | Seasonal, quieter winters | Rainy winters, hilly terrain, tourist crowds | Hot summers, flooding risk, limited English | Hot summers, bureaucracy, economic instability |
 
-Every row shows the same visa label, and they are not the same rule. Croatia's is the MUP temporary stay described above. Porto's 365 is Portugal's initial visa field. Valencia's is Spain's consular telework visa. Athens is Greece's field. Verify each country on its own official pages. Do not paste Croatia's statute onto them.
+The peers do not share Croatia's rule. Split's is the MUP temporary stay described above. Porto's 365 is Portugal's initial visa field. Valencia's is Spain's consular telework visa. Athens is Greece's field. Verify each country on its own official pages. Do not paste Croatia's statute onto them.
 
 **Stay with Split** when you want the safest score in this set (**9.0**, tied with Porto), a real old town, sea and islands, and you can fund **$1,800** or live inside the **$1,400** estimate on purpose. You accept coworking **Med**, community **4**, and the summer crush.
 
@@ -350,7 +350,7 @@ If the objection is "I wanted the sea and a third of the bill," none of these Eu
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as a stay for most nationalities
+- Treating the **18-month** maximum as a stamp you already have, or as a stay open to most nationalities
 - Paying the **$90** nightly median for thirty nights and calling the month **$1,800**
 - Booking a room inside the Palace walls or above the Riva for the month, then discovering the noise
 - Assuming the income line is a number you saw on a blog. The ministry states a rule of **2.5** average monthly net salaries and a current euro figure. Check the live MUP page
