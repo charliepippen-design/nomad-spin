@@ -6919,17 +6919,17 @@ The case for living in Tirana as a digital nomad is a budget-and-runway decision
 
 **How much does it cost to live in Tirana as a digital nomad?** Nomad Spin lists about **$1,150** a month for a solo nomad. The long-term **$863** and the median Airbnb around **$52** a night are estimates on this row. Blloku and a short-let habit push you above the baseline.
 
-**Is Tirana internet good enough for video calls?** Usually yes at home, with a backup. Nomad Spin shows about **90 Mbps** average. Reliability **7/10** and power **9/10** are estimates. Coworking density is Low. Test upload speed in the actual unit before signing.
+**Is Tirana internet good enough for video calls?** Usually yes at home, with a backup. Nomad Spin shows about **90 Mbps** average. Reliability **7/10** and power **9/10** are estimates. Coworking density is Low. Test upload speed in the actual unit before signing, and keep a second SIM as the fallback.
 
-**What visa do digital nomads use in Tirana?** Nomad Spin lists **Visa-Free** for up to **365** days, which applies to some passports only. Albania's Law 79/2021 sets 90 days within 180 for most visa-free entrants. It also provides a one-year single permit for digital mobile workers. Check your passport on the ministry pages.
+**What visa do digital nomads use in Tirana?** Up to 90 days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport on Albania's Ministry for Europe and Foreign Affairs site before you book.
 
-**Who should skip living in Tirana?** Skip it if you need a deep coworking scene, a large nomad community, or a polished, quiet city. Nomad Spin flags traffic and developing infrastructure as trade-offs. Community size is **3**.
+**Who should skip living in Tirana?** Skip it if you need a deep coworking scene, a large nomad community, or a polished, quiet city. Nomad Spin flags traffic and developing infrastructure as trade-offs. Community size is **3**, coworking is **Low**, and female safety is **5**.
 
-**What are the best months to live in Tirana?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**, a yearly figure and not a forecast.
+**What are the best months to live in Tirana?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**, a yearly figure and not a forecast. Budapest lists the same Apr-Jun and Sep-Oct window.
 
 **Which neighborhood should I pick in Tirana?** Blloku suits cafes and a walkable first week, but nights are loud. The center and Pazari i Ri is the busiest part of town. Lake Park is quieter and greener. Rruga e Kavajes is mid-priced but a traffic artery. Kombinat and further out means local leases and quiet nights.
 
-**What time zone is Tirana in?** Nomad Spin lists **UTC+1**. Albania observes Central European Summer Time, so clocks move to **UTC+2** from the last Sunday of March to the last Sunday of October, like the rest of Central Europe.
+**What time zone is Tirana in?** Nomad Spin lists **UTC+1**. Albania observes Central European Summer Time, so clocks move to **UTC+2** from the last Sunday of March to the last Sunday of October, like the rest of Central Europe. Tbilisi is **UTC+4**, so Tirana sits closer to European client hours.
 
 Worth it, with conditions. You are paying a mid-priced Balkan month for a capital city, mountains behind it, and a coast within reach, with nightlife **6**, English **5**, and a time zone of **UTC+1**. What you give up is a ready-made scene: community is **3**, coworking is **Low**, and safety is **7** (female safety **5**). The city is tagged **adventure** and **party**. Landscape is **urban**. Region is **Europe**. Language is Albanian. Pros on the row are mountains and sea, cheap, emerging, and friendly.
 
@@ -6953,7 +6953,7 @@ Tirana fits people who want a capital-city routine on a mid-range budget, a long
 - Cannot clear **$863** even on a monthly lease and local food. The **$52** nightly estimate will not save you
 - Need coworking **High** and a default circle of other nomads. That is [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**, coworking **High**), not this row (community **3**, coworking **Low**)
 - Need the infrastructure score to be boring. The row lists developing infrastructure and traffic as cons. Reliability and power are formula estimates, not measured. Ask the landlord about hot water, wiring, and heating before you pay
-- Need a year on one stamp and your passport is only covered by the default rule. The default is 90 days in 180. The 365 on the row applies to some passports only
+- Need a year on one stamp and your passport is only covered by the default rule. The default is visa-free entry for 90 days in 180, and only some passports get longer. The one-year Article 68 permit for digital mobile workers is the nomad route after that
 - Want strong nightlife or LGBT-friendly scores. Nightlife is **6** and \`lgbtFriendly\` is **3**, against Budapest at **9** and **5**. Read the number before you treat the city as an easy default
 - Are travelling solo as a woman and want the highest-comfort option. Female safety is **5** on this row, the lowest of the five cities compared at the end of this guide. That is a dataset score, not a verdict on any street, but it is a reason to read the neighborhood section and choose carefully
 
@@ -7085,13 +7085,9 @@ If the one room you like is full or closed, the fallback is a second SIM and a f
 - Nearby construction asked about, and the street checked at 8am
 - A named fallback (a trial-tested desk, a second SIM, a friend with fiber) written down before you need it
 
-## Visas and stay length: Visa-Free 365 on the row, 90 days in 180 by default, Unique Permit (verify official rules)
+## Visas and stay length: visa-free 90 days in 180 by default, then the Unique Permit (verify official rules)
 
-This is operational orientation, not legal advice. Albanian rules move, and your passport decides which rule applies. The number on our city page is not the law. When this page and the official source disagree, believe the source and the stamp in your passport.
-
-### What Nomad Spin currently shows
-
-The Tirana row says **Visa-Free**, **365** days, **UTC+1**. That is the reason many people look at the city. It is also a passport-dependent label, and you should treat it as the best case, not the rule. [Tbilisi](/destinations/tbilisi), [Podgorica](/destinations/podgorica), and [Saranda](/destinations/saranda) carry the same **Visa-Free**, **365** pair. [Pristina](/destinations/pristina) shows **90** days, and [Sofia](/destinations/sofia) shows **90** days on a **Visa Exemption** label.
+The default entry is visa-free for listed nationalities, for 90 days in any 180 under Law 79/2021 (per the Ministry for Europe and Foreign Affairs [visa regime page](https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/)), and some passports get longer under bilateral or Council of Ministers decisions. The one-year unique permit for digital mobile workers (Article 68) comes second. This is operational orientation, not legal advice. Albanian rules move, and your passport decides which rule applies. The number on our city page is not the law. When this page and the official source disagree, believe the source and the stamp in your passport.
 
 ### What the official sources publish
 
@@ -7101,9 +7097,7 @@ First, the list of countries whose nationals enter without a visa is set by a Co
 
 The Ministry for Europe and Foreign Affairs publishes a [visa regime note for foreigners](https://punetejashtme.gov.al/wp-content/uploads/2024/09/II-NR.3-REGJIMI-I-VIZAVE-PER-TE-HUAJT-INFO-PER-TE-HUAJT.pdf) on [punetejashtme.gov.al](https://punetejashtme.gov.al/). It says the regime rests on Law 79/2021 and Council of Ministers Decision No. 858 of 29 December 2021. It says a visa-exempt traveller needs a passport valid for at least **3 months after leaving Albania** and issued within the last **10 years**. A Type C visa allows up to **90 days within 180**. A Type D visa is for stays of more than 90 days within 180 when a visa is required to get a residence permit. Nationalities not in the ministry's table need a visa before travel, applied for at the nearest mission or through the [e-visa portal](https://e-visa.al/) the ministry links.
 
-### What the 365 on our row means
-
-The row's 365 days matches a passport-specific longer arrangement, not the general rule in the law. The 365-day field applies to some passports only. Most visa-free visitors get 90 days in any 180 under Law 79/2021. Check your nationality on the Ministry for Europe and Foreign Affairs page (punetejashtme.gov.al) before planning a long stay, and read the number there before you buy a non-refundable year of rent. If your passport is only covered by the default, plan for 90 days in 180 and treat anything longer as a permit question.
+Check your nationality on the ministry's [visa regime page](https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/) before planning a long stay, and read the number there before you buy a non-refundable year of rent. A few passports get longer than the default under an agreement or a Council of Ministers decision. If yours is only covered by the default, plan for 90 days in 180 and treat anything longer as a permit question.
 
 Albanian days are counted under Albanian law. How they interact with another country's count (a Schengen stay, a UK allowance, a tax-residence rule at home) is that country's rule. Check there.
 
@@ -7198,7 +7192,7 @@ The local currency is the lek. Carry some cash and ask in advance whether a vend
 
 The reason the row says **Mountains + sea** is that both are close. Mount Dajti sits above the city, and the Dajti Express cable car is the easy way up. Check the operator's page for current hours and prices. The Adriatic coast and the port city of Durres are a short trip west. Check the transport options and times the week you go. The south coast, including [Saranda](/destinations/saranda), is a longer trip and a different product: a seasonal beach town with Low coworking, **60 Mbps**, and best months Jun-Sep.
 
-[Pristina](/destinations/pristina) and [Podgorica](/destinations/podgorica) are the neighboring capitals if you want a change of city. Pristina is **$950** solo, **80 Mbps**, best months May to Sep, with a **90**-day field. Podgorica is **$1,150** solo, **80 Mbps**, safety **8**, and the same **Visa-Free**, **365** label. Neither has a living guide on this site yet. Use the destination pages and check the entry rules for your passport.
+[Pristina](/destinations/pristina) and [Podgorica](/destinations/podgorica) are the neighboring capitals if you want a change of city. Pristina is **$950** solo, **80 Mbps**, best months May to Sep. Podgorica is **$1,150** solo, **80 Mbps**, safety **8**. Neither has a living guide on this site yet. Use the destination pages and check the entry rules for your passport.
 
 ### Safety and health
 
@@ -7206,7 +7200,7 @@ Safety on the row is **7**, female safety **5**, \`lgbtFriendly\` **3**. Those a
 
 ## Tirana vs Tbilisi, Budapest, Sofia, and Saranda
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. On the Tirana row, the long-term cost, the nightly median, internet reliability, and power stability are estimates.
+Choose with the rows, not with photos. Figures below are the live dataset fields. Entry rules depend on your passport, so the last row links each destination page, where the current visa line and its note sit. On the Tirana row, the long-term cost, the nightly median, internet reliability, and power stability are estimates.
 
 | Field | Tirana | Tbilisi | Budapest | Sofia | Saranda |
 |---|---|---|---|---|---|
@@ -7215,19 +7209,19 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Coworking | Low | Med | High | Med | Low |
 | Safety | 7 | 8 | 8.3 | 8.5 | 8 |
 | Community | 3 | 6 | 7 | 4 | 1 |
-| Visa field in Nomad Spin | Visa-Free, 365 days (passport-dependent) | Visa Free, 365 days | Digital Nomad Visa, 365 days | Visa Exemption, 90 days | Visa-Free, 365 days |
 | Best months | Apr-Jun, Sep-Oct | May-Jun, Sep-Oct | Apr-Jun, Sep-Oct | May-Sep | Jun-Sep |
 | Time zone | UTC+1 | UTC+4 | UTC+1 | UTC+2 | UTC+1 |
+| Entry rules | [Tirana page](/destinations/tirana) | [Tbilisi page](/destinations/tbilisi) | [Budapest page](/destinations/budapest) | [Sofia page](/destinations/sofia) | [Saranda page](/destinations/saranda) |
 
 **Stay with Tirana** when you want a capital-city month for **$1,150** in **Apr-Jun** or **Sep-Oct**, you can work from a tested flat on **90 Mbps**, and your passport covers the stay you plan. You accept coworking **Low**, community **3**, female safety **5**, traffic, and developing infrastructure. Tirana is the better choice when the clock matters (**UTC+1**) and when mountains and sea are on the same weekend.
 
-**Pick Tbilisi** when budget and community are the point. Solo is **$800**, coworking is **Med**, community is **6**, safety is **8**. You lose 30 Mbps of average speed against Tirana's 90 and take **UTC+4**, with cold winters and winter air pollution on that row's cons. The visa field is the same **Visa Free**, **365** pair, and that guide is explicit about the passport-list caveat. Read [Living in Tbilisi](/guides/living-in-tbilisi).
+**Pick Tbilisi** when budget and community are the point. Solo is **$800**, coworking is **Med**, community is **6**, safety is **8**. You lose 30 Mbps of average speed against Tirana's 90 and take **UTC+4**, with cold winters and winter air pollution on that row's cons. Georgia's visa-free stay runs **365** days for many passports, and that guide is explicit about the passport-list caveat. Read [Living in Tbilisi](/guides/living-in-tbilisi).
 
-**Pick Budapest** when the work is call-heavy and you can pay **$1,500**. It has **200 Mbps**, reliability **9**, coworking **High**, safety **8.3**, community **7**, English **7**, and nightlife **9**. The visa field is a **Digital Nomad Visa**, an application with conditions, not a stamp. Cold winters and rising prices are on that row's cons. The [Budapest living guide](/guides/living-in-budapest) is the polished-Europe comparison. Prague, in [Living in Prague](/guides/living-in-prague), is the same idea at **$1,700**.
+**Pick Budapest** when the work is call-heavy and you can pay **$1,500**. It has **200 Mbps**, reliability **9**, coworking **High**, safety **8.3**, community **7**, English **7**, and nightlife **9**. Hungary is in Schengen, so a short stay counts toward 90 days in any 180, and the longer remote-work route is an application with conditions, not a stamp. Cold winters and rising prices are on that row's cons. The [Budapest living guide](/guides/living-in-budapest) is the polished-Europe comparison. Prague, in [Living in Prague](/guides/living-in-prague), is the same idea at **$1,700**.
 
-**Pick Sofia** when you want a Balkan-priced capital with **200 Mbps** and Med coworking for **$50** more than Tirana (**$1,200**). Safety is **8.5**. The cost is a **90**-day visa field, **UTC+2**, and a smaller nomad scene on the row's cons. [Sofia](/destinations/sofia) has no living guide on this site yet, so the destination row is the comparison.
+**Pick Sofia** when you want a Balkan-priced capital with **200 Mbps** and Med coworking for **$50** more than Tirana (**$1,200**). Safety is **8.5**. The cost is a Schengen short stay of **90** days in any 180, **UTC+2**, and a smaller nomad scene on the row's cons. [Sofia](/destinations/sofia) has no living guide on this site yet, so the destination row is the comparison.
 
-**Pick Saranda** when the beach is the product and the month is **Jun-Sep**. Same **$1,150**, same Albanian visa field, but **60 Mbps**, coworking Low, community **1**, and a row that lists it as very touristy and seasonal. It is a summer escape from Tirana, not a replacement for it.
+**Pick Saranda** when the beach is the product and the month is **Jun-Sep**. Same **$1,150**, same Albanian entry rules, but **60 Mbps**, coworking Low, community **1**, and a row that lists it as very touristy and seasonal. It is a summer escape from Tirana, not a replacement for it.
 
 **Look at Chiang Mai** when community and coworking are the constraint, not the budget. [Chiang Mai](/destinations/chiang-mai) is **$850** solo, community **9**, coworking **High**, **95 Mbps**, best months Nov-Feb, on **UTC+7**, with a different visa picture. The [Chiang Mai living guide](/guides/living-in-chiang-mai) covers it.
 
@@ -7237,7 +7231,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 ### Common mistakes
 
-- Treating the **365**-day field as your personal rule before you check the ministry's table for your passport
+- Assuming your passport gets more than 90 days in any 180 before you check the ministry's table for it
 - Assuming a border trip resets a 90-day-in-180 count
 - Paying the **$52** nightly estimate for thirty nights and calling the month **$1,150**
 - Booking a Blloku bar-street flat for the quiet month

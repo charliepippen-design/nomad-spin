@@ -1105,7 +1105,7 @@ describe('static guides', () => {
     }
   });
 
-  it('keeps the Tirana quick answers FAQ-ready: at least 6 Q&As, each answer under 50 words', () => {
+  it('keeps the Tirana quick answers FAQ-ready: at least 6 Q&As, each answer 35 to 50 words', () => {
     const g = guides.find((x) => x.slug === 'living-in-tirana');
     const qas = g!.content
       .split('\n')
@@ -1115,7 +1115,9 @@ describe('static guides', () => {
       .filter(({ q }) => !q.startsWith('It tends') && !q.startsWith('Skip it'));
     expect(qas.length).toBeGreaterThanOrEqual(6);
     for (const { q, a } of qas) {
-      expect(a.trim().split(/\s+/).length, q).toBeLessThan(50);
+      const words = a.trim().split(/\s+/).length;
+      expect(words, q).toBeGreaterThanOrEqual(35);
+      expect(words, q).toBeLessThanOrEqual(50);
     }
   });
 
@@ -1142,9 +1144,16 @@ describe('static guides', () => {
     expect(g!.content).toContain('Reliability **7/10** and power **9/10** are estimates.');
     expect(g!.content).not.toContain('This guide does not');
     expect(g!.content).toContain('90 Mbps');
-    expect(g!.content).toContain('Visa-Free');
-    expect(g!.content).toContain('365');
     expect(g!.content).toContain('90 days within 180');
+    // Visa convention: 90-in-180 default first, unique permit second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Tirana?** Up to 90 days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport on Albania's Ministry for Europe and Foreign Affairs site before you book."
+    );
+    expect(g!.content).not.toContain('Visa-Free 365 on the row');
+    expect(g!.content).not.toContain('What the 365 on our row means');
+    expect(g!.content).not.toMatch(/\*\*Visa-Free\*\*, \*\*365\*\*/);
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Tirana page](/destinations/tirana) |');
     expect(g!.content).toContain('Article 68');
     expect(g!.content).toContain('UTC+1');
     expect(g!.content).toContain('780+');
@@ -1179,7 +1188,7 @@ describe('static guides', () => {
       'Monthly cost bands (solo $1,150, long-term $863 estimate, Airbnb $52 estimate)',
       'Neighborhoods that work: Blloku, the center and Pazari i Ri, Lake Park, Rruga e Kavajes, and Kombinat',
       'Internet, power, and coworking for video-call work (90 Mbps, reliability 7 estimate, power 9 estimate, Low coworking)',
-      'Visas and stay length: Visa-Free 365 on the row, 90 days in 180 by default, Unique Permit (verify official rules)',
+      'Visas and stay length: visa-free 90 days in 180 by default, then the Unique Permit (verify official rules)',
       'Best months (Apr-Jun, Sep-Oct) vs rainy months (Nov-Dec)',
       'Daily life: walking, coffee, food, Albanian, and day trips',
       'Tirana vs Tbilisi, Budapest, Sofia, and Saranda',

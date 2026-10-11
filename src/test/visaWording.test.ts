@@ -136,7 +136,8 @@ describe('living guide visa sections', () => {
     expect(md).toMatch(/e-visa\.al/);
     expect(md).toMatch(/79\/2021/);
     expect(md).toMatch(/Article 68/);
-    expect(md).toMatch(/\*\*Visa-Free\*\*, \*\*365\*\* days/);
+    expect(md).not.toMatch(/\*\*Visa-Free\*\*, \*\*365\*\* days/);
+    expect(md).toMatch(/punetejashtme\.gov\.al\/en\/regjimi-i-vizave-per-te-huajt/);
     expect(md).toMatch(/passport/i);
     expect(md).not.toMatch(/€|\bEUR\b/);
     expect(md).not.toMatch(/\u2014|\u2013/);

@@ -95,13 +95,31 @@ describe('phase 1 hub visa data', () => {
     }
   });
 
+  it('puts every Albania row on the 90-in-180 default with the unique permit in the note', () => {
+    const rule = COUNTRY_VISA_RULES.AL;
+    expect(rule.sources).toContain('https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/');
+    const rows = byCountry('AL');
+    expect(rows.map((city) => city.id).sort()).toEqual(['saranda-al', 'tirana-al']);
+    for (const city of rows) {
+      expect(city.meta, city.id).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+      expect(city.visa, city.id).toEqual({ type: 'Visa Exemption', days: 90 });
+      expect(city.meta.visaNote, city.id).toBe(
+        'Longer visa-free stay for some passports; unique permit for digital mobile workers'
+      );
+      const q3 = destinationFaq(city)[2];
+      expect(q3.a, city.id).toMatch(/^Up to 90 days in any 180 for most visa-free passports under Law 79\/2021/);
+      expect(q3.a, city.id).toMatch(/one-year unique permit for digital mobile workers/);
+      expect(q3.a, city.id).not.toMatch(/365/);
+    }
+  });
+
   it('fixes the Colombia 730-day row', () => {
     expect(cityById('armenia-quimbaya-co').meta.visaDays).toBe(90);
     for (const city of byCountry('CO')) expect(city.meta.visaNote, city.id).toMatch(/180 days per calendar year/);
   });
 
   it('uses one visa type and day count per country, so rows never contradict', () => {
-    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY']) {
+    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY', 'AL']) {
       const rule = COUNTRY_VISA_RULES[cc];
       expect(rule, cc).toBeDefined();
       expect(rule.sources.length, cc).toBeGreaterThan(0);

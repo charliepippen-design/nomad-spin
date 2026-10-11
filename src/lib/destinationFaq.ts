@@ -49,6 +49,7 @@ export const OFFICIAL_VISA_SOURCE: Record<string, string> = {
   BG: "Bulgaria's Ministry of Foreign Affairs",
   HR: "Croatia's Ministry of the Interior",
   TR: "Turkey's Ministry of Foreign Affairs",
+  AL: "Albania's Ministry for Europe and Foreign Affairs",
 };
 
 /**
@@ -113,6 +114,10 @@ export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
   MY: {
     applies: isStayAllowanceVisa,
     text: 'Up to {days} days for many passports, depending on nationality. For a longer remote-work stay, Malaysia runs the DE Rantau Nomad Pass, a separate application. Verify current rules with {source} before you book.',
+  },
+  AL: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport with {source} before you book.',
   },
 };
 
