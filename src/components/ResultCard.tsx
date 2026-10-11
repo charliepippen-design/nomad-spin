@@ -237,7 +237,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           <a
             href={affiliateLinks.visa.url}
             target="_blank"
-            rel={affiliateLinks.visa.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+            rel={affiliateLinks.visa.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
             onClick={() =>
               trackAffiliateClick('iVisa', 'visa', city.name, affiliateLinks.visa.url, `Check visa options for ${city.country}`, {
                 placement: 'spin_card_visa',
@@ -329,7 +329,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <motion.a
               href={affiliateLinks.accommodation.url}
               target="_blank"
-              rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+              rel={affiliateLinks.accommodation.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
               onClick={() =>
                 trackAffiliateClick(
                   affiliateLinks.accommodation.partner,
