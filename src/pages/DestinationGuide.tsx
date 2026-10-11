@@ -271,7 +271,7 @@ export default function DestinationGuide() {
           <a
             href={affiliateLinks.accommodation.url}
             target="_blank"
-            rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+            rel={affiliateLinks.accommodation.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
             onClick={() =>
               trackAffiliateClick(
                 affiliateLinks.accommodation.partner,
@@ -318,7 +318,7 @@ export default function DestinationGuide() {
             <a
               href={affiliateLinks.vpn.url}
               target="_blank"
-              rel={affiliateLinks.vpn.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+              rel={affiliateLinks.vpn.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
               onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label, { placement: 'destination_nordvpn' })}
               className="inline-flex items-center gap-2 font-mono tracking-wider text-primary/70 hover:text-primary transition-colors"
             >
