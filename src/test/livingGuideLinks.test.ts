@@ -27,6 +27,7 @@ const LIVING_SLUGS = [
   'living-in-barcelona',
   'living-in-valencia',
   'living-in-prague',
+  'living-in-tallinn',
   'living-in-ho-chi-minh-city',
   'living-in-madrid',
 ] as const;
