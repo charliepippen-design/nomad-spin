@@ -107,7 +107,13 @@ describe('static guides', () => {
     const g = guides.find((x) => x.slug === 'living-in-chiang-mai');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Chiang Mai');
-    expect(g!.seoTitle).toBe("Living in Chiang Mai 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.seoTitle).toBe("Living in Chiang Mai 2026: Cost, Visa, Nimman");
+    expect(g!.seoTitle!.length).toBeLessThanOrEqual(47);
+    expect(g!.content).toContain('### Quick answers');
+    for (const href of ['/guides/living-in-ho-chi-minh-city']) {
+      expect(g!.content).toContain(`](${href})`);
+    }
+    expect(`${g!.seoTitle}\n${g!.content}`).not.toMatch(/\u2013|\u2014/);
     expect(g!.excerpt).toBe(
       'Chiang Mai for remote workers in 2026: real monthly costs, Nimman vs Old City, visas and DTV notes, coworking, internet, and burning season trade-offs.'
     );
@@ -208,7 +214,13 @@ describe('static guides', () => {
     const g = guides.find((x) => x.slug === 'living-in-lisbon');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Lisbon');
-    expect(g!.seoTitle).toBe("Living in Lisbon 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.seoTitle).toBe("Living in Lisbon 2026: Cost, D8 Visa and Areas");
+    expect(g!.seoTitle!.length).toBeLessThanOrEqual(47);
+    expect(g!.content).toContain('### Quick answers');
+    for (const href of ['/guides/living-in-porto', '/guides/living-in-valencia', '/guides/living-in-prague', '/guides/living-in-tbilisi']) {
+      expect(g!.content).toContain(`](${href})`);
+    }
+    expect(`${g!.seoTitle}\n${g!.content}`).not.toMatch(/\u2013|\u2014/);
     expect(g!.excerpt).toBe(
       'Lisbon for remote workers in 2026: real monthly costs, neighborhoods, D8 visa notes, coworking, 200 Mbps internet, and rising-rent trade-offs.'
     );
@@ -382,7 +394,13 @@ describe('static guides', () => {
     const g = guides.find((x) => x.slug === 'living-in-mexico-city');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Mexico City');
-    expect(g!.seoTitle).toBe("Living in Mexico City 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.seoTitle).toBe("Living in Mexico City 2026: Cost, Visa, Roma");
+    expect(g!.seoTitle!.length).toBeLessThanOrEqual(47);
+    expect(g!.content).toContain('### Quick answers');
+    for (const href of ['/guides/living-in-medellin']) {
+      expect(g!.content).toContain(`](${href})`);
+    }
+    expect(`${g!.seoTitle}\n${g!.content}`).not.toMatch(/\u2013|\u2014/);
     expect(g!.excerpt).toBe(
       'Mexico City for remote workers in 2026: real monthly costs, Roma vs Condesa, 180-day stay notes, coworking, internet, altitude and air-quality trade-offs.'
     );
