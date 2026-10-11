@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { indexGuides } from '@/data/guides';
+import { GUIDES_INDEX_DESCRIPTION } from '@/lib/guideHtml';
+import { guidesIndexBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;
-const TITLE = 'Guides & Articles | Nomad Spin';
-const DESCRIPTION = 'In-depth guides, tax residency breakdowns, and digital nomad strategies.';
+const TITLE = 'Digital Nomad Guides & Analysis | Nomad Spin';
+const DESCRIPTION = GUIDES_INDEX_DESCRIPTION;
 
 export default function GuidesList() {
   const { data: liveGuides, isLoading, isError } = useGuides();
@@ -46,6 +48,7 @@ export default function GuidesList() {
         <meta name="twitter:description" content={DESCRIPTION} />
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(guidesIndexBreadcrumbJsonLd())}</script>
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
@@ -56,7 +59,7 @@ export default function GuidesList() {
               <BookOpen className="w-5 h-5 text-primary" />
             </div>
             <h1 className="text-4xl text-foreground mb-3">
-              Guides and articles
+              Digital nomad guides
             </h1>
             <p className="text-sm text-muted-foreground max-w-lg leading-relaxed">
               No fluff. No discovery calls. Just the actual mechanics of moving, living, and optimizing taxes as a remote worker.

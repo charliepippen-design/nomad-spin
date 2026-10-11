@@ -13,6 +13,10 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
+/** /guides meta description, og/twitter description and CollectionPage description. */
+export const GUIDES_INDEX_DESCRIPTION =
+  'Living guides for Lisbon, Chiang Mai, Bali, Mexico City and Cape Town, plus how to choose your next base, when to go and a Paraguay tax residency guide.';
+
 /** Guide <title>, og:title, and twitter:title. Shared by the article page and prerender. */
 export function guidePageTitle(headline: string): string {
   return `${headline} | Nomad Spin`;
@@ -29,7 +33,7 @@ export function guidesIndexBodyHtml(items: readonly Pick<Guide, 'slug' | 'title'
         `<li><a href="/guides/${esc(guide.slug)}">${esc(guide.title)}</a><p>${esc(guide.excerpt)}</p></li>`,
     )
     .join('');
-  return `<main id="seo-guides"><h1>Guides and articles</h1><ul>${list}</ul></main>`;
+  return `<main id="seo-guides"><h1>Digital nomad guides</h1><ul>${list}</ul></main>`;
 }
 
 /** Full article HTML for crawlers. Markdown and existing HTML both render. */

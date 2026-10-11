@@ -16,6 +16,9 @@ import SEO from '@/components/SEO';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
 import GlobeTapHint from '@/components/GlobeTapHint';
+import { Link } from 'react-router-dom';
+import { guides } from '@/data/guides';
+import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
 import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -192,15 +195,10 @@ export default function Index() {
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-x-hidden bg-background">
       <SEO
-        title="Digital Nomad Spin | Find Your Next Destination"
-        description="Stop overthinking. Spin the globe. Find your next destination."
+        title={HOME_TITLE}
+        description={HOME_DESCRIPTION}
         path="/"
       />
-
-      {/* Primary heading for SEO / screen readers */}
-      <h1 className="sr-only">
-        Nomad Spin. Find your next digital nomad destination
-      </h1>
 
       {/* Globe — full-screen background layer */}
       <div className="fixed inset-0 z-0">
@@ -472,6 +470,31 @@ export default function Index() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Visible intro and links. Same content as the prerendered #seo-home block. */}
+      <section
+        id="home-intro"
+        className="relative z-10 border-t border-border/40 bg-background px-6 py-16"
+      >
+        <div className="mx-auto max-w-2xl">
+          <h1 className="text-3xl text-foreground mb-4">{HOME_H1}</h1>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6">{HOME_INTRO}</p>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link to={HOME_GUIDES_LINK.href} className="text-primary underline underline-offset-4">
+                {HOME_GUIDES_LINK.label}
+              </Link>
+            </li>
+            {guides.map((guide) => (
+              <li key={guide.slug}>
+                <Link to={`/guides/${guide.slug}`} className="text-primary underline underline-offset-4">
+                  {guide.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Featured Destinations + How It Works now live inside the Command Drawer */}
 
