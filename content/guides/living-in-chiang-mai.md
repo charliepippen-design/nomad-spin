@@ -8,6 +8,20 @@ This guide is the on-the-ground version of that row: where the $850 actually ben
 
 Worth it, with conditions. The rest of the guide is the conditions.
 
+### Quick answers
+
+**How much does it cost to live in Chiang Mai as a digital nomad?** Nomad Spin lists about $850 a month solo and $650 on a longer stay, with a median Airbnb near $35 a night. Thirty nights at that rate is $1,050, above the solo month, so the bands assume a monthly place. Market food and a Santitham pin keep you near them.
+
+**Is Chiang Mai internet good enough for video calls?** Yes for most setups. Nomad Spin shows about 95 Mbps with reliability 8/10, power stability 8, and High coworking density. That is an average, not a promise about one condo, so test the unit's upload before you sign and keep a coworking day as the backup for important calls.
+
+**What visa do digital nomads use in Chiang Mai?** Nomad Spin lists a Tourism Visa Exemption of 30 days, which depends on your passport and covers tourism only. Thailand's rules changed on 15 September 2026. The Destination Thailand Visa (DTV) is the longer remote-work path. Verify on the Thai government PRD notice and your Thai embassy or consulate.
+
+**When is the best time to live in Chiang Mai?** Nov, Dec, Jan and Feb are the best months on Nomad Spin's row. Burning season in Mar-Apr is a listed con, with smoke in the valley, and hot season is another. Plan the stay inside the dry window and leave before March rather than signing a lease through it.
+
+**Which Chiang Mai neighborhood is best for remote workers?** Nimman is the easiest social landing, with cafes and condos near Chiang Mai University. The Old City suits walking, temples and food. Santitham sits between them, more residential and often kinder to the $650 to $850 bands. Hang Dong and other outskirts give space but need transport.
+
+**Is Chiang Mai or Da Nang better for digital nomads?** Chiang Mai for community 9, 95 Mbps at reliability 8, and the $850 solo band, with no beach. Da Nang for a beach, a $700 solo month and safety 8.5, with a smaller scene (community 5, coworking Med). Their best months differ: Nov-Feb in Chiang Mai, Feb-Jul in Da Nang.
+
 ## Who Chiang Mai is for (and who should skip it)
 
 Chiang Mai fits people who want a work city with a ready-made scene, not a resort that happens to have Wi-Fi.
@@ -32,11 +46,11 @@ Chiang Mai fits people who want a work city with a ready-made scene, not a resor
 
 Female safety on the row is **8**. English proficiency is **5**: Nimman and the tourist streets of the Old City work in English, government offices and many landlords do not.
 
-If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood list.
 
 ## Cost of living: budget bands from Nomad Spin data plus what changes the bill
 
-Nomad Spin does not publish a fake "comfortable" total for Chiang Mai. It publishes three money fields. Those are the bands. Do not replace them with a blogger's spreadsheet.
+Use the three money fields as the bands for Chiang Mai. Do not replace them with a blogger's spreadsheet.
 
 | Band | Figure | Field on the Chiang Mai row | How to read it |
 |---|---:|---|---|
@@ -69,7 +83,7 @@ Annual average temperature on the row is **28°C**. That is a coarse yearly figu
 - The **$850** number is a city baseline, not a Nimman lifestyle quote.
 - Imported groceries, specialty coffee, and "just one more" brunch are how people blow a cheap city. The dataset cannot see your receipt.
 - A cheaper room with construction noise or Sunday walking-street noise is not cheaper if you cannot work.
-- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+- Insurance is not inside those three fields. Budget it separately.
 
 ## Neighborhoods: Nimman, Old City, Santitham, and quieter alternatives
 
@@ -112,7 +126,7 @@ Best for a second month, or for a first month if you already know you do not nee
 
 ### Quieter alternatives
 
-**Hang Dong**, south of the city, is the house-and-yard version: cafes scattered along the road, more space, families and longer stays, almost no "I'll walk to dinner" life. Older posts still send people to a Punspace Hang Dong. Punspace's own site, as checked for this guide, lists Old City branches only. Do not plan the month around a venue that is not on the operator's current page.
+**Hang Dong**, south of the city, is the house-and-yard version: cafes scattered along the road, more space, families and longer stays, almost no "I'll walk to dinner" life. Older posts still send people to a Punspace Hang Dong. Punspace's own site lists Old City branches only. Do not plan the month around a venue that is not on the operator's current page.
 
 **East of the Ping** (Wat Ket and the river streets) is a calmer residential pocket. Pleasant if you want out of the nomad loop and you have a ride back to it when you want people.
 
@@ -120,7 +134,7 @@ Best for a second month, or for a first month if you already know you do not nee
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Chiang Mai destination page](/destinations/chiang-mai), not in this article.
+After you pick the neighborhood, book in this order. Live stay, flight and insurance options are on the [Chiang Mai destination page](/destinations/chiang-mai).
 
 | Slot | What to book |
 |---|---|
@@ -149,7 +163,7 @@ Power is also not the Cape Town problem. [Living in Cape Town](/guides/living-in
 
 Amenities they publish include air purifiers. That matters in Mar-Apr, and it is a reason to keep a Punspace day in the plan even if you live in Nimman. The old Nimman branch is not on that location list. If a 2019 blog sends you there, believe the current site.
 
-Treat any other famous name (Yellow, CAMP, Mana, Hub53, Alt, and the rest of the old roundups) as closed until you see it operating this month. Spaces in this city open, rebrand, and disappear. A trial morning beats a recommendation.
+Treat any other famous name (Yellow, CAMP, Mana, Hub53, Alt, and the rest of the older lists) as closed until you see it operating this month. Spaces in this city open, rebrand, and disappear. A trial morning beats a recommendation.
 
 ### Cafes
 
@@ -178,7 +192,7 @@ On 4 September 2026 the Government Public Relations Department summarized a revi
 
 The Royal Thai Consulate-General in Los Angeles, in its public visa note, tells U.S. citizens that from 15 September 2026 they can enter without a visa for up to **30 days** for tourism, if they meet the conditions. Your passport may not be in that group. Some passports are on the shorter scheme, some need a visa on arrival, some need a visa in advance.
 
-If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended. This guide also does not print a DTV fee, a savings balance, or a day count for the DTV. Those live on the checklist of the post that decides the file.
+If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. The list of 60 countries is the government's to publish and it can be amended, so check it directly. For the DTV, check the fee, savings balance and day count with the Thai mission that handles your file.
 
 Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
@@ -198,7 +212,7 @@ Document lists moved in 2026. Effective 31 August 2026, that same Los Angeles pa
 
 You will see older summaries that quote a multi-year validity, 180 days per entry, and a savings balance in baht. Some of that may still match the post you use. Some of it may not. Copy the current checklist the week you apply. Do not copy a 2024 screenshot, and do not treat a Facebook comment as the fee.
 
-Other long-stay categories exist (education visas, Thailand Privilege, the Long-Term Resident visa). They have their own thresholds. This guide does not explain them. If you will be in Thailand most of the year, also get real tax advice at home and, if needed, in Thailand. A long stay can create tax questions. Nothing here answers them.
+Other long-stay categories exist (education visas, Thailand Privilege, the Long-Term Resident visa). They have their own thresholds. Check the official pages for each. If you will be in Thailand most of the year, also get real tax advice at home and, if needed, in Thailand. A long stay can create tax questions. Nothing here answers them.
 
 ### A simple decision frame
 
@@ -230,7 +244,7 @@ Rainy season is the honest trade if you want lower demand and you can work throu
 
 ### Booking placeholders
 
-Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows.
+Book the same three slots only after the month is one the table above allows.
 
 | Slot | What to book |
 |---|---|
@@ -291,6 +305,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling. The [Da Nang living guide](/guides/living-in-da-nang) is the longer version of that comparison, including the neighborhoods and why the two seasons pair.
 
+Look at Ho Chi Minh City when you want Vietnam's big-city version at $800 solo and 85 Mbps. Its best months, Dec-Apr, overlap Chiang Mai's Nov-Feb window, so the two pair well across a dry season. [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) covers that row in full.
+
 If the alternative is not Asia, the other full living guides in this set are [Budapest](/guides/living-in-budapest) (solo **$1,500**, **200 Mbps**, safety **8.3**, with cold winters), [Buenos Aires](/guides/living-in-buenos-aires) (solo **$900**, safety **6.2**, reliability **6**, visa exemption **90** days, on **UTC-3**), [Cape Town](/guides/living-in-cape-town) (solo **$1,400**, safety **5.5**, power stability **4**), [Lisbon](/guides/living-in-lisbon) (solo **$2,200**, safety **8.8**, reliability **9**), [Mexico City](/guides/living-in-mexico-city) (solo **$1,300**, safety **6.0**, visa exemption **180** days, with air quality and altitude in the cons), [Medellin](/guides/living-in-medellin) (solo **$1,100**, safety **6.5**, visa exemption **90** days, on **UTC-5**), and [Tbilisi](/guides/living-in-tbilisi) (solo **$800**, safety **8.0**, visa-free **365** days, with cold winters and **60 Mbps** on the row). Different budgets. Different guides.
 
 ## First-week setup checklist and how to compare Chiang Mai on Nomad Spin
@@ -330,7 +346,7 @@ If the alternative is not Asia, the other full living guides in this set are [Bu
 
 ### Booking placeholders
 
-Still no partner IDs. These slots are last, after the week above, not before the flight is emotional.
+Book these slots last, after the week above.
 
 | Slot | What to book |
 |---|---|

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import vercelJson from '../../vercel.json?raw';
 import { accentSlugRedirects, legacySlugRedirects, serverSlugRedirects } from '@/lib/citySlug';
+import { OLD_DRAFT_GUIDE_REDIRECTS } from './fixtures/oldDraftGuideRedirects';
 
 type RedirectRule = {
   source: string;
@@ -83,7 +84,7 @@ describe('vercel.json legacy accent redirects', () => {
     }
   });
 
-  it('lists the generated server redirects plus Ho Chi Minh City aliases', () => {
+  it('lists the generated server redirects, Ho Chi Minh City aliases and old draft guide slugs', () => {
     const expected = serverSlugRedirects();
     const aliases = [
       { source: '/destinations/saigon', destination: '/destinations/ho-chi-minh-city' },
@@ -94,7 +95,9 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
       ...KUALA_LUMPUR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kuala-lumpur' })),
     ];
-    expect(redirects).toHaveLength(expected.length + aliases.length);
+    const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
+    expect(oldDraftCount).toBe(48);
+    expect(redirects).toHaveLength(expected.length + aliases.length + oldDraftCount);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
   });

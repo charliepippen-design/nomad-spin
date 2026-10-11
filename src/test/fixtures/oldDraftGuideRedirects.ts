@@ -1,0 +1,67 @@
+// 301s for old Supabase draft slugs that point at live guides.
+// Source: /workspace/seo-briefs/old-articles-audit/redirect-blocks.md (Tier B).
+// Every source returned 404 on www and every destination returned 200 on Oct 11 2026.
+export const OLD_DRAFT_GUIDE_REDIRECTS: Record<string, string[]> = {
+  '/guides/living-in-bali': [
+    '/guides/bali',
+    '/guides/bali-digital-nomad-guide-2026',
+    '/guides/bali-digital-nomad-guide-2026-canggu-ubud-cost',
+    '/guides/bali-digital-nomad-guide-2026-complete',
+    '/guides/bali-digital-nomad-guide-2026-costs-visas',
+    '/guides/bali-digital-nomad-guide-2026-honest-breakdown',
+    '/guides/bali-digital-nomad-guide-2026-updated',
+    '/guides/bali-digital-nomad-guide-2026-v2',
+    '/guides/bali-digital-nomad-guide-costs-visas-neighborhoods',
+    '/guides/bali-digital-nomad-guide-costs-visas-neighborhoods-2026',
+    '/guides/bali-digital-nomad-guide-costs-visas-where-to-live',
+    '/guides/bali-digital-nomad-guide-honest-2025',
+    '/guides/bali-nomad-guide-2026-complete',
+    '/guides/bali-nomad-guide-2026-neighborhoods-visa-costs',
+    '/guides/bali-nomad-guide-2026-updated',
+    '/guides/bali-nomad-living-guide-costs-visas-2026',
+    '/guides/digital-nomad-life-in-bali-a-comprehensive-guide',
+    '/guides/ultimate-digital-nomad-guide-to-bali',
+  ],
+  '/guides/living-in-budapest': [
+    '/guides/budapest',
+    '/guides/budapest-digital-nomad-guide-2026-costs-coworking-visa',
+    '/guides/budapest-digital-nomad-guide-costs-visas-coworking',
+    '/guides/budapest-digital-nomad-guide-costs-visas-neighborhoods',
+  ],
+  '/guides/living-in-cape-town': [
+    '/guides/cape-town',
+    '/guides/cape-town-digital-nomad-guide-2026',
+    '/guides/cape-town-digital-nomad-guide-costs-neighborhoods-visas',
+    '/guides/cape-town-digital-nomad-guide-costs-visas-neighborhoods',
+  ],
+  '/guides/living-in-chiang-mai': [
+    '/guides/chiang-mai',
+    '/guides/chiang-mai-digital-nomad-guide-2026',
+    '/guides/chiang-mai-digital-nomad-guide-costs-visas-neighborhoods',
+    '/guides/chiang-mai-nomad-guide-cost-living-2026',
+    '/guides/the-ultimate-guide-to-living-in-chiang-mai',
+    '/guides/ultimate-guide-to-chiang-mai-for-digital-nomads',
+    '/guides/ultimate-guide-to-living-in-chiang-mai',
+  ],
+  '/guides/living-in-da-nang': [
+    '/guides/da-nang',
+    '/guides/da-nang-digital-nomad-guide-2026',
+    '/guides/da-nang-digital-nomad-guide-2026-costs-visas',
+    '/guides/da-nang-digital-nomad-guide-costs-visas-neighborhoods',
+    '/guides/da-nang-digital-nomad-guide-costs-visas-neighborhoods-coworking',
+    '/guides/da-nang-nomad-guide-2025-cost-visa-neighborhoods',
+  ],
+  '/guides/living-in-lisbon': [
+    '/guides/lisbon',
+    '/guides/lisbon-digital-nomad-guide-2025-costs-visas',
+    '/guides/lisbon-digital-nomad-guide-2026-costs-visas',
+    '/guides/lisbon-digital-nomad-guide-costs-visas-neighborhoods',
+  ],
+  '/guides/living-in-porto': [
+    '/guides/porto',
+    '/guides/porto-digital-nomad-guide-2026',
+    '/guides/porto-digital-nomad-guide-cost-living-visa',
+    '/guides/porto-digital-nomad-guide-cost-living-visas',
+    '/guides/porto-remote-work-guide-2026',
+  ],
+};
