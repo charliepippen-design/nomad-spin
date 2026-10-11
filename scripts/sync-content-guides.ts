@@ -16,6 +16,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CONTENT_DIR = path.resolve(__dirname, '../content/guides');
+// Mirrors TITLE_SUFFIX / SHORT_TITLE_MAX in src/lib/guideHtml.ts (kept local so this script has no app imports).
+const TITLE_SUFFIX = ' | Nomad Spin';
+const SHORT_TITLE_MAX = 60;
 const OUT_FILE = path.resolve(__dirname, '../src/data/contentGuides.generated.ts');
 
 interface GuideMeta {
@@ -25,7 +28,7 @@ interface GuideMeta {
   published?: string;
   last_updated?: string;
   related_destinations?: string[];
-  seo?: { meta_title?: string; meta_description?: string };
+  seo?: { meta_title?: string; short_title?: string; meta_description?: string };
 }
 
 function plainText(md: string): string {
@@ -73,11 +76,21 @@ export function buildContentGuidesModule(): { source: string; count: number } {
     // The article page renders the title as <h1>; drop a leading markdown H1 to avoid duplicates.
     const md = fs.readFileSync(mdPath, 'utf-8').replace(/^\uFEFF?#\s[^\n]*\n+/, '').trim() + '\n';
 
+    const shortTitle = meta.seo?.short_title?.trim();
+    if (shortTitle) {
+      const tag = shortTitle.endsWith(TITLE_SUFFIX) || `${shortTitle}${TITLE_SUFFIX}`.length > SHORT_TITLE_MAX
+        ? shortTitle
+        : `${shortTitle}${TITLE_SUFFIX}`;
+      if (tag.length > SHORT_TITLE_MAX) {
+        throw new Error(`seo.short_title in ${file} renders as a ${tag.length}-char title (max ${SHORT_TITLE_MAX}): "${tag}"`);
+      }
+    }
+
     entries.push(`  {
     id: ${JSON.stringify(slug)},
     slug: ${JSON.stringify(slug)},
     title: ${JSON.stringify(meta.title)},
-    seoTitle: ${JSON.stringify(meta.seo?.meta_title ?? meta.title)},
+    seoTitle: ${JSON.stringify(meta.seo?.meta_title ?? meta.title)},${shortTitle ? `\n    shortTitle: ${JSON.stringify(shortTitle)},` : ''}
     excerpt: ${JSON.stringify(meta.seo?.meta_description ?? excerpt(md))},
     date: ${JSON.stringify(meta.published ?? meta.last_updated ?? '')},
     updated: ${JSON.stringify(meta.last_updated ?? meta.published ?? '')},

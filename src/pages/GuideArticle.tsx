@@ -4,7 +4,8 @@ import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
-import { guidePageTitle } from '@/lib/guideHtml';
+import { guideTitleTag } from '@/lib/guideHtml';
+import { guideFaqJsonLd } from '@/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 import { relatedDestinationEntries, relatedGuideEntries } from '@/lib/relatedGuides';
 import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
@@ -68,9 +69,10 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const title = guidePageTitle(guide.seoTitle ?? guide.title);
+  const title = guideTitleTag(guide);
   const jsonLd = guideArticleJsonLd(guide, pageUrl, `${BASE_URL}/og-preview.png`);
   const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
+  const faqJsonLd = guideFaqJsonLd(guide);
   const relatedGuides = relatedGuideEntries(guide.slug);
   const relatedDestinations = relatedDestinationEntries(guide);
   const updatedLabel = new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', {
@@ -98,6 +100,7 @@ export default function GuideArticle() {
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
       </Helmet>
 
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">

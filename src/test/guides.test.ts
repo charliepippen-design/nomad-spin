@@ -4,7 +4,7 @@ import path from 'path';
 import { guides } from '@/data/guides';
 import { allCitySlugs } from '@/lib/citySlug';
 import { destinationBodyHtml } from '@/lib/destinationPrerender';
-import { guidePageTitle } from '@/lib/guideHtml';
+import { guideTitleTag } from '@/lib/guideHtml';
 import { buildContentGuidesModule } from '../../scripts/sync-content-guides';
 
 describe('static guides', () => {
@@ -59,10 +59,10 @@ describe('static guides', () => {
       expect(text.includes('\u2014'), `${name} contains an em dash`).toBe(false);
     }
     for (const guide of guides) {
-      const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
+      const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.shortTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
       expect(published.includes('\u2013'), `${guide.slug} contains an en dash`).toBe(false);
       expect(published.includes('\u2014'), `${guide.slug} contains an em dash`).toBe(false);
-      const documentTitle = guidePageTitle(guide.seoTitle ?? guide.title);
+      const documentTitle = guideTitleTag(guide);
       expect(documentTitle.endsWith(' | Nomad Spin'), guide.slug).toBe(true);
       expect(documentTitle.endsWith(' | Nomad Spin Guides'), guide.slug).toBe(false);
       expect(documentTitle.includes('\u2013'), `${guide.slug} title contains an en dash`).toBe(false);
