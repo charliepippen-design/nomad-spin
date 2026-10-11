@@ -12,7 +12,7 @@ export const contentGuides: Guide[] = [
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "16 min read",
-    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","tallinn"],
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","tallinn"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
 Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic, and zero shared framework for weighing any of it.
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Lisbon](/guides/living-in-lisbon), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,7 +47,7 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1 to 10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia and Barcelona list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -951,7 +951,7 @@ The row tags it **beach**, **party**, and **foodie**. Landscape is **seaside**. 
 
 - Cannot clear **$2,000** even on a monthly lease with local food. The **$130** nightly median will not save you. [Budapest](/destinations/budapest) is **$1,500** solo. [Valencia](/destinations/valencia) is **$1,900**
 - Want the beach without the metropolis bill. Valencia is the Spanish beach row at **$600** less per month, with coworking **Med** instead of **High**
-- Want the same country and a capital routine without the sea. [Madrid](/destinations/madrid) is **$2,200** solo, coworking **High**, nightlife **9**, \`lgbtFriendly\` **9**, and no beach
+- Want the same country and a capital routine without the sea. [Madrid](/destinations/madrid) is **$2,200** solo, coworking **High**, nightlife **9**, \`lgbtFriendly\` **9**, and no beach. Neighborhoods and the Jul-Aug rule are in [Living in Madrid](/guides/living-in-madrid)
 - Want a coastal European workhub with a higher safety score. [Lisbon](/destinations/lisbon) is **$2,200** solo and safety **8.8**. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the two coasts as the same product
 - Hate crowds, pocket checks, or bureaucracy. Those are listed cons, not a vibe you can ignore
 
@@ -1215,7 +1215,7 @@ The Spain rows share the telework path in the visa note: 1-year consular visa, i
 
 **Look at Valencia** when you want a Spanish beach for **$600** less a month (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Flooding risk is on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,500** is no." The October rain flag and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
 
-**Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Open [Madrid](/destinations/madrid) if the sand was optional.
+**Look at Madrid** when you want Spain without the beach and without the full premium. **$2,200** solo is **$300** less. Longer stay **$1,650**, Airbnb **$100**. Coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** tie Barcelona. English on the Madrid row is **5**, against Barcelona's **7**. Very hot summers are the con. Neighborhoods and the Jul-Aug rule are in [Living in Madrid](/guides/living-in-madrid). Open [Madrid](/destinations/madrid) if the sand was optional.
 
 **Look at Lisbon** when you want another coastal workhub and a higher safety score. **$2,200** solo, **$1,800** longer stay, **$120** a night, **200 Mbps**, safety **8.8**, community **9**. The [Lisbon living guide](/guides/living-in-lisbon) treats the beach as a train, not a sand path. You save **$300** on the solo field and you give up the **300 Mbps** and the swim downstairs. That is the honest trade.
 
@@ -1274,7 +1274,7 @@ Nomad Spin scores **780+ cities**. Barcelona should win only when your floors ar
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$2,500**, or a plan to live inside **$2,000**. If your ceiling is under **$2,000**, Barcelona is already out, and the spin should be allowed to say so. The cheaper peers in this set are [Budapest](/destinations/budapest) at **$1,500** and [Valencia](/destinations/valencia) at **$1,900**.
 2. Set an internet floor the **300 Mbps** and reliability **9** can clear, and a safety floor **7.5** can clear. Then look at who else survives. Often that is [Madrid](/destinations/madrid) or [Lisbon](/destinations/lisbon) at **$2,200**, not a cheaper version of Barceloneta.
 3. Open [Barcelona](/destinations/barcelona) and read \`bestMonths\`, \`rainyMonths\`, and the tourist-crowds con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
-4. If Lisbon is still in the pile, open [Living in Lisbon](/guides/living-in-lisbon) and compare **$2,200** and safety **8.8** against **$2,500** and **7.5**, not the word "coast." If the beach has to be cheaper, open [Valencia](/destinations/valencia). If the beach is optional, open [Madrid](/destinations/madrid).
+4. If Lisbon is still in the pile, open [Living in Lisbon](/guides/living-in-lisbon) and compare **$2,200** and safety **8.8** against **$2,500** and **7.5**, not the word "coast." If the beach has to be cheaper, open [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia). If the beach is optional, open [Madrid](/destinations/madrid) and [Living in Madrid](/guides/living-in-madrid).
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
 [Spin the globe](/) with those floors. Barcelona should win when you want the beach and the city, the calls matter, and the month is a shoulder season you can afford. It should lose when you are under the budget, you will not do the paperwork, or you wanted the photos without the rent.
@@ -2715,7 +2715,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
     excerpt: "Da Nang for remote workers in 2026: real monthly costs, An Thuong vs Hai Chau, e-visa notes, coworking, 80 Mbps internet, and typhoon-season trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "33 min read",
+    readTime: "34 min read",
     relatedDestinations: ["da-nang"],
     content: `## Is living in Da Nang worth it for digital nomads in 2026?
 
@@ -2997,7 +2997,7 @@ The **family** tag matches the safety score, the beach, and a city you can cross
 
 Private clinics in the central and beach districts handle the usual nomad problems. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
 
-[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) covers District 1 versus Thao Dien, and why its Dec-Apr dry season does not match this Feb-Jul beach window. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
+[Hoi An](/destinations/hoi-an) is the close day trip and the quieter alternative: charming, smaller, safety **9.0** on its row, and not a work city (coworking **Low**, community **3**, flooding in the cons). The [Hoi An living guide](/guides/living-in-hoi-an) covers Old Town versus An Bang, and why that row is a 1-3 month base rather than a second Da Nang. [Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if Da Nang feels too small. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) covers District 1 versus Thao Dien, and why its Dec-Apr dry season does not match this Feb-Jul beach window. [Hanoi](/destinations/hanoi) is the food-and-density version, solo **$1,050**, not a beach.
 
 ## Da Nang vs Chiang Mai, Bali, Hoi An, and Ho Chi Minh City
 
@@ -3017,7 +3017,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days**. Best months **Apr-Sep** overlap Da Nang's, so Bali is a rival for the same season, not a complement. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Da Nang with more cafes." It is a different bill, a different connection, and **UTC+8**.
 
-**Pick Hoi An** when you want the same coast, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. It is a beautiful week and a thin work month. Flooding is in the cons. It is not the upgrade for someone who found Da Nang too quiet.
+**Pick Hoi An** when you want the same coast, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. It is a beautiful week and a thin work month. Flooding is in the cons. It is not the upgrade for someone who found Da Nang too quiet. Read [Living in Hoi An](/guides/living-in-hoi-an) for the neighborhoods and the flood calendar. Pair the two cities. Do not paste this city's beach grid onto that one.
 
 **Pick Ho Chi Minh City** when you want the same **E-Visa, 90 days** and **UTC+7**, with more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** line up with Chiang Mai and Bangkok, not with this Feb-Jul window. Neighborhoods and the e-visa are in [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city).
 
@@ -3402,7 +3402,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Da Nang** when you want the cheaper beach (**$700**), safety **8.5**, and you can take **Feb-Jul**. You accept community **5**, nightlife **3**, coworking **Med**, and a real **Sep-Dec** typhoon season. Same **E-Visa, 90 days** and the same **UTC+7** clock. The [Da Nang living guide](/guides/living-in-da-nang) is the longer version, including An Thuong versus Hai Chau. A Vietnam year can be this city in Dec-Apr, then Da Nang through July.
 
-**Pick Hoi An** when you want the same coast as Da Nang, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. Flooding is in the cons. It is not the work upgrade for someone who found Ho Chi Minh City too intense. There is no Hoi An living guide on this site yet. Use [the destination page](/destinations/hoi-an).
+**Pick Hoi An** when you want the same coast as Da Nang, a higher safety score (**9.0**), and a smaller life. The solo month is **$900**, best months **Feb-May**, rainy **Sep-Nov**, coworking **Low**. Flooding is in the cons. It is not the work upgrade for someone who found Ho Chi Minh City too intense. Read [Living in Hoi An](/guides/living-in-hoi-an) for Old Town versus An Bang. Do not paste this city's districts onto that town.
 
 **Pick Bangkok** when you want a larger metropolis: **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**. The overlap with Dec-Apr is real, which is why the two cities compete for the same winter, not for opposite seasons. The visa field is the **30-day** tourism exemption. A longer stay is a separate Destination Thailand Visa file. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
 
@@ -3471,6 +3471,379 @@ Still no partner IDs. These slots are last, after the week above, not before the
 [Spin the globe](/) with those floors. Ho Chi Minh City should win when the floors are real, the month is Dec-Apr, and you want an energetic Vietnam city on **UTC+7**. It should lose when you need a beach, clean air, or a September arrival you cannot leave.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $800, $600, $30, 85 Mbps, 7/10, power 7, and safety 7.5 figures are Nomad Spin's Ho Chi Minh City row. The 90-day e-visa maximum, the single- and multiple-entry fees, and the "outside Vietnam" rule are the Immigration Department text cited above. When they disagree, the portal and your stamp win.*
+`,
+  },
+  {
+    id: "living-in-hoi-an",
+    slug: "living-in-hoi-an",
+    title: "The Ultimate Guide to Living in Hoi An",
+    seoTitle: "Living in Hoi An 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, E-Visa notes, 80 Mbps internet, and flooding and size trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "37 min read",
+    relatedDestinations: ["hoi-an"],
+    content: `## Is living in Hoi An worth it for digital nomads in 2026?
+
+A straight answer on living in Hoi An as a digital nomad: yes for one to three months in Feb-May if you want a small, safe, slow coast town and you can work without a big coworking scene. It is a no if you need High coworking, a year on one stamp, or a flood-proof autumn. The short answers come from the [Hoi An](/destinations/hoi-an) row, not from a lantern photo. Beautiful, and thin infrastructure. That is the decision.
+
+- **Cost:** about **$900** a month solo. The longer stay is about **$675** (an estimate). A short Airbnb sits near **$41** a night (an estimate), which is a different budget.
+- **Internet:** sometimes, with caveats. The average is **80 Mbps**. Reliability **7/10** and power stability **7/10** are estimates. Coworking density is **Low**.
+- **Stay length:** the row says **E-Visa**, up to **90 days**, time zone **UTC+7**. Vietnam does not publish a dedicated digital nomad visa. The same label is on every Vietnam row. Verify it before you treat 90 days as permission.
+- **Skip it** if you need a dense scene or a dry October. The page's trade-offs are small, limited infrastructure, and flooding. Community size is **3**. Nightlife is **3**.
+- **Best months:** **Feb, Mar, Apr, May**. Rainy months are **Sep, Oct, Nov**. Average temperature on the row is **26°C**, a yearly figure, not a forecast.
+
+The same page tags the city **foodie**, **beach**, and **adventure**, on a **seaside** landscape, in **Asia**, language **Vietnamese**. Safety is **9** (female safety **8**). Pros are a charming old town, cheap, and tailoring.
+
+Worth it as a short base beside [Da Nang](/destinations/da-nang), not as a substitute for it. Da Nang is cheaper (**$700** solo), coworking is **Med** there, and its good-weather window runs **Feb-Jul**. Hoi An's window stops in May, and Sep-Nov is when the old town can flood. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still treats Southeast Asia as a region, not a single lantern street, is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025).
+
+### Straight answers
+
+**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists about $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
+
+**Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average. Reliability 7/10 and power 7/10 are estimates. Coworking density is Low. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
+
+**What visa do digital nomads use in Hoi An?** Nomad Spin lists an E-Visa for up to 90 days (UTC+7). Vietnam has no dedicated digital nomad visa. The same E-Visa label is on the Da Nang and Ho Chi Minh City rows. Fees and entry types change; verify on Vietnam's official immigration portal before booking.
+
+**Who should skip living in Hoi An?** Skip it if you need High coworking, big-city energy, or flood-proof months. Nomad Spin flags small size, limited infrastructure, and flooding as trade-offs. If you need dense networking or Sep-Nov outdoors work, base in Da Nang or HCMC instead.
+
+**What are the best months to live in Hoi An?** Nomad Spin's friendliest months are Feb, Mar, Apr, and May. Rainy months to plan around are Sep, Oct, and Nov, when flooding can hit Old Town and riverside areas. Average temperature in the dataset is 26°C. Arrive in February if you can.
+
+**Can you work remotely from Hoi An full-time?** Yes for async work. It is risky for call-heavy roles, because coworking density is Low. Many people use Da Nang, often about 30 to 45 minutes up the coast, as the overflow desk. Time that ride yourself. It is not a dataset field.
+
+## Who Hoi An is for (and who should skip it)
+
+Hoi An fits people who want the old town and a beach in the same week, a bill that can land near **$900**, and a town that is quiet on a Tuesday. It is a poor fit if the social scene is the product, if every day is a client call, or if Sep-Nov is the only window you have.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$900**) or will actually live inside the longer-stay estimate (**$675**)
+- Do mostly async work, and you will test the room. **80 Mbps** can hold ordinary calls. Reliability **7/10** is an estimate. They are not a booth on every corner, because coworking is **Low**
+- Want safety **9** and female safety **8**, and you do not need nightlife above **3**
+- Can put the serious months in **Feb-May**, or you have a real plan for **Sep-Nov**
+- Like a small seaside town: food, a bicycle, tailoring, and an early evening
+- Can work **UTC+7**. Vietnam does not shift clocks. US East Coast mornings are Hoi An evenings. The clock matches [Da Nang](/destinations/da-nang), [Chiang Mai](/destinations/chiang-mai), [Bangkok](/destinations/bangkok), and [Ho Chi Minh City](/destinations/ho-chi-minh-city)
+
+**Skip it, or pick another city, if you:**
+
+- Cannot clear the **$675** longer-stay estimate even on a monthly lease with local food. The **$41** nightly estimate will not save you
+- Need coworking **High** and a cafe full of other nomads by default. That is [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**, coworking **High**) or [Living in Bali](/guides/living-in-bali), not this row (community **3**, coworking **Low**)
+- Need a bigger Vietnamese work city. [Ho Chi Minh City](/destinations/ho-chi-minh-city) is **$800** solo, coworking **High**, community **7**. [Living in Da Nang](/guides/living-in-da-nang) is the beach city next door: **$700**, coworking **Med**, a longer Feb-Jul window
+- Need English for the lease, the clinic, and the landlord. English proficiency is **4**. Menus in the old town cope. Contracts often do not
+- Cannot leave or work above the river from **Sep** through **Nov**. Flooding is a listed con. It is the reason to pick another base for those months, including [Cape Town](/guides/living-in-cape-town) if you want a different beach and you have read that city's safety and power scores
+- Need a year of legal stay with no new application. The field is **90 days**, and there is no nomad visa to stretch it
+
+\`lgbtFriendly\` on this row is **3**. That is weaker than Da Nang (**4**), Chiang Mai (**6**), or Bangkok (**7**). Read it before you treat safety **9** as a claim about every part of daily life. Female safety **8** is strong in this dataset. It is not a promise about an empty beach road at 1am.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another lantern list.
+
+## Real monthly cost bands (solo $900, long-term $675 estimate, short Airbnb $41 estimate)
+
+Nomad Spin does not publish a fake "comfortable" total for Hoi An. It publishes three money fields. Those are the bands.
+
+| Band | Figure | Field on the Hoi An row | How to read it |
+|---|---:|---|---|
+| Longer stay | $675 / month, estimate | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport. The row fills this from a formula |
+| Solo nomad baseline | $900 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $41 / night, estimate | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget. The row fills this from a formula |
+
+\`rentIndex\` is **18** (Da Nang **10**, Ho Chi Minh City **14**, Chiang Mai **15**, Bangkok **22**, Bali **25**). That is relative rent pressure inside the dataset, not a dollar rent. Hoi An is cheap next to Bali. It is not the cheapest beach on this coast. Da Nang's solo month is **$700**, and "cheap" on the Hoi An page still has to survive old-town tourist pricing. Do not add a lantern discount.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the **$41** nightly estimate is **$1,230** in lodging before food. That is already **$330** above the entire **$900** solo month, and it is **$555** above the **$675** longer-stay estimate. If you "try the town" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the cao lau is. The $675 estimate and the $900 figure assume a monthly place.
+
+A 2-4 week landing stay near An Bang or the old-town edges is a scout. It is not the month. Use it to see leases. Do not call it the **$675** estimate.
+
+### What moves you off the band
+
+No extra dollar totals here. The dataset does not publish a rent for each ward. These are the levers, in the order they actually matter.
+
+| Choice | Stays near the $675 estimate to $900 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly lease in Cam Nam, a local ward, or a simple An Bang place you have priced against the row | Thirty nights at the $41 estimate, or an old-town heritage room as the default home |
+| Food | Com, cao lau, markets, and the dishes priced for residents | Old Town set menus, imported groceries, and "just one more" tourist dinner as the meal plan |
+| Work | Home fiber you have tested, plus the one coworking desk on call days | A cafe day-pass habit on top of a lantern-street room you already overpaid for |
+| Transport | A bicycle inside one area, plus Grab when you cross to Da Nang | A motorbike you are not licensed to ride, or a car transfer every evening as a personality |
+| Calendar | **Feb-May**, one neighborhood | **Sep-Nov** in a ground-floor room on the river, then acting surprised by a flood week |
+
+### Reality checks
+
+- The **$900** number is a town baseline, not an ancient-house quote on the pedestrian streets.
+- Tailoring is a listed pro. A wardrobe is not inside the three money fields. Budget it separately if that is why you came.
+- A cheaper room on a bar alley in the old town is not cheaper if you cannot sleep or take a call. Nightlife is thin townwide. It is not thin on every lantern street at 9pm.
+- Insurance is not inside those three fields. Budget it separately. Price a policy before you need the clinic.
+
+## Neighborhoods that work: Old Town edges, An Bang beach, Cam Nam / countryside (trade-offs)
+
+Hoi An is small, and the wrong pin still wastes the month. The ancient core floods and prices like a museum. The beach is a different product. The local side of the river is a third. There are no separate Nomad Spin destination pages for these areas. Do not use a Da Nang outskirts URL as a stand-in, and do not paste Da Nang neighborhood advice onto this town. The canonical numbers live on [Hoi An](/destinations/hoi-an). The trade-offs below are how people actually use Hoi An.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Old Town edges | Walking the ancient streets, food, tailoring, week one without a vehicle | The $675 estimate, quiet nights, and a dry ground floor in Sep-Nov |
+| An Bang beach | Sand, a slower week, a bit of height off the river | Stepping outside into the lantern streets. The scene will not come to you |
+| Cam Nam / countryside | A local monthly lease, quieter nights, food priced for residents | A flat walk to the beach and to the old town |
+
+### Old Town edges
+
+The pedestrian core (the lantern streets, the Japanese bridge, the market) is a place to walk, not a default bedroom. The edges are the blocks just outside that core, where you can still reach dinner on foot and you are not sleeping above a souvenir shop. Week one feels obvious here. Tailors, cafes, and the river are the map.
+
+**Trade-off:** obvious costs more, and it floods first. Tourist pricing is how the **$900** month leaks. Some alleys stay lively late even though the town's nightlife score is **3**. Ask which way the bedroom faces, and walk the block after 9pm before you pay. In **Sep-Nov**, ask which street took water the last time the river rose. A ground-floor room on Bach Dang or Nguyen Thai Hoc is a different risk from a higher floor two blocks back.
+
+Pick the edges for a 2-4 week landing stay while you tour monthly leases. Skip a room inside the pedestrian core as the default home if you came for the **$675** estimate or for sleep.
+
+**Housing tell:** confirm fiber in the unit, not "the building has internet." A speed test in the room beats a listing adjective. Ground floors on the river are the ones that flood first.
+
+### An Bang beach
+
+An Bang is the beach east of the old town: a sandy strip, seafood, a slower pace, and the place a lot of longer stays actually sleep. You can ride a bicycle to the ancient streets. You should time that ride once before you decide it is "basically next door" at the hour you would do it with a laptop.
+
+**Trade-off:** you are not in the postcard. Community on the row is **3**, and An Bang will not invent a Chiang Mai scene to fix that. Western menus show up here too, which is another way off the **$900** band. The useful difference in flood season is elevation and distance from the Hoai River. When the old town is under water, the beach is the usual place people move toward. It is not a guarantee. A storm week can still close the coast. Read the flood section before you book October on the sand because February's photos were good.
+
+Pick An Bang when the beach is the day and the old town is a plan. Skip it as a blind booking if you wanted to walk out into lanterns every evening and you will resent the ride.
+
+### Cam Nam / countryside
+
+Cam Nam sits across the river from the ancient streets: more residential, more of the actual town, often kinder to a monthly lease than a heritage room. Further out, the countryside and rice-field lanes (this is also where the one dedicated coworking campus sits) trade walkability for quiet and a local food price.
+
+**Trade-off:** you have to know which pin you booked. "Near Hoi An" on a listing can mean a lane that is lovely on a bicycle and a bad idea in a flood week, or a ward that is simply a normal Vietnamese neighborhood. Ask for the street. Ride to the beach and to your desk once at the hour you would do it. A Cam Nam lease plus two paid crossings a day can erase the rent you thought you saved.
+
+Best for people who will cook or eat locally, and who already know they do not need the lantern streets as a view. A weaker fit for someone who wants the first night to feel like a nomad arrival.
+
+### Booking placeholders
+
+No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance buttons are on the [Hoi An destination page](/destinations/hoi-an). Use those buttons. Do not hunt for a second set of partner links here.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2-4 week landing stay near An Bang or the Old Town edges while you tour monthly leases, with a cancellation rule |
+| Flights | Flights into Da Nang (DAD) for the Feb-May window, then a transfer to Hoi An, only after the month survives the season section |
+| Insurance | Travel and health cover for a 90-day Vietnam stay, including flood-season disruption |
+
+## Internet, power, and coworking for video-call work (80 Mbps, reliability 7 estimate, power 7 estimate, Low coworking)
+
+The town average is **80 Mbps**. Reliability **7/10** and power stability **7/10** are estimates. Coworking density is **Low**. That is a maybe for ordinary video calls, and a poor default for a call-heavy job. It matches Da Nang's **80 Mbps** and **7/10** scores, and it loses the comparison on desks: Da Nang's coworking density is **Med**, and the [Da Nang living guide](/guides/living-in-da-nang) has more than one named room. Chiang Mai, in the [Chiang Mai living guide](/guides/living-in-chiang-mai), is working with **95 Mbps**, reliability **8**, and coworking **High**. Bali's dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. The Hoi An power estimate of **7** means you do not import a Cape Town load-shedding plan. [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Storm weeks in **Sep-Nov** can still drop a Hoi An call. Keep a charged laptop and a second connection.
+
+The reliability **7/10** is an estimate and an average. A fibered flat in Cam Nam and a guesthouse Wi-Fi network over a lantern street are not the same product. Test the room at the hour you take calls.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Viettel, VNPT, and FPT are the ordinary apartment providers in Vietnam. Ask which one is already in the unit, and run a speed test from the desk. "Wi-Fi included" in a short let is not that test. A serviced stay often bundles a line. A local monthly lease often does not. Confirm which one you signed.
+2. **A local SIM with real data.** Viettel, MobiFone, and VinaPhone sell prepaid SIMs in town and at Da Nang airport, and eSIM is widely offered. If a call would hurt you to drop, keep the second line. Learn the hotspot before the storm day you need it. Check the shop price the day you buy.
+3. **One coworking room you have already used for a call.** Not a beach cafe you liked for the view. Coworking density **Low** means the list is short. Treat that as the fact, not as a challenge to find a hidden district of desks.
+
+### Coworking that is actually listed
+
+**Hub Hoi An** is the dedicated room whose own site still publishes a Hoi An campus, at Hem 98 Le Thanh Tong, between the old town and the beach, in the rice fields. The operator describes a silent indoor room, a calls-allowed room, outdoor areas, and phone booths. New visitors are published as Monday to Saturday, 9am to 5pm. Existing members are published as 24/7. The same site says walk-ins are not the plan: book ahead. Day passes and monthly memberships are theirs to price. Check the operator's page the week you go.
+
+That is the desk. A laptop-friendly cafe at An Bang, including rooms that market themselves as coworking, can cover a quiet afternoon. It is not a second campus, and it is not a booth with a door. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office.
+
+If Hub is full, closed for the week you need, or too far from the pin you booked, the overflow is Da Nang, not a blog list of spaces that have since shut. The [Da Nang living guide](/guides/living-in-da-nang) names the rooms that still publish Da Nang addresses. Use those for the call you cannot drop. Do not pretend an An Thuong desk is a Hoi An neighborhood.
+
+Treat any famous name that is not on the operator's current page as closed or moved. A trial morning beats a 2022 roundup. Low density is the trade-off on the city page. One good room does not turn it into Med.
+
+### Cafes
+
+The old town and An Bang will let you open a laptop in a lot of rooms. That is not the same as a 45-minute call. A tiled room with a blender, a tour group, and no door will lose to a booked booth every time. The beach at sunset is a walk, not an office.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which floor, and how close the street sits to the river, if you might still be there in **Sep-Nov**
+- A named fallback (Hub Hoi An, a Da Nang desk, or a second SIM) written down before you need it
+
+## Visas and stay length: E-Visa up to 90 days, no dedicated nomad visa (verify official rules)
+
+This is operational orientation, not legal advice. Vietnamese immigration rules move. The number on our city page is not the law. When this page and the official portal disagree, believe the portal and the stamp in your passport.
+
+### What Nomad Spin currently shows
+
+The Hoi An row says **E-Visa**, **90 days**, **UTC+7**. Da Nang, Ho Chi Minh City, Hanoi, and every other Vietnam row use the same **E-Visa**, **90 days** pair. One national rule, one label. Use the Hoi An field on [the city page](/destinations/hoi-an): an e-visa measured in days, up to 90, not a residence card.
+
+### What the Immigration Department publishes
+
+Vietnam's Immigration Department describes the e-visa on its portal. The current application domains it has announced are [evisa.gov.vn](https://evisa.gov.vn/) and thithucdientu.gov.vn. The Department's own description, on the [national immigration portal](https://immigration.gov.vn/trang-chu-ttdt), says an e-visa is valid for a **maximum of 90 days**, **single or multiple entry**. It is for foreigners who are **outside Vietnam**, hold a valid passport, and are not barred from entry. The fee is paid online and is **not refunded** if the application is refused.
+
+The fee schedule is a Ministry of Finance instrument, not a blog. Circular No. 28/2026/TT-BTC (27 March 2026, effective 1 April 2026) sets **25 USD** for a single-entry visa and **50 USD** for a multiple-entry visa valid for up to 90 days. The English text is on the government legal page [asemconnectvietnam.gov.vn](https://asemconnectvietnam.gov.vn/Law.aspx?ID1=2&MaVB_id=3127&ZID1=10). The Department's application instructions, the same ones cited in the [Da Nang living guide](/guides/living-in-da-nang), also publish **$25** single-entry, **$50** multiple-entry, and processing in **3 working days**. Those figures are the official instructions and the circular, not a Nomad Spin price. They can change. Read the live portal and the circular the week you pay. Do not copy a service fee from an agent and call it the government charge. Longer multiple-entry prices in that circular (beyond 90 days) are other visa products. They are not a way to stretch the e-visa past the 90-day maximum the portal states.
+
+Print the approval before you fly. A screenshot on a dead phone is a bad arrival plan. Most people flying to this coast use Da Nang Airport (DAD). Da Nang Airport has appeared on Ministry of Foreign Affairs lists of air gates that accept e-visa entry. Confirm the live port list on the portal before you book a ticket into DAD, because gates are a government list, not a travel blog. Then transfer to Hoi An. Time the transfer yourself.
+
+### There is no digital nomad visa
+
+As of this October 2026 update, the Immigration Department does not publish a dedicated digital nomad visa. The product on the official portal is the e-visa. A sponsored visa, for people invited or guaranteed under the law on entry, exit, transit, and residence, is a different procedure with a different sponsor. It is not a nomad visa you can buy because you work online. If a site sells you a branded nomad visa for Hoi An, check the portal before you pay.
+
+Some passports have a separate visa-exemption route. It is often shorter than 90 days, and it is not the field on our city page. The list of nationalities and the length move. Check the current government notice for your passport. Do not skip the e-visa because a 2023 article said your country was exempt.
+
+### Staying longer than the stamp
+
+The same immigration portal says e-visa holders already in Vietnam **may be considered** for a new visa if an authority, organization, or individual invites or guarantees them, under the foreigners' residence law. That is not a promise, and it is not a form you file because the old town was nice. The ordinary published path for another e-visa is to apply again from **outside** Vietnam.
+
+A border run is a trip out of the country plus a new application. It is not a same-day stamp trick, and it is not guaranteed. Agents who say they can "extend the e-visa" without you leaving, and without a real sponsor, are not the Immigration Department. Read the official note yourself: [immigration.gov.vn](https://immigration.gov.vn/trang-chu-ttdt).
+
+### Tax, at a high level only
+
+A stay that covers most of a year can raise tax-residence questions at home and in Vietnam. People often cite a 183-day threshold. Do not plan a year on that sentence. This guide is not tax advice. If Hoi An is going to be most of your year rather than a Feb-May season, pay for advice at home and, if needed, in Vietnam.
+
+### A simple decision frame
+
+- **The trip fits inside 90 days, and your passport can use the e-visa:** apply on the official portal, from outside Vietnam, and read the entry type (single or multiple) before you pay.
+- **Your passport has a current exemption:** use that only after you have read the official notice, and do not assume it lasts 90 days.
+- **You need longer than the e-visa maximum:** a sponsored route under the residence law, or a new e-visa applied for from outside. Not a nomad-visa product, because that product is not on the portal. A different country with a **365-day** visa-free field is [Living in Tbilisi](/guides/living-in-tbilisi), solo **$800**, **UTC+4**. That is a different base, not a Vietnam extension.
+- **"I will just stay and sort it out":** not a plan.
+
+## Best months (Feb-May) vs rainy / flood months (Sep-Nov)
+
+The weather fields are short, and they are enough to avoid the expensive mistake. Hoi An's season is shorter than Da Nang's. That shorter window is part of why this town is a 1-3 month base.
+
+| Window | What the Hoi An row says | Practical read |
+|---|---|---|
+| Feb, Mar, Apr, May | \`bestMonths\` | The work season. Arrive in February if you can |
+| Sep, Oct, Nov | \`rainyMonths\` | Rain, and the flooding con. Old Town and the river first |
+| Jun, Jul, Aug, Dec, Jan | On neither list | Shoulders. Not a promise, and not a reason to ignore October |
+| Year-round | \`tempAvgC\` **26** | A coarse yearly average. It does not mean November is a beach month |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. [Da Nang](/destinations/da-nang) is best **Feb, Mar, Apr, May, Jun, Jul**, with rainy months **Sep, Oct, Nov, Dec**. You can start in Hoi An for Feb-May and keep the same coast into early summer by moving to Da Nang, which is the pairing the two rows support. [Chiang Mai](/destinations/chiang-mai) is best **Nov, Dec, Jan, Feb**. A year that puts Hoi An in Feb-May and Chiang Mai in its cool months is a real calendar. A year that stacks Hoi An's flood months on top of a non-refundable old-town lease is not.
+
+### What Sep-Nov actually does to a work month
+
+Flooding is a listed con. It is not a mood. Hoi An's old town sits on the Hoai River. In late October 2025, [VietnamNet](https://vietnamnet.vn/en/hoi-an-ancient-town-submerged-as-river-floods-rise-swiftly-2456835.html) reported the river spilling into the ancient quarter. By midday on 27 October, Bach Dang, Nguyen Thai Hoc, Cong Nu Ngoc Hoa, Nguyen Hoang, Nguyen Phuc Chu, and La Hoi were under floodwater. The ward committee's 4am reading that day was 1.78 meters. That is one reported event, not a forecast that every October matches it. It is enough to show which streets fail first: the river, the market, the low lanes, the ground floors.
+
+The same report labels the place "Hoi An (Da Nang City)." Some official notices will do that. It does not merge the two Nomad Spin rows. Da Nang's cons are typhoon season, limited nightlife, and a smaller city. Hoi An's are small, limited infrastructure, and flooding. Book the city you mean. Do not open a Da Nang outskirts page and call it a Hoi An plan.
+
+Practical responses that work: a higher floor, a street you have asked about, fiber you tested, a desk that stays open, a second SIM, and a ticket you can move. An Bang is the usual move when the old town floods, because it is the beach rather than the river. Da Nang is the overflow if you still need a call that week. The response that does not work is a non-refundable ground-floor room on Bach Dang for October because February's photos were good.
+
+This is not a reason to sensationalize the coast. People live here, and many flood weeks are shorter than the photos suggest. It is a reason to read \`rainyMonths\` before you wire rent. The pros (charming old town, tailoring) describe Feb-May more honestly than they describe a flooded market street in October.
+
+### Booking placeholders
+
+Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows. The live buttons stay on the [destination page](/destinations/hoi-an).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Feb-May, or a Sep-Nov stay you chose on purpose, with a cancellation rule that survives a flood week |
+| Flights | Into DAD for the Feb-May window, then a transfer to Hoi An, and out before September if you are not staying for the rain |
+| Insurance | Travel and health cover for a 90-day Vietnam stay, including flood-season disruption |
+
+## Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang
+
+### Food
+
+"Cheap" survives contact with Vietnamese food and dies in old-town tourist menus. Cao lau, com ga, mi quang, markets, and ordinary seafood are how you eat inside the **$675** longer-stay estimate to **$900**. The lantern streets are how you eat like the month is a holiday. You can tell which life you are living by where lunch happens. Cam Nam and the local wards make the local version easier. The pedestrian core makes the leak easier.
+
+The **foodie** tag is real. It is also how a careful month becomes an expensive one. Water: drink filtered or bottled. That is normal here.
+
+### Tailoring
+
+Tailoring is a listed pro, and it is one of the few things this town does that Da Nang does not lead with. A shirt or a suit can be a good reason to stay an extra week in Feb-May. It is not a reason the internet gets better, and it is not inside the **$900** figure. Pay the shop. Ask the tailor which house and which price.
+
+### Getting around
+
+A bicycle covers the old town, the ride to An Bang if you have timed it, and most of a quiet week. That is the default, and it matches a town whose nightlife score is **3**.
+
+Grab, car or motorbike with a licensed driver, is the tool for the airport, for a night you are carrying a laptop, and for the day you go to Da Nang. Da Nang International (DAD) is the airport people actually use. Use Grab or the official taxi desk the airport currently publishes. Skip the unsolicited offer at the curb. The coast road is short enough that Da Nang works as a day trip and as an overflow desk. A common planning figure is about 30 to 45 minutes. Time it yourself. Rain and a flooded approach change it, and the Hoi An row does not publish a travel time.
+
+Riding yourself is a different legal question. Circular No. 29/2015/TT-BGTVT is the Ministry of Transport rule on international driving permits: a person using a permit issued by a state that is party to the 1968 Vienna Convention has to carry that permit **and** the national licence for the category of vehicle, and follow Vietnam's road law. A rental shop that hands over keys without looking is not that rule. If your licence does not cover a motorbike, or your country does not issue a 1968-convention permit Vietnam recognizes, do not ride. Unlicensed riding is a common mistake here, not a strategy, and it is how insurance arguments go badly after a crash. Do not ride without a permit Vietnam recognizes.
+
+### Vietnamese
+
+English proficiency on the row is **4**. Menus in the old town and at An Bang cope. Leases, clinics, immigration questions, and a lot of landlords do not. A little Vietnamese, or a patient friend, matters more for a monthly contract than for ordering lunch. The charming-old-town pro does not translate the paperwork for you.
+
+### Day trips, and the Da Nang overflow
+
+Use Da Nang when Hoi An is too small for the week: a call you cannot drop, a clinic, a flight, a beach that is a city rather than a village. The numbers and the neighborhoods are in [Living in Da Nang](/guides/living-in-da-nang). Read that guide for An Thuong, My Khe, and Hai Chau. Do not import them into a Hoi An lease. The two rows share a coast, **80 Mbps**, and **UTC+7**. Hoi An's power **7** is an estimate. They do not share a coworking score, a solo price, or a flood calendar.
+
+[Hanoi](/destinations/hanoi) is the food-and-density trip if you want a north-Vietnam contrast: solo **$1,050**, not a beach, best months Oct, Nov, Dec, Mar, and Apr. There is no Hanoi living guide on this site yet. Use the destination page.
+
+[Ho Chi Minh City](/destinations/ho-chi-minh-city) is the big Vietnamese work city if the town feels too small for a whole season. Same **90-day** field, labeled **E-Visa** on that row. Neighborhoods and the e-visa are in [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city).
+
+Private clinics in Da Nang handle more of the serious nomad problems than a small town does. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance placeholder above.
+
+## Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali
+
+Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row. Vietnam rows here all use **E-Visa, 90 days**. Chiang Mai's field is the current passport-dependent tourism exemption, not an old 60-day stamp.
+
+| Field | Hoi An | Da Nang | Ho Chi Minh City | Chiang Mai | Bali |
+|---|---|---|---|---|---|
+| Solo month | $900 | $700 | $800 | $850 | $1,200 |
+| Internet | 80 Mbps | 80 Mbps | 85 Mbps | 95 Mbps | 50 Mbps |
+| Safety | 9 | 8.5 | 7.5 | 8.2 | 7.8 |
+| Visa field in Nomad Spin | E-Visa, 90 days | E-Visa, 90 days | E-Visa, 90 days | Tourism exemption, 30 days (passport-dependent) | Visa on Arrival, 30 days |
+| Best months | Feb-May | Feb-Jul | Dec-Apr | Nov-Feb | Apr-Sep |
+
+**Stay with Hoi An** when you want safety **9**, the old town, and a **$900** month you can actually live inside, for **1-3 months** in **Feb-May**. You accept coworking **Low**, community **3**, nightlife **3**, limited infrastructure, and a real **Sep-Nov** flood risk. Pair it with Da Nang when the desk or the calendar runs out. Do not pretend the two are one city.
+
+**Pick Da Nang** when you want the same coast for less (**$700**), coworking **Med**, and a longer good-weather window (**Feb-Jul**). Safety is **8.5**. Community is **5**, which is still small, and nightlife is **3**. Rainy months run through December, and typhoon season is on that row's cons. The [Da Nang living guide](/guides/living-in-da-nang) is the work-city version of this coast. Hoi An is the charm version. If you only have one Vietnam beach month and the job is calls, Da Nang is the more honest default.
+
+**Pick Ho Chi Minh City** when you want more city: community **7**, nightlife **7**, coworking **High**, **85 Mbps**, solo **$800**, safety **7.5**. The visa field is **E-Visa, 90 days**, **UTC+7**. You take intense traffic, air pollution, and noise, which are on that row's cons. Best months **Dec-Apr** overlap Chiang Mai and Bangkok more than they overlap Hoi An's Feb-May. It is the energetic Vietnam base. It is not a quieter Hoi An. Read [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) for District 1 versus Thao Dien.
+
+**Pick Chiang Mai** when you want community **9**, coworking **High**, **95 Mbps**, and you do not need a beach or an old-town river. The solo month is **$850**. Best months are **Nov-Feb**, which sits beside Hoi An's season rather than on top of it. The visa field is a **30-day** tourism exemption. It depends on your passport, and it is tourism only. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. Same clock: **UTC+7**.
+
+**Pick Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days**. Best months **Apr-Sep** overlap the end of Hoi An's window and then keep going, so Bali is a rival for late spring, not a flood-season rescue. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Hoi An with more cafes." It is a different bill, a different connection, and **UTC+8**.
+
+**Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**. The visa field is the same **30-day** tourism exemption (passport-dependent, tourism only). Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
+
+**Look at Tbilisi** when the constraint is stay length, not a lantern street. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast in this dataset: **Visa Free**, **365** days, solo **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.
+
+**Look outside Asia** when you want another beach and you have a different budget. [Living in Cape Town](/guides/living-in-cape-town) is the non-Asia beach contrast: solo **$1,400**, safety **5.5**, power stability **4**, best months **Oct-Mar**. Different ocean, different risk list.
+
+## First-week checklist + spin the globe / compare Hoi An on Nomad Spin
+
+### Common mistakes
+
+- Treating the **90-day** e-visa field as a nomad visa, or as a promise that an agent can extend it inside Vietnam
+- Paying the **$41** nightly estimate for thirty nights and calling the month **$900**
+- Sleeping in the pedestrian core, then acting surprised that the long-stay **$675** estimate did not survive contact with tourist menus
+- Using cafe Wi-Fi for the client call you cannot drop, in a town whose coworking score is **Low**
+- Booking **Sep-Nov** in a ground-floor river room because a best-month photo was nearby
+- Pasting Da Nang neighborhoods, or a Da Nang outskirts URL, onto a Hoi An month
+- Riding a motorbike with no licence Vietnam recognizes
+- Assuming "about 30 to 45 minutes to Da Nang" without timing the ride you will actually take
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- E-visa printed, and the last legal day written down from the approval and the entry stamp
+- One coworking trial at Hub Hoi An, including a real call, if the home line is still unknown
+- Walk the block at night before you decide you can sleep there
+
+**Days 3-4**
+
+- See more than one monthly place: one old-town edge, one An Bang or Cam Nam option
+- Run the speed test in the room at call hour, upload included
+- Ride the actual beach trip once at the hour you would do it
+- If the dates touch **Sep-Nov**, look at the floor, the river, and last year's water line before you sign
+
+**Days 5-7**
+
+- Commit to one neighborhood for two to four weeks, not to "Hoi An" in the abstract
+- Fix the work loop: home deep work, the one local desk on call days, Da Nang as the overflow, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above, not before the flight is emotional. Use the buttons on the [Hoi An destination page](/destinations/hoi-an) when you are ready to book. They are the site's stay, flight, and insurance modules.
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the flood question |
+| Flights | The onward or return date your e-visa actually supports, into or out of DAD, plus the transfer to Hoi An |
+| Insurance | Travel and health cover you have read, including a flood week |
+
+### How to compare Hoi An on Nomad Spin
+
+1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$900**, Hoi An's solo baseline is already a stretch, and the **$675** longer-stay estimate is the one you have to live inside.
+2. Set an internet floor the **80 Mbps** average can clear, and a safety floor its **9** can clear. Then look at who else survives. Often that is [Da Nang](/destinations/da-nang) if you can trade charm for a Med coworking score, or [Ho Chi Minh City](/destinations/ho-chi-minh-city) if you want a real city.
+3. Open [Hoi An](/destinations/hoi-an) and read \`bestMonths\`, \`rainyMonths\`, and the flooding con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If Da Nang is still in the pile, put its **Feb-Jul** next to these **Feb-May** months before you book both into October.
+4. If Chiang Mai or Bali is still in the pile, open [Living in Chiang Mai](/guides/living-in-chiang-mai) or [Living in Bali](/guides/living-in-bali) and compare community and coworking, not the photos. If you want a non-Asia beach, open [Living in Cape Town](/guides/living-in-cape-town) and compare safety **5.5** and power **4**.
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Hoi An should win when the floors are real, the month is Feb-May, and you want a small seaside town on **UTC+7** for a season, with Da Nang as the overflow. It should lose when you need a big scene, a call-heavy week with no backup desk, or a September arrival you cannot leave.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $900 solo month, 80 Mbps, and safety 9 are Nomad Spin's Hoi An row. The $675 long-term cost, the $41 nightly median, reliability 7, and power 7 are estimates on that row. The 90-day e-visa maximum, the single- and multiple-entry fees, and the "outside Vietnam" rule are the Immigration Department text and Circular No. 28/2026/TT-BTC cited above. When they disagree, the portal and your stamp win.*
 `,
   },
   {
@@ -3860,6 +4233,394 @@ Nomad Spin scores **780+ cities**. Lisbon should win only when your floors are h
 [Spin the globe](/) with those floors. Lisbon should win when you want a European workhub, the calls matter, and the month is a shoulder season you can afford. It should lose when you are under the budget, you will not do the paperwork, or you wanted a beach apartment and a starter-city bill.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $2,200, $1,800, $120, 200 Mbps, 9/10, and 8.8 figures are Nomad Spin's Lisbon row. The D8 and Schengen notes are orientation. When they disagree with the consulate or with AIMA, the official source wins.*
+`,
+  },
+  {
+    id: "living-in-madrid",
+    slug: "living-in-madrid",
+    title: "The Ultimate Guide to Living in Madrid",
+    seoTitle: "Living in Madrid 2026: The Digital Nomad's Definitive Guide",
+    excerpt: "Madrid for remote workers in 2026: real monthly costs, Malasana vs Lavapies, Spain nomad visa notes, 200 Mbps internet, and hot-summer trade-offs.",
+    date: "2026-10-07",
+    updated: "2026-10-07",
+    readTime: "33 min read",
+    relatedDestinations: ["madrid","barcelona","valencia","lisbon","budapest"],
+    content: `## Is living in Madrid worth it for digital nomads in 2026?
+
+The case for living in Madrid as a digital nomad is a work decision before it is a museum afternoon. Who Madrid is for: Barcelona's infrastructure without the beach or the premium. The short answers come from the [Madrid](/destinations/madrid) row, not from a terrace photo.
+
+**How much does it cost to live in Madrid as a digital nomad?** Nomad Spin lists about **$2,200** a month for a solo nomad. The long-term **$1,650** and the median Airbnb around **$100** a night are estimates on this row. Salamanca costs more than Lavapies or Arganzuela. Coworking, eating out often, and a central flat push you above the baseline.
+
+**Is Madrid internet good enough for video calls?** Yes. Nomad Spin shows about **200 Mbps** average. Reliability **9/10** and power **9/10** are estimates. Coworking density is High. Test upload speed in the actual unit before signing. Fiber is widespread. Do not trust vague Airbnb wifi claims.
+
+**What visa do digital nomads use in Madrid?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+
+**Who should skip living in Madrid?** Skip it if you need a beach, a tight budget, or mild summers. Nomad Spin flags expensive living and very hot summers as trade-offs. If Jul-Aug heat without air conditioning blocks your work, pick Valencia's coast or another base for those months.
+
+**What are the best months to live in Madrid?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**. Spring and early autumn are the sweet spot. Summers run very hot.
+
+Worth it, with conditions. You are paying a Western European capital for culture, a central location, and EU access, with coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9**. That trio ties [Barcelona](/destinations/barcelona). The solo month is **$300** less (**$2,200** against **$2,500**). What you give up is the beach. What you add is a summer rule: July and August are not best months, and "very hot summers" is a listed con. Safety is **8** (female safety **7**). English on the row is **5**. Community is **6**. The city is tagged **party**, **foodie**, and **workhub**. Landscape is **urban**. Region is **Europe**. Language is **Spanish**. Time zone on the row is **UTC+1**.
+
+If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Madrid is for (and who should skip it)
+
+Madrid fits people who want a capital-city work week, Spain's long-stay telework route, and the nightlife of a big city, without paying Barcelona's beach premium. It is a poor fit if the month has to include a swim, or if July heat in a flat without air conditioning is how you lose the quarter.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$2,200**) or will actually live inside the longer-stay estimate (**$1,650**)
+- Need calls to work. **200 Mbps** is the point of a work-first Spain base. Reliability **9/10** and power **9/10** are estimates
+- Want coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9**, the same three scores as Barcelona, at **$300** less a month
+- Can work in Spanish often enough. English proficiency on this row is **5**, against Barcelona's **7** and Lisbon's **8**
+- Can put the serious months in **Apr, May, Jun, Sep, or Oct**, and you already have a plan for July and August
+- Can work **UTC+1** (the row's field). Mainland Spain moves clocks forward in summer, so civil time is **UTC+2** from roughly late March to late October. UK calls stay about an hour off. US East Coast calls land in the Madrid afternoon and evening
+
+**Skip it, or pick another city, if you:**
+
+- Need a beach. This row has no beach tag. [Valencia](/destinations/valencia) is the Spanish coast at about **$1,900** solo, with coworking **Med**. Read [Living in Valencia](/guides/living-in-valencia) before you treat October as a best month there. [Barcelona](/destinations/barcelona) is the beach-and-city row at **$2,500**. Read [Living in Barcelona](/guides/living-in-barcelona) before you treat the two as the same product with a different pin
+- Cannot clear the **$1,650** longer-stay estimate even on a monthly lease with local food. The **$100** nightly estimate will not save you. [Budapest](/destinations/budapest) is **$1,500** solo with the same **200 Mbps**
+- Need mild summers. "Very hot summers" is a listed con, and it is the filter. The Jul-Aug rule is later in this guide
+- Need the nomad scene to be the size of Lisbon's. Community here is **6**. Lisbon is **9**. Read [Living in Lisbon](/guides/living-in-lisbon) if the campus is the product
+- Need English to cover the lease, the padrón desk, and the shop. A **5** means the work rooms vary. Ordinary life runs in Spanish
+
+Female safety on the row is **7**. That matches Barcelona, Valencia, and Budapest in this set. Lisbon is **8**. A **7** is not a promise about a specific street at 2am. Walk the block at night before you sign, in every barrio below.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another viewpoint list.
+
+## Monthly cost bands (solo $2,200, long-term $1,650 estimate, Airbnb $100 estimate) and the rental market
+
+Nomad Spin does not publish a fake "comfortable" total for Madrid. It publishes three money fields. Those are the bands. If **$2,200** does not fit, stop here and use the peer table later. Do not talk yourself into the city with a menu del dia.
+
+| Band | Figure | Field on the Madrid row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,650 / month (estimate) | \`financials.costLongTerm\` | An estimated local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $2,200 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $100 / night (estimate) | \`financials.airbnbMedian\` | An estimated nightly cost for a short test stay, not a monthly budget |
+
+\`rentIndex\` is **44** (Barcelona **60**, Lisbon **55**, Valencia **38**, Budapest **32**). That is relative rent pressure inside the dataset, not a dollar rent. Madrid sits under Barcelona and Lisbon, and above Valencia and Budapest. The "expensive" con is still the story of the month. You are not in a starter-city band. The dataset does not publish a barrio-by-barrio rent. Anyone who quotes you a street price as if it were this row is using a different source. Salamanca is the polished end of an already expensive city. Lavapies and Arganzuela are where people look when they want less of that polish. That is a direction, not a second price list.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the published **$100** nightly estimate is **$3,000** in lodging before food. That is already above the entire **$2,200** solo month. It is also far above the **$1,650** longer-stay estimate. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the lunch looks. The $1,650 estimate and the $2,200 figure assume a monthly place.
+
+### What moves you off the band
+
+No extra dollar totals here. These are the levers, in the order they actually matter.
+
+| Choice | Stays near the $1,650 estimate to $2,200 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly rental in Chamberi, Lavapies, Arganzuela, or a quieter Malasana side street | Thirty nights at the $100 estimate, or a Salamanca design flat as the default |
+| Food | Menu del dia, markets, and groceries on workdays | A tasting-menu week and "just one more" late dinner as the meal plan |
+| Work | Home fiber, plus coworking on call days | All-day cafe hopping around Plaza del Dos de Mayo, plus a desk you do not use |
+| Transport | Walking plus metro | A ride-hail across the center twice a day |
+| Calendar | **Apr-Jun** or **Sep-Oct**, one neighborhood | July or August in a centro flat with no air conditioning, then acting surprised |
+
+Annual average temperature on the row is **15°C**. That is a coarse yearly figure, not a forecast. It does not tell you August will be workable or December will be a terrace month.
+
+### The rental market, without invented street prices
+
+A long stay and a tourist let are different products. The **$1,650** longer-stay estimate assumes a monthly place you can actually sign, not thirty nights of a holiday apartment. See the flat before you send a deposit. A video tour plus a rush transfer is how people lose the month.
+
+Practical checks, in order:
+
+- Ask which sum is the legal housing deposit and which is an extra guarantee the landlord wants on top. Get both amounts in the contract
+- Ask whether the contract is a residential lease or a temporary stay, and what happens at the end of month one
+- Confirm who you are paying, and that the name matches the person who can let the flat
+- Ask whether air conditioning exists, and turn it on during the visit. A lot of older centro flats do not have it. The dataset cannot see the listing
+- Run the speed test in the bedroom, and stand in that room after 10pm if the street has bars
+
+The deposit amount is a contract question, and it moves. Ask for both figures in the lease.
+
+### Reality checks
+
+- The **$2,200** number is a city baseline, not a Salamanca lifestyle quote.
+- Imported groceries, specialty coffee, and nightly dinners out are how people blow a city that already is not cheap. The dataset cannot see your receipt.
+- A cheaper room on a Malasana bar street, or above a Lavapies plaza, is not cheaper if you cannot sleep or take a call.
+- Insurance is not inside those three fields. Budget it separately, from a quote you actually receive.
+
+### Booking placeholders
+
+No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Madrid destination page](/destinations/madrid), not in this article.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2 to 4 week landing stay in Malasana or Chamberi while you tour monthly leases |
+| Flights | Flights into MAD for an Apr-Jun or Sep-Oct window, only after the month survives the season section |
+| Insurance | Health cover that can meet Spain's insurer rule if you apply for the telework visa, plus travel cover for a Schengen stay |
+
+## Neighborhoods that work: Malasana, Lavapies, Salamanca, Chamberi, and Arganzuela
+
+Madrid is large enough that the wrong pin wastes the month. There are no separate Nomad Spin destination pages for these areas. The canonical numbers live on [Madrid](/destinations/madrid). The trade-offs below are how people actually use the city. Sol and Gran Via are the postcard defaults. They are usually the wrong work address.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Malasana | A social first month, cafes, a walk to Chueca | Quiet, if the bedroom faces a bar street |
+| Lavapies | Everyday food, a more local center, a month that is not Salamanca | The polished grid, and silence on a plaza |
+| Salamanca | A residential, quieter week on the metro | The $1,650 estimate, and stumbling into a scene |
+| Chamberi | A work month that is still central: food, metro, fewer tour groups | The beach you were never going to have, and Malasana's doorstep nightlife |
+| Arganzuela | A longer residential stay near Madrid Rio | Stepping outside into a nomad scene |
+
+### Malasana
+
+Malasana is the landing barrio for a lot of first months: cafes, bars, a tight street grid, and a walk to Chueca, which is where the city's LGBTQ+ nightlife actually concentrates. \`lgbtFriendly\` on the row is **9**. Tribunal and Noviciado are the practical metro edges. If you arrive alone and want a social calendar in week one, this is the neighborhood that does it.
+
+**Trade-off:** the bars are the product and the problem. A bedroom over a late street is where you meet the party tag at 1am, which is a normal hour here, not a festival exception. Ask which way the windows face, and stand there on a Thursday night before you pay. You are also not in a discount zone. \`rentIndex\` **44** is the city. Malasana is where people look because the week is easy, not because the month became cheap.
+
+Pick Malasana if you will use the cafes and you can sleep off the bars. Skip it if your calls are at the hour the street gets going and the listing is on the square.
+
+**Housing tell:** confirm fiber in the unit, not "the building has internet." Older flats vary. A speed test in the room beats a listing adjective.
+
+### Lavapies
+
+Lavapies is the multicultural grid south of the old center. The food is the reason to live here: groceries, casual kitchens, a neighborhood that feeds itself on a Tuesday. The Lavapies metro stop is the obvious pin. Embajadores is the edge toward the river.
+
+**Trade-off:** plazas get loud, and the blocks are not uniform. Walk the specific street at night before you treat "central and lively" as a compliment. This is where people look when Salamanca feels like a set and Malasana feels like a weekend. It is not a code that turns **$2,200** into a starter-city budget. Safety on the row is a city score of **8**. It is not a promise about one intersection. The same night walk you would do in Malasana still applies.
+
+Pick Lavapies if you will cook or eat locally and you want the city rather than the postcard. Skip it if you need the quiet residential week and you already know a plaza will annoy you.
+
+### Salamanca
+
+Salamanca is the wide grid east of the center: shops, calmer streets, and metro stops such as Serrano, Velazquez, and Goya. It is the answer when the month is about sleep, errands, and a desk, and you have already accepted that the city is expensive.
+
+**Trade-off:** you pay for the calm. A new flat here plus dinners out is how you leave the **$2,200** band without noticing. The nomad density is thinner than Malasana. You will go to Chueca or Malasana for the night. You do not have to sleep there. That is the point, if the point is work.
+
+Pick Salamanca if the quiet is worth the top of the city's range to you. Skip it if you came to meet people on the walk home and you wanted the **$1,650** estimate to survive contact with a furniture catalog.
+
+### Chamberi
+
+Chamberi is the residential answer between Malasana's noise and Salamanca's polish. Bilbao, Quevedo, Iglesia, and Alonso Martinez cover the metro. The streets are full of ordinary restaurants, which is what a work month actually uses. It is the sensible landing zone if you want to tour leases without living on a tourist street.
+
+**Trade-off:** it will not feel like an arrival on day one. The grid is pleasant and a bit anonymous until you have a market and a cafe. That is fine if the job is calls. It is a bad match if you needed the scene without trying. You can be in Malasana in a short metro ride. You can also pick a street that is still loud. Ask.
+
+Pick Chamberi for the 2 to 4 week landing stay, then keep it if the flat passed the speed test and the night test. Skip it if the only reason you chose Madrid was to be in the middle of the bars.
+
+### Arganzuela
+
+Arganzuela sits south of the center, along Madrid Rio. Legazpi and Delicias are the usual metro pins. Newer blocks, the river path, and a weekly shop that is not a food hall are why longer stays land here. It is the neighborhood for a month that is about the lease, not about being seen.
+
+**Trade-off:** you are not in the scene. Coworking **High** is a city score. It does not mean a desk downstairs. Plan the commute to a room you have already used, or confirm fiber and stay home on call days. Some streets are still industrial at the edges. Walk them.
+
+Pick Arganzuela if you will use the river in the morning and you do not need Malasana at the door. Skip it if week one has to feel social without a plan.
+
+### Sol and Gran Via, and why they are usually the wrong month
+
+**Sol** and **Gran Via** are the arrival photo: the square, the lights, the metro interchange, and a crowd that does not live there. Errands look easy on a map. The street is a parade. Call quality in a holiday apartment over that noise is a gamble against a city average of **200 Mbps**. Stay a few nights if you want the texture. Do not sign a month because the pin was central.
+
+**La Latina**, next to Lavapies, is the Sunday-market version of the same temptation. Beautiful for a walk. A weak default if the bedroom faces the night. You can go there for dinner from Chamberi. You do not have to sleep there.
+
+## Internet, power, and coworking for video-call work
+
+The city average is **200 Mbps**. Reliability **9/10** and power stability **9/10** are estimates. Coworking density is **High**. That is a yes for video calls. It ties Lisbon and Budapest on headline speed, and it sits under Barcelona's **300 Mbps**. Those reliability and power estimates of **9** match the peer scores. You are not paying for a faster pipe than Lisbon. You are paying for the capital routine, the coworking density, and the nightlife score, without the beach.
+
+It is a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Madrid's power score is an estimate of **9**. You do not need a personal inverter strategy to have a work week here. Keep a charged laptop for cafes.
+
+The estimated **9/10** is still an average. A fibered flat in Chamberi and a holiday let over Gran Via are not the same connection. Test the room.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Movistar, Orange, Vodafone, and Digi are the ordinary apartment providers. Ask which one is already in the unit, and run a speed test from the desk at the hour you take calls. "Wi-Fi included" in a short let is often a shared router. That is not the test. A monthly lease often means the contract is in your name. Ask which of those two you are buying.
+2. **A local SIM with real data.** The same networks sell prepaid and eSIM plans in the city and at the airport. If a call would hurt you to drop, keep a second SIM. Learn the hotspot before the day you need it.
+3. **One coworking room you have already used for a call.** Not a Malasana cafe you liked for the walk.
+
+### Coworking that is actually listed
+
+Coworking density **High** means you have options. It does not mean every brand you remember is still at the old address.
+
+**Impact Hub** publishes Madrid rooms, including Barcelo (between Malasana and Chamberi, near Tribunal) and Alameda (Atocha). The operator's site lists day passes and longer desks. Hours on that site are weekday daytime for a day pass, with longer access on some memberships. Believe the page the week you go, not a number copied into a guide.
+
+**Utopicus** publishes a Madrid room on Paseo de la Habana, north of the barrios in the table above, with a working-pass desk on its own site. Useful as a confirmed room. A weak reason to move to that neighborhood unless the lease was already there.
+
+**WeWork** publishes several Madrid buildings. Treat a specific address as real only when you can book it this month.
+
+A trial morning beats a 2022 roundup. High density means you can find a booth. It does not mean the cafe on the corner is an office.
+
+### Cafes
+
+Malasana and Chamberi will let you open a laptop in a lot of rooms. That is not the same as a 45-minute call. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office. A tiled room with the door open onto a scooter street will lose to a booked booth every time.
+
+Gran Via is a walk. It is not an office.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, not a screenshot from the lobby
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which way the windows face, if the street has bars
+- Air conditioning that you have switched on, if the stay touches warm months
+- A named fallback (an Impact Hub room you have confirmed, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify UGE and BOE)
+
+Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Madrid](/destinations/madrid). That matches Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+
+| Route | Where | Length (official) |
+|---|---|---|
+| Telework visa | Spanish consulate abroad | Up to 1 year |
+| Telework residence authorization | UGE-CE, filed in Spain | Up to 3 years, renew 2 years |
+
+You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, Spain-authorized health insurance, and income of at least **200%** of the monthly SMI. Official pages state that rule, not a euro amount. Check the figure and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa), and the [UGE-CE portal](https://www.inclusion.gob.es/web/unidadgrandesempresas).
+
+Short visits for many passports are Schengen **90 days in any 180**. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and the consulate disagree, the consulate wins.
+
+## Best months (Apr-Jun, Sep-Oct), rainy months (Nov-Dec), and the Jul-Aug rule
+
+The weather fields are short, and they are enough to avoid the expensive mistake.
+
+| Window | What the Madrid row says | Practical read |
+|---|---|---|
+| Apr, May, Jun, Sep, Oct | \`bestMonths\` | The work season. Book the landing stay inside this list |
+| Nov, Dec | \`rainyMonths\` | The wet months to plan around. Not a monsoon. A reason to read the forecast |
+| Jul, Aug | Not listed as best, and not listed as rainy | The heat months. Very hot summers are the con. This is the Jul-Aug rule |
+| Year-round | \`tempAvgC\` **15** | A coarse yearly average. Not a claim that August is mild because the average is 15 |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. People still book July because a photo of a plaza was sunny. Sunny is not the same as a workday when the flat has no air conditioning and the nightly rate has left the **$100** nightly estimate behind. June is still a best month on the row, and it can already feel hot. July and August are the months the dataset does not call best.
+
+### The Jul-Aug rule
+
+If heat without air conditioning blocks your work, do not spend July or August in Madrid. Plan those months in another base, then come back for September, which is on the best-month list. If you only have July and August, pick a flat where you have turned the cooling on yourself, or pick a different city before you pay.
+
+August is also when a lot of local offices, shops, and restaurants shorten hours. That is a city rhythm, not a dataset field. Do not build the month around a meetup, a class, or a favorite kitchen that only runs in October. Confirm the place is open the week you need it.
+
+Valencia's row is a different summer problem and a different autumn problem. October is a rainy month there, not a best month, and flooding risk is on its cons. Do not copy Madrid's October plan onto Valencia without opening [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia). If the beach is what you wanted for the hot months, that is the Spain coast to read. It is not a free version of this city.
+
+### Rain
+
+November and December are the rainy months on the row. They sit next to each other, at the start of the darker season. A November stay can still be a good work month if you like a quieter city and you did not come for terraces. Do not "extend a perfect October" into a non-refundable winter let without reading \`rainyMonths\`.
+
+### Booking placeholders
+
+Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows. The modules sit on the [Madrid destination page](/destinations/madrid).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Apr, May, Jun, Sep, or Oct, or a rainy-month stay you chose on purpose |
+| Flights | Flights into MAD around that window, not a one-way into July you have not priced |
+| Insurance | Cover you understand before you are standing in a clinic |
+
+## Daily life: metro, late dinners, Spanish, culture, and nightlife
+
+### Metro and the airport
+
+The metro is how a normal week works. Malasana, Lavapies, Salamanca, Chamberi, and Arganzuela are all on it. The monthly transit pass, the Abono sold by the regional transit authority, is the product for a stay. Single tickets are the product for a weekend. Ride-hail exists for the late night and the suitcase. It is not how you cross town twice a day if you wanted the **$1,650** estimate.
+
+Adolfo Suarez Madrid-Barajas (MAD) is the airport. The airport metro and the Cercanías suburban trains both reach it. A taxi is the version for a late landing with luggage. Do one transfer before you decide the airport is "basically in town." It is not a neighborhood in the table above.
+
+### Late dinners and the food tag
+
+"Foodie" is a vibe tag, and lunch is still the meal that can fit the band: a menu del dia, the market, groceries. Dinner starts late. Planning to eat at 7pm every night is how you end up in the restaurants that exist for people who just landed. A neighborhood market is the weekly shop. A famous food hall is a visit, not the weekly shop.
+
+Wine and a terrace are also how the **$2,200** month leaks. Do the market version on workdays. The culture pro on the row is real, and it is also optional on a Tuesday. The Prado does not have to be the work plan.
+
+### Spanish
+
+The dataset language is **Spanish**. English at **5** is the low score in this Europe comparison (Barcelona **7**, Lisbon **8**, Budapest **7**). Coworking front desks vary. A lease, the padrón, and a lot of shops do not. A little Spanish matters more here than it does in a city whose English score is **8**. Showing up annoyed that the town hall is not in English is how a simple appointment becomes the whole week.
+
+### Nightlife rhythm
+
+Nightlife is **9**, the same score as Barcelona and Budapest. The clock is Spanish: late dinners, later bars, Malasana and Chueca as the easy version. Community is **6**, which is smaller than Barcelona's **8** and Lisbon's **9**. You can have a big night here. You should not expect a nomad campus on every corner. Coworking **High** is the work fallback. It is not a social life by itself.
+
+Use the party tag on purpose. If your calls are early, a bedroom on a bar street will lose. That is a housing choice, not a reason to skip the city.
+
+### A winter elsewhere
+
+If the plan is to leave for the cold months, or to dodge July and August, [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter-city contrast: about **$850** solo, best months **Nov-Feb**, no beach, and a burning-season con. [Living in Cape Town](/guides/living-in-cape-town) is the beach-and-city guide in this set, at about **$1,400** solo, with safety **5.5** and power stability **4**. Different products. The budget section above is still the Madrid decision.
+
+## Madrid vs Barcelona, Valencia, Lisbon, and Budapest
+
+Choose with the rows, not with tiles. Figures below are the live dataset fields. Madrid's longer stay, Airbnb night, reliability, and power are estimates. Madrid ties Barcelona on coworking, nightlife, and \`lgbtFriendly\`, and costs **$300** less. It matches Lisbon on the solo month and on **200 Mbps**. Valencia is the cheaper Spain peer with a beach. Budapest is the bill, if you can live with a different visa and a colder year. Inland heat is the Madrid filter. Say so, then pick.
+
+| Field | Madrid | Barcelona | Valencia | Lisbon | Budapest |
+|---|---|---|---|---|---|
+| Solo month | $2,200 | $2,500 | $1,900 | $2,200 | $1,500 |
+| Longer stay | $1,650 (estimate) | $2,000 | $1,425 | $1,800 | $1,100 |
+| Airbnb night | $100 (estimate) | $130 | $86 | $120 | $70 |
+| Internet | 200 Mbps, reliability 9 (estimate) | 300 Mbps, reliability 9 | 170 Mbps, reliability 9 | 200 Mbps, reliability 9 | 200 Mbps, reliability 9 |
+| Power | 9 (estimate) | 9 | 9 | 9 | 9 |
+| Coworking | High | High | Med | High | High |
+| Safety | 8 (female 7) | 7.5 (female 7) | 8 (female 7) | 8.8 (female 8) | 8.3 (female 7) |
+| Nightlife | 9 | 9 | 7 | 8 | 9 |
+| Community | 6 | 8 | 5 | 9 | 7 |
+| \`lgbtFriendly\` | 9 | 9 | 7 | 9 | 5 |
+| English | 5 | 7 | 5 | 8 | 7 |
+| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Best months | Apr-Jun, Sep-Oct | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
+| Hard part on the row | Expensive, very hot summers, limited English | Rent, pickpockets, crowds | Hot summers, flooding risk, limited English | Rising rents, summer crowds, bureaucracy | Cold winters, language |
+
+The Spain rows share the telework path: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals (Ley 14/2013, art. 74 quinquies). Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+
+**Stay with Madrid** when you want the capital routine, coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9**, and you can fund **$2,200** (or live inside the **$1,650** estimate on purpose). You do not need a beach. You accept English **5**, community **6**, and the Jul-Aug rule.
+
+**Look at Barcelona** when the beach is the reason and you will pay the extra **$300**. Solo **$2,500**, longer stay **$2,000**, Airbnb **$130**, **300 Mbps**, English **7**, community **8**, safety **7.5**. Same nightlife and the same \`lgbtFriendly\` score. Neighborhoods, rent, and the crowd months are in [Living in Barcelona](/guides/living-in-barcelona). Open [Barcelona](/destinations/barcelona) if the sand was the point.
+
+**Look at Valencia** when you want a Spanish beach for **$300** less than Madrid (**$1,900** solo, **$1,425** longer stay, **$86** a night) and you can live with coworking **Med**, community **5**, and **170 Mbps**. Same visa field. Hot summers and flooding risk are on the cons. This is the first stop if the objection is "I wanted Spain and the sea, and **$2,200** with no beach is no." The October rain flag and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
+
+**Look at Lisbon** when you want the same **$2,200** solo month and the same **200 Mbps**, with a higher safety score (**8.8**), English **8**, and community **9**. Longer stay **$1,800**, Airbnb **$120**. The [Lisbon living guide](/guides/living-in-lisbon) treats the beach as a train, not a sand path. You give up Madrid's **$1,650** longer-stay estimate and you take a different country's visa. That is the honest trade.
+
+**Look at Budapest** when the bill is the whole objection and you still want **200 Mbps**. **$1,500** solo is **$700** less. Longer stay **$1,100**, Airbnb **$70**, safety **8.3**, nightlife **9**. There is no beach. \`tempAvgC\` is **11**. \`lgbtFriendly\` is **5**, against Madrid's **9**. Districts and the White Card are in [Living in Budapest](/guides/living-in-budapest).
+
+**Look at Prague** when you want the same **200 Mbps**, reliability **9**, power **9**, and coworking **High** for **$1,700** solo (**$500** under Madrid). Longer stay **$1,300**, Airbnb **$80**, safety **8.8**. Best months are **May-Sep**. Rainy months are **Nov** and **Dec**. The visa field is a **Freelance Visa**, **365 days**, which is not Spain's telework visa. Districts and that fork are in [Living in Prague](/guides/living-in-prague).
+
+**Look at Porto** when you want that same **200 Mbps** for less than either capital. Solo **$1,800**, longer stay **$1,400**, safety **9.0**, coworking **Med**. Neighborhoods and the wet winter are in [Living in Porto](/guides/living-in-porto). It is a Portugal comparison, not a reason to turn this page into a Porto guide.
+
+If the objection is "I needed the beach outside my door and a third of the bill," none of these Europe peers become that. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the winter escape at about **$850**. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide, at about **$1,400**, with safety **5.5** and power **4**. [Living in Buenos Aires](/guides/living-in-buenos-aires) is the **$900** city, with **70 Mbps**, reliability **6**, and a **90-day** exemption field.
+
+## First-week checklist and how to compare Madrid on Nomad Spin
+
+### Common mistakes
+
+- Treating the **365-day** field as a stamp you already have, or as a stay for most nationalities
+- Paying the **$100** nightly estimate for thirty nights and calling the month **$2,200**
+- Booking Sol, Gran Via, or a Malasana view over a bar for the month, then discovering the noise
+- Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
+- Arriving in July or August because a weather app said sunny, and ignoring the very-hot-summers con
+- Using cafe Wi-Fi on Gran Via for the client call you cannot drop
+- Comparing Madrid only with Barcelona photos, and never opening Valencia, Lisbon, or Budapest
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- One coworking trial, including a real call, in a room you have confirmed is open
+- Walk the neighborhood at night, and walk it once with groceries
+- One airport transfer, so MAD is a known trip and not a guess
+
+**Days 3-4**
+
+- See more than one monthly place. Run the speed test in the room. Stand in the bedroom after 10pm. Turn the air conditioning on if the listing claims it
+- If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
+- If you are on the telework visa, write down the TIE (residence card) window and the padrón (address registration) documents. Do not discover them in week three
+
+**Days 5-7**
+
+- Commit to one neighborhood for two to four weeks, not to "Madrid" in the abstract
+- Fix the work loop: home deep work, coworking on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking placeholders
+
+Still no partner IDs. These slots are last, after the week above, not before the flight is emotional. Book them from the [Madrid destination page](/destinations/madrid).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the air-conditioning test, in Malasana, Chamberi, Lavapies, or Arganzuela |
+| Flights | The onward or return date your visa or stamp actually supports, into or out of MAD |
+| Insurance | Health cover that matches the telework rule if you are applying, and travel cover you have read |
+
+### How to compare Madrid on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Madrid should win only when your floors are honest. The beach filter and the July filter matter most here.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$2,200**, or a plan to live inside the **$1,650** estimate. If your ceiling is under that **$1,650** estimate, Madrid is already out, and the spin should be allowed to say so. The cheaper peers in this set are [Budapest](/destinations/budapest) at **$1,500**, [Prague](/destinations/prague) at **$1,700**, and [Valencia](/destinations/valencia) at **$1,900**.
+2. Set an internet floor the **200 Mbps** and estimated reliability **9** can clear, and a safety floor **8** can clear. Then look at who else survives. Often that is [Lisbon](/destinations/lisbon) at the same **$2,200**, or [Barcelona](/destinations/barcelona) at **$2,500** if you also required a beach.
+3. Open [Madrid](/destinations/madrid) and read \`bestMonths\`, \`rainyMonths\`, and the very-hot-summers con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. July and August fail it unless the flat's cooling is already proven.
+4. If Barcelona is still in the pile, open [Living in Barcelona](/guides/living-in-barcelona) and compare **$2,500**, **300 Mbps**, and a beach against **$2,200**, **200 Mbps**, and no beach. If Lisbon is still in the pile, open [Living in Lisbon](/guides/living-in-lisbon) and compare community **9** and safety **8.8** against community **6** and safety **8**. If the beach has to be cheaper, open [Valencia](/destinations/valencia) and [Living in Valencia](/guides/living-in-valencia). If the bill has to fall, open [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Madrid should win when you want a capital routine, the calls matter, the beach is optional, and the month is a shoulder season you can afford. It should lose when you need the sea, you will not do the paperwork, or you booked July in a flat you have not cooled.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $2,200 solo month and the 200 Mbps figure are Nomad Spin's Madrid row. The $1,650 long-term figure, the $100 nightly median, and the 9/10 reliability and power scores are estimates on that row. Safety is 8. The telework and Schengen notes are orientation. When they disagree with the consulate or with UGE, the official source wins.*
 `,
   },
   {
@@ -4889,7 +5650,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
-**Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. It is a Spain comparison, not a reason to turn this page into a Madrid guide.
+**Madrid** when you want another **$2,200** and **200 Mbps** city, safety **8.0**, best months Apr-Jun and Sep-Oct. [Madrid](/destinations/madrid) ties Lisbon's solo cost and sits **$400** above Porto. Neighborhoods and the Jul-Aug heat rule are in [Living in Madrid](/guides/living-in-madrid). It is a Spain comparison, not a reason to turn this page into a Madrid guide.
 
 **Valencia** when you want the closest solo number under Lisbon, at **$1,900**, with **170 Mbps** and safety **8.0**. [Valencia](/destinations/valencia) is cheaper than Barcelona and still **$100** above Porto's solo month, with less internet than Porto's **200 Mbps**. Best months match Madrid's shoulders, with one catch: October is also a rainy month there. That overlap is in [Living in Valencia](/guides/living-in-valencia).
 
@@ -4951,7 +5712,7 @@ Nomad Spin scores **780+ cities**. Porto should win only when your floors are ho
 2. Set an internet floor the **200 Mbps** and reliability **9** can clear, and a safety floor **9.0** can clear. Then look at who else survives.
 3. Put [Porto](/destinations/porto) next to [Lisbon](/destinations/lisbon) and compare the three numbers that decide it: same **200 Mbps**, safety **9.0** against **8.8**, solo cost **$1,800** against **$2,200**. Then compare community **6** against **9**. If you need the 9, stop and read the [Lisbon living guide](/guides/living-in-lisbon). If you want the same **200 Mbps** for less and can take safety **8.3**, open [Budapest](/destinations/budapest) and the [Budapest living guide](/guides/living-in-budapest) (**$1,500** solo).
 4. Open \`bestMonths\` and \`rainyMonths\` against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. If you are trying to escape Nov-Feb, open [Chiang Mai](/guides/living-in-chiang-mai) or [Cape Town](/guides/living-in-cape-town) instead of arguing with the rain.
-5. If Barcelona, Madrid, or Valencia is still in the pile, open [Barcelona](/destinations/barcelona), [Madrid](/destinations/madrid), and [Valencia](/destinations/valencia) and use the table above. Do not promote a city that costs more and scores lower on safety unless the beach or the scene is the actual requirement.
+5. If Barcelona, Madrid, or Valencia is still in the pile, open [Barcelona](/destinations/barcelona), [Madrid](/destinations/madrid) (and [Living in Madrid](/guides/living-in-madrid)), and [Valencia](/destinations/valencia) (and [Living in Valencia](/guides/living-in-valencia)) and use the table above. Do not promote a city that costs more and scores lower on safety unless the beach or the scene is the actual requirement.
 6. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
 
 [Spin the globe](/) with those floors. Porto should win when you want call-ready internet, a high safety score, and a Portugal month you can hold near **$1,800**, and you have already accepted a smaller scene and a wet winter. It should lose when you needed Lisbon's community, a dry winter, or a beach apartment.
@@ -6362,7 +7123,7 @@ The visa column is the dataset label on every one of these rows. It is not the r
 
 **Look at Barcelona** when you want the faster headline (**300 Mbps**), coworking **High**, nightlife **9**, and you will pay **$2,500** with safety **7.5**. Best months are May, Jun, Sep, Oct, and October there is not also a rainy month. Neighborhoods and the rent are in [Living in Barcelona](/guides/living-in-barcelona). The **$600** is the price of that scene and that speed. Flooding risk is not the con on that row. Rent, pickpockets, and crowds are.
 
-**Look at Madrid** when the beach was optional. **$2,200** solo is **$300** more than Valencia, with **200 Mbps**, coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** against Valencia's **7**. Safety is **8**, the same headline. Very hot summers are Madrid's con. Open [Madrid](/destinations/madrid). There is no Madrid living guide on this site yet.
+**Look at Madrid** when the beach was optional. **$2,200** solo is **$300** more than Valencia, with **200 Mbps**, coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9** against Valencia's **7**. Safety is **8**, the same headline. Very hot summers are Madrid's con. Neighborhoods and the Jul-Aug rule are in [Living in Madrid](/guides/living-in-madrid). Open [Madrid](/destinations/madrid).
 
 **Look at Lisbon** when you want another coastal workhub and a higher safety score. **$2,200** solo, **200 Mbps**, safety **8.8**, community **9**, coworking **High**. You pay **$300** more than Valencia and you get the larger scene. October is a best month there and not a rainy month (rainy months run **Nov-Feb**). The beach is a train, not a sand path. That case is the [Lisbon living guide](/guides/living-in-lisbon).
 
@@ -6420,7 +7181,7 @@ Still no partner IDs. These slots are last, after the week above, not before the
 Nomad Spin scores **780+ cities**. Valencia should win only when your floors are honest, and when your dates survive the October rain flag.
 
 1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,900**, or a plan to live inside **$1,425**. If your ceiling is under **$1,425**, Valencia is already out.
-2. Set an internet floor the **170 Mbps** and reliability **9** can clear, and a safety floor **8** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at **$1,800** and **200 Mbps**, or [Madrid](/destinations/madrid) if you do not need the beach.
+2. Set an internet floor the **170 Mbps** and reliability **9** can clear, and a safety floor **8** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at **$1,800** and **200 Mbps**, or [Madrid](/destinations/madrid) and [Living in Madrid](/guides/living-in-madrid) if you do not need the beach.
 3. Open [Valencia](/destinations/valencia) and read \`bestMonths\` and \`rainyMonths\` on the same screen. If October is in your dates, it is on \`rainyMonths\`, not \`bestMonths\`. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
 4. If Barcelona is still in the pile, open [Living in Barcelona](/guides/living-in-barcelona) and compare **$2,500**, **300 Mbps**, and safety **7.5** against **$1,900**, **170 Mbps**, and safety **8**. Pay the **$600** only if the scene and the speed are the actual requirement. If the beach can be a river instead, open [Living in Porto](/guides/living-in-porto). If the beach can be a train, open [Living in Lisbon](/guides/living-in-lisbon).
 5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
@@ -6438,15 +7199,15 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     excerpt: "Pick a travel window first: use Nomad Spin weather months plus cost, internet, and safety to shortlist bases by season, then spin and open destination pages.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "14 min read",
-    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","tallinn"],
+    readTime: "15 min read",
+    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","tallinn"],
     content: `## Stop picking a city first. Pick a season window
 
 Undecided nomads often start with a city name. That is backwards. The same place can be a dream in November and a productivity tax in March, burning haze in [Chiang Mai](/destinations/chiang-mai), peak tourist rents in [Lisbon](/destinations/lisbon), typhoon weeks in [Da Nang](/destinations/da-nang), or load-shedding plus winter rain in [Cape Town](/destinations/cape-town).
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Lisbon](/guides/living-in-lisbon), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), and [Valencia](/guides/living-in-valencia).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), and [Valencia](/guides/living-in-valencia).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -6503,6 +7264,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 
 - [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
+- [Madrid](/destinations/madrid): **Apr, May, Jun, Sep, Oct**: \`$2,200\` / **200** Mbps / safety **8** / the same Spain telework field. Rainy months are **Nov** and **Dec**. Very hot summers are the con, and July and August are not best months. The [Madrid living guide](/guides/living-in-madrid) is the Jul-Aug rule for that row.
 - [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia): **Apr-Jun, Sep**: \`$1,900\` / **170** Mbps / safety **8**. October is a rainy month (with November), not a best month, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
@@ -6515,7 +7277,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 
 ### Asia transition
 
-[Da Nang](/destinations/da-nang) best **Feb to Jul** (\`$700\` / 80 Mbps / safety 8.5), strong spring/early-summer beach work base before Sep to Dec rains. The [Da Nang living guide](/guides/living-in-da-nang) is the on-the-ground version of that row, including why Feb-Jul pairs with Chiang Mai's Nov-Feb and why Sep-Dec is a real work disruption. [Tokyo](/destinations/tokyo) / [Seoul](/destinations/seoul) / [Taipei](/destinations/taipei) favor spring and autumn; watch Jun to Aug rain or typhoon notes in \`cons\`.
+[Da Nang](/destinations/da-nang) best **Feb to Jul** (\`$700\` / 80 Mbps / safety 8.5), strong spring/early-summer beach work base before Sep to Dec rains. The [Da Nang living guide](/guides/living-in-da-nang) is the on-the-ground version of that row, including why Feb-Jul pairs with Chiang Mai's Nov-Feb and why Sep-Dec is a real work disruption. [Hoi An](/destinations/hoi-an) best **Feb to May** (\`$900\` / 80 Mbps / safety 9), the same coast with a shorter good-weather window, coworking Low, and flooding in the cons. The [Hoi An living guide](/guides/living-in-hoi-an) is the 1-3 month version of that coast, paired with Da Nang rather than copied from it. [Tokyo](/destinations/tokyo) / [Seoul](/destinations/seoul) / [Taipei](/destinations/taipei) favor spring and autumn; watch Jun to Aug rain or typhoon notes in \`cons\`.
 
 **Spin tip:** region Europe or LATAM, landscape \`urban\` or \`seaside\`, budget matched to Lisbon-tier vs Buenos Aires-tier, then [spin](/) and open two destination pages before you book flights.
 
@@ -6556,7 +7318,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Burning / pollution seasons.** Chiang Mai \`cons\` call out Mar to Apr burning season, adjacent to the best dry months, not inside them. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before a March arrival. Bangkok lists extreme heat and air pollution in \`cons\` without dating them to one week. Read the [Bangkok living guide](/guides/living-in-bangkok) before you treat a best month as a cool, clean-air month. Mexico City and Bogotá list air-quality / altitude issues year-round. Read the [Mexico City living guide](/guides/living-in-mexico-city) before you treat a best month as a clean-air month. Medellín lists air quality and altitude adjustment in every month, including the best ones. Read the [Medellin living guide](/guides/living-in-medellin) before you treat eternal spring as a clean-air promise. Tbilisi lists air pollution in winter, outside the May-Jun and Sep-Oct best months. Read the [Tbilisi living guide](/guides/living-in-tbilisi) before a December arrival. Tallinn lists very cold winters and dark winters, outside the Jun-Aug best months. Read the [Tallinn living guide](/guides/living-in-tallinn) before a November arrival. Budapest lists air pollution in winter on the dataset cons, outside the Apr-Jun and Sep-Oct best months. Read the [Budapest living guide](/guides/living-in-budapest) before a November arrival. Ho Chi Minh City lists air pollution on the cons in every month, including the Dec-Apr best months. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you treat a best month as a clean-air month.
 
-**Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February.
+**Storm / typhoon seasons.** Da Nang \`cons\`: typhoon season; Taipei: typhoon season; several seaside rows carry seasonal ferry or storm risk. Read the [Da Nang living guide](/guides/living-in-da-nang) before you book Sep-Dec as if it were February. Hoi An lists flooding in the cons, with rainy months Sep-Nov. Read the [Hoi An living guide](/guides/living-in-hoi-an) before you book an Old Town ground floor for October.
 
 **Flood risk.** Valencia lists October in \`rainyMonths\`, not in \`bestMonths\`, and flooding risk is a con. Read the [Valencia living guide](/guides/living-in-valencia) before an October arrival.
 
@@ -6574,7 +7336,7 @@ Example workflows (adjust numbers to your real floors):
    Set budget max $1,500, internet min 50, safety min 7, region Asia or LATAM, optionally landscape \`seaside\` or \`mountain\`. [Spin](/). Compare [Chiang Mai](/destinations/chiang-mai), [Medellín](/destinations/medellin), [Penang](/destinations/penang) destination pages, check \`bestMonths\` overlap with your travel dates and \`rainyMonths\` gaps.
 
 2. **Europe shoulder, higher comfort**  
-   Budget $1,500 to $3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) vs [Valencia](/destinations/valencia) (and the [living guide](/guides/living-in-valencia)) for Apr to Jun or Sep to Oct. For Valencia, do not treat October as an automatic shoulder month.
+   Budget $1,500 to $3,000, internet 100+, safety 8, region Europe. Spin, then deep-read [Lisbon](/destinations/lisbon) (and the [living guide](/guides/living-in-lisbon)) vs [Budapest](/destinations/budapest) (and the [living guide](/guides/living-in-budapest)) vs [Prague](/destinations/prague) (and the [living guide](/guides/living-in-prague)) vs [Porto](/destinations/porto) (and the [living guide](/guides/living-in-porto)) vs [Valencia](/destinations/valencia) (and the [living guide](/guides/living-in-valencia)) vs [Madrid](/destinations/madrid) (and the [living guide](/guides/living-in-madrid)) for Apr to Jun or Sep to Oct. For Valencia, do not treat October as an automatic shoulder month.
 
 3. **Southern summer nature season**  
    Region Africa, landscape seaside/mountain, honest safety floor, budget ~$1,400+. Spin toward [Cape Town](/destinations/cape-town), then read the living guide before you pay a deposit, weather is only half the product.

@@ -30,6 +30,7 @@ describe('editorial guide lookup', () => {
     expect(editorialGuideForDestination('prague')?.slug).toBe('living-in-prague');
     expect(editorialGuideForDestination('tallinn')?.slug).toBe('living-in-tallinn');
     expect(editorialGuideForDestination('valencia')?.slug).toBe('living-in-valencia');
+    expect(editorialGuideForDestination('madrid')?.slug).toBe('living-in-madrid');
   });
 
   it('returns null when no guide names the city', () => {

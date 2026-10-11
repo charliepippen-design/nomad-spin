@@ -3,10 +3,10 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp, auth } from "npm:@lovable.dev/mcp-js@0.20.1";
+import { defineMcp, auth } from "npm:@lovable.dev/mcp-js@0.20.0";
 
 // src/lib/mcp/tools/search-cities.ts
-import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.1";
+import { defineTool } from "npm:@lovable.dev/mcp-js@0.20.0";
 import { z } from "npm:zod@^4.4.3";
 
 // src/data/cities/visaFacts.ts
@@ -31,6 +31,8 @@ var THAILAND_LEGAL_NOTES = [
   "Tourism visa exemption, effective 15 Sep 2026 (the 60-day scheme was revoked): https://thailand.prd.go.th/en/content/category/detail/id/48/iid/538547",
   "Length depends on passport. The exemption is for tourism. The Destination Thailand Visa (DTV) is a separate long-stay path; confirm length and eligibility on the official checklist."
 ];
+var VIETNAM_EVISA_TYPE = "E-Visa";
+var VIETNAM_EVISA_DAYS = 90;
 function isDigitalNomadLabel(visaType) {
   return /digital nomad/i.test(visaType);
 }
@@ -64,11 +66,11 @@ function applyOfficialVisaFacts(city2) {
       legalNotes: THAILAND_LEGAL_NOTES
     };
   }
-  if (city2.countryCode === "VN" && city2.meta.visaDays === 90 && city2.meta.visaType !== "E-Visa") {
+  if (city2.countryCode === "VN" && city2.meta.visaDays === VIETNAM_EVISA_DAYS && city2.meta.visaType !== VIETNAM_EVISA_TYPE) {
     return {
       ...city2,
-      meta: { ...city2.meta, visaType: "E-Visa" },
-      visa: { type: "E-Visa", days: 90 }
+      meta: { ...city2.meta, visaType: VIETNAM_EVISA_TYPE },
+      visa: { type: VIETNAM_EVISA_TYPE, days: VIETNAM_EVISA_DAYS }
     };
   }
   return city2;
@@ -281,6 +283,12 @@ function city(d) {
     meta: { visaType: d.visaType, visaDays: d.visaDays, timeZoneUtc: d.tz },
     pros: d.pros,
     cons: d.cons,
+    formulaEstimates: {
+      costLongTerm: d.costLong == null,
+      airbnbMedian: d.airbnb == null,
+      internetReliability: d.netReliability == null,
+      powerGridStability: d.power == null
+    },
     costUSD: d.cost,
     internetMbps: d.internet,
     visa: { type: d.visaType, days: d.visaDays }
@@ -310,7 +318,7 @@ var newAsiaCities = [
     bestMonths: ["Oct", "Nov", "Dec", "Mar", "Apr"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 24,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Amazing food", "Rich culture", "Affordable"],
@@ -391,10 +399,10 @@ var newAsiaCities = [
     bestMonths: ["Feb", "Mar", "Apr", "May"],
     rainyMonths: ["Sep", "Oct", "Nov"],
     tempC: 26,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
-    pros: ["Charming old town", "Cheap", "Tailoring"],
+    pros: ["Charming old town", "Cheap", "Tailoring", "UNESCO-listed Ancient Town", "Very safe"],
     cons: ["Small", "Limited infrastructure", "Flooding"]
   }),
   city({
@@ -1840,7 +1848,7 @@ var newAsiaCities = [
     lgbt: 1,
     femaleSafety: 7,
     english: 2,
-    bestMonths: ["Jun", "Jul", "Aug", "Sep"],
+    bestMonths: ["Jun", "Aug", "Sep"],
     rainyMonths: ["Jul"],
     tempC: 5,
     visaType: "Work Permit",
@@ -2176,7 +2184,7 @@ var newAsiaCities = [
     lgbt: 1,
     femaleSafety: 7,
     english: 2,
-    bestMonths: ["May", "Jun", "Jul", "Aug", "Sep"],
+    bestMonths: ["May", "Jun", "Sep"],
     rainyMonths: ["Jul", "Aug"],
     tempC: 10,
     visaType: "Work Permit",
@@ -2215,8 +2223,8 @@ var newEuropeCities = [
     visaType: "Digital Nomad Visa",
     visaDays: 365,
     tz: "UTC+1",
-    pros: ["Culture", "Central location", "EU access"],
-    cons: ["Expensive", "Very hot summers"]
+    pros: ["Culture", "Central location", "EU access", "Barajas airport metro link", "Great nightlife"],
+    cons: ["Expensive", "Very hot summers", "Limited English"]
   }),
   city({
     id: "seville-es",
@@ -2290,14 +2298,14 @@ var newEuropeCities = [
     lgbt: 7,
     femaleSafety: 7,
     english: 5,
-    bestMonths: ["Apr", "May", "Jun", "Sep", "Oct"],
+    bestMonths: ["Apr", "May", "Jun", "Sep"],
     rainyMonths: ["Oct", "Nov"],
     tempC: 18,
     visaType: "Digital Nomad Visa",
     visaDays: 365,
     tz: "UTC+1",
-    pros: ["Beach city", "Paella", "Less touristy"],
-    cons: ["Hot summers", "Flooding risk"]
+    pros: ["Beach city", "Paella", "Less touristy", "Turia gardens through the city", "Metro and tram"],
+    cons: ["Hot summers", "Flooding risk", "Limited English"]
   }),
   city({
     id: "las-palmas-es",
@@ -2317,14 +2325,14 @@ var newEuropeCities = [
     lgbt: 7,
     femaleSafety: 7,
     english: 6,
-    bestMonths: ["Jan", "Feb", "Mar", "Apr", "Oct", "Nov", "Dec"],
+    bestMonths: ["Jan", "Feb", "Mar", "Apr", "Oct"],
     rainyMonths: ["Nov", "Dec"],
     tempC: 21,
     visaType: "Digital Nomad Visa",
     visaDays: 365,
     tz: "UTC+0",
-    pros: ["Year-round sun", "Beach", "EU but affordable"],
-    cons: ["Island life", "Fewer amenities"]
+    pros: ["Year-round sun", "Beach", "EU but affordable", "Spring-like climate year round", "Same hours as the UK"],
+    cons: ["Island life", "Fewer amenities", "Limited nightlife"]
   }),
   city({
     id: "tenerife-es",
@@ -2344,7 +2352,7 @@ var newEuropeCities = [
     lgbt: 7,
     femaleSafety: 7,
     english: 6,
-    bestMonths: ["Jan", "Feb", "Mar", "Apr", "Oct", "Nov", "Dec"],
+    bestMonths: ["Jan", "Feb", "Mar", "Apr", "Oct"],
     rainyMonths: ["Nov", "Dec"],
     tempC: 21,
     visaType: "Digital Nomad Visa",
@@ -2371,7 +2379,7 @@ var newEuropeCities = [
     lgbt: 8,
     femaleSafety: 7,
     english: 6,
-    bestMonths: ["Jan", "Feb", "Mar", "Oct", "Nov", "Dec"],
+    bestMonths: ["Jan", "Feb", "Mar", "Oct"],
     rainyMonths: ["Nov", "Dec"],
     tempC: 21,
     visaType: "Digital Nomad Visa",
@@ -4382,7 +4390,7 @@ var newAmericasCities = [
     lgbt: 8,
     femaleSafety: 7,
     english: 10,
-    bestMonths: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+    bestMonths: ["Jun", "Jul", "Aug", "Sep", "Oct"],
     rainyMonths: ["Apr", "May"],
     tempC: 10,
     visaType: "B-1/B-2 Visa",
@@ -5031,7 +5039,7 @@ var newAmericasCities = [
     lgbt: 7,
     femaleSafety: 8,
     english: 10,
-    bestMonths: ["Jun", "Jul", "Aug"],
+    bestMonths: ["Jul", "Aug"],
     rainyMonths: ["Jun"],
     tempC: 4,
     visaType: "Tourist Visa",
@@ -6951,7 +6959,7 @@ var extraAsiaCities = [
     bestMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     rainyMonths: ["Oct", "Nov", "Dec"],
     tempC: 27,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Beach resort", "Diving"],
@@ -6978,7 +6986,7 @@ var extraAsiaCities = [
     bestMonths: ["Feb", "Mar", "Apr", "May"],
     rainyMonths: ["Sep", "Oct", "Nov", "Dec"],
     tempC: 25,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Imperial city", "UNESCO", "History", "Food"],
@@ -7005,7 +7013,7 @@ var extraAsiaCities = [
     bestMonths: ["Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 18,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["French colonial", "Cool climate", "Coffee"],
@@ -7032,7 +7040,7 @@ var extraAsiaCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
     rainyMonths: ["Jul", "Aug", "Sep", "Oct"],
     tempC: 27,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Island paradise", "Beaches", "Resorts"],
@@ -7424,7 +7432,7 @@ var extraAsiaCities = [
     lgbt: 2,
     femaleSafety: 7,
     english: 4,
-    bestMonths: ["Jun", "Jul", "Aug", "Sep"],
+    bestMonths: ["Jun", "Sep"],
     rainyMonths: ["Jul", "Aug"],
     tempC: 7,
     visaType: "Tourist Visa",
@@ -7452,7 +7460,7 @@ var extraAsiaCities = [
     lgbt: 4,
     femaleSafety: 6,
     english: 6,
-    bestMonths: ["Oct", "Nov", "Dec", "Jan", "Feb"],
+    bestMonths: ["Dec", "Jan", "Feb"],
     rainyMonths: ["Oct", "Nov"],
     tempC: 28,
     visaType: "Tourist Visa",
@@ -7871,7 +7879,7 @@ var extraEuropeCities = [
     lgbt: 2,
     femaleSafety: 6,
     english: 4,
-    bestMonths: ["Apr", "May", "Jun", "Sep", "Oct"],
+    bestMonths: ["Jun", "Sep", "Oct"],
     rainyMonths: ["Apr", "May"],
     tempC: 13,
     visaType: "Visa-Free",
@@ -12355,7 +12363,7 @@ var batch4OtherCities = [
     lgbt: 3,
     femaleSafety: 5,
     english: 5,
-    bestMonths: ["Nov", "Dec", "Jan", "Feb"],
+    bestMonths: ["Dec", "Jan", "Feb"],
     rainyMonths: ["Sep", "Oct", "Nov"],
     tempC: 29,
     visaType: "Tourist Visa",
@@ -18073,7 +18081,7 @@ var batch5OtherCities = [
     lgbt: 2,
     femaleSafety: 5,
     english: 3,
-    bestMonths: ["Nov", "Dec", "Jan", "Feb"],
+    bestMonths: ["Dec", "Jan", "Feb"],
     rainyMonths: ["Oct", "Nov"],
     tempC: 29,
     visaType: "Tourist Visa",
@@ -18630,7 +18638,7 @@ var batch5OtherCities = [
     bestMonths: ["Feb", "Mar", "Apr", "May"],
     rainyMonths: ["Oct", "Nov", "Dec"],
     tempC: 26,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Cheaper villas", "Quiet neighborhoods"],
@@ -18659,7 +18667,7 @@ var batch5OtherCities = [
     bestMonths: ["Nov", "Dec", "Jan", "Feb", "Mar"],
     rainyMonths: ["Jun", "Jul", "Aug", "Sep"],
     tempC: 27,
-    visaType: "Tourist Visa",
+    visaType: "E-Visa",
     visaDays: 90,
     tz: "UTC+7",
     pros: ["Coastal city near Mui Ne", "Cheap"],
@@ -21383,7 +21391,7 @@ var existingCitiesRaw = [
     vibeMetrics: { nightlife: 8, communitySize: 9, lgbtFriendly: 9, femaleSafety: 8, englishProficiency: 8 },
     weather: { bestMonths: ["Apr", "May", "Jun", "Sep", "Oct"], rainyMonths: ["Nov", "Dec", "Jan", "Feb"], tempAvgC: 18 },
     meta: { visaType: "Digital Nomad Visa", visaDays: 365, timeZoneUtc: "UTC+0" },
-    pros: ["Incredible food scene", "Strong nomad community", "Great weather year-round", "Rich history", "Excellent transit"],
+    pros: ["Incredible food scene", "Strong nomad community", "Rich history", "Excellent transit"],
     cons: ["Rising rent prices", "Tourist crowds in summer", "Bureaucratic processes", "Earthquake risk", "Nightlife noise"],
     costUSD: 2200,
     internetMbps: 200,
@@ -21404,7 +21412,7 @@ var existingCitiesRaw = [
     vibeMetrics: { nightlife: 9, communitySize: 8, lgbtFriendly: 6, femaleSafety: 5, englishProficiency: 4 },
     weather: { bestMonths: ["Jan", "Feb", "Mar", "Jul", "Aug", "Dec"], rainyMonths: ["Apr", "May", "Oct", "Nov"], tempAvgC: 22 },
     meta: { visaType: "Visa Exemption", visaDays: 90, timeZoneUtc: "UTC-5" },
-    pros: ["Perfect weather year-round", "Low cost of living", "Vibrant nightlife", "Friendly locals", "Growing tech scene"],
+    pros: ["Low cost of living", "Vibrant nightlife", "Friendly locals", "Growing tech scene"],
     cons: ["Safety concerns in some areas", "Altitude adjustment", "Language barrier", "Bureaucratic banking", "Air quality issues"],
     costUSD: 1100,
     internetMbps: 80,
@@ -21446,7 +21454,7 @@ var existingCitiesRaw = [
     vibeMetrics: { nightlife: 7, communitySize: 5, lgbtFriendly: 7, femaleSafety: 4, englishProficiency: 9 },
     weather: { bestMonths: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar"], rainyMonths: ["Jun", "Jul", "Aug"], tempAvgC: 17 },
     meta: { visaType: "Visa Exemption", visaDays: 90, timeZoneUtc: "UTC+2" },
-    pros: ["Stunning natural beauty", "World-class wine", "Diverse culture", "Great surf", "Fast internet"],
+    pros: ["Stunning natural beauty", "World-class wine", "Diverse culture", "Great surf"],
     cons: ["Safety concerns", "Load shedding", "Distance from other hubs", "Water scarcity", "Expensive by African standards"],
     costUSD: 1400,
     internetMbps: 100,
@@ -22395,7 +22403,7 @@ var search_cities_default = defineTool({
 });
 
 // src/lib/mcp/tools/get-city.ts
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.1";
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.20.0";
 import { z as z2 } from "npm:zod@^4.4.3";
 var get_city_default = defineTool2({
   name: "get_city",
@@ -22424,7 +22432,7 @@ var get_city_default = defineTool2({
 });
 
 // src/lib/mcp/tools/spin-destination.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.1";
+import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.20.0";
 import { z as z3 } from "npm:zod@^4.4.3";
 function score(cost, mbps, safety, budgetMax, mbpsMin, safetyMin) {
   const budget = cost <= budgetMax ? 80 + (1 - cost / budgetMax) * 20 : Math.max(0, 80 - (cost - budgetMax) / budgetMax * 200);
@@ -22460,7 +22468,7 @@ var spin_destination_default = defineTool3({
       matchScore: score(c.costUSD, c.internetMbps, c.safety, maxBudgetUSD, minInternetMbps, minSafety)
     })).sort((a, b) => b.matchScore - a.matchScore).slice(0, topN);
     const text = ranked.length ? `Top ${ranked.length} destinations:
-${ranked.map((r, i) => `${i + 1}. ${r.name}, ${r.country} \u2014 $${r.costUSD}/mo, ${r.internetMbps} Mbps, safety ${r.safety}/10 (score ${r.matchScore})`).join("\n")}` : "No cities matched those preferences. Try relaxing budget, internet, or safety.";
+${ranked.map((r, i) => `${i + 1}. ${r.name}, ${r.country}: $${r.costUSD}/mo, ${r.internetMbps} Mbps, safety ${r.safety}/10 (score ${r.matchScore})`).join("\n")}` : "No cities matched those preferences. Try relaxing budget, internet, or safety.";
     return {
       content: [{ type: "text", text }],
       structuredContent: { results: ranked }
@@ -22484,5 +22492,5 @@ var mcp_default = defineMcp({
 });
 
 // lovable-mcp-supabase-entry.ts
-import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.1/stacks/supabase";
+import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.20.0/stacks/supabase";
 Deno.serve(createSupabaseHandler(mcp_default, { functionName: "mcp" }));

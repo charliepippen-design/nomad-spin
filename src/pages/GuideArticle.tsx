@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
+import GuideStayCta from '@/components/GuideStayCta';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 import { guidePageTitle } from '@/lib/guideHtml';
@@ -147,6 +148,8 @@ export default function GuideArticle() {
           </ReactMarkdown>
         </div>
       </article>
+
+      <GuideStayCta slug={guide.slug} />
 
       {relatedGuides.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">
