@@ -244,3 +244,30 @@ describe('guide FAQPage: both Q&A formats', () => {
     }
   });
 });
+
+describe('Madrid, Hoi An and Tallinn fixes', () => {
+  it.each([
+    ['living-in-madrid', 'Living in Madrid 2026: Cost, Visa, Malasana | Nomad Spin', 5],
+    ['living-in-hoi-an', 'Living in Hoi An 2026: Cost, Visa, An Bang | Nomad Spin', 6],
+    ['living-in-tallinn', 'Living in Tallinn 2026: Cost, Visa, Kalamaja | Nomad Spin', 5],
+  ])('%s renders its short title once-suffixed and a FAQPage', (slug, title, count) => {
+    const guide = guides.find((g) => g.slug === slug)!;
+    expect(guideTitleTag(guide)).toBe(title);
+    expect(guideFaqJsonLd(guide)!.mainEntity).toHaveLength(count);
+    expect(guide.date.slice(0, 10)).toBe('2026-10-11');
+  });
+
+  it('keeps every Hoi An and Tallinn answer at 50 words or fewer', () => {
+    for (const slug of ['living-in-hoi-an', 'living-in-tallinn']) {
+      for (const { answer } of guideFaqEntries(guides.find((g) => g.slug === slug)!.content)) {
+        expect(answer.split(/\s+/).length, answer).toBeLessThanOrEqual(50);
+      }
+    }
+  });
+
+  it('cites the BOE text for the Madrid 183-day rule', () => {
+    const madrid = guides.find((g) => g.slug === 'living-in-madrid')!;
+    expect(madrid.content).toContain('183 days');
+    expect(madrid.content).toContain('https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764#a9');
+  });
+});
