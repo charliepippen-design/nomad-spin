@@ -407,7 +407,10 @@ describe('static guides', () => {
       words: m[2].trim().split(/\s+/).length,
     }));
     expect(qas.length).toBeGreaterThanOrEqual(6);
-    for (const qa of qas) expect(qa.words, qa.question).toBeLessThan(50);
+    for (const qa of qas) {
+      expect(qa.words, qa.question).toBeGreaterThanOrEqual(35);
+      expect(qa.words, qa.question).toBeLessThanOrEqual(50);
+    }
     expect(g!.excerpt.length).toBeLessThanOrEqual(165);
     expect(g!.excerpt.length).toBeLessThanOrEqual(155);
     expect(g!.relatedDestinations).toEqual([
@@ -430,10 +433,18 @@ describe('static guides', () => {
     expect(g!.content).not.toMatch(/(reliability|power)[^.]*estimate/i);
     expect(g!.content).toContain('100 Mbps');
     expect(g!.content).toContain('7.5');
-    expect(g!.content).toContain('Digital Nomad Visa');
     expect(g!.content).toContain('365');
     expect(g!.content).toContain('UTC+8');
     expect(g!.content).toContain('DE Rantau Nomad Pass');
+    // Visa convention: default entry first, nomad route second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Kuala Lumpur?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book."
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toContain('the row says');
+    expect(g!.content).not.toContain('longest first term');
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Kuala Lumpur page](/destinations/kuala-lumpur) |');
     expect(g!.content).toContain('Jun, Jul, Aug');
     expect(g!.content).toContain('Nov, Dec, Jan');
     expect(g!.content).not.toContain('This guide does not');
@@ -469,7 +480,7 @@ describe('static guides', () => {
       'Real monthly cost bands (solo $1,000, long-term $750 estimate, short Airbnb $40)',
       'Neighborhoods that work: Bukit Bintang / KLCC, Bangsar, Mont Kiara, KL Sentral / Brickfields (trade-offs)',
       'Internet, power, and coworking for video-call work (100 Mbps, reliability 8, power 8, High coworking)',
-      'Visas and stay length: DE Rantau Nomad Pass up to 12 months, entry rules by passport (verify official rules)',
+      'Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)',
       'Best months (Jun-Aug) vs rainy months (Nov-Jan)',
       'Daily life: rail and Grab, food, English, local rules, day trips',
       'Kuala Lumpur vs Bangkok, Chiang Mai, Penang, Singapore, Ho Chi Minh City',

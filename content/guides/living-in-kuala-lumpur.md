@@ -4,7 +4,7 @@ A straight answer on living in Kuala Lumpur as a digital nomad: yes if you want 
 
 - **Cost:** about **$1,000** a month solo. The longer stay is about **$750** (an estimate). A short Airbnb sits near **$40** a night, which is a different budget.
 - **Internet:** yes. The average is **100 Mbps**. Reliability is **8/10** and power stability is **8/10**. Coworking density is **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, **365** days, time zone **UTC+8**. The official product behind that label is the DE Rantau Nomad Pass, which is granted for 3 to 12 months and can be renewed once. It is passport-dependent and it is an application, not an arrival stamp.
+- **Stay length:** up to **90** days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality and your entry stamp sets yours. For a longer stay, the DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more. It is an application, not an arrival stamp. Time zone is **UTC+8**.
 - **Skip it** if you need a beach, a big nomad scene, or a clear sky. The page's trade-offs are humidity, haze season, car-dependent suburbs, a conservative culture, and monsoon rains. Community size is **6**. Nightlife is **6**.
 - **Best months:** **Jun, Jul, Aug**. Rainy months are **Nov, Dec, Jan**. Average temperature on the row is **28°C**, a yearly figure, not a forecast.
 
@@ -18,7 +18,7 @@ Worth it as a work-first base that costs less than [Bangkok](/destinations/bangk
 
 **Is Kuala Lumpur internet good enough for video calls?** Yes. Nomad Spin shows about 100 Mbps average. Reliability is 8/10 and power is 8/10. Coworking density is High. Test upload speed in the actual unit before signing, and keep a second SIM for the day a building line drops.
 
-**What visa do digital nomads use in Kuala Lumpur?** Nomad Spin lists a Digital Nomad Visa label for 365 days. The official route is MDEC's DE Rantau Nomad Pass: 3 to 12 months, renewable for 12 more, with an income test and a non-refundable fee. Verify on mdec.my before paying.
+**What visa do digital nomads use in Kuala Lumpur?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book.
 
 **Who should skip living in Kuala Lumpur?** Skip it if you need a beach, a tight community, or a dry, clean-air month. Nomad Spin flags humidity, haze season, and monsoon rains as trade-offs. If the sea is the point, look at Penang instead.
 
@@ -177,13 +177,15 @@ KL cafes are air-conditioned and laptop-friendly, and they fill by mid-morning. 
 - Which tower or block, and how the air conditioning is billed
 - A named fallback (a coworking desk or a second SIM) written down before you need it
 
-## Visas and stay length: DE Rantau Nomad Pass up to 12 months, entry rules by passport (verify official rules)
+## Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)
+
+Many passports enter Malaysia visa-free for up to **90** days. Malaysia's portal for non-citizens gives the short-term Social Visit Pass as 14 to 90 days based on nationality ([rai.malaysia.gov.my](https://rai.malaysia.gov.my/enter)), and the stamp at the counter sets your days. For a longer remote-work stay, the DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, so 24 months at most.
 
 This is operational orientation, not legal advice. Malaysian immigration rules move. The number on our city page is not the law. When this page and the official portal disagree, believe the portal and the stamp in your passport.
 
-### What Nomad Spin currently shows
+### What the DE Rantau pass is
 
-The Kuala Lumpur row says **Digital Nomad Visa**, **365** days, **UTC+8**. Penang uses the same pair. Read it carefully. The official product is the DE Rantau Nomad Pass, which MDEC describes as a type of Professional Visit Pass. It is a pass with a term, not a residence permit, and not a visa you collect at the airport. **365** is the longest first term, not a promise of a year.
+MDEC describes the DE Rantau Nomad Pass as a type of Professional Visit Pass. It is a pass with a term, not a residence permit, and not a visa you collect at the airport. Penang falls under the same entry rules and the same pass.
 
 ### What MDEC publishes
 
@@ -309,7 +311,7 @@ Private clinics handle the usual nomad problems, and English at the desk helps. 
 
 ## Kuala Lumpur vs Bangkok, Chiang Mai, Penang, Singapore, Ho Chi Minh City
 
-Choose with the rows, not with photos. Figures below are the live dataset fields. The visa column is the label on each row.
+Choose with the rows, not with photos. Figures below are the live dataset fields. Entry rules depend on your passport, so the last row links each destination page, where the current visa line and its note sit.
 
 | Field | Kuala Lumpur | Bangkok | Chiang Mai | Penang | Singapore | Ho Chi Minh City |
 |---|---|---|---|---|---|---|
@@ -317,16 +319,16 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Internet | 100 Mbps | 120 Mbps | 95 Mbps | 80 Mbps | 250 Mbps | 85 Mbps |
 | Safety | 7.5 | 7.8 | 8.2 | 8 | 10 | 7.5 |
 | Coworking | High | High | High | Med | High | High |
-| Visa field in Nomad Spin | Digital Nomad Visa, 365 days | Tourism Visa Exemption, 30 days (passport-dependent) | Tourism Visa Exemption, 30 days (passport-dependent) | Digital Nomad Visa, 365 days | Tourist Visa, 30 days | E-Visa, 90 days |
 | Best months | Jun-Aug | Nov-Mar | Nov-Feb | Dec-Feb, Jun-Jul | Feb-Mar, Jul-Aug | Dec-Apr |
+| Entry rules | [Kuala Lumpur page](/destinations/kuala-lumpur) | [Bangkok page](/destinations/bangkok) | [Chiang Mai page](/destinations/chiang-mai) | [Penang page](/destinations/penang) | [Singapore page](/destinations/singapore) | [Ho Chi Minh City page](/destinations/ho-chi-minh-city) |
 
 **Stay with Kuala Lumpur** when you want **100 Mbps**, coworking **High**, English **8**, and a **$1,000** month you can live inside, for a work-first season in **Jun-Aug**. You accept humidity, haze season, monsoon rains, and community **6**. Plan the legal stay as an application, not an assumption.
 
-**Pick Bangkok** when you want the bigger scene: community **8**, nightlife **9**, **120 Mbps**, solo **$1,100**, safety **7.8**. The visa field is a **30-day** tourism exemption that depends on your passport, and best months are **Nov-Mar**, the other half of the year from this row's Jun-Aug. English is **5**. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
+**Pick Bangkok** when you want the bigger scene: community **8**, nightlife **9**, **120 Mbps**, solo **$1,100**, safety **7.8**. Entry is a **30-day** tourism exemption that depends on your passport, and best months are **Nov-Mar**, the other half of the year from this row's Jun-Aug. English is **5**. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
 
 **Pick Chiang Mai** when you want community **9**, a cheaper month (**$850**), safety **8.2**, and mountains. The trade is **95 Mbps** and a 30-day passport-dependent tourism exemption. Best months **Nov-Feb** sit where Kuala Lumpur is rainy. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path.
 
-**Pick Penang** when you want the sea and a smaller Malaysian city: **$800**, safety **8**, community **4**, nightlife **4**, coworking **Med**, **80 Mbps**, with the same **Digital Nomad Visa** label. It is the quieter version of this row. Best months **Dec-Feb** and **Jun-Jul** cover Kuala Lumpur's rainy winter, so the pairing is natural.
+**Pick Penang** when you want the sea and a smaller Malaysian city: **$800**, safety **8**, community **4**, nightlife **4**, coworking **Med**, **80 Mbps**, under the same Malaysian entry rules and the same DE Rantau pass. It is the quieter version of this row. Best months **Dec-Feb** and **Jun-Jul** cover Kuala Lumpur's rainy winter, so the pairing is natural.
 
 **Look at Singapore** when cost is not the constraint. [Singapore](/destinations/singapore) is **$3,750** solo, **250 Mbps**, safety **10**, coworking **High**. It is a different budget, not a bigger Kuala Lumpur. Check Singapore's own official entry rules before you plan to work there.
 
@@ -338,7 +340,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 ### Common mistakes
 
-- Treating the **365**-day field as a stamp you receive at the airport, or as proof the DE Rantau pass is a residence permit
+- Treating the DE Rantau pass as a stamp you receive at the airport, or as a residence permit
 - Entering on a tourist pass and expecting to convert it to a DE Rantau pass in place
 - Paying the **$40** nightly median for thirty nights and calling the month **$1,000**
 - Booking a serviced tower with a pool, then acting surprised that the **$750** estimate did not survive contact with the amenities fee

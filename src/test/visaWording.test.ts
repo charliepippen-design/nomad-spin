@@ -116,7 +116,8 @@ describe('living guide visa sections', () => {
     expect(md).toMatch(/\*\*USD 24,000\*\*/);
     expect(md).toMatch(/\*\*USD 60,000\*\*/);
     expect(md).toMatch(/\*\*RM1,080\*\*/);
-    expect(md).toMatch(/\*\*Digital Nomad Visa\*\*/);
+    expect(md).not.toMatch(/Digital Nomad Visa/);
+    expect(md).toMatch(/rai\.malaysia\.gov\.my\/enter/);
     expect(md).toMatch(/tourist pass cannot be converted/i);
     expect(md).not.toMatch(/territorial/i);
     expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
