@@ -7,6 +7,7 @@ import { editorialGuideForDestination } from '@/data/guides';
 import NotFound from '@/pages/NotFound';
 import { getCityImageUrl } from '@/data/cityImages';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
+import { trackAffiliateClick } from '@/utils/analytics';
 import { generateBadges } from '@/lib/badges';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
 import { useSpinStore } from '@/store/useSpinStore';
@@ -270,7 +271,7 @@ export default function DestinationGuide() {
           <a
             href={affiliateLinks.accommodation.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
             className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary/10 border border-primary/30 text-sm text-primary hover:bg-primary/20 transition-colors"
           >
             Find a place to stay in {city.name} <ExternalLink className="w-3 h-3" />
@@ -302,6 +303,23 @@ export default function DestinationGuide() {
               ) : null}
             </div>
           </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Working on cafe or coworking Wi-Fi? NordVPN encrypts your connection on shared networks.{' '}
+            <a
+              href={affiliateLinks.vpn.url}
+              target="_blank"
+              rel={affiliateLinks.vpn.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+              onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label)}
+              className="inline-flex items-center gap-2 font-mono tracking-wider text-primary/70 hover:text-primary transition-colors"
+            >
+              Get NordVPN <ExternalLink className="w-3 h-3" />
+            </a>
+          </p>
+          {affiliateLinks.vpn.affiliate ? (
+            <p className="mt-1 text-[10px] text-muted-foreground">
+              Affiliate link: Nomad Spin may earn a commission at no extra cost to you.
+            </p>
+          ) : null}
         </GuideSection>
 
         <GuideSection title="Getting there" id="getting-there">

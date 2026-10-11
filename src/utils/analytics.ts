@@ -1,12 +1,12 @@
 /**
- * Analytics Infrastructure — Nomad Spin
+ * Analytics Infrastructure, Nomad Spin
  *
  * Fires events to Google Analytics 4 (gtag) if available,
  * otherwise logs to console with a distinct emoji prefix.
  *
  * ═══════════════════════════════════════════════════════════════════
  *  VERIFICATION:
- *  1. Open browser console — look for 📊 prefixed logs.
+ *  1. Open browser console and look for 📊 prefixed logs.
  *  2. If GA4 is wired, check GA4 DebugView for the events below.
  *  3. Every event includes a session_id for funnel analysis.
  * ═══════════════════════════════════════════════════════════════════
@@ -32,6 +32,7 @@ export type Vertical =
   | 'esim'
   | 'insurance'
   | 'visa'
+  | 'vpn'
   | 'extra1'
   | 'extra2';
 
@@ -63,7 +64,7 @@ export function trackEvent(eventName: AnalyticsEvent, params: Record<string, unk
       window.gtag('event', eventName, payload);
     }
   } catch {
-    // Fail silently — GA may be blocked by ad-blockers
+    // Fail silently: GA may be blocked by ad-blockers
     console.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
   }
 
