@@ -6,6 +6,12 @@ export interface Guide {
   title: string;
   /** Optional shorter/SEO-tuned <title>; falls back to `title`. */
   seoTitle?: string;
+  /**
+   * Optional short search title (content JSON `seo.short_title`). When set it
+   * wins over `seoTitle` for <title>, og:title and twitter:title, and the
+   * rendered tag must fit in 60 characters. See guideTitleTag in src/lib/guideHtml.ts.
+   */
+  shortTitle?: string;
   excerpt: string;
   /** Publication date (YYYY-MM-DD or ISO). */
   date: string;

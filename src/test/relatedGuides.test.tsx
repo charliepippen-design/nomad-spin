@@ -229,7 +229,9 @@ describe('GuideArticle related guides', () => {
     );
 
     expect(screen.getByRole('heading', { level: 2, name: 'Related guides' })).toBeInTheDocument();
-    const porto = screen.getByRole('link', { name: 'Living in Porto' });
+    const porto = screen
+      .getAllByRole('link', { name: 'Living in Porto' })
+      .find((link) => link.closest('article') === null)!;
     expect(porto).toHaveAttribute('href', '/guides/living-in-porto');
     expect(porto).not.toHaveAttribute('rel', expect.stringContaining('nofollow'));
     expect(screen.getByText('$1,800 solo, 200 Mbps, best May-Sep')).toBeInTheDocument();

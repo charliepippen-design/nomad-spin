@@ -15,9 +15,38 @@ function esc(value: string): string {
 
 export { GUIDES_INDEX_DESCRIPTION } from '@/lib/guideJsonLd';
 
-/** Guide <title>, og:title, and twitter:title. Shared by the article page and prerender. */
+export const TITLE_SUFFIX = ' | Nomad Spin';
+/** Hard cap for a guide's short title tag (seo.short_title), suffix included. */
+export const SHORT_TITLE_MAX = 60;
+
+/**
+ * Appends the site suffix to a headline. A value that already ends with
+ * " | Nomad Spin" is returned unchanged, so the suffix is never doubled.
+ */
 export function guidePageTitle(headline: string): string {
-  return `${headline} | Nomad Spin`;
+  const trimmed = headline.trim();
+  return trimmed.endsWith(TITLE_SUFFIX) ? trimmed : `${trimmed}${TITLE_SUFFIX}`;
+}
+
+/**
+ * Guide <title>, og:title, twitter:title and the in-app document title.
+ * Shared by the article page and the prerender. The H1 always stays `guide.title`.
+ *
+ * Order of precedence:
+ * 1. `shortTitle` (content JSON `seo.short_title`), the short search title:
+ *    - already ends with " | Nomad Spin": used exactly as written;
+ *    - with the suffix appended it fits in SHORT_TITLE_MAX (60) chars: suffix appended;
+ *    - otherwise the field is treated as the full title tag text and used as written.
+ *    scripts/sync-content-guides.ts rejects a short title whose rendered tag is over 60.
+ * 2. `seoTitle` (content JSON `seo.meta_title`), then `title`, with the suffix appended.
+ */
+export function guideTitleTag(guide: Pick<Guide, 'title' | 'seoTitle' | 'shortTitle'>): string {
+  const short = guide.shortTitle?.trim();
+  if (short) {
+    const withSuffix = guidePageTitle(short);
+    return withSuffix.length <= SHORT_TITLE_MAX ? withSuffix : short;
+  }
+  return guidePageTitle(guide.seoTitle ?? guide.title);
 }
 
 /**
