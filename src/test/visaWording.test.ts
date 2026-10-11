@@ -120,6 +120,27 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013/);
   });
 
+  it('cites the Croatian Ministry of the Interior in the Split guide and prints only its figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-split.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mup\.gov\.hr\/aliens-281621\/temporary-stay-of-digital-nomads-286853/);
+    expect(md).toMatch(/mvep\.gov\.hr/);
+    expect(md).toMatch(/porezna-uprava\.gov\.hr/);
+    expect(md).toMatch(/economy-finance\.ec\.europa\.eu/);
+    expect(md).toMatch(/europarl\.europa\.eu/);
+    expect(md).toMatch(/home-affairs\.ec\.europa\.eu/);
+    expect(md).toMatch(/eighteen months/);
+    expect(md).toMatch(/\*\*2\.5\*\* average monthly net salaries/);
+    expect(md).toMatch(/EUR 3,622\.50/);
+    expect(md).toMatch(/EUR 43,470\.00/);
+    expect(md).toMatch(/not registered in Croatia/);
+    expect(md).not.toMatch(/€/);
+    expect(md).not.toMatch(/\bkuna\b.*\d/i);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
+  });
+
   it('cites Spain statute in the Barcelona guide and does not print an unofficial euro income figure', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-barcelona.md'),

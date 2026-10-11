@@ -84,7 +84,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 
 Summer Europe is crowded but matches many cities’ `bestMonths`:
 
-- [Split](/destinations/split): **May to Sep**: `$1,800` / 100 Mbps / safety **9** / seaside
+- [Split](/destinations/split): **May to Sep**: `$1,800` / 100 Mbps / safety **9** / seaside. The [Split living guide](/guides/living-in-split) is the on-the-ground version of that row: why July and August are best months and also the crowded-summers con, and why Nov-Jan is the quiet stretch.
 - [Porto](/destinations/porto) ([living guide](/guides/living-in-porto)), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May to Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep to Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field.
 - [Batumi](/destinations/batumi): **Jun to Sep** Black Sea summer at `$1,000` / 90 Mbps
 
@@ -104,7 +104,7 @@ Many SEA rows put **Jun to Sep** in `rainyMonths` (Chiang Mai, Bangkok, Phuket, 
 
 Post-summer migrations are when nomads leave peak Europe and chase drier or milder windows.
 
-- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into `rainyMonths` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
+- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into `rainyMonths` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Split living guide](/guides/living-in-split) covers the Nov-Jan stretch in Croatia. The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
 - **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are bound for Chiang Mai. [Hanoi](/destinations/hanoi) best includes **Oct to Dec** and **Mar to Apr**.
 - **Cape Town spring into summer:** best months open **Oct to Nov**: prime window if you read the living guide’s power and safety notes first.
 - **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun to Sep should already be behind you by a true autumn escape.

@@ -28,6 +28,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('living-in-valencia');
     expect(slugs).toContain('living-in-madrid');
+    expect(slugs).toContain('living-in-split');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -926,6 +927,7 @@ describe('static guides', () => {
       '/guides/living-in-lisbon',
       '/guides/living-in-porto',
       '/guides/living-in-madrid',
+      '/guides/living-in-split',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
@@ -1020,6 +1022,72 @@ describe('static guides', () => {
       'Daily life: metro, late dinners, Spanish, culture, and nightlife',
       'Madrid vs Barcelona, Valencia, Lisbon, and Budapest',
       'First-week checklist and how to compare Madrid on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Split living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-split');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Split');
+    expect(g!.seoTitle).toBe("Living in Split 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.excerpt).toBe(
+      'Split for remote workers in 2026: real monthly costs, Old Town vs Varos and Meje, Croatia nomad stay notes, 100 Mbps internet, and summer-crowd trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['split', 'dubrovnik', 'zadar', 'porto', 'valencia', 'athens']);
+    expect(g!.content).toContain('living in Split as a digital nomad');
+    expect(g!.content).toContain('$1,800');
+    expect(g!.content).toContain('$1,400');
+    expect(g!.content).toContain('$90');
+    expect(g!.content).toContain('The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night.');
+    expect(g!.content).toContain('reliability **8/10** and power **8/10**');
+    expect(g!.content).not.toContain('This guide does not');
+    expect(g!.content).toContain('100 Mbps');
+    expect(g!.content).toContain('Digital Nomad Visa');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).toContain('**May, Jun, Jul, Aug, and Sep**');
+    expect(g!.content).toContain('**Nov, Dec, and Jan**');
+    expect(g!.content).toContain('Jul-Aug');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/€|suburbs|outskirts|kuna\b.*\$/i);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/split',
+      '/destinations/dubrovnik',
+      '/destinations/zadar',
+      '/destinations/porto',
+      '/destinations/athens',
+      '/guides/living-in-porto',
+      '/guides/living-in-valencia',
+      '/guides/living-in-budapest',
+      '/guides/living-in-prague',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-madrid',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Split worth it for digital nomads in 2026?',
+      'Who Split is for (and who should skip it)',
+      'Monthly cost bands (solo $1,800, long-term $1,400 estimate, Airbnb $90) and the rental market',
+      'Neighborhoods that work: Old Town edges, Varos, Meje, Bacvice and Firule, and Znjan',
+      'Internet, power, and coworking for video-call work',
+      "Visas and stay length: Croatia's digital nomad temporary stay vs Schengen 90/180 (verify MUP)",
+      'Best months (May-Sep), rainy months (Nov-Jan), and the Jul-Aug crush',
+      'Daily life: walking, ferries, markets, Croatian, and winter',
+      'Split vs Dubrovnik, Zadar, Porto, Valencia, and Athens',
+      'First-week checklist and how to compare Split on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
