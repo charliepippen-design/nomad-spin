@@ -13,6 +13,8 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
+export { GUIDES_INDEX_DESCRIPTION } from '@/lib/guideJsonLd';
+
 /** Guide <title>, og:title, and twitter:title. Shared by the article page and prerender. */
 export function guidePageTitle(headline: string): string {
   return `${headline} | Nomad Spin`;
@@ -29,7 +31,7 @@ export function guidesIndexBodyHtml(items: readonly Pick<Guide, 'slug' | 'title'
         `<li><a href="/guides/${esc(guide.slug)}">${esc(guide.title)}</a><p>${esc(guide.excerpt)}</p></li>`,
     )
     .join('');
-  return `<main id="seo-guides"><h1>Guides and articles</h1><ul>${list}</ul></main>`;
+  return `<main id="seo-guides"><h1>Digital nomad guides</h1><ul>${list}</ul></main>`;
 }
 
 /** Full article HTML for crawlers. Markdown and existing HTML both render. */
