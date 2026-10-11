@@ -3495,9 +3495,10 @@ Still no partner IDs. These slots are last, after the week above, not before the
     slug: "living-in-hoi-an",
     title: "The Ultimate Guide to Living in Hoi An",
     seoTitle: "Living in Hoi An 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Hoi An 2026: Cost, Visa, An Bang",
     excerpt: "Hoi An for remote workers in 2026: real monthly costs, Old Town vs An Bang, E-Visa notes, 80 Mbps internet, and flooding and size trade-offs.",
-    date: "2026-10-07",
-    updated: "2026-10-07",
+    date: "2026-10-11",
+    updated: "2026-10-11",
     readTime: "37 min read",
     relatedDestinations: ["hoi-an"],
     content: `## Is living in Hoi An worth it for digital nomads in 2026?
@@ -3516,7 +3517,7 @@ Worth it as a short base beside [Da Nang](/destinations/da-nang), not as a subst
 
 ### Straight answers
 
-**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists about $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
+**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
 
 **Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average. Reliability 7/10 and power 7/10 are estimates. Coworking density is Low. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
 
@@ -4272,9 +4273,10 @@ Nomad Spin scores **780+ cities**. Lisbon should win only when your floors are h
     slug: "living-in-madrid",
     title: "The Ultimate Guide to Living in Madrid",
     seoTitle: "Living in Madrid 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Madrid 2026: Cost, Visa, Malasana",
     excerpt: "Madrid for remote workers in 2026: real monthly costs, Malasana vs Lavapies, Spain nomad visa notes, 200 Mbps internet, and hot-summer trade-offs.",
-    date: "2026-10-07",
-    updated: "2026-10-07",
+    date: "2026-10-11",
+    updated: "2026-10-11",
     readTime: "33 min read",
     relatedDestinations: ["madrid","barcelona","valencia","lisbon","budapest"],
     content: `## Is living in Madrid worth it for digital nomads in 2026?
@@ -4493,7 +4495,7 @@ Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** 
 
 You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, Spain-authorized health insurance, and income of at least **200%** of the monthly SMI. Official pages state that rule, not a euro amount. Check the figure and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa), and the [UGE-CE portal](https://www.inclusion.gob.es/web/unidadgrandesempresas).
 
-Short visits for many passports are Schengen **90 days in any 180**. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and the consulate disagree, the consulate wins.
+Short visits for many passports are Schengen **90 days in any 180**. More than 183 days in Spain in a calendar year makes you tax resident under [Ley 35/2006, article 9](https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764#a9), and other ties can do the same. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and the consulate disagree, the consulate wins.
 
 ## Best months (Apr-Jun, Sep-Oct), rainy months (Nov-Dec), and the Jul-Aug rule
 
@@ -6153,10 +6155,11 @@ The point of the dataset is to stop arguing from postcards.
     slug: "living-in-tallinn",
     title: "The Ultimate Guide to Living in Tallinn",
     seoTitle: "Living in Tallinn 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Tallinn 2026: Cost, Visa, Kalamaja | Nomad Spin",
     excerpt: "Tallinn for remote workers in 2026: real monthly costs, e-Residency vs the D-visa, Kalamaja, 300 Mbps internet, and dark-winter trade-offs.",
-    date: "2026-10-08",
-    updated: "2026-10-08",
-    readTime: "38 min read",
+    date: "2026-10-11",
+    updated: "2026-10-11",
+    readTime: "37 min read",
     relatedDestinations: ["tallinn"],
     content: `## Is living in Tallinn worth it for digital nomads in 2026?
 
@@ -6170,13 +6173,13 @@ If budget, internet, and safety are not locked yet, start with [How to Choose Yo
 
 ### Plain answers
 
-**How much does it cost to live in Tallinn as a digital nomad?** Nomad Spin lists **$1,600** a month solo and **$1,200** a month long-term, with a median Airbnb of **$75** a night. Old Town and a month of nightly stays leave that band. A monthly place in Kalamaja, Kesklinn, or Kadriorg is the planning number. The rent is the one on the flat you are viewing.
+**How much does it cost to live in Tallinn as a digital nomad?** Nomad Spin lists **$1,600** a month solo and **$1,200** a month long-term, with a median Airbnb of **$75** a night. Old Town and a month of nightly stays leave that band. A monthly place in Kalamaja, Kesklinn, or Kadriorg is the planning number.
 
-**Is Tallinn internet good enough for video calls?** Yes, on the city averages. The row shows **300 Mbps**, reliability **10/10**, power **9/10**, and coworking density **Med**. Test the upload in the actual room. A medieval building and a renovated flat are not the same line. Reliability **10** is the top of this scale. It is still an average, not a promise about an apartment you have not tested.
+**Is Tallinn internet good enough for video calls?** Yes, on the city averages. The row shows **300 Mbps**, reliability **10/10**, power **9/10**, and coworking density **Med**. Reliability 10 is the top of this scale. A medieval building and a renovated flat are not the same line, so test the upload in the actual room.
 
-**What visa do digital nomads use in Tallinn?** Nomad Spin lists a **Digital Nomad Visa** for up to **365 days** (**UTC+2**). That label is Estonia's long-stay (D) visa for teleworking, with a funds line the Foreign Ministry prints. A short visit is Schengen, **90 days in any 180-day period**. e-Residency is a digital identity for a company. It is not either of those stays. Verify the [Foreign Ministry page](https://vm.ee/en/consular-visa-and-travel-information/visa-information/application-long-stay-d-visa) and the [Police and Border Guard page](https://www.politsei.ee/en/instructions/visa-and-extending-period-of-stay/long-term-visa) before you book a year.
+**What visa do digital nomads use in Tallinn?** Nomad Spin lists a **Digital Nomad Visa** for up to **365 days**. That is Estonia's long-stay (D) visa for teleworking. A short visit is Schengen, 90 days in any 180. e-Residency is a digital identity, not a stay. Verify on the [Foreign Ministry](https://vm.ee/en/consular-visa-and-travel-information/visa-information/application-long-stay-d-visa) and [Police and Border Guard](https://www.politsei.ee/en/instructions/visa-and-extending-period-of-stay/long-term-visa) pages.
 
-**Who should skip living in Tallinn?** Skip it if dark, cold winters wreck your work, or if you wanted Helsinki's \`lgbtFriendly\` score. Nomad Spin flags very cold winters, dark winters, a small city, expensive alcohol, and limited diversity. Female safety is **9** against overall safety of **9.2**. Those two scores do not answer the LGBTQ+ question. \`lgbtFriendly\` here is **6**. Helsinki's is **9**. If you need the coast and a larger scene, read the [Lisbon living guide](/guides/living-in-lisbon).
+**Who should skip living in Tallinn?** Skip it if dark, cold winters wreck your work. Nomad Spin flags very cold winters, dark winters, a small city, expensive alcohol, and limited diversity. Safety is **9.2** and female safety **9**, but \`lgbtFriendly\` is **6**, against Helsinki's 9. For coast and a larger scene, read the [Lisbon living guide](/guides/living-in-lisbon).
 
 **What are the best months to live in Tallinn?** Nomad Spin's friendliest months are **Jun, Jul, and Aug**. Rainy months are **Oct and Nov**. Average temperature on the row is **6°C**. That yearly figure is not a January afternoon. Arrive in June if you can. Winter is a listed pair of cons: very cold, and dark.
 
