@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import type { Guide } from '@/data/guides';
-import { guideDestinationLinks, rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
+import { relatedDestinationsHtml, relatedGuidesHtml } from '@/lib/relatedGuides';
+import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 
 marked.use({ gfm: true, breaks: false });
 
@@ -43,15 +44,8 @@ export function renderGuideMarkdown(markdown: string): string {
 export function guideBodyHtml(guide: Guide): string {
   const body = renderGuideMarkdown(rewriteSubAreaDestinationHrefs(guide.content));
   const published = esc(guide.date.split('T')[0] ?? guide.date);
-  const related = guideDestinationLinks(guide.relatedDestinations);
-  const relatedHtml = related.length
-    ? `<h2>Related destinations</h2><ul>${related
-        .map((slug) => {
-          const label = slug.replace(/-/g, ' ');
-          return `<li><a href="/destinations/${esc(slug)}">${esc(label)}</a></li>`;
-        })
-        .join('')}</ul>`
-    : '';
+  const relatedGuides = relatedGuidesHtml(guide.slug);
+  const relatedDestinations = relatedDestinationsHtml(guide);
 
   return `
 <main id="seo-guide" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:Georgia,'Source Serif 4',serif;font-weight:400;line-height:1.65;color:#1c1917;background:#fff">
@@ -60,7 +54,8 @@ export function guideBodyHtml(guide: Guide): string {
   <p>${esc(guide.excerpt)}</p>
   <p>${esc(guide.readTime)} · Published ${published}</p>
   <article>${body}</article>
-  ${relatedHtml}
+  ${relatedGuides}
+  ${relatedDestinations}
   <p><a href="/" style="color:#007a52">Spin the globe</a></p>
 </main>`;
 }
