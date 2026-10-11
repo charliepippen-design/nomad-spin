@@ -954,6 +954,31 @@
       "source": "/guides/living-in-ho-chi-minh",
       "destination": "/guides/living-in-ho-chi-minh-city",
       "statusCode": 301
+    },
+    {
+      "source": "/guides/digital-nomad-guide-tirana-albania-remote-work",
+      "destination": "/guides/living-in-tirana",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/tirana",
+      "destination": "/guides/living-in-tirana",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/tirana-digital-nomad-guide-costs-visas",
+      "destination": "/guides/living-in-tirana",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/tirana-digital-nomad-guide-costs-visas-coworking",
+      "destination": "/guides/living-in-tirana",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/tirana-digital-nomad-guide-costs-visas-living",
+      "destination": "/guides/living-in-tirana",
+      "statusCode": 301
     }
   ],
   "rewrites": [

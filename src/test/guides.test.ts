@@ -1091,11 +1091,27 @@ describe('static guides', () => {
     }
   });
 
+  it('keeps the Tirana quick answers FAQ-ready: at least 6 Q&As, each answer under 50 words', () => {
+    const g = guides.find((x) => x.slug === 'living-in-tirana');
+    const qas = g!.content
+      .split('\n')
+      .map((line) => line.match(/^\*\*([^*]+\?)\*\* (.+)$/))
+      .filter((m): m is RegExpMatchArray => m !== null)
+      .map((m) => ({ q: m[1], a: m[2].replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') }))
+      .filter(({ q }) => !q.startsWith('It tends') && !q.startsWith('Skip it'));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const { q, a } of qas) {
+      expect(a.trim().split(/\s+/).length, q).toBeLessThan(50);
+    }
+  });
+
   it('publishes the Tirana living guide from dataset figures', () => {
     const g = guides.find((x) => x.slug === 'living-in-tirana');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Tirana');
-    expect(g!.seoTitle).toBe("Living in Tirana 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.seoTitle).toBe('Living in Tirana 2026: Costs, Visa, Areas');
+    expect(g!.seoTitle!.length).toBeLessThanOrEqual(47);
+    expect(guidePageTitle(g!.seoTitle!).length).toBeLessThanOrEqual(60);
     expect(g!.excerpt).toBe(
       'Tirana for remote workers in 2026: real monthly costs, Blloku vs the center, Albania visa and permit notes, 90 Mbps internet, and thin coworking.'
     );

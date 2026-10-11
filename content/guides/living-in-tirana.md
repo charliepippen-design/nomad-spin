@@ -2,15 +2,19 @@
 
 The case for living in Tirana as a digital nomad is a budget-and-runway decision before it is a mountain view. Tirana is a capital that costs $350 a month less than Budapest, sits at the foot of mountains, and does not yet have the nomad infrastructure to match its price. The short answers come from the [Tirana](/destinations/tirana) row, not from a rooftop photo.
 
-**How much does it cost to live in Tirana as a digital nomad?** Nomad Spin lists about **$1,150** a month for a solo nomad. The long-term **$863** and the median Airbnb around **$52** a night are estimates on this row. Blloku and a short-let habit push you above the baseline. A monthly lease in a residential block and local food keep you close to it.
+**How much does it cost to live in Tirana as a digital nomad?** Nomad Spin lists about **$1,150** a month for a solo nomad. The long-term **$863** and the median Airbnb around **$52** a night are estimates on this row. Blloku and a short-let habit push you above the baseline.
 
-**Is Tirana internet good enough for video calls?** Usually yes at home, with a backup. Nomad Spin shows about **90 Mbps** average. Reliability **7/10** and power **9/10** are estimates. Coworking density is Low. Test upload speed in the actual unit before signing, and keep a second connection for the call you cannot drop.
+**Is Tirana internet good enough for video calls?** Usually yes at home, with a backup. Nomad Spin shows about **90 Mbps** average. Reliability **7/10** and power **9/10** are estimates. Coworking density is Low. Test upload speed in the actual unit before signing.
 
-**What visa do digital nomads use in Tirana?** Nomad Spin lists **Visa-Free** for up to **365** days. That is not the default rule. Albania's law on foreigners sets 90 days within 180 for visa-free entrants unless a bilateral agreement or Council of Ministers decision says otherwise, and the 365 on this row applies to some passports only. The law also has a one-year single permit for digital mobile workers. Verify your own passport on the Albanian ministry pages before you plan a year.
+**What visa do digital nomads use in Tirana?** Nomad Spin lists **Visa-Free** for up to **365** days, which applies to some passports only. Albania's Law 79/2021 sets 90 days within 180 for most visa-free entrants. It also provides a one-year single permit for digital mobile workers. Check your passport on the ministry pages.
 
-**Who should skip living in Tirana?** Skip it if you need a deep coworking scene, a large nomad community, or a polished, quiet city. Nomad Spin flags traffic and developing infrastructure as trade-offs. Community size is **3**. If you need desks, meetups, and English everywhere, pick [Budapest](/destinations/budapest) or [Chiang Mai](/destinations/chiang-mai) instead.
+**Who should skip living in Tirana?** Skip it if you need a deep coworking scene, a large nomad community, or a polished, quiet city. Nomad Spin flags traffic and developing infrastructure as trade-offs. Community size is **3**.
 
-**What are the best months to live in Tirana?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**, a yearly figure and not a forecast. Spring and early autumn are the sweet spot.
+**What are the best months to live in Tirana?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**, a yearly figure and not a forecast.
+
+**Which neighborhood should I pick in Tirana?** Blloku suits cafes and a walkable first week, but nights are loud. The center and Pazari i Ri is the busiest part of town. Lake Park is quieter and greener. Rruga e Kavajes is mid-priced but a traffic artery. Kombinat and further out means local leases and quiet nights.
+
+**What time zone is Tirana in?** Nomad Spin lists **UTC+1**. Albania observes Central European Summer Time, so clocks move to **UTC+2** from the last Sunday of March to the last Sunday of October, like the rest of Central Europe.
 
 Worth it, with conditions. You are paying a mid-priced Balkan month for a capital city, mountains behind it, and a coast within reach, with nightlife **6**, English **5**, and a time zone of **UTC+1**. What you give up is a ready-made scene: community is **3**, coworking is **Low**, and safety is **7** (female safety **5**). The city is tagged **adventure** and **party**. Landscape is **urban**. Region is **Europe**. Language is Albanian. Pros on the row are mountains and sea, cheap, emerging, and friendly.
 
@@ -178,7 +182,7 @@ The Tirana row says **Visa-Free**, **365** days, **UTC+1**. That is the reason m
 
 Albania's Law No. 79/2021 "On Aliens" is the base. The Interior Ministry hosts an [English translation of the law](https://mb.gov.al/wp-content/uploads/2024/10/Ligj-per-te-Huajt-%E2%80%93-nr.-79.2021_English.pdf); the Albanian text prevails if they differ. Three points matter for a stay.
 
-First, the list of countries whose nationals enter without a visa is set by a Council of Ministers decision (Article 29). Second, a visa-free alien has the right to stay **90 days within 180** from entry, unless a bilateral or multilateral agreement, or a Council of Ministers decision based on reciprocity, provides otherwise (Article 29). A short-term stay may not exceed 90 days within 180 on a visa or visa-free entry, except where the law or an agreement says otherwise (Article 31). Third, aliens must as a rule register with the local border and migration authority within **10 days** of entry, with exemptions listed by a Council of Ministers decision (Article 29).
+First, the list of countries whose nationals enter without a visa is set by a Council of Ministers decision (Article 29). Second, a visa-free alien has the right to stay **90 days within 180** from entry, unless a bilateral or multilateral agreement, or reciprocity or a unilateral position set in a Council of Ministers decision, provides otherwise (Article 29). A short-term stay may not exceed 90 days within 180 on a visa or visa-free entry, except where the law or an agreement says otherwise (Article 31). Third, aliens must as a rule register with the local border and migration authority within **10 days** of entry, with exemptions listed by a Council of Ministers decision (Article 29).
 
 The Ministry for Europe and Foreign Affairs publishes a [visa regime note for foreigners](https://punetejashtme.gov.al/wp-content/uploads/2024/09/II-NR.3-REGJIMI-I-VIZAVE-PER-TE-HUAJT-INFO-PER-TE-HUAJT.pdf) on [punetejashtme.gov.al](https://punetejashtme.gov.al/). It says the regime rests on Law 79/2021 and Council of Ministers Decision No. 858 of 29 December 2021. It says a visa-exempt traveller needs a passport valid for at least **3 months after leaving Albania** and issued within the last **10 years**. A Type C visa allows up to **90 days within 180**. A Type D visa is for stays of more than 90 days within 180 when a visa is required to get a residence permit. Nationalities not in the ministry's table need a visa before travel, applied for at the nearest mission or through the [e-visa portal](https://e-visa.al/) the ministry links.
 
@@ -190,7 +194,7 @@ Albanian days are counted under Albanian law. How they interact with another cou
 
 ### The Unique Permit for digital mobile workers
 
-Albania does not sell a visa branded "digital nomad." The law does provide a **single residence permit for digital mobile workers** (Article 68), which the Interior Ministry groups with its unique permits. The category defined as foreign nationals who work in different countries, not from an office or an employer's headquarters, mainly using information technology tools. The first permit is issued for **one year** to an alien who is already legally staying in Albania and who:
+Albania does not sell a visa branded "digital nomad." The law does provide a **single residence permit for digital mobile workers** (Article 68), defined in the law as foreign nationals who work in different countries, not from an office or an employer's headquarters, mainly using information technology tools. The first permit is issued for **one year** to an alien who is already legally staying in Albania and who:
 
 - Proves, through an employment contract with an employer or a service contract with a client based abroad, that the work needs no physical headquarters and can be done with information technology tools
 - Proves sufficient income to support themselves and any dependants during the stay
@@ -198,7 +202,7 @@ Albania does not sell a visa branded "digital nomad." The law does provide a **s
 - Holds a health insurance policy valid for at least one year
 - Has a criminal record certificate from the country of origin
 
-The law does not print an income figure in that article, and the state fee is set by Council of Ministers decision. Do not trust a euro threshold or a fee quoted on a consultancy blog. The Ministry of Interior publishes its [procedure and documentation page for residence and unique permits](https://mb.gov.al/procedura-dhe-dokumentacioni-per-pajisjen-me-leje-qendrimi-dhe-leje-unike-residence-unique-permit-al-en/). Read the current document list, the application route, and the fee there, and ask the border and migration office or a lawyer if anything is unclear.
+The law does not print an income figure in that article, and the state fee is set by Council of Ministers decision. Do not trust a euro threshold or a fee quoted on a consultancy blog. The Ministry of Interior's [procedure and documentation page for residence and unique permits](https://mb.gov.al/procedura-dhe-dokumentacioni-per-pajisjen-me-leje-qendrimi-dhe-leje-unike-residence-unique-permit-al-en/) is the place to confirm the current document list, the application route, and the fee. Ask the border and migration office or a lawyer if anything is unclear.
 
 Two practical consequences follow from the wording. The permit is for someone **already legally staying** in Albania, so the usual sequence is to enter visa-free and apply in country, not to wait abroad. And a visa-free stay that ends before the permit is issued is a risk you carry, so build in time and do not rely on a promised processing date.
 
@@ -214,7 +218,7 @@ A long stay can raise tax-residence questions at home and in Albania. This is no
 
 - **The trip fits inside 90 days:** enter visa-free if your passport qualifies, register as the law requires, and write the last legal day down.
 - **Your passport has a longer visa-free arrangement:** read the ministry's table for your passport and the number on it before you commit to a year of rent.
-- **You need longer than your allowance:** the Article 68 permit, applied for through the procedure on the Interior Ministry page, with the insurance and criminal record paperwork ready. Or a base with a clearer long-stay route: [Living in Tbilisi](/guides/living-in-tbilisi) lists **Visa Free**, **365** days, solo **$800**, **UTC+4**, with its own passport-list caveat.
+- **You need longer than your allowance:** the Article 68 permit, applied for through the Interior Ministry's procedure, with the insurance and criminal record paperwork ready. Or a base with a clearer long-stay route: [Living in Tbilisi](/guides/living-in-tbilisi) lists **Visa Free**, **365** days, solo **$800**, **UTC+4**, with its own passport-list caveat.
 - **"I will just stay and sort it out":** not a plan.
 
 ## Best months (Apr-Jun, Sep-Oct) vs rainy months (Nov-Dec)

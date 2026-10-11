@@ -16,6 +16,14 @@ type VercelConfig = {
 
 const config = JSON.parse(vercelJson) as VercelConfig;
 
+const TIRANA_GUIDE_ALIASES = [
+  '/guides/digital-nomad-guide-tirana-albania-remote-work',
+  '/guides/tirana',
+  '/guides/tirana-digital-nomad-guide-costs-visas',
+  '/guides/tirana-digital-nomad-guide-costs-visas-coworking',
+  '/guides/tirana-digital-nomad-guide-costs-visas-living',
+] as const;
+
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
 }
@@ -85,9 +93,11 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/guides/living-in-hcmc', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
     ];
-    expect(redirects).toHaveLength(expected.length + aliases.length);
+    const tiranaAliases = TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' }));
+    expect(redirects).toHaveLength(expected.length + aliases.length + tiranaAliases.length);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
+    for (const rule of tiranaAliases) expect301(bySource, rule.source, rule.destination);
   });
 
   it('declares redirects before the allowlisted SPA rewrites', () => {
