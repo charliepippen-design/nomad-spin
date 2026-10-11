@@ -103,6 +103,25 @@ describe('Vietnam e-visa label', () => {
 });
 
 describe('living guide visa sections', () => {
+  it('cites the MDEC DE Rantau pages and the Immigration Department in the Kuala Lumpur guide', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-kuala-lumpur.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mdec\.my\/derantau/);
+    expect(md).toMatch(/mdec\.my\/api\/media\/file\/DE-Rantau_Pass_FAQ_v10\.pdf/);
+    expect(md).toMatch(/imi\.gov\.my\/index\.php\/en\/main-services\/visa\/visa-requirement-by-country/);
+    expect(md).toMatch(/imigresen-online\.imi\.gov\.my\/mdac/);
+    expect(md).toMatch(/Version 10\.0/);
+    expect(md).toMatch(/\*\*USD 24,000\*\*/);
+    expect(md).toMatch(/\*\*USD 60,000\*\*/);
+    expect(md).toMatch(/\*\*RM1,080\*\*/);
+    expect(md).toMatch(/\*\*Digital Nomad Visa\*\*/);
+    expect(md).toMatch(/tourist pass cannot be converted/i);
+    expect(md).not.toMatch(/territorial/i);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
+  });
+
   it('cites the Vietnam e-visa portal and the Finance circular in the Hoi An guide', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-hoi-an.md'),
