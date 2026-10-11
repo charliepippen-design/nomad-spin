@@ -954,6 +954,31 @@
       "source": "/guides/living-in-ho-chi-minh",
       "destination": "/guides/living-in-ho-chi-minh-city",
       "statusCode": 301
+    },
+    {
+      "source": "/guides/split",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-2026-v2",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-remote-work",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
     }
   ],
   "rewrites": [

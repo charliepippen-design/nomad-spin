@@ -1096,7 +1096,22 @@ describe('static guides', () => {
     const g = guides.find((x) => x.slug === 'living-in-split');
     expect(g).toBeTruthy();
     expect(g!.title).toBe('The Ultimate Guide to Living in Split');
-    expect(g!.seoTitle).toBe("Living in Split 2026: The Digital Nomad's Definitive Guide");
+    const seoTitle = g!.seoTitle as string;
+    expect(seoTitle).toBe('Living in Split 2026: Costs, Visa, Areas');
+    expect(seoTitle.length).toBeLessThanOrEqual(47);
+    expect(guidePageTitle(seoTitle).length).toBeLessThanOrEqual(60);
+    const qas = g!.content
+      .split('\n')
+      .map((line) => line.match(/^\*\*([^*]+\?)\*\*\s+(.+)$/))
+      .filter((m): m is RegExpMatchArray => m !== null);
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const [, question, answer] of qas) {
+      expect(answer.trim().split(/\s+/).length, question).toBeLessThan(50);
+    }
+    expect(g!.content).not.toMatch(/\bkuna\b|\bHRK\b/i);
+    expect(g!.content).toContain('EUR 3,622.50');
+    expect(g!.content).toContain('EUR 43,470.00');
+    expect(g!.content).toContain('EUR 65,205.00');
     expect(g!.excerpt).toBe(
       'Split for remote workers in 2026: real monthly costs, Old Town vs Varos and Meje, Croatia nomad stay notes, 100 Mbps internet, and summer-crowd trade-offs.'
     );

@@ -2,15 +2,19 @@
 
 The case for living in Split as a digital nomad is a quality-of-days decision, not a spreadsheet win. You are paying a mid-priced Western European budget for a safe Adriatic city with a real old center, ferries to islands, and a working-day rhythm that starts with a swim. Who Split is for: people who want the sea and a calm, small city, and who can accept thin nomad infrastructure and a summer that fills with visitors. The short answers come from the [Split](/destinations/split) row, not from a sunset photo.
 
-**How much does it cost to live in Split as a digital nomad?** Nomad Spin lists about **$1,800** a month for a solo nomad. The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night. Old Town addresses and July or August leases push you above that. A monthly lease outside the center, local food, and the shoulder months keep you near it.
+**How much does it cost to live in Split as a digital nomad?** Nomad Spin lists about **$1,800** a month for a solo nomad. The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night. Old Town and July or August leases cost more.
 
-**Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing, and keep a second connection for the call you cannot drop.
+**Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing.
 
-**What visa do digital nomads use in Split?** Nomad Spin lists a Digital Nomad Visa for **365** days. Croatia's own rule is a temporary stay for digital nomads from outside the EU, EEA, and Switzerland, granted for up to 18 months on the Ministry of the Interior page. Income thresholds, fees, and the route depend on your passport. Verify on official Croatian pages.
+**What visa do digital nomads use in Split?** Nomad Spin lists a Digital Nomad Visa for **365** days. Croatia's own rule is a temporary stay of up to 18 months for non-EU, non-EEA, non-Swiss nomads earning at least **EUR 3,622.50** a month. Verify on the Ministry of the Interior page.
 
-**Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, a small-city feel, and crowded summers as trade-offs. If community and nightlife matter more than the water, pick a capital instead.
+**Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, and crowded summers as trade-offs.
 
-**What are the best months to live in Split?** Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, and Jan**. Average temperature in the dataset is **16°C**, a yearly figure. The best-month list and the crowded-summer con point at the same months, so read the season section before you book July.
+**What are the best months to live in Split?** Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, and Jan**. July and August are also the crowded-summer months.
+
+**Which neighborhood is best for a digital nomad in Split?** Varos and Meje suit a quiet working month. Bacvice and Firule put the beach after work. Old Town edges are lively but cost more, and Znjan is residential and less central.
+
+**Is Split safe for digital nomads?** Yes. Nomad Spin's Split safety score is **9.0** and female safety is **9**, the strongest numbers on the row. Community is **4** and nightlife is **6**, so it is calm rather than social.
 
 Worth it, with conditions. The row is tagged **beach**, **adventure**, and **foodie**, on a **seaside** landscape, in **Europe**, language **Croatian**. Safety is **9.0** (female safety **9**), which is the strongest number on the page. English proficiency is **7**. Community is **4** and nightlife is **6**, so this is a place you settle into rather than a place that catches you. Time zone on the row is **UTC+1**. The row's own pros are the Adriatic coastline, rich history, island hopping, safe streets, and great weather.
 
@@ -197,7 +201,7 @@ Treat any name you cannot find on a current operator page as closed or moved. Me
 
 Not legal advice. Nomad Spin lists a **Digital Nomad Visa** with **365** days on [Split](/destinations/split). That label is a planning field. Croatia does not run it as a visa you collect at the border. The Croatian Ministry of the Interior (MUP) describes it as a **temporary stay of digital nomads**, a residence permit, on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
 
-Croatia uses the euro and is in the Schengen area. The European Commission records that Croatia [joined the euro area on 1 January 2023](https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/croatia-and-euro_en), and the European Parliament states that on 1 January 2023 [Croatia joined the Schengen area](https://www.europarl.europa.eu/topics/en/article/20180216STO98008/schengen-enlargement-of-europe-s-border-free-area). Prices you read on older pages in kuna are out of date.
+Croatia uses the euro and is in the Schengen area. The European Commission records that Croatia [joined the euro area on 1 January 2023](https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/croatia-and-euro_en), and the European Parliament states that on 1 January 2023 [Croatia joined the Schengen area](https://www.europarl.europa.eu/topics/en/article/20180216STO98008/schengen-enlargement-of-europe-s-border-free-area).
 
 ### What the Ministry of the Interior publishes
 
@@ -206,20 +210,20 @@ The MUP page defines a digital nomad as a third-country national, meaning a non-
 | Point | What the MUP page says |
 |---|---|
 | Length | Temporary stay is granted for up to a maximum of **eighteen months** (possibly even less) |
-| Extension | Request it **no later than 60 days before** the stay expires. The extension is granted for a maximum of **6** more months |
+| Extension | Only if the stay was granted for less than 18 months: apply **no later than 60 days before** it expires, in person at a police administration or station. The extension is granted for a maximum of **6** months |
 | Reapplying | A new nomad application can be submitted **6 months after** the previous temporary stay expired |
 | Income | At least **2.5** average monthly net salaries paid in the previous year. At this moment that is a minimum of **EUR 3,622.50** a month, shown by a bank statement of regular income or payslips for the last six months |
 | Lump sum alternative | A minimum of **EUR 43,470.00** in your bank account for a 12-month stay, or **EUR 65,205.00** for 18 months |
 | Family | Close family members may join once the nomad's own stay is granted. The page adds 10% of the average monthly net salary for each additional family member |
 | Health insurance | Proof of cover for the period you plan to be in Croatia. Travel or private health insurance must cover Croatian territory |
 | Where to apply | Online, which is forwarded to the competent police administration or station. If you need a visa to enter Croatia, apply at a Croatian diplomatic mission or consulate: a police-station application from a visa-required national is rejected |
-| After arrival | Register your temporary residence within **3 days** of entering Croatia. Collect the biometric residence card within **30 days** of the start of the stay, or within six months if the long-term D visa was required |
+| After arrival | Register your temporary residence address at the police within **3 days** of entering Croatia. The granted stay must also be registered at the police within **30 days** of the start of its validity (six months if the long-term D visa is required), or it is revoked. The biometric residence card is collected in person at the police |
 
-That euro amount is the ministry's own "at this moment" figure. It is the number to check on the live page before you plan around it. The ministry also lists fees that differ between filing at a consulate and filing at a police office, plus the full document list (passport, proof of work, proof of funds, insurance, and more). Read the table on the page the week you apply. Do not copy a fee from an agent site and call it the government charge.
+That euro amount is the ministry's own "at this moment" figure. It is the number to check on the live page before you plan around it. The ministry also lists fees. Filed at a consulate: **EUR 55.74** for the temporary stay, **EUR 93.00** for the long-term D visa, or **EUR 41.14** for the biometric card. Filed at a police office, paid after the stay is granted: **EUR 46.45** for the temporary stay, **EUR 9.29** administrative fee and **EUR 31.85** for the biometric card (**EUR 59.73** accelerated). The page also lists the full document list (passport, proof of work, proof of funds, insurance, a criminal-record certificate, and more). Read the table on the page the week you apply. Do not copy a fee from an agent site and call it the government charge.
 
 ### Reconciling the row with the rule
 
-The Split row says **365** days. The ministry says up to **eighteen months**, with a second step of up to six months by extension. The 365 on the row matches the 12-month lump-sum line on the ministry page, and it is the simpler figure to plan around, so treat it as a rounded orientation field and not as a guaranteed length. Your own permit may be shorter.
+The Split row says **365** days. The ministry says up to **eighteen months**, and a stay granted for less than 18 months can be extended by up to six months. The 365 on the row matches the 12-month lump-sum line on the ministry page, and it is the simpler figure to plan around, so treat it as a rounded orientation field and not as a guaranteed length. Your own permit may be shorter.
 
 One more disagreement worth knowing: the Ministry of Foreign Affairs [consular page on temporary stay](https://mvep.gov.hr/consular-information-130483/temporary-stay-of-foreigners/264503) describes the nomad stay as up to a year that cannot be extended. The Ministry of the Interior is the body that decides the permit, and its page is the more detailed one, but two government pages differ. Confirm the length and the extension with the police administration or your nearest Croatian consulate before you book a year of anything.
 
@@ -368,7 +372,7 @@ If the objection is "I wanted the sea and a third of the bill," none of these Eu
 
 - See more than one monthly place. Run the speed test in the room. Stand in the bedroom after 10pm. Switch on the heating or the cooling the listing claims
 - If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
-- If you are applying for the nomad stay, write down the 3-day address registration and the 30-day biometric card window from the MUP page. Do not discover them in week three
+- If you are applying for the nomad stay, write down the 3-day address registration and the 30-day registration window from the MUP page. Do not discover them in week three
 
 **Days 5-7**
 

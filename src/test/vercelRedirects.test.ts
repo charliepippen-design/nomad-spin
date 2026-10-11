@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import vercelJson from '../../vercel.json?raw';
+import { guides } from '@/data/guides';
 import { accentSlugRedirects, legacySlugRedirects, serverSlugRedirects } from '@/lib/citySlug';
 
 type RedirectRule = {
@@ -15,6 +16,14 @@ type VercelConfig = {
 };
 
 const config = JSON.parse(vercelJson) as VercelConfig;
+
+const SPLIT_GUIDE_ALIASES = [
+  '/guides/split',
+  '/guides/split-croatia-digital-nomad-guide',
+  '/guides/split-croatia-digital-nomad-guide-2026',
+  '/guides/split-croatia-digital-nomad-guide-2026-v2',
+  '/guides/split-croatia-digital-nomad-guide-remote-work',
+] as const;
 
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
@@ -84,10 +93,20 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/guides/living-in-saigon', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-hcmc', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
+      ...SPLIT_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-split' })),
     ];
     expect(redirects).toHaveLength(expected.length + aliases.length);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
+  });
+
+  it('301s old Split guide URLs to the living-in-split guide', () => {
+    const guidePaths = new Set(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(guidePaths.has('/guides/living-in-split')).toBe(true);
+    for (const source of SPLIT_GUIDE_ALIASES) {
+      expect301(bySource, source, '/guides/living-in-split');
+      expect(guidePaths.has(source), source).toBe(false);
+    }
   });
 
   it('declares redirects before the allowlisted SPA rewrites', () => {
