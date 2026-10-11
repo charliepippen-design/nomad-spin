@@ -24,6 +24,7 @@
  * applied by buildUtmParams().
  */
 
+import { slugify } from '@/lib/slugify';
 import type { Vertical } from '@/utils/analytics';
 
 export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing' | 'nordvpn';
@@ -92,9 +93,7 @@ const FLATIO_SUPPORTED_COUNTRIES: string[] = [
 
 // UTM builder
 
-function slugify(str: string): string {
-  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-}
+// Accents fold to their base letters (Bogotá -> bogota), see src/lib/slugify.ts.
 
 /**
  * Build a URL-encoded UTM query string.
@@ -180,7 +179,11 @@ function buildAccommodationUrl(city: string, country: string, countryCode: strin
   };
 }
 
+/** Skyscanner is hidden (empty URL) until VITE_SKYSCANNER_ID is set. */
 function buildFlightsUrl(destinationCity: string, originCity?: string): BuiltLink {
+  if (!isPartnerLive('skyscanner')) {
+    return { url: '', partner: 'Skyscanner', affiliate: false };
+  }
   const destSlug = slugify(destinationCity);
   const utms = buildUtmParams(destSlug, 'flights');
   const dest = encodeURIComponent(destinationCity);

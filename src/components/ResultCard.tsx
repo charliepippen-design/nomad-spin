@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import HealthBar from '@/components/HealthBar';
 import DeploymentGrid from '@/components/DeploymentGrid';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
-import { trackSpinCompleted } from '@/utils/analytics';
+import { trackAffiliateClick, trackSpinCompleted } from '@/utils/analytics';
 import { useCityImage } from '@/hooks/useCityImage';
 import { generateBadges } from '@/lib/badges';
 import { cityPath } from '@/lib/citySlug';
@@ -237,7 +237,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           <a
             href={affiliateLinks.visa.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={affiliateLinks.visa.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+            onClick={() =>
+              trackAffiliateClick('iVisa', 'visa', city.name, affiliateLinks.visa.url, `Check visa options for ${city.country}`, {
+                placement: 'spin_card_visa',
+              })
+            }
             className="mx-6 mt-3 flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.07] hover:border-border/60 transition-all group pointer-events-auto"
           >
             <div className="flex items-center gap-2">
@@ -325,6 +330,16 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               href={affiliateLinks.accommodation.url}
               target="_blank"
               rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+              onClick={() =>
+                trackAffiliateClick(
+                  affiliateLinks.accommodation.partner,
+                  'accommodation',
+                  city.name,
+                  affiliateLinks.accommodation.url,
+                  `Find a place to stay in ${city.name}`,
+                  { placement: 'spin_card_stay' },
+                )
+              }
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3 }}
