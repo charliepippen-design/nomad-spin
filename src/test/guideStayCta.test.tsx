@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
+import { guides } from '@/data/guides';
 import { guideStayCta } from '@/lib/guideStayCta';
 import GuideArticle from '@/pages/GuideArticle';
 
@@ -61,8 +62,22 @@ describe('guideStayCta', () => {
     expect(guideStayCta('living-in-tallinn')?.url).toContain('aid=8092520');
   });
 
-  it('returns null for other guides', () => {
-    expect(guideStayCta('living-in-bali')).toBeNull();
+  it('returns null for unknown guides', () => {
+    expect(guideStayCta('not-a-guide')).toBeNull();
+  });
+
+  it('covers all 23 published guides', () => {
+    const slugs = guides.map((g) => g.slug);
+    expect(slugs).toHaveLength(23);
+    for (const slug of slugs) expect(guideStayCta(slug), slug).not.toBeNull();
+  });
+
+  it('maps the added city guides to their destination pages', () => {
+    expect(guideStayCta('living-in-bali')).toMatchObject({ city: 'Bali', destinationSlug: 'bali' });
+    expect(guideStayCta('living-in-cape-town')).toMatchObject({ city: 'Cape Town', destinationSlug: 'cape-town' });
+    expect(guideStayCta('living-in-valencia')?.city).toBe('Valencia');
+    expect(guideStayCta('paraguay-tax-residency-remote-workers')?.city).toBe('Asunción');
+    expect(guideStayCta('best-places-digital-nomads-2025')?.destinationSlug).toBeUndefined();
   });
 });
 
@@ -89,8 +104,16 @@ describe('GuideArticle stay CTA', () => {
     }
   });
 
-  it('renders no Booking link on a guide without a stay CTA', () => {
-    const { container } = renderGuide('living-in-bali');
-    expect(aidLinks(container)).toHaveLength(0);
+  it('renders the Booking link on Bali and Cape Town', () => {
+    for (const [slug, text] of [
+      ['living-in-bali', 'Search stays in Bali on Booking.com'],
+      ['living-in-cape-town', 'Search stays in Cape Town on Booking.com'],
+    ]) {
+      const { container, unmount } = renderGuide(slug);
+      const links = aidLinks(container);
+      expect(links).toHaveLength(1);
+      expect(links[0]).toHaveTextContent(text);
+      unmount();
+    }
   });
 });

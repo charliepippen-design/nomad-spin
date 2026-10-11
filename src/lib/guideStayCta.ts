@@ -10,8 +10,8 @@ interface GuideStayCtaConfig {
 }
 
 /**
- * The 5 most visited guides (Vercel Web Analytics, last 30 days), plus the
- * October launch guides (Madrid, Hoi An, Tallinn). An entry only renders once
+ * Every published guide. Started with the 5 most visited (Vercel Web Analytics,
+ * last 30 days) and the October launch guides, then extended to the rest. An entry only renders once
  * that guide is published.
  */
 export const GUIDE_STAY_CTAS: Record<string, GuideStayCtaConfig> = {
@@ -22,6 +22,27 @@ export const GUIDE_STAY_CTAS: Record<string, GuideStayCtaConfig> = {
   'living-in-madrid': { cityId: 'madrid-es' },
   'living-in-hoi-an': { cityId: 'hoi-an-vn' },
   'living-in-tallinn': { cityId: 'tallinn-ee' },
+  'living-in-bali': { cityId: 'bali-id' },
+  'living-in-bangkok': { cityId: 'bangkok-th' },
+  'living-in-barcelona': { cityId: 'barcelona-es' },
+  'living-in-buenos-aires': { cityId: 'buenos-aires-ar' },
+  'living-in-cape-town': { cityId: 'cape-town-za' },
+  'living-in-ho-chi-minh-city': { cityId: 'ho-chi-minh-vn' },
+  'living-in-lisbon': { cityId: 'lisbon-pt' },
+  'living-in-mexico-city': { cityId: 'mexico-city-mx' },
+  'living-in-porto': { cityId: 'porto-pt' },
+  'living-in-prague': { cityId: 'prague-cz' },
+  'living-in-tbilisi': { cityId: 'tbilisi-ge' },
+  'living-in-valencia': { cityId: 'valencia-es' },
+  'paraguay-tax-residency-remote-workers': { cityId: 'asuncion-py' },
+  'best-places-digital-nomads-2025': {
+    heading: 'Picked a city from the list?',
+    body: 'Once a destination makes your shortlist, compare stays for your dates on Booking.com.',
+  },
+  'where-to-go-next-by-season': {
+    heading: 'Know your season and city?',
+    body: 'When you have a destination for your months, compare stays for your dates on Booking.com.',
+  },
   'how-to-choose-next-nomad-base': {
     heading: 'Shortlist done?',
     body: 'Once two or three destination pages pass your filters, compare stays for your dates on Booking.com.',

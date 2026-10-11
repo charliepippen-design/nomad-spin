@@ -12,9 +12,12 @@
  * ═══════════════════════════════════════════════════════════════════
  */
 
+import { slugify } from '@/lib/slugify';
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
   }
 }
 
@@ -24,6 +27,7 @@ export type AnalyticsEvent =
   | 'spin_completed'
   | 'affiliate_click'
   | 'affiliate_click_error'
+  | 'cta_variant_assigned'
   | 'grid_tile_visible';
 
 export type Vertical =
@@ -54,22 +58,105 @@ export function getSessionId(): string {
   return id;
 }
 
+// ── CTA variant (Oct 18 destination stay button test) ──────────────────────
+
+export type CtaVariant = 'control' | 'monthly_stays';
+
+const VARIANT_SESSION_KEY = 'nomadspin_cta_session_id';
+const VARIANT_KEY = 'nomadspin_cta_variant';
+
+/** Deterministic 50/50 split of a session ID. */
+export function variantForSession(sessionId: string): CtaVariant {
+  let hash = 0;
+  for (let i = 0; i < sessionId.length; i++) {
+    hash = (hash * 31 + sessionId.charCodeAt(i)) >>> 0;
+  }
+  return hash % 2 === 0 ? 'control' : 'monthly_stays';
+}
+
+let memoryVariant: CtaVariant | null = null;
+
+/**
+ * Variant for this browser session. Chosen once from a session ID kept in
+ * sessionStorage and announced once per session via a dataLayer push.
+ * Never throws; falls back to 'control' when storage is unavailable.
+ * The visible button does not change yet: every surface renders control.
+ */
+export function getCtaVariant(): CtaVariant {
+  if (typeof window === 'undefined') return 'control';
+  if (memoryVariant) return memoryVariant;
+  try {
+    const stored = window.sessionStorage.getItem(VARIANT_KEY);
+    if (stored === 'control' || stored === 'monthly_stays') {
+      memoryVariant = stored;
+      return stored;
+    }
+    let sid = window.sessionStorage.getItem(VARIANT_SESSION_KEY);
+    if (!sid) {
+      sid = generateId();
+      window.sessionStorage.setItem(VARIANT_SESSION_KEY, sid);
+    }
+    const variant = variantForSession(sid);
+    window.sessionStorage.setItem(VARIANT_KEY, variant);
+    memoryVariant = variant;
+    pushToDataLayer({ event: 'cta_variant_assigned', cta_variant: variant });
+    return variant;
+  } catch {
+    return 'control';
+  }
+}
+
+/** Test helper: forget the cached variant. */
+export function resetCtaVariantForTests(): void {
+  memoryVariant = null;
+}
+
 // ── Core event dispatcher ──────────────────────────────────────────────────
+
+function pushToDataLayer(entry: Record<string, unknown>): void {
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(entry);
+  } catch {
+    // Never let tracking break the page
+  }
+}
+
+/**
+ * GA4 loads through GTM, so window.gtag is usually absent. Define the standard
+ * stand-in (pushes `arguments` to dataLayer) so GTM's GA4 tag can pick up
+ * gtag('event', ...) calls.
+ */
+function ensureGtag(): void {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function gtag() {
+      // GTM requires the real `arguments` object, not a rest array
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer!.push(arguments);
+    };
+  }
+}
 
 export function trackEvent(eventName: AnalyticsEvent, params: Record<string, unknown>): void {
   const payload = { ...params, session_id: getSessionId() };
 
   try {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, payload);
+    if (typeof window !== 'undefined') {
+      ensureGtag();
+      window.gtag!('event', eventName, payload);
     }
   } catch {
     // Fail silently: GA may be blocked by ad-blockers
     console.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
   }
 
-  // Always log to console for dev visibility
-  console.log(`📊 [Analytics]: ${eventName}`, payload);
+  // Console log for dev visibility
+  try {
+    console.log(`📊 [Analytics]: ${eventName}`, payload);
+  } catch {
+    // ignore
+  }
 }
 
 // ── Pre-defined event helpers ──────────────────────────────────────────────
@@ -84,25 +171,59 @@ export function trackSpinCompleted(
     city_name: cityName,
     country_name: countryName,
     region_name: regionName ?? '',
-    city_slug: cityName.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    city_slug: slugify(cityName),
     score,
   });
 }
 
+export interface AffiliateClickContext {
+  /** Placement on the page, e.g. 'destination_stay', 'guide_stay_box'. */
+  placement?: string;
+  /** Explicit city slug; derived from the city name when omitted. */
+  citySlug?: string;
+}
+
+/**
+ * Fire an affiliate_click. Sends a gtag-style event and also a plain
+ * {event: 'affiliate_click', ...} dataLayer object for a GTM custom-event
+ * trigger. Never throws and never blocks navigation.
+ */
 export function trackAffiliateClick(
   partner: string,
   vertical: Vertical,
   targetCity: string,
   outboundUrl: string,
   tileLabel: string,
+  context: AffiliateClickContext = {},
 ): void {
-  trackEvent('affiliate_click', {
-    partner,
-    vertical,
-    city_name: targetCity,
-    outbound_url: outboundUrl,
-    tile_label: tileLabel,
-  });
+  try {
+    const citySlug = context.citySlug ?? (targetCity ? slugify(targetCity) : '');
+    const placement = context.placement ?? '';
+    const ctaVariant = getCtaVariant();
+    trackEvent('affiliate_click', {
+      partner,
+      vertical,
+      city_name: targetCity,
+      city_slug: citySlug,
+      outbound_url: outboundUrl,
+      link_url: outboundUrl,
+      tile_label: tileLabel,
+      placement,
+      cta_variant: ctaVariant,
+    });
+    if (typeof window !== 'undefined') {
+      pushToDataLayer({
+        event: 'affiliate_click',
+        partner,
+        placement,
+        city_slug: citySlug,
+        cta_variant: ctaVariant,
+        link_url: outboundUrl,
+      });
+    }
+  } catch {
+    // Tracking must never break a click
+  }
 }
 
 export function trackAffiliateClickError(

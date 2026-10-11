@@ -7670,7 +7670,7 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     slug: "where-to-go-next-by-season",
     title: "Where to Go Next by Season: A Digital Nomad Calendar",
     seoTitle: "Where to Go Next by Season: Digital Nomad Calendar 2026",
-    excerpt: "Pick a travel window first: use Nomad Spin weather months plus cost, internet, and safety to shortlist bases by season, then spin and open destination pages.",
+    excerpt: "Pick a travel window first: use Nomad Spin weather months, cost, internet, and safety to shortlist bases by season, then spin and open destination pages.",
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "15 min read",
