@@ -103,6 +103,23 @@ describe('Vietnam e-visa label', () => {
 });
 
 describe('living guide visa sections', () => {
+  it('cites the Vietnam e-visa portal and the Finance circular in the Hoi An guide', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-hoi-an.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/evisa\.gov\.vn/);
+    expect(md).toMatch(/immigration\.gov\.vn\/trang-chu-ttdt/);
+    expect(md).toMatch(/28\/2026\/TT-BTC/);
+    expect(md).toMatch(/\*\*E-Visa\*\*/);
+    expect(md).not.toMatch(/Tourist Visa/);
+    expect(md).toMatch(/no dedicated digital nomad visa/i);
+    expect(md).toMatch(/\*\*25 USD\*\*/);
+    expect(md).toMatch(/\*\*50 USD\*\*/);
+    expect(md).not.toMatch(/da-nang-outskirts/);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites Spain statute in the Barcelona guide and does not print an unofficial euro income figure', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-barcelona.md'),

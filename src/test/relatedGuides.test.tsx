@@ -85,15 +85,17 @@ describe('related guides', () => {
   });
 
   it('skips unpublished peer-map keys and applies them once that guide is published', () => {
-    expect(relatedGuideEntries('living-in-madrid')).toEqual([]);
-    expect(relatedGuideEntries('living-in-hoi-an')).toEqual([]);
-    expect(relatedGuideEntries('living-in-tallinn')).toEqual([]);
+    const published = new Set(guides.map((guide) => guide.slug));
+    const pending = ['living-in-madrid', 'living-in-hoi-an', 'living-in-tallinn'].filter((slug) => !published.has(slug));
+    for (const slug of pending) {
+      expect(relatedGuideEntries(slug)).toEqual([]);
+    }
 
     for (const guide of guides) {
       const slugs = relatedGuideEntries(guide.slug).map((item) => item.slug);
-      expect(slugs).not.toContain('living-in-madrid');
-      expect(slugs).not.toContain('living-in-hoi-an');
-      expect(slugs).not.toContain('living-in-tallinn');
+      for (const slug of pending) {
+        expect(slugs).not.toContain(slug);
+      }
     }
 
     const withMadrid = [...guides, { slug: 'living-in-madrid' }];
