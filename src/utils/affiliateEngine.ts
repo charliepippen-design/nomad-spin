@@ -18,6 +18,7 @@
  * | iVisa      | VITE_IVISA_PARTNER_BASE_URL (or VITE_VISA_PARTNER_BASE_URL) | partners.ivisa.baseUrl |
  * | Skyscanner | VITE_SKYSCANNER_ID                              | partners.skyscanner.partnerId  |
  * | SafetyWing | VITE_SAFETYWING_ID                              | partners.safetywing.partnerId  |
+ * | NordVPN    | VITE_NORDVPN_TRACKING_URL (Impact tracking link) | partners.nordvpn.trackingUrl  |
  *
  * Regional behavior lives in FLATIO_SUPPORTED_COUNTRIES. UTM schema is
  * applied by buildUtmParams().
@@ -25,7 +26,7 @@
 
 import type { Vertical } from '@/utils/analytics';
 
-export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing';
+export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing' | 'nordvpn';
 
 export const AFFILIATE_CONFIG = {
   partners: {
@@ -37,6 +38,8 @@ export const AFFILIATE_CONFIG = {
     airalo:     { trackingUrl: '' },
     ivisa:      { baseUrl: '' },
     safetywing: { partnerId: '' },
+    /** Impact tracking link base, e.g. https://nordvpn.sjv.io/c/<publisherId>/<adId>/<campaignId> */
+    nordvpn:    { trackingUrl: '' },
   },
   utm: {
     utm_source: 'nomadspin',
@@ -62,6 +65,7 @@ function partnerValue(partner: PartnerKey): string {
     case 'skyscanner': return envValue(env.VITE_SKYSCANNER_ID) || p.skyscanner.partnerId;
     case 'safetywing': return envValue(env.VITE_SAFETYWING_ID) || p.safetywing.partnerId;
     case 'airalo':     return envValue(env.VITE_AIRALO_TRACKING_URL) || p.airalo.trackingUrl;
+    case 'nordvpn':    return envValue(env.VITE_NORDVPN_TRACKING_URL) || p.nordvpn.trackingUrl;
     case 'ivisa':
       return envValue(env.VITE_IVISA_PARTNER_BASE_URL) || envValue(env.VITE_VISA_PARTNER_BASE_URL) || p.ivisa.baseUrl;
   }
@@ -239,6 +243,18 @@ export function buildVisaUrl(city: string, countryCode: string): BuiltLink {
   return { url, partner: 'iVisa', affiliate: configured !== '' };
 }
 
+/** NordVPN link. Impact tracking link wraps the deep link when configured. */
+export function buildVpnUrl(city: string): BuiltLink & { partner: 'NordVPN' } {
+  const utms = buildUtmParams(slugify(city), 'vpn');
+  const deepLink = `https://nordvpn.com/?${utms}`;
+  const base = partnerValue('nordvpn');
+  if (base) {
+    const sep = base.includes('?') ? '&' : '?';
+    return { url: `${base}${sep}u=${encodeURIComponent(deepLink)}`, partner: 'NordVPN', affiliate: true };
+  }
+  return { url: deepLink, partner: 'NordVPN', affiliate: false };
+}
+
 // Public interface
 
 export interface AffiliateLinkData {
@@ -256,6 +272,7 @@ export interface AffiliateLinks {
   connectivity: AffiliateLinkData;
   insurance: AffiliateLinkData;
   visa: AffiliateLinkData;
+  vpn: AffiliateLinkData;
 }
 
 interface CityInput {
@@ -275,6 +292,7 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
   const esim = buildEsimUrl(city.name, city.countryCode);
   const insurance = buildInsuranceUrl(city.name);
   const visa = buildVisaUrl(city.name, city.countryCode);
+  const vpn = buildVpnUrl(city.name);
 
   return {
     accommodation: {
@@ -300,5 +318,6 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
       vertical: 'insurance',
     },
     visa: { ...visa, label: `Check visa options`, vertical: 'visa' as Vertical },
+    vpn: { ...vpn, label: 'Secure your Wi-Fi with NordVPN', vertical: 'vpn' },
   };
 }
