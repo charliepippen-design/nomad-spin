@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
 import { useGuides } from '@/hooks/useGuides';
 import { indexGuides } from '@/data/guides';
-import { GUIDES_INDEX_DESCRIPTION } from '@/lib/guideHtml';
-import { guidesIndexBreadcrumbJsonLd } from '@/lib/guideJsonLd';
+import { GUIDES_INDEX_DESCRIPTION, guidesIndexBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 const PAGE_URL = `${BASE_URL}/guides`;

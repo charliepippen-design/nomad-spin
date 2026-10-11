@@ -1,6 +1,10 @@
 import type { Guide } from '@/data/guides';
 
 export const SITE_URL = 'https://www.digitalnomadspin.com';
+/** /guides meta description, og/twitter description and CollectionPage description. */
+export const GUIDES_INDEX_DESCRIPTION =
+  'Living guides for Lisbon, Chiang Mai, Bali, Mexico City and Cape Town, plus how to choose your next base, when to go and a Paraguay tax residency guide.';
+
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-preview.png`;
 
 type GuideLdInput = Pick<Guide, 'title' | 'excerpt' | 'date' | 'updated'>;

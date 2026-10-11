@@ -13,9 +13,7 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
-/** /guides meta description, og/twitter description and CollectionPage description. */
-export const GUIDES_INDEX_DESCRIPTION =
-  'Living guides for Lisbon, Chiang Mai, Bali, Mexico City and Cape Town, plus how to choose your next base, when to go and a Paraguay tax residency guide.';
+export { GUIDES_INDEX_DESCRIPTION } from '@/lib/guideJsonLd';
 
 /** Guide <title>, og:title, and twitter:title. Shared by the article page and prerender. */
 export function guidePageTitle(headline: string): string {
