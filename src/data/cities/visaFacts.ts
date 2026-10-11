@@ -139,7 +139,15 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
     visaType: 'Visa Exemption',
     visaDays: 90,
     visaNote: `${SCHENGEN_SHORT_STAY} Digital nomad residence permit (Foreigners Act amendment, State Gazette 52/2025), 1 year, renewable once, needs a D visa first.`,
-    sources: ['https://www.mvr.bg/', 'https://www.mfa.bg/'],
+    // State Gazette 52/2025 (Foreigners Act amendment): art. 24(1) item 23 adds digital nomads;
+    // art. 24s(2): the permit is valid one year and can be extended once for one more year.
+    // State Gazette 109/2025: prolonged-residence application form, filed on a visa under art. 15(1) (D visa).
+    // MFA: Schengen rules (90 days in any 180) apply, land border checks lifted 1 Jan 2025.
+    sources: [
+      'https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=235575',
+      'https://dv.parliament.bg/DVPics/2025/109_25/7494_3.pdf',
+      'https://www.mfa.bg/en/services-travel/consular-services/travel-bulgaria/visa-bulgaria',
+    ],
   },
   GR: {
     visaType: 'Digital Nomad Visa',
