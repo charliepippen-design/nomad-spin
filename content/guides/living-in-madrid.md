@@ -214,7 +214,7 @@ Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** 
 
 You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, Spain-authorized health insurance, and income of at least **200%** of the monthly SMI. Official pages state that rule, not a euro amount. Check the figure and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa), and the [UGE-CE portal](https://www.inclusion.gob.es/web/unidadgrandesempresas).
 
-Short visits for many passports are Schengen **90 days in any 180**. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and the consulate disagree, the consulate wins.
+Short visits for many passports are Schengen **90 days in any 180**. More than 183 days in Spain in a calendar year makes you tax resident under [Ley 35/2006, article 9](https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764#a9), and other ties can do the same. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and the consulate disagree, the consulate wins.
 
 ## Best months (Apr-Jun, Sep-Oct), rainy months (Nov-Dec), and the Jul-Aug rule
 

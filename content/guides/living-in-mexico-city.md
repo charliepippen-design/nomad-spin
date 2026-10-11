@@ -8,6 +8,20 @@ Worth it if you want that mix and you can live with the cons. A bad default if y
 
 If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Mexico City in the conversation is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
+### Quick answers
+
+**How much does it cost to live in Mexico City as a digital nomad?** Nomad Spin lists about $1,300 a month solo and $1,000 on a longer stay, with a median Airbnb near $60 a night. Thirty nights at that rate is $1,800 in lodging alone. Markets, fondas and comida corrida keep you inside the band. Roma and Condesa cafes push you above it.
+
+**Is Mexico City internet good enough for video calls?** Usually yes. Nomad Spin shows about 90 Mbps, reliability 7/10, power stability 7, and High coworking density. That is an average, so test the apartment upload before you sign, keep a mobile-data backup, and book a coworking room with a door for calls that cannot drop.
+
+**What visa do digital nomads use in Mexico City?** Nomad Spin lists a Visa Exemption of up to 180 days. Article 52 of Mexico's Migration Law sets 180 days as the visitor maximum, without paid local activity, and the officer may grant fewer. Check the INM list of nationalities that need no visa and read days recorded at entry.
+
+**Which Mexico City neighborhood is best for remote workers?** Roma, especially Roma Norte, is the easiest social landing, with cafes and bars in a walkable grid. Condesa is the leafy twin around Parque Mexico. Juarez sits between Roma and Reforma, block by block. Narvarte, Del Valle and Escandon are quieter and kinder to the monthly band.
+
+**When is the best time to live in Mexico City?** Mar, Apr, May and Nov are the best months on Nomad Spin's row. Jun through Sep is the rainy season. Altitude and air quality are year-round cons, so they apply in the best months too. Plan one neighborhood inside Mar-May or Nov for the smoothest work month.
+
+**Is Mexico City or Medellin better for digital nomads?** Mexico City for US hours (UTC-6), food and art at scale, and a 180-day visa field, at about $1,300 solo. Medellin for a lower $1,100 month, a milder calendar and safety 6.5 versus 6.0, with a 90-day exemption field. Internet reliability is 7 in both.
+
 ## Who Mexico City is for (and who should skip it)
 
 Mexico City fits people who want a real metropolis with a ready-made scene, on hours that line up with the United States. It is a food city and a party city that also functions as a work hub. Those three tags are all on the row. Picking the city means accepting all three, then choosing a neighborhood that leans the way you actually work.
@@ -15,7 +29,7 @@ Mexico City fits people who want a real metropolis with a ready-made scene, on h
 **It tends to fit if you:**
 
 - Want the dataset's solo baseline (about **$1,300**) or the longer-stay figure (**$1,000**), and you will actually live like that
-- Need **UTC-6**. A 9:00 call in US Eastern is 8:00 here. A 9:00 call in US Pacific is 11:00. A 9:00 call in London is 3:00
+- Need **UTC-6**. In US and UK winter time, a 9:00 call in US Eastern is 8:00 here, a 9:00 call in US Pacific is 11:00, and a 9:00 call in London is 3:00
 - Want food, culture, and art as the week, with coworking density **High** when the home line fails
 - Like nightlife at **9** and a large scene (community **8**)
 - Can put the trip inside **Mar, Apr, May, or Nov**, or you have a real plan for the **Jun-Sep** rains
@@ -34,11 +48,11 @@ Also skip it, or pick a different city, if you:
 - Need a full year of legal stay and will not assemble a residency file at a consulate. The destination row says visa exemption, **180** days, and the officer can write fewer
 - Need a high LGBTQ+ score as a hard filter above this row. `lgbtFriendly` here is **7** (Lisbon's is **9**). Overall safety **6.0** does not answer that question
 
-If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood list.
 
 ## Cost of living: budget bands from Nomad Spin data plus what changes the bill
 
-The cost answer is the pair on the row: **$1,300** a month for a solo nomad, **$1,000** a month for a longer stay. Nomad Spin does not publish a fake "comfortable" total on top of those. Do not replace them with a blogger's spreadsheet.
+The cost answer is the pair on the row: **$1,300** a month for a solo nomad, **$1,000** a month for a longer stay. Do not add a "comfortable" total on top of those, and do not replace them with a blogger's spreadsheet.
 
 | Band | Figure | Field on the Mexico City row | How to read it |
 |---|---:|---|---|
@@ -71,7 +85,7 @@ Annual average temperature on the row is **16°C**. That is a coarse yearly figu
 - The **$1,300** number is a city baseline. Roma Norte, Condesa, and Polanco are where that number goes to die if every meal is a cafe meal.
 - The "affordable luxury" pro is real next to a US or Western European city, and it is also the receipt that leaves the band.
 - A cheaper room on a loud avenue, or in a block you will not walk at night, is a productivity and safety tax. The dataset cannot see your street.
-- Insurance is outside those three money fields. Budget it separately. This guide does not invent a premium.
+- Insurance is outside those three money fields. Budget it separately.
 
 ## Neighborhoods: Roma, Condesa, Juarez (and quieter alternatives)
 
@@ -122,7 +136,7 @@ Best for people who have already spent a few days in the city, or who will book 
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Mexico City destination page](/destinations/mexico-city), not in this article.
+After you pick the neighborhood, book in this order. Live stay, flight and insurance options are on the [Mexico City destination page](/destinations/mexico-city).
 
 | Slot | What to book |
 |---|---|
@@ -168,17 +182,17 @@ Mexico's Migration Law, in the text the Chamber of Deputies publishes as current
 
 The statute states a maximum. It does not promise that every passport receives 180 days, or that the officer at the booth will write the maximum. Read the number recorded at entry before you leave the desk. That number is the stay you have. A six-month apartment with a 30-day stamp is a planning failure.
 
-The National Migration Institute (INM) publishes the list of nationalities that do not need a visa to travel to Mexico and to request admission in that visitor condition. The list is theirs: [countries and regions that do not require a visa](https://www.inm.gob.mx/gobmx/word/index.php/paises-no-requieren-visa-para-mexico/). This guide will not copy it, because it can change, and your passport may not be on it. INM also says officers may ask why you are traveling, where you will stay, and how you will support yourself. Bring what the official page currently asks for. Do not bring a blog's screenshot.
+The National Migration Institute (INM) publishes the list of nationalities that do not need a visa to travel to Mexico and to request admission in that visitor condition. The list is theirs: [countries and regions that do not require a visa](https://www.inm.gob.mx/gobmx/word/index.php/paises-no-requieren-visa-para-mexico/). It can change, and your passport may not be on it. INM also says officers may ask why you are traveling, where you will stay, and how you will support yourself. Bring what the official page currently asks for. Do not bring a blog's screenshot.
 
 If your nationality is not on that list, the visitor visa is a different step, done before you fly, through a Mexican consulate. The 180-day figure in Article 40 is the legal ceiling on that visa, not a processing-time promise. Use the consulate that actually handles your file.
 
-### What this guide will not tell you
+### Questions for a consulate or lawyer
 
-The visitor condition, in the words of Article 52, does not include permission for remunerated activities in Mexico. People still ask whether a remote contract with a foreign employer fits inside that sentence. This guide will not answer that. It is a question for the consulate that covers your passport, or for a qualified immigration lawyer. A living guide is the wrong source for a work-authorization theory.
+The visitor condition, in the words of Article 52, does not include permission for remunerated activities in Mexico. People still ask whether a remote contract with a foreign employer fits inside that sentence. It is a question for the consulate that covers your passport, or for a qualified immigration lawyer. A living guide is the wrong source for a work-authorization theory.
 
-Temporary residence (*residente temporal*) is a separate condition in the same Article 52. The statute authorizes stay for **no more than four years**, with the possibility of a work permit tied to a job offer, and with the right to enter and leave. It is the category people look at when they need longer than the visitor maximum. Financial requirements, forms, and where you must apply are on the consulate's current checklist. Those numbers move. This guide does not quote a savings balance or an income floor, because copying one from a forum is how people build a file the consulate will not accept.
+Temporary residence (*residente temporal*) is a separate condition in the same Article 52. The statute authorizes stay for **no more than four years**, with the possibility of a work permit tied to a job offer, and with the right to enter and leave. It is the category people look at when they need longer than the visitor maximum. Financial requirements, forms, and where you must apply are on the consulate's current checklist. Those numbers move. Do not use a savings balance or income floor copied from a forum; that is how people build a file the consulate will not accept.
 
-Nomad Spin does not list a separate "digital nomad visa" for Mexico City. The row says **Visa Exemption**, **180** days. If a site sells you a branded nomad visa, check the consulate before you pay.
+There is no separate "digital nomad visa" listed for Mexico City. The row says **Visa Exemption**, **180** days. If a site sells you a branded nomad visa, check the consulate before you pay.
 
 A long stay can also create tax questions at home and in Mexico. Nothing here answers them. Get advice if you will be in the country for most of a year.
 
@@ -210,11 +224,11 @@ The city sits at roughly **2,240 meters**. The row lists altitude sickness as a 
 
 ### Air quality
 
-The row lists air quality as a con, and it does not limit that con to one season. Rain in **Jun-Sep** can wash the air and still ruin a walking commute. Drier months, including some of the best-month list, can trap haze. This guide will not invent an AQI number, a "worst week," or a mask rule. If you have asthma, a cardiac condition, or a hard personal filter on air quality, check a live air-quality source the week you book, and treat a bad reading as a reason to choose another city. [Chiang Mai's living guide](/guides/living-in-chiang-mai) is the comparison for a different seasonal air problem (burning season). Mexico City's version is on the cons all year.
+The row lists air quality as a con, and it does not limit that con to one season. Rain in **Jun-Sep** can wash the air and still ruin a walking commute. Drier months, including some of the best-month list, can trap haze. If you have asthma, a cardiac condition, or a hard personal filter on air quality, check a live air-quality source the week you book, and treat a bad reading as a reason to choose another city. [Chiang Mai's living guide](/guides/living-in-chiang-mai) is the comparison for a different seasonal air problem (burning season). Mexico City's version is on the cons all year.
 
 ### Booking placeholders
 
-Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows, and only if altitude and air are acceptable for you.
+Book the same three slots only after the month is one the table above allows, and only if altitude and air are acceptable for you.
 
 | Slot | What to book |
 |---|---|
@@ -279,9 +293,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Stay with Mexico City** when you want US hours (**UTC-6**), food and art at this scale, community **8**, nightlife **9**, and a visa field of up to **180** days, and you accept safety **6.0**, altitude, air, and traffic. Read [Medellín](/destinations/medellin), [Buenos Aires](/destinations/buenos-aires), and [Chiang Mai](/destinations/chiang-mai) before you assume they are the same trip with a different postcard.
 
-**Pick Medellín** when you want a lower solo month (**$1,100**), a similar community and nightlife, and a milder "eternal spring" calendar, and you can live with a **90-day** exemption field plus neighborhood-level safety planning. Overall safety there is **6.5**. Female safety is the same **5**. The internet average is **80 Mbps**, reliability **7**, the same reliability band as Mexico City with a slightly lower headline speed. It is the smaller-city comparison, not the megacity one.
+**Pick Medellín** when you want a lower solo month (**$1,100**), a similar community and nightlife, and a 22°C annual average on the row, and you can live with a **90-day** exemption field plus neighborhood-level safety planning. Overall safety there is **6.5**. Female safety is the same **5**. The internet average is **80 Mbps**, reliability **7**, the same reliability band as Mexico City with a slightly lower headline speed. It is the smaller-city comparison, not the megacity one. The [Medellín living guide](/guides/living-in-medellin) is the on-the-ground version of that row.
 
-**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
+**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is two hours later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
 
 **Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
@@ -326,7 +340,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 ### Booking placeholders
 
-Still no partner IDs. These slots are last, after the week above, not before the flight is emotional.
+Book these slots last, after the week above.
 
 | Slot | What to book |
 |---|---|

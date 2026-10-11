@@ -4,7 +4,7 @@ import path from 'path';
 import { guides } from '@/data/guides';
 import { allCitySlugs } from '@/lib/citySlug';
 import { destinationBodyHtml } from '@/lib/destinationPrerender';
-import { guidePageTitle } from '@/lib/guideHtml';
+import { guideTitleTag } from '@/lib/guideHtml';
 import { buildContentGuidesModule } from '../../scripts/sync-content-guides';
 
 describe('static guides', () => {
@@ -59,10 +59,10 @@ describe('static guides', () => {
       expect(text.includes('\u2014'), `${name} contains an em dash`).toBe(false);
     }
     for (const guide of guides) {
-      const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
+      const published = `${guide.title}\n${guide.seoTitle ?? ''}\n${guide.shortTitle ?? ''}\n${guide.excerpt}\n${guide.content}`;
       expect(published.includes('\u2013'), `${guide.slug} contains an en dash`).toBe(false);
       expect(published.includes('\u2014'), `${guide.slug} contains an em dash`).toBe(false);
-      const documentTitle = guidePageTitle(guide.seoTitle ?? guide.title);
+      const documentTitle = guideTitleTag(guide);
       expect(documentTitle.endsWith(' | Nomad Spin'), guide.slug).toBe(true);
       expect(documentTitle.endsWith(' | Nomad Spin Guides'), guide.slug).toBe(false);
       expect(documentTitle.includes('\u2013'), `${guide.slug} title contains an en dash`).toBe(false);
@@ -92,6 +92,20 @@ describe('static guides', () => {
     const slugs = guides.map((g) => g.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
     for (const s of slugs) expect(s).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+  });
+
+  it('keeps every content guide meta description at 155 characters or less', () => {
+    const dir = path.resolve(__dirname, '../../content/guides');
+    for (const name of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      const meta = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+      if (meta.status !== 'published') continue;
+      const description: string | undefined = meta.seo?.meta_description;
+      expect(description, `${name} has no meta_description`).toBeTruthy();
+      expect(description!.length, `${name}: ${description!.length} chars`).toBeLessThanOrEqual(155);
+    }
+    const season = guides.find((g) => g.slug === 'where-to-go-next-by-season')!;
+    expect(season.excerpt.length).toBeLessThanOrEqual(155);
+    expect(season.excerpt).not.toMatch(/\u2013|\u2014/);
   });
 
   it('has complete metadata and no leftover draft/editor chrome', () => {

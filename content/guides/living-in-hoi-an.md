@@ -14,7 +14,7 @@ Worth it as a short base beside [Da Nang](/destinations/da-nang), not as a subst
 
 ### Straight answers
 
-**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists about $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
+**How much does it cost to live in Hoi An as a digital nomad?** Nomad Spin lists $900 a month for a solo nomad. The long-term $675 and the median Airbnb around $41 a night are estimates on this row. Old Town tourist pricing runs higher than An Bang or countryside stays. Eating mostly local and skipping tourist restaurants keeps you near the baseline.
 
 **Is Hoi An internet good enough for video calls?** Sometimes, with caveats. Nomad Spin shows about 80 Mbps average. Reliability 7/10 and power 7/10 are estimates. Coworking density is Low. Test fiber in the actual unit before signing, use a coworking desk for critical calls, and keep mobile data backup for storm days.
 
