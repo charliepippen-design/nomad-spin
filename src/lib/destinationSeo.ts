@@ -93,6 +93,7 @@ const LIVING_GUIDE_PEERS: Record<string, readonly string[]> = {
   prague: ['budapest', 'lisbon', 'barcelona'],
   madrid: ['barcelona', 'valencia', 'lisbon', 'budapest'],
   tbilisi: ['budapest', 'chiang-mai', 'lisbon'],
+  tirana: ['tbilisi', 'budapest', 'prague', 'lisbon'],
 };
 
 function escHtml(value: string): string {

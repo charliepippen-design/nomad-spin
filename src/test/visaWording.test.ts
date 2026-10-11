@@ -120,6 +120,22 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013/);
   });
 
+  it('cites the Albanian law and ministry pages in the Tirana guide and prints no unofficial figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-tirana.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mb\.gov\.al/);
+    expect(md).toMatch(/punetejashtme\.gov\.al/);
+    expect(md).toMatch(/e-visa\.al/);
+    expect(md).toMatch(/79\/2021/);
+    expect(md).toMatch(/Article 68/);
+    expect(md).toMatch(/\*\*Visa-Free\*\*, \*\*365\*\* days/);
+    expect(md).toMatch(/passport/i);
+    expect(md).not.toMatch(/€|\bEUR\b/);
+    expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
   it('cites Spain statute in the Barcelona guide and does not print an unofficial euro income figure', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-barcelona.md'),
