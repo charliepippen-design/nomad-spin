@@ -2351,10 +2351,11 @@ See the [Cape Town data page](/destinations/cape-town) for cost, internet and sa
     slug: "living-in-chiang-mai",
     title: "The Ultimate Guide to Living in Chiang Mai",
     seoTitle: "Living in Chiang Mai 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Chiang Mai 2026: Cost, Visa, Nimman",
     excerpt: "Chiang Mai for remote workers in 2026: real monthly costs, Nimman vs Old City, visas and DTV notes, coworking, internet, and burning season trade-offs.",
     date: "2026-10-07",
-    updated: "2026-10-07",
-    readTime: "28 min read",
+    updated: "2026-10-11",
+    readTime: "30 min read",
     relatedDestinations: ["chiang-mai","bangkok"],
     content: `## Is Chiang Mai still worth it for digital nomads in 2026?
 
@@ -2365,6 +2366,20 @@ It is a bad default if you need a beach, a nightlife product, or a March arrival
 This guide is the on-the-ground version of that row: where the $850 actually bends, how Nimman differs from the Old City and Santitham, what to do when the visa field and the embassy disagree, and how to keep a video call alive. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Chiang Mai first is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
 Worth it, with conditions. The rest of the guide is the conditions.
+
+### Quick answers
+
+**How much does it cost to live in Chiang Mai as a digital nomad?** Nomad Spin lists about $850 a month solo and $650 on a longer stay, with a median Airbnb near $35 a night. Thirty nights at that rate is $1,050, above the solo month, so the bands assume a monthly place. Market food and a Santitham pin keep you near them.
+
+**Is Chiang Mai internet good enough for video calls?** Yes for most setups. Nomad Spin shows about 95 Mbps with reliability 8/10, power stability 8, and High coworking density. That is an average, not a promise about one condo, so test the unit's upload before you sign and keep a coworking day as the backup for important calls.
+
+**What visa do digital nomads use in Chiang Mai?** Nomad Spin lists a Tourism Visa Exemption of 30 days, which depends on your passport and covers tourism only. Thailand's rules changed on 15 September 2026. The Destination Thailand Visa (DTV) is the longer remote-work path. Verify on the Thai government PRD notice and your Thai embassy or consulate.
+
+**When is the best time to live in Chiang Mai?** Nov, Dec, Jan and Feb are the best months on Nomad Spin's row. Burning season in Mar-Apr is a listed con, with smoke in the valley, and hot season is another. Plan the stay inside the dry window and leave before March rather than signing a lease through it.
+
+**Which Chiang Mai neighborhood is best for remote workers?** Nimman is the easiest social landing, with cafes and condos near Chiang Mai University. The Old City suits walking, temples and food. Santitham sits between them, more residential and often kinder to the $650 to $850 bands. Hang Dong and other outskirts give space but need transport.
+
+**Is Chiang Mai or Da Nang better for digital nomads?** Chiang Mai for community 9, 95 Mbps at reliability 8, and the $850 solo band, with no beach. Da Nang for a beach, a $700 solo month and safety 8.5, with a smaller scene (community 5, coworking Med). Their best months differ: Nov-Feb in Chiang Mai, Feb-Jul in Da Nang.
 
 ## Who Chiang Mai is for (and who should skip it)
 
@@ -2390,11 +2405,11 @@ Chiang Mai fits people who want a work city with a ready-made scene, not a resor
 
 Female safety on the row is **8**. English proficiency is **5**: Nimman and the tourist streets of the Old City work in English, government offices and many landlords do not.
 
-If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood list.
 
 ## Cost of living: budget bands from Nomad Spin data plus what changes the bill
 
-Nomad Spin does not publish a fake "comfortable" total for Chiang Mai. It publishes three money fields. Those are the bands. Do not replace them with a blogger's spreadsheet.
+Use the three money fields as the bands for Chiang Mai. Do not replace them with a blogger's spreadsheet.
 
 | Band | Figure | Field on the Chiang Mai row | How to read it |
 |---|---:|---|---|
@@ -2427,7 +2442,7 @@ Annual average temperature on the row is **28°C**. That is a coarse yearly figu
 - The **$850** number is a city baseline, not a Nimman lifestyle quote.
 - Imported groceries, specialty coffee, and "just one more" brunch are how people blow a cheap city. The dataset cannot see your receipt.
 - A cheaper room with construction noise or Sunday walking-street noise is not cheaper if you cannot work.
-- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+- Insurance is not inside those three fields. Budget it separately.
 
 ## Neighborhoods: Nimman, Old City, Santitham, and quieter alternatives
 
@@ -2470,7 +2485,7 @@ Best for a second month, or for a first month if you already know you do not nee
 
 ### Quieter alternatives
 
-**Hang Dong**, south of the city, is the house-and-yard version: cafes scattered along the road, more space, families and longer stays, almost no "I'll walk to dinner" life. Older posts still send people to a Punspace Hang Dong. Punspace's own site, as checked for this guide, lists Old City branches only. Do not plan the month around a venue that is not on the operator's current page.
+**Hang Dong**, south of the city, is the house-and-yard version: cafes scattered along the road, more space, families and longer stays, almost no "I'll walk to dinner" life. Older posts still send people to a Punspace Hang Dong. Punspace's own site lists Old City branches only. Do not plan the month around a venue that is not on the operator's current page.
 
 **East of the Ping** (Wat Ket and the river streets) is a calmer residential pocket. Pleasant if you want out of the nomad loop and you have a ride back to it when you want people.
 
@@ -2478,7 +2493,7 @@ Best for a second month, or for a first month if you already know you do not nee
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Chiang Mai destination page](/destinations/chiang-mai), not in this article.
+After you pick the neighborhood, book in this order. Live stay, flight and insurance options are on the [Chiang Mai destination page](/destinations/chiang-mai).
 
 | Slot | What to book |
 |---|---|
@@ -2507,7 +2522,7 @@ Power is also not the Cape Town problem. [Living in Cape Town](/guides/living-in
 
 Amenities they publish include air purifiers. That matters in Mar-Apr, and it is a reason to keep a Punspace day in the plan even if you live in Nimman. The old Nimman branch is not on that location list. If a 2019 blog sends you there, believe the current site.
 
-Treat any other famous name (Yellow, CAMP, Mana, Hub53, Alt, and the rest of the old roundups) as closed until you see it operating this month. Spaces in this city open, rebrand, and disappear. A trial morning beats a recommendation.
+Treat any other famous name (Yellow, CAMP, Mana, Hub53, Alt, and the rest of the older lists) as closed until you see it operating this month. Spaces in this city open, rebrand, and disappear. A trial morning beats a recommendation.
 
 ### Cafes
 
@@ -2536,7 +2551,7 @@ On 4 September 2026 the Government Public Relations Department summarized a revi
 
 The Royal Thai Consulate-General in Los Angeles, in its public visa note, tells U.S. citizens that from 15 September 2026 they can enter without a visa for up to **30 days** for tourism, if they meet the conditions. Your passport may not be in that group. Some passports are on the shorter scheme, some need a visa on arrival, some need a visa in advance.
 
-If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. This guide will not list all 60 countries, because that list is the government's to publish and it can be amended. This guide also does not print a DTV fee, a savings balance, or a day count for the DTV. Those live on the checklist of the post that decides the file.
+If your passport is not in the 30-day group, believe the notice and the stamp, not a blog that still says 60. Read the PRD notice and the Thai mission for your passport. The list of 60 countries is the government's to publish and it can be amended, so check it directly. For the DTV, check the fee, savings balance and day count with the Thai mission that handles your file.
 
 Complete the Thailand Digital Arrival Card online before you travel. The Immigration Bureau's site, [tdac.immigration.go.th](https://tdac.immigration.go.th/), is the official form. The page title says no fees are required. Fill it in yourself. Do not pay a random site to do it.
 
@@ -2556,7 +2571,7 @@ Document lists moved in 2026. Effective 31 August 2026, that same Los Angeles pa
 
 You will see older summaries that quote a multi-year validity, 180 days per entry, and a savings balance in baht. Some of that may still match the post you use. Some of it may not. Copy the current checklist the week you apply. Do not copy a 2024 screenshot, and do not treat a Facebook comment as the fee.
 
-Other long-stay categories exist (education visas, Thailand Privilege, the Long-Term Resident visa). They have their own thresholds. This guide does not explain them. If you will be in Thailand most of the year, also get real tax advice at home and, if needed, in Thailand. A long stay can create tax questions. Nothing here answers them.
+Other long-stay categories exist (education visas, Thailand Privilege, the Long-Term Resident visa). They have their own thresholds. Check the official pages for each. If you will be in Thailand most of the year, also get real tax advice at home and, if needed, in Thailand. A long stay can create tax questions. Nothing here answers them.
 
 ### A simple decision frame
 
@@ -2588,7 +2603,7 @@ Rainy season is the honest trade if you want lower demand and you can work throu
 
 ### Booking placeholders
 
-Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows.
+Book the same three slots only after the month is one the table above allows.
 
 | Slot | What to book |
 |---|---|
@@ -2647,6 +2662,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling. The [Da Nang living guide](/guides/living-in-da-nang) is the longer version of that comparison, including the neighborhoods and why the two seasons pair.
 
+Look at Ho Chi Minh City when you want Vietnam's big-city version at $800 solo and 85 Mbps. Its best months, Dec-Apr, overlap Chiang Mai's Nov-Feb window, so the two pair well across a dry season. [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) covers that row in full.
+
 If the alternative is not Asia, the other full living guides in this set are [Budapest](/guides/living-in-budapest) (solo **$1,500**, **200 Mbps**, safety **8.3**, with cold winters), [Buenos Aires](/guides/living-in-buenos-aires) (solo **$900**, safety **6.2**, reliability **6**, visa exemption **90** days, on **UTC-3**), [Cape Town](/guides/living-in-cape-town) (solo **$1,400**, safety **5.5**, power stability **4**), [Lisbon](/guides/living-in-lisbon) (solo **$2,200**, safety **8.8**, reliability **9**), [Mexico City](/guides/living-in-mexico-city) (solo **$1,300**, safety **6.0**, visa exemption **180** days, with air quality and altitude in the cons), [Medellin](/guides/living-in-medellin) (solo **$1,100**, safety **6.5**, visa exemption **90** days, on **UTC-5**), and [Tbilisi](/guides/living-in-tbilisi) (solo **$800**, safety **8.0**, visa-free **365** days, with cold winters and **60 Mbps** on the row). Different budgets. Different guides.
 
 ## First-week setup checklist and how to compare Chiang Mai on Nomad Spin
@@ -2686,7 +2703,7 @@ If the alternative is not Asia, the other full living guides in this set are [Bu
 
 ### Booking placeholders
 
-Still no partner IDs. These slots are last, after the week above, not before the flight is emotional.
+Book these slots last, after the week above.
 
 | Slot | What to book |
 |---|---|
@@ -3851,10 +3868,11 @@ Still no partner IDs. These slots are last, after the week above, not before the
     slug: "living-in-lisbon",
     title: "The Ultimate Guide to Living in Lisbon",
     seoTitle: "Living in Lisbon 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Lisbon 2026: Cost, D8 Visa and Areas",
     excerpt: "Lisbon for remote workers in 2026: real monthly costs, neighborhoods, D8 visa notes, coworking, 200 Mbps internet, and rising-rent trade-offs.",
     date: "2026-10-07",
-    updated: "2026-10-07",
-    readTime: "30 min read",
+    updated: "2026-10-11",
+    readTime: "32 min read",
     relatedDestinations: ["lisbon","porto","budapest","barcelona"],
     content: `## Is Lisbon still worth it for digital nomads in 2026?
 
@@ -3866,7 +3884,21 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
-The same page tags the city **beach**, **party**, and **workhub**. Safety is **8.8** (female safety **8**). Time zone on the row is **UTC+0**. Pros are the food, the community, the weather, the history, and the transit. Cons are rising rents, summer tourist crowds, and bureaucracy, plus earthquake risk and nightlife noise.
+The same page tags the city **beach**, **party**, and **workhub**. Safety is **8.8** (female safety **8**). Time zone on the row is **UTC+0**. Pros are the food, the community, the history, and the transit. Cons are rising rents, summer tourist crowds, and bureaucracy, plus earthquake risk and nightlife noise.
+
+### Quick answers
+
+**How much does it cost to live in Lisbon as a digital nomad?** Nomad Spin lists about $2,200 a month solo and $1,800 on a longer stay, with a short Airbnb near $120 a night. Thirty nights at that rate is $3,600 in lodging alone, so the monthly bands assume a monthly rental in an area like Arroios or Alvalade.
+
+**Is Lisbon internet good enough for video calls?** Yes. Nomad Spin shows an average of 200 Mbps, reliability 9/10, power stability 9/10, and High coworking density. It is still an average, so test the apartment connection at your real meeting hour before you sign, and avoid bedrooms that face nightlife streets.
+
+**What visa do digital nomads use in Lisbon?** Nomad Spin lists a Digital Nomad Visa for up to 365 days. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a 2-year residence permit, renewable for 3. Thresholds and fees change, so verify on MNE and AIMA pages.
+
+**Which Lisbon neighborhood is best for remote workers?** Arroios and Anjos suit a longer stay with metro access and everyday food. Santos is a creative pocket near the river and Cais do Sodre. Principe Real is the polished social pick. Campo de Ourique, Estrela and Alvalade are quieter. Alfama and Baixa suit a few nights, not a month.
+
+**When is the best time to live in Lisbon?** Apr, May, Jun, Sep and Oct are the best months on Nomad Spin's row. Nov through Feb is the rainy season, wet and windy but workable with a fibered flat. July and August are not rainy. They are the crowd months, when nightly rates leave the $120 median behind.
+
+**Is Lisbon or Porto better for digital nomads?** Porto if budget and safety lead: about $1,800 solo against Lisbon's $2,200, the same 200 Mbps, and safety 9.0 versus 8.8. Lisbon if scene size leads: community 9 and coworking High against Porto's community 6 and coworking Med. Both rows list the same Digital Nomad Visa field.
 
 Worth it, with conditions. You are paying Western European rent for a mild coastal capital with fast internet and a large scene. The bill sits with other Western European capitals, not with a starter-city budget. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Lisbon on the Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
@@ -3897,7 +3929,7 @@ If you are still sorting those filters, the decision order is [how to choose a b
 
 ## Cost of living: budget bands from Nomad Spin data plus what changes the bill
 
-Nomad Spin does not publish a fake "comfortable" total for Lisbon. It publishes three money fields. Those are the bands.
+Use the three money fields as the bands for Lisbon.
 
 | Band | Figure | Field on the Lisbon row | How to read it |
 |---|---:|---|---|
@@ -3930,7 +3962,7 @@ Annual average temperature on the row is **18°C**. That is a coarse yearly figu
 - The **$2,200** number is a city baseline, not a Principe Real lifestyle quote.
 - Imported groceries, specialty coffee, and riverfront dinners are how people blow a city that already is not cheap. The dataset cannot see your receipt.
 - A cheaper room on a Bairro Alto side street or above a Cais do Sodré bar is not cheaper if you cannot sleep or take a call.
-- Insurance is not inside those three fields. Budget it separately. This guide does not invent a premium.
+- Insurance is not inside those three fields. Budget it separately.
 
 ## Neighborhoods: Arroios, Santos, Principe Real, and quieter alternatives
 
@@ -3992,7 +4024,7 @@ Pick Principe Real if you will use the cafes and the people. Skip it if you came
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Lisbon destination page](/destinations/lisbon), not in this article.
+After you pick the neighborhood, book in this order. Live stay, flight and insurance options are on the [Lisbon destination page](/destinations/lisbon).
 
 | Slot | What to book |
 |---|---|
@@ -4019,7 +4051,7 @@ These are spaces whose own sites still publish Lisbon rooms. Hours and day-pass 
 - **Second Home** publishes a Lisbon space inside Mercado da Ribeira, by Cais do Sodré, with weekday day passes. The market downstairs is busy. The point of the room is a desk and a call, not the food hall.
 - **Heden** publishes several Lisbon locations, including Rossio, Santa Apolónia, and Alvalade, with day passes and longer desk plans. Reception hours on their site are weekday daytime. Treat "24/7" as a membership feature you have confirmed, not as a promise about a day pass.
 
-Treat other famous names as closed or moved until you see them operating this month. A trial morning beats a 2022 roundup. Coworking density **High** means you have options. It does not mean every brand you remember is still at the old address.
+Treat other famous names as closed or moved until you see them operating this month. A trial morning beats a 2022 list. Coworking density **High** means you have options. It does not mean every brand you remember is still at the old address.
 
 ### Cafes
 
@@ -4054,7 +4086,7 @@ Portugal's remote-work route is two visas, then a permit. It is for work done fo
 
 A **temporary-stay** visa and the **residency visa** (often called the D8) are the two consular routes. Check the MNE visa-type page for the current length and number of entries before you apply. On the residency visa, the holder applies to **AIMA** for a residence permit. The [AIMA page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. The consolidated statute is [Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445). Check that page and the AIMA page before you apply.
 
-Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book. This guide does not print a euro income figure.
+Sources: the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on those official pages before you book.
 
 Apply from **outside** Portugal, at the consulate that covers where you actually live. Document lists live on that post's page.
 
@@ -4064,15 +4096,15 @@ AIMA is where the residence permit is finished after you enter on the residence 
 
 A short stay in the Schengen area is a different product. For many passports that means visa-free entry of up to **90 days in any 180-day period**, counted across the whole Schengen area, not 90 days in Portugal plus another 90 in Spain. Other passports need a short-stay visa before they fly.
 
-A tourist entry is not the D8. This guide will not tell you that remote work for a foreign employer is allowed on a tourist stamp.
+A tourist entry is not the D8. Do not assume remote work for a foreign employer is allowed on a tourist stamp.
 
 EU, EEA, and Swiss citizens do not use the D8. Free-movement rules plus a registration step, if you stay, are a different path. It is still paperwork.
 
-### What this guide will not pretend to settle
+### Tax and other routes
 
-Tax residence is separate from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. Nothing here is tax advice. This guide does not state citizenship or permanent-residence timelines.
+Tax residence is separate from the visa. A long stay can make you tax resident. The broad NHR incentive that older posts still sell is closed to new applicants. Nothing here is tax advice. Check citizenship and permanent-residence timelines with the official authorities.
 
-Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. The D7 is not the digital nomad visa. This guide does not explain them.
+Other routes (D7 passive income, student visas, work visas for Portuguese employers) have their own files. The D7 is not the digital nomad visa. Check the official pages for each.
 
 ### A simple decision frame
 
@@ -4108,7 +4140,7 @@ Do not "extend a perfect October" into a non-refundable winter let without readi
 
 ### Booking placeholders
 
-Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows.
+Book the same three slots only after the month is one the table above allows.
 
 | Slot | What to book |
 |---|---|
@@ -4136,7 +4168,7 @@ Bolt and Uber exist for the late night and the suitcase. They are not the way yo
 
 Safety **8.8** is high for this comparison set (Porto **9.0**, Budapest **8.3**, Barcelona **7.5**, Cape Town **5.5**). Female safety is **8**. The practical risks in the center are pickpockets on crowded trams, at Rossio, and on busy miradouros, plus ordinary nightlife common sense where the bars are. This is not a city that requires a car for a two-block walk after dinner. It is still a city. Watch the bag on tram 28. Do not leave a laptop on a cafe chair.
 
-Earthquake risk is a listed con. It is a geologic fact about the region, not a weekly operational problem the way rent and crowds are. Newer buildings in Parque das Nações and older masonry in Alfama are different buildings. That is a housing question to ask, not a reason to invent a personal seismic plan in this guide.
+Earthquake risk is a listed con. It is a geologic fact about the region, not a weekly operational problem the way rent and crowds are. Newer buildings in Parque das Nações and older masonry in Alfama are different buildings. That is a housing question to ask, not a reason to build a personal seismic plan.
 
 Private clinics and hospitals in town cover the usual nomad problems. You are a cash or insured patient until someone says otherwise. Sort the insurance placeholder before you need the desk.
 
@@ -4167,7 +4199,7 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields,
 
 **Stay with Lisbon** when you want community **9**, call-grade internet, and a coastal capital, and you can fund **$2,200** (or live inside **$1,800** on purpose). The beach is a train. The paperwork is real. The scene is why people accept both.
 
-**Look at Porto** when you want the same country, the same **200 Mbps** and reliability **9**, the same D8 field, and a lower solo month (**$1,800**, longer stay **$1,400**). Safety on the [Porto](/destinations/porto) row is **9.0**. You give up scale: community **6**, coworking **Med**, nightlife **6**. Rainy months are also **Nov-Feb**. Porto is the cheaper Portugal answer, not a smaller Lisbon with the same social density.
+**Look at Porto** when you want the same country, the same **200 Mbps** and reliability **9**, the same D8 field, and a lower solo month (**$1,800**, longer stay **$1,400**). Safety on the [Porto](/destinations/porto) row is **9.0**. You give up scale: community **6**, coworking **Med**, nightlife **6**. Rainy months are also **Nov-Feb**. Porto is the cheaper Portugal answer, not a smaller Lisbon with the same social density. The full Porto picture is in [Living in Porto](/guides/living-in-porto). [Living in Porto](/guides/living-in-porto) is that comparison in full.
 
 **Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field is also a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
@@ -4175,7 +4207,7 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields,
 
 **Look at Cape Town** when you want mountains and ocean at **$1,400** solo and you will take safety **5.5** and power stability **4** seriously. That is a different product. Read [Living in Cape Town](/guides/living-in-cape-town) before you treat "coastal city" as one category. The visa field there is an exemption, **90 days**, not a 365-day nomad visa.
 
-If the Europe price is the whole objection, Porto and Budapest are the cheaper rows in this comparison. If the objection is "I needed the beach outside my door and half the bill," Lisbon's beach tag will not become Bali. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problems. Different guides.
+If the Europe price is the whole objection, Porto and Budapest are the cheaper rows in this comparison. Outside this table, [Living in Prague](/guides/living-in-prague) ($1,700 solo, 200 Mbps) and [Living in Valencia](/guides/living-in-valencia) ($1,900 solo, 170 Mbps) are two more Europe rows, and [Living in Tbilisi](/guides/living-in-tbilisi) is the low-cost one at $800 solo, with a visa-free stay of up to 365 days for passports on Georgia's official list. If the objection is "I needed the beach outside my door and half the bill," Lisbon's beach tag will not become Bali. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problems. Different guides.
 
 ## First-week setup checklist and how to compare Lisbon on Nomad Spin
 
@@ -4212,7 +4244,7 @@ If the Europe price is the whole objection, Porto and Budapest are the cheaper r
 
 ### Booking placeholders
 
-Still no partner IDs. These slots are last, after the week above, not before the flight is emotional.
+Book these slots last, after the week above.
 
 | Slot | What to book |
 |---|---|
@@ -4995,10 +5027,11 @@ Still no partner IDs. These slots are last, after the week above. The buttons th
     slug: "living-in-mexico-city",
     title: "The Ultimate Guide to Living in Mexico City",
     seoTitle: "Living in Mexico City 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Mexico City 2026: Cost, Visa, Roma",
     excerpt: "Mexico City for remote workers in 2026: real monthly costs, Roma vs Condesa, 180-day stay notes, coworking, internet, altitude and air-quality trade-offs.",
     date: "2026-10-07",
-    updated: "2026-10-07",
-    readTime: "30 min read",
+    updated: "2026-10-11",
+    readTime: "32 min read",
     relatedDestinations: ["mexico-city"],
     content: `## Is Mexico City still worth it for digital nomads in 2026?
 
@@ -5010,6 +5043,20 @@ Worth it if you want that mix and you can live with the cons. A bad default if y
 
 If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Mexico City in the conversation is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
+### Quick answers
+
+**How much does it cost to live in Mexico City as a digital nomad?** Nomad Spin lists about $1,300 a month solo and $1,000 on a longer stay, with a median Airbnb near $60 a night. Thirty nights at that rate is $1,800 in lodging alone. Markets, fondas and comida corrida keep you inside the band. Roma and Condesa cafes push you above it.
+
+**Is Mexico City internet good enough for video calls?** Usually yes. Nomad Spin shows about 90 Mbps, reliability 7/10, power stability 7, and High coworking density. That is an average, so test the apartment upload before you sign, keep a mobile-data backup, and book a coworking room with a door for calls that cannot drop.
+
+**What visa do digital nomads use in Mexico City?** Nomad Spin lists a Visa Exemption of up to 180 days. Article 52 of Mexico's Migration Law sets 180 days as the visitor maximum, without paid local activity, and the officer may grant fewer. Check the INM list of nationalities that need no visa and read days recorded at entry.
+
+**Which Mexico City neighborhood is best for remote workers?** Roma, especially Roma Norte, is the easiest social landing, with cafes and bars in a walkable grid. Condesa is the leafy twin around Parque Mexico. Juarez sits between Roma and Reforma, block by block. Narvarte, Del Valle and Escandon are quieter and kinder to the monthly band.
+
+**When is the best time to live in Mexico City?** Mar, Apr, May and Nov are the best months on Nomad Spin's row. Jun through Sep is the rainy season. Altitude and air quality are year-round cons, so they apply in the best months too. Plan one neighborhood inside Mar-May or Nov for the smoothest work month.
+
+**Is Mexico City or Medellin better for digital nomads?** Mexico City for US hours (UTC-6), food and art at scale, and a 180-day visa field, at about $1,300 solo. Medellin for a lower $1,100 month, a milder calendar and safety 6.5 versus 6.0, with a 90-day exemption field. Internet reliability is 7 in both.
+
 ## Who Mexico City is for (and who should skip it)
 
 Mexico City fits people who want a real metropolis with a ready-made scene, on hours that line up with the United States. It is a food city and a party city that also functions as a work hub. Those three tags are all on the row. Picking the city means accepting all three, then choosing a neighborhood that leans the way you actually work.
@@ -5017,7 +5064,7 @@ Mexico City fits people who want a real metropolis with a ready-made scene, on h
 **It tends to fit if you:**
 
 - Want the dataset's solo baseline (about **$1,300**) or the longer-stay figure (**$1,000**), and you will actually live like that
-- Need **UTC-6**. A 9:00 call in US Eastern is 8:00 here. A 9:00 call in US Pacific is 11:00. A 9:00 call in London is 3:00
+- Need **UTC-6**. In US and UK winter time, a 9:00 call in US Eastern is 8:00 here, a 9:00 call in US Pacific is 11:00, and a 9:00 call in London is 3:00
 - Want food, culture, and art as the week, with coworking density **High** when the home line fails
 - Like nightlife at **9** and a large scene (community **8**)
 - Can put the trip inside **Mar, Apr, May, or Nov**, or you have a real plan for the **Jun-Sep** rains
@@ -5036,11 +5083,11 @@ Also skip it, or pick a different city, if you:
 - Need a full year of legal stay and will not assemble a residency file at a consulate. The destination row says visa exemption, **180** days, and the officer can write fewer
 - Need a high LGBTQ+ score as a hard filter above this row. \`lgbtFriendly\` here is **7** (Lisbon's is **9**). Overall safety **6.0** does not answer that question
 
-If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood roundup.
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another neighborhood list.
 
 ## Cost of living: budget bands from Nomad Spin data plus what changes the bill
 
-The cost answer is the pair on the row: **$1,300** a month for a solo nomad, **$1,000** a month for a longer stay. Nomad Spin does not publish a fake "comfortable" total on top of those. Do not replace them with a blogger's spreadsheet.
+The cost answer is the pair on the row: **$1,300** a month for a solo nomad, **$1,000** a month for a longer stay. Do not add a "comfortable" total on top of those, and do not replace them with a blogger's spreadsheet.
 
 | Band | Figure | Field on the Mexico City row | How to read it |
 |---|---:|---|---|
@@ -5073,7 +5120,7 @@ Annual average temperature on the row is **16°C**. That is a coarse yearly figu
 - The **$1,300** number is a city baseline. Roma Norte, Condesa, and Polanco are where that number goes to die if every meal is a cafe meal.
 - The "affordable luxury" pro is real next to a US or Western European city, and it is also the receipt that leaves the band.
 - A cheaper room on a loud avenue, or in a block you will not walk at night, is a productivity and safety tax. The dataset cannot see your street.
-- Insurance is outside those three money fields. Budget it separately. This guide does not invent a premium.
+- Insurance is outside those three money fields. Budget it separately.
 
 ## Neighborhoods: Roma, Condesa, Juarez (and quieter alternatives)
 
@@ -5124,7 +5171,7 @@ Best for people who have already spent a few days in the city, or who will book 
 
 ### Booking placeholders
 
-No partner IDs live in this guide. After you pick the neighborhood, these three slots are the booking order. The live modules are on the [Mexico City destination page](/destinations/mexico-city), not in this article.
+After you pick the neighborhood, book in this order. Live stay, flight and insurance options are on the [Mexico City destination page](/destinations/mexico-city).
 
 | Slot | What to book |
 |---|---|
@@ -5170,17 +5217,17 @@ Mexico's Migration Law, in the text the Chamber of Deputies publishes as current
 
 The statute states a maximum. It does not promise that every passport receives 180 days, or that the officer at the booth will write the maximum. Read the number recorded at entry before you leave the desk. That number is the stay you have. A six-month apartment with a 30-day stamp is a planning failure.
 
-The National Migration Institute (INM) publishes the list of nationalities that do not need a visa to travel to Mexico and to request admission in that visitor condition. The list is theirs: [countries and regions that do not require a visa](https://www.inm.gob.mx/gobmx/word/index.php/paises-no-requieren-visa-para-mexico/). This guide will not copy it, because it can change, and your passport may not be on it. INM also says officers may ask why you are traveling, where you will stay, and how you will support yourself. Bring what the official page currently asks for. Do not bring a blog's screenshot.
+The National Migration Institute (INM) publishes the list of nationalities that do not need a visa to travel to Mexico and to request admission in that visitor condition. The list is theirs: [countries and regions that do not require a visa](https://www.inm.gob.mx/gobmx/word/index.php/paises-no-requieren-visa-para-mexico/). It can change, and your passport may not be on it. INM also says officers may ask why you are traveling, where you will stay, and how you will support yourself. Bring what the official page currently asks for. Do not bring a blog's screenshot.
 
 If your nationality is not on that list, the visitor visa is a different step, done before you fly, through a Mexican consulate. The 180-day figure in Article 40 is the legal ceiling on that visa, not a processing-time promise. Use the consulate that actually handles your file.
 
-### What this guide will not tell you
+### Questions for a consulate or lawyer
 
-The visitor condition, in the words of Article 52, does not include permission for remunerated activities in Mexico. People still ask whether a remote contract with a foreign employer fits inside that sentence. This guide will not answer that. It is a question for the consulate that covers your passport, or for a qualified immigration lawyer. A living guide is the wrong source for a work-authorization theory.
+The visitor condition, in the words of Article 52, does not include permission for remunerated activities in Mexico. People still ask whether a remote contract with a foreign employer fits inside that sentence. It is a question for the consulate that covers your passport, or for a qualified immigration lawyer. A living guide is the wrong source for a work-authorization theory.
 
-Temporary residence (*residente temporal*) is a separate condition in the same Article 52. The statute authorizes stay for **no more than four years**, with the possibility of a work permit tied to a job offer, and with the right to enter and leave. It is the category people look at when they need longer than the visitor maximum. Financial requirements, forms, and where you must apply are on the consulate's current checklist. Those numbers move. This guide does not quote a savings balance or an income floor, because copying one from a forum is how people build a file the consulate will not accept.
+Temporary residence (*residente temporal*) is a separate condition in the same Article 52. The statute authorizes stay for **no more than four years**, with the possibility of a work permit tied to a job offer, and with the right to enter and leave. It is the category people look at when they need longer than the visitor maximum. Financial requirements, forms, and where you must apply are on the consulate's current checklist. Those numbers move. Do not use a savings balance or income floor copied from a forum; that is how people build a file the consulate will not accept.
 
-Nomad Spin does not list a separate "digital nomad visa" for Mexico City. The row says **Visa Exemption**, **180** days. If a site sells you a branded nomad visa, check the consulate before you pay.
+There is no separate "digital nomad visa" listed for Mexico City. The row says **Visa Exemption**, **180** days. If a site sells you a branded nomad visa, check the consulate before you pay.
 
 A long stay can also create tax questions at home and in Mexico. Nothing here answers them. Get advice if you will be in the country for most of a year.
 
@@ -5212,11 +5259,11 @@ The city sits at roughly **2,240 meters**. The row lists altitude sickness as a 
 
 ### Air quality
 
-The row lists air quality as a con, and it does not limit that con to one season. Rain in **Jun-Sep** can wash the air and still ruin a walking commute. Drier months, including some of the best-month list, can trap haze. This guide will not invent an AQI number, a "worst week," or a mask rule. If you have asthma, a cardiac condition, or a hard personal filter on air quality, check a live air-quality source the week you book, and treat a bad reading as a reason to choose another city. [Chiang Mai's living guide](/guides/living-in-chiang-mai) is the comparison for a different seasonal air problem (burning season). Mexico City's version is on the cons all year.
+The row lists air quality as a con, and it does not limit that con to one season. Rain in **Jun-Sep** can wash the air and still ruin a walking commute. Drier months, including some of the best-month list, can trap haze. If you have asthma, a cardiac condition, or a hard personal filter on air quality, check a live air-quality source the week you book, and treat a bad reading as a reason to choose another city. [Chiang Mai's living guide](/guides/living-in-chiang-mai) is the comparison for a different seasonal air problem (burning season). Mexico City's version is on the cons all year.
 
 ### Booking placeholders
 
-Same three slots, still with no partner IDs. Buy them only after the month is one the table above allows, and only if altitude and air are acceptable for you.
+Book the same three slots only after the month is one the table above allows, and only if altitude and air are acceptable for you.
 
 | Slot | What to book |
 |---|---|
@@ -5281,9 +5328,9 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Stay with Mexico City** when you want US hours (**UTC-6**), food and art at this scale, community **8**, nightlife **9**, and a visa field of up to **180** days, and you accept safety **6.0**, altitude, air, and traffic. Read [Medellín](/destinations/medellin), [Buenos Aires](/destinations/buenos-aires), and [Chiang Mai](/destinations/chiang-mai) before you assume they are the same trip with a different postcard.
 
-**Pick Medellín** when you want a lower solo month (**$1,100**), a similar community and nightlife, and a milder "eternal spring" calendar, and you can live with a **90-day** exemption field plus neighborhood-level safety planning. Overall safety there is **6.5**. Female safety is the same **5**. The internet average is **80 Mbps**, reliability **7**, the same reliability band as Mexico City with a slightly lower headline speed. It is the smaller-city comparison, not the megacity one.
+**Pick Medellín** when you want a lower solo month (**$1,100**), a similar community and nightlife, and a 22°C annual average on the row, and you can live with a **90-day** exemption field plus neighborhood-level safety planning. Overall safety there is **6.5**. Female safety is the same **5**. The internet average is **80 Mbps**, reliability **7**, the same reliability band as Mexico City with a slightly lower headline speed. It is the smaller-city comparison, not the megacity one. The [Medellín living guide](/guides/living-in-medellin) is the on-the-ground version of that row.
 
-**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is an hour later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
+**Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is two hours later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
 
 **Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
@@ -5328,7 +5375,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 ### Booking placeholders
 
-Still no partner IDs. These slots are last, after the week above, not before the flight is emotional.
+Book these slots last, after the week above.
 
 | Slot | What to book |
 |---|---|
