@@ -75,13 +75,23 @@ describe('phase 1 hub visa data', () => {
     expect(cityById('oaxaca-mx').meta).toMatchObject({ visaType: 'Visa Exemption', visaDays: 180 });
   });
 
-  it('gives Croatia the official 18-month digital nomad stay', () => {
+  it('keeps Croatia on the default entry with the 18-month nomad stay in the note', () => {
     const rows = byCountry('HR');
     expect(rows).toHaveLength(7);
     for (const city of rows) {
-      expect(city.meta.visaDays, city.id).toBe(548);
+      expect(city.meta).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
       expect(city.meta.visaNote, city.id).toMatch(/up to 18 months \(MUP\)/);
-      expect(destinationFaq(city)[2].a, city.id).toMatch(/^Up to 18 months/);
+      expect(destinationFaq(city)[2].a, city.id).toMatch(/temporary stay of up to 18 months/);
+    }
+  });
+
+  it('puts Greece, Spain and Malaysia on the default entry with the nomad route in the note', () => {
+    expect(byCountry('GR')).toHaveLength(15);
+    for (const cc of ['GR', 'ES', 'MY']) {
+      for (const city of byCountry(cc)) {
+        expect(city.meta, city.id).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+        expect(city.meta.visaNote, city.id).toMatch(/nomad/i);
+      }
     }
   });
 
@@ -91,7 +101,7 @@ describe('phase 1 hub visa data', () => {
   });
 
   it('uses one visa type and day count per country, so rows never contradict', () => {
-    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR']) {
+    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY']) {
       const rule = COUNTRY_VISA_RULES[cc];
       expect(rule, cc).toBeDefined();
       expect(rule.sources.length, cc).toBeGreaterThan(0);
@@ -109,6 +119,15 @@ describe('phase 1 hub visa data', () => {
     }
     for (const city of byCountry('KR')) expect(city.meta.visaNote, city.id).toMatch(/F-1-D/);
     for (const city of byCountry('TW')) expect(city.meta.visaNote, city.id).toMatch(/Digital nomad visitor visa/);
+  });
+
+  it('shows only the default entry in the visa field (no Nomad type) for every ruled country', () => {
+    const ruled = new Set(Object.keys(COUNTRY_VISA_RULES));
+    for (const city of cities) {
+      if (!ruled.has(city.countryCode)) continue;
+      expect(city.meta.visaType, city.id).not.toMatch(/nomad/i);
+      expect(city.visa.type, city.id).not.toMatch(/nomad/i);
+    }
   });
 
   it('keeps visa notes free of dashes and arrows', () => {

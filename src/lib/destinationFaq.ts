@@ -69,6 +69,7 @@ interface VisaCopyRule {
   applies: (visaType: string) => boolean;
   /** Placeholders: {days}, {months}, {type}, {source}. */
   text: string;
+  officialLinks?: OfficialLink[];
 }
 
 /**
@@ -97,12 +98,21 @@ export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
     text: 'Up to {days} days for many passports, counted across the Schengen area, which Bulgaria has fully joined. For a longer stay, Bulgaria now offers a digital nomad residence permit that starts with a long-stay visa. Verify current rules with {source} before you book.',
   },
   GR: {
-    applies: (visaType) => /digital nomad/i.test(visaType),
-    text: "Up to {days} days on the initial {type}, per Nomad Spin's data. If you still qualify, you can then apply in Greece for a longer residence permit. Short visits without it follow Schengen rules. Verify current requirements with {source} before you apply.",
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Greece offers a Digital Nomad Visa of up to 1 year, then a residence permit. Verify current rules with {source} before you book.',
   },
   HR: {
-    applies: (visaType) => /digital nomad/i.test(visaType),
-    text: "Up to {months} months on Croatia's digital nomad temporary stay. It is an application-based route for remote work for a foreign employer or your own foreign company. Short visits without it follow Schengen rules. Verify current requirements with {source} before you apply.",
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants digital nomads a temporary stay of up to 18 months. Verify current rules with {source} before you book.',
+  },
+  ES: {
+    applies: isStayAllowanceVisa,
+    text: "Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Spain's digital nomad visa runs up to 1 year, and an in-country telework permit up to 3 years (Ley 14/2013). Verify current rules on official Spanish government pages.",
+    officialLinks: [{ phrase: 'official Spanish government pages', href: SPAIN_VISA_URL }],
+  },
+  MY: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, depending on nationality. For a longer remote-work stay, Malaysia runs the DE Rantau Nomad Pass, a separate application. Verify current rules with {source} before you book.',
   },
 };
 
@@ -335,7 +345,7 @@ function visaCopy(city: City): { text: string; officialLinks: OfficialLink[] } {
       .replace('{months}', String(Math.round(city.meta.visaDays / 30.44)))
       .replace('{type}', asciiText(city.meta.visaType))
       .replace('{source}', source);
-    return clampVisa(text, city, []);
+    return clampVisa(text, city, rule.officialLinks ?? []);
   }
 
   if (city.countryCode === 'VN' && /e-visa/i.test(city.meta.visaType)) {

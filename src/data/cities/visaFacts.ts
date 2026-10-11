@@ -41,6 +41,8 @@ export const VIETNAM_EVISA_TYPE = 'E-Visa';
 export const VIETNAM_EVISA_DAYS = 90;
 
 /**
+ * Convention: the visa field is the default entry anyone can use without applying
+ * (exemption, visa on arrival or e-visa). Nomad visas and permits go only in the note.
  * One official visa rule per country, applied to every row of that country so
  * rows can't contradict each other. Values and sources come from the hub data
  * error list (batch 2). Each rule names its official source.
@@ -150,16 +152,31 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
     ],
   },
   GR: {
-    visaType: 'Digital Nomad Visa',
-    visaDays: 365,
-    visaNote: `Digital Nomad Visa up to 1 year, then a digital nomad residence permit applied for in Greece. ${SCHENGEN_SHORT_STAY}`,
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Digital Nomad Visa up to 1 year, then a residence permit.`,
     sources: ['https://workfromgreece.gr/', 'https://www.mfa.gr/'],
   },
   HR: {
-    visaType: 'Digital Nomad Visa',
-    visaDays: 548,
-    visaNote: 'Temporary stay for digital nomads, up to 18 months (MUP).',
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Temporary stay for digital nomads, up to 18 months (MUP).`,
     sources: ['https://mup.gov.hr/aliens-281621/stay-and-work/digital-nomads/286833'],
+  },
+  ES: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Digital nomad route: ${SPAIN_DN_VISA_NOTE}`,
+    sources: [
+      'https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx',
+      'https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074',
+    ],
+  },
+  MY: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'Days depend on nationality. DE Rantau Nomad Pass (MDEC), separate application.',
+    sources: ['https://mdec.my/derantau', 'https://www.imi.gov.my/'],
   },
   TR: {
     visaType: 'Visa Exemption',
@@ -186,10 +203,12 @@ function isDigitalNomadLabel(visaType: string): boolean {
  * Countries in COUNTRY_VISA_RULES get one official type, day count and note on every row.
  */
 export function applyOfficialVisaFacts<T extends City>(city: T): T {
-  if (city.countryCode === 'ES' && isDigitalNomadLabel(city.meta.visaType)) {
+  if (city.countryCode === 'ES') {
+    const rule = COUNTRY_VISA_RULES.ES;
     return {
       ...city,
-      meta: { ...city.meta, visaNote: SPAIN_DN_VISA_NOTE },
+      meta: { ...city.meta, visaType: rule.visaType, visaDays: rule.visaDays, visaNote: rule.visaNote },
+      visa: { type: rule.visaType, days: rule.visaDays },
       legalNotes: SPAIN_DN_LEGAL_NOTES,
     };
   }
