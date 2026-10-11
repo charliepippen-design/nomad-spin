@@ -324,7 +324,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <motion.a
               href={affiliateLinks.accommodation.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3 }}

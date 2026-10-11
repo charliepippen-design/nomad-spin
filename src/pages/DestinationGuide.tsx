@@ -270,7 +270,7 @@ export default function DestinationGuide() {
           <a
             href={affiliateLinks.accommodation.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
             className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary/10 border border-primary/30 text-sm text-primary hover:bg-primary/20 transition-colors"
           >
             Find a place to stay in {city.name} <ExternalLink className="w-3 h-3" />
