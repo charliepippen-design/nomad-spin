@@ -272,6 +272,16 @@ export default function DestinationGuide() {
             href={affiliateLinks.accommodation.url}
             target="_blank"
             rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+            onClick={() =>
+              trackAffiliateClick(
+                affiliateLinks.accommodation.partner,
+                'accommodation',
+                city.name,
+                affiliateLinks.accommodation.url,
+                `Find a place to stay in ${city.name}`,
+                { placement: 'destination_stay' },
+              )
+            }
             className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary/10 border border-primary/30 text-sm text-primary hover:bg-primary/20 transition-colors"
           >
             Find a place to stay in {city.name} <ExternalLink className="w-3 h-3" />
@@ -309,7 +319,7 @@ export default function DestinationGuide() {
               href={affiliateLinks.vpn.url}
               target="_blank"
               rel={affiliateLinks.vpn.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-              onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label)}
+              onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label, { placement: 'destination_nordvpn' })}
               className="inline-flex items-center gap-2 font-mono tracking-wider text-primary/70 hover:text-primary transition-colors"
             >
               Get NordVPN <ExternalLink className="w-3 h-3" />
@@ -333,14 +343,16 @@ export default function DestinationGuide() {
               </p>
             </div>
           </div>
-          <a
-            href={affiliateLinks.flights.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 text-xs font-mono tracking-wider text-primary/70 hover:text-primary transition-colors"
-          >
-            Search flights to {city.name} <ExternalLink className="w-3 h-3" />
-          </a>
+          {affiliateLinks.flights.url ? (
+            <a
+              href={affiliateLinks.flights.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-xs font-mono tracking-wider text-primary/70 hover:text-primary transition-colors"
+            >
+              Search flights to {city.name} <ExternalLink className="w-3 h-3" />
+            </a>
+          ) : null}
         </GuideSection>
 
         <GuideSection title="Safety" id="safety">

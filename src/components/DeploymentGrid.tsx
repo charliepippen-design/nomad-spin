@@ -23,7 +23,7 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
     if (!link.url) return;
 
     // Track before opening
-    trackAffiliateClick(link.partner, link.vertical, cityName, link.url, link.label);
+    trackAffiliateClick(link.partner, link.vertical, cityName, link.url, link.label, { placement: 'spin_card_grid' });
 
     try {
       window.open(link.url, '_blank', 'noopener,noreferrer');
@@ -43,6 +43,8 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
       <div className="grid grid-cols-2 gap-2">
         {VERTICALS.map(({ key, icon: Icon, primary }, i) => {
           const link = links[key];
+          // Skyscanner stays hidden until VITE_SKYSCANNER_ID is set (empty URL).
+          if (key === 'flights' && !link.url) return null;
           const isDisabled = !link.url;
 
           if (isDisabled) {

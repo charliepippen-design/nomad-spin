@@ -51,6 +51,7 @@ describe('partner slots with no env set', () => {
 
       expect(links.connectivity.affiliate).toBe(false);
       expect(links.flights.affiliate).toBe(false);
+      expect(links.flights.url).toBe('');
       expect(links.insurance.affiliate).toBe(false);
       expect(links.visa.affiliate).toBe(false);
     });
@@ -94,6 +95,23 @@ describe('partner slots with IDs set', () => {
     const visa = generateAffiliateLinks(TH).visa;
     expect(visa.url.startsWith('https://www.ivisa.com/apply?country=TH')).toBe(true);
     expect(visa.affiliate).toBe(true);
+  });
+
+  it('hides the Skyscanner link until VITE_SKYSCANNER_ID is set', () => {
+    expect(generateAffiliateLinks(TH).flights.url).toBe('');
+    vi.stubEnv('VITE_SKYSCANNER_ID', 'SKY_TEST');
+    expect(generateAffiliateLinks(TH).flights.url).toContain('skyscanner.com');
+  });
+
+  it('keeps base letters of accented city names in UTM slugs', () => {
+    const co = { name: 'Bogotá', country: 'Colombia', countryCode: 'CO' };
+    const links = generateAffiliateLinks(co);
+    expect(new URL(links.accommodation.url).searchParams.get('utm_campaign')).toBe('city-bogota');
+    expect(links.vpn.url).toContain('utm_campaign=city-bogota');
+    const med = generateAffiliateLinks({ name: 'Medellín', country: 'Colombia', countryCode: 'CO' });
+    expect(new URL(med.accommodation.url).searchParams.get('utm_campaign')).toBe('city-medellin');
+    const sp = generateAffiliateLinks({ name: 'São Paulo', country: 'Brazil', countryCode: 'BR' });
+    expect(new URL(sp.accommodation.url).searchParams.get('utm_campaign')).toBe('city-sao-paulo');
   });
 
   it('adds Skyscanner and SafetyWing IDs only when set', () => {
