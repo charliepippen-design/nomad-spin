@@ -90,6 +90,7 @@ const LIVING_GUIDE_PEERS: Record<string, readonly string[]> = {
   valencia: ['barcelona', 'lisbon', 'porto'],
   budapest: ['lisbon', 'prague', 'barcelona'],
   prague: ['budapest', 'lisbon', 'barcelona'],
+  madrid: ['barcelona', 'valencia', 'lisbon', 'budapest'],
   tbilisi: ['budapest', 'chiang-mai', 'lisbon'],
 };
 

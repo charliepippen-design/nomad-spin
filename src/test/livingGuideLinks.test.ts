@@ -27,6 +27,7 @@ const LIVING_SLUGS = [
   'living-in-valencia',
   'living-in-prague',
   'living-in-ho-chi-minh-city',
+  'living-in-madrid',
 ] as const;
 
 const guideSlugSet = new Set(guides.map((guide) => guide.slug));
@@ -94,10 +95,10 @@ describe('living guide and destination hub links', () => {
   });
 
   it('does not invent a field guide link for a city without a living guide', () => {
-    const madrid = cities.find((city) => city.name === 'Madrid');
-    expect(madrid).toBeTruthy();
-    expect(livingGuideForCity(madrid!)).toBeNull();
-    expect(destinationFieldGuideHtml(madrid!)).toBe('');
+    const tokyo = cities.find((city) => city.name === 'Tokyo');
+    expect(tokyo).toBeTruthy();
+    expect(livingGuideForCity(tokyo!)).toBeNull();
+    expect(destinationFieldGuideHtml(tokyo!)).toBe('');
   });
 
   it('does not point an internal guide or destination link at a missing page', () => {
