@@ -9,12 +9,19 @@ interface GuideStayCtaConfig {
   body?: string;
 }
 
-/** The 5 most visited guides (Vercel Web Analytics, last 30 days). */
+/**
+ * The 5 most visited guides (Vercel Web Analytics, last 30 days), plus the
+ * October launch guides (Madrid, Hoi An, Tallinn). An entry only renders once
+ * that guide is published.
+ */
 export const GUIDE_STAY_CTAS: Record<string, GuideStayCtaConfig> = {
   'living-in-chiang-mai': { cityId: 'chiang-mai-th' },
   'living-in-da-nang': { cityId: 'da-nang-vn' },
   'living-in-medellin': { cityId: 'medellin-co' },
   'living-in-budapest': { cityId: 'budapest-hu' },
+  'living-in-madrid': { cityId: 'madrid-es' },
+  'living-in-hoi-an': { cityId: 'hoi-an-vn' },
+  'living-in-tallinn': { cityId: 'tallinn-ee' },
   'how-to-choose-next-nomad-base': {
     heading: 'Shortlist done?',
     body: 'Once two or three destination pages pass your filters, compare stays for your dates on Booking.com.',

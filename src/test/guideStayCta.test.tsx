@@ -55,6 +55,12 @@ describe('guideStayCta', () => {
     expect(guideStayCta('how-to-choose-next-nomad-base')?.url).toContain('/index.html?aid=8092520');
   });
 
+  it('covers the October launch guides with city data', () => {
+    expect(guideStayCta('living-in-madrid')).toMatchObject({ city: 'Madrid', destinationSlug: 'madrid' });
+    expect(guideStayCta('living-in-hoi-an')?.url).toContain('aid=8092520');
+    expect(guideStayCta('living-in-tallinn')?.url).toContain('aid=8092520');
+  });
+
   it('returns null for other guides', () => {
     expect(guideStayCta('living-in-bali')).toBeNull();
   });
