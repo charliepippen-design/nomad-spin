@@ -478,7 +478,7 @@ export default function Index() {
       >
         <div className="mx-auto max-w-2xl">
           <h1 className="text-3xl text-foreground mb-4">{HOME_H1}</h1>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-6">{HOME_INTRO}</p>
+          <p className="text-sm text-foreground/80 leading-relaxed mb-6">{HOME_INTRO}</p>
           <ul className="space-y-2 text-sm">
             <li>
               <Link to={HOME_GUIDES_LINK.href} className="text-primary underline underline-offset-4">
