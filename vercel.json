@@ -979,6 +979,246 @@
       "source": "/guides/tirana-digital-nomad-guide-costs-visas-living",
       "destination": "/guides/living-in-tirana",
       "statusCode": 301
+    },
+    {
+      "source": "/guides/bali",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-canggu-ubud-cost",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-complete",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-costs-visas",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-honest-breakdown",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-updated",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-2026-v2",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-costs-visas-neighborhoods-2026",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-costs-visas-where-to-live",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-digital-nomad-guide-honest-2025",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-nomad-guide-2026-complete",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-nomad-guide-2026-neighborhoods-visa-costs",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-nomad-guide-2026-updated",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/bali-nomad-living-guide-costs-visas-2026",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/digital-nomad-life-in-bali-a-comprehensive-guide",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/ultimate-digital-nomad-guide-to-bali",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/budapest",
+      "destination": "/guides/living-in-budapest",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/budapest-digital-nomad-guide-2026-costs-coworking-visa",
+      "destination": "/guides/living-in-budapest",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/budapest-digital-nomad-guide-costs-visas-coworking",
+      "destination": "/guides/living-in-budapest",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/budapest-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-budapest",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/cape-town",
+      "destination": "/guides/living-in-cape-town",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/cape-town-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-cape-town",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/cape-town-digital-nomad-guide-costs-neighborhoods-visas",
+      "destination": "/guides/living-in-cape-town",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/cape-town-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-cape-town",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/chiang-mai",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/chiang-mai-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/chiang-mai-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/chiang-mai-nomad-guide-cost-living-2026",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/the-ultimate-guide-to-living-in-chiang-mai",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/ultimate-guide-to-chiang-mai-for-digital-nomads",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/ultimate-guide-to-living-in-chiang-mai",
+      "destination": "/guides/living-in-chiang-mai",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang-digital-nomad-guide-2026-costs-visas",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang-digital-nomad-guide-costs-visas-neighborhoods-coworking",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/da-nang-nomad-guide-2025-cost-visa-neighborhoods",
+      "destination": "/guides/living-in-da-nang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/lisbon",
+      "destination": "/guides/living-in-lisbon",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/lisbon-digital-nomad-guide-2025-costs-visas",
+      "destination": "/guides/living-in-lisbon",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/lisbon-digital-nomad-guide-2026-costs-visas",
+      "destination": "/guides/living-in-lisbon",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/lisbon-digital-nomad-guide-costs-visas-neighborhoods",
+      "destination": "/guides/living-in-lisbon",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/porto",
+      "destination": "/guides/living-in-porto",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/porto-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-porto",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/porto-digital-nomad-guide-cost-living-visa",
+      "destination": "/guides/living-in-porto",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/porto-digital-nomad-guide-cost-living-visas",
+      "destination": "/guides/living-in-porto",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/porto-remote-work-guide-2026",
+      "destination": "/guides/living-in-porto",
+      "statusCode": 301
     }
   ],
   "rewrites": [

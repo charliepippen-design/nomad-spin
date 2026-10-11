@@ -10,7 +10,8 @@ import {
 } from '../src/lib/destinationSeo';
 import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
-import { GUIDES_INDEX_DESCRIPTION, guideBodyHtml, guidePageTitle, guidesIndexBodyHtml } from '../src/lib/guideHtml';
+import { GUIDES_INDEX_DESCRIPTION, guideBodyHtml, guidesIndexBodyHtml, guideTitleTag } from '../src/lib/guideHtml';
+import { guideFaqJsonLd } from '../src/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd, guidesIndexBreadcrumbJsonLd } from '../src/lib/guideJsonLd';
 import { homeBodyHtml } from '../src/lib/homeSeo';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
@@ -250,9 +251,10 @@ function withVisibleBody(html: string, body: string): string {
   // 3. Guide pages
   console.log(`\n📚 Generating ${guides.length} guide pages...`);
   for (const guide of guides) {
-    const title = guidePageTitle(guide.seoTitle ?? guide.title);
+    const title = guideTitleTag(guide);
     const url = `${BASE_URL}/guides/${guide.slug}`;
-    const jsonLd = [guideArticleJsonLd(guide, url), guideBreadcrumbJsonLd(guide, url)];
+    const faqJsonLd = guideFaqJsonLd(guide);
+    const jsonLd = [guideArticleJsonLd(guide, url), guideBreadcrumbJsonLd(guide, url), ...(faqJsonLd ? [faqJsonLd] : [])];
     writeRoute(
       `guides/${guide.slug}`,
       withVisibleBody(
