@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
+import GuideStayCta from '@/components/GuideStayCta';
 import { useGuides } from '@/hooks/useGuides';
 import { guides as staticGuides } from '@/data/guides';
 import { guidePageTitle } from '@/lib/guideHtml';
+import { guideArticleJsonLd, guideBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 import { relatedDestinationEntries, relatedGuideEntries } from '@/lib/relatedGuides';
 import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 import rehypeRaw from 'rehype-raw';
@@ -67,25 +69,8 @@ export default function GuideArticle() {
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
   const title = guidePageTitle(guide.seoTitle ?? guide.title);
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: guide.title,
-    url: pageUrl,
-    datePublished: guide.date,
-    dateModified: guide.updated ?? guide.date,
-    description: guide.excerpt,
-    author: {
-      '@type': 'Organization',
-      name: 'Nomad Spin',
-      url: BASE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Nomad Spin',
-      logo: `${BASE_URL}/favicon.svg`,
-    },
-  };
+  const jsonLd = guideArticleJsonLd(guide, pageUrl, `${BASE_URL}/og-preview.png`);
+  const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
   const relatedGuides = relatedGuideEntries(guide.slug);
   const relatedDestinations = relatedDestinationEntries(guide);
   const updatedLabel = new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', {
@@ -112,6 +97,7 @@ export default function GuideArticle() {
         <meta name="twitter:description" content={guide.excerpt} />
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
@@ -147,6 +133,8 @@ export default function GuideArticle() {
           </ReactMarkdown>
         </div>
       </article>
+
+      <GuideStayCta slug={guide.slug} />
 
       {relatedGuides.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">

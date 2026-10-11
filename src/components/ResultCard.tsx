@@ -158,7 +158,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
-          {/* Unsplash attribution — top-right overlay */}
+          {/* Unsplash attribution: top-right overlay */}
           {attribution && (
             <div className="absolute top-2 right-2 z-20 bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">
               <UnsplashAttribution attribution={attribution} className="text-white/70" />
@@ -319,12 +319,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </div>
           )}
 
-          {/* Primary CTA — Find Stays */}
+          {/* Primary CTA: Find Stays */}
           <div className="px-6 pt-2 space-y-2">
             <motion.a
               href={affiliateLinks.accommodation.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={affiliateLinks.accommodation.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3 }}
@@ -340,7 +340,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           </Link>
           </div>
 
-          {/* Secondary Links — Deployment Grid */}
+          {/* Secondary Links: Deployment Grid */}
           <div className="px-6 py-3 border-t border-border/30 mt-3">
             <DeploymentGrid links={affiliateLinks} cityName={city.name} />
           </div>

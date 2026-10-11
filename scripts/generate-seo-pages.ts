@@ -10,7 +10,9 @@ import {
 } from '../src/lib/destinationSeo';
 import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
-import { guideBodyHtml, guidePageTitle, guidesIndexBodyHtml } from '../src/lib/guideHtml';
+import { GUIDES_INDEX_DESCRIPTION, guideBodyHtml, guidePageTitle, guidesIndexBodyHtml } from '../src/lib/guideHtml';
+import { guideArticleJsonLd, guideBreadcrumbJsonLd, guidesIndexBreadcrumbJsonLd } from '../src/lib/guideJsonLd';
+import { homeBodyHtml } from '../src/lib/homeSeo';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { buildNotFoundHtml } from './not-found-page';
 
@@ -117,7 +119,10 @@ function injectSeo(
   const ogType = opts.ogType ?? 'website';
   const image = esc(opts.image ?? `${BASE_URL}/og-preview.png`);
   const jsonLdBlock = opts.jsonLd
-    ? `<script type="application/ld+json">${JSON.stringify(opts.jsonLd).replace(/</g, '\\u003c')}</script>`
+    ? [opts.jsonLd]
+        .flat()
+        .map((item) => `<script type="application/ld+json">${JSON.stringify(item).replace(/</g, '\\u003c')}</script>`)
+        .join('')
     : '';
 
   let out = html
@@ -186,10 +191,14 @@ function withVisibleBody(html: string, body: string): string {
 
   const guides = await fetchLiveGuides();
 
+  // Home (/): keep the WebSite/Organization JSON-LD already in index.html, add a crawlable body.
+  // Other routes keep using the untouched baseHtml read above.
+  writeRoute('', withVisibleBody(baseHtml, homeBodyHtml(staticGuides)));
+
   // Static core pages
   createHtmlFile('about', 'About Us | Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
   const guidesIndexTitle = 'Digital Nomad Guides & Analysis | Nomad Spin';
-  const guidesIndexDescription = 'Read our curated guides, tax analyses, and deep dives for digital nomads and remote workers.';
+  const guidesIndexDescription = GUIDES_INDEX_DESCRIPTION;
   writeRoute(
     'guides',
     withVisibleBody(
@@ -197,13 +206,16 @@ function withVisibleBody(html: string, body: string): string {
         title: guidesIndexTitle,
         description: guidesIndexDescription,
         url: `${BASE_URL}/guides`,
-        jsonLd: {
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          name: guidesIndexTitle,
-          url: `${BASE_URL}/guides`,
-          description: guidesIndexDescription,
-        },
+        jsonLd: [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: guidesIndexTitle,
+            url: `${BASE_URL}/guides`,
+            description: guidesIndexDescription,
+          },
+          guidesIndexBreadcrumbJsonLd(),
+        ],
       }),
       guidesIndexBodyHtml(staticGuides),
     ),
@@ -240,17 +252,7 @@ function withVisibleBody(html: string, body: string): string {
   for (const guide of guides) {
     const title = guidePageTitle(guide.seoTitle ?? guide.title);
     const url = `${BASE_URL}/guides/${guide.slug}`;
-    const jsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: guide.title,
-      url,
-      datePublished: guide.date,
-      dateModified: guide.updated ?? guide.date,
-      description: guide.excerpt,
-      author: { '@type': 'Organization', name: 'Nomad Spin', url: BASE_URL },
-      publisher: { '@type': 'Organization', name: 'Nomad Spin', logo: `${BASE_URL}/favicon.svg` },
-    };
+    const jsonLd = [guideArticleJsonLd(guide, url), guideBreadcrumbJsonLd(guide, url)];
     writeRoute(
       `guides/${guide.slug}`,
       withVisibleBody(
