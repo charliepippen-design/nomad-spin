@@ -260,7 +260,7 @@ Private hospitals in town are the regional reason people fly here for care. Bumr
 
 Community **8** shows up as coworking, recurring dinners, and the fact that a lot of people pass through. It is not Chiang Mai's **9**, and it does not have to be. English at **5** means the scene is easy and the bureaucracy is not. A little Thai, or a patient agent, matters for a lease more than for a menu.
 
-The "hub for SE Asia travel" pro is real: Chiang Mai, Vietnam, and Malaysia are ordinary flight plans from here, not expeditions. That is a reason to base in Bangkok if you will actually take those hops. It is not a reason to live in an airport hotel. Book the onward trip after the visa stamp and the neighborhood are real, not before.
+The "hub for SE Asia travel" pro is real: Chiang Mai, Vietnam, and Malaysia are ordinary flight plans from here, not expeditions. [Kuala Lumpur](/destinations/kuala-lumpur) is the Malaysian work city: **$1,000** solo, **100 Mbps**, coworking **High**, English **8**, and best months **Jun-Aug** against Bangkok's Nov-Mar. [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur) covers its neighborhoods and the DE Rantau Nomad Pass. That is a reason to base in Bangkok if you will actually take those hops. It is not a reason to live in an airport hotel. Book the onward trip after the visa stamp and the neighborhood are real, not before.
 
 ## Bangkok vs Chiang Mai, Bali, Da Nang, Mexico City
 

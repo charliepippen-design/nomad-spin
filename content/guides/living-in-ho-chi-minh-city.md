@@ -311,6 +311,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Chiang Mai** when you want community **9**, **95 Mbps**, and you do not need this city's noise. The solo month is **$850**. Best months **Nov-Feb** overlap the start of Ho Chi Minh City's dry season, then Chiang Mai's burning season (Mar-Apr) is the hard stop the [Chiang Mai living guide](/guides/living-in-chiang-mai) explains. Same clock: **UTC+7**. Different visa: **30 days**, tourism only, passport-dependent.
 
+**Look at Kuala Lumpur** when you want a city of the same weight with better English and a different season: **$1,000** solo, **100 Mbps**, coworking **High**, English **8**, best months **Jun-Aug**, **UTC+8**. It costs **$200** more a month than this row, and its long-stay route is Malaysia's DE Rantau Nomad Pass rather than an e-visa. Read [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur).
+
 **Look at Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days** (visa on arrival). Best months **Apr-Sep** do not match this Dec-Apr window, so Bali is a different season, not a winter substitute. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Saigon with a beach." It is a different bill, a different connection, and **UTC+8**.
 
 **Look at Tbilisi** when the constraint is stay length, not a city. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast at the same solo baseline: **Visa Free**, **365** days, **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.

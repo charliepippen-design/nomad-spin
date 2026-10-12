@@ -20,6 +20,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-tallinn');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-hoi-an');
+    expect(slugs).toContain('living-in-kuala-lumpur');
     expect(slugs).toContain('living-in-ho-chi-minh-city');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
@@ -385,6 +386,105 @@ describe('static guides', () => {
       'Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang',
       'Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali',
       'First-week checklist + spin the globe / compare Hoi An on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Kuala Lumpur living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-kuala-lumpur');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Kuala Lumpur');
+    expect(g!.seoTitle).toBe("Living in Kuala Lumpur 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Kuala Lumpur 2026: Costs, Visa, Areas');
+    expect(guideTitleTag(g!)).toBe('Living in Kuala Lumpur 2026: Costs, Visa, Areas | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    expect(g!.excerpt).toBe(
+      'Kuala Lumpur for remote workers in 2026: real monthly costs, Bangsar vs Mont Kiara, DE Rantau Nomad Pass, 100 Mbps internet, haze and rain.'
+    );
+    const qas = [...g!.content.matchAll(/^\*\*([^*\n]+\?)\*\* (.+)$/gm)].map((m) => ({
+      question: m[1],
+      words: m[2].trim().split(/\s+/).length,
+    }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const qa of qas) {
+      expect(qa.words, qa.question).toBeGreaterThanOrEqual(35);
+      expect(qa.words, qa.question).toBeLessThanOrEqual(50);
+    }
+    expect(g!.excerpt.length).toBeLessThanOrEqual(165);
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual([
+      'kuala-lumpur',
+      'penang',
+      'bangkok',
+      'chiang-mai',
+      'ho-chi-minh-city',
+      'singapore',
+    ]);
+    expect(g!.content).toContain('living in Kuala Lumpur as a digital nomad');
+    expect(g!.content).toContain('$1,000');
+    expect(g!.content).toContain('$750');
+    expect(g!.content).toContain('$40');
+    expect(g!.content).toContain(
+      "The long-term $750 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $40 a night."
+    );
+    expect(g!.content).toContain('Reliability is 8/10 and power is 8/10.');
+    expect(g!.content).not.toMatch(/Airbnb[^.]*estimate/i);
+    expect(g!.content).not.toMatch(/(reliability|power)[^.]*estimate/i);
+    expect(g!.content).toContain('100 Mbps');
+    expect(g!.content).toContain('7.5');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+8');
+    expect(g!.content).toContain('DE Rantau Nomad Pass');
+    // Visa convention: default entry first, nomad route second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Kuala Lumpur?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book."
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toContain('the row says');
+    expect(g!.content).not.toContain('longest first term');
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Kuala Lumpur page](/destinations/kuala-lumpur) |');
+    expect(g!.content).toContain('Jun, Jul, Aug');
+    expect(g!.content).toContain('Nov, Dec, Jan');
+    expect(g!.content).not.toContain('This guide does not');
+    expect(g!.content).not.toMatch(/€|\bEUR\b|TODO/);
+    expect(g!.content).not.toMatch(/\/destinations\/[a-z-]*(suburbs|outskirts|hills)/);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/kuala-lumpur',
+      '/destinations/penang',
+      '/destinations/bangkok',
+      '/destinations/chiang-mai',
+      '/destinations/ho-chi-minh-city',
+      '/destinations/singapore',
+      '/guides/living-in-bangkok',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-ho-chi-minh-city',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-tbilisi',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Kuala Lumpur worth it for digital nomads in 2026?',
+      'Who Kuala Lumpur is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,000, long-term $750 estimate, short Airbnb $40)',
+      'Neighborhoods that work: Bukit Bintang / KLCC, Bangsar, Mont Kiara, KL Sentral / Brickfields (trade-offs)',
+      'Internet, power, and coworking for video-call work (100 Mbps, reliability 8, power 8, High coworking)',
+      'Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)',
+      'Best months (Jun-Aug) vs rainy months (Nov-Jan)',
+      'Daily life: rail and Grab, food, English, local rules, day trips',
+      'Kuala Lumpur vs Bangkok, Chiang Mai, Penang, Singapore, Ho Chi Minh City',
+      'First-week checklist + spin the globe / compare Kuala Lumpur on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
