@@ -24,6 +24,13 @@ const vercelSource = fs.readFileSync(vercelPath, 'utf8');
 const HCMC_DESTINATION = '/destinations/ho-chi-minh-city';
 const DESTINATION_ALIASES = ['/destinations/saigon', '/destinations/hcmc', '/destinations/ho-chi-minh'] as const;
 const GUIDE_ALIASES = ['/guides/living-in-saigon', '/guides/living-in-hcmc', '/guides/living-in-ho-chi-minh'] as const;
+const SPLIT_GUIDE_ALIASES = [
+  '/guides/split',
+  '/guides/split-croatia-digital-nomad-guide',
+  '/guides/split-croatia-digital-nomad-guide-2026',
+  '/guides/split-croatia-digital-nomad-guide-2026-v2',
+  '/guides/split-croatia-digital-nomad-guide-remote-work',
+] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
 const KUALA_LUMPUR_GUIDE_ALIASES = [
   '/guides/kuala-lumpur',
@@ -76,6 +83,7 @@ describe('vercel.json unknown slug 404s', () => {
       '/guides/living-in-lisbon',
       '/guides/living-in-not-a-real-city-xyz',
       '/guides/living-in-saigon',
+      ...SPLIT_GUIDE_ALIASES,
       '/destinations/lisbon',
       '/destinations/tbilisi-suburbs',
       '/destinations/not-a-real-city-xyz',
@@ -129,6 +137,17 @@ describe('vercel.json unknown slug 404s', () => {
       expect(rule?.statusCode).toBe(301);
       expect(rule?.permanent).toBeUndefined();
       expect(rewriteMatches(source), source).toBe(false);
+    }
+
+    const guidePaths = new Set(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(guidePaths.has('/guides/living-in-split')).toBe(true);
+    for (const source of SPLIT_GUIDE_ALIASES) {
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe('/guides/living-in-split');
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
+      expect(guidePaths.has(source), source).toBe(false);
     }
 
     expect(redirects.every((rule) => rule.statusCode === 301 && rule.permanent === undefined)).toBe(true);

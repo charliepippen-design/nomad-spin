@@ -269,6 +269,8 @@ The visa column is the dataset label on every one of these rows. It is not the r
 
 **Look at Porto** when you want **200 Mbps** and safety **9.0** for **$100** less than Valencia (**$1,800** solo, **$1,400** longer stay). Coworking is also **Med**. Best months are **May-Sep**, so high summer is inside the friendly window, and the wet stretch is **Nov-Feb**, not an October that the row also calls a best month. There is no Valencia-style beach-in-the-city product. The river, the hills, and the smaller scene are in [Living in Porto](/guides/living-in-porto).
 
+**Look at Split** when you want the sea and the old-town setting on the Adriatic instead of the Mediterranean coast of Spain. [Split](/destinations/split) is **$1,800** solo, **$100** less than Valencia, with safety **9.0**, **100 Mbps**, coworking **Med**, and best months **May-Sep**. The trade is slower internet, community **4**, and a summer that fills with visitors. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
+
 If the objection is "I needed the beach and a third of this bill," none of these Europe peers become that. [Living in Chiang Mai](/guides/living-in-chiang-mai) is about **$850**, with no beach and a burning-season con. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide, at about **$1,400**, with safety **5.5** and power **4**. Different products.
 
 ## First-week checklist and how to compare Valencia on Nomad Spin

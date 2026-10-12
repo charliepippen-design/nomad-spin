@@ -61,15 +61,16 @@ describe('guideStayCta', () => {
     expect(guideStayCta('living-in-hoi-an')?.url).toContain('aid=8092520');
     expect(guideStayCta('living-in-tallinn')?.url).toContain('aid=8092520');
     expect(guideStayCta('living-in-kuala-lumpur')?.url).toContain('aid=8092520');
+    expect(guideStayCta('living-in-split')?.url).toContain('aid=8092520');
   });
 
   it('returns null for unknown guides', () => {
     expect(guideStayCta('not-a-guide')).toBeNull();
   });
 
-  it('covers all 24 published guides', () => {
+  it('covers all 25 published guides', () => {
     const slugs = guides.map((g) => g.slug);
-    expect(slugs).toHaveLength(24);
+    expect(slugs).toHaveLength(25);
     for (const slug of slugs) expect(guideStayCta(slug), slug).not.toBeNull();
   });
 
