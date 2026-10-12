@@ -77,8 +77,9 @@ export function relatedGuidesForCity(city: City): Guide[] {
 const LIVING_GUIDE_PEERS: Record<string, readonly string[]> = {
   bali: ['chiang-mai', 'bangkok', 'da-nang'],
   'cape-town': ['lisbon', 'bali', 'buenos-aires'],
-  'chiang-mai': ['bangkok', 'da-nang', 'bali'],
-  bangkok: ['chiang-mai', 'da-nang', 'bali'],
+  'chiang-mai': ['bangkok', 'da-nang', 'bali', 'kuala-lumpur'],
+  bangkok: ['chiang-mai', 'da-nang', 'bali', 'kuala-lumpur'],
+  'kuala-lumpur': ['bangkok', 'chiang-mai', 'ho-chi-minh-city', 'bali'],
   'da-nang': ['hoi-an', 'ho-chi-minh-city', 'chiang-mai', 'bali'],
   'hoi-an': ['da-nang', 'ho-chi-minh-city', 'chiang-mai', 'bali'],
   'ho-chi-minh-city': ['da-nang', 'hoi-an', 'bangkok', 'chiang-mai'],

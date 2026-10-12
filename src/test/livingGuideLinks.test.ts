@@ -21,6 +21,7 @@ const LIVING_SLUGS = [
   'living-in-tbilisi',
   'living-in-da-nang',
   'living-in-hoi-an',
+  'living-in-kuala-lumpur',
   'living-in-buenos-aires',
   'living-in-budapest',
   'living-in-porto',

@@ -29,6 +29,7 @@ const RELATED_GUIDE_PEERS: Record<string, readonly [string, string, string]> = {
   'where-to-go-next-by-season': ['living-in-lisbon', 'living-in-chiang-mai', 'living-in-mexico-city'],
   'best-places-digital-nomads-2025': ['living-in-lisbon', 'living-in-chiang-mai', 'living-in-mexico-city'],
   'living-in-madrid': ['living-in-barcelona', 'living-in-valencia', 'living-in-lisbon'],
+  'living-in-kuala-lumpur': ['living-in-bangkok', 'living-in-chiang-mai', 'living-in-ho-chi-minh-city'],
   'living-in-hoi-an': ['living-in-da-nang', 'living-in-ho-chi-minh-city', 'living-in-chiang-mai'],
   'living-in-split': ['living-in-porto', 'living-in-valencia', 'living-in-budapest'],
   'living-in-tallinn': ['living-in-prague', 'living-in-budapest', 'living-in-tbilisi'],
