@@ -176,7 +176,11 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
     visaType: 'Visa Exemption',
     visaDays: 90,
     visaNote: 'Days depend on nationality. DE Rantau Nomad Pass (MDEC), separate application.',
-    sources: ['https://mdec.my/derantau', 'https://www.imi.gov.my/'],
+    sources: [
+      'https://mdec.my/derantau',
+      'https://rai.malaysia.gov.my/enter',
+      'https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/',
+    ],
   },
   TR: {
     visaType: 'Visa Exemption',
