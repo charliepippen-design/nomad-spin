@@ -24,7 +24,7 @@ const THAILAND_VISA_URL = 'https://thailand.prd.go.th/en/content/category/detail
 const MNE_LINK: OfficialLink = { phrase: 'MNE', href: PORTUGAL_MNE_URL };
 const AIMA_LINK: OfficialLink = { phrase: 'AIMA', href: PORTUGAL_AIMA_URL };
 
-/** Agency names used on the 20 priority pages. Other countries use a generic official-pages line. */
+/** Agency names used on the priority pages. Other countries use a generic official-pages line. */
 export const OFFICIAL_VISA_SOURCE: Record<string, string> = {
   ID: 'the Indonesian Directorate General of Immigration',
   ZA: 'the South African Department of Home Affairs',
@@ -37,6 +37,83 @@ export const OFFICIAL_VISA_SOURCE: Record<string, string> = {
   EE: 'the Estonian Police and Border Guard Board',
   CZ: 'the Czech Ministry of the Interior',
   VN: "Vietnam's official government e-visa portal",
+  TW: "Taiwan's Bureau of Consular Affairs",
+  KR: "a Korean embassy or Korea's Ministry of Justice",
+  JP: "Japan's Ministry of Foreign Affairs",
+  DE: "Germany's Federal Foreign Office",
+  CL: "Chile's National Migration Service",
+  PE: "Peru's National Superintendence of Migration",
+  BR: "Brazil's Ministry of Foreign Affairs",
+  PL: "Poland's Office for Foreigners",
+  GR: "Greece's Ministry of Foreign Affairs",
+  BG: "Bulgaria's Ministry of Foreign Affairs",
+  HR: "Croatia's Ministry of the Interior",
+  TR: "Turkey's Ministry of Foreign Affairs",
+};
+
+/**
+ * Visa-free countries: replaces the "check whether remote work is allowed"
+ * sentence with the country's official longer-stay fact.
+ */
+const STAY_EXTRA: Record<string, string> = {
+  TW: 'For a longer remote-work stay, Taiwan also issues a Digital Nomad Visa.',
+  KR: 'For a longer remote-work stay, Korea offers the F-1-D Workation visa.',
+  JP: 'Japan also has a separate digital nomad status under Designated Activities.',
+  CL: 'Chile has no dedicated digital nomad visa, so longer stays need another residence route.',
+  CO: 'Migracion Colombia can extend that permit within a yearly cap.',
+  TR: 'Longer stays need a short-term residence permit.',
+};
+
+interface VisaCopyRule {
+  /** Row visa types this copy is written for. Other types use the generic templates. */
+  applies: (visaType: string) => boolean;
+  /** Placeholders: {days}, {months}, {type}, {source}. */
+  text: string;
+  officialLinks?: OfficialLink[];
+}
+
+/**
+ * Per-country Q3 copy the generic templates can't express (officer decides,
+ * e-visa for some passports, no nomad visa, Schengen counting). Numbers come from the row.
+ */
+export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
+  DE: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer stay, Germany has a freelance residence permit, and the local immigration office sets its length. Verify current requirements with {source} before you apply.',
+  },
+  PL: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. Poland has no dedicated digital nomad visa, so a longer stay needs a national visa or residence permit for another purpose. Verify current rules with {source} before you book.',
+  },
+  MX: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, but the immigration officer decides how many days you get. Nomad Spin lists visa-free entry for Mexico. Longer stays need temporary residence through a Mexican consulate. Verify current rules with {source} before you book.',
+  },
+  BR: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, but US, Canadian and Australian citizens need an e-visa first. For a longer remote-work stay, Brazil offers the VITEM XIV digital nomad visa. Verify current rules with {source} before you book.',
+  },
+  BG: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the Schengen area, which Bulgaria has fully joined. For a longer stay, Bulgaria now offers a digital nomad residence permit that starts with a long-stay visa. Verify current rules with {source} before you book.',
+  },
+  GR: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Greece offers a Digital Nomad Visa of up to 1 year, then a residence permit. Verify current rules with {source} before you book.',
+  },
+  HR: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants digital nomads a temporary stay of up to 18 months. Verify current rules with {source} before you book.',
+  },
+  ES: {
+    applies: isStayAllowanceVisa,
+    text: "Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Spain's digital nomad visa runs up to 1 year, and an in-country telework permit up to 3 years (Ley 14/2013). Verify current rules on official Spanish government pages.",
+    officialLinks: [{ phrase: 'official Spanish government pages', href: SPAIN_VISA_URL }],
+  },
+  MY: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, depending on nationality. For a longer remote-work stay, Malaysia runs the DE Rantau Nomad Pass, a separate application. Verify current rules with {source} before you book.',
+  },
 };
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
@@ -57,13 +134,15 @@ const MONTH_NAMES = [
 
 const WEATHER_WORD =
   /\b(season|winters?|summers?|heat|hot|rain|rains|rainy|monsoon|haze|flood\w*|typhoon|humid\w*|humidity|cold|dark)\b/i;
+/** Cons that mention a season but are not about weather ("Limited winter nightlife", "Crowded summers"). */
+const NOT_WEATHER = /tourist|nightlife|crowd/i;
 const SAFETY_WORD = /safety|crime|pickpocket|scam/i;
 const NET_WORD = /wifi|load shedding/i;
 const AFFILIATE =
   /\b(ivisa|flatio|booking|safetywing|airalo|skyscanner|impact|affiliate|book now|sign up)\b|cj\.com/i;
 
 const KEEP_CASE =
-  /^(?:[A-Z]{2,}(?:\b|[-/])|UNESCO\b|WiFi\b|E-residency\b|European\b|Port\b|Turia\b|Barajas\b)/;
+  /^(?:[A-Z]{2,}(?:\b|[-/])|[A-Z]-|UNESCO\b|WiFi\b|E-residency\b|European\b|Port\b|Turia\b|Barajas\b|Andes\b|Caribbean\b|Adriatic\b|Atlantic\b|Pacific\b|Mediterranean\b)/;
 
 function wordCount(text: string): number {
   const trimmed = text.trim();
@@ -173,11 +252,13 @@ function fit(required: string[], optional: string[] = [], pads: string[] = []): 
   let text = joinSentences(required);
   const queued = [...optional];
   for (const extra of queued) {
+    if (text.includes(extra.trim())) continue;
     const next = joinSentences([text, extra]);
     if (wordCount(next) <= 50) text = next;
   }
   for (const pad of pads) {
     if (wordCount(text) >= 35) break;
+    if (text.includes(pad.trim())) continue;
     const next = joinSentences([text, pad]);
     if (wordCount(next) <= 50) text = next;
   }
@@ -257,6 +338,16 @@ function visaCopy(city: City): { text: string; officialLinks: OfficialLink[] } {
   const country = asciiText(city.country);
   const source = officialSource(city);
 
+  const rule = VISA_FAQ_COPY[city.countryCode];
+  if (rule && rule.applies(city.meta.visaType)) {
+    const text = rule.text
+      .replace('{days}', String(city.meta.visaDays))
+      .replace('{months}', String(Math.round(city.meta.visaDays / 30.44)))
+      .replace('{type}', asciiText(city.meta.visaType))
+      .replace('{source}', source);
+    return clampVisa(text, city, rule.officialLinks ?? []);
+  }
+
   if (city.countryCode === 'VN' && /e-visa/i.test(city.meta.visaType)) {
     return clampVisa(
       `Up to ${city.meta.visaDays} days on Vietnam's E-Visa, per Nomad Spin's data. It is an application-based visa, so apply before you travel and check the length printed on the visa you are granted. Verify current eligibility and validity on Vietnam's official government e-visa portal before you book.`,
@@ -267,8 +358,9 @@ function visaCopy(city: City): { text: string; officialLinks: OfficialLink[] } {
 
   if (isStayAllowanceVisa(city.meta.visaType)) {
     const kind = /on arrival/i.test(city.meta.visaType) ? 'a visa on arrival' : 'visa-free entry';
+    const extra = STAY_EXTRA[city.countryCode] ?? 'Check whether remote work is allowed on that entry.';
     return clampVisa(
-      `Up to ${city.meta.visaDays} days for many passports. Nomad Spin lists ${kind} for ${country}; eligibility and length depend on your nationality. Check whether remote work is allowed on that entry. Verify current rules with ${source} before you book.`,
+      `Up to ${city.meta.visaDays} days for many passports. Nomad Spin lists ${kind} for ${country}; eligibility and length depend on your nationality. ${extra} Verify current rules with ${source} before you book.`,
       city,
       [],
     );
@@ -361,7 +453,7 @@ function weatherAnswer(city: City): string {
   const overlap = best.filter((month) => rainySet.has(month));
   const bestOnly = best.filter((month) => !rainySet.has(month));
   const temp = `and the average temperature is about ${city.weather.tempAvgC} C.`;
-  const weatherCons = city.cons.filter((con) => WEATHER_WORD.test(con) && !/tourist/i.test(con)).map(lc);
+  const weatherCons = city.cons.filter((con) => WEATHER_WORD.test(con) && !NOT_WEATHER.test(con)).map(lc);
   const weatherLine = weatherCons.length ? `Weather trade-offs we list: ${list(weatherCons)}.` : '';
   const fill = 'Other months carry no weather flag in our data.';
 
@@ -460,12 +552,47 @@ function closingFact(city: City): string {
     if (score <= 5) lows.push(`${label} scores ${score}/10`);
   }
   if (lows.length > 0) {
-    return `${list(lows.slice(0, 2))} in our data.`;
+    return lowScores(lows);
   }
   if (city.weather.tempAvgC <= 12) {
     return `The average temperature is about ${city.weather.tempAvgC} C.`;
   }
+  return costLine(city);
+}
+
+function costLine(city: City): string {
   return `Expect about $${city.financials.costNomadSingle} a month in our data.`;
+}
+
+/** Next low metric (community size, then nightlife) used before the cost line when an answer runs short. */
+function secondaryLow(city: City): string | null {
+  const secondary: Array<[string, number]> = [
+    ['Community size', city.vibeMetrics.communitySize],
+    ['Nightlife', city.vibeMetrics.nightlife],
+  ];
+  for (const [label, score] of secondary) {
+    if (score <= 5) return `${label} scores ${score}/10 in our data.`;
+  }
+  return null;
+}
+
+/** Up to two low scores. Labels after the first are lowercased mid-sentence, except proper nouns. */
+function lowScores(lows: string[]): string {
+  const parts = lows
+    .slice(0, 2)
+    .map((part, index) => (index === 0 || /^(English|LGBTQ)/.test(part) ? part : part.charAt(0).toLowerCase() + part.slice(1)));
+  return `${list(parts)} in our data.`;
+}
+
+/**
+ * One listed con. Plural noun phrases read as "if X are a dealbreaker"; anything else
+ * (adjectives, comparisons, clauses) is quoted after a colon so the grammar holds.
+ */
+function singleConLine(name: string, con: string): string {
+  const pluralNoun = /[^su]s$/i.test(con) && !/\b(than|varies|is|are)\b/i.test(con) && !/^(less|more|not|very|too)\b/i.test(con);
+  return pluralNoun
+    ? `Skip ${name} if ${con} are a dealbreaker; it is the only trade-off Nomad Spin lists so far.`
+    : `Skip ${name} if this trade-off is a dealbreaker: ${con}. It is the only one Nomad Spin lists so far.`;
 }
 
 function skipAnswer(city: City): string {
@@ -474,14 +601,19 @@ function skipAnswer(city: City): string {
   const pros = city.pros.slice(0, 3).map(lc);
   const consText = cons.length ? list(cons) : 'the listed trade-offs';
   const prosText = pros.length ? list(pros) : 'the listed strengths';
-  const full = fit(
-    [
-      `Skip ${name} if these listed trade-offs are dealbreakers: ${consText}.`,
-      `Its listed strengths are ${prosText}.`,
-    ],
-    [closingFact(city)],
-    [`Expect about $${city.financials.costNomadSingle} a month in our data.`],
-  );
+  const consLine =
+    cons.length === 1
+      ? singleConLine(name, cons[0])
+      : `Skip ${name} if these listed trade-offs are dealbreakers: ${consText}.`;
+  const lead = [consLine, `Its listed strengths are ${prosText}.`];
+  const closing = closingFact(city);
+  let full = fit(lead, [closing], [costLine(city)]);
+  // When the closing fact is the cost line and the answer is still short, add the next low metric
+  // first instead of printing the cost line twice.
+  const low = secondaryLow(city);
+  if (closing === costLine(city) && wordCount(full) < 35 && low) {
+    full = fit(lead, [low], [costLine(city)]);
+  }
   if (wordCount(full) >= 35 && wordCount(full) <= 50) return full;
   return fit(
     [full, 'Read the trade-offs on this page before you book.'],

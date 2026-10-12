@@ -11,14 +11,27 @@ function byCountry(code: string) {
   return cities.filter((c) => c.countryCode === code);
 }
 
-describe('Spain and Portugal digital nomad visa wording', () => {
-  const rows = cities.filter(
-    (c) => (c.countryCode === 'ES' || c.countryCode === 'PT') && /digital nomad/i.test(c.meta.visaType),
-  );
+describe('Spain visa wording (default entry, nomad visa in the note)', () => {
+  it('shows the Schengen exemption and keeps the telework visa and 3-year permit in the note', () => {
+    const rows = byCountry('ES');
+    expect(rows.length).toBeGreaterThan(10);
+    for (const city of rows) {
+      expect(city.meta).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+      expect(city.visa.days).toBe(90);
+      expect(city.meta.visaNote).toMatch(/3 years/);
+      expect(city.meta.visaNote).toMatch(/Ley 14\/2013/);
+      expect(city.legalNotes.join(' ')).toMatch(/boe\.es/);
+      expect(visaPathSentence(city.meta)).not.toMatch(MISLEADING);
+    }
+  });
+});
+
+describe('Portugal digital nomad visa wording', () => {
+  const rows = cities.filter((c) => c.countryCode === 'PT' && /digital nomad/i.test(c.meta.visaType));
 
   it('covers the named cities and does not render a stay allowance', () => {
     const names = new Set(rows.map((c) => c.name));
-    for (const name of ['Lisbon', 'Porto', 'Barcelona', 'Madrid', 'Valencia', 'Las Palmas', 'Porto Santo']) {
+    for (const name of ['Lisbon', 'Porto', 'Porto Santo']) {
       expect(names.has(name)).toBe(true);
     }
     expect(rows.length).toBeGreaterThan(10);
@@ -36,13 +49,6 @@ describe('Spain and Portugal digital nomad visa wording', () => {
       expect(city.meta.visaNote).toBeTruthy();
       expect(city.legalNotes.length).toBeGreaterThan(0);
     }
-  });
-
-  it('keeps Spain on the consular visa plus the 3-year residence authorization', () => {
-    const madrid = rows.find((c) => c.id === 'madrid-es');
-    expect(madrid?.meta.visaNote).toMatch(/3 years/);
-    expect(madrid?.meta.visaNote).toMatch(/Ley 14\/2013/);
-    expect(madrid?.legalNotes.join(' ')).toMatch(/boe\.es/);
   });
 
   it('keeps Portugal on the D8 path and flags the D7 label as unverified', () => {

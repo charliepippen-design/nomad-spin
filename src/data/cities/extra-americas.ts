@@ -17,7 +17,7 @@ export const extraAmericasCities = [
     nightlife: 5, community: 4, lgbt: 5, femaleSafety: 5, english: 3,
     bestMonths: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'], rainyMonths: ['Jun', 'Jul', 'Aug', 'Sep'], tempC: 21,
     visaType: 'Temporary Visa', visaDays: 365, tz: 'UTC-6',
-    pros: ['Culture', 'Mezcal', 'Food', 'Art', 'Indigenous'], cons: ['Tourist season crowded'],
+    pros: ['Culture', 'Mezcal', 'Food', 'Art', 'Indigenous'], cons: ['Tourist-season crowds'],
   }),
   city({ id: 'san-miguel-mx', name: 'San Miguel de Allende', country: 'Mexico', cc: 'MX',
     lat: 20.9144, lng: -100.7452, region: 'North America',
