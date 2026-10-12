@@ -36,6 +36,18 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.digitalnomadspin.com/guides/living-in-kuala-lumpur</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/guides/living-in-split</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-tirana</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>

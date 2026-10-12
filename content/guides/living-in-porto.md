@@ -293,6 +293,8 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Valencia** when you want the closest solo number under Lisbon, at **$1,900**, with **170 Mbps** and safety **8.0**. [Valencia](/destinations/valencia) is cheaper than Barcelona and still **$100** above Porto's solo month, with less internet than Porto's **200 Mbps**. Best months match Madrid's shoulders, with one catch: October is also a rainy month there. That overlap is in [Living in Valencia](/guides/living-in-valencia).
 
+**Split** when the sea and islands matter more than the internet. [Split](/destinations/split) matches Porto's **$1,800** solo month and **$1,400** longer-stay figure, with safety **9.0**, coworking **Med**, and best months **May-Sep**, but it posts **100 Mbps** against Porto's **200 Mbps**, and community **4** against **6**. Crowded summers and seasonal tourism are its cons. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
+
 Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
 
 If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.

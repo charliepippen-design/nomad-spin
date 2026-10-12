@@ -60,6 +60,8 @@ describe('guideStayCta', () => {
     expect(guideStayCta('living-in-madrid')).toMatchObject({ city: 'Madrid', destinationSlug: 'madrid' });
     expect(guideStayCta('living-in-hoi-an')?.url).toContain('aid=8092520');
     expect(guideStayCta('living-in-tallinn')?.url).toContain('aid=8092520');
+    expect(guideStayCta('living-in-kuala-lumpur')?.url).toContain('aid=8092520');
+    expect(guideStayCta('living-in-split')?.url).toContain('aid=8092520');
     expect(guideStayCta('living-in-tirana')?.url).toContain('aid=8092520');
   });
 
@@ -67,9 +69,9 @@ describe('guideStayCta', () => {
     expect(guideStayCta('not-a-guide')).toBeNull();
   });
 
-  it('covers all 24 published guides', () => {
+  it('covers all 26 published guides', () => {
     const slugs = guides.map((g) => g.slug);
-    expect(slugs).toHaveLength(24);
+    expect(slugs).toHaveLength(26);
     for (const slug of slugs) expect(guideStayCta(slug), slug).not.toBeNull();
   });
 

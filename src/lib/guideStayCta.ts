@@ -22,6 +22,8 @@ export const GUIDE_STAY_CTAS: Record<string, GuideStayCtaConfig> = {
   'living-in-madrid': { cityId: 'madrid-es' },
   'living-in-hoi-an': { cityId: 'hoi-an-vn' },
   'living-in-tallinn': { cityId: 'tallinn-ee' },
+  'living-in-kuala-lumpur': { cityId: 'kuala-lumpur-my' },
+  'living-in-split': { cityId: 'split-hr' },
   'living-in-tirana': { cityId: 'tirana-al' },
   'living-in-bali': { cityId: 'bali-id' },
   'living-in-bangkok': { cityId: 'bangkok-th' },

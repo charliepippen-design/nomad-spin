@@ -20,6 +20,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-tallinn');
     expect(slugs).toContain('living-in-da-nang');
     expect(slugs).toContain('living-in-hoi-an');
+    expect(slugs).toContain('living-in-kuala-lumpur');
     expect(slugs).toContain('living-in-ho-chi-minh-city');
     expect(slugs).toContain('living-in-lisbon');
     expect(slugs).toContain('living-in-mexico-city');
@@ -29,6 +30,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-buenos-aires');
     expect(slugs).toContain('living-in-valencia');
     expect(slugs).toContain('living-in-madrid');
+    expect(slugs).toContain('living-in-split');
     expect(slugs).toContain('living-in-tirana');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
@@ -386,6 +388,105 @@ describe('static guides', () => {
       'Daily life: bikes and scooters, food and tailoring, Vietnamese basics, day trips to Da Nang',
       'Hoi An vs Da Nang, Ho Chi Minh City, Chiang Mai, Bali',
       'First-week checklist + spin the globe / compare Hoi An on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Kuala Lumpur living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-kuala-lumpur');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Kuala Lumpur');
+    expect(g!.seoTitle).toBe("Living in Kuala Lumpur 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Kuala Lumpur 2026: Costs, Visa, Areas');
+    expect(guideTitleTag(g!)).toBe('Living in Kuala Lumpur 2026: Costs, Visa, Areas | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    expect(g!.excerpt).toBe(
+      'Kuala Lumpur for remote workers in 2026: real monthly costs, Bangsar vs Mont Kiara, DE Rantau Nomad Pass, 100 Mbps internet, haze and rain.'
+    );
+    const qas = [...g!.content.matchAll(/^\*\*([^*\n]+\?)\*\* (.+)$/gm)].map((m) => ({
+      question: m[1],
+      words: m[2].trim().split(/\s+/).length,
+    }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const qa of qas) {
+      expect(qa.words, qa.question).toBeGreaterThanOrEqual(35);
+      expect(qa.words, qa.question).toBeLessThanOrEqual(50);
+    }
+    expect(g!.excerpt.length).toBeLessThanOrEqual(165);
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual([
+      'kuala-lumpur',
+      'penang',
+      'bangkok',
+      'chiang-mai',
+      'ho-chi-minh-city',
+      'singapore',
+    ]);
+    expect(g!.content).toContain('living in Kuala Lumpur as a digital nomad');
+    expect(g!.content).toContain('$1,000');
+    expect(g!.content).toContain('$750');
+    expect(g!.content).toContain('$40');
+    expect(g!.content).toContain(
+      "The long-term $750 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $40 a night."
+    );
+    expect(g!.content).toContain('Reliability is 8/10 and power is 8/10.');
+    expect(g!.content).not.toMatch(/Airbnb[^.]*estimate/i);
+    expect(g!.content).not.toMatch(/(reliability|power)[^.]*estimate/i);
+    expect(g!.content).toContain('100 Mbps');
+    expect(g!.content).toContain('7.5');
+    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('UTC+8');
+    expect(g!.content).toContain('DE Rantau Nomad Pass');
+    // Visa convention: default entry first, nomad route second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Kuala Lumpur?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book."
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toContain('the row says');
+    expect(g!.content).not.toContain('longest first term');
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Kuala Lumpur page](/destinations/kuala-lumpur) |');
+    expect(g!.content).toContain('Jun, Jul, Aug');
+    expect(g!.content).toContain('Nov, Dec, Jan');
+    expect(g!.content).not.toContain('This guide does not');
+    expect(g!.content).not.toMatch(/€|\bEUR\b|TODO/);
+    expect(g!.content).not.toMatch(/\/destinations\/[a-z-]*(suburbs|outskirts|hills)/);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/kuala-lumpur',
+      '/destinations/penang',
+      '/destinations/bangkok',
+      '/destinations/chiang-mai',
+      '/destinations/ho-chi-minh-city',
+      '/destinations/singapore',
+      '/guides/living-in-bangkok',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-ho-chi-minh-city',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-tbilisi',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Kuala Lumpur worth it for digital nomads in 2026?',
+      'Who Kuala Lumpur is for (and who should skip it)',
+      'Real monthly cost bands (solo $1,000, long-term $750 estimate, short Airbnb $40)',
+      'Neighborhoods that work: Bukit Bintang / KLCC, Bangsar, Mont Kiara, KL Sentral / Brickfields (trade-offs)',
+      'Internet, power, and coworking for video-call work (100 Mbps, reliability 8, power 8, High coworking)',
+      'Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)',
+      'Best months (Jun-Aug) vs rainy months (Nov-Jan)',
+      'Daily life: rail and Grab, food, English, local rules, day trips',
+      'Kuala Lumpur vs Bangkok, Chiang Mai, Penang, Singapore, Ho Chi Minh City',
+      'First-week checklist + spin the globe / compare Kuala Lumpur on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
@@ -1006,6 +1107,7 @@ describe('static guides', () => {
       '/guides/living-in-lisbon',
       '/guides/living-in-porto',
       '/guides/living-in-madrid',
+      '/guides/living-in-split',
       '/guides/living-in-bali',
       '/guides/living-in-cape-town',
       '/guides/living-in-chiang-mai',
@@ -1100,6 +1202,98 @@ describe('static guides', () => {
       'Daily life: metro, late dinners, Spanish, culture, and nightlife',
       'Madrid vs Barcelona, Valencia, Lisbon, and Budapest',
       'First-week checklist and how to compare Madrid on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Split living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-split');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Split');
+    expect(g!.seoTitle).toBe("Living in Split 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Split 2026: Costs, Visa, Areas');
+    expect(guideTitleTag(g!)).toBe('Living in Split 2026: Costs, Visa, Areas | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    const qas = g!.content
+      .split('\n')
+      .map((line) => line.match(/^\*\*([^*]+\?)\*\*\s+(.+)$/))
+      .filter((m): m is RegExpMatchArray => m !== null);
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const [, question, answer] of qas) {
+      const words = answer.trim().split(/\s+/).length;
+      expect(words, question).toBeGreaterThanOrEqual(35);
+      expect(words, question).toBeLessThanOrEqual(50);
+    }
+    expect(g!.content).not.toMatch(/\bkuna\b|\bHRK\b/i);
+    expect(g!.content).toContain('EUR 3,622.50');
+    expect(g!.content).toContain('EUR 43,470.00');
+    expect(g!.content).toContain('EUR 65,205.00');
+    expect(g!.excerpt).toBe(
+      'Split for remote workers in 2026: real monthly costs, Old Town vs Varos and Meje, Croatia nomad stay notes, 100 Mbps internet, and summer-crowd trade-offs.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['split', 'dubrovnik', 'zadar', 'porto', 'valencia', 'athens']);
+    expect(g!.content).toContain('living in Split as a digital nomad');
+    expect(g!.content).toContain('$1,800');
+    expect(g!.content).toContain('$1,400');
+    expect(g!.content).toContain('$90');
+    expect(g!.content).toContain('The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night.');
+    expect(g!.content).toContain('reliability **8/10** and power **8/10**');
+    expect(g!.content).not.toContain('This guide does not');
+    expect(g!.content).toContain('100 Mbps');
+    expect(g!.content).toContain('UTC+1');
+    // Visa convention: Schengen default first, nomad stay second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Split?** Up to 90 days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants non-EU digital nomads a temporary stay of up to 18 months, with an income test. Verify current rules with Croatia's Ministry of the Interior before you book."
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toContain("Porto's 365");
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Split page](/destinations/split) |');
+    // Like-with-like cost comparison: longer-stay peers are cheaper than Split's $1,400 estimate.
+    expect(g!.content).toContain('[Athens](/destinations/athens) is **$1,200** and [Budapest](/destinations/budapest) is **$1,100**');
+    expect(g!.content).not.toMatch(/\$1,400\*\* (?:longer-stay )?estimate[^\n]*Athens\]\(\/destinations\/athens\) (?:is|at) \*\*\$1,600/);
+    expect(g!.content).toContain('**May, Jun, Jul, Aug, and Sep**');
+    expect(g!.content).toContain('**Nov, Dec, and Jan**');
+    expect(g!.content).toContain('Jul-Aug');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/€|suburbs|outskirts|kuna\b.*\$/i);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/split',
+      '/destinations/dubrovnik',
+      '/destinations/zadar',
+      '/destinations/porto',
+      '/destinations/athens',
+      '/guides/living-in-porto',
+      '/guides/living-in-valencia',
+      '/guides/living-in-budapest',
+      '/guides/living-in-prague',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-madrid',
+      '/guides/living-in-chiang-mai',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    for (const heading of [
+      'Is living in Split worth it for digital nomads in 2026?',
+      'Who Split is for (and who should skip it)',
+      'Monthly cost bands (solo $1,800, long-term $1,400 estimate, Airbnb $90) and the rental market',
+      'Neighborhoods that work: Old Town edges, Varos, Meje, Bacvice and Firule, and Znjan',
+      'Internet, power, and coworking for video-call work',
+      "Visas and stay length: Schengen 90/180 visa exemption vs Croatia's digital nomad temporary stay (verify MUP)",
+      'Best months (May-Sep), rainy months (Nov-Jan), and the Jul-Aug crush',
+      'Daily life: walking, ferries, markets, Croatian, and winter',
+      'Split vs Dubrovnik, Zadar, Porto, Valencia, and Athens',
+      'First-week checklist and how to compare Split on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }

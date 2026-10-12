@@ -11,8 +11,8 @@ export const contentGuides: Guide[] = [
     excerpt: "Stuck on where to go next? Map budget, internet, safety, vibe, and visa days onto Nomad Spin filters, then compare real destination pages before you book.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "17 min read",
-    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","tirana","tallinn"],
+    readTime: "18 min read",
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","kuala-lumpur","split","tirana","tallinn"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
 Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic, and zero shared framework for weighing any of it.
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), [Living in Tirana](/guides/living-in-tirana), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Split](/guides/living-in-split), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), [Living in Tirana](/guides/living-in-tirana), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Tirana](/destinations/tirana) at **$1,150** ([living guide](/guides/living-in-tirana)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Kuala Lumpur](/destinations/kuala-lumpur) at **$1,000** ([living guide](/guides/living-in-kuala-lumpur)), [Tirana](/destinations/tirana) at **$1,150** ([living guide](/guides/living-in-tirana)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Split](/destinations/split) at **$1,800** ([living guide](/guides/living-in-split)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,7 +47,7 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1 to 10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Tirana averages **90 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Tirana living guide](/guides/living-in-tirana) is where Blloku versus the residential districts, the thin coworking map, and the passport-dependent visa field show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Kuala Lumpur averages **100 Mbps** with reliability **8** and power **8**, coworking **High**; the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) is where Bangsar versus Mont Kiara, the DE Rantau pass, and the haze and monsoon months show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Split averages **100 Mbps** with reliability **8** and power **8**, coworking **Med**; the [Split living guide](/guides/living-in-split) is where the Old Town versus Varos choice, the July-August crowds, and Croatia's nomad temporary stay show up, which the Mbps figure does not. Tirana averages **90 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Tirana living guide](/guides/living-in-tirana) is where Blloku versus the residential districts, the thin coworking map, and the 90-in-180 default versus the unique permit show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa-Free**, **365** days, \`UTC+1\`. That is a passport-dependent field: Albania's law sets 90 days within 180 as the default for visa-free entrants, and a one-year digital mobile worker permit exists on paper (see the [Tirana living guide](/guides/living-in-tirana)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Split](/guides/living-in-split), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -550,7 +550,7 @@ Want to compare Bali with the rest of the map? Look at the data for [Canggu](/de
     excerpt: "Bangkok for remote workers in 2026: real monthly costs, BTS neighborhoods, visas and DTV notes, 120 Mbps internet, heat and traffic trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "31 min read",
+    readTime: "32 min read",
     relatedDestinations: ["bangkok"],
     content: `## Is living in Bangkok still worth it for digital nomads in 2026?
 
@@ -814,7 +814,7 @@ Private hospitals in town are the regional reason people fly here for care. Bumr
 
 Community **8** shows up as coworking, recurring dinners, and the fact that a lot of people pass through. It is not Chiang Mai's **9**, and it does not have to be. English at **5** means the scene is easy and the bureaucracy is not. A little Thai, or a patient agent, matters for a lease more than for a menu.
 
-The "hub for SE Asia travel" pro is real: Chiang Mai, Vietnam, and Malaysia are ordinary flight plans from here, not expeditions. That is a reason to base in Bangkok if you will actually take those hops. It is not a reason to live in an airport hotel. Book the onward trip after the visa stamp and the neighborhood are real, not before.
+The "hub for SE Asia travel" pro is real: Chiang Mai, Vietnam, and Malaysia are ordinary flight plans from here, not expeditions. [Kuala Lumpur](/destinations/kuala-lumpur) is the Malaysian work city: **$1,000** solo, **100 Mbps**, coworking **High**, English **8**, and best months **Jun-Aug** against Bangkok's Nov-Mar. [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur) covers its neighborhoods and the DE Rantau Nomad Pass. That is a reason to base in Bangkok if you will actually take those hops. It is not a reason to live in an airport hotel. Book the onward trip after the visa stamp and the neighborhood are real, not before.
 
 ## Bangkok vs Chiang Mai, Bali, Da Nang, Mexico City
 
@@ -1610,9 +1610,11 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat the two "digital nomad visa" labels as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
 
+**Look at [Split](/destinations/split)** when the sea is the requirement and you can pay **$300** more. Solo **$1,800**, **100 Mbps**, safety **9.0**, coworking **Med**, community **4**. Budapest wins on speed and desks, Split on the water. Neighborhoods, summer crowds, and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
+
 **Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if $1,500 is the number that failed. Tbilisi is the value comparison. It is not a district of Budapest.
 
-**Look at [Tirana](/destinations/tirana)** when you want a capital on the same **UTC+1** clock for **$350** less (**$1,150** against **$1,500**) and can live with **90 Mbps**, coworking **Low**, and community **3**. The visa field is **Visa-Free**, **365** days, and it depends on your passport. Read the [Tirana living guide](/guides/living-in-tirana) before you treat it as a visa-free year.
+**Look at [Tirana](/destinations/tirana)** when you want a capital on the same **UTC+1** clock for **$350** less (**$1,150** against **$1,500**) and can live with **90 Mbps**, coworking **Low**, and community **3**. Entry is **Visa Exemption**, **90** days in any 180 for most visa-free passports, and the longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)).
 
 **Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one.
 
@@ -2662,6 +2664,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Bangkok** when you want a real metropolis: faster headline internet (**120 Mbps**), nightlife **9**, food at another scale, and you accept heat, traffic, and air as the cons on [Bangkok](/destinations/bangkok). The solo month is **$1,100**, not $850. Read [Living in Bangkok](/guides/living-in-bangkok) before you treat that as the same trip with more restaurants. The visa field is the same 30-day tourism exemption as Chiang Mai. It depends on your passport, and it is tourism only. The DTV is the long-stay path. Check the embassy either way.
 
+**Look at Kuala Lumpur** when you want a work-first city with faster internet (**100 Mbps**), English **8**, and best months **Jun-Aug**, which cover your rainy summer. The solo month is **$1,000**, and community is **6**, not 9. Malaysia has its own long-stay route in the DE Rantau Nomad Pass. Read [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur) for the humidity, haze season, and paperwork.
+
 **Look at Da Nang** when you want a beach, a lower solo month (**$700**), and safety **8.5**, and you can live with a smaller scene (community **5**, nightlife **3**, coworking **Med**). Best months there are **Feb-Jul**. Rainy months are **Sep-Dec**, and typhoon season is in the cons on [Da Nang](/destinations/da-nang). The visa field is an e-visa, **90 days**, which is a different stamp from Thailand's exemption. It is the right comparison if Chiang Mai's missing beach is the thing you keep circling. The [Da Nang living guide](/guides/living-in-da-nang) is the longer version of that comparison, including the neighborhoods and why the two seasons pair.
 
 Look at Ho Chi Minh City when you want Vietnam's big-city version at $800 solo and 85 Mbps. Its best months, Dec-Apr, overlap Chiang Mai's Nov-Feb window, so the two pair well across a dry season. [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) covers that row in full.
@@ -3427,6 +3431,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Chiang Mai** when you want community **9**, **95 Mbps**, and you do not need this city's noise. The solo month is **$850**. Best months **Nov-Feb** overlap the start of Ho Chi Minh City's dry season, then Chiang Mai's burning season (Mar-Apr) is the hard stop the [Chiang Mai living guide](/guides/living-in-chiang-mai) explains. Same clock: **UTC+7**. Different visa: **30 days**, tourism only, passport-dependent.
 
+**Look at Kuala Lumpur** when you want a city of the same weight with better English and a different season: **$1,000** solo, **100 Mbps**, coworking **High**, English **8**, best months **Jun-Aug**, **UTC+8**. It costs **$200** more a month than this row, and its long-stay route is Malaysia's DE Rantau Nomad Pass rather than an e-visa. Read [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur).
+
 **Look at Bali** when the social beach is the product and you will pay **$1,200**, with internet reliability **5** and a visa field of **30 days** (visa on arrival). Best months **Apr-Sep** do not match this Dec-Apr window, so Bali is a different season, not a winter substitute. Read [Living in Bali](/guides/living-in-bali) before you assume the island is "Saigon with a beach." It is a different bill, a different connection, and **UTC+8**.
 
 **Look at Tbilisi** when the constraint is stay length, not a city. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast at the same solo baseline: **Visa Free**, **365** days, **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.
@@ -3864,6 +3870,414 @@ Still no partner IDs. These slots are last, after the week above, not before the
 [Spin the globe](/) with those floors. Hoi An should win when the floors are real, the month is Feb-May, and you want a small seaside town on **UTC+7** for a season, with Da Nang as the overflow. It should lose when you need a big scene, a call-heavy week with no backup desk, or a September arrival you cannot leave.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $900 solo month, 80 Mbps, and safety 9 are Nomad Spin's Hoi An row. The $675 long-term cost, the $41 nightly median, reliability 7, and power 7 are estimates on that row. The 90-day e-visa maximum, the single- and multiple-entry fees, and the "outside Vietnam" rule are the Immigration Department text and Circular No. 28/2026/TT-BTC cited above. When they disagree, the portal and your stamp win.*
+`,
+  },
+  {
+    id: "living-in-kuala-lumpur",
+    slug: "living-in-kuala-lumpur",
+    title: "The Ultimate Guide to Living in Kuala Lumpur",
+    seoTitle: "Living in Kuala Lumpur 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Kuala Lumpur 2026: Costs, Visa, Areas",
+    excerpt: "Kuala Lumpur for remote workers in 2026: real monthly costs, Bangsar vs Mont Kiara, DE Rantau Nomad Pass, 100 Mbps internet, haze and rain.",
+    date: "2026-10-12",
+    updated: "2026-10-12",
+    readTime: "34 min read",
+    relatedDestinations: ["kuala-lumpur","penang","bangkok","chiang-mai","ho-chi-minh-city","singapore"],
+    content: `## Is living in Kuala Lumpur worth it for digital nomads in 2026?
+
+A straight answer on living in Kuala Lumpur as a digital nomad: yes if you want a working city more than a postcard. High coworking, 100 Mbps, a rail network you can actually use, and one of the best food bills in Asia, for about $1,000 a month. It is a no if you need a beach on the doorstep, mountains for the weekend, or a month of clean air and dry afternoons that you can book without checking a calendar. The short answers come from the [Kuala Lumpur](/destinations/kuala-lumpur) row, not from a skyline photo. A fast, orderly, humid city with a real desk culture. That is the decision.
+
+- **Cost:** about **$1,000** a month solo. The longer stay is about **$750** (an estimate). A short Airbnb sits near **$40** a night, which is a different budget.
+- **Internet:** yes. The average is **100 Mbps**. Reliability is **8/10** and power stability is **8/10**. Coworking density is **High**.
+- **Stay length:** up to **90** days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality and your entry stamp sets yours. For a longer stay, the DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more. It is an application, not an arrival stamp. Time zone is **UTC+8**.
+- **Skip it** if you need a beach, a big nomad scene, or a clear sky. The page's trade-offs are humidity, haze season, car-dependent suburbs, a conservative culture, and monsoon rains. Community size is **6**. Nightlife is **6**.
+- **Best months:** **Jun, Jul, Aug**. Rainy months are **Nov, Dec, Jan**. Average temperature on the row is **28°C**, a yearly figure, not a forecast.
+
+The same page tags the city **foodie**, **workhub**, and **family**, on an **urban** landscape, in **Asia**, language **Malay**. Safety is **7.5** (female safety **6**). English proficiency is **8**, against Bangkok's **5** and Ho Chi Minh City's **4**. Pros are incredible food diversity, modern infrastructure, affordable, fast internet, and great transit.
+
+Worth it as a work-first base that costs less than [Bangkok](/destinations/bangkok) (**$1,100**) and runs faster than [Chiang Mai](/destinations/chiang-mai) (**95 Mbps**), with English that works at the bank counter and the clinic. It is not the cheapest city in the region, and it is not the prettiest. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still treats Southeast Asia as a region, not a single city, is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025).
+
+### Straight answers
+
+**How much does it cost to live in Kuala Lumpur as a digital nomad?** Nomad Spin lists about $1,000 a month for a solo nomad. The long-term $750 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $40 a night. Coworking, delivery apps, and imported groceries are how people drift above the baseline.
+
+**Is Kuala Lumpur internet good enough for video calls?** Yes. Nomad Spin shows about 100 Mbps average. Reliability is 8/10 and power is 8/10. Coworking density is High. Test upload speed in the actual unit before signing, and keep a second SIM for the day a building line drops.
+
+**What visa do digital nomads use in Kuala Lumpur?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book.
+
+**Who should skip living in Kuala Lumpur?** Skip it if you need a beach, a tight community, or a dry, clean-air month. Nomad Spin flags humidity, haze season, and monsoon rains as trade-offs. If the sea is the point, look at Penang instead.
+
+**What are the best months to live in Kuala Lumpur?** Nomad Spin's friendliest months are Jun, Jul, and Aug. Rainy months to plan around are Nov, Dec, and Jan. Average temperature is 28°C. Haze season moves from year to year, so check a current air quality reading before you book.
+
+**Which neighborhood should I choose in Kuala Lumpur?** Bukit Bintang and KLCC suit a 2-4 week landing stay. Bangsar offers cafes and rail access. Mont Kiara is quiet and family-friendly but car-dependent. KL Sentral and Brickfields are the cheaper transit base. Confirm fiber in the unit before signing.
+
+**Can you work remotely from Kuala Lumpur full-time?** Yes, including call-heavy roles. Coworking is High, English is 8, and the time zone is UTC+8, so Europe's morning calls land in your afternoon and evening. The constraint is the legal stay, not the desk.
+
+## Who Kuala Lumpur is for (and who should skip it)
+
+Kuala Lumpur fits people who want a city that runs on time: trains, fiber, clinics, malls with air conditioning, and a food court on the ground floor. It is a poor fit if the point of the month is the outdoors, if you want a nomad scene that finds you, or if heat and haze will wear you down by week three.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,000**) or will actually live inside the longer-stay estimate (**$750**)
+- Take calls for a living. **100 Mbps** with reliability **8/10** and power **8/10** is the reason to pick a city over a beach town
+- Want coworking **High** and a place to switch desks when a building line fails
+- Need English for the lease, the clinic, and the landlord. English proficiency on this row is **8**, against Bangkok's **5** and Ho Chi Minh City's **4**
+- Eat out daily and want range. The **foodie** tag and "incredible food diversity" are on the row
+- Can work **UTC+8**. Malaysia does not move its clocks. Europe's morning calls land in your afternoon and evening. US East Coast calls land late. The clock matches [Bali](/destinations/bali), [Penang](/destinations/penang), and [Singapore](/destinations/singapore)
+- Can put the serious months in **Jun-Aug**, or have a rain plan for **Nov-Jan**
+
+**Skip it, or pick another city, if you:**
+
+- Cannot clear the **$750** longer-stay estimate even on a monthly lease. The **$40** nightly median will not save you
+- Need a bigger social scene by default. Community on this row is **6**. That is [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**) or [Living in Bangkok](/guides/living-in-bangkok) (community **8**)
+- Want the sea in the weekend. The row is **urban**. [Penang](/destinations/penang) is the seaside Malaysian row, at **$800**
+- Cannot live with a humid city. Humidity heads the cons list, and haze season and monsoon rains follow
+- Need a car-free life outside the core. "Car-dependent suburbs" is a listed con. Mont Kiara and the outer districts run on Grab
+- Need a year of legal stay with no application. The pass is granted for a term and needs paperwork. [Living in Tbilisi](/guides/living-in-tbilisi) is the visa-free year (**365** days, **$800**) in this dataset, a different base rather than a Malaysian workaround
+
+\`lgbtFriendly\` on this row is **3**. That is weaker than Bangkok (**7**) or Chiang Mai (**6**). Female safety is **6**, below the overall safety score of **7.5**. Read both before you treat safety as a claim about every part of daily life, and check your own government's current travel advice for Malaysia. The row lists "conservative culture" as a con. It is a country where dress, public behavior, and some rules differ from a Bangkok night. Plan for that instead of discovering it.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another skyline list.
+
+## Real monthly cost bands (solo $1,000, long-term $750 estimate, short Airbnb $40)
+
+Nomad Spin tracks three money figures for Kuala Lumpur. Those are the bands.
+
+| Band | Figure | Field on the Kuala Lumpur row | How to read it |
+|---|---:|---|---|
+| Longer stay | $750 / month, estimate | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, rail and Grab. Nomad Spin calls this long-term figure an estimate for every city |
+| Solo nomad baseline | $1,000 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $40 / night | \`financials.airbnbMedian\` | The median Airbnb price per night on the row. A short test stay, not a monthly budget |
+
+\`rentIndex\` is **20** (Penang **14**, Ho Chi Minh City **14**, Chiang Mai **15**, Bangkok **22**, Bali **25**, Singapore **75**). That is relative rent pressure inside the dataset, not a dollar rent. Kuala Lumpur sits just below Bangkok and well above the secondary cities. It is cheap next to Singapore, which is the comparison that makes it a regional favorite. It is not the cheapest big city in Southeast Asia, and the **$1,000** month still has to survive a tower with a pool.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the **$40** nightly median is **$1,200** in lodging before food. That is already **$200** above the entire **$1,000** solo month, and it is **$450** above the **$750** longer-stay estimate. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the hawker lunch is. The $750 estimate and the $1,000 figure assume a monthly place.
+
+A 2-4 week landing stay is a scout. It is not the month. Use it to see leases. Do not call it the **$750** estimate.
+
+### What moves you off the band
+
+Rents move street by street, so treat any quote as that landlord's number. These are the levers, in the order they actually matter.
+
+| Choice | Stays near the $750 estimate to $1,000 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly lease in an older block in Bangsar or Brickfields that you have priced against the row | Thirty nights at the $40 median, or a serviced tower with a view as the default home |
+| Food | Hawker stalls, food courts, and kopitiam meals priced for residents | Imported groceries, brunch rooms, and Western dinners as the meal plan |
+| Work | Home fiber you have tested, plus one coworking desk for call days | A daily day-pass habit on top of a serviced apartment you already overpaid for |
+| Transport | Rail inside the core, Grab for the last leg | A daily Grab commute from a car-dependent suburb |
+| Calendar | **Jun-Aug**, one district | An improvised **Nov-Jan** month where the rain turns every outing into a ride |
+
+### Reality checks
+
+- The **$1,000** number is a city baseline, not a KLCC tower with a pool and a gym. Those buildings are the main way the bill leaks.
+- Air conditioning is the quiet line item. A hot, humid city means your flat runs cool all day. Ask how the electricity is billed before you sign.
+- Insurance is not inside those three fields. A DE Rantau endorsement needs a valid health insurance policy covering Malaysia, so price one early.
+- If a local price matters to a decision (a coworking desk, a SIM, a rail pass), check the current price on the operator's page. It moves, and a blog price is usually stale.
+
+## Neighborhoods that work: Bukit Bintang / KLCC, Bangsar, Mont Kiara, KL Sentral / Brickfields (trade-offs)
+
+Kuala Lumpur is a sprawl of districts joined by rail and Grab, and the wrong pin costs you an hour a day. The canonical numbers live on [Kuala Lumpur](/destinations/kuala-lumpur). The trade-offs below are how people actually use the city. Greater Kuala Lumpur also spills into Selangor towns such as Petaling Jaya. Those are a different commute and a different lease market, so treat them as a deliberate choice, not "near KL."
+
+| Base | Best for | You give up |
+|---|---|---|
+| Bukit Bintang / KLCC | Walking to food, malls, and rail, week one without a commute | The $750 estimate, quiet nights, and a calm bedroom |
+| Bangsar | Cafes, a neighborhood feel, and a rail line to the center | The lowest rents and a flat walk to the core |
+| Mont Kiara | Quiet streets, big pools, an expat routine for 3+ months | Walkability. It is the car-dependent end of the city |
+| KL Sentral / Brickfields | Rail hub, airport link, and a cheaper lease than the towers | Charm. It is a transit district first |
+
+### Bukit Bintang / KLCC
+
+The core is the answer to "where do I land." Bukit Bintang is the dense shopping and food district, and Jalan Alor is its famous food street. KLCC, around the Petronas Towers, is the clean, glassy, expensive side. Both put rail, malls, clinics, and dinner within a few minutes.
+
+**Trade-off:** obvious costs more, and it is loud. Tourist traffic is how the **$1,000** month leaks, and a high floor above a nightlife street is not a quiet floor. Walk the block after 9pm and ask which way the bedroom faces. Service-apartment towers advertise the view and charge for it.
+
+Pick the core for a 2-4 week landing stay while you tour monthly leases. Skip a tower with a pool as the default home if you came for the **$750** estimate or for sleep.
+
+**Housing tell:** confirm fiber in the unit, not "the building has Wi-Fi." Ask for a speed test from the desk, not a listing adjective.
+
+### Bangsar
+
+Bangsar sits between the center and the Mont Kiara side, with independent cafes, a night market, and streets you can walk. Bangsar South, a newer office-and-residential cluster nearby, has a more corporate feel. Rail reaches both, which is what makes the commute work.
+
+**Trade-off:** it is popular with expats, and the cafes are priced for them. Older blocks are the way to keep the lease near the **$750** estimate. The tower side of Bangsar South is the way to leave it. Coworking is easy to reach from both.
+
+Pick Bangsar if you want a neighborhood after the first week and you work from a desk you can reach by rail. Skip it if the commute to Bukit Bintang's food streets is your daily plan.
+
+### Mont Kiara
+
+Mont Kiara is the expat enclave: international schools, Western restaurants, pools, and quiet blocks. The **family** tag on the row fits it best.
+
+**Trade-off:** you are a Grab ride from nearly everything. "Car-dependent suburbs" is a listed con, and this is where it bites. Community is a grocery store and a pool, not a cafe full of other nomads. A pool does not make a call-ready room, so test the line.
+
+Families look here first. MDEC's FAQ lets the main holder bring a spouse or partner and children as dependants, but it says children who want to attend school need a Student Pass applied for through the school, so check with the school before you commit to a lease. Best for couples, families, and people staying 3+ months who want quiet. A weaker fit for someone who wants the first night to feel like a city arrival.
+
+### KL Sentral / Brickfields
+
+KL Sentral is the transit hub: the intercity and airport rail terminal and several rail lines meet here, and Brickfields (the Little India quarter) sits right beside it. It is the practical base for someone who flies a lot or who wants a cheaper lease than the towers.
+
+**Trade-off:** it is a hub, not a postcard. Streets are busy, and the apartments are a mix of old blocks and new towers. The upside is that WORQ lists two sites in KL Sentral, so a desk is a short walk away.
+
+Pick it for logistics. Skip it if you want a leafy street at 7am.
+
+### Booking order
+
+After you pick the district, these three slots are the booking order. The live stay, flight, and insurance buttons are on the [Kuala Lumpur destination page](/destinations/kuala-lumpur). Use those buttons.
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2-4 week landing stay in Bukit Bintang or Bangsar while you tour monthly leases, with a cancellation rule |
+| Flights | Flights into Kuala Lumpur (KUL), only after the month survives the season section |
+| Insurance | Travel and health cover for the whole stay. A DE Rantau endorsement needs a health policy that covers Malaysia |
+
+## Internet, power, and coworking for video-call work (100 Mbps, reliability 8, power 8, High coworking)
+
+The city average is **100 Mbps**. Reliability is **8/10** and power stability is **8/10**. Coworking density is **High**. That is a yes for call-heavy work. It is faster than [Chiang Mai](/destinations/chiang-mai) (**95 Mbps**, reliability **8**, power **8**), [Ho Chi Minh City](/destinations/ho-chi-minh-city) (**85 Mbps**, **7**, **7**), and [Penang](/destinations/penang) (**80 Mbps**, **7**, **8**), and behind [Bangkok](/destinations/bangkok) at **120 Mbps**. Bali averages **50 Mbps** with reliability **5**, which is why the [Bali living guide](/guides/living-in-bali) spends so much time on street-by-street fiber. The Kuala Lumpur power stability of **8** means you do not plan around load shedding the way you would in [Cape Town](/guides/living-in-cape-town), where power stability is **4**.
+
+The reliability **8/10** is an average. A fibered flat in Bangsar and a serviced unit sharing a building line are not the same product. Test the room at the hour you take calls.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Ask which provider is already in the unit and run a speed test from the desk. Unifi, Maxis, and CelcomDigi are the usual home providers. A serviced stay often bundles a line, and a local monthly lease often does not. Confirm which one you signed.
+2. **A local SIM with real data.** Maxis, CelcomDigi, and U Mobile sell prepaid SIMs. Keep the second line for a call that would hurt to drop, and learn the hotspot before you need it. Check the current price on the operator's page the day you buy.
+3. **One coworking room you have already used for a call.** Not a cafe you liked for the view. High density means you have options, so use a trial day to pick.
+
+### Coworking that is actually listed
+
+Two operators publish multiple Kuala Lumpur sites on their own pages. **WORQ** lists KL Sentral (two sites), KL Eco City, Bangsar, TTDI, Intermark, Sunway Velocity, KL Gateway, Sunway Putra, and Menara Shell. **Colony** lists Mont Kiara (The MET), KLCC, and KL Eco City. Read each operator's current location page, because sites open, move, and close. Day passes and monthly memberships are theirs to price. Check the operator's page the week you go.
+
+That is the short list for a call you cannot drop. Treat any famous name that is not on an operator's current page as closed or moved. A trial morning beats a three-year-old roundup.
+
+### Cafes
+
+KL cafes are air-conditioned and laptop-friendly, and they fill by mid-morning. That is not the same as a 45-minute call. A tiled room with a grinder, a lunch rush, and no door loses to a booked booth every time. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether the building line is shared
+- A quiet corner with a door, if you talk for a living
+- Which tower or block, and how the air conditioning is billed
+- A named fallback (a coworking desk or a second SIM) written down before you need it
+
+## Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)
+
+Many passports enter Malaysia visa-free for up to **90** days. Malaysia's portal for non-citizens gives the short-term Social Visit Pass as 14 to 90 days based on nationality ([rai.malaysia.gov.my](https://rai.malaysia.gov.my/enter)), and the stamp at the counter sets your days. For a longer remote-work stay, the DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, so 24 months at most.
+
+This is operational orientation, not legal advice. Malaysian immigration rules move. The number on our city page is not the law. When this page and the official portal disagree, believe the portal and the stamp in your passport.
+
+### What the DE Rantau pass is
+
+MDEC describes the DE Rantau Nomad Pass as a type of Professional Visit Pass. It is a pass with a term, not a residence permit, and not a visa you collect at the airport. Penang falls under the same entry rules and the same pass.
+
+### What MDEC publishes
+
+The pass is applied for online at [mdec.my/derantau](https://mdec.my/derantau). The terms below come from MDEC's [DE Rantau Pass FAQ](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), Version 10.0 dated 28 August 2026. Read the live document the week you apply, because the FAQ says programme requirements can change, even after you submit.
+
+- **Duration:** the Professional Visit Pass is valid for **3 to 12 months**, with the option to renew for an additional 12 months, for a maximum stay of **24 months** in total.
+- **Income test:** a minimum annual income of **USD 24,000** for tech and digital professions, and **USD 60,000** for the listed non-tech professions. The FAQ names the professions in each group.
+- **Who qualifies:** a remote worker employed by a foreign-based company that is not registered in Malaysia, or a digital freelancer or independent contractor. Documents include contracts that started at least three months before you apply, three months of payslips or invoices, and three months of bank statements. Applications and documents must be in English.
+- **Where you can stay:** the pass covers Peninsular Malaysia and the Federal Territory of Labuan. Kuala Lumpur is covered. Sabah and Sarawak are entered on a tourist pass.
+- **Processing:** the FAQ says six to eight weeks from a complete submission, and that it can run longer. Approval is not guaranteed, and from 1 August 2026 the FAQ says rejected applications cannot be appealed.
+- **Fee:** a non-refundable processing fee of **RM1,080** per applicant and **RM540** per dependent, including 8% SST, regardless of outcome. Separate immigration pass fees (the FAQ lists **RM90** for three months or **RM360** for one year) are paid at endorsement.
+- **Family:** a spouse or partner, children, and parents of the main holder can apply as dependants. The FAQ says a spouse cannot work on the pass.
+- **Passport:** it must be valid for more than 14 months when you submit.
+- **Sponsor:** the FAQ requires a Malaysia-registered sponsoring company, or MDEC acts as sponsor and you pay a personal bond that is refunded when the pass expires (the amount depends on your nationality) and sign a bond agreement. This must be done before endorsement.
+
+Those figures are the official FAQ, not a Nomad Spin price. They can change. Read the live document before you pay, and do not copy a service fee from an agent and call it the government charge.
+
+### The steps after approval
+
+The FAQ describes a second stage called endorsement, and it trips people up.
+
+1. The approval letter is valid for **six months** and cannot be extended.
+2. You enter Malaysia using the visa or entry permission the approval letter states. If your nationality needs a Visa with Reference (VDR), get it before you travel.
+3. On that first entry, use a normal immigration counter, not the autogate, so you get an entry stamp. The FAQ says the stamp is needed for endorsement.
+4. Complete endorsement within **one month** of that entry. You upload your documents on the portal and stay in Malaysia until the e-Pass is issued. The FAQ says the e-Pass is generally issued within one week of a complete endorsement.
+5. The documents include a valid health insurance policy covering Malaysia and an income tax e-registration slip from the Inland Revenue Board (LHDN), registered at [mytax.hasil.gov.my](https://mytax.hasil.gov.my/).
+
+### What to have ready before you apply
+
+The FAQ's document list is the checklist. Gather it before you open the form, because the contract start date and the three-month statements are the parts you cannot rush.
+
+- A passport valid for more than 14 months
+- For employees: a signed remote-work contract that started at least three months before you apply, an employer not registered in Malaysia, three months of payslips, and three months of bank statements showing matching deposits
+- For freelancers: signed client contracts with scope, duration, and payment terms, three months of invoices, proof of payment, and three months of bank statements showing income above the threshold
+- English documents or certified English translations
+- Health insurance covering Malaysia, for the endorsement stage
+- An LHDN income tax e-registration, also for the endorsement stage
+
+Two rules matter if you are already in the country. A tourist pass cannot be converted into a DE Rantau pass. And if your application is approved while you are in Malaysia, the FAQ says you must exit and, where your nationality needs it, obtain a VDR before re-entering. Plan the border hop before you plan the lease.
+
+Most Malaysian banks do not accept the Professional Visit Pass for opening an account, according to the same FAQ. Keep your home banking working.
+
+### Entry without the pass
+
+Many people will first arrive without a pass. The Immigration Department of Malaysia publishes a [visa requirement by country](https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/) page. It sorts passports into lists: countries whose citizens must apply for a visa to enter, and countries whose citizens need no visa for any purpose of entry. It also carries time-limited exemptions, so read the date beside your country. The page prints a stay limit only for ASEAN nationals (under one month, with exceptions), so for everyone else the days on your entry stamp are what count. Do not assume your last trip's number.
+
+The Immigration Department also runs the [Malaysia Digital Arrival Card](https://imigresen-online.imi.gov.my/mdac/main) on its online portal. MDEC's FAQ tells DE Rantau holders to register on it three days before arrival to use the KLIA autogate on return. Check the MDAC page for what applies to your arrival.
+
+### Tax, at a high level only
+
+The FAQ carries its own tax table. Treatment turns on whether you are a freelancer or a remote worker and on day counts in Malaysia, including 60 and 182 days. Read it, then ask the Inland Revenue Board ([hasil.gov.my](https://www.hasil.gov.my/en/); the FAQ lists the Hasil Careline at 03-8911 1000, or +603-8911 1100 from overseas) or a tax adviser. Your home country may tax you as well. That is not tax advice. If Kuala Lumpur is going to be most of your year, pay for advice at home and in Malaysia before you sign a lease.
+
+### A simple decision frame
+
+- **The trip fits inside the days your passport gets at the border:** use the entry stamp, and confirm it on the Immigration Department page.
+- **You want a longer, legal work stay:** check the income test and document list on the FAQ, then apply on mdec.my from outside Malaysia if you can.
+- **You are already inside on a tourist pass:** conversion is not allowed. Read the exit and re-entry rule first.
+- **You need more than 24 months:** the pass does not give it. A visa-free year is a different base, such as [Living in Tbilisi](/guides/living-in-tbilisi) (**365** days, **$800**, **UTC+4**).
+- **"I will just stay and sort it out":** not a plan.
+
+## Best months (Jun-Aug) vs rainy months (Nov-Jan)
+
+The weather fields are short, and they are enough to avoid the expensive mistake. Kuala Lumpur is hot and humid all year. The row's **28°C** is a yearly average, not a forecast, and it is not the thing that decides your month. Rain does.
+
+| Window | What the Kuala Lumpur row says | Practical read |
+|---|---|---|
+| Jun, Jul, Aug | \`bestMonths\` | The work season. The friendliest window on the row |
+| Nov, Dec, Jan | \`rainyMonths\` | Monsoon rains are a listed con. Plan indoor days and Grab rides |
+| Feb to May, Sep, Oct | On neither list | Shoulders. Not a promise, and not a reason to ignore the rain |
+| Year-round | \`tempAvgC\` **28** | Hot and humid either way |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. Kuala Lumpur is the exception in Southeast Asia: [Chiang Mai](/destinations/chiang-mai), [Bangkok](/destinations/bangkok), and [Ho Chi Minh City](/destinations/ho-chi-minh-city) all list Jun to Sep or Oct as rainy, while this row lists Jun to Aug as best. [Chiang Mai](/destinations/chiang-mai) is best **Nov, Dec, Jan, Feb**. That makes a real calendar: Kuala Lumpur in Jun-Aug, then north to Chiang Mai for its cool season, when Kuala Lumpur is in its **Nov-Jan** rain. [Penang](/destinations/penang) is best **Dec, Jan, Feb, Jun, Jul**, with rainy months **Sep, Oct, Nov**, so it is a coast option when the city rains.
+
+### What the cons actually mean
+
+Humidity, haze season, and monsoon rains are all on the row. Haze season has no fixed month, so do not build a plan on a date from a blog. Check a current air quality reading in the week you book, and again before you extend. If you have a respiratory condition, treat an indoor air purifier as part of the setup, not a luxury.
+
+Rain in a city this size mostly means logistics: an umbrella in the bag, a flat on rail instead of a long Grab ride, and a desk you can reach without crossing open ground. The pros (food, infrastructure, transit) describe a city that works in the rain better than a beach town does. That is a reason the Nov-Jan months are survivable here and not in a seaside base.
+
+Ramadan moves each year and changes the daily rhythm and some opening hours, so look up the dates before you book.
+
+### Booking order
+
+Same three slots. Buy them only after the month is one the table above allows. The live buttons stay on the [destination page](/destinations/kuala-lumpur).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Jun-Aug, or a Nov-Jan stay you chose on purpose, with a cancellation rule |
+| Flights | Into KUL for your window, and out before the rain if you are not staying for it |
+| Insurance | Travel and health cover for the whole stay, including a rainy-season disruption |
+
+## Daily life: rail and Grab, food, English, local rules, day trips
+
+### Getting around
+
+The row lists **great transit** as a pro, and it is fair. KL Sentral connects rail lines and the airport link, and the MRT, LRT, and monorail cover the core. Buy a Touch 'n Go card at a convenience store, or use the Touch 'n Go eWallet app, for rail, buses, and tolls. Grab handles the last leg. Check the current fares on the operator pages instead of trusting a printed number.
+
+Between districts, rail beats a car. Peak-hour traffic is the reason rail beats a car for most trips. A car makes sense only in a car-dependent suburb, and even there Grab is usually the easier answer for a short stay. The airport link from KL Sentral to KLIA is the default way in. Check the operator's page for the current time and fare.
+
+### Food
+
+"Cheap" survives contact with Malaysian food and dies in the tower brunch scene. Hawker stalls, food courts, and kopitiam meals are how you eat inside the **$750** longer-stay estimate to **$1,000**. Malay, Chinese, and Indian cooking all sit within a short walk of each other, which is what the "incredible food diversity" pro means. Bukit Bintang, Brickfields, and the older Bangsar blocks make the local version easy. Imported groceries and Western dinners are the leak.
+
+The **foodie** tag is real. It is also how a careful month becomes an expensive one.
+
+### English and paperwork
+
+English proficiency on the row is **8**. Menus, landlords, clinics, and coworking desks work in English. Government and bank processes can still default to Malay forms and local contacts. A DE Rantau application must be in English, which helps, but leases and utilities may not be.
+
+### Working across the clock
+
+The row says **UTC+8**. Your 9am in Kuala Lumpur is 2am in Central European winter time (**UTC+1**), 1am in London in winter, and 8pm the evening before on the US East Coast in winter (**UTC-5**). Summer clock changes in those regions move each figure by an hour. The practical split: Europe's morning is your afternoon, so a European client roster works, and US calls mean late evenings. Check the overlap with your actual clients before you sign a lease, and keep the evening block in mind when you choose between a flat and a coworking desk.
+
+### Local rules
+
+The row lists a conservative culture as a con. Dress, public behavior, and some laws differ from Bangkok or Bali, and the rules vary by state. Check your own government's current travel advice for Malaysia, and read the DE Rantau FAQ's conditions before you assume the pass lets you work for any client in any way.
+
+### Day trips and neighbors
+
+Kuala Lumpur is a launch pad. Use it when the week needs a different setting: a coast stay in [Penang](/destinations/penang) (**$800**, safety **8**, coworking **Med**), the Thai circuit via [Bangkok](/destinations/bangkok), or the big-city contrast of [Singapore](/destinations/singapore) (**$3,750**). Time any trip yourself before you commit to a weekend plan.
+
+Private clinics handle the usual nomad problems, and English at the desk helps. You are a cash patient until an insurer says otherwise. Sort that before you need the desk, using the insurance slot above.
+
+## Kuala Lumpur vs Bangkok, Chiang Mai, Penang, Singapore, Ho Chi Minh City
+
+Choose with the rows, not with photos. Figures below are the live dataset fields. Entry rules depend on your passport, so the last row links each destination page, where the current visa line and its note sit.
+
+| Field | Kuala Lumpur | Bangkok | Chiang Mai | Penang | Singapore | Ho Chi Minh City |
+|---|---|---|---|---|---|---|
+| Solo month | $1,000 | $1,100 | $850 | $800 | $3,750 | $800 |
+| Internet | 100 Mbps | 120 Mbps | 95 Mbps | 80 Mbps | 250 Mbps | 85 Mbps |
+| Safety | 7.5 | 7.8 | 8.2 | 8 | 10 | 7.5 |
+| Coworking | High | High | High | Med | High | High |
+| Best months | Jun-Aug | Nov-Mar | Nov-Feb | Dec-Feb, Jun-Jul | Feb-Mar, Jul-Aug | Dec-Apr |
+| Entry rules | [Kuala Lumpur page](/destinations/kuala-lumpur) | [Bangkok page](/destinations/bangkok) | [Chiang Mai page](/destinations/chiang-mai) | [Penang page](/destinations/penang) | [Singapore page](/destinations/singapore) | [Ho Chi Minh City page](/destinations/ho-chi-minh-city) |
+
+**Stay with Kuala Lumpur** when you want **100 Mbps**, coworking **High**, English **8**, and a **$1,000** month you can live inside, for a work-first season in **Jun-Aug**. You accept humidity, haze season, monsoon rains, and community **6**. Plan the legal stay as an application, not an assumption.
+
+**Pick Bangkok** when you want the bigger scene: community **8**, nightlife **9**, **120 Mbps**, solo **$1,100**, safety **7.8**. Entry is a **30-day** tourism exemption that depends on your passport, and best months are **Nov-Mar**, the other half of the year from this row's Jun-Aug. English is **5**. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
+
+**Pick Chiang Mai** when you want community **9**, a cheaper month (**$850**), safety **8.2**, and mountains. The trade is **95 Mbps** and a 30-day passport-dependent tourism exemption. Best months **Nov-Feb** sit where Kuala Lumpur is rainy. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path.
+
+**Pick Penang** when you want the sea and a smaller Malaysian city: **$800**, safety **8**, community **4**, nightlife **4**, coworking **Med**, **80 Mbps**, under the same Malaysian entry rules and the same DE Rantau pass. It is the quieter version of this row. Best months **Dec-Feb** and **Jun-Jul** cover Kuala Lumpur's rainy winter, so the pairing is natural.
+
+**Look at Singapore** when cost is not the constraint. [Singapore](/destinations/singapore) is **$3,750** solo, **250 Mbps**, safety **10**, coworking **High**. It is a different budget, not a bigger Kuala Lumpur. Check Singapore's own official entry rules before you plan to work there.
+
+**Pick Ho Chi Minh City** when you want a cheaper big city: **$800**, **85 Mbps**, community **7**, nightlife **7**, **E-Visa**, **90** days, **UTC+7**. You take traffic, air pollution, and noise on that row's cons. English is **4**. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) covers District 1 versus Thao Dien and the e-visa.
+
+**Look at Tbilisi** when the constraint is stay length, not weather. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast in this dataset: **Visa Free**, **365** days, solo **$800**, **UTC+4**. It is a different base, not a Malaysian extension.
+
+## First-week checklist + spin the globe / compare Kuala Lumpur on Nomad Spin
+
+### Common mistakes
+
+- Treating the DE Rantau pass as a stamp you receive at the airport, or as a residence permit
+- Entering on a tourist pass and expecting to convert it to a DE Rantau pass in place
+- Paying the **$40** nightly median for thirty nights and calling the month **$1,000**
+- Booking a serviced tower with a pool, then acting surprised that the **$750** estimate did not survive contact with the amenities fee
+- Signing a lease in a car-dependent suburb without timing the ride to your desk
+- Using cafe Wi-Fi for the client call you cannot drop, when High coworking is a short ride away
+- Booking **Nov-Jan** without a rain plan, or any month without checking the air quality
+- Assuming a Malaysian bank will open an account on the pass
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- Touch 'n Go card or eWallet set up, and Grab installed
+- Entry stamp checked, and the last legal day written down
+- One coworking trial day, including a real call, if the home line is still unknown
+- Walk the block at night before you decide you can sleep there
+
+**Days 3-4**
+
+- See more than one monthly place: one older block in Bangsar or Brickfields, one core or Mont Kiara option
+- Run the speed test in the room at call hour, upload included
+- Ride the actual commute to your desk once at the hour you would do it
+- Read the DE Rantau FAQ against your documents if the plan is longer than your entry stamp
+
+**Days 5-7**
+
+- Commit to one district for two to four weeks, not to "Kuala Lumpur" in the abstract
+- Fix the work loop: home deep work, a coworking desk on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking order
+
+These slots are last, after the week above, not before the flight is emotional. Use the buttons on the [Kuala Lumpur destination page](/destinations/kuala-lumpur) when you are ready to book.
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the commute test |
+| Flights | The onward or return date your stamp or pass actually supports, into or out of KUL |
+| Insurance | Travel and health cover you have read. A DE Rantau endorsement needs a policy that covers Malaysia |
+
+### How to compare Kuala Lumpur on Nomad Spin
+
+1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$1,000**, Kuala Lumpur's solo baseline is already a stretch, and the **$750** longer-stay estimate is the one you have to live inside.
+2. Set an internet floor the **100 Mbps** average can clear, and a safety floor its **7.5** can clear. Then look at who else survives. Often that is [Bangkok](/destinations/bangkok) if you want a bigger scene, or [Penang](/destinations/penang) if you want the sea.
+3. Open [Kuala Lumpur](/destinations/kuala-lumpur) and read \`bestMonths\`, \`rainyMonths\`, and the cons against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Chiang Mai or Ho Chi Minh City is still in the pile, open [Living in Chiang Mai](/guides/living-in-chiang-mai) or [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city) and compare community and coworking, not the photos.
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Kuala Lumpur should win when the floors are real, the month is Jun-Aug, and you want a fast, English-speaking, work-first city on **UTC+8** with a legal plan you have already read. It should lose when you need a beach, a big social scene, a clear sky, or a year of stay with no paperwork.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,000 solo month, $40 nightly median, 100 Mbps, reliability 8, power 8, and safety 7.5 are Nomad Spin's Kuala Lumpur row. The $750 long-term cost is Nomad Spin's long-term monthly estimate, as on every city row. The DE Rantau duration, income thresholds, fees, and endorsement steps are MDEC's DE Rantau Pass FAQ Version 10.0 (28 August 2026) cited above. When they disagree, the official pages and your stamp win.*
 `,
   },
   {
@@ -5705,6 +6119,8 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Valencia** when you want the closest solo number under Lisbon, at **$1,900**, with **170 Mbps** and safety **8.0**. [Valencia](/destinations/valencia) is cheaper than Barcelona and still **$100** above Porto's solo month, with less internet than Porto's **200 Mbps**. Best months match Madrid's shoulders, with one catch: October is also a rainy month there. That overlap is in [Living in Valencia](/guides/living-in-valencia).
 
+**Split** when the sea and islands matter more than the internet. [Split](/destinations/split) matches Porto's **$1,800** solo month and **$1,400** longer-stay figure, with safety **9.0**, coworking **Med**, and best months **May-Sep**, but it posts **100 Mbps** against Porto's **200 Mbps**, and community **4** against **6**. Crowded summers and seasonal tourism are its cons. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
+
 Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
 
 If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
@@ -6150,6 +6566,424 @@ The point of the dataset is to stop arguing from postcards.
 [Spin the globe](/) with those floors. Prague should win when you want Lisbon's safety score, you can pay about **$500** less than Lisbon, the month is May-Sep, and you will do the visa as a trade licence or as the Digital Nomad Program, not as a tourist stamp. It should lose when you need a mild winter, English for the lease, a beach, or a visa-free year.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,700, $1,300, $80, 200 Mbps, reliability 9, power 9, safety 8.8, female safety 8, and 9°C figures are Nomad Spin's Prague row. The entrepreneurship visa rules are the Czech Foreign Ministry page on mzv.gov.cz. The business purpose and the arrears confirmations are Interior Ministry pages on mvcr.cz. The Digital Nomad Program rules, the nationality list, the 45-day clock, and the 1.5 times salary formula are the Ministry of Industry and Trade page and its July 2025 program text. The Schengen 90-in-180 rule is the European Commission's visa policy page. The airport fares are PID's airport page. The 183-day description is the Financial Administration's income-tax FAQ. When a later official page disagrees, the official page wins.*
+`,
+  },
+  {
+    id: "living-in-split",
+    slug: "living-in-split",
+    title: "The Ultimate Guide to Living in Split",
+    seoTitle: "Living in Split 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Split 2026: Costs, Visa, Areas",
+    excerpt: "Split for remote workers in 2026: real monthly costs, Old Town vs Varos and Meje, Croatia nomad stay notes, 100 Mbps internet, and summer-crowd trade-offs.",
+    date: "2026-10-12",
+    updated: "2026-10-12",
+    readTime: "39 min read",
+    relatedDestinations: ["split","dubrovnik","zadar","porto","valencia","athens"],
+    content: `## Is living in Split worth it for digital nomads in 2026?
+
+The case for living in Split as a digital nomad is a quality-of-days decision, not a spreadsheet win. You are paying a mid-priced Western European budget for a safe Adriatic city with a real old center, ferries to islands, and a working-day rhythm that starts with a swim. Who Split is for: people who want the sea and a calm, small city, and who can accept thin nomad infrastructure and a summer that fills with visitors. The short answers come from the [Split](/destinations/split) row, not from a sunset photo.
+
+**How much does it cost to live in Split as a digital nomad?** Nomad Spin lists about **$1,800** a month for a solo nomad. The long-term monthly estimate is **$1,400**, and the median Airbnb is around **$90** a night. Old Town and July or August leases cost more. Thirty nights at that median is **$2,700**, so sign a monthly lease.
+
+**Is Split internet good enough for video calls?** Yes for most calls. Nomad Spin shows about **100 Mbps** average, reliability **8/10** and power **8/10**. Coworking density is Med. Test upload speed in the actual unit before signing. Keep a second SIM as a fallback. Porto's row shows **200 Mbps** if speed decides it.
+
+**What visa do digital nomads use in Split?** Up to 90 days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants non-EU digital nomads a temporary stay of up to 18 months, with an income test. Verify current rules with Croatia's Ministry of the Interior before you book.
+
+**Who should skip living in Split?** Skip it if you need a big nomad scene, a cheap month, or a lively winter. Nomad Spin flags seasonal tourism, rising prices, limited winter nightlife, and crowded summers as trade-offs. Community is **4**, and the solo month is **$1,800**.
+
+**What are the best months to live in Split?** Nomad Spin's friendliest months are **May, Jun, Jul, Aug, and Sep**. Rainy months to plan around are **Nov, Dec, and Jan**. July and August are also the crowded-summer months. Dubrovnik, Zadar, and Athens list Apr-Jun and Sep-Oct instead.
+
+**Which neighborhood is best for a digital nomad in Split?** Varos and Meje suit a quiet working month. Bacvice and Firule put the beach after work. Old Town edges are lively but cost more, and Znjan is residential and less central. Confirm fiber in the unit, and ask whether the lease survives June to August.
+
+**Is Split safe for digital nomads?** Yes. Nomad Spin's Split safety score is **9.0** and female safety is **9**, the strongest numbers on the row. Community is **4** and nightlife is **6**, so it is calm rather than social. Walk the block at night before you sign.
+
+Worth it, with conditions. The row is tagged **beach**, **adventure**, and **foodie**, on a **seaside** landscape, in **Europe**, language **Croatian**. Safety is **9.0** (female safety **9**), which is the strongest number on the page. English proficiency is **7**. Community is **4** and nightlife is **6**, so this is a place you settle into rather than a place that catches you. Time zone on the row is **UTC+1**. The row's own pros are the Adriatic coastline, rich history, island hopping, safe streets, and great weather.
+
+If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Split is for (and who should skip it)
+
+Split fits people who want a safe seaside city, a monthly bill near **$1,800**, and a town small enough to learn in a week. It is a poor fit if the social scene is the product, if every month has to be cheap, or if July is the only window you have and you expected quiet.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,800**) or will actually live inside the longer-stay estimate (**$1,400**)
+- Do calls from a flat with tested fiber. **100 Mbps** with reliability **8/10** and power **8/10** holds ordinary video work. It is not the 200 Mbps of Porto or Budapest
+- Want safety **9.0** and female safety **9**, and can live with nightlife **6** and community **4**
+- Can put the serious months in **May, Jun, or Sep**, or you have a real plan for the summer peak and for the **Nov-Jan** rain
+- Like a morning swim, a walkable center, and ferries as your weekend plan
+- Can work **UTC+1** (the row's field). Croatia moves its clocks forward in summer like most of the EU, so civil time is **UTC+2** from late March to late October. UK calls stay about an hour off. US East Coast calls land in the Split afternoon and evening
+
+**Skip it, or pick another city, if you:**
+
+- Cannot clear the **$1,400** longer-stay estimate even on a monthly lease with market food. The **$90** nightly median will not save you. On the same longer-stay estimate, [Athens](/destinations/athens) is **$1,200** and [Budapest](/destinations/budapest) is **$1,100**
+- Need a nomad campus. Community here is **4**. Lisbon is **9**. Read [Living in Lisbon](/guides/living-in-lisbon) if the campus is the product, or [Living in Chiang Mai](/guides/living-in-chiang-mai) for the starter-city version
+- Need coworking **High** and a desk for every call. Split is **Med**. [Budapest](/destinations/budapest) and [Prague](/destinations/prague) are **High** at **200 Mbps**. Read [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague)
+- Need winter nightlife. "Limited winter nightlife" is a listed con, and it is the filter for anyone arriving in December
+- Need more than **90 days in any 180** without paperwork. Visa-exempt passports get that Schengen short stay, and Croatia's temporary stay for digital nomads runs up to **18 months**, but it is an application to the Croatian authorities. The visa section lays out how it works
+- Need a big-city job market feel. "Small city feel" is on the cons list. That is a feature for a quiet work month and a problem for a networker
+
+\`lgbtFriendly\` on this row is **5**. That matches Budapest and sits below Porto (**8**), Valencia (**7**), and Madrid and Lisbon (**9**). Read it before you treat safety **9.0** as a claim about every part of daily life. Female safety **9** is strong in this dataset. It is not a promise about one empty seafront at 2am. Walk the block at night before you sign.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another harbor photo.
+
+## Monthly cost bands (solo $1,800, long-term $1,400 estimate, Airbnb $90) and the rental market
+
+Nomad Spin tracks three money figures for Split, and those are the bands. If **$1,800** does not fit, stop here and use the peer table later. Do not talk yourself into the city with a cheap konoba lunch.
+
+| Band | Figure | Field on the Split row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,400 / month (estimate) | \`financials.costLongTerm\` | An estimated local-rate month: monthly housing, local food, modest transport |
+| Solo nomad baseline | $1,800 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $90 / night | \`financials.airbnbMedian\` | A short test stay per night, not a monthly budget |
+
+\`rentIndex\` is **40** (Dubrovnik **44**, Porto **42**, Valencia **38**, Zadar **36**, Athens **32**, Budapest **32**). That is relative rent pressure inside the dataset, not a dollar rent. Split sits in the middle of this coastal set: dearer than Zadar, cheaper than Dubrovnik. "Rising prices" is on the row's cons, and it is the story of the month. There is no district-by-district rent here, so treat any street price you are quoted as that landlord's number, not the city's. The Old Town is the expensive end of an already pricey small city. Varos, Firule, and the Znjan side are where people look when they want less of that polish. That is a direction, not a second price list.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the published **$90** nightly median is **$2,700** in lodging before food. That is **$900** above the entire **$1,800** solo month. It is **$1,300** above the **$1,400** longer-stay estimate. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the market produce looks. The $1,400 estimate and the $1,800 figure assume a monthly place.
+
+### What moves you off the band
+
+These are the levers, in the order they actually matter.
+
+| Choice | Stays near the $1,400 estimate to $1,800 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly lease in Varos, Firule, or a residential block you have priced against the row | Thirty nights at the $90 median, or a Palace-wall apartment as the default home |
+| Food | The Pazar market, bakeries, a konoba lunch, groceries on workdays | Riva-front dinners as the meal plan, and "just one more" harbor terrace |
+| Work | Home fiber you have tested, plus a desk on call days | An all-day cafe habit in the Old Town on top of a flat you already overpaid for |
+| Transport | Walking, plus the city bus for the far neighborhoods | A ride-hail across town twice a day |
+| Calendar | **May-Jun** or **Sep**, one neighborhood | July or August on a short let, then acting surprised |
+
+Annual average temperature on the row is **16°C**. That is a coarse yearly figure, not a forecast. It does not tell you August will be comfortable or January will be a terrace month.
+
+### The rental market
+
+A long stay and a tourist let are different products, and in a seaside city whose cons include seasonal tourism and crowded summers, the gap is wide. The **$1,400** longer-stay estimate assumes a monthly place you can actually sign, not thirty nights of a holiday apartment. Some owners near the center earn more from summer visitors than from a year-round tenant, so the lease question is not only the price. It is the dates. Ask whether the offer survives June to August, or whether the owner has a visitor booking waiting on 1 June.
+
+Practical checks, in order:
+
+- Ask which sum is the deposit and which is an extra the landlord wants on top. Get both amounts written in the contract
+- Ask whether the contract is a residential lease or a temporary stay, and what happens at the end of month one
+- Confirm who you are paying, and that the name matches the person who can let the flat
+- Ask what the price is in September compared with July, if the lease crosses the summer
+- Ask whether the heating works in winter and whether the flat has air conditioning for summer, and test both during the visit. Older stone and concrete blocks vary
+- Run the speed test in the bedroom, and stand in that room after 10pm if the street has bars or a promenade
+
+The deposit amount is a contract question, and it moves. Ask for both figures in the lease. If you hold the Croatian temporary stay, the permit application also needs an address, so the lease and the permit share a timeline. The visa section covers that.
+
+### Reality checks
+
+- The **$1,800** number is a city baseline, not a Palace-view lifestyle quote.
+- Imported groceries, daily harbor dinners, and island weekends are how people blow a city that is not cheap. Your receipts will tell you more than any average.
+- A cheaper room above a Riva bar is not cheaper if you cannot sleep or take a call.
+- Insurance is not inside those three fields. Budget it separately, from a quote you actually receive.
+
+### Booking order
+
+After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance options are on the [Split destination page](/destinations/split).
+
+| Slot | What to book |
+|---|---|
+| Stays | A 2 to 4 week landing stay near Varos or Bacvice while you tour monthly leases, with a cancellation rule |
+| Flights | Flights into Split (SPU) for a May-Jun or Sep window, only after the month survives the season section |
+| Insurance | Health cover that meets Croatia's rule if you apply for the nomad stay, plus travel cover for a Schengen stay |
+
+## Neighborhoods that work: Old Town edges, Varos, Meje, Bacvice and Firule, and Znjan
+
+Split is small enough that you can cross it on foot, and still the wrong pin wastes the month. The city-wide numbers are on the [Split](/destinations/split) page. The trade-offs below are how people actually use the city. Diocletian's Palace itself, the walled core, is the postcard default and usually the wrong work address.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Old Town edges | Walking everywhere, week one without a vehicle | The $1,400 estimate, quiet nights, a summer without crowds |
+| Varos | A residential stone-lane neighborhood a few minutes from the Palace | Newer plumbing and wiring, and parking, if you wanted either |
+| Meje | Marjan hill on the doorstep, calmer evenings, a leafy walk | Nightlife at the door, and a flat walk |
+| Bacvice and Firule | The city beach, sport, a social summer | Silence in July, and a cheap summer |
+| Znjan | A longer beach promenade and a lower-density week | A quick walk to the Palace, and an easy night out |
+
+### Old Town edges
+
+The Palace is a living center with an ancient wall around it, and also the most visited block in the city. The edges are the streets just outside the walls, along the Riva side and toward the market, where you can still reach dinner on foot and you are not sleeping above a souvenir shop. Week one feels obvious here. The harbor, the cafes, and the ferries are the map.
+
+**Trade-off:** obvious costs more. Visitor pricing is how the **$1,800** month leaks. The streets in and around the walls are lively late in season even though the town's nightlife score is **6**, and the stone lanes carry sound. Ask which way the bedroom faces, and walk the block after 9pm before you pay. Winter flips the problem: a lot of the Old Town goes quiet, and "limited winter nightlife" is the row's own con.
+
+Pick the edges for a 2 to 4 week landing stay while you tour monthly leases. Skip a room inside the walls as the default home if you came for the **$1,400** estimate or for sleep.
+
+**Housing tell:** confirm fiber in the unit, not "the building has internet." Old stone buildings vary, and thick walls are bad for Wi-Fi from the next room. A speed test at the desk beats a listing adjective.
+
+### Varos
+
+Varos (Veli Varos) is the old fishermen's quarter on the slope below Marjan, west of the Palace: narrow stone lanes, small stairways, and a few minutes on foot to the Riva. It is where a lot of people want to live because it feels like a neighborhood and not a stage set, and it is close enough to the center to skip a vehicle entirely.
+
+**Trade-off:** older stone houses and steep stairs. Check the stairs with your luggage in mind, check the Wi-Fi, and check the heating for November to January. Some streets near the seafront edge fill with evening noise. Others are quiet. Ask for the street, not the district.
+
+Pick Varos if you will cook or eat locally, walk everywhere, and want the city rather than the postcard. Skip it if you need a modern lift building or a guaranteed parking space.
+
+### Meje
+
+Meje is the residential stretch on the southern slope of Marjan, west of the center, with Marjan forest park above it. A short walk takes you to the park trails and, in the other direction, back toward the Palace. It is the answer when the month is about sleep, a morning run, and a desk, and you have already accepted that the city is expensive.
+
+**Trade-off:** you pay for the calm, and you are not in the scene. Nomad density is thin, and community on the row is **4**. You will go to the Riva or Bacvice for the night. You do not have to sleep there. That is the point, if the point is work. Some blocks climb the slope, so check the hill with groceries.
+
+Pick Meje if you want the park and a quiet residential week. Skip it if week one has to feel social without a plan.
+
+### Bacvice and Firule
+
+Bacvice is the city beach: sand, the sports ground behind it, and the place where people play picigin in the shallows. Firule is the residential area beside it, east of the Palace, leading toward the hospital and the older residential blocks. The pair gives you a swim before a call and a beach evening after work.
+
+**Trade-off:** the beach is the product and the problem in season. Bacvice is lively and loud in July and August, and the bars along the front are not a secret. Firule is calmer, but the shoulder season is the only season that feels private. Walk it at night in the month you plan to stay. Do not assume a May photo shows August.
+
+Pick Firule or the quieter streets behind Bacvice if the swim matters and you can sleep through a summer evening. Skip the beachfront row if your calls run late.
+
+### Znjan
+
+Znjan is further east, a long pebble beach with a promenade and a lower-density feel. It is more residential and less central, with a longer walk or a short bus ride to the Palace and the center.
+
+**Trade-off:** you are not in the walkable core. Two paid crossings a day can erase the rent you thought you saved, and a night out becomes a trip. In winter, a seafront promenade is exposed. Check how you will get to a desk and to the market before you commit to the lease.
+
+Best for people who will work at home, swim before breakfast, and treat the center as an errand. A weaker fit if you wanted a social first night.
+
+### The Palace, and why it is usually the wrong month
+
+The **Diocletian's Palace** core is the arrival photo: the Peristyle, the lanes, the Riva, and a crowd that does not live there. The Palace is a UNESCO World Heritage Site and is on every visitor's list. Errands look easy on a map. The street is a parade for months of the year. Call quality in a holiday apartment over that noise is a gamble against a city average of **100 Mbps**. Stay a few nights for the texture, not a month because the pin was central.
+
+## Internet, power, and coworking for video-call work
+
+The city average is **100 Mbps**. Reliability **8/10** and power stability **8/10** are the row's scores. Coworking density is **Med**. That is a yes for most video calls and a reason to build a backup, not a reason to panic. It matches [Athens](/destinations/athens) on headline speed (**100 Mbps**), although Athens scores **7** on reliability and power. It sits below [Porto](/destinations/porto), where the row shows **200 Mbps** and reliability **9**, and below Valencia's **170 Mbps**. Dubrovnik and Zadar rows show **120** and **110 Mbps**, and both are marked as estimated rows.
+
+It is a different product from Bali, where the dataset shows **50 Mbps** and reliability **5**, and the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber. It is also a different product from Cape Town, where [Living in Cape Town](/guides/living-in-cape-town) has to plan around power stability **4**. Split's power score is **8**. You do not need a personal inverter strategy to have a work week here. Keep a charged laptop for cafes, and remember that a winter storm or a summer heat spike can still drop a connection.
+
+The **8/10** is an average. A fibered flat in Meje and a stone-walled holiday let over the Riva are not the same connection. Test the room.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Hrvatski Telekom, A1, and Telemach are the ordinary apartment providers in Croatia. Ask which one is already in the unit, and run a speed test from the desk at the hour you take calls. "Wi-Fi included" in a short let is often a shared router. That is not the test. A monthly lease often means the contract is in your name. Ask which of those two you are buying.
+2. **A local SIM with real data.** The same operators sell prepaid and eSIM plans in town and at the airport. If a call would hurt you to drop, keep a second line. Learn the hotspot before the day you need it. Check the operator's current price the day you buy.
+3. **One coworking room you have already used for a call.** Not a harbor cafe you liked for the view.
+
+### Coworking that is actually listed
+
+Coworking density **Med** means a short list. It does not mean every room you remember is still at the old address. Spaces in a seasonal city open, move, and close, and a roundup written for another year will send you to a locked door.
+
+Do this instead. Search for coworking in Split on the week you plan to go, then read the operator's own page for the address, the hours, the day pass, and the rules on calls. Message the space and ask whether it has a desk in the month you are arriving, because summer demand is a real thing in a city whose cons include crowded summers. Book one trial morning, and take a real call from it. If a space has no booth and no door, assume the call will fail on a busy day.
+
+Treat any name you cannot find on a current operator page as closed or moved. Med density is the trade-off on the city page. One good room does not turn it into High. If the work depends on a room full of other freelancers every day, [Budapest](/destinations/budapest) and [Prague](/destinations/prague) are the **High** coworking peers at **200 Mbps**.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether the building's Wi-Fi is shared with other guests
+- A quiet corner with a door, if you talk for a living
+- Which way the windows face, if the street has bars or a promenade
+- Heating that you have switched on if the stay touches **Nov-Jan**, and cooling if it touches July or August
+- A named fallback (a coworking trial you have confirmed, or a second SIM) written down before you need it
+
+## Visas and stay length: Schengen 90/180 visa exemption vs Croatia's digital nomad temporary stay (verify MUP)
+
+Not legal advice. Visa-exempt passports can enter Croatia for a short stay of **90 days in any 180**, under the European Commission's [Schengen short-stay rule](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area_en). For longer, Croatia offers a **temporary stay for digital nomads** of up to **18 months**, a residence permit that you apply for and do not collect at the border. The Croatian Ministry of the Interior (MUP) sets out the rules on its [English-language page](https://mup.gov.hr/aliens-281621/temporary-stay-of-digital-nomads-286853/286853). When this page and the ministry disagree, the ministry wins.
+
+### Short visits under Schengen, and who needs what
+
+Many passports can visit Schengen states for short stays without a visa. The European Commission's [Schengen page](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area_en) states the short-stay rule as up to **90 days within a 180-day period**. Time in Croatia counts toward it, because Croatia is in Schengen. A visa-free passport is not the same as a nomad permit, and a 90-day visit is not a way to work from Split for a year. If you hold an EU, EEA, or Swiss passport, none of this applies.
+
+Croatia uses the euro and is in the Schengen area. The European Commission records that Croatia [joined the euro area on 1 January 2023](https://economy-finance.ec.europa.eu/euro/eu-countries-and-euro/croatia-and-euro_en), and the European Parliament states that on 1 January 2023 [Croatia joined the Schengen area](https://www.europarl.europa.eu/topics/en/article/20180216STO98008/schengen-enlargement-of-europe-s-border-free-area).
+
+### What the Ministry of the Interior publishes
+
+The MUP page defines a digital nomad as a third-country national, meaning a non-EU, non-EEA, non-Swiss citizen, who is employed or performs work through communication technology for a company, or for their own company, that is **not registered in Croatia**. EU, EEA, and Swiss citizens do not use this route.
+
+| Point | What the MUP page says |
+|---|---|
+| Length | Temporary stay is granted for up to a maximum of **eighteen months** (possibly even less) |
+| Extension | Only if the stay was granted for less than 18 months: apply **no later than 60 days before** it expires, in person at a police administration or station. The extension is granted for a maximum of **6** months |
+| Reapplying | A new nomad application can be submitted **6 months after** the previous temporary stay expired |
+| Income | At least **2.5** average monthly net salaries paid in the previous year. At this moment that is a minimum of **EUR 3,622.50** a month, shown by a bank statement of regular income or payslips for the last six months |
+| Lump sum alternative | A minimum of **EUR 43,470.00** in your bank account for a 12-month stay, or **EUR 65,205.00** for 18 months |
+| Family | Close family members may join once the nomad's own stay is granted. The page adds 10% of the average monthly net salary for each additional family member |
+| Health insurance | Proof of cover for the period you plan to be in Croatia. Travel or private health insurance must cover Croatian territory |
+| Where to apply | Online, which is forwarded to the competent police administration or station. If you need a visa to enter Croatia, apply at a Croatian diplomatic mission or consulate: a police-station application from a visa-required national is rejected |
+| After arrival | Register your temporary residence address at the police within **3 days** of entering Croatia. The granted stay must also be registered at the police within **30 days** of the start of its validity (six months if the long-term D visa is required), or it is revoked. The biometric residence card is collected in person at the police |
+
+That euro amount is the ministry's own "at this moment" figure. It is the number to check on the live page before you plan around it. The ministry also lists fees. Filed at a consulate: **EUR 55.74** for the temporary stay, **EUR 93.00** for the long-term D visa, or **EUR 41.14** for the biometric card. Filed at a police office, paid after the stay is granted: **EUR 46.45** for the temporary stay, **EUR 9.29** administrative fee and **EUR 31.85** for the biometric card (**EUR 59.73** accelerated). The page also lists the full document list (passport, proof of work, proof of funds, insurance, a criminal-record certificate, and more). Read the table on the page the week you apply. Do not copy a fee from an agent site and call it the government charge.
+
+### Length and the consular wording
+
+The ministry says up to **eighteen months** (possibly less), and a stay granted for less than 18 months can be extended by up to six months. Your own permit may be shorter than the maximum, so plan around the length written on your decision.
+
+One more disagreement worth knowing: the Ministry of Foreign Affairs [consular page on temporary stay](https://mvep.gov.hr/consular-information-130483/temporary-stay-of-foreigners/264503) describes the nomad stay as up to a year that cannot be extended. The Ministry of the Interior is the body that decides the permit, and its page is the more detailed one, but two government pages differ. Confirm the length and the extension with the police administration or your nearest Croatian consulate before you book a year of anything.
+
+### Tax, at a high level only
+
+The Croatian Tax Administration's list of [tax changes from 1 January 2021](https://porezna-uprava.gov.hr/hr/porezne-promjene-od-1-sijecnja-2021/4750) records, under the Income Tax Act, a provision that defines the tax position of income earned by digital nomads, described as an exemption from taxation. Check the conditions, the scope, and how it interacts with your home country with the tax administration or an adviser before relying on it. Your home country can still tax you, and a long stay can raise tax-residence questions in either place. This page is not tax advice. If Split is going to be most of your year rather than a May-Sep season, pay for advice at home and in Croatia.
+
+### A simple decision frame
+
+- **The trip fits inside a Schengen 90 days, and your passport allows visa-free entry:** you can visit, but it is not a nomad permit. Count the 90/180 days.
+- **You want longer, and you work for a company outside Croatia:** read the MUP page, check the income line and the insurance rule, and apply by the route your passport requires (consulate if a visa is needed, online or police if not).
+- **You would be working for Croatian clients or a Croatian employer:** the nomad route is not built for it. The MUP definition requires a company not registered in Croatia. Ask the authority.
+- **"I will just stay and sort it out":** not a plan.
+
+A different base with a **365**-day visa-free stay for many passports is [Living in Tbilisi](/guides/living-in-tbilisi), solo **$800**, **UTC+4**. That is a different base, not a Croatian extension. For another EU telework route with a published statute, see how [Living in Madrid](/guides/living-in-madrid) handles Spain's.
+
+## Best months (May-Sep), rainy months (Nov-Jan), and the Jul-Aug crush
+
+The weather fields are short, and they are enough to avoid the expensive mistake.
+
+| Window | What the Split row says | Practical read |
+|---|---|---|
+| May, Jun, Jul, Aug, Sep | \`bestMonths\` | The good-weather season. Not all five are equal for a work month |
+| Nov, Dec, Jan | \`rainyMonths\` | The wet months to plan around. A reason to read the forecast, and the quiet stretch |
+| Feb, Mar, Apr, Oct | On neither list | Shoulders. Quiet, cooler, and less reliable for swimming |
+| Year-round | \`tempAvgC\` **16** | A coarse yearly average. It does not mean December is a beach month |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. Split's best-month list matches [Porto](/destinations/porto) (May-Sep). Dubrovnik, Zadar, and Athens list Apr-Jun and Sep-Oct instead, so they open a month earlier and close a month later, while Split's list covers the full summer.
+
+### The Jul-Aug crush
+
+July and August are on the best-month list, and they are also the months where "Seasonal tourism" and "Crowded summers" bite. Both are cons on the same row. The honest read is that the weather is at its best at exactly the moment the city is at its busiest. The Old Town fills, cafes fill, the ferries fill, short-let prices rise, and a quiet working day takes more effort. If you have a choice, treat **May and June** and **September** as the working summer, and treat July and August as a decision you make on purpose.
+
+If you are there in July or August anyway, change the plan rather than the expectation: live in a residential neighborhood with a lease, not in the center; book a desk or a coworking trial in advance; do deep work early; and use the afternoon heat as a break. Ask the landlord in writing what changes on 1 July.
+
+### Rain and winter
+
+November, December, and January are the rainy months on the row. They are also the months where "Limited winter nightlife" is the con. A winter stay can be a good heads-down month if you came for a quiet small city, a lower bill, and a calmer harbor, and you did not come for beaches or a social calendar. Plan the practical layer: heating that works, a flat that is not on the exposed seafront, and a coat. Strong winter winds off the land are a known feature of the Dalmatian coast, and they can disrupt ferries, so check the operator's notices before you plan an island trip.
+
+Do not "extend a perfect September" into a non-refundable winter let without reading \`rainyMonths\`.
+
+### Booking order
+
+Same three slots. Buy them only after the month is one the table above allows. Live options are on the [Split destination page](/destinations/split).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside May-Jun or Sep, or a July-August or winter stay you chose on purpose |
+| Flights | Flights into SPU around that window. Many routes are seasonal, so check the timetable for your month before you book a one-way |
+| Insurance | Cover you understand before you are standing in a clinic |
+
+## Daily life: walking, ferries, markets, Croatian, and winter
+
+### Walking, buses, and the airport
+
+Split's center is walkable. The Palace, the Riva, the market, the port, and the beaches at Bacvice are all within a short walk of each other if you are based in Varos, Firule, or the Old Town edges. The city bus network, run by the local operator, is how you reach Meje, Znjan, and the far neighborhoods. Check the current ticket and monthly pass options on the operator's own page. Ride-hail and taxis exist for the late night and the suitcase. They are not how you cross town twice a day if you wanted the **$1,400** estimate.
+
+Split Airport (SPU) is the airport, outside the city, in the Kastela area. A shuttle, a bus, and a taxi all connect it to the center. Do one transfer before you decide the airport is "basically in town." The route and the fare are on the operators' pages, and they change by season. The airport is not a neighborhood in the table above.
+
+### Ferries and island weekends
+
+The ferry port sits beside the Old Town, and the island routes (Brac, Hvar, Solta, Vis, and others) are a large part of why people live here. "Island hopping" is a pro on the row. It is also a budget line, and a schedule line. Winter timetables are thinner than summer ones, wind can cancel a crossing, and the fast boats and the car ferries are different operators with different rules. Check the operator's current timetable and price before you plan a Friday departure, and leave a buffer before a Monday call.
+
+### Markets, konobas, and the food tag
+
+"Foodie" is a vibe tag, and lunch is still the meal that can fit the band: a konoba lunch, the market, a bakery, and groceries. The Pazar market east of the Palace is the weekly shop. The Riva is a dinner you plan, not a habit. Seafood priced by weight deserves a question about the price before you order. That is a local habit, not an insult.
+
+Wine and a harbor terrace are also how the **$1,800** month leaks. Do the market version on workdays. The history pro on the row is real, and it is also optional on a Tuesday. The Palace does not have to be the work plan.
+
+### Croatian
+
+The dataset language is **Croatian**. English at **7** is decent. Younger people, cafes, and the tourism trade cope in English. Leases, clinics, the police office, and a lot of landlords will prefer Croatian. A little Croatian goes a long way for a monthly contract, a bank question, or a doctor's appointment. Showing up annoyed that the office is not in English is how a simple appointment becomes the whole week.
+
+### Nightlife rhythm and the social picture
+
+Nightlife is **6** and community is **4**. In season there is a real evening scene on the Riva, at Bacvice, and in the Old Town lanes. Out of season, the city quiets, which matches the "limited winter nightlife" con. You can have a social summer. You should not expect a nomad campus on every corner. For a bigger social calendar, [Living in Lisbon](/guides/living-in-lisbon) (community **9**) is the clear contrast, and [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**) is the starter-city one.
+
+
+## Split vs Dubrovnik, Zadar, Porto, Valencia, and Athens
+
+Choose with the rows, not with tiles. Figures below are the live dataset fields. Entry rules are not in the table: each country's current visa line sits on its destination page, linked in the last row. Dubrovnik and Zadar are Croatian peers whose rows are marked estimated across the board, so read their numbers as directional. Split is cheaper than Dubrovnik and the same solo price as Zadar and Porto. Porto beats it on internet and community. Valencia is the Spanish beach peer. Athens is the cheaper Mediterranean row.
+
+| Field | Split | Dubrovnik | Zadar | Porto | Valencia | Athens |
+|---|---|---|---|---|---|---|
+| Solo month | $1,800 | $2,200 | $1,800 | $1,800 | $1,900 | $1,600 |
+| Longer stay | $1,400 (estimate) | $1,650 | $1,350 | $1,400 | $1,425 | $1,200 |
+| Airbnb night | $90 | $100 | $82 | $85 | $86 | $70 |
+| Internet | 100 Mbps, reliability 8 | 120 Mbps, reliability 8 | 110 Mbps, reliability 8 | 200 Mbps, reliability 9 | 170 Mbps, reliability 9 | 100 Mbps, reliability 7 |
+| Power | 8 | 9 | 9 | 9 | 9 | 7 |
+| Coworking | Med | Med | Med | Med | Med | Med |
+| Safety | 9.0 (female 9) | 8 (female 7) | 8 (female 7) | 9 (female 9) | 8 (female 7) | 7.8 (female 7) |
+| Nightlife | 6 | 4 | 4 | 6 | 7 | 8 |
+| Community | 4 | 4 | 4 | 6 | 5 | 5 |
+| \`lgbtFriendly\` | 5 | 5 | 5 | 8 | 7 | 7 |
+| English | 7 | 7 | 7 | 7 | 5 | 7 |
+| Time zone | UTC+1 | UTC+1 | UTC+1 | UTC+0 | UTC+1 | UTC+2 |
+| Best months | May-Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | May-Sep | Apr-Jun, Sep | Apr-Jun, Sep-Oct |
+| Hard part on the row | Seasonal tourism, rising prices, crowded summers | Very touristy, expensive | Seasonal, quieter winters | Rainy winters, hilly terrain, tourist crowds | Hot summers, flooding risk, limited English | Hot summers, bureaucracy, economic instability |
+| Entry rules | [Split page](/destinations/split) | [Dubrovnik page](/destinations/dubrovnik) | [Zadar page](/destinations/zadar) | [Porto page](/destinations/porto) | [Valencia page](/destinations/valencia) | [Athens page](/destinations/athens) |
+
+The peers share the Schengen 90/180 short stay, but not Croatia's nomad rule. Split's long-stay route is the MUP temporary stay described above, and Dubrovnik and Zadar follow the same Croatian rules. Porto, Valencia, and Athens sit under Portugal's, Spain's, and Greece's own nomad routes. Verify each country on its own official pages. Do not paste Croatia's statute onto them.
+
+**Stay with Split** when you want the safest score in this set (**9.0**, tied with Porto), a real old town, sea and islands, and you can fund **$1,800** or live inside the **$1,400** estimate on purpose. You accept coworking **Med**, community **4**, and the summer crush.
+
+**Look at Dubrovnik** when the postcard is the point and you will pay **$400** more. Solo **$2,200**, **120 Mbps**, safety **8**, nightlife **4**. The row's cons are "Very touristy" and "Expensive", and its estimated status means you should open [Dubrovnik](/destinations/dubrovnik) and verify before you plan around it. It is the same country and the same visa rule, with a smaller city and a bigger bill.
+
+**Look at Zadar** when you want the same **$1,800** solo month, and a row whose pros include "Less touristy than Split". **110 Mbps**, safety **8**, nightlife **4**. Cons are "Seasonal" and "Quieter winters". It is another estimated row, so open [Zadar](/destinations/zadar) and check it before you commit. It is the first Croatian alternative if the objection to Split is the crowd.
+
+**Look at Porto** when you want the same solo price and the same **$1,400** longer-stay figure with **200 Mbps**, reliability **9**, community **6**, and \`lgbtFriendly\` **8**. You give up the sea-and-islands setting. Porto's row is urban, the best months match Split's (**May-Sep**), and its cons are rainy winters, hills, and crowds. Neighborhoods and the wet winter are in [Living in Porto](/guides/living-in-porto). The clock is one hour behind Split.
+
+**Look at Valencia** when you want a Spanish beach and faster internet (**170 Mbps**, reliability **9**) for **$100** more, with nightlife **7** and \`lgbtFriendly\` **7**. English is **5**, hot summers and flooding risk are on the cons, and October is a rainy month there. The October rain flag and the neighborhoods are in [Living in Valencia](/guides/living-in-valencia).
+
+**Look at Athens** when the bill matters and you accept a bigger, hotter city. **$1,600** solo is **$200** less, with the same **100 Mbps** but reliability and power both **7**, safety **7.8**, nightlife **8**. Hot summers and bureaucracy are on the cons. It is a Mediterranean capital, not a small harbor town. Open [Athens](/destinations/athens).
+
+**Look at Budapest** when the bill and the desk are the whole objection. [Living in Budapest](/guides/living-in-budapest) is **$1,500** solo, **$300** less, with **200 Mbps**, coworking **High**, nightlife **9**, and no sea. Cold winters and the language are the row's cons. [Living in Prague](/guides/living-in-prague) is the **$1,700**, **200 Mbps**, coworking **High** alternative with a different visa fork.
+
+If the objection is "I wanted the sea and a third of the bill," none of these Europe peers become that. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the winter escape at about **$850**.
+
+## First-week checklist and how to compare Split on Nomad Spin
+
+### Common mistakes
+
+- Treating the **18-month** maximum as a stamp you already have, or as a stay open to most nationalities
+- Paying the **$90** nightly median for thirty nights and calling the month **$1,800**
+- Booking a room inside the Palace walls or above the Riva for the month, then discovering the noise
+- Assuming the income line is a number you saw on a blog. The ministry states a rule of **2.5** average monthly net salaries and a current euro figure. Check the live MUP page
+- Arriving in July or August because a weather app said sunny, and ignoring the crowded-summers and seasonal-tourism cons
+- Using cafe Wi-Fi on the Riva for the client call you cannot drop, in a city whose coworking density is **Med**
+- Booking a December month and expecting a nightlife calendar
+- Comparing Split only with Dubrovnik photos, and never opening Zadar, Porto, or Valencia
+
+### First week
+
+**Days 1-2**
+
+- SIM in the phone, hotspot tested
+- One coworking trial, including a real call, in a room you have confirmed is open
+- Walk the neighborhood at night, and walk it once with groceries
+- One airport transfer, so SPU is a known trip and not a guess
+
+**Days 3-4**
+
+- See more than one monthly place. Run the speed test in the room. Stand in the bedroom after 10pm. Switch on the heating or the cooling the listing claims
+- If you are on a Schengen stamp, write down the 90/180 math and the date you must leave
+- If you are applying for the nomad stay, write down the 3-day address registration and the 30-day registration window from the MUP page. Do not discover them in week three
+
+**Days 5-7**
+
+- Commit to one neighborhood for two to four weeks, not to "Split" in the abstract
+- Fix the work loop: home deep work, a desk on call days, one cafe that passed the call test
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking order
+
+These slots are last, after the week above, not before the flight is emotional. Book them from the [Split destination page](/destinations/split).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the heating or cooling test, in Varos, Firule, Meje, or the Old Town edges |
+| Flights | The onward or return date your visa or stamp actually supports, into or out of SPU |
+| Insurance | Health cover that matches the Croatian rule if you are applying, and travel cover you have read |
+
+### How to compare Split on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Split should win only when your floors are honest. The crowd filter and the coworking filter matter most here.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,800**, or a plan to live inside the **$1,400** estimate. If your ceiling is under that **$1,400** estimate, Split is already out, and the spin should be allowed to say so. On the same longer-stay estimate, the cheaper peers are [Athens](/destinations/athens) at **$1,200** and [Budapest](/destinations/budapest) at **$1,100**.
+2. Set an internet floor the **100 Mbps** and reliability **8** can clear, and a safety floor **9** can clear. Then look at who else survives. Often that is [Porto](/destinations/porto) at the same **$1,800** with faster internet, or [Zadar](/destinations/zadar) if you want the Croatian coast with a smaller crowd.
+3. Open [Split](/destinations/split) and read \`bestMonths\`, \`rainyMonths\`, and the crowded-summers con against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check. July and August pass the weather and fail the quiet unless you have planned for them.
+4. If Porto is still in the pile, open [Living in Porto](/guides/living-in-porto) and compare **200 Mbps**, community **6**, and an urban setting against **100 Mbps**, community **4**, and the sea. If Valencia is still in the pile, open [Living in Valencia](/guides/living-in-valencia). If the desk has to be High, open [Living in Budapest](/guides/living-in-budapest) or [Living in Prague](/guides/living-in-prague). If the scene has to be bigger, open [Living in Lisbon](/guides/living-in-lisbon) or [Living in Madrid](/guides/living-in-madrid).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Split should win when you want a safe seaside city, the calls are ordinary, the month is May-Jun or Sep, and you can live with a small scene and Med coworking. It should lose when you need a campus, a cheap month, a lively December, or a July that is quiet.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,800 solo month, 100 Mbps, and safety 9.0 are Nomad Spin's Split row, along with the $90 nightly median, reliability 8, and power 8. The $1,400 long-term figure is an estimate. The nomad stay length, income line, deadlines, and the Schengen and euro dates are the Croatian Ministry of the Interior, European Commission, and European Parliament pages cited above. The tax note comes from the Croatian Tax Administration. When they disagree with this page, the official source wins.*
 `,
   },
   {
@@ -7569,6 +8403,8 @@ The visa column is the dataset label on every one of these rows. It is not the r
 
 **Look at Porto** when you want **200 Mbps** and safety **9.0** for **$100** less than Valencia (**$1,800** solo, **$1,400** longer stay). Coworking is also **Med**. Best months are **May-Sep**, so high summer is inside the friendly window, and the wet stretch is **Nov-Feb**, not an October that the row also calls a best month. There is no Valencia-style beach-in-the-city product. The river, the hills, and the smaller scene are in [Living in Porto](/guides/living-in-porto).
 
+**Look at Split** when you want the sea and the old-town setting on the Adriatic instead of the Mediterranean coast of Spain. [Split](/destinations/split) is **$1,800** solo, **$100** less than Valencia, with safety **9.0**, **100 Mbps**, coworking **Med**, and best months **May-Sep**. The trade is slower internet, community **4**, and a summer that fills with visitors. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
+
 If the objection is "I needed the beach and a third of this bill," none of these Europe peers become that. [Living in Chiang Mai](/guides/living-in-chiang-mai) is about **$850**, with no beach and a burning-season con. [Living in Cape Town](/guides/living-in-cape-town) is the other beach-and-city guide, at about **$1,400**, with safety **5.5** and power **4**. Different products.
 
 ## First-week checklist and how to compare Valencia on Nomad Spin
@@ -7640,14 +8476,14 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "15 min read",
-    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","tirana","tallinn"],
+    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","kuala-lumpur","tirana","tallinn"],
     content: `## Stop picking a city first. Pick a season window
 
 Undecided nomads often start with a city name. That is backwards. The same place can be a dream in November and a productivity tax in March, burning haze in [Chiang Mai](/destinations/chiang-mai), peak tourist rents in [Lisbon](/destinations/lisbon), typhoon weeks in [Da Nang](/destinations/da-nang), or load-shedding plus winter rain in [Cape Town](/destinations/cape-town).
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), and [Valencia](/guides/living-in-valencia).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), and [Valencia](/guides/living-in-valencia).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -7705,7 +8541,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 - [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Madrid](/destinations/madrid): **Apr, May, Jun, Sep, Oct**: \`$2,200\` / **200** Mbps / safety **8** / the same Spain telework field. Rainy months are **Nov** and **Dec**. Very hot summers are the con, and July and August are not best months. The [Madrid living guide](/guides/living-in-madrid) is the Jul-Aug rule for that row.
-- [Tirana](/destinations/tirana): **Apr, May, Jun, Sep, Oct**: \`$1,150\` / **90** Mbps / safety **7** / **Visa-Free** field of 365 days that depends on your passport. Rainy months are **Nov** and **Dec**. Traffic and developing infrastructure are the cons. The [Tirana living guide](/guides/living-in-tirana) is the thin-coworking, spring-and-autumn version of that row.
+- [Tirana](/destinations/tirana): **Apr, May, Jun, Sep, Oct**: \`$1,150\` / **90** Mbps / safety **7** / **Visa Exemption** of **90** days in any 180 for most visa-free passports. Rainy months are **Nov** and **Dec**. Traffic and developing infrastructure are the cons. The [Tirana living guide](/guides/living-in-tirana) is the thin-coworking, spring-and-autumn version of that row.
 - [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia): **Apr-Jun, Sep**: \`$1,900\` / **170** Mbps / safety **8**. October is a rainy month (with November), not a best month, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.
@@ -7728,7 +8564,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 
 Summer Europe is crowded but matches many cities’ \`bestMonths\`:
 
-- [Split](/destinations/split): **May to Sep**: \`$1,800\` / 100 Mbps / safety **9** / seaside
+- [Split](/destinations/split): **May to Sep**: \`$1,800\` / 100 Mbps / safety **9** / seaside. The [Split living guide](/guides/living-in-split) is the on-the-ground version of that row: why July and August are best months and also the crowded-summers con, and why Nov-Jan is the quiet stretch.
 - [Porto](/destinations/porto) ([living guide](/guides/living-in-porto)), [Berlin](/destinations/berlin), [Prague](/destinations/prague), [Krakow](/destinations/krakow), [Sofia](/destinations/sofia), [Brasov](/destinations/brasov): May to Sep clusters; mountain landscape helps if you want less beach-club default ([Sofia](/destinations/sofia), [Brasov](/destinations/brasov), [Tbilisi](/destinations/tbilisi) shoulder into Sep to Oct). The [Prague living guide](/guides/living-in-prague) is the on-the-ground version of that row: Vinohrady versus Old Town, cold winters, rainy Nov-Dec, and the Freelance Visa field. [Tallinn](/destinations/tallinn) lists best months **Jun, Jul, Aug** (\`$1,600\` / **300** Mbps / safety **9.2** / digital nomad visa field of 365 days). Rainy months are **Oct and Nov**, and the cons are very cold winters and dark winters. The [Tallinn living guide](/guides/living-in-tallinn) is the on-the-ground version of that row, including why e-Residency is not the visa.
 - [Batumi](/destinations/batumi): **Jun to Sep** Black Sea summer at \`$1,000\` / 90 Mbps
 
@@ -7742,13 +8578,13 @@ Jun to Aug is winter in Cape Town (\`rainyMonths\` **Jun to Aug**): beautiful if
 
 ### Asia summer reality check
 
-Many SEA rows put **Jun to Sep** in \`rainyMonths\` (Chiang Mai, Bangkok, Phuket, Ho Chi Minh City). [Kuala Lumpur](/destinations/kuala-lumpur) is an exception with best months **Jun to Aug**, still humid, and haze appears in \`cons\`. Do not treat “Asia always works in summer” as true; read the rainy arrays. Ho Chi Minh City's own rainy list runs Jun, Jul, Aug, Sep, and Oct. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you book that window as if it were January.
+Many SEA rows put **Jun to Sep** in \`rainyMonths\` (Chiang Mai, Bangkok, Phuket, Ho Chi Minh City). [Kuala Lumpur](/destinations/kuala-lumpur) is an exception with best months **Jun to Aug**, still humid, and haze appears in \`cons\` (\`$1,000\` / 100 Mbps / safety 7.5, rainy months **Nov to Jan**). The [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) covers what humidity, haze season, and the monsoon rains mean for that window. Do not treat “Asia always works in summer” as true; read the rainy arrays. Ho Chi Minh City's own rainy list runs Jun, Jul, Aug, Sep, and Oct. Read the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) before you book that window as if it were January.
 
 ## Autumn reset (Sep to Nov)
 
 Post-summer migrations are when nomads leave peak Europe and chase drier or milder windows.
 
-- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
+- **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Split living guide](/guides/living-in-split) covers the Nov-Jan stretch in Croatia. The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
 - **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are bound for Chiang Mai. [Hanoi](/destinations/hanoi) best includes **Oct to Dec** and **Mar to Apr**.
 - **Cape Town spring into summer:** best months open **Oct to Nov**: prime window if you read the living guide’s power and safety notes first.
 - **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun to Sep should already be behind you by a true autumn escape.

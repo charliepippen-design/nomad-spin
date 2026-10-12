@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import vercelJson from '../../vercel.json?raw';
+import { guides } from '@/data/guides';
 import { accentSlugRedirects, legacySlugRedirects, serverSlugRedirects } from '@/lib/citySlug';
 import { OLD_DRAFT_GUIDE_REDIRECTS } from './fixtures/oldDraftGuideRedirects';
 
@@ -16,6 +17,22 @@ type VercelConfig = {
 };
 
 const config = JSON.parse(vercelJson) as VercelConfig;
+
+const KUALA_LUMPUR_GUIDE_ALIASES = [
+  '/guides/kuala-lumpur',
+  '/guides/kuala-lumpur-digital-nomad-guide-2026',
+  '/guides/kuala-lumpur-digital-nomad-guide-cost-living-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-costs-visas',
+  '/guides/kuala-lumpur-digital-nomad-guide-remote-work',
+] as const;
+
+const SPLIT_GUIDE_ALIASES = [
+  '/guides/split',
+  '/guides/split-croatia-digital-nomad-guide',
+  '/guides/split-croatia-digital-nomad-guide-2026',
+  '/guides/split-croatia-digital-nomad-guide-2026-v2',
+  '/guides/split-croatia-digital-nomad-guide-remote-work',
+] as const;
 
 const TIRANA_GUIDE_ALIASES = [
   '/guides/digital-nomad-guide-tirana-albania-remote-work',
@@ -93,14 +110,24 @@ describe('vercel.json legacy accent redirects', () => {
       { source: '/guides/living-in-saigon', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-hcmc', destination: '/guides/living-in-ho-chi-minh-city' },
       { source: '/guides/living-in-ho-chi-minh', destination: '/guides/living-in-ho-chi-minh-city' },
+      ...KUALA_LUMPUR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kuala-lumpur' })),
+      ...SPLIT_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-split' })),
+      ...TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' })),
     ];
-    const tiranaAliases = TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' }));
     const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
     expect(oldDraftCount).toBe(48);
-    expect(redirects).toHaveLength(expected.length + aliases.length + tiranaAliases.length + oldDraftCount);
+    expect(redirects).toHaveLength(expected.length + aliases.length + oldDraftCount);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);
-    for (const rule of tiranaAliases) expect301(bySource, rule.source, rule.destination);
+  });
+
+  it('301s old Split guide URLs to the living-in-split guide', () => {
+    const guidePaths = new Set(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(guidePaths.has('/guides/living-in-split')).toBe(true);
+    for (const source of SPLIT_GUIDE_ALIASES) {
+      expect301(bySource, source, '/guides/living-in-split');
+      expect(guidePaths.has(source), source).toBe(false);
+    }
   });
 
   it('declares redirects before the allowlisted SPA rewrites', () => {

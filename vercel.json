@@ -956,6 +956,56 @@
       "statusCode": 301
     },
     {
+      "source": "/guides/kuala-lumpur",
+      "destination": "/guides/living-in-kuala-lumpur",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kuala-lumpur-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-kuala-lumpur",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kuala-lumpur-digital-nomad-guide-cost-living-visas",
+      "destination": "/guides/living-in-kuala-lumpur",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kuala-lumpur-digital-nomad-guide-costs-visas",
+      "destination": "/guides/living-in-kuala-lumpur",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kuala-lumpur-digital-nomad-guide-remote-work",
+      "destination": "/guides/living-in-kuala-lumpur",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-2026-v2",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/split-croatia-digital-nomad-guide-remote-work",
+      "destination": "/guides/living-in-split",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/digital-nomad-guide-tirana-albania-remote-work",
       "destination": "/guides/living-in-tirana",
       "statusCode": 301

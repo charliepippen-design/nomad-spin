@@ -109,6 +109,26 @@ describe('Vietnam e-visa label', () => {
 });
 
 describe('living guide visa sections', () => {
+  it('cites the MDEC DE Rantau pages and the Immigration Department in the Kuala Lumpur guide', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-kuala-lumpur.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mdec\.my\/derantau/);
+    expect(md).toMatch(/mdec\.my\/api\/media\/file\/DE-Rantau_Pass_FAQ_v10\.pdf/);
+    expect(md).toMatch(/imi\.gov\.my\/index\.php\/en\/main-services\/visa\/visa-requirement-by-country/);
+    expect(md).toMatch(/imigresen-online\.imi\.gov\.my\/mdac/);
+    expect(md).toMatch(/Version 10\.0/);
+    expect(md).toMatch(/\*\*USD 24,000\*\*/);
+    expect(md).toMatch(/\*\*USD 60,000\*\*/);
+    expect(md).toMatch(/\*\*RM1,080\*\*/);
+    expect(md).not.toMatch(/Digital Nomad Visa/);
+    expect(md).toMatch(/rai\.malaysia\.gov\.my\/enter/);
+    expect(md).toMatch(/tourist pass cannot be converted/i);
+    expect(md).not.toMatch(/territorial/i);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
+  });
+
   it('cites the Vietnam e-visa portal and the Finance circular in the Hoi An guide', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-hoi-an.md'),
@@ -124,6 +144,27 @@ describe('living guide visa sections', () => {
     expect(md).toMatch(/\*\*50 USD\*\*/);
     expect(md).not.toMatch(/da-nang-outskirts/);
     expect(md).not.toMatch(/\u2014|\u2013/);
+  });
+
+  it('cites the Croatian Ministry of the Interior in the Split guide and prints only its figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-split.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/mup\.gov\.hr\/aliens-281621\/temporary-stay-of-digital-nomads-286853/);
+    expect(md).toMatch(/mvep\.gov\.hr/);
+    expect(md).toMatch(/porezna-uprava\.gov\.hr/);
+    expect(md).toMatch(/economy-finance\.ec\.europa\.eu/);
+    expect(md).toMatch(/europarl\.europa\.eu/);
+    expect(md).toMatch(/home-affairs\.ec\.europa\.eu/);
+    expect(md).toMatch(/eighteen months/);
+    expect(md).toMatch(/\*\*2\.5\*\* average monthly net salaries/);
+    expect(md).toMatch(/EUR 3,622\.50/);
+    expect(md).toMatch(/EUR 43,470\.00/);
+    expect(md).toMatch(/not registered in Croatia/);
+    expect(md).not.toMatch(/€/);
+    expect(md).not.toMatch(/\bkuna\b.*\d/i);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
   });
 
   it('cites the Albanian law and ministry pages in the Tirana guide and prints no unofficial figures', () => {
