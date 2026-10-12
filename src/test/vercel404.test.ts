@@ -31,6 +31,13 @@ const SPLIT_GUIDE_ALIASES = [
   '/guides/split-croatia-digital-nomad-guide-2026-v2',
   '/guides/split-croatia-digital-nomad-guide-remote-work',
 ] as const;
+const TIRANA_GUIDE_ALIASES = [
+  '/guides/digital-nomad-guide-tirana-albania-remote-work',
+  '/guides/tirana',
+  '/guides/tirana-digital-nomad-guide-costs-visas',
+  '/guides/tirana-digital-nomad-guide-costs-visas-coworking',
+  '/guides/tirana-digital-nomad-guide-costs-visas-living',
+] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
 const KUALA_LUMPUR_GUIDE_ALIASES = [
   '/guides/kuala-lumpur',
@@ -84,6 +91,7 @@ describe('vercel.json unknown slug 404s', () => {
       '/guides/living-in-not-a-real-city-xyz',
       '/guides/living-in-saigon',
       ...SPLIT_GUIDE_ALIASES,
+      ...TIRANA_GUIDE_ALIASES,
       '/destinations/lisbon',
       '/destinations/tbilisi-suburbs',
       '/destinations/not-a-real-city-xyz',
@@ -148,6 +156,15 @@ describe('vercel.json unknown slug 404s', () => {
       expect(rule?.statusCode).toBe(301);
       expect(rule?.permanent).toBeUndefined();
       expect(guidePaths.has(source), source).toBe(false);
+    }
+    expect(guides.some((guide) => guide.slug === 'living-in-tirana')).toBe(true);
+    for (const source of TIRANA_GUIDE_ALIASES) {
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe('/guides/living-in-tirana');
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
+      expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);
     }
 
     expect(redirects.every((rule) => rule.statusCode === 301 && rule.permanent === undefined)).toBe(true);

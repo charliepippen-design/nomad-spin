@@ -11,8 +11,8 @@ export const contentGuides: Guide[] = [
     excerpt: "Stuck on where to go next? Map budget, internet, safety, vibe, and visa days onto Nomad Spin filters, then compare real destination pages before you book.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "17 min read",
-    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","kuala-lumpur","split","tallinn"],
+    readTime: "18 min read",
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","kuala-lumpur","split","tirana","tallinn"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
 Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic, and zero shared framework for weighing any of it.
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Split](/guides/living-in-split), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Split](/guides/living-in-split), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), [Living in Tirana](/guides/living-in-tirana), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Kuala Lumpur](/destinations/kuala-lumpur) at **$1,000** ([living guide](/guides/living-in-kuala-lumpur)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Split](/destinations/split) at **$1,800** ([living guide](/guides/living-in-split)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Kuala Lumpur](/destinations/kuala-lumpur) at **$1,000** ([living guide](/guides/living-in-kuala-lumpur)), [Tirana](/destinations/tirana) at **$1,150** ([living guide](/guides/living-in-tirana)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Split](/destinations/split) at **$1,800** ([living guide](/guides/living-in-split)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,7 +47,7 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1 to 10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Kuala Lumpur averages **100 Mbps** with reliability **8** and power **8**, coworking **High**; the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) is where Bangsar versus Mont Kiara, the DE Rantau pass, and the haze and monsoon months show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Split averages **100 Mbps** with reliability **8** and power **8**, coworking **Med**; the [Split living guide](/guides/living-in-split) is where the Old Town versus Varos choice, the July-August crowds, and Croatia's nomad temporary stay show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Kuala Lumpur averages **100 Mbps** with reliability **8** and power **8**, coworking **High**; the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) is where Bangsar versus Mont Kiara, the DE Rantau pass, and the haze and monsoon months show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Split averages **100 Mbps** with reliability **8** and power **8**, coworking **Med**; the [Split living guide](/guides/living-in-split) is where the Old Town versus Varos choice, the July-August crowds, and Croatia's nomad temporary stay show up, which the Mbps figure does not. Tirana averages **90 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Tirana living guide](/guides/living-in-tirana) is where Blloku versus the residential districts, the thin coworking map, and the 90-in-180 default versus the unique permit show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Split](/guides/living-in-split), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Split](/guides/living-in-split), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -1613,6 +1613,8 @@ The comparison that matters is the one in the opening: same internet class as Li
 **Look at [Split](/destinations/split)** when the sea is the requirement and you can pay **$300** more. Solo **$1,800**, **100 Mbps**, safety **9.0**, coworking **Med**, community **4**. Budapest wins on speed and desks, Split on the water. Neighborhoods, summer crowds, and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
 
 **Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if $1,500 is the number that failed. Tbilisi is the value comparison. It is not a district of Budapest.
+
+**Look at [Tirana](/destinations/tirana)** when you want a capital on the same **UTC+1** clock for **$350** less (**$1,150** against **$1,500**) and can live with **90 Mbps**, coworking **Low**, and community **3**. Entry is **Visa Exemption**, **90** days in any 180 for most visa-free passports, and the longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)).
 
 **Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one.
 
@@ -7358,7 +7360,7 @@ The point of the dataset is to stop arguing from postcards.
     excerpt: "Tbilisi for remote workers in 2026: real monthly costs, 365-day visa-free notes, neighborhoods, 60 Mbps internet, wine culture, and winter trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "33 min read",
+    readTime: "34 min read",
     relatedDestinations: ["tbilisi"],
     content: `## Is living in Tbilisi still worth it for digital nomads in 2026?
 
@@ -7664,6 +7666,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Stay with Tbilisi** when the **$800** / **$550** bands are the point, your passport can use the visa-free year, and you can live with **60 Mbps**, coworking **Med**, English **4**, and \`lgbtFriendly\` **3**. The mountain and food tags are the week you get. Winter is the week you have to plan.
 
+**Look at Tirana** when you want a Balkan capital on **UTC+1** at a solo month of **$1,150**, which is **$350** more than Tbilisi, with **90 Mbps** and safety **7**. Entry is **Visa Exemption**, **90** days in any 180 for most visa-free passports, so it is not a visa-free year like Tbilisi's; the longer route is Albania's one-year unique permit for digital mobile workers. Coworking is **Low** and community is **3**, a thinner scene than Tbilisi's **Med** and **6**. Open [Tirana](/destinations/tirana) and the [Tirana living guide](/guides/living-in-tirana) before you assume the two are the same bargain.
+
 **Look at Budapest** when you want a European city with **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.3**, and you can pay the **$1,500** solo month. The visa field is a **Digital Nomad Visa**, **365** days, which is an application with conditions, not a stamp on arrival. Cold winters are on [Budapest](/destinations/budapest)'s cons too. The pipes and the English score (**7**) are the upgrade. The bill is the cost of it. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
 **Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, \`lgbtFriendly\` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is also a digital nomad visa, **365** days, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the year is the same idea.
@@ -7730,6 +7734,392 @@ Still no partner IDs. These slots are last, after the week above, not before the
 [Spin the globe](/) with those floors. Tbilisi should win when the floors are real, the month is May, Jun, Sep, or Oct, and you want the visa-free year at the **$800** band. It should lose when you need Lisbon's pipes, a mild winter, a high LGBTQ+ score, or a nonstop flight you have not actually found.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $800, $550, $30, 60 Mbps, reliability 7, power 7, safety 8.0, female safety 7, lgbtFriendly 3, English 4, and 13°C figures are Nomad Spin's Tbilisi row. The one-year visa-free rule is Ordinance No 255 of the Government of Georgia. The tourist insurance rule is the Georgian MFA notice of January 2026. The right-to-work notice is the Georgian MFA notice of February 2026. The 183-day concept is Article 34 of the Tax Code of Georgia. When a later amendment or your stamp disagrees, the official text and the stamp win.*
+`,
+  },
+  {
+    id: "living-in-tirana",
+    slug: "living-in-tirana",
+    title: "The Ultimate Guide to Living in Tirana",
+    seoTitle: "Living in Tirana 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Tirana 2026: Costs, Visa, Areas",
+    excerpt: "Tirana for remote workers in 2026: real monthly costs, Blloku vs the center, Albania visa and permit notes, 90 Mbps internet, and thin coworking.",
+    date: "2026-10-12",
+    updated: "2026-10-12",
+    readTime: "34 min read",
+    relatedDestinations: ["tirana","tbilisi","budapest","sofia","saranda"],
+    content: `## Is living in Tirana worth it for digital nomads in 2026?
+
+The case for living in Tirana as a digital nomad is a budget-and-runway decision before it is a mountain view. Tirana is a capital that costs $350 a month less than Budapest, sits at the foot of mountains, and does not yet have the nomad infrastructure to match its price. The short answers come from the [Tirana](/destinations/tirana) row, not from a rooftop photo.
+
+**How much does it cost to live in Tirana as a digital nomad?** Nomad Spin lists about **$1,150** a month for a solo nomad. The long-term **$863** and the median Airbnb around **$52** a night are estimates on this row. Blloku and a short-let habit push you above the baseline.
+
+**Is Tirana internet good enough for video calls?** Usually yes at home, with a backup. Nomad Spin shows about **90 Mbps** average. Reliability **7/10** and power **9/10** are estimates. Coworking density is Low. Test upload speed in the actual unit before signing, and keep a second SIM as the fallback.
+
+**What visa do digital nomads use in Tirana?** Up to 90 days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport on Albania's Ministry for Europe and Foreign Affairs site before you book.
+
+**Who should skip living in Tirana?** Skip it if you need a deep coworking scene, a large nomad community, or a polished, quiet city. Nomad Spin flags traffic and developing infrastructure as trade-offs. Community size is **3**, coworking is **Low**, and female safety is **5**.
+
+**What are the best months to live in Tirana?** Nomad Spin's friendliest months are **Apr, May, Jun, Sep, and Oct**. Rainy months to plan around are **Nov and Dec**. Average temperature in the dataset is **15°C**, a yearly figure and not a forecast. Budapest lists the same Apr-Jun and Sep-Oct window.
+
+**Which neighborhood should I pick in Tirana?** Blloku suits cafes and a walkable first week, but nights are loud. The center and Pazari i Ri is the busiest part of town. Lake Park is quieter and greener. Rruga e Kavajes is mid-priced but a traffic artery. Kombinat and further out means local leases and quiet nights.
+
+**What time zone is Tirana in?** Nomad Spin lists **UTC+1**. Albania observes Central European Summer Time, so clocks move to **UTC+2** from the last Sunday of March to the last Sunday of October, like the rest of Central Europe. Tbilisi is **UTC+4**, so Tirana sits closer to European client hours.
+
+Worth it, with conditions. You are paying a mid-priced Balkan month for a capital city, mountains behind it, and a coast within reach, with nightlife **6**, English **5**, and a time zone of **UTC+1**. What you give up is a ready-made scene: community is **3**, coworking is **Low**, and safety is **7** (female safety **5**). The city is tagged **adventure** and **party**. Landscape is **urban**. Region is **Europe**. Language is Albanian. Pros on the row are mountains and sea, cheap, emerging, and friendly.
+
+The honest comparison is with [Tbilisi](/destinations/tbilisi), which is **$350** a month cheaper (**$800** against **$1,150**), has Med coworking, and a bigger community. Tirana's case against Tbilisi is the clock (**UTC+1** against **UTC+4**) and distance to the rest of Europe. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still has a Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Tirana is for (and who should skip it)
+
+Tirana fits people who want a capital-city routine on a mid-range budget, a long visa-free runway if their passport qualifies, and the patience to build their own routine. It is a poor fit if the month depends on a coworking community, on spotless infrastructure, or on a woman travelling alone being able to treat the whole city as an easy default.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,150**) or will actually live inside the longer-stay estimate (**$863**)
+- Do mostly async work and will test the room. **90 Mbps** holds ordinary calls. Reliability **7/10** is an estimate. Coworking is **Low**, so a desk is not on every corner
+- Can work **UTC+1**. Albania observes Central European Summer Time, so clocks move to **UTC+2** from the last Sunday of March to the last Sunday of October, like the rest of Central Europe. London stays about an hour behind, and US East Coast calls land in the Tirana afternoon and evening
+- Like coffee culture, long walks, and a city that is still being built around you, with mountains at the end of the street
+- Want a Europe-region base that is not priced like Lisbon. [Lisbon](/destinations/lisbon) is **$2,200** solo. Tirana is **$1,150**
+- Can put the serious months in **Apr, May, Jun, Sep, or Oct**
+
+**Skip it, or pick another city, if you:**
+
+- Cannot clear **$863** even on a monthly lease and local food. The **$52** nightly estimate will not save you
+- Need coworking **High** and a default circle of other nomads. That is [Living in Chiang Mai](/guides/living-in-chiang-mai) (community **9**, coworking **High**), not this row (community **3**, coworking **Low**)
+- Need the infrastructure score to be boring. The row lists developing infrastructure and traffic as cons. Reliability and power are formula estimates, not measured. Ask the landlord about hot water, wiring, and heating before you pay
+- Need a year on one stamp and your passport is only covered by the default rule. The default is visa-free entry for 90 days in 180, and only some passports get longer. The one-year Article 68 permit for digital mobile workers is the nomad route after that
+- Want strong nightlife or LGBT-friendly scores. Nightlife is **6** and \`lgbtFriendly\` is **3**, against Budapest at **9** and **5**. Read the number before you treat the city as an easy default
+- Are travelling solo as a woman and want the highest-comfort option. Female safety is **5** on this row, the lowest of the five cities compared at the end of this guide. That is a dataset score, not a verdict on any street, but it is a reason to read the neighborhood section and choose carefully
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another ranked list.
+
+## Monthly cost bands (solo $1,150, long-term $863 estimate, Airbnb $52 estimate)
+
+Three money fields on the Tirana row give the bands.
+
+| Band | Figure | Field on the Tirana row | How to read it |
+|---|---:|---|---|
+| Longer stay | $863 / month, estimate | \`financials.costLongTerm\` | A local-rate month: monthly housing, local food, modest transport. The row fills this from a formula |
+| Solo nomad baseline | $1,150 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $52 / night, estimate | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget. The row fills this from a formula |
+
+\`rentIndex\` is **23** ([Tbilisi](/destinations/tbilisi) **12**, [Pristina](/destinations/pristina) **19**, [Sofia](/destinations/sofia) **22**, [Budapest](/destinations/budapest) **32**, [Prague](/destinations/prague) **38**). That is relative rent pressure inside the dataset, not a dollar rent. Tirana sits between the cheap Balkan capitals and the Central European ones. It is not the cheapest city in the region, and the capital premium is the reason.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the **$52** nightly estimate is **$1,560** in lodging before food. That is already **$410** above the entire **$1,150** solo month and **$697** above the **$863** longer-stay estimate. If you "try the city" on nightly Airbnb for a month, you are not on either monthly band, no matter how cheap the byrek is. The $863 estimate and the $1,150 figure assume a monthly place.
+
+A one- to two-week landing stay in a central block is a scout. It is not the month. Use it to see leases in person. Do not call it the **$863** estimate.
+
+### What moves you off the band
+
+Rents differ by district and move fast, so a figure from a blog is out of date by the time you read it. For any price you want, check the landlord, the operator, or the official page the week you book. These are the levers, in the order they actually matter.
+
+| Choice | Stays near the $863 estimate to $1,150 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly lease in a residential block you have walked and priced against the row | Thirty nights at the $52 estimate, or a renovated Blloku one-bed as the default home |
+| Food | Bakeries, markets, and the neighborhood restaurants priced for residents | Terrace brunch and imported groceries as the meal plan |
+| Work | Home fiber you have tested, plus a desk or a reliable cafe on call days | A paid day pass every day on top of a room you already overpaid for |
+| Transport | Walking inside one area, buses when you know the route, ride-hailing for the late night | A car you do not need in a city this size |
+| Calendar | **Apr-Jun** or **Sep-Oct**, one neighborhood | Booking the landing week in the best month, then discovering the lease only starts in a worse one |
+
+### Reality checks
+
+- The **$1,150** number is a city baseline, not a Blloku new-build quote.
+- Cash habits matter in a developing market. Ask each landlord how rent is paid, get it in writing, and ask for a receipt. Do not take a verbal promise as a lease.
+- Insurance is not inside those three fields. Budget it separately. Price a policy before you need the clinic.
+- A cheaper flat on a main road is not cheaper if you cannot sleep or take a call. Traffic is a listed con.
+
+## Neighborhoods that work: Blloku, the center and Pazari i Ri, Lake Park, Rruga e Kavajes, and Kombinat
+
+Tirana is compact enough that one bad pin costs you a month of walks, not a month of metro rides. There are no separate Nomad Spin destination pages for these areas, so the canonical numbers live on [Tirana](/destinations/tirana). The trade-offs below are how people actually use the city. Walk each block before you pay, and ask the landlord about construction nearby: this is a city that keeps building.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Blloku | Cafes, restaurants, a walkable grid, week one without a plan | The $863 estimate, quiet nights, and a sleep-proof bedroom unless you ask which way it faces |
+| Center and Pazari i Ri | Skanderbeg Square, the renovated market, food priced for residents | Calm. It is the busiest part of town |
+| Lake Park side | Green space, early-morning runs, a quieter evening | A short walk to most cafes and a desk |
+| Rruga e Kavajes corridor | Mid-priced flats between the center and the west, bus access | A pedestrian-friendly street. It is a traffic artery |
+| Kombinat and further out | Local monthly leases, quiet nights, lower rent pressure | Walkability, and a quick evening out |
+
+### Blloku
+
+Blloku was a closed quarter for the Communist leadership. It is now the cafe and restaurant grid people picture when they think of Tirana: walkable, social, and the default landing zone for a first week. Week one feels obvious here.
+
+**Trade-off:** obvious costs more, and nightlife is not a rumor. Nightlife is **6**, and the cafe-and-bar grid is where you will hear it. Ask which way the bedroom faces, and walk the block after 10pm before you pay. A flat on a bar street is a different product from one two blocks back. The cafes will let you open a laptop. That is not the same as a 45-minute client call.
+
+Pick Blloku for the first one to two weeks while you tour monthly leases. Skip a bar-street bedroom as the default home if you came for the **$863** estimate or for sleep.
+
+**Housing tell:** confirm fiber in the unit, not "the building has internet." A speed test in the room beats a listing adjective.
+
+### Center and Pazari i Ri
+
+Skanderbeg Square is the center of the map, and Pazari i Ri, the New Bazaar, is the market and restaurant district a short walk from it. This is where local food prices live and where the city feels like a working capital rather than a cafe set.
+
+**Trade-off:** it is loud, and it is where traffic is thickest. The row lists traffic as a con, and the center is where you feel it. Check the street at rush hour, not on a Sunday viewing. Windows, double glazing, and the floor matter more here than the neighborhood name.
+
+Best for people who will cook, shop at the market, and eat locally. A weaker fit for someone who needs a silent bedroom.
+
+### Lake Park side
+
+The Grand Park of Tirana, with its artificial lake, is the city's green lung. The streets on its edge trade nightlife for trees. For a nomad whose week is deep work, a run, and a quiet dinner, this side of town makes the **$1,150** month feel more spacious.
+
+**Trade-off:** you are not in the center. A cafe-and-coworking routine means a short ride or walk every time, so time it at the hour you would do it. Do not book a month here from a map. Ride out from your landing stay first and see whether you will actually go.
+
+### Rruga e Kavajes corridor
+
+The Rruga e Kavajes corridor runs west from the center and holds a lot of ordinary mid-priced apartment stock, with bus access and shops. It is one of the practical answers to "where can I live that is not Blloku and not far out."
+
+**Trade-off:** it is a main road. Ask for the side street, not the artery, and ask which floor. The convenience is real. So is the traffic noise.
+
+### Kombinat and further out
+
+Kombinat, and the residential districts further from the center, are where a local monthly lease gets cheaper and quieter. They suit a nomad with a fixed routine and a home setup that does not need a cafe.
+
+**Trade-off:** you must know which pin you booked. "Near Tirana" on a listing can mean a ten-minute walk or a bus-dependent commute. A monthly lease plus two paid rides a day can erase the rent you thought you saved. Ask for the street, check the nearest supermarket and bus stop, and visit at the hour you would travel.
+
+### Booking order
+
+After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance buttons are on the [Tirana destination page](/destinations/tirana). Use those buttons.
+
+| Slot | What to book |
+|---|---|
+| Stays | A one- to two-week landing stay in Blloku or the center while you tour monthly leases, with a cancellation rule |
+| Flights | Into Tirana International Airport (TIA), for the Apr-Jun or Sep-Oct window, only after the month survives the season section |
+| Insurance | Travel and health cover for the full stay, including the time before any Albanian residence permit is issued |
+
+## Internet, power, and coworking for video-call work (90 Mbps, reliability 7 estimate, power 9 estimate, Low coworking)
+
+The city average is **90 Mbps**. Reliability **7/10** and power stability **9/10** are estimates, filled from a formula on this row. Coworking density is **Low**. That is a yes for ordinary video calls from a tested flat and a poor default for a call-heavy job that depends on a shared desk. It is faster than [Tbilisi](/destinations/tbilisi) (**60 Mbps**) and slower than [Budapest](/destinations/budapest) and [Sofia](/destinations/sofia), which both show **200 Mbps**. The [Budapest living guide](/guides/living-in-budapest) and the [Tbilisi living guide](/guides/living-in-tbilisi) are the two on-the-ground comparisons.
+
+The power estimate of **9** is a European-row default, not a measured grid score. Treat it as a reason not to panic, not as a promise. The row lists developing infrastructure as a con, and older buildings can have old wiring and unreliable hot water. Ask about both before you sign.
+
+The reliability **7/10** is an estimate and an average. A fibered flat in a newer block and a guesthouse Wi-Fi network over a bar street are not the same product. Test the room at the hour you take calls.
+
+### A setup that holds calls
+
+1. **Home fiber you have tested.** Ask which provider is already in the unit and run a speed test from the desk, including upload. "Wi-Fi included" in a short let is not that test. A serviced stay often bundles a line. A local monthly lease may not. Confirm which one you signed.
+2. **A local SIM or eSIM with real data.** Mobile operators sell prepaid SIMs in the city and at the airport, and eSIM is widely offered. Compare the current price on the operator's own page the day you buy. Learn the hotspot before the day you need it.
+3. **One place to work that you have already used for a call.** Not a cafe you liked for the espresso. Coworking density **Low** means the list is short and changes. Treat that as the fact, not as a challenge to find a hidden district of desks.
+
+### Coworking that is actually listed
+
+Coworking is **Low** on the row, and the list of spaces in Tirana changes often, and rooms move or close. Here is how to find one that works. Search the city on the operator's own site or a map the week you arrive. Check the posted address, the opening hours, whether day passes are sold, and whether there is a room where you can talk. Book a trial morning and take a real call. Check the current day-pass and monthly prices on the operator's page. Do not trust a roundup from a year ago.
+
+Cafes in Blloku and the center will let you open a laptop. That is a quiet afternoon, not a booth with a door. Do the call once, at the hour you actually meet, before you tell a client the cafe is your office.
+
+If the one room you like is full or closed, the fallback is a second SIM and a flat with a door. Low density is the trade-off on the city page. One good desk does not turn it into Med.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether the connection is shared with other units
+- A quiet corner with a door, if you talk for a living
+- Hot water, heating, and wiring answered by the landlord in writing, if you might be there in **Nov-Dec**
+- Nearby construction asked about, and the street checked at 8am
+- A named fallback (a trial-tested desk, a second SIM, a friend with fiber) written down before you need it
+
+## Visas and stay length: visa-free 90 days in 180 by default, then the Unique Permit (verify official rules)
+
+The default entry is visa-free for listed nationalities, for 90 days in any 180 under Law 79/2021 (per the Ministry for Europe and Foreign Affairs [visa regime page](https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/)), and some passports get longer under bilateral or Council of Ministers decisions. The one-year unique permit for digital mobile workers (Article 68) comes second. This is operational orientation, not legal advice. Albanian rules move, and your passport decides which rule applies. The number on our city page is not the law. When this page and the official source disagree, believe the source and the stamp in your passport.
+
+### What the official sources publish
+
+Albania's Law No. 79/2021 "On Aliens" is the base. The Interior Ministry hosts an [English translation of the law](https://mb.gov.al/wp-content/uploads/2024/10/Ligj-per-te-Huajt-%E2%80%93-nr.-79.2021_English.pdf); the Albanian text prevails if they differ. Three points matter for a stay.
+
+First, the list of countries whose nationals enter without a visa is set by a Council of Ministers decision (Article 29). Second, a visa-free alien has the right to stay **90 days within 180** from entry, unless a bilateral or multilateral agreement, or reciprocity or a unilateral position set in a Council of Ministers decision, provides otherwise (Article 29). A short-term stay may not exceed 90 days within 180 on a visa or visa-free entry, except where the law or an agreement says otherwise (Article 31). Third, aliens must as a rule register with the local border and migration authority within **10 days** of entry, with exemptions listed by a Council of Ministers decision (Article 29).
+
+The Ministry for Europe and Foreign Affairs publishes a [visa regime note for foreigners](https://punetejashtme.gov.al/wp-content/uploads/2024/09/II-NR.3-REGJIMI-I-VIZAVE-PER-TE-HUAJT-INFO-PER-TE-HUAJT.pdf) on [punetejashtme.gov.al](https://punetejashtme.gov.al/). It says the regime rests on Law 79/2021 and Council of Ministers Decision No. 858 of 29 December 2021. It says a visa-exempt traveller needs a passport valid for at least **3 months after leaving Albania** and issued within the last **10 years**. A Type C visa allows up to **90 days within 180**. A Type D visa is for stays of more than 90 days within 180 when a visa is required to get a residence permit. Nationalities not in the ministry's table need a visa before travel, applied for at the nearest mission or through the [e-visa portal](https://e-visa.al/) the ministry links.
+
+Check your nationality on the ministry's [visa regime page](https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/) before planning a long stay, and read the number there before you buy a non-refundable year of rent. A few passports get longer than the default under an agreement or a Council of Ministers decision. If yours is only covered by the default, plan for 90 days in 180 and treat anything longer as a permit question.
+
+Albanian days are counted under Albanian law. How they interact with another country's count (a Schengen stay, a UK allowance, a tax-residence rule at home) is that country's rule. Check there.
+
+### The Unique Permit for digital mobile workers
+
+Albania does not sell a visa branded "digital nomad." The law does provide a **single residence permit for digital mobile workers** (Article 68), defined in the law as foreign nationals who work in different countries, not from an office or an employer's headquarters, mainly using information technology tools. The first permit is issued for **one year** to an alien who is already legally staying in Albania and who:
+
+- Proves, through an employment contract with an employer or a service contract with a client based abroad, that the work needs no physical headquarters and can be done with information technology tools
+- Proves sufficient income to support themselves and any dependants during the stay
+- Has proof of accommodation and a home address in Albania
+- Holds a health insurance policy valid for at least one year
+- Has a criminal record certificate from the country of origin
+
+The law does not print an income figure in that article, and the state fee is set by Council of Ministers decision. Do not trust a euro threshold or a fee quoted on a consultancy blog. The Ministry of Interior's [procedure and documentation page for residence and unique permits](https://mb.gov.al/procedura-dhe-dokumentacioni-per-pajisjen-me-leje-qendrimi-dhe-leje-unike-residence-unique-permit-al-en/) is the place to confirm the current document list, the application route, and the fee. Ask the border and migration office or a lawyer if anything is unclear.
+
+Two practical consequences follow from the wording. The permit is for someone **already legally staying** in Albania, so the usual sequence is to enter visa-free and apply in country, not to wait abroad. And a visa-free stay that ends before the permit is issued is a risk you carry, so build in time and do not rely on a promised processing date.
+
+### Staying longer than the stamp
+
+A weekend in a neighbouring country is not a reset. The law frames the allowance as 90 days within a rolling 180-day period, and a person who has used 90 days may re-enter after the 180-day period has lapsed (Article 29). An officer's discretion at a border crossing is not a plan. If you need more time than your passport allows, the routes are a permit under the law, or a different base.
+
+### Tax, at a high level only
+
+A long stay can raise tax-residence questions at home and in Albania. This is not tax advice. Thresholds and rates change, so take them from an adviser or an official page, not from a forum. If Tirana will be most of your year rather than a spring or autumn season, pay for advice at home and in Albania before you let a permit application, a lease, and a bank account accumulate.
+
+### A simple decision frame
+
+- **The trip fits inside 90 days:** enter visa-free if your passport qualifies, register as the law requires, and write the last legal day down.
+- **Your passport has a longer visa-free arrangement:** read the ministry's table for your passport and the number on it before you commit to a year of rent.
+- **You need longer than your allowance:** the Article 68 permit, applied for through the Interior Ministry's procedure, with the insurance and criminal record paperwork ready. Or a base with a clearer long-stay route: [Living in Tbilisi](/guides/living-in-tbilisi) lists **Visa Free**, **365** days, solo **$800**, **UTC+4**, with its own passport-list caveat.
+- **"I will just stay and sort it out":** not a plan.
+
+## Best months (Apr-Jun, Sep-Oct) vs rainy months (Nov-Dec)
+
+The weather fields are short, and they are enough to avoid the expensive mistake.
+
+| Window | What the Tirana row says | Practical read |
+|---|---|---|
+| Apr, May, Jun | \`bestMonths\` | The work season. Arrive in April or May if you can |
+| Sep, Oct | \`bestMonths\` | A close second, once summer visitors clear out |
+| Nov, Dec | \`rainyMonths\` | Rain, and the months where an under-heated flat shows up |
+| Jan, Feb, Mar, Jul, Aug | On neither list | Shoulders. Not a promise, and not a reason to skip the viewing |
+| Year-round | \`tempAvgC\` **15** | A coarse yearly average, not a forecast |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. [Budapest](/destinations/budapest) has the same **Apr, May, Jun, Sep, Oct** best months and the same **Nov, Dec** rainy months, at a **$1,500** solo month. [Tbilisi](/destinations/tbilisi) is best **May, Jun, Sep, Oct**, with rainy months **Apr and Nov**. [Saranda](/destinations/saranda), Albania's beach row, is best **Jun, Jul, Aug, Sep**, which makes a Tirana-in-spring, coast-in-summer calendar a real option from the two rows. [Sofia](/destinations/sofia) is best **May to Sep**.
+
+### What Nov-Dec does to a work month
+
+Nov and Dec are the rainy months. Practically, the question is the flat, not the forecast. The row lists developing infrastructure as a con, and older buildings can have old wiring and weak heating. Ask what heats the flat, who pays the bill, and what happens when the power or the hot water fails. A cheap winter lease on an under-heated room is a bad deal.
+
+A quiet winter is also a legitimate choice if you want to hunker down and ship. A good flat makes those months fine. It is a stretch to choose on purpose, not to land in by accident.
+
+### July and August
+
+July and August are on neither list. That does not make them bad months, but the best-month window ends in June and restarts in September. Plan the first viewing, not the lease, around those months, and check the flat's cooling before you commit. If you want summer on the coast, the coast row is a better fit than the capital.
+
+### Booking order
+
+Same three slots. Buy them only after the month is one the table above allows. The live buttons stay on the [destination page](/destinations/tirana).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Apr-Jun or Sep-Oct, or a Nov-Dec stay you chose on purpose, with a cancellation rule |
+| Flights | Into TIA for the window, and out before your allowance ends |
+| Insurance | Travel and health cover for the full stay, including any gap before a permit |
+
+## Daily life: walking, coffee, food, Albanian, and day trips
+
+### Food and coffee
+
+"Cheap" survives contact with Albanian food and softens in Blloku brunch menus. Byrek from a bakery, tave kosi in a neighborhood restaurant, grilled meat, seasonal vegetables, and market produce are how you eat inside the **$863** longer-stay estimate to **$1,150**. Terraces in Blloku are how you eat like the month is a holiday. Check the current price on the menu rather than trusting a number from a blog.
+
+Coffee is a daily habit here, and cafes tolerate laptops. Keep the call-day plan separate from the espresso habit. Water: ask your landlord what is normal in your building and buy accordingly.
+
+### Getting around
+
+Tirana is more walkable than its traffic suggests. Blloku, the center, Skanderbeg Square, and Pazari i Ri sit within a walk of each other, and a good lease inside that zone means you rarely need a vehicle. Buses cover the wider city, though routes and schedules take a few weeks to learn, so check the current route information before you depend on one. Ride-hailing apps and licensed taxis are the tool for the airport, for a night out, and for the days you carry a laptop. Agree the price or use the app. Do not take an unsolicited offer at the curb.
+
+Tirana International Airport (TIA) is the entry point for most visitors. Check the current airport transfer options and prices on the airport's own page before you land.
+
+Traffic is a listed con, and it shapes the day. Plan calls around the hours you can be at the desk, not around the hours the map says a ride takes.
+
+### Albanian and English
+
+English proficiency on the row is **5**. Cafes and younger staff cope. Landlords, utility offices, banks, and government counters may not. A translation app is not optional, and a few words of Albanian ("faleminderit" for thank you) earn real goodwill. For a lease, a residence permit, or a clinic, bring a bilingual friend or hire a translator. The friendly pro on the row describes the people, not the paperwork.
+
+### Money
+
+The local currency is the lek. Carry some cash and ask in advance whether a vendor takes cards. Check your own bank's fees for ATM withdrawals and card payments. Ask a local bank what it needs from a non-resident before you count on opening an account. If you plan to apply for the Article 68 permit, ask the bank and the border and migration office what proof of income they accept before you pay for advice from anyone else.
+
+### Day trips and the coast
+
+The reason the row says **Mountains + sea** is that both are close. Mount Dajti sits above the city, and the Dajti Express cable car is the easy way up. Check the operator's page for current hours and prices. The Adriatic coast and the port city of Durres are a short trip west. Check the transport options and times the week you go. The south coast, including [Saranda](/destinations/saranda), is a longer trip and a different product: a seasonal beach town with Low coworking, **60 Mbps**, and best months Jun-Sep.
+
+[Pristina](/destinations/pristina) and [Podgorica](/destinations/podgorica) are the neighboring capitals if you want a change of city. Pristina is **$950** solo, **80 Mbps**, best months May to Sep. Podgorica is **$1,150** solo, **80 Mbps**, safety **8**. Neither has a living guide on this site yet. Use the destination pages and check the entry rules for your passport.
+
+### Safety and health
+
+Safety on the row is **7**, female safety **5**, \`lgbtFriendly\` **3**. Those are dataset scores, not a street-by-street map. Use the same habits you would in any capital: valuables out of sight, ride-hailing late at night, and a landlord whose reviews you have checked. Women travelling alone, and LGBT travellers, should read local and recent first-hand accounts before deciding on the neighborhood. Insurance matters more than the score. Sort it before you need the clinic, and check how a private clinic bills a visitor before you rely on a policy.
+
+## Tirana vs Tbilisi, Budapest, Sofia, and Saranda
+
+Choose with the rows, not with photos. Figures below are the live dataset fields. Entry rules depend on your passport, so the last row links each destination page, where the current visa line and its note sit. On the Tirana row, the long-term cost, the nightly median, internet reliability, and power stability are estimates.
+
+| Field | Tirana | Tbilisi | Budapest | Sofia | Saranda |
+|---|---|---|---|---|---|
+| Solo month | $1,150 | $800 | $1,500 | $1,200 | $1,150 |
+| Internet | 90 Mbps | 60 Mbps | 200 Mbps | 200 Mbps | 60 Mbps |
+| Coworking | Low | Med | High | Med | Low |
+| Safety | 7 | 8 | 8.3 | 8.5 | 8 |
+| Community | 3 | 6 | 7 | 4 | 1 |
+| Best months | Apr-Jun, Sep-Oct | May-Jun, Sep-Oct | Apr-Jun, Sep-Oct | May-Sep | Jun-Sep |
+| Time zone | UTC+1 | UTC+4 | UTC+1 | UTC+2 | UTC+1 |
+| Entry rules | [Tirana page](/destinations/tirana) | [Tbilisi page](/destinations/tbilisi) | [Budapest page](/destinations/budapest) | [Sofia page](/destinations/sofia) | [Saranda page](/destinations/saranda) |
+
+**Stay with Tirana** when you want a capital-city month for **$1,150** in **Apr-Jun** or **Sep-Oct**, you can work from a tested flat on **90 Mbps**, and your passport covers the stay you plan. You accept coworking **Low**, community **3**, female safety **5**, traffic, and developing infrastructure. Tirana is the better choice when the clock matters (**UTC+1**) and when mountains and sea are on the same weekend.
+
+**Pick Tbilisi** when budget and community are the point. Solo is **$800**, coworking is **Med**, community is **6**, safety is **8**. You lose 30 Mbps of average speed against Tirana's 90 and take **UTC+4**, with cold winters and winter air pollution on that row's cons. Georgia's visa-free stay runs **365** days for many passports, and that guide is explicit about the passport-list caveat. Read [Living in Tbilisi](/guides/living-in-tbilisi).
+
+**Pick Budapest** when the work is call-heavy and you can pay **$1,500**. It has **200 Mbps**, reliability **9**, coworking **High**, safety **8.3**, community **7**, English **7**, and nightlife **9**. Hungary is in Schengen, so a short stay counts toward 90 days in any 180, and the longer remote-work route is an application with conditions, not a stamp. Cold winters and rising prices are on that row's cons. The [Budapest living guide](/guides/living-in-budapest) is the polished-Europe comparison. Prague, in [Living in Prague](/guides/living-in-prague), is the same idea at **$1,700**.
+
+**Pick Sofia** when you want a Balkan-priced capital with **200 Mbps** and Med coworking for **$50** more than Tirana (**$1,200**). Safety is **8.5**. The cost is a Schengen short stay of **90** days in any 180, **UTC+2**, and a smaller nomad scene on the row's cons. [Sofia](/destinations/sofia) has no living guide on this site yet, so the destination row is the comparison.
+
+**Pick Saranda** when the beach is the product and the month is **Jun-Sep**. Same **$1,150**, same Albanian entry rules, but **60 Mbps**, coworking Low, community **1**, and a row that lists it as very touristy and seasonal. It is a summer escape from Tirana, not a replacement for it.
+
+**Look at Chiang Mai** when community and coworking are the constraint, not the budget. [Chiang Mai](/destinations/chiang-mai) is **$850** solo, community **9**, coworking **High**, **95 Mbps**, best months Nov-Feb, on **UTC+7**, with a different visa picture. The [Chiang Mai living guide](/guides/living-in-chiang-mai) covers it.
+
+**Look at Lisbon or Madrid** when comfort and a deep scene outrank the bill. [Lisbon](/destinations/lisbon) is **$2,200** with community **9**; [Madrid](/destinations/madrid) is **$2,200** with coworking **High**. Both are about **$1,050** a month more than Tirana. The [Lisbon living guide](/guides/living-in-lisbon) and the [Madrid living guide](/guides/living-in-madrid) are the full comparisons.
+
+## First-week checklist and how to compare Tirana on Nomad Spin
+
+### Common mistakes
+
+- Assuming your passport gets more than 90 days in any 180 before you check the ministry's table for it
+- Assuming a border trip resets a 90-day-in-180 count
+- Paying the **$52** nightly estimate for thirty nights and calling the month **$1,150**
+- Booking a Blloku bar-street flat for the quiet month
+- Signing a lease without a speed test, a hot-water answer, and a heating answer
+- Using cafe Wi-Fi for the client call you cannot drop, in a city whose coworking score is **Low**
+- Waiting until the last week of your allowance to find out how the Article 68 permit works
+- Assuming one safety score fits every traveller, when female safety is **5** and \`lgbtFriendly\` is **3**
+
+### First week
+
+**Days 1-2**
+
+- SIM or eSIM in the phone, hotspot tested
+- Passport validity checked against the 3-month rule, and the last legal day written down from the entry stamp
+- Registration with the border and migration authority checked against the 10-day rule (Article 29 of the law, with exemptions by Council of Ministers decision)
+- Walk Blloku and the center end to end, once in the evening
+
+**Days 3-4**
+
+- See more than one monthly place: one central, one residential option
+- Run the speed test in the room at call hour, upload included
+- Ask about heating, hot water, wiring, and nearby construction
+- Trial one desk or cafe with a real call
+
+**Days 5-7**
+
+- Commit to one neighborhood for two to four weeks, not to "Tirana" in the abstract
+- Fix the work loop: home deep work, a tested fallback for call days, a second connection
+- If you need longer than your allowance, read the Interior Ministry's unique permit page and start the paperwork before the allowance is nearly spent
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking order
+
+These slots are last, after the week above, not before the flight is emotional. Use the buttons on the [Tirana destination page](/destinations/tirana) when you are ready to book.
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the heating question |
+| Flights | The onward or return date your stay actually supports, into or out of TIA |
+| Insurance | Travel and health cover you have read, including any gap before a permit |
+
+### How to compare Tirana on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Tirana should win only when your floors are real.
+
+1. Open the [home page](/) and [spin the globe](/) with an honest budget ceiling. If you cannot clear **$1,150**, Tirana's solo baseline is already a stretch, and the **$863** longer-stay estimate is the one you have to live inside. The cheaper neighbors in this set are [Tbilisi](/destinations/tbilisi) at **$800** and [Pristina](/destinations/pristina) at **$950**.
+2. Set an internet floor the **90 Mbps** average can clear and a safety floor its **7** can clear. Then look at who else survives. Often that is [Sofia](/destinations/sofia) if you want faster internet, or [Budapest](/destinations/budapest) if you want a real work city.
+3. Open [Tirana](/destinations/tirana) and read \`bestMonths\`, \`rainyMonths\`, and the traffic and infrastructure cons against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Tbilisi is still in the pile, open [Living in Tbilisi](/guides/living-in-tbilisi) and compare community and coworking, not the photos. If you want a polished Europe base, open [Living in Budapest](/guides/living-in-budapest).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Tirana should win when the floors are real, the month is spring or early autumn, your passport covers the stay, and you want a capital on **UTC+1** with mountains behind it. It should lose when you need a deep scene, a call-heavy week with no backup desk, or a year of stay your passport does not give you.
+
+*Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $1,150 solo month, 90 Mbps, and safety 7 are Nomad Spin's Tirana row. The $863 long-term cost, the $52 nightly median, reliability 7, and power 9 are estimates on that row. The 90-day default, the registration rule, and the Article 68 permit conditions are from Albania's Law No. 79/2021 and the ministry pages cited above. When they disagree, the official source and your stamp win.*
 `,
   },
   {
@@ -8086,14 +8476,14 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "15 min read",
-    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","kuala-lumpur","tallinn"],
+    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","kuala-lumpur","tirana","tallinn"],
     content: `## Stop picking a city first. Pick a season window
 
 Undecided nomads often start with a city name. That is backwards. The same place can be a dream in November and a productivity tax in March, burning haze in [Chiang Mai](/destinations/chiang-mai), peak tourist rents in [Lisbon](/destinations/lisbon), typhoon weeks in [Da Nang](/destinations/da-nang), or load-shedding plus winter rain in [Cape Town](/destinations/cape-town).
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), and [Valencia](/guides/living-in-valencia).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), and [Valencia](/guides/living-in-valencia).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -8151,6 +8541,7 @@ Many European rows share Apr to Jun / Sep to Oct best months:
 - [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Madrid](/destinations/madrid): **Apr, May, Jun, Sep, Oct**: \`$2,200\` / **200** Mbps / safety **8** / the same Spain telework field. Rainy months are **Nov** and **Dec**. Very hot summers are the con, and July and August are not best months. The [Madrid living guide](/guides/living-in-madrid) is the Jul-Aug rule for that row.
+- [Tirana](/destinations/tirana): **Apr, May, Jun, Sep, Oct**: \`$1,150\` / **90** Mbps / safety **7** / **Visa Exemption** of **90** days in any 180 for most visa-free passports. Rainy months are **Nov** and **Dec**. Traffic and developing infrastructure are the cons. The [Tirana living guide](/guides/living-in-tirana) is the thin-coworking, spring-and-autumn version of that row.
 - [Budapest](/destinations/budapest): **Apr to Jun, Sep to Oct**: \`$1,500\` / 200 Mbps / safety 8.3. The [Budapest living guide](/guides/living-in-budapest) is the on-the-ground version of that row, including cold winters, winter air, and the White Card.
 - [Tbilisi](/destinations/tbilisi): **May, Jun, Sep, Oct** (\`$800\` / **60** Mbps / safety **8.0** / visa-free **365** days). The [Tbilisi living guide](/guides/living-in-tbilisi) is the on-the-ground version of that row, including cold winters and winter air pollution.
 - [Valencia](/destinations/valencia): **Apr-Jun, Sep**: \`$1,900\` / **170** Mbps / safety **8**. October is a rainy month (with November), not a best month, and flooding risk is a listed con. The [Valencia living guide](/guides/living-in-valencia) is the October-problem version of that row.

@@ -188,6 +188,18 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
     visaNote: '90 days in any 180; depending on nationality this is visa-free entry, an e-visa or a consular visa. Longer stays need a short-term residence permit (Law 6458).',
     sources: ['https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa'],
   },
+  AL: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: 'Longer visa-free stay for some passports; unique permit for digital mobile workers',
+    // Law 79/2021 "On Aliens" art. 29: a visa-free alien stays 90 days within 180 unless an
+    // agreement or Council of Ministers decision provides otherwise. Art. 68: unique permit for
+    // digital mobile workers, first issued for one year. MFA page lists the visa regime by nationality.
+    sources: [
+      'https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/',
+      'https://mb.gov.al/wp-content/uploads/2024/10/Ligj-per-te-Huajt-%E2%80%93-nr.-79.2021_English.pdf',
+    ],
+  },
 };
 
 /** Row-level note additions on top of the country rule. */
