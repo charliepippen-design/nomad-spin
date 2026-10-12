@@ -5,7 +5,9 @@ import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, Exte
 import { findCityBySlug } from '@/lib/citySlug';
 import { editorialGuideForDestination } from '@/data/guides';
 import NotFound from '@/pages/NotFound';
-import { getCityImageUrl } from '@/data/cityImages';
+import { getCityImageUrl, getCityImageAlt, getCityPhoto } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { trackAffiliateClick } from '@/utils/analytics';
 import { generateBadges } from '@/lib/badges';
@@ -61,6 +63,7 @@ export default function DestinationGuide() {
   const badges = generateBadges(city);
 
   const BASE_URL = 'https://www.digitalnomadspin.com';
+  const ogImage = getCityPhoto(city.id) ? heroUrl : `${BASE_URL}/og-preview.png`;
   const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
   const title = destinationPageTitle(city);
   const description = destinationMetaDescription(city);
@@ -85,18 +88,23 @@ export default function DestinationGuide() {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={heroUrl} />
+        <meta property="og:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={heroUrl} />
+        <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {faqJsonLd ? <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script> : null}
       </Helmet>
 
       {/* Hero */}
       <header className="relative h-64 md:h-80 overflow-hidden">
-        <img src={heroUrl} alt={`${city.name}, ${city.country}`} className="w-full h-full object-cover" />
+        <img src={heroUrl} alt={getCityImageAlt(city.name, city.country, city.id)} className="w-full h-full object-cover" />
+        {getCityPhoto(city.id) && (
+          <div className="absolute top-2 right-2 z-10 bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">
+            <UnsplashCredit attribution={cityAttribution(city.id)} className="text-white/70" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-black/30" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 md:pb-8 max-w-3xl mx-auto w-full">
           <h1 className="text-4xl md:text-5xl text-white leading-tight">

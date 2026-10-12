@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, DollarSign } from 'lucide-react';
 import { getCityThumbnailUrl } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import { cities } from '@/data/cities';
 import { cityPath, findCityBySlug } from '@/lib/citySlug';
 
@@ -39,11 +41,12 @@ export default function FeaturedDestinations() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full">
           {featuredCities.map((city) => (
-            <motion.div key={city.id} variants={fadeUp}>
-              <Link
-                to={cityPath(city)}
-                className="group block rounded-xl overflow-hidden border border-border/30 hover:border-border/60 transition-all"
-              >
+            <motion.div
+              key={city.id}
+              variants={fadeUp}
+              className="rounded-xl overflow-hidden border border-border/30 hover:border-border/60 transition-all"
+            >
+              <Link to={cityPath(city)} className="group block">
                 <div className="relative h-32 md:h-40 overflow-hidden">
                   <img
                     src={getCityThumbnailUrl(city.id, city.region)}
@@ -69,6 +72,11 @@ export default function FeaturedDestinations() {
                   </span>
                 </div>
               </Link>
+              {cityAttribution(city.id) && (
+                <div className="bg-card px-3 pb-2">
+                  <UnsplashCredit attribution={cityAttribution(city.id)} compact className="text-muted-foreground/60" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

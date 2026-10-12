@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { City } from '@/data/cities';
-import { getCityThumbnailUrl } from '@/data/cityImages';
+import { getCityThumbnailUrl, getCityImageAlt, getCityPhoto } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import { cityPath } from '@/lib/citySlug';
 import NomadImage from '@/components/common/NomadImage';
 
@@ -90,17 +92,18 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
           style={{ gridTemplateColumns: `repeat(${cities.length}, minmax(140px, 1fr))` }}
         >
           {cities.map((city, i) => (
-            <Link
+            <div
               key={city.id}
-              to={cityPath(city)}
-              className={`relative aspect-[4/3] overflow-hidden block ${
+              className={`relative aspect-[4/3] overflow-hidden ${
                 i > 0 ? 'border-l border-white/[0.06]' : ''
               }`}
             >
+              <Link to={cityPath(city)} className="absolute inset-0 block">
               <NomadImage
                 src={getCityThumbnailUrl(city.id, city.region)}
                 cityName={city.name}
                 countryName={city.country}
+                alt={getCityImageAlt(city.name, city.country, city.id)}
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
@@ -108,7 +111,13 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
                 <p className="text-white font-bold text-xs sm:text-base leading-tight truncate">{city.name}</p>
                 <p className="text-white/60 text-[10px] sm:text-xs truncate">{city.country}</p>
               </div>
-            </Link>
+              </Link>
+              {getCityPhoto(city.id) && (
+                <div className="absolute top-1 right-1 z-10 max-w-[90%] bg-black/40 backdrop-blur-sm rounded px-1 py-0.5">
+                  <UnsplashCredit attribution={cityAttribution(city.id)} compact className="text-white/70" />
+                </div>
+              )}
+            </div>
           ))}
         </div>
 

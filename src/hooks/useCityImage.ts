@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { getCityImageUrl, isCurated } from '@/data/cityImages';
-import { supabase } from '@/integrations/supabase/client';
+import { useMemo } from 'react';
+import { getCityImageAlt, getCityImageUrl, getCityPhoto } from '@/data/cityImages';
 
 export interface UnsplashAttribution {
   photographerName: string;
@@ -8,72 +7,34 @@ export interface UnsplashAttribution {
   unsplashUrl: string;
 }
 
+const UTM = 'utm_source=digital_nomad_spin&utm_medium=referral';
+
+function withUtm(url: string): string {
+  return `${url}${url.includes('?') ? '&' : '?'}${UTM}`;
+}
+
+export function cityAttribution(cityId: string): UnsplashAttribution | null {
+  const photo = getCityPhoto(cityId);
+  if (!photo) return null;
+  return {
+    photographerName: photo.photographer,
+    photographerUrl: withUtm(photo.photographerUrl),
+    unsplashUrl: withUtm(photo.unsplashUrl),
+  };
+}
+
 /**
- * Resolves a city hero image through:
- * 1. Curated map (instant render) — then fetches attribution from API
- * 2. DB cache / Unsplash API via edge function (with full attribution)
- * 3. Region fallback (safe default, no attribution)
- *
- * Triggers the Unsplash download endpoint once per display (API compliance).
+ * Resolves a city hero image from the curated, verified list in code.
+ * Cities without a verified photo get the neutral image and no attribution.
  */
 export function useCityImage(cityId: string, cityName: string, country: string, region: string, width = 800) {
-  const slug = cityId.toLowerCase().replace(/-[a-z]{2}$/, '');
-  const fallbackUrl = getCityImageUrl(cityId, region, width);
-  const curated = isCurated(slug);
-
-  const [imageUrl, setImageUrl] = useState(fallbackUrl);
-  const [attribution, setAttribution] = useState<UnsplashAttribution | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const downloadTriggered = useRef(false);
-
-  useEffect(() => {
-    downloadTriggered.current = false;
-    // Always start with curated/fallback image for instant render
-    setImageUrl(curated ? getCityImageUrl(cityId, region, width) : fallbackUrl);
-    setAttribution(null);
-
-    let cancelled = false;
-
-    async function resolve() {
-      try {
-        const { data } = await supabase.functions.invoke('city-image', {
-          body: { slug, cityName, country, region },
-        });
-
-        if (cancelled) return;
-
-        if (data?.image_url) {
-          // For non-curated cities, use the API-provided image URL
-          if (!curated) {
-            setImageUrl(data.image_url);
-          }
-          // Always set attribution if available
-          if (data.photographer_name) {
-            setAttribution({
-              photographerName: data.photographer_name,
-              photographerUrl: data.photographer_url || `https://unsplash.com/?utm_source=digital_nomad_spin&utm_medium=referral`,
-              unsplashUrl: data.unsplash_url || `https://unsplash.com/?utm_source=digital_nomad_spin&utm_medium=referral`,
-            });
-          }
-
-          // Trigger Unsplash download endpoint (required by API guidelines)
-          if (data.download_location && !downloadTriggered.current) {
-            downloadTriggered.current = true;
-            supabase.functions.invoke('city-image', {
-              body: { action: 'download', downloadLocation: data.download_location },
-            }).catch(() => { /* fire-and-forget */ });
-          }
-        }
-      } catch (err) {
-        console.warn('City image fetch failed, using fallback', err);
-      } finally {
-        if (!cancelled) setIsLoading(false);
-      }
-    }
-
-    resolve();
-    return () => { cancelled = true; };
-  }, [slug, cityName, country, region, width, cityId, curated, fallbackUrl]);
-
-  return { imageUrl, attribution, isLoading };
+  return useMemo(() => {
+    const attribution = cityAttribution(cityId);
+    return {
+      imageUrl: getCityImageUrl(cityId, region, width),
+      attribution,
+      alt: getCityImageAlt(cityName, country, cityId),
+      isLoading: false,
+    };
+  }, [cityId, cityName, country, region, width]);
 }

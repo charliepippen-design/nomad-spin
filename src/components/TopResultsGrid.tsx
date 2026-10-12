@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { MapPin, DollarSign, Wifi, Shield, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
 import type { ScoredCity } from '@/lib/scoring';
 import { getCityThumbnailUrl } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import { generateBadges } from '@/lib/badges';
 
 interface ScoreRingSmallProps {
@@ -80,6 +82,11 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        <UnsplashCredit
+          attribution={cityAttribution(city.id)}
+          compact
+          className="absolute top-1.5 right-2 text-white/70"
+        />
         <div className="absolute bottom-2 left-3 right-3 flex items-end justify-between">
           <div>
             <h3 className="text-sm font-mono font-light tracking-[0.12em] text-white truncate uppercase drop-shadow-lg">

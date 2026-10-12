@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';
 import { useGuides } from '@/hooks/useGuides';
+import { getCityImageUrl, getCityPhoto } from '@/data/cityImages';
 import { guides as staticGuides } from '@/data/guides';
 import { guideTitleTag } from '@/lib/guideHtml';
 import { guideFaqJsonLd } from '@/lib/guideFaq';
@@ -69,8 +70,12 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
+  const livingCity = guide.slug.startsWith('living-in-') ? guide.slug.slice('living-in-'.length) : null;
+  const ogImage = livingCity && getCityPhoto(livingCity)
+    ? getCityImageUrl(livingCity, undefined, 1200)
+    : `${BASE_URL}/og-preview.png`;
   const title = guideTitleTag(guide);
-  const jsonLd = guideArticleJsonLd(guide, pageUrl, `${BASE_URL}/og-preview.png`);
+  const jsonLd = guideArticleJsonLd(guide, pageUrl, ogImage);
   const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
   const faqJsonLd = guideFaqJsonLd(guide);
   const relatedGuides = relatedGuideEntries(guide.slug);
@@ -92,12 +97,12 @@ export default function GuideArticle() {
         <meta property="og:description" content={guide.excerpt} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta property="og:image" content={ogImage} />
         <meta property="article:published_time" content={guide.date} />
         <meta property="article:modified_time" content={(guide.updated ?? guide.date).slice(0, 10)} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={guide.excerpt} />
-        <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
+        <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}

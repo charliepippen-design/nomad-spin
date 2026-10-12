@@ -11,6 +11,7 @@ import DeploymentGrid from '@/components/DeploymentGrid';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { trackAffiliateClick, trackSpinCompleted } from '@/utils/analytics';
 import { useCityImage } from '@/hooks/useCityImage';
+import { NEUTRAL_IMAGE } from '@/data/cityImages';
 import { generateBadges } from '@/lib/badges';
 import { cityPath } from '@/lib/citySlug';
 import confetti from 'canvas-confetti';
@@ -118,7 +119,7 @@ function ScoreRing({ score }: { score: number }) {
 export default function ResultCard({ city, matchScore, matchReason, intel, risks, originCity, flightInfo, onSave, onRespin, onShare }: ResultCardProps) {
   const affiliateLinks = generateAffiliateLinks(city, originCity);
   const badges = generateBadges(city);
-  const { imageUrl: heroImageUrl, attribution } = useCityImage(city.id, city.name, city.country, city.region, 800);
+  const { imageUrl: heroImageUrl, attribution, alt: heroAlt } = useCityImage(city.id, city.name, city.country, city.region, 800);
   const dataSource = city.dataSource || 'verified';
 
   useEffect(() => {
@@ -149,11 +150,11 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
         <div className="relative h-48 overflow-hidden">
           <img
             src={heroImageUrl}
-            alt={`${city.name}, ${city.country}`}
+            alt={heroAlt}
             loading="lazy"
             onError={(e) => {
-              const fallback = `https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&h=448&fit=crop&auto=format&q=80`;
-              if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback;
+              const fallback = NEUTRAL_IMAGE;
+              if (!e.currentTarget.src.endsWith(fallback)) e.currentTarget.src = fallback;
             }}
             className="w-full h-full object-cover"
           />

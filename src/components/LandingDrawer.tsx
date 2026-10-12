@@ -12,6 +12,8 @@ import OriginSelector from '@/components/OriginSelector';
 import { Switch } from '@/components/ui/switch';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { getCityThumbnailUrl } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import type { City } from '@/data/cities';
 import { cityPath, findCityBySlug } from '@/lib/citySlug';
 import type { Origin } from '@/data/origins';
@@ -318,6 +320,7 @@ export default function LandingDrawer({
                 </div>
               </div>
             </button>
+            <UnsplashCredit attribution={cityAttribution(city.id)} compact className="bg-card px-2.5 pt-1.5 text-muted-foreground/60" />
             <div className="bg-card p-2.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
               <div className="flex items-center gap-1.5">
                 <DollarSign className="w-3 h-3 text-muted-foreground" />

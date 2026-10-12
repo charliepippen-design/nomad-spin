@@ -1,3 +1,5 @@
+// NOTE: Production no longer calls this function. City images come only from verified IDs in
+// src/data/cityImages.ts. Kept deployed-compatible but unused.
 /**
  * Unsplash City Image Edge Function
  *
