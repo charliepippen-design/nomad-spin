@@ -36,6 +36,8 @@ export default function SEO({
       ? image
       : `${BASE_URL}${image}`;
 
+  const imageAlt = (citySeo && getCityPhoto(citySeo.id)?.alt) || 'Nomad Spin: spin the globe to find your next digital nomad city';
+
   const jsonLd = citySeo
     ? {
         '@context': 'https://schema.org',
@@ -68,12 +70,14 @@ export default function SEO({
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
+      <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={finalImage} />
+      <meta name="twitter:image:alt" content={imageAlt} />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
   );

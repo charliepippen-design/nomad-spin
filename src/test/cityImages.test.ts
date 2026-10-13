@@ -44,6 +44,22 @@ describe('city images', () => {
     }
   });
 
+  it('every published destination has a verified photo and none are unverified', () => {
+    expect(UNVERIFIED_DESTINATIONS).toEqual([]);
+    expect(Object.keys(CITY_PHOTOS).sort()).toEqual([...PUBLISHED_DESTINATIONS].sort());
+  });
+
+  it('alt text and og:image:alt are set wherever og:image is dynamic', () => {
+    for (const rel of ['../components/SEO.tsx', '../pages/DestinationGuide.tsx', '../pages/GuideArticle.tsx']) {
+      const src = fs.readFileSync(path.resolve(__dirname, rel), 'utf8');
+      expect(src, rel).toContain('og:image:alt');
+      expect(src, rel).toContain('twitter:image:alt');
+    }
+    const html = fs.readFileSync(path.resolve(__dirname, '../../index.html'), 'utf8');
+    expect(html).toContain('og:image:alt');
+    expect(html).toContain('twitter:image:alt');
+  });
+
   it('returns the neutral image and plain alt for unknown cities', () => {
     expect(getCityImageUrl('atlantis-xx', 'Europe')).toBe(NEUTRAL_IMAGE);
     expect(getCityImageAlt('Atlantis', 'Nowhere', 'atlantis-xx')).toBe('Atlantis, Nowhere');

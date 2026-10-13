@@ -74,6 +74,7 @@ export default function GuideArticle() {
   const ogImage = livingCity && getCityPhoto(livingCity)
     ? getCityImageUrl(livingCity, undefined, 1200)
     : `${BASE_URL}/og-preview.png`;
+  const ogImageAlt = (livingCity && getCityPhoto(livingCity)?.alt) || 'Nomad Spin: spin the globe to find your next digital nomad city';
   const title = guideTitleTag(guide);
   const jsonLd = guideArticleJsonLd(guide, pageUrl, ogImage);
   const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
@@ -98,11 +99,13 @@ export default function GuideArticle() {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:alt" content={ogImageAlt} />
         <meta property="article:published_time" content={guide.date} />
         <meta property="article:modified_time" content={(guide.updated ?? guide.date).slice(0, 10)} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={guide.excerpt} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={ogImageAlt} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
