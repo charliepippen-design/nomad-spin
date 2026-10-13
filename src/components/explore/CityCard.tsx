@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Check, Wifi } from 'lucide-react';
 import type { City } from '@/data/cities';
-import { getCityThumbnailUrl } from '@/data/cityImages';
+import { getCityThumbnailUrl, getCityImageAlt } from '@/data/cityImages';
 import { cityPath } from '@/lib/citySlug';
 import NomadImage from '@/components/common/NomadImage';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 
 interface CityCardProps {
   city: City;
@@ -12,6 +14,7 @@ interface CityCardProps {
 }
 
 export default function CityCard({ city, isSelected, onToggleSelect }: CityCardProps) {
+  const attribution = cityAttribution(city.id);
   return (
     <div
       className={`relative w-full aspect-[3/4] rounded-lg overflow-hidden group transition-all select-none ${
@@ -24,7 +27,7 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
         src={getCityThumbnailUrl(city.id, city.region)}
         cityName={city.name}
         countryName={city.country}
-        alt={`${city.name}, ${city.country}`}
+        alt={getCityImageAlt(city.name, city.country, city.id)}
         className="absolute inset-0 w-full h-full object-cover aspect-[3/4] transition-transform duration-700 group-hover:scale-110"
       />
 
@@ -54,6 +57,12 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
         <Wifi className="w-2.5 sm:w-3 h-2.5 sm:h-3" />
         <span className="text-[8px] sm:text-[10px] font-bold">{city.internetMbps}</span>
       </div>
+
+      {attribution && (
+        <div className="absolute top-7 sm:top-9 right-1.5 sm:right-2 z-20 max-w-[70%] bg-black/40 backdrop-blur-sm rounded px-1 py-0.5">
+          <UnsplashCredit attribution={attribution} compact className="text-white/70" />
+        </div>
+      )}
 
       <div className="absolute bottom-1.5 sm:bottom-2 left-1.5 sm:left-2 flex flex-col z-10 max-w-[60%] pointer-events-none">
         <span className="text-white font-bold text-xs sm:text-sm leading-tight truncate">{city.name}</span>

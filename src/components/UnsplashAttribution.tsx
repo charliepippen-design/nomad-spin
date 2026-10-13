@@ -11,10 +11,10 @@ interface Props {
  * Unsplash-compliant photographer credit with UTM parameters.
  *
  * Renders: "Photo by [Photographer Name] on [Unsplash]"
- *   - Photographer link: {user.links.html}?utm_source=digital_nomad_spin&utm_medium=referral
+ *   - Photographer link: the photographer profile + ?utm_source=digital_nomad_spin&utm_medium=referral
  *   - Unsplash link: https://unsplash.com/?utm_source=digital_nomad_spin&utm_medium=referral
  *
- * Only rendered when the image was fetched via the Unsplash API (not for curated static IDs or fallbacks).
+ * Rendered wherever a curated Unsplash photo is shown. Not rendered for the neutral image (attribution is null).
  */
 export default function UnsplashCredit({ attribution, className = '', compact = false }: Props) {
   if (!attribution) return null;

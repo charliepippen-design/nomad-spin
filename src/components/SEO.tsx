@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
-import { getCityImageUrl } from '@/data/cityImages';
+import { getCityImageUrl, getCityPhoto } from '@/data/cityImages';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 
@@ -29,7 +29,9 @@ export default function SEO({
     ? `Explore ${citySeo.name}: $${citySeo.costUSD}/mo, ${citySeo.internetMbps}Mbps WiFi, safety ${citySeo.safety}/10. Find stays, flights, and eSIMs for digital nomads.`
     : description;
   const finalImage = citySeo
-    ? getCityImageUrl(citySeo.id, citySeo.region, 1200)
+    ? getCityPhoto(citySeo.id)
+      ? getCityImageUrl(citySeo.id, citySeo.region, 1200)
+      : `${BASE_URL}/og-preview.png`
     : image.startsWith('http')
       ? image
       : `${BASE_URL}${image}`;
