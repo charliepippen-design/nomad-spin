@@ -304,6 +304,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Bangkok** when limited nightlife is the thing you keep circling. [Bangkok](/destinations/bangkok) is **$1,100** solo, **120 Mbps**, safety **7.8**, nightlife **9**, best **Nov-Mar**. The visa field is the same **30-day** tourism exemption (passport-dependent, tourism only). A longer stay is a separate Destination Thailand Visa file. Neighborhoods and heat are in [Living in Bangkok](/guides/living-in-bangkok).
 
+**Look at Penang** when you want a beach city with English **8**: **$800** solo, **80 Mbps**, safety **8.0**, coworking **Med**, **UTC+8**. It costs **$100** more a month than this row. Its rainy months **Sep-Nov** overlap Da Nang's, so it is a different base for the same season rather than an escape from it. Read [Living in Penang](/guides/living-in-penang).
+
 **Look at Tbilisi** when the constraint is stay length, not a beach. [Living in Tbilisi](/guides/living-in-tbilisi) is the year-long contrast in this dataset: **Visa Free**, **365** days, solo **$800**, **UTC+4**. It is not a way around the Vietnam e-visa.
 
 **Look outside Asia** when you want another beach and you have a different budget. [Living in Cape Town](/guides/living-in-cape-town) is the non-Asia beach contrast: solo **$1,400**, safety **5.5**, power stability **4**, best months **Oct-Mar**. Different ocean, different risk list. If the comparison is a big food city on US hours, or a European coast, the live guides are [Living in Mexico City](/guides/living-in-mexico-city) and [Living in Lisbon](/guides/living-in-lisbon). They are not cheaper Da Nangs.

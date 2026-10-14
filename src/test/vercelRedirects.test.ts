@@ -42,6 +42,14 @@ const TIRANA_GUIDE_ALIASES = [
   '/guides/tirana-digital-nomad-guide-costs-visas-living',
 ] as const;
 
+const PENANG_GUIDE_ALIASES = [
+  '/guides/penang',
+  '/guides/penang-digital-nomad-guide-costs-visas-coworking',
+  '/guides/penang-digital-nomad-guide-george-town',
+  '/guides/penang-digital-nomad-guide-george-town-2026',
+  '/guides/the-ultimate-guide-to-living-in-penang',
+] as const;
+
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
 }
@@ -113,6 +121,7 @@ describe('vercel.json legacy accent redirects', () => {
       ...KUALA_LUMPUR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kuala-lumpur' })),
       ...SPLIT_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-split' })),
       ...TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' })),
+      ...PENANG_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-penang' })),
     ];
     const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
     expect(oldDraftCount).toBe(48);

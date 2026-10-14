@@ -981,6 +981,31 @@
       "statusCode": 301
     },
     {
+      "source": "/guides/penang",
+      "destination": "/guides/living-in-penang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/penang-digital-nomad-guide-costs-visas-coworking",
+      "destination": "/guides/living-in-penang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/penang-digital-nomad-guide-george-town",
+      "destination": "/guides/living-in-penang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/penang-digital-nomad-guide-george-town-2026",
+      "destination": "/guides/living-in-penang",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/the-ultimate-guide-to-living-in-penang",
+      "destination": "/guides/living-in-penang",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/split",
       "destination": "/guides/living-in-split",
       "statusCode": 301

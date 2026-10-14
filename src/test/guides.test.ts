@@ -32,6 +32,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-madrid');
     expect(slugs).toContain('living-in-split');
     expect(slugs).toContain('living-in-tirana');
+    expect(slugs).toContain('living-in-penang');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -1387,6 +1388,102 @@ describe('static guides', () => {
       'Daily life: walking, coffee, food, Albanian, and day trips',
       'Tirana vs Tbilisi, Budapest, Sofia, and Saranda',
       'First-week checklist and how to compare Tirana on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('publishes the Penang living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-penang');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Penang');
+    expect(g!.seoTitle).toBe("Living in Penang 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Penang 2026: Costs, Visa, Areas');
+    expect(guideTitleTag(g!)).toBe('Living in Penang 2026: Costs, Visa, Areas | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    expect(g!.excerpt).toBe(
+      'Penang for remote workers in 2026: real monthly costs, George Town vs Batu Ferringhi, DE Rantau Nomad Pass, 80 Mbps internet, and monsoon timing.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    const qas = [...g!.content.matchAll(/^\*\*([^*\n]+\?)\*\* (.+)$/gm)].map((m) => ({
+      question: m[1],
+      words: m[2].trim().split(/\s+/).length,
+    }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const qa of qas) {
+      expect(qa.words, qa.question).toBeGreaterThanOrEqual(35);
+      expect(qa.words, qa.question).toBeLessThanOrEqual(50);
+    }
+    expect(g!.relatedDestinations).toEqual(['penang', 'kuala-lumpur', 'langkawi', 'chiang-mai', 'da-nang', 'bali']);
+    expect(g!.content).toContain('living in Penang as a digital nomad');
+    expect(g!.content).toContain('$800');
+    expect(g!.content).toContain('$600');
+    expect(g!.content).toContain('$30');
+    expect(g!.content).toContain(
+      "The long-term $600 is Nomad Spin's long-term monthly estimate. The median Airbnb is around $30 a night."
+    );
+    expect(g!.content).toContain('Reliability is 7/10 and power is 8/10.');
+    expect(g!.content).not.toMatch(/Airbnb[^.]*estimate/i);
+    expect(g!.content).not.toMatch(/(reliability|power)[^.]*estimate/i);
+    expect(g!.content).toContain('80 Mbps');
+    expect(g!.content).toContain('8.0');
+    expect(g!.content).toContain('UTC+8');
+    expect(g!.content).toContain('DE Rantau Nomad Pass');
+    // Visa convention: default entry first, nomad route second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      "**What visa do digital nomads use in Penang?** Up to 90 days visa-free for many passports, as Malaysia sets 14 to 90 days by nationality. For a longer remote-work stay, MDEC's DE Rantau Nomad Pass runs 3 to 12 months, renewable for 12 more, with an income test. Verify on imi.gov.my and mdec.my before you book."
+    );
+    expect(g!.content.indexOf('visa-free for up to **90** days')).toBeLessThan(g!.content.indexOf('### What the DE Rantau pass is'));
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toMatch(/\*\*365\*\* days visa|365-day (pass|visa|stamp)/i);
+    expect(g!.content).not.toContain('the row says');
+    expect(g!.content).not.toContain('longest first term');
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Penang page](/destinations/penang) |');
+    expect(g!.content).toContain('Dec, Jan, Feb, Jun, Jul');
+    expect(g!.content).toContain('Sep, Oct, Nov');
+    expect(g!.content).not.toContain('This guide does not');
+    expect(g!.content).not.toMatch(/€|\bEUR\b|TODO|territorial|MM2H|visa run/i);
+    expect(g!.content).not.toMatch(/\/destinations\/[a-z-]*(suburbs|outskirts|hills)/);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/penang',
+      '/destinations/kuala-lumpur',
+      '/destinations/langkawi',
+      '/destinations/chiang-mai',
+      '/destinations/da-nang',
+      '/destinations/bali',
+      '/guides/living-in-kuala-lumpur',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-da-nang',
+      '/guides/living-in-bali',
+      '/guides/living-in-cape-town',
+      '/guides/living-in-tbilisi',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    const guideSlugs = new Set(guides.map((x) => x.slug));
+    for (const m of g!.content.matchAll(/\]\(\/guides\/([a-z0-9-]+)\)/g)) {
+      expect(guideSlugs.has(m[1]), m[1]).toBe(true);
+    }
+    for (const heading of [
+      'Is living in Penang worth it for digital nomads in 2026?',
+      'Who Penang is for (and who should skip it)',
+      'Real monthly cost bands (solo $800, long-term $600 estimate, short Airbnb $30)',
+      'Neighborhoods that work: George Town, Pulau Tikus / Gurney, Tanjung Tokong / Tanjung Bungah, Batu Ferringhi, Bayan Lepas (trade-offs)',
+      'Internet, power, and coworking for video-call work (80 Mbps, reliability 7, power 8, Med coworking)',
+      'Visas and stay length: up to 90 days visa-free by passport, then the DE Rantau Nomad Pass (verify official rules)',
+      'Best months (Dec-Feb, Jun-Jul) vs rainy months (Sep-Nov)',
+      'Daily life: Grab and Rapid Penang, hawker food, healthcare, English, day trips',
+      'Penang vs Kuala Lumpur, Langkawi, Chiang Mai, Da Nang, Bali',
+      'First-week checklist + spin the globe / compare Penang on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
