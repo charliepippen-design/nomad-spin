@@ -322,6 +322,8 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Tirana](/destinations/tirana)** when you want a capital on the same **UTC+1** clock for **$350** less (**$1,150** against **$1,500**) and can live with **90 Mbps**, coworking **Low**, and community **3**. Entry is **Visa Exemption**, **90** days in any 180 for most visa-free passports, and the longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)).
 
+**Look at [Kotor](/destinations/kotor)** when you want the sea on the same **UTC+1** clock for **$250** less (**$1,250** against **$1,500**) and can live with **70 Mbps**, coworking **Low**, and community **2**. Safety is **9**. Montenegro is outside Schengen: the default is a visa-free stay of **90** days in any 180 for listed passports, and the longer route is a digital nomad residence permit (see the [Kotor living guide](/guides/living-in-kotor)).
+
 **Look at [Barcelona](/destinations/barcelona)** only if you have already decided to spend more. Solo **$2,500**, **300 Mbps**, safety **7.5**. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one.
 
 ## First-week checklist and how to compare Budapest on Nomad Spin

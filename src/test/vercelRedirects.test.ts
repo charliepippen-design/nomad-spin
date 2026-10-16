@@ -42,6 +42,13 @@ const TIRANA_GUIDE_ALIASES = [
   '/guides/tirana-digital-nomad-guide-costs-visas-living',
 ] as const;
 
+const KOTOR_GUIDE_ALIASES = [
+  '/guides/kotor',
+  '/guides/kotor-digital-nomad-guide-costs-visas-coworking',
+  '/guides/kotor-digital-nomad-guide-costs-visas-where-to-live',
+  '/guides/kotor-digital-nomad-guide-living-working-montenegro',
+] as const;
+
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
 }
@@ -113,6 +120,7 @@ describe('vercel.json legacy accent redirects', () => {
       ...KUALA_LUMPUR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kuala-lumpur' })),
       ...SPLIT_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-split' })),
       ...TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' })),
+      ...KOTOR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kotor' })),
     ];
     const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
     expect(oldDraftCount).toBe(48);
@@ -126,6 +134,15 @@ describe('vercel.json legacy accent redirects', () => {
     expect(guidePaths.has('/guides/living-in-split')).toBe(true);
     for (const source of SPLIT_GUIDE_ALIASES) {
       expect301(bySource, source, '/guides/living-in-split');
+      expect(guidePaths.has(source), source).toBe(false);
+    }
+  });
+
+  it('301s old Kotor guide URLs to the living-in-kotor guide', () => {
+    const guidePaths = new Set(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(guidePaths.has('/guides/living-in-kotor')).toBe(true);
+    for (const source of KOTOR_GUIDE_ALIASES) {
+      expect301(bySource, source, '/guides/living-in-kotor');
       expect(guidePaths.has(source), source).toBe(false);
     }
   });

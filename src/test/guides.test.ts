@@ -32,6 +32,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-madrid');
     expect(slugs).toContain('living-in-split');
     expect(slugs).toContain('living-in-tirana');
+    expect(slugs).toContain('living-in-kotor');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -1387,6 +1388,100 @@ describe('static guides', () => {
       'Daily life: walking, coffee, food, Albanian, and day trips',
       'Tirana vs Tbilisi, Budapest, Sofia, and Saranda',
       'First-week checklist and how to compare Tirana on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('keeps the Kotor quick answers FAQ-ready: at least 6 Q&As, each answer 35 to 50 words', () => {
+    const g = guides.find((x) => x.slug === 'living-in-kotor');
+    const qas = g!.content
+      .split('\n')
+      .map((line) => line.match(/^\*\*([^*]+\?)\*\* (.+)$/))
+      .filter((m): m is RegExpMatchArray => m !== null)
+      .map((m) => ({ q: m[1], a: m[2].replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const { q, a } of qas) {
+      const words = a.trim().split(/\s+/).length;
+      expect(words, q).toBeGreaterThanOrEqual(35);
+      expect(words, q).toBeLessThanOrEqual(50);
+    }
+  });
+
+  it('publishes the Kotor living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-kotor');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Kotor');
+    expect(g!.seoTitle).toBe("Living in Kotor 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Kotor 2026: Costs, Visa, Areas');
+    expect(guideTitleTag(g!)).toBe('Living in Kotor 2026: Costs, Visa, Areas | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    expect(g!.excerpt).toBe(
+      'Kotor for remote workers in 2026: real monthly costs, Old Town vs Dobrota and Prcanj, Montenegro visa and permit notes, 70 Mbps internet, cruise crowds.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['kotor', 'budva', 'podgorica', 'dubrovnik', 'split', 'tirana']);
+    expect(g!.content).toContain('living in Kotor as a digital nomad');
+    expect(g!.content).toContain('$1,250');
+    expect(g!.content).toContain('$938');
+    expect(g!.content).toContain('$57');
+    expect(g!.content).toContain(
+      'The long-term **$938** and the median Airbnb around **$57** a night are estimates on this row.'
+    );
+    expect(g!.content).toContain('Reliability **7/10** and power **9/10** are estimates.');
+    expect(g!.content).toContain('70 Mbps');
+    expect(g!.content).toContain('UTC+1');
+    expect(g!.content).not.toContain('This guide does not');
+    // Visa convention: official 90-in-180 default first, digital nomad permit second, no dataset-label explainer.
+    expect(g!.content).toContain(
+      '**What visa do digital nomads use in Kotor?** Up to 90 days in any 180 for visa-free passports, counted from first entry; Montenegro is not in Schengen. For a longer remote-work stay, Montenegro issues a temporary residence permit for digital nomads of up to two years. Verify your passport on the Government of Montenegro site before you book.'
+    );
+    expect(g!.content).toContain('**90 days during a period of 180 days**');
+    expect(g!.content).not.toMatch(/\*\*Visa-Free\*\*, \*\*365\*\*/);
+    expect(g!.content).not.toMatch(/365 on (?:the|our) row/i);
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Kotor page](/destinations/kotor) |');
+    expect(g!.content).toContain('**May, Jun, Jul, Aug, and Sep**');
+    expect(g!.content).toContain('**Nov and Dec**');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/€|\bEUR\b|suburbs|outskirts|TODO/i);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/kotor',
+      '/destinations/budva',
+      '/destinations/podgorica',
+      '/destinations/dubrovnik',
+      '/destinations/split',
+      '/destinations/tirana',
+      '/guides/living-in-split',
+      '/guides/living-in-tirana',
+      '/guides/living-in-budapest',
+      '/guides/living-in-tbilisi',
+      '/guides/living-in-chiang-mai',
+      '/guides/living-in-lisbon',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    expect(g!.content).not.toMatch(/\]\(\/guides\/living-in-budva/);
+    for (const heading of [
+      'Is living in Kotor worth it for digital nomads in 2026?',
+      'Who Kotor is for (and who should skip it)',
+      'Monthly cost bands (solo $1,250, long-term $938 estimate, Airbnb $57 estimate)',
+      'Neighborhoods that work: Old Town, Dobrota, Prcanj, Skaljari, and Muo',
+      'Internet, power, and coworking for video-call work (70 Mbps, reliability 7 estimate, power 9 estimate, Low coworking)',
+      'Visas and stay length: visa-free 90 days in 180 by default, then the digital nomad residence permit (verify official rules)',
+      'Best months (May-Sep), rainy months (Nov-Dec), and the cruise-ship days',
+      'Daily life: steep streets, buses, airports, Montenegrin, and the bay',
+      'Kotor vs Budva, Podgorica, Dubrovnik, Split, and Tirana',
+      'First-week checklist and how to compare Kotor on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }
