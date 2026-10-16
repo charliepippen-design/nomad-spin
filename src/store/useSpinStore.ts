@@ -3,16 +3,27 @@ import { City, cities } from '@/data/cities';
 import type { LandscapeOption } from '@/data/cities/types';
 import { Origin, origins as originsData } from '@/data/origins';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
+import { logger } from '@/lib/logger';
 
 // Log dataset size at init
-console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
+logger.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
-export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';
-export type RegionOption = 'Asia' | 'Europe' | 'LATAM' | 'Africa' | 'Oceania' | 'North America' | 'All';
+export const VIBE_OPTIONS = ['beach', 'party', 'workhub', 'mountain', 'adventure', 'family', 'foodie'] as const;
+export const REGION_OPTIONS = ['Asia', 'Europe', 'LATAM', 'Africa', 'Oceania', 'North America', 'All'] as const;
+export const LANDSCAPE_OPTIONS = ['seaside', 'mountain', 'urban', 'rural', 'island', 'desert'] as const satisfies readonly LandscapeOption[];
+export type VibeOption = (typeof VIBE_OPTIONS)[number];
+export type RegionOption = (typeof REGION_OPTIONS)[number];
 export type { LandscapeOption };
 
-interface Preferences {
+const includes = <T extends string>(options: readonly T[], value: unknown): value is T =>
+  typeof value === 'string' && (options as readonly string[]).includes(value);
+
+export const isVibeOption = (value: unknown): value is VibeOption => includes(VIBE_OPTIONS, value);
+export const isRegionOption = (value: unknown): value is RegionOption => includes(REGION_OPTIONS, value);
+export const isLandscapeOption = (value: unknown): value is LandscapeOption => includes(LANDSCAPE_OPTIONS, value);
+
+export interface Preferences {
   budgetRange: [number, number];
   internetMin: number;
   safetyMin: number;
@@ -283,8 +294,10 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const budget = params.get('b')?.split('-').map(Number) as [number, number] | undefined;
     const internet = Number(params.get('i')) || 20;
     const safety = Number(params.get('s')) || 5;
-    const vibes = (params.get('v')?.split(',') || []) as VibeOption[];
-    const region = (params.get('r') || 'All') as RegionOption;
+    const vibes = (params.get('v')?.split(',') ?? []).filter(isVibeOption);
+    const landscapes = (params.get('l')?.split(',') ?? []).filter(isLandscapeOption);
+    const regionParam = params.get('r');
+    const region: RegionOption = isRegionOption(regionParam) ? regionParam : 'All';
     const originId = params.get('o');
 
     const origin = originId ? originsData.find((o) => o.id === originId) || null : null;
@@ -295,7 +308,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
         internetMin: internet,
         safetyMin: safety,
         vibes,
-        landscapes: (params.get('l')?.split(',') || []) as any,
+        landscapes,
         region,
         origin,
       },

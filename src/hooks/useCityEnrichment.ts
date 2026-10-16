@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import type { City, LandscapeOption } from '@/data/cities/types';
+import { logger } from '@/lib/logger';
 
 interface EnrichmentData {
   language?: string;
@@ -45,7 +46,7 @@ export function useCityEnrichment(city: City | null) {
         });
 
         if (error || !data) {
-          console.warn('[Enrichment] Failed:', error);
+          logger.warn('[Enrichment] Failed:', error);
           setEnrichedCity(city);
           return;
         }
@@ -64,7 +65,7 @@ export function useCityEnrichment(city: City | null) {
           dataSource: 'estimated',
         });
       } catch (e) {
-        console.warn('[Enrichment] Error:', e);
+        logger.warn('[Enrichment] Error:', e);
         setEnrichedCity(city);
       } finally {
         if (!cancelled) setLoading(false);

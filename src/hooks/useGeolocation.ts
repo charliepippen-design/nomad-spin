@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { haversineKm } from '@/lib/distance';
 import { origins, type Origin } from '@/data/origins';
 import { toast } from '@/hooks/use-toast';
+import { logger } from '@/lib/logger';
 
 interface GeoState {
   locating: boolean;
@@ -45,7 +46,7 @@ export function useGeolocation(onOriginFound: (origin: Origin) => void) {
         }
       },
       (err) => {
-        console.debug('Geolocation error:', err.message);
+        logger.debug('Geolocation error:', err.message);
         toast({ title: 'Location access denied', description: 'Please select your city manually.' });
         setState({ locating: false, acquiredCity: null });
       },
