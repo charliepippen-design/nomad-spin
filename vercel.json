@@ -1031,6 +1031,26 @@
       "statusCode": 301
     },
     {
+      "source": "/guides/kotor",
+      "destination": "/guides/living-in-kotor",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kotor-digital-nomad-guide-costs-visas-coworking",
+      "destination": "/guides/living-in-kotor",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kotor-digital-nomad-guide-costs-visas-where-to-live",
+      "destination": "/guides/living-in-kotor",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/kotor-digital-nomad-guide-living-working-montenegro",
+      "destination": "/guides/living-in-kotor",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/bali",
       "destination": "/guides/living-in-bali",
       "statusCode": 301

@@ -27,6 +27,7 @@ Nomad Spin matches destinations to your preferences (budget, internet, safety, p
 - [Living in Da Nang](/guides/living-in-da-nang)
 - [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city)
 - [Living in Hoi An](/guides/living-in-hoi-an)
+- [Living in Kotor](/guides/living-in-kotor)
 - [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur)
 - [Living in Lisbon](/guides/living-in-lisbon)
 - [Living in Madrid](/guides/living-in-madrid)

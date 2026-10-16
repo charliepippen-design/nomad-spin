@@ -342,6 +342,8 @@ The peers share the Schengen 90/180 short stay, but not Croatia's nomad rule. Sp
 
 **Look at Athens** when the bill matters and you accept a bigger, hotter city. **$1,600** solo is **$200** less, with the same **100 Mbps** but reliability and power both **7**, safety **7.8**, nightlife **8**. Hot summers and bureaucracy are on the cons. It is a Mediterranean capital, not a small harbor town. Open [Athens](/destinations/athens).
 
+**Look at Kotor** when you want the Adriatic for **$550** less and can work on **70 Mbps**. [Kotor](/destinations/kotor) is **$1,250** solo, safety **9**, coworking **Low**, community **2**, and best months **May-Sep**. Montenegro is outside Schengen, so the default visa-free stay there is its own 90 days in 180. The bay, the cruise days, and the nomad permit are in [Living in Kotor](/guides/living-in-kotor).
+
 **Look at Budapest** when the bill and the desk are the whole objection. [Living in Budapest](/guides/living-in-budapest) is **$1,500** solo, **$300** less, with **200 Mbps**, coworking **High**, nightlife **9**, and no sea. Cold winters and the language are the row's cons. [Living in Prague](/guides/living-in-prague) is the **$1,700**, **200 Mbps**, coworking **High** alternative with a different visa fork.
 
 If the objection is "I wanted the sea and a third of the bill," none of these Europe peers become that. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the winter escape at about **$850**.
