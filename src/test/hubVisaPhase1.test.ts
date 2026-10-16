@@ -113,13 +113,29 @@ describe('phase 1 hub visa data', () => {
     }
   });
 
+  it('shows 90 days in any 180, never 365, on every Montenegro row', () => {
+    const rule = COUNTRY_VISA_RULES.ME;
+    expect(rule.sources).toContain('https://www.gov.me/en/article/stay-of-up-to-90-days');
+    const rows = byCountry('ME');
+    expect(rows.map((city) => city.id).sort()).toEqual(['budva-me', 'kotor-me', 'podgorica-me']);
+    for (const city of rows) {
+      expect(city.meta, city.id).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+      expect(city.visa, city.id).toEqual({ type: 'Visa Exemption', days: 90 });
+      expect(city.meta.visaDays, city.id).not.toBe(365);
+      expect(city.meta.visaNote, city.id).toMatch(/90 days in any 180/);
+      const q3 = destinationFaq(city)[2];
+      expect(q3.a, city.id).toMatch(/^Up to 90 days in any 180 for most visa-free passports/);
+      expect(q3.a, city.id).not.toMatch(/365/);
+    }
+  });
+
   it('fixes the Colombia 730-day row', () => {
     expect(cityById('armenia-quimbaya-co').meta.visaDays).toBe(90);
     for (const city of byCountry('CO')) expect(city.meta.visaNote, city.id).toMatch(/180 days per calendar year/);
   });
 
   it('uses one visa type and day count per country, so rows never contradict', () => {
-    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY', 'AL']) {
+    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY', 'AL', 'ME']) {
       const rule = COUNTRY_VISA_RULES[cc];
       expect(rule, cc).toBeDefined();
       expect(rule.sources.length, cc).toBeGreaterThan(0);

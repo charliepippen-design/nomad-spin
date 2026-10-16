@@ -50,6 +50,7 @@ export const OFFICIAL_VISA_SOURCE: Record<string, string> = {
   HR: "Croatia's Ministry of the Interior",
   TR: "Turkey's Ministry of Foreign Affairs",
   AL: "Albania's Ministry for Europe and Foreign Affairs",
+  ME: 'the Government of Montenegro (gov.me)',
 };
 
 /**
@@ -118,6 +119,10 @@ export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
   AL: {
     applies: isStayAllowanceVisa,
     text: 'Up to {days} days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport with {source} before you book.',
+  },
+  ME: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days in any 180 for most visa-free passports, counted from the date of first entry. Longer stays need a long-stay visa or a residence permit. Verify your passport with {source} before you book.',
   },
 };
 
