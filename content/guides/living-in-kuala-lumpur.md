@@ -328,7 +328,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Chiang Mai** when you want community **9**, a cheaper month (**$850**), safety **8.2**, and mountains. The trade is **95 Mbps** and a 30-day passport-dependent tourism exemption. Best months **Nov-Feb** sit where Kuala Lumpur is rainy. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path.
 
-**Pick Penang** when you want the sea and a smaller Malaysian city: **$800**, safety **8**, community **4**, nightlife **4**, coworking **Med**, **80 Mbps**, under the same Malaysian entry rules and the same DE Rantau pass. It is the quieter version of this row. Best months **Dec-Feb** and **Jun-Jul** cover Kuala Lumpur's rainy winter, so the pairing is natural.
+**Pick Penang** when you want the sea and a smaller Malaysian city: **$800**, safety **8**, community **4**, nightlife **4**, coworking **Med**, **80 Mbps**, under the same Malaysian entry rules and the same DE Rantau pass. It is the quieter version of this row. Best months **Dec-Feb** and **Jun-Jul** cover Kuala Lumpur's rainy winter, so the pairing is natural. [Living in Penang](/guides/living-in-penang) covers George Town versus the beach strip and the island's short coworking list.
 
 **Look at Singapore** when cost is not the constraint. [Singapore](/destinations/singapore) is **$3,750** solo, **250 Mbps**, safety **10**, coworking **High**. It is a different budget, not a bigger Kuala Lumpur. Check Singapore's own official entry rules before you plan to work there.
 

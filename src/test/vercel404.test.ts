@@ -38,6 +38,13 @@ const TIRANA_GUIDE_ALIASES = [
   '/guides/tirana-digital-nomad-guide-costs-visas-coworking',
   '/guides/tirana-digital-nomad-guide-costs-visas-living',
 ] as const;
+const PENANG_GUIDE_ALIASES = [
+  '/guides/penang',
+  '/guides/penang-digital-nomad-guide-costs-visas-coworking',
+  '/guides/penang-digital-nomad-guide-george-town',
+  '/guides/penang-digital-nomad-guide-george-town-2026',
+  '/guides/the-ultimate-guide-to-living-in-penang',
+] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
 const KUALA_LUMPUR_GUIDE_ALIASES = [
   '/guides/kuala-lumpur',
@@ -92,6 +99,7 @@ describe('vercel.json unknown slug 404s', () => {
       '/guides/living-in-saigon',
       ...SPLIT_GUIDE_ALIASES,
       ...TIRANA_GUIDE_ALIASES,
+      ...PENANG_GUIDE_ALIASES,
       '/destinations/lisbon',
       '/destinations/tbilisi-suburbs',
       '/destinations/not-a-real-city-xyz',
@@ -165,6 +173,16 @@ describe('vercel.json unknown slug 404s', () => {
       expect(rule?.statusCode).toBe(301);
       expect(rule?.permanent).toBeUndefined();
       expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);
+    }
+    expect(guides.some((guide) => guide.slug === 'living-in-penang')).toBe(true);
+    for (const source of PENANG_GUIDE_ALIASES) {
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe('/guides/living-in-penang');
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
+      expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);
+      expect(rewriteMatches(source), source).toBe(false);
     }
 
     expect(redirects.every((rule) => rule.statusCode === 301 && rule.permanent === undefined)).toBe(true);
