@@ -64,6 +64,7 @@ export default function DestinationGuide() {
 
   const BASE_URL = 'https://www.digitalnomadspin.com';
   const ogImage = getCityPhoto(city.id) ? heroUrl : `${BASE_URL}/og-preview.png`;
+  const ogImageAlt = getCityPhoto(city.id)?.alt ?? 'Nomad Spin: spin the globe to find your next digital nomad city';
   const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
   const title = destinationPageTitle(city);
   const description = destinationMetaDescription(city);
@@ -89,10 +90,12 @@ export default function DestinationGuide() {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:alt" content={ogImageAlt} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={ogImageAlt} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {faqJsonLd ? <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script> : null}
       </Helmet>
