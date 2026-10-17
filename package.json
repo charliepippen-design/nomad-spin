@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
+    "check:meta": "tsx scripts/check-dist-meta.ts",
     "test:watch": "vitest"
   },
   "dependencies": {

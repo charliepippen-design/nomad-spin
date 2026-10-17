@@ -15,6 +15,8 @@ import { guideFaqJsonLd } from '../src/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd, guidesIndexBreadcrumbJsonLd } from '../src/lib/guideJsonLd';
 import { homeBodyHtml } from '../src/lib/homeSeo';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
+import { citySocialImage, guideSocialImage } from '../src/lib/socialImage';
+import { esc, injectSeo } from '../src/lib/prerenderHead';
 import { buildNotFoundHtml } from './not-found-page';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -93,56 +95,6 @@ if (!fs.existsSync(indexHtmlPath)) {
 }
 
 const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
-
-function esc(s: string): string {
-  return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function injectSeo(
-  html: string,
-  opts: {
-    title: string;
-    description: string;
-    url: string;
-    ogType?: string;
-    image?: string;
-    jsonLd?: object | object[];
-  }
-): string {
-  const desc = esc(opts.description);
-  const title = esc(opts.title);
-  const url = esc(opts.url);
-  const ogType = opts.ogType ?? 'website';
-  const image = esc(opts.image ?? `${BASE_URL}/og-preview.png`);
-  const jsonLdBlock = opts.jsonLd
-    ? [opts.jsonLd]
-        .flat()
-        .map((item) => `<script type="application/ld+json">${JSON.stringify(item).replace(/</g, '\\u003c')}</script>`)
-        .join('')
-    : '';
-
-  let out = html
-    .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
-    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/, `<meta name="description" content="${desc}" />`)
-    .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/, `<meta property="og:title" content="${title}" />`)
-    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/, `<meta property="og:description" content="${desc}" />`)
-    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/, `<meta property="og:url" content="${url}" />`)
-    .replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/, `<meta property="og:type" content="${ogType}" />`)
-    .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/, `<meta property="og:image" content="${image}" />`)
-    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${title}" />`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:description" content="${desc}" />`)
-    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/, `<meta name="twitter:image" content="${image}" />`)
-    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${url}" />`);
-
-  // Drop the homepage WebSite/Organization graph so destination pages don't claim to be the homepage.
-  out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdBlock || '');
-  return out;
-}
 
 function writeRoute(route: string, html: string, filename = 'index.html') {
   const targetDir = path.join(distDir, route);
@@ -254,11 +206,12 @@ function withVisibleBody(html: string, body: string): string {
     const title = guideTitleTag(guide);
     const url = `${BASE_URL}/guides/${guide.slug}`;
     const faqJsonLd = guideFaqJsonLd(guide);
-    const jsonLd = [guideArticleJsonLd(guide, url), guideBreadcrumbJsonLd(guide, url), ...(faqJsonLd ? [faqJsonLd] : [])];
+    const image = guideSocialImage(guide.slug);
+    const jsonLd = [guideArticleJsonLd(guide, url, image.url), guideBreadcrumbJsonLd(guide, url), ...(faqJsonLd ? [faqJsonLd] : [])];
     writeRoute(
       `guides/${guide.slug}`,
       withVisibleBody(
-        injectSeo(baseHtml, { title, description: guide.excerpt, url, ogType: 'article', jsonLd }),
+        injectSeo(baseHtml, { title, description: guide.excerpt, url, ogType: 'article', image, jsonLd }),
         guideBodyHtml(guide)
       )
     );
@@ -274,7 +227,7 @@ function withVisibleBody(html: string, body: string): string {
     const jsonLd = destinationPageJsonLd(city, url, slug);
     // Self canonical stays on this URL. noindex sub-area pages do not canonical to the parent hub.
     const head = insertRobotsMeta(
-      injectSeo(baseHtml, { title, description, url, jsonLd }),
+      injectSeo(baseHtml, { title, description, url, image: citySocialImage(city.id), jsonLd }),
       destinationRobotsContent(slug),
     );
     writeRoute(

@@ -8,6 +8,7 @@ import NotFound from '@/pages/NotFound';
 import { getCityImageUrl, getCityImageAlt, getCityPhoto } from '@/data/cityImages';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
+import { citySocialImage } from '@/lib/socialImage';
 import { generateAffiliateLinks } from '@/utils/affiliateEngine';
 import { trackAffiliateClick } from '@/utils/analytics';
 import { generateBadges } from '@/lib/badges';
@@ -63,8 +64,7 @@ export default function DestinationGuide() {
   const badges = generateBadges(city);
 
   const BASE_URL = 'https://www.digitalnomadspin.com';
-  const ogImage = getCityPhoto(city.id) ? heroUrl : `${BASE_URL}/og-preview.png`;
-  const ogImageAlt = getCityPhoto(city.id)?.alt ?? 'Nomad Spin: spin the globe to find your next digital nomad city';
+  const { url: ogImage, alt: ogImageAlt } = citySocialImage(city.id);
   const pageUrl = `${BASE_URL}/destinations/${citySlug}`;
   const title = destinationPageTitle(city);
   const description = destinationMetaDescription(city);
