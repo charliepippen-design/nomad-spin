@@ -16,6 +16,7 @@ import { destinationBodyHtml, destinationPageJsonLd } from '@/lib/destinationPre
 import { findCityBySlug } from '@/lib/citySlug';
 
 const DASH = /\u2013|\u2014/;
+// eslint-disable-next-line no-control-regex -- intentional: match anything outside the ASCII range
 const NON_ASCII = /[^\x00-\x7F]/;
 
 function words(text: string): number {

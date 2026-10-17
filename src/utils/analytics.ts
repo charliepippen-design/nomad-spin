@@ -13,6 +13,7 @@
  */
 
 import { slugify } from '@/lib/slugify';
+import { logger } from '@/lib/logger';
 
 declare global {
   interface Window {
@@ -148,15 +149,11 @@ export function trackEvent(eventName: AnalyticsEvent, params: Record<string, unk
     }
   } catch {
     // Fail silently: GA may be blocked by ad-blockers
-    console.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
+    logger.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
   }
 
-  // Console log for dev visibility
-  try {
-    console.log(`📊 [Analytics]: ${eventName}`, payload);
-  } catch {
-    // ignore
-  }
+  // Console log for dev visibility (no-op in production)
+  logger.log(`📊 [Analytics]: ${eventName}`, payload);
 }
 
 // ── Pre-defined event helpers ──────────────────────────────────────────────
