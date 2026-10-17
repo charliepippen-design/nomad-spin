@@ -184,11 +184,17 @@ export const CITY_PHOTOS: Record<string, CityPhoto> = {
 // until a verified photo is added to CITY_PHOTOS (see docs/city-images.md).
 export const UNVERIFIED_DESTINATIONS: string[] = [];
 
+// City ids whose name part differs from the destination slug used as the CITY_PHOTOS key.
+const CITY_ID_ALIASES: Record<string, string> = {
+  'ho-chi-minh': 'ho-chi-minh-city',
+};
+
 function normaliseSlug(cityId: string): string {
   const lower = cityId.toLowerCase();
   // Exact match first so slugs like "hoi-an" are not mistaken for a country suffix.
   if (lower in CITY_PHOTOS) return lower;
-  return lower.replace(/-[a-z]{2}$/, '');
+  const stripped = lower.replace(/-[a-z]{2}$/, '');
+  return CITY_ID_ALIASES[stripped] ?? stripped;
 }
 
 export function getCityPhoto(cityId: string): CityPhoto | null {

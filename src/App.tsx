@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Layout from "./components/Layout";
+import { SiteDefaultMeta } from "./components/SEO";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -21,6 +22,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
+    <SiteDefaultMeta />
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>

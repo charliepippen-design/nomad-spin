@@ -34,8 +34,8 @@ describe('home head', () => {
   it('uses the new title and description in index.html', () => {
     expect(HOME_TITLE.endsWith(' | Nomad Spin')).toBe(true);
     expect(indexHtml).toContain(`<title>${HOME_TITLE}</title>`);
-    expect(indexHtml).toContain(`<meta property="og:title" content="${HOME_TITLE}"`);
-    expect(indexHtml).toContain(`<meta name="twitter:title" content="${HOME_TITLE}"`);
+    expect(indexHtml).toContain(`<meta data-rh="true" property="og:title" content="${HOME_TITLE}"`);
+    expect(indexHtml).toContain(`<meta data-rh="true" name="twitter:title" content="${HOME_TITLE}"`);
     const flat = indexHtml.replace(/\s+/g, ' ');
     expect(flat).toContain(`property="og:description" content="${HOME_DESCRIPTION}"`);
     expect(flat).toContain(`name="twitter:description" content="${HOME_DESCRIPTION}"`);

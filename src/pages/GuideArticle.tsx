@@ -3,19 +3,25 @@ import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';
 import { useGuides } from '@/hooks/useGuides';
-import { getCityImageUrl, getCityPhoto } from '@/data/cityImages';
+import UnsplashCredit from '@/components/UnsplashAttribution';
+import { cityAttribution } from '@/hooks/useCityImage';
 import { guides as staticGuides } from '@/data/guides';
 import { guideTitleTag } from '@/lib/guideHtml';
 import { guideFaqJsonLd } from '@/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 import { relatedDestinationEntries, relatedGuideEntries } from '@/lib/relatedGuides';
 import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
+import { guideHeroImage, guideSocialImage } from '@/lib/socialImage';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
+
+/** Guide hero is full width, so it uses a wider photo than the 1200px social image. */
+const HERO_WIDTH = 1600;
+const HERO_HEIGHT = Math.round(HERO_WIDTH * 0.56);
 
 /** Allow the one utility class used to scroll wide guide tables on small screens. */
 const guideSchema = {
@@ -70,11 +76,9 @@ export default function GuideArticle() {
   }
 
   const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const livingCity = guide.slug.startsWith('living-in-') ? guide.slug.slice('living-in-'.length) : null;
-  const ogImage = livingCity && getCityPhoto(livingCity)
-    ? getCityImageUrl(livingCity, undefined, 1200)
-    : `${BASE_URL}/og-preview.png`;
-  const ogImageAlt = (livingCity && getCityPhoto(livingCity)?.alt) || 'Nomad Spin: spin the globe to find your next digital nomad city';
+  const { url: ogImage, alt: ogImageAlt } = guideSocialImage(guide.slug);
+  const hero = guideHeroImage(guide.slug, HERO_WIDTH);
+  const heroAttribution = hero ? cityAttribution(hero.cityId) : null;
   const title = guideTitleTag(guide);
   const jsonLd = guideArticleJsonLd(guide, pageUrl, ogImage);
   const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
@@ -110,6 +114,24 @@ export default function GuideArticle() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
       </Helmet>
+
+      {hero && (
+        <figure className="relative h-64 md:h-80 overflow-hidden">
+          <img
+            src={hero.url}
+            alt={hero.alt}
+            width={HERO_WIDTH}
+            height={HERO_HEIGHT}
+            className="w-full h-full object-cover"
+          />
+          {heroAttribution && (
+            <div className="absolute top-2 right-2 z-10 bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">
+              <UnsplashCredit attribution={heroAttribution} className="text-white/70" />
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30" />
+        </figure>
+      )}
 
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
         <header className="mb-10">
