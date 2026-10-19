@@ -33,6 +33,7 @@ describe('static guides', () => {
     expect(slugs).toContain('living-in-split');
     expect(slugs).toContain('living-in-tirana');
     expect(slugs).toContain('living-in-kotor');
+    expect(slugs).toContain('living-in-playa-del-carmen');
     expect(slugs).toContain('how-to-choose-next-nomad-base');
     expect(slugs).toContain('where-to-go-next-by-season');
     expect(slugs).toContain('paraguay-tax-residency-remote-workers');
@@ -1482,6 +1483,99 @@ describe('static guides', () => {
       'Daily life: steep streets, buses, airports, Montenegrin, and the bay',
       'Kotor vs Budva, Podgorica, Dubrovnik, Split, and Tirana',
       'First-week checklist and how to compare Kotor on Nomad Spin',
+    ]) {
+      expect(g!.content).toContain(`## ${heading}`);
+    }
+  });
+
+  it('keeps the Playa del Carmen quick answers FAQ-ready: at least 6 Q&As, each answer 35 to 50 words', () => {
+    const g = guides.find((x) => x.slug === 'living-in-playa-del-carmen');
+    const qas = g!.content
+      .split('\n')
+      .map((line) => line.match(/^\*\*([^*]+\?)\*\* (.+)$/))
+      .filter((m): m is RegExpMatchArray => m !== null)
+      .map((m) => ({ q: m[1], a: m[2].replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') }));
+    expect(qas.length).toBeGreaterThanOrEqual(6);
+    for (const { q, a } of qas) {
+      const words = a.trim().split(/\s+/).length;
+      expect(words, q).toBeGreaterThanOrEqual(35);
+      expect(words, q).toBeLessThanOrEqual(50);
+    }
+  });
+
+  it('publishes the Playa del Carmen living guide from dataset figures', () => {
+    const g = guides.find((x) => x.slug === 'living-in-playa-del-carmen');
+    expect(g).toBeTruthy();
+    expect(g!.title).toBe('The Ultimate Guide to Living in Playa del Carmen');
+    expect(g!.seoTitle).toBe("Living in Playa del Carmen 2026: The Digital Nomad's Definitive Guide");
+    expect(g!.shortTitle).toBe('Living in Playa del Carmen 2026: Costs, Visa');
+    expect(guideTitleTag(g!)).toBe('Living in Playa del Carmen 2026: Costs, Visa | Nomad Spin');
+    expect(guideTitleTag(g!).length).toBeLessThanOrEqual(60);
+    expect(g!.excerpt).toBe(
+      'Playa del Carmen for remote workers in 2026: real monthly costs, Centro vs Playacar, Mexico entry rules, 60 Mbps internet, sargassum and hurricane season.'
+    );
+    expect(g!.excerpt.length).toBeLessThanOrEqual(155);
+    expect(g!.relatedDestinations).toEqual(['playa-del-carmen', 'tulum', 'cancun', 'merida-mexico', 'mexico-city', 'medellin']);
+    expect(g!.content).toContain('living in Playa del Carmen as a digital nomad');
+    expect(g!.content).toContain('$1,600');
+    expect(g!.content).toContain('$1,200');
+    expect(g!.content).toContain('$80');
+    expect(g!.content).toContain('`rentIndex` is **35**');
+    expect(g!.content).toContain('60 Mbps');
+    expect(g!.content).toContain('reliability **6/10**, and power stability **7/10**');
+    expect(g!.content).toContain('Coworking density is **Med**');
+    expect(g!.content).toContain('Safety on the row is **6.8**, female safety **6**');
+    expect(g!.content).toContain('UTC-5');
+    expect(g!.content).not.toContain('This guide does not');
+    // Mexico has no dataset estimates on this row, so no figure is labelled an estimate.
+    expect(g!.content).not.toMatch(/\$1,200\*\* estimate|\$80\*\* estimate|reliability \*\*6\*\* estimate/);
+    // Visa convention: officer decides the days up to 180, consular temporary residence second, no nomad visa label.
+    expect(g!.content).toContain(
+      '**What visa do digital nomads use in Playa del Carmen?** Many passports enter Mexico visa-free as visitors for up to 180 days, but the immigration officer decides how many days you get at entry. Visitors cannot take paid work in Mexico. Longer stays need temporary residence, applied for at a Mexican consulate. Check the official INM list first.'
+    );
+    expect(g!.content).not.toContain('Digital Nomad Visa');
+    expect(g!.content).not.toMatch(/180 days (?:guaranteed|for everyone)|always (?:get|grant)s? 180/i);
+    expect(g!.content).not.toMatch(/\| Visa field/);
+    expect(g!.content).toContain('| Entry rules | [Playa del Carmen page](/destinations/playa-del-carmen) |');
+    expect(g!.content).toContain('**Nov, Dec, Jan, Feb, Mar, and Apr**');
+    expect(g!.content).toContain('**Jun, Jul, Aug, and Sep**');
+    expect(g!.content).toContain('780+');
+    expect(g!.content).not.toMatch(/€|\bEUR\b|\bMXN\b|suburbs|outskirts|TODO|Selina|Aldea Zama/i);
+    expect(g!.content).not.toMatch(/—|–|→/);
+    expect(g!.title).not.toMatch(/—|–/);
+    expect(g!.seoTitle).not.toMatch(/—|–/);
+    expect(g!.excerpt).not.toMatch(/—|–/);
+    for (const href of [
+      '/destinations/playa-del-carmen',
+      '/destinations/tulum',
+      '/destinations/cancun',
+      '/destinations/merida-mexico',
+      '/destinations/mexico-city',
+      '/destinations/medellin',
+      '/guides/living-in-mexico-city',
+      '/guides/living-in-medellin',
+      '/guides/living-in-bali',
+      '/guides/living-in-lisbon',
+      '/guides/living-in-buenos-aires',
+      '/guides/how-to-choose-next-nomad-base',
+      '/guides/where-to-go-next-by-season',
+      '/guides/best-places-digital-nomads-2025',
+      '](/)',
+    ]) {
+      expect(g!.content).toContain(href);
+    }
+    expect(g!.content).not.toMatch(/\]\(\/guides\/living-in-(?:tulum|cancun|merida)/);
+    for (const heading of [
+      'Is living in Playa del Carmen worth it for digital nomads in 2026?',
+      'Who Playa del Carmen is for (and who should skip it)',
+      'Monthly cost bands (solo $1,600, long-term $1,200, Airbnb $80)',
+      'Neighborhoods that work: Centro, Gonzalo Guerrero, Playacar, Zazil-Ha, and Colosio',
+      'Internet, power, and coworking for video-call work (60 Mbps, reliability 6, power 7, Med coworking)',
+      'Visas and stay length: visitor entry of up to 180 days set at the border, then temporary residence (verify official rules)',
+      'Best months (Nov-Apr), rainy months (Jun-Sep), sargassum, and hurricane season',
+      'Daily life: Quinta Avenida, colectivos, ADO, airports, the Cozumel ferry, and Spanish',
+      'Playa del Carmen vs Tulum, Cancun, Merida, Mexico City, and Medellin',
+      'First-week checklist and how to compare Playa del Carmen on Nomad Spin',
     ]) {
       expect(g!.content).toContain(`## ${heading}`);
     }

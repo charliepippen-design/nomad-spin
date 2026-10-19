@@ -118,6 +118,11 @@ describe('destinationSeo', () => {
     expect(kotorGuides).toContain('how-to-choose-next-nomad-base');
     expect(kotorGuides).toContain('where-to-go-next-by-season');
 
+    const playaGuides = relatedGuidesForCity(cityByName('Playa del Carmen')).map((g) => g.slug);
+    expect(playaGuides).toContain('living-in-playa-del-carmen');
+    expect(playaGuides).toContain('how-to-choose-next-nomad-base');
+    expect(playaGuides).toContain('where-to-go-next-by-season');
+
     const madridGuides = relatedGuidesForCity(cityByName('Madrid')).map((g) => g.slug);
     expect(madridGuides).toContain('living-in-madrid');
     expect(madridGuides).toContain('how-to-choose-next-nomad-base');

@@ -34,6 +34,7 @@ const LIVING_SLUGS = [
   'living-in-split',
   'living-in-tirana',
   'living-in-kotor',
+  'living-in-playa-del-carmen',
 ] as const;
 
 const guideSlugSet = new Set(guides.map((guide) => guide.slug));
