@@ -14,5 +14,5 @@ Cities without one show `/images/city-neutral.svg` and no credit. Production doe
    - the photo shows a recognisable landmark of that city
    - record the photo ID, photographer name and profile URL
    - alt text is `City, Country: what it shows`
-3. Add the entry to `CITY_PHOTOS` and remove the slug from `UNVERIFIED_DESTINATIONS`.
+3. Add the entry to `CITY_PHOTOS` and remove the slug from `UNVERIFIED_DESTINATIONS`. The alt text is also used for `og:image:alt` and `twitter:image:alt`.
 4. Run `npx vitest run`, and `npx tsx scripts/check-city-image-urls.ts` to confirm the CDN returns 200.

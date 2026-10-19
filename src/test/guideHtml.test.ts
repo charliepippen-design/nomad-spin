@@ -35,6 +35,7 @@ describe('editorial guide lookup', () => {
     expect(editorialGuideForDestination('split')?.slug).toBe('living-in-split');
     expect(editorialGuideForDestination('tirana')?.slug).toBe('living-in-tirana');
     expect(editorialGuideForDestination('penang')?.slug).toBe('living-in-penang');
+    expect(editorialGuideForDestination('kotor')?.slug).toBe('living-in-kotor');
   });
 
   it('returns null when no guide names the city', () => {

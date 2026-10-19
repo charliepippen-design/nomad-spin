@@ -200,6 +200,14 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
       'https://mb.gov.al/wp-content/uploads/2024/10/Ligj-per-te-Huajt-%E2%80%93-nr.-79.2021_English.pdf',
     ],
   },
+  ME: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: '90 days in any 180, counted from the date of first entry; after 90 days you can return once 180 days from first entry have passed.',
+    // gov.me "Stay of up to 90 days": a foreigner may stay up to 90 days without a visa,
+    // 90 days during the period of 180 days counted from the date of first entry.
+    sources: ['https://www.gov.me/en/article/stay-of-up-to-90-days'],
+  },
 };
 
 /** Row-level note additions on top of the country rule. */

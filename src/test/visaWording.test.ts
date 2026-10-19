@@ -187,6 +187,29 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
   });
 
+  it('cites the Government of Montenegro pages in the Kotor guide and prints no unofficial figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-kotor.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/gov\.me\/en\/article\/stay-of-up-to-90-days/);
+    expect(md).toMatch(/gov\.me\/en\/article\/visas-and-visa-regime/);
+    expect(md).toMatch(/gov\.me\/en\/diplomatic-missions/);
+    expect(md).toMatch(/digitalnomads\.gov\.me\/article\/legal-status-for-nomads/);
+    expect(md).toMatch(/registration-and-cancellation-of-residence-for-foreign-nationals/);
+    expect(md).toMatch(/gov\.uk\/foreign-travel-advice\/montenegro\/entry-requirements/);
+    expect(md).toMatch(/12\/18, 3\/19 and 86\/22/);
+    expect(md).toMatch(/up to \*\*two years\*\*/);
+    expect(md).toMatch(/within 24 hours/);
+    expect(md).toMatch(/not registered in Montenegro/);
+    expect(md).toMatch(/not a member of the Schengen area/);
+    // Montenegro is outside Schengen: no Croatian MUP rule, no unofficial nomad visa label, no 365-day claim.
+    expect(md).not.toMatch(/mup\.gov\.hr|18 months|Digital Nomad Visa/);
+    expect(md).not.toMatch(/visa-free for (?:a year|365)|365 days visa-free/i);
+    expect(md).not.toMatch(/€|\bEUR\b|\b9%/);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
+  });
+
   it('cites the Albanian law and ministry pages in the Tirana guide and prints no unofficial figures', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-tirana.md'),

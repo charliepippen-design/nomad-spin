@@ -308,6 +308,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Saranda** when the beach is the product and the month is **Jun-Sep**. Same **$1,150**, same Albanian entry rules, but **60 Mbps**, coworking Low, community **1**, and a row that lists it as very touristy and seasonal. It is a summer escape from Tirana, not a replacement for it.
 
+**Look at Kotor** when you want the sea and a higher safety score for **$100** more. [Kotor](/destinations/kotor) is **$1,250** solo, safety **9** (female safety **8**), **70 Mbps**, coworking **Low**, and community **2**. Montenegro's default is also 90 days in 180 for visa-free passports, with its own digital nomad permit. Read [Living in Kotor](/guides/living-in-kotor).
+
 **Look at Chiang Mai** when community and coworking are the constraint, not the budget. [Chiang Mai](/destinations/chiang-mai) is **$850** solo, community **9**, coworking **High**, **95 Mbps**, best months Nov-Feb, on **UTC+7**, with a different visa picture. The [Chiang Mai living guide](/guides/living-in-chiang-mai) covers it.
 
 **Look at Lisbon or Madrid** when comfort and a deep scene outrank the bill. [Lisbon](/destinations/lisbon) is **$2,200** with community **9**; [Madrid](/destinations/madrid) is **$2,200** with coworking **High**. Both are about **$1,050** a month more than Tirana. The [Lisbon living guide](/guides/living-in-lisbon) and the [Madrid living guide](/guides/living-in-madrid) are the full comparisons.

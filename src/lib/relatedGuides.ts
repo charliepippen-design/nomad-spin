@@ -34,6 +34,7 @@ const RELATED_GUIDE_PEERS: Record<string, readonly [string, string, string]> = {
   'living-in-split': ['living-in-porto', 'living-in-valencia', 'living-in-budapest'],
   'living-in-tirana': ['living-in-tbilisi', 'living-in-budapest', 'living-in-prague'],
   'living-in-penang': ['living-in-kuala-lumpur', 'living-in-chiang-mai', 'living-in-da-nang'],
+  'living-in-kotor': ['living-in-split', 'living-in-tirana', 'living-in-budapest'],
   'living-in-tallinn': ['living-in-prague', 'living-in-budapest', 'living-in-tbilisi'],
 };
 
