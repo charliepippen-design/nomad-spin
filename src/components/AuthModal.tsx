@@ -4,11 +4,15 @@ import { X, Bookmark, RefreshCw, Flame, Mail } from 'lucide-react';
 import { lovable } from '@/integrations/lovable/index';
 import { useToast } from '@/hooks/use-toast';
 
+interface AuthResult {
+  error: { message?: string } | null;
+}
+
 interface AuthModalProps {
   open: boolean;
   onClose: () => void;
-  onSignUp: (email: string, password: string, name?: string) => Promise<{ error: any }>;
-  onSignIn: (email: string, password: string) => Promise<{ error: any }>;
+  onSignUp: (email: string, password: string, name?: string) => Promise<AuthResult>;
+  onSignIn: (email: string, password: string) => Promise<AuthResult>;
 }
 
 const BENEFITS = [

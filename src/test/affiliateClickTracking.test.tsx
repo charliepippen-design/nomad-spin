@@ -17,7 +17,7 @@ function renderDestination(slug: string) {
   );
 }
 
-type W = Window & { dataLayer?: Record<string, unknown>[] };
+type W = Omit<Window, 'dataLayer'> & { dataLayer?: Record<string, unknown>[] };
 
 beforeEach(() => {
   (window as W).dataLayer = [];

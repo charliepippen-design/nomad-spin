@@ -1,7 +1,18 @@
 import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { useSpinStore, SavedSpin } from '@/store/useSpinStore';
+import { useSpinStore, SavedSpin, isRegionOption, isVibeOption, type Preferences } from '@/store/useSpinStore';
 import { origins as originsData } from '@/data/origins';
+import type { City } from '@/data/cities';
+import { isRecord, toJson } from '@/lib/json';
+
+// Narrow the untyped `Json` columns of saved_spins back to app types.
+function isStoredCity(value: unknown): value is City {
+  return isRecord(value) && typeof value.id === 'string' && typeof value.name === 'string';
+}
+
+function isStoredPreferences(value: unknown): value is Preferences {
+  return isRecord(value) && Array.isArray(value.budgetRange) && Array.isArray(value.vibes);
+}
 
 export function useCloudSync(userId: string | undefined) {
   const store = useSpinStore();
@@ -16,11 +27,15 @@ export function useCloudSync(userId: string | undefined) {
       .order('created_at', { ascending: true });
 
     if (data && data.length > 0) {
-      const spins: SavedSpin[] = data.map((row: any) => ({
-        city: row.city_data,
-        timestamp: new Date(row.created_at).toLocaleDateString(),
-        preferences: row.preferences,
-      }));
+      const spins: SavedSpin[] = data.flatMap((row) => {
+        const { city_data: city, preferences } = row;
+        if (!isStoredCity(city) || !isStoredPreferences(preferences)) return [];
+        return [{
+          city,
+          timestamp: new Date(row.created_at).toLocaleDateString(),
+          preferences,
+        }];
+      });
       useSpinStore.setState({ savedSpins: spins });
       localStorage.setItem('savedSpins', JSON.stringify(spins));
     }
@@ -32,8 +47,8 @@ export function useCloudSync(userId: string | undefined) {
     await supabase.from('saved_spins').insert({
       user_id: userId,
       city_id: spin.city.id,
-      city_data: spin.city as any,
-      preferences: spin.preferences as any,
+      city_data: toJson(spin.city),
+      preferences: toJson(spin.preferences),
     });
   }, [userId]);
 
@@ -102,9 +117,9 @@ export function useCloudSync(userId: string | undefined) {
           budgetRange: [data.budget_min, data.budget_max],
           internetMin: data.internet_min,
           safetyMin: data.safety_min,
-          vibes: (data.vibes || []) as any,
+          vibes: (data.vibes ?? []).filter(isVibeOption),
           landscapes: [],
-          region: (data.region || 'All') as any,
+          region: isRegionOption(data.region) ? data.region : 'All',
           origin,
         },
       });
@@ -142,14 +157,14 @@ export function useCloudSync(userId: string | undefined) {
         .select('city_id')
         .eq('user_id', userId);
 
-      const existingIds = new Set((existing || []).map((e: any) => e.city_id));
+      const existingIds = new Set((existing ?? []).map((e) => e.city_id));
       const toInsert = localSpins
         .filter((s) => !existingIds.has(s.city.id))
         .map((s) => ({
           user_id: userId,
           city_id: s.city.id,
-          city_data: s.city as any,
-          preferences: s.preferences as any,
+          city_data: toJson(s.city),
+          preferences: toJson(s.preferences),
         }));
 
       if (toInsert.length > 0) {

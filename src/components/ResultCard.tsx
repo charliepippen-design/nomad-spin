@@ -133,6 +133,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
         colors: ['#ffffff', '#4488ff', '#888888'],
         gravity: 1.2,
         ticks: 120,
+        disableForReducedMotion: true,
       });
     }, 500);
     return () => clearTimeout(timer);

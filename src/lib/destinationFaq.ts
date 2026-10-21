@@ -174,6 +174,7 @@ export function asciiText(value: string): string {
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[\u2013\u2014]/g, '-')
+    // eslint-disable-next-line no-control-regex -- intentional: strip everything outside the ASCII range
     .replace(/[^\x00-\x7F]/g, '');
 }
 

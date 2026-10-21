@@ -40,10 +40,12 @@ class SoundManager {
       try {
         const ctx = this.getCtx();
         this.idleGain.gain.setTargetAtTime(0, ctx.currentTime, 0.3);
-      } catch {}
+      } catch {
+        // AudioContext may already be closed; nothing to fade out.
+      }
     }
     setTimeout(() => {
-      try { this.idleOsc?.stop(); } catch {}
+      try { this.idleOsc?.stop(); } catch { /* oscillator already stopped */ }
       this.idleOsc = null;
       this.idleGain = null;
     }, 500);
@@ -97,10 +99,12 @@ class SoundManager {
       try {
         const ctx = this.getCtx();
         this.spinGain.gain.setTargetAtTime(0, ctx.currentTime, 0.2);
-      } catch {}
+      } catch {
+        // AudioContext may already be closed; nothing to fade out.
+      }
     }
     setTimeout(() => {
-      try { this.spinNoise?.stop(); } catch {}
+      try { this.spinNoise?.stop(); } catch { /* source already stopped */ }
       this.spinNoise = null;
       this.spinFilter = null;
       this.spinGain = null;

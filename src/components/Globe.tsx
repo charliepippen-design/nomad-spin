@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { cities, type City } from '@/data/cities';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 /* ── Convert lat/lng to 3D position ── */
 function latLngToVec3(lat: number, lng: number, radius: number): THREE.Vector3 {
@@ -60,11 +61,13 @@ function AtmosphereGlow() {
 function CityMarkers({
   spinning,
   spinSpeed,
+  reducedMotion,
   onHover,
   onUnhover,
 }: {
   spinning: boolean;
   spinSpeed: number;
+  reducedMotion: boolean;
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
@@ -99,7 +102,9 @@ function CityMarkers({
     if (!meshRef.current) return;
     timeRef.current += delta;
     const t = timeRef.current;
-    const stretch = spinning ? 1 + spinSpeed * 4 : 1;
+    // Reduced motion: no motion-blur stretch and no pulsing dots.
+    const stretch = spinning && !reducedMotion ? 1 + spinSpeed * 4 : 1;
+    const pulseAmp = reducedMotion ? 0 : 1;
     const hovered = hoveredRef.current;
 
     // Inverse-scale: dots shrink as you zoom in so they don't crowd
@@ -111,7 +116,7 @@ function CityMarkers({
       dummy.position.copy(p);
       const isHovered = hovered === i;
       const baseSize = (isHovered ? 0.06 : 0.028) * zoomFactor;
-      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.006 * zoomFactor;
+      const pulse = baseSize + Math.sin(t * 2 + i * 0.5) * 0.006 * zoomFactor * pulseAmp;
       dummy.scale.set(pulse * stretch, pulse, pulse);
       dummy.lookAt(0, 0, 0);
       dummy.updateMatrix();
@@ -127,7 +132,7 @@ function CityMarkers({
       if (hovered !== null) {
         glowRef.current.visible = true;
         glowRef.current.position.copy(positions[hovered]);
-        const glowPulse = (0.12 + Math.sin(t * 3) * 0.03) * zoomFactor;
+        const glowPulse = (0.12 + Math.sin(t * 3) * 0.03 * pulseAmp) * zoomFactor;
         glowRef.current.scale.setScalar(glowPulse);
         glowRef.current.lookAt(0, 0, 0);
       } else {
@@ -208,6 +213,7 @@ function Earth({
   userDragging,
   initialRotationY,
   focusCity,
+  reducedMotion,
   onHover,
   onUnhover,
 }: {
@@ -218,6 +224,7 @@ function Earth({
   userDragging: boolean;
   initialRotationY: number;
   focusCity?: City | null;
+  reducedMotion: boolean;
   onHover: (city: City, screenPos: { x: number; y: number }) => void;
   onUnhover: () => void;
 }) {
@@ -255,7 +262,15 @@ function Earth({
       const current = groupRef.current.rotation.y;
       const diff = targetRotY - current;
       const normalizedDiff = ((diff + Math.PI) % (Math.PI * 2)) - Math.PI;
-      groupRef.current.rotation.y += normalizedDiff * 0.04;
+      // Reduced motion: jump straight to the city instead of easing there.
+      groupRef.current.rotation.y += reducedMotion ? normalizedDiff : normalizedDiff * 0.04;
+      speedRef.current = 0;
+      return;
+    }
+
+    // Reduced motion: no casino spin and no idle auto-rotation; only the
+    // user's own drag (OrbitControls) moves the globe.
+    if (reducedMotion) {
       speedRef.current = 0;
       return;
     }
@@ -298,6 +313,7 @@ function Earth({
       <CityMarkers
         spinning={spinning}
         spinSpeed={speedRef.current}
+        reducedMotion={reducedMotion}
         onHover={onHover}
         onUnhover={onUnhover}
       />
@@ -306,17 +322,26 @@ function Earth({
 }
 
 /* ── Camera Rig - handles resetCamera & focusCity zoom ── */
-function CameraRig({ resetCamera, focusCity }: { resetCamera: boolean; focusCity?: City | null }) {
+function CameraRig({
+  resetCamera,
+  focusCity,
+  reducedMotion,
+}: {
+  resetCamera: boolean;
+  focusCity?: City | null;
+  reducedMotion: boolean;
+}) {
   const { camera } = useThree();
   const idlePos = useMemo(() => new THREE.Vector3(0, 0.3, 5.5), []);
 
   useFrame(() => {
+    // Reduced motion: snap the camera instead of gliding.
     if (resetCamera) {
-      camera.position.lerp(idlePos, 0.06);
+      camera.position.lerp(idlePos, reducedMotion ? 1 : 0.06);
     } else if (focusCity) {
       const latOffset = (focusCity.lat / 90) * 0.5;
       const focusPos = new THREE.Vector3(0, 0.3 + latOffset, 4.2);
-      camera.position.lerp(focusPos, 0.04);
+      camera.position.lerp(focusPos, reducedMotion ? 1 : 0.04);
     }
   });
 
@@ -346,6 +371,7 @@ export default function Globe({
   onCityHover,
 }: GlobeProps) {
   const [userDragging, setUserDragging] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
   const [initialRotationY, setInitialRotationY] = useState(0);
 
   // Initialize globe orientation (disabled automatic geolocation request per user request)
@@ -394,12 +420,13 @@ export default function Globe({
             userDragging={userDragging}
             initialRotationY={initialRotationY}
             focusCity={focusCity}
+            reducedMotion={reducedMotion}
             onHover={handleHover}
             onUnhover={handleUnhover}
           />
           <AtmosphereGlow />
-          <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
-          <CameraRig resetCamera={resetCamera} focusCity={focusCity} />
+          <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={reducedMotion ? 0 : 0.3} />
+          <CameraRig resetCamera={resetCamera} focusCity={focusCity} reducedMotion={reducedMotion} />
           {!spinning && (
             <OrbitControls
               enableZoom={true}
