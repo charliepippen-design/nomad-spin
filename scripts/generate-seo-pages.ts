@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createClient } from '@supabase/supabase-js';
-import { guides as staticGuides, type Guide } from '../src/data/guides';
+import { guides as staticGuides } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
 import {
   destinationMetaDescription,
@@ -23,66 +22,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
-
-// ── Supabase client (optional live guides) ─────────────────────────────────
-const supabaseUrl = process.env.VITE_SUPABASE_URL ?? '';
-const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY ?? '';
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
-
-function toSlug(raw: string): string {
-  return raw.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/--+/g, '-');
-}
-
-function stripMarkdownAndHtml(raw: string): string {
-  if (!raw) return '';
-  return raw
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/[#*`_~]/g, '')
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function excerptFromContent(content: string): string {
-  const plain = stripMarkdownAndHtml(content);
-  if (plain.length <= 160) return plain;
-  return plain.slice(0, 157).replace(/\s+\S*$/, '') + '…';
-}
-
-function calcReadTime(content: string): string {
-  const words = stripMarkdownAndHtml(content).split(/\s+/).filter(Boolean).length;
-  return `${Math.max(1, Math.ceil(words / 200))} min read`;
-}
-
-async function fetchLiveGuides(): Promise<Guide[]> {
-  if (!supabase) {
-    console.warn('⚠️  No Supabase credentials — using static guides only');
-    return staticGuides;
-  }
-  try {
-    const { data, error } = await supabase
-      .from('guides')
-      .select('id, city, title, content, created_at')
-      .order('created_at', { ascending: false });
-    if (error || !data) throw error ?? new Error('No data');
-    const liveGuides: Guide[] = data.map((row: { id: number; city: string; title: string; content: string; created_at: string }) => ({
-      id: String(row.id),
-      slug: toSlug(row.city),
-      title: row.title,
-      excerpt: excerptFromContent(row.content),
-      date: row.created_at,
-      readTime: calcReadTime(row.content),
-      content: row.content,
-    }));
-    const liveSlugSet = new Set(liveGuides.map((g) => g.slug));
-    const fallbacks = staticGuides.filter((g) => !liveSlugSet.has(g.slug));
-    console.log(`✅ Fetched ${liveGuides.length} live guide(s) from Supabase + ${fallbacks.length} static fallback(s)`);
-    return [...liveGuides, ...fallbacks];
-  } catch (err) {
-    console.warn('⚠️  Supabase fetch failed — falling back to static guides:', err);
-    return staticGuides;
-  }
-}
 
 const distDir = path.resolve(__dirname, '../dist');
 const indexHtmlPath = path.join(distDir, 'index.html');
@@ -142,7 +81,8 @@ function withVisibleBody(html: string, body: string): string {
   fs.writeFileSync(path.join(distDir, '404.html'), buildNotFoundHtml());
   console.log('✅ Generated noindex 404 page: /404.html');
 
-  const guides = await fetchLiveGuides();
+  // Static guides only: same slugs as the sitemap, /guides and llms.txt.
+  const guides = staticGuides;
 
   // Home (/): keep the WebSite/Organization JSON-LD already in index.html, add a crawlable body.
   // Other routes keep using the untouched baseHtml read above.
