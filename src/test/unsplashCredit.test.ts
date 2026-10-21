@@ -3,8 +3,8 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 // These only use the photo URL for og:image / twitter:image meta tags, never render it.
-const META_ONLY = new Set(['SEO.tsx', 'GuideArticle.tsx']);
-const IMAGE_CALLS = /\b(getCityImageUrl|getCityThumbnailUrl|useCityImage)\s*\(/;
+const META_ONLY = new Set(['SEO.tsx']);
+const IMAGE_CALLS = /\b(getCityImageUrl|getCityThumbnailUrl|useCityImage|guideHeroImage)\s*\(/;
 
 function walk(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {

@@ -1,8 +1,30 @@
 import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
-import { getCityImageUrl, getCityPhoto } from '@/data/cityImages';
+import { HOME_DESCRIPTION as SITE_DESCRIPTION, HOME_TITLE as SITE_TITLE } from '@/lib/homeSeo';
+import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_ALT, SITE_URL as BASE_URL, citySocialImage } from '@/lib/socialImage';
 
-const BASE_URL = 'https://www.digitalnomadspin.com';
+
+/**
+ * Site-wide defaults, same values as index.html. Rendered once in App so pages that
+ * omit a tag still get one; page Helmets override these by name or property.
+ */
+export function SiteDefaultMeta() {
+  return (
+    <Helmet>
+      <meta name="description" content={SITE_DESCRIPTION} />
+      <meta property="og:title" content={SITE_TITLE} />
+      <meta property="og:description" content={SITE_DESCRIPTION} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={DEFAULT_SOCIAL_IMAGE} />
+      <meta property="og:image:alt" content={DEFAULT_SOCIAL_IMAGE_ALT} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={SITE_TITLE} />
+      <meta name="twitter:description" content={SITE_DESCRIPTION} />
+      <meta name="twitter:image" content={DEFAULT_SOCIAL_IMAGE} />
+      <meta name="twitter:image:alt" content={DEFAULT_SOCIAL_IMAGE_ALT} />
+    </Helmet>
+  );
+}
 
 interface SEOProps {
   title?: string;
@@ -15,7 +37,7 @@ interface SEOProps {
 export default function SEO({
   title = 'Digital Nomad Spin | Find Your Next Destination',
   description = 'Stop overthinking. Spin the globe. Find your next destination. Discover nomad-friendly cities with curated stays, flights, eSIMs, and insurance.',
-  image = `${BASE_URL}/og-preview.png`,
+  image = DEFAULT_SOCIAL_IMAGE,
   path = '/',
   city,
 }: SEOProps) {
@@ -29,14 +51,12 @@ export default function SEO({
     ? `Explore ${citySeo.name}: $${citySeo.costUSD}/mo, ${citySeo.internetMbps}Mbps WiFi, safety ${citySeo.safety}/10. Find stays, flights, and eSIMs for digital nomads.`
     : description;
   const finalImage = citySeo
-    ? getCityPhoto(citySeo.id)
-      ? getCityImageUrl(citySeo.id, citySeo.region, 1200)
-      : `${BASE_URL}/og-preview.png`
+    ? citySocialImage(citySeo.id).url
     : image.startsWith('http')
       ? image
       : `${BASE_URL}${image}`;
 
-  const imageAlt = (citySeo && getCityPhoto(citySeo.id)?.alt) || 'Nomad Spin: spin the globe to find your next digital nomad city';
+  const imageAlt = citySeo ? citySocialImage(citySeo.id).alt : DEFAULT_SOCIAL_IMAGE_ALT;
 
   const jsonLd = citySeo
     ? {
