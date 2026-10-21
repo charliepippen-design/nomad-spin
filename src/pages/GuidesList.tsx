@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { BookOpen, Clock, Calendar, Loader2, AlertCircle } from 'lucide-react';
-import { useGuides } from '@/hooks/useGuides';
+import { BookOpen, Clock, Calendar } from 'lucide-react';
 import { indexGuides } from '@/data/guides';
 import { GUIDES_INDEX_DESCRIPTION, guidesIndexBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 
@@ -11,10 +10,8 @@ const TITLE = 'Digital Nomad Guides & Analysis | Nomad Spin';
 const DESCRIPTION = GUIDES_INDEX_DESCRIPTION;
 
 export default function GuidesList() {
-  const { data: liveGuides, isLoading, isError } = useGuides();
-
-  // Same published list as the sitemap. Live rows can refresh those slugs only.
-  const mergedGuides = indexGuides(liveGuides);
+  // Same published list as the sitemap. Static content only, no database read.
+  const mergedGuides = indexGuides();
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -66,23 +63,7 @@ export default function GuidesList() {
           </div>
         </div>
 
-        {/* Spinner only when there is nothing cached to show. */}
-        {isLoading && mergedGuides.length === 0 && (
-          <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
-            <Loader2 className="w-4 h-4 animate-spin" />
-            Loading guides…
-          </div>
-        )}
-
-        {/* Error state, still shows static guides below */}
-        {isError && (
-          <div className="flex items-center gap-2 text-sm text-foreground mb-6 border border-border bg-muted/50 rounded-lg px-4 py-3">
-            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-            Could not reach the live guide database. Showing cached content.
-          </div>
-        )}
-
-        {/* Guides Grid. Static guides stay visible while the live query is in flight. */}
+        {/* Guides Grid */}
         {mergedGuides.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {mergedGuides.map((guide) => (

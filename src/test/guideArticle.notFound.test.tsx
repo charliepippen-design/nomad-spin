@@ -1,17 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import GuideArticle from '@/pages/GuideArticle';
-
-vi.mock('@/hooks/useGuides', () => ({
-  useGuides: () => ({
-    data: undefined,
-    isLoading: false,
-    isError: true,
-    error: new Error('offline'),
-  }),
-}));
 
 const NOT_FOUND_TITLE = 'Page Not Found (404) | Nomad Spin';
 
