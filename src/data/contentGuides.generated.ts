@@ -12,7 +12,7 @@ export const contentGuides: Guide[] = [
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "19 min read",
-    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","kuala-lumpur","penang","split","tirana","kotor","tallinn"],
+    relatedDestinations: ["chiang-mai","lisbon","tbilisi","mexico-city","budapest","barcelona","porto","valencia","madrid","kuala-lumpur","penang","split","tirana","kotor","playa-del-carmen","tallinn"],
     content: `## You're not bad at travel planning. You're missing a decision order
 
 Most remote workers who say "I don't know where to go next" already have too much information, not too little. Saved Instagram Reels, half-finished Nomad List tabs, a friend hyping Lisbon, another friend recovering from Bali traffic, and zero shared framework for weighing any of it.
@@ -21,7 +21,7 @@ The stuck feeling is usually a sequencing problem. People compare vibes before t
 
 This guide is a decision order, not another ranking. It maps the five constraints that actually decide whether a base works onto Nomad Spin's real filters, then shows you how to turn a spin into a shortlist of destination pages and (only after that) a booking. Nomad Spin scores **780+ cities** on cost, internet, safety, vibe, landscape, region, and visa data; the point of this article is to use those fields on purpose instead of spinning at random.
 
-If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Kotor](/guides/living-in-kotor), [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Penang](/guides/living-in-penang), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Split](/guides/living-in-split), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), [Living in Tirana](/guides/living-in-tirana), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
+If you already know you want a deep dive on a specific hub, skip ahead to [Living in Bali](/guides/living-in-bali), [Living in Bangkok](/guides/living-in-bangkok), [Living in Barcelona](/guides/living-in-barcelona), [Living in Budapest](/guides/living-in-budapest), [Living in Buenos Aires](/guides/living-in-buenos-aires), [Living in Cape Town](/guides/living-in-cape-town), [Living in Chiang Mai](/guides/living-in-chiang-mai), [Living in Da Nang](/guides/living-in-da-nang), [Living in Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Living in Hoi An](/guides/living-in-hoi-an), [Living in Kotor](/guides/living-in-kotor), [Living in Kuala Lumpur](/guides/living-in-kuala-lumpur), [Living in Lisbon](/guides/living-in-lisbon), [Living in Madrid](/guides/living-in-madrid), [Living in Medellin](/guides/living-in-medellin), [Living in Mexico City](/guides/living-in-mexico-city), [Living in Penang](/guides/living-in-penang), [Living in Playa del Carmen](/guides/living-in-playa-del-carmen), [Living in Porto](/guides/living-in-porto), [Living in Prague](/guides/living-in-prague), [Living in Split](/guides/living-in-split), [Living in Tallinn](/guides/living-in-tallinn), [Living in Tbilisi](/guides/living-in-tbilisi), [Living in Tirana](/guides/living-in-tirana), or [Living in Valencia](/guides/living-in-valencia). If you want a ranked shortlist *after* you've set constraints, use [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). This page is what to do when you still don't know which of those paths fits.
 
 ## The five constraints that actually matter (and map to Spin)
 
@@ -37,7 +37,7 @@ Use the supporting financials when you're comparing *how* you'd stay:
 - \`financials.airbnbMedian\`: nightly scouting cost when you're still testing a neighborhood
 - \`financials.rentIndex\`: relative rent pressure vs other cities in the dataset
 
-Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Penang](/destinations/penang) at **$800** ([living guide](/guides/living-in-penang)), [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Kuala Lumpur](/destinations/kuala-lumpur) at **$1,000** ([living guide](/guides/living-in-kuala-lumpur)), [Tirana](/destinations/tirana) at **$1,150** ([living guide](/guides/living-in-tirana)), [Kotor](/destinations/kotor) at **$1,250** ([living guide](/guides/living-in-kotor)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Split](/destinations/split) at **$1,800** ([living guide](/guides/living-in-split)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
+Concrete anchors from the dataset (solo nomad monthly \`costUSD\`): [Da Nang](/destinations/da-nang) at **$700** ([living guide](/guides/living-in-da-nang)), [Chiang Mai](/destinations/chiang-mai) at **$850**, [Tbilisi](/destinations/tbilisi) at **$800**, [Penang](/destinations/penang) at **$800** ([living guide](/guides/living-in-penang)), [Ho Chi Minh City](/destinations/ho-chi-minh-city) at **$800** ([living guide](/guides/living-in-ho-chi-minh-city)), [Buenos Aires](/destinations/buenos-aires) at **$900** ([living guide](/guides/living-in-buenos-aires)), [Kuala Lumpur](/destinations/kuala-lumpur) at **$1,000** ([living guide](/guides/living-in-kuala-lumpur)), [Tirana](/destinations/tirana) at **$1,150** ([living guide](/guides/living-in-tirana)), [Kotor](/destinations/kotor) at **$1,250** ([living guide](/guides/living-in-kotor)), [Mexico City](/destinations/mexico-city) at **$1,300**, [Budapest](/destinations/budapest) at **$1,500** ([living guide](/guides/living-in-budapest)), [Tallinn](/destinations/tallinn) at **$1,600** ([living guide](/guides/living-in-tallinn)), [Playa del Carmen](/destinations/playa-del-carmen) at **$1,600** ([living guide](/guides/living-in-playa-del-carmen)), [Prague](/destinations/prague) at **$1,700** ([living guide](/guides/living-in-prague)), [Porto](/destinations/porto) at **$1,800** ([living guide](/guides/living-in-porto)), [Split](/destinations/split) at **$1,800** ([living guide](/guides/living-in-split)), [Valencia](/destinations/valencia) at **$1,900** ([living guide](/guides/living-in-valencia)), [Lisbon](/destinations/lisbon) at **$2,200**, [Madrid](/destinations/madrid) at **$2,200** ([living guide](/guides/living-in-madrid)), [Barcelona](/destinations/barcelona) at **$2,500** ([living guide](/guides/living-in-barcelona)). If your real ceiling is $1,400 and you keep "maybe Lisbon" in the pile without raising the budget slider, you're arguing with yourself, not researching.
 
 ### 2. Work reliability → internet and infrastructure
 
@@ -47,7 +47,7 @@ Meetings don't care about your sunset photos. Spin's **minimum internet** prefer
 - \`infra.powerGridStability\` (1 to 10): load shedding and brownouts kill calls as fast as bad Wi‑Fi
 - \`infra.coworkingDensity\` (\`High\` / \`Med\` / \`Low\`): whether you have a fallback room when home internet fails
 
-Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Kuala Lumpur averages **100 Mbps** with reliability **8** and power **8**, coworking **High**; the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) is where Bangsar versus Mont Kiara, the DE Rantau pass, and the haze and monsoon months show up, which the Mbps figure does not. Penang averages **80 Mbps** with reliability **7** and power **8**, coworking **Med**; the [Penang living guide](/guides/living-in-penang) is where George Town versus the north-coast condos, the short coworking list, and the Sep-Nov rain show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Split averages **100 Mbps** with reliability **8** and power **8**, coworking **Med**; the [Split living guide](/guides/living-in-split) is where the Old Town versus Varos choice, the July-August crowds, and Croatia's nomad temporary stay show up, which the Mbps figure does not. Tirana averages **90 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Tirana living guide](/guides/living-in-tirana) is where Blloku versus the residential districts, the thin coworking map, and the 90-in-180 default versus the unique permit show up, which the Mbps figure does not. Kotor averages **70 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Kotor living guide](/guides/living-in-kotor) is where the Old Town versus Dobrota and Prcanj, the cruise-ship days, and Montenegro's 90-in-180 default versus its digital nomad permit show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
+Lisbon posts **200 Mbps** with reliability **9** and power **9**. The [Lisbon living guide](/guides/living-in-lisbon) is where the $2,200 band, the neighborhoods, and the D8 paperwork show up, which the Mbps figure does not. Porto posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **Med** and safety **9.0**; the [Porto living guide](/guides/living-in-porto) is where the $1,800 band, Cedofeita versus Bonfim, and the wet-winter trade-off show up, which the Mbps figure does not. Budapest posts the same **200 Mbps**, reliability **9**, and power **9** at **$1,500**. The [Budapest living guide](/guides/living-in-budapest) is where District VII versus Buda, winter, and the White Card show up, which the Mbps figure does not. Prague posts the same **200 Mbps**, reliability **9**, and power **9**, with coworking **High**, at **$1,700**, and safety **8.8**. The [Prague living guide](/guides/living-in-prague) is where Vinohrady versus Old Town, cold winters, and the freelancer-versus-employee visa fork show up, which the Mbps figure does not. Tallinn posts **300 Mbps**, reliability **10**, and power **9**, with coworking **Med**, at **$1,600**, and safety **9.2**. The [Tallinn living guide](/guides/living-in-tallinn) is where e-Residency versus the telework D-visa, Kalamaja versus Old Town, and dark winters show up, which the Mbps figure does not. Cape Town can show **100 Mbps** on paper while \`powerGridStability\` sits at **4**: which is why the [Cape Town living guide](/guides/living-in-cape-town) spends real space on UPS and coworking fallbacks. Bali averages **50 Mbps** with reliability **5**; the [Bali living guide](/guides/living-in-bali) is blunt about street-by-street fiber and backup SIMs. Chiang Mai averages **95 Mbps** with reliability **8** and power **8**; the [Chiang Mai living guide](/guides/living-in-chiang-mai) is where neighborhood choice and burning season show up, which the Mbps figure does not. Mexico City averages **90 Mbps** with reliability **7** and power **7**; the [Mexico City living guide](/guides/living-in-mexico-city) is where altitude, air quality, and Roma versus Condesa show up, which the Mbps figure does not. Playa del Carmen averages **60 Mbps** with reliability **6** and power **7**, and coworking density **Med**; the [Playa del Carmen living guide](/guides/living-in-playa-del-carmen) is where Centro versus Playacar, the sargassum and hurricane months, and the backup connection show up, which the Mbps figure does not. Da Nang averages **80 Mbps** with reliability **7** and power **7**; the [Da Nang living guide](/guides/living-in-da-nang) is where An Thuong versus Hai Chau and the Sep-Dec typhoon window show up, which the Mbps figure does not. Ho Chi Minh City averages **85 Mbps** with reliability **7** and power **7**, coworking **High**; the [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is where District 1 versus Thao Dien, traffic, and the Dec-Apr dry season show up, which the Mbps figure does not. Kuala Lumpur averages **100 Mbps** with reliability **8** and power **8**, coworking **High**; the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur) is where Bangsar versus Mont Kiara, the DE Rantau pass, and the haze and monsoon months show up, which the Mbps figure does not. Penang averages **80 Mbps** with reliability **7** and power **8**, coworking **Med**; the [Penang living guide](/guides/living-in-penang) is where George Town versus the north-coast condos, the short coworking list, and the Sep-Nov rain show up, which the Mbps figure does not. Medellin averages **80 Mbps** with reliability **7** and power **7**; the [Medellin living guide](/guides/living-in-medellin) is where Laureles versus El Poblado, Spanish, and the safety scores show up, which the Mbps figure does not. Bangkok averages **120 Mbps** with reliability **8** and power **8**; the [Bangkok living guide](/guides/living-in-bangkok) is where BTS neighborhood choice, heat, and traffic show up, which the Mbps figure does not. Tbilisi averages **60 Mbps** with reliability **7** and power **7**, and coworking density **Med**; the [Tbilisi living guide](/guides/living-in-tbilisi) is where the 365-day visa-free field, winter, and that Med coworking map show up, which the Mbps figure does not. Barcelona averages **300 Mbps** with reliability **9** and power **9**, coworking **High**; the [Barcelona living guide](/guides/living-in-barcelona) is where the $2,500 band, the rent, and the cheaper-peer decision show up, which the Mbps figure does not. Valencia averages **170 Mbps** with reliability **9** and power **9**, coworking **Med**; the [Valencia living guide](/guides/living-in-valencia) is where the $1,900 band, Ruzafa versus Cabanyal, and the October flood calendar show up, which the Mbps figure does not. Hoi An averages **80 Mbps** with estimated reliability **7** and estimated power **7**, and coworking density **Low**; the [Hoi An living guide](/guides/living-in-hoi-an) is where Old Town versus An Bang and the Sep-Nov flood window show up, which the Mbps figure does not. Madrid averages **200 Mbps** with reliability **9** and power **9**, coworking **High**; the [Madrid living guide](/guides/living-in-madrid) is where the $2,200 band, the no-beach choice, and the Jul-Aug heat rule show up, which the Mbps figure does not. Split averages **100 Mbps** with reliability **8** and power **8**, coworking **Med**; the [Split living guide](/guides/living-in-split) is where the Old Town versus Varos choice, the July-August crowds, and Croatia's nomad temporary stay show up, which the Mbps figure does not. Tirana averages **90 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Tirana living guide](/guides/living-in-tirana) is where Blloku versus the residential districts, the thin coworking map, and the 90-in-180 default versus the unique permit show up, which the Mbps figure does not. Kotor averages **70 Mbps** with estimated reliability **7** and estimated power **9**, and coworking density **Low**; the [Kotor living guide](/guides/living-in-kotor) is where the Old Town versus Dobrota and Prcanj, the cruise-ship days, and Montenegro's 90-in-180 default versus its digital nomad permit show up, which the Mbps figure does not. Buenos Aires averages **70 Mbps** with reliability **6** and power **6**, and coworking density **Med**; the [Buenos Aires living guide](/guides/living-in-buenos-aires) is where inflation, Palermo versus Villa Crespo, and that reliability score show up, which the Mbps figure does not. If your job is meeting-heavy, treat reliability and power as hard filters, not footnotes.
 
 ### 3. Personal safety floor → safety scores
 
@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Kotor: visa-free entry for **90** days in any 180 for listed passports, counted from first entry, \`UTC+1\`, and Montenegro is outside Schengen. The longer remote-work route is Montenegro's temporary residence permit for digital nomads, up to 2 years, filed in person (see the [Kotor living guide](/guides/living-in-kotor)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). Penang: the same **Visa Exemption**, **90** days for many passports, \`UTC+8\`, with the same DE Rantau pass as the longer route (see the [Penang living guide](/guides/living-in-penang)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Playa del Carmen: the same Mexican visitor rules, up to **180** days as the legal maximum, with the officer at entry deciding how many you get, \`UTC-5\` all year (see the [Playa del Carmen living guide](/guides/living-in-playa-del-carmen)). Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Kotor: visa-free entry for **90** days in any 180 for listed passports, counted from first entry, \`UTC+1\`, and Montenegro is outside Schengen. The longer remote-work route is Montenegro's temporary residence permit for digital nomads, up to 2 years, filed in person (see the [Kotor living guide](/guides/living-in-kotor)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). Penang: the same **Visa Exemption**, **90** days for many passports, \`UTC+8\`, with the same DE Rantau pass as the longer route (see the [Penang living guide](/guides/living-in-penang)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -160,7 +160,7 @@ Useful canonical pages for a first comparison set: [Chiang Mai](/destinations/ch
 2. Optionally apply a preset (Budget Saver, High Comfort, or Quiet / Productive), then adjust one slider.
 3. Spin once. Open the linked \`/destinations/...\` page. Check cost, Mbps, safety, visa days, timezone, and cons.
 4. Save a second and third spin with **one** constraint loosened each time. Compare side by side.
-5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kotor](/guides/living-in-kotor), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Penang](/guides/living-in-penang), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Split](/guides/living-in-split), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
+5. When a city survives that process, read a deep guide if we have one ([Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kotor](/guides/living-in-kotor), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Penang](/guides/living-in-penang), [Playa del Carmen](/guides/living-in-playa-del-carmen), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Split](/guides/living-in-split), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), [Valencia](/guides/living-in-valencia)) or proceed from the destination page and current official visa sources.
 
 You don't need a perfect ranking of 780+ cities. You need a repeatable filter → spin → destination-page loop that stops the tab-hoarding and produces one base you can actually book.
 
@@ -5792,6 +5792,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a digital nomad visa field of **365** days, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
 
+**Look at Playa del Carmen** when you want the sea on the same **UTC-5** clock and can pay **$500** more (**$1,600** against **$1,100**). Internet is **60 Mbps** at reliability **6**, coworking is **Med**, safety is **6.8**, and best months are **Nov-Apr**. Mexico's visitor stay can run up to 180 days, set by the officer at entry. Read [Living in Playa del Carmen](/guides/living-in-playa-del-carmen).
+
 If the alternative is a beach, [Living in Bali](/guides/living-in-bali) is the peer, at a solo month of **$1,200** and internet reliability **5**. If the alternative is scenery with a power problem, [Living in Cape Town](/guides/living-in-cape-town) is the peer: solo **$1,400**, safety **5.5**, power stability **4**.
 
 ## First-week checklist and how to compare Medellin on Nomad Spin
@@ -6165,6 +6167,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 **Pick Buenos Aires** when the solo month needs to land near **$900**, you want nightlife **9** and a more European street texture, and you can live with community **6**, internet **70 Mbps** at reliability **6**, and a **90-day** exemption field. The cons on that row include inflation instability and petty crime. **UTC-3** is two hours later than Medellín and three hours later than Mexico City, which is fine for US East and a later start for US Pacific. The [Buenos Aires living guide](/guides/living-in-buenos-aires) is the on-the-ground version of that row.
 
 **Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
+
+**Look at Playa del Carmen** when the real alternative is the Caribbean, not another capital. [Playa del Carmen](/destinations/playa-del-carmen) is **$1,600** solo, **$300** more, with **60 Mbps** at reliability **6**, coworking **Med**, safety **6.8**, and best months **Nov-Apr**. It runs on **UTC-5** all year, one hour ahead of Mexico City, under the same Mexican visitor rules. Sargassum and hurricane season are on its cons. Read [Living in Playa del Carmen](/guides/living-in-playa-del-carmen).
 
 **Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days (an application, with a longer residence permit possible), **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a **30-day** tourism exemption (passport-dependent, tourism only) at **UTC+7**. The DTV is the long-stay path. Read the [Bangkok living guide](/guides/living-in-bangkok). Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
 
@@ -6636,6 +6640,405 @@ These slots are last, after the week above. Use the buttons on the [Penang desti
 [Spin the globe](/) with those floors. Penang should win when the floors are real, the month is Dec-Feb or Jun-Jul, and you want a cheap, English-speaking, food-first island on **UTC+8** with a legal plan you have already read. It should lose when you need nightlife, a big community, High coworking, or a year of stay with no paperwork.
 
 *Last updated: October 2026. Visa rules, prices, and which coworking spaces are open change quickly. The $800 solo month, $30 nightly median, 80 Mbps, reliability 7, power 8, and safety 8.0 are Nomad Spin's Penang row. The $600 long-term cost is Nomad Spin's long-term monthly estimate, as on every city row. The DE Rantau duration, income thresholds, fees, and endorsement steps are MDEC's DE Rantau Pass FAQ Version 10.0 (28 August 2026) cited above. When they disagree, the official pages and your stamp win.*
+`,
+  },
+  {
+    id: "living-in-playa-del-carmen",
+    slug: "living-in-playa-del-carmen",
+    title: "The Ultimate Guide to Living in Playa del Carmen",
+    seoTitle: "Living in Playa del Carmen 2026: The Digital Nomad's Definitive Guide",
+    shortTitle: "Living in Playa del Carmen 2026: Costs, Visa",
+    excerpt: "Playa del Carmen for remote workers in 2026: real monthly costs, Centro vs Playacar, Mexico entry rules, 60 Mbps internet, sargassum and hurricane season.",
+    date: "2026-10-19",
+    updated: "2026-10-19",
+    readTime: "34 min read",
+    relatedDestinations: ["playa-del-carmen","tulum","cancun","merida-mexico","mexico-city","medellin"],
+    content: `## Is living in Playa del Carmen worth it for digital nomads in 2026?
+
+The case for living in Playa del Carmen as a digital nomad is a beach-and-community decision with a work caveat attached. You get the Caribbean a few blocks from your desk, a real nomad scene, cheap buses up and down the coast, and a clock that matches US Eastern time all year, in exchange for tourist pricing, a safety score below most beach peers, an internet average that needs a backup, and a summer of sargassum and storms. The short answers come from the [Playa del Carmen](/destinations/playa-del-carmen) row, not from a beach-club photo.
+
+**How much does it cost to live in Playa del Carmen as a digital nomad?** Nomad Spin lists about **$1,600** a month for a solo nomad and **$1,200** for a longer stay on a monthly lease. The median Airbnb is around **$80** a night, so thirty nightly-rate nights cost more than either monthly band.
+
+**Is Playa del Carmen internet good enough for video calls?** With a tested flat and a backup, yes. Nomad Spin shows about **60 Mbps** average, reliability **6/10**, and power stability **7/10**. Coworking density is Med. Test upload in the actual unit before signing, and keep a Mexican SIM with data as the fallback.
+
+**What visa do digital nomads use in Playa del Carmen?** Many passports enter Mexico visa-free as visitors for up to 180 days, but the immigration officer decides how many days you get at entry. Visitors cannot take paid work in Mexico. Longer stays need temporary residence, applied for at a Mexican consulate. Check the official INM list first.
+
+**Who should skip living in Playa del Carmen?** Skip it if you need fast, rock-solid home internet, a quiet street, or a high safety score. Nomad Spin flags rising costs, sargassum, hurricane season, tourist traps, and declining safety. Safety is **6.8**, female safety **6**, reliability **6**, and nightlife **8** on a party-tagged row.
+
+**What are the best months to live in Playa del Carmen?** Nomad Spin's friendliest months are **Nov, Dec, Jan, Feb, Mar, and Apr**. Rainy months to plan around are **Jun, Jul, Aug, and Sep**. The Atlantic hurricane season runs from 1 June to 30 November, and sargassum arrivals usually build from spring and peak in summer.
+
+**Which neighborhood should I pick in Playa del Carmen?** Centro, around Quinta Avenida, is walkable and loud. Gonzalo Guerrero, just north, is the same convenience a little calmer. Playacar is the gated, quiet option south of the ferry pier. Zazil-Ha and Colosio, further north, are more residential and cheaper, with less on foot.
+
+**What time zone is Playa del Carmen in?** Nomad Spin lists **UTC-5**. Quintana Roo is in Mexico's Zona Sureste and keeps one clock all year. That matches US Eastern time in winter, an hour behind it during US daylight time, an hour ahead of Mexico City all year, and on the same clock as Medellin.
+
+Worth it, with conditions. Community is **7**, English proficiency **7**, nightlife **8**, and \`lgbtFriendly\` **7**, all strong for Mexico. The weak numbers are the ones that matter for a working month: safety **6.8**, female safety **6**, internet reliability **6**. The city is tagged **beach**, **party**, and **adventure**, on a **seaside** landscape, in **LATAM**, language **Spanish**, average temperature **27°C**. The row's own pros are Caribbean beaches, the nomad community, great diving, nightlife, and easy US flights. Its cons are rising costs, sargassum seaweed, hurricane season, tourist traps, and safety declining. Every one of them shows up within a week.
+
+The honest comparison is with [Mexico City](/destinations/mexico-city), which costs **$300** less a month (**$1,300**), has **90 Mbps**, reliability **7**, and High coworking, and has no sea. Playa's case against Mexico City is the beach, the US Eastern clock, and a smaller town you can learn fast. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist with a Latin America line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
+
+## Who Playa del Carmen is for (and who should skip it)
+
+Playa fits people who want a Caribbean winter, a ready-made social life, US-friendly hours, and a monthly bill near **$1,600**. It is a poor fit if the month depends on fiber-grade home internet, on low street noise, or on a safety score of **8** or more.
+
+**It tends to fit if you:**
+
+- Can fund the solo baseline (about **$1,600**) or will actually live on a monthly lease near the longer-stay figure (**$1,200**)
+- Work US hours. **UTC-5** all year is US Eastern time in winter and one hour behind it while the US is on daylight saving time
+- Can run calls on **60 Mbps** with reliability **6**, a second connection, and a coworking desk (density **Med**) for the calls you cannot drop
+- Want community **7**, nightlife **8**, and English **7** without having to build a scene from zero
+- Want the reef, cenotes, and Cozumel diving on weekends
+- Can put the serious months in **Nov-Apr** and treat summer as a decision you make on purpose
+
+**Skip it, or pick another city, if you:**
+
+- Cannot clear **$1,200** on a monthly lease. The **$80** nightly median will not save you. [Merida](/destinations/merida-mexico) is **$1,250** solo, and [Medellin](/destinations/medellin) is **$1,100**
+- Need a safety floor of **8**. Playa is **6.8** and lists declining safety as a con. Merida is **8** on its row
+- Need fast, reliable home internet as the plan, not the hope. [Cancun](/destinations/cancun) posts **120 Mbps**, and [Living in Mexico City](/guides/living-in-mexico-city) covers a **90 Mbps** city with High coworking
+- Need quiet nights near the beach. The party tag is earned on Quinta Avenida and the streets around it
+- Need more than the days the officer writes at entry, and are not ready to apply for residence at a consulate before you travel
+- Want the beach without seaweed in summer. Sargassum is a named con, not a rumor
+
+Female safety on the row is **6**, and \`lgbtFriendly\` is **7**, the same as Tulum and above Cancun (**6**). Those are dataset scores, not a map. They do not describe a dark side street at 3am after the clubs close. Walk the route home at night before you sign, and use a booked taxi rather than a ride from the street late at night.
+
+If you are still sorting those filters, the decision order is [how to choose a base](/guides/how-to-choose-next-nomad-base), not another photo of the beach.
+
+## Monthly cost bands (solo $1,600, long-term $1,200, Airbnb $80)
+
+Nomad Spin tracks three money figures for Playa del Carmen, and those are the bands. "Rising costs" is the first con, and it means the town is priced against tourists, not against the rest of Mexico.
+
+| Band | Figure | Field on the Playa del Carmen row | How to read it |
+|---|---:|---|---|
+| Longer stay | $1,200 / month | \`financials.costLongTerm\` | A local-rate month: a monthly lease, supermarket food, buses and colectivos |
+| Solo nomad baseline | $1,600 / month | \`costUSD\` (same as \`costNomadSingle\`) | The planning number for a solo remote worker |
+| Nightly scouting | $80 / night | \`financials.airbnbMedian\` | What a short test stay tends to cost per night, not a monthly budget |
+
+\`rentIndex\` is **35**. That is relative rent pressure inside the dataset, not a dollar rent. It sits between [Cancun](/destinations/cancun) (**34**) and [Tulum](/destinations/tulum) (**45**), and well above [Merida](/destinations/merida-mexico) (**25**), [Mexico City](/destinations/mexico-city) (**28**), and [Medellin](/destinations/medellin) (**22**). On the Riviera Maya, Playa is the middle of the bill, not the cheap end.
+
+### The nightly median will quietly wreck the monthly baseline
+
+Thirty nights at the **$80** median is **$2,400** in lodging before food. That is **$800** above the entire **$1,600** solo month and **$1,200** above the **$1,200** longer-stay figure. If you "try the town" on nightly lets for a month, you are not on either monthly band. Both monthly figures assume a monthly place.
+
+A one- to two-week landing stay is a scout. Use it to see leases in Gonzalo Guerrero, Zazil-Ha, or Playacar in person. Do not call it the **$1,200** month.
+
+### What moves you off the band
+
+Rents in a resort town move with the season and the peso, so any figure on a blog is out of date by the time you read it. For any price you want, check the landlord, the operator, or the official page the week you book. These are the levers, in the order they actually matter.
+
+| Choice | Stays near $1,200 to $1,600 | Leaves the baseline |
+|---|---|---|
+| Housing | A monthly lease a few blocks inland, signed for the season you will actually stay | Thirty nights at the $80 median, or a beachfront flat on Quinta Avenida in high season |
+| Food | Supermarkets, markets, taquerias a few streets back from Quinta, cooking at home | Quinta Avenida restaurants and beach clubs as the meal plan |
+| Work | Home internet you have tested, a SIM with data, a coworking pass for call days | A beach-club day bed as the office, plus a short let you already overpaid for |
+| Transport | Walking, colectivos on the highway, ADO buses for longer trips | Taxis for every errand, a rental car parked most of the week |
+| Calendar | A Nov-Apr stay booked early, or a shoulder month chosen on purpose | December holidays and Easter booked late |
+
+### Reality checks
+
+- The **$1,600** number is a town baseline, not a beachfront December quote.
+- Tap water is not the drinking water. Most households buy large refill bottles. Budget for it and ask the landlord how the building handles it.
+- Insurance is not inside those three fields. Budget it separately, and price it before you need a clinic.
+- Air conditioning is part of the rent conversation. Ask who pays the electricity, and how it is billed, before you sign for a summer month.
+
+## Neighborhoods that work: Centro, Gonzalo Guerrero, Playacar, Zazil-Ha, and Colosio
+
+Playa del Carmen runs in a long strip between the beach and the federal highway. Quinta Avenida (5th Avenue), the pedestrian street one block inland from the sea, is the spine. The further you live from it, the quieter and cheaper the street, and the more you depend on a bike or a taxi. There are no separate Nomad Spin destination pages for these areas, so the canonical numbers live on [Playa del Carmen](/destinations/playa-del-carmen). The trade-offs below are how people actually use the town.
+
+| Base | Best for | You give up |
+|---|---|---|
+| Centro (Quinta Avenida) | A first few weeks, walking everywhere, the ferry and the ADO terminal at the door | Quiet nights, and tourist prices on everything within a block of Quinta |
+| Gonzalo Guerrero | Centro convenience with fewer crowds, beaches at Mamitas and further north | Some of the bar noise, on weekends in particular |
+| Playacar | A quiet, gated, residential month next to the beach | Walking to most coworking, cafes, and errands |
+| Zazil-Ha | A residential block or two north of the busiest strip | Shops and nightlife at the door |
+| Colosio | Local leases, lower rent, everyday Mexican neighborhood life | The beach on foot. You live by bike, colectivo, or taxi |
+
+### Centro (Quinta Avenida)
+
+Centro runs from the beach to the highway, and Quinta Avenida starts at its south end near the Cozumel ferry pier and the ADO tourist terminal. Everything is on foot: supermarkets, pharmacies, the beach, coworking, the ferry, the bus to the airport. Week one feels obvious here.
+
+**Trade-off:** obvious costs more, and the noise is real. Bars, clubs, and street music on and around Quinta run late, and "tourist traps" is on the cons for a reason. A flat one block from Quinta and a flat five blocks inland are different months.
+
+Pick Centro for the landing weeks while you tour monthly leases. Pick a street a few blocks inland from Quinta if you stay, and visit it on a Friday night before you sign.
+
+**Housing tell:** confirm the internet in the unit, not "the building has Wi-Fi." A speed test at the desk, upload included, beats a listing adjective.
+
+### Gonzalo Guerrero
+
+North of Constituyentes Avenue, Gonzalo Guerrero is the extension of Centro, with Quinta Avenida continuing through it. It is still walkable, with restaurants, cafes, and the beaches around Playa Mamitas, and it is where a lot of longer-stay nomads end up.
+
+**Trade-off:** it is not quiet. Mamitas has beach clubs, and the blocks near them get loud on weekends. Ask for the cross streets and check what is on the corner.
+
+Pick Gonzalo Guerrero for a walkable month that is not on the busiest stretch of Quinta. Skip the blocks near the beach clubs if you sleep early.
+
+### Playacar
+
+Playacar is the gated residential development south of Centro, past the ferry pier, split into two phases, with houses, condos, and resort hotels along the beach. It is the quiet answer, and the one families pick.
+
+**Trade-off:** gated means a walk or a taxi to Centro for almost everything, and the further phase is a real distance from Quinta. You trade street life for calm. Price it against Gonzalo Guerrero before you assume calm is cheaper.
+
+Pick Playacar if you will work from home, swim, and treat Quinta as an evening out. Skip it if you want to walk to a coworking desk every morning.
+
+### Zazil-Ha
+
+Zazil-Ha is a short stretch north of Gonzalo Guerrero, a couple of blocks running north from around Calle 38. It is more residential than Centro, with the beach still within reach.
+
+**Trade-off:** fewer shops, fewer cafes, and a walk back to the center of things. Best for people who want a calmer address but not a commute.
+
+### Colosio
+
+Colosio is the large residential neighborhood further north. It is where many people who work in Playa live: local leases, local prices, taquerias, and a normal Mexican street.
+
+**Trade-off:** you will not walk to the beach or to Quinta. A bike, colectivos, or taxis are part of the plan. Pick Colosio for a long, cheaper stay you have scouted in person, not for a first month booked from abroad.
+
+### Booking order
+
+After you pick the neighborhood, these three slots are the booking order. The live stay, flight, and insurance options are on the [Playa del Carmen destination page](/destinations/playa-del-carmen).
+
+| Slot | What to book |
+|---|---|
+| Stays | A one- to two-week landing stay in Centro or Gonzalo Guerrero while you tour monthly leases, with a cancellation rule |
+| Flights | Into Cancun (CUN) or Tulum (TQO) for a Nov-Apr window, only after the month survives the season section |
+| Insurance | Travel and health cover for the full stay, including storm-related changes in summer and autumn |
+
+## Internet, power, and coworking for video-call work (60 Mbps, reliability 6, power 7, Med coworking)
+
+The town average is **60 Mbps**, with reliability **6/10** and power stability **7/10**. Coworking density is **Med**. That is a workable setup for ordinary video calls from a tested flat with a fallback, and a weak default for a call-heavy job that runs on home Wi-Fi alone. It sits above [Tulum](/destinations/tulum) (**40 Mbps**, reliability **4**) and below [Cancun](/destinations/cancun) (**120 Mbps**), [Merida](/destinations/merida-mexico) (**100 Mbps**), [Mexico City](/destinations/mexico-city) (**90 Mbps**), and [Medellin](/destinations/medellin) (**80 Mbps**).
+
+Reliability **6** is the number to plan around. A newer building with a fresh fiber line and an older walk-up with a shared router are not the same connection, and summer storms can take a line or the power down for hours. Test the room at the hour you take calls.
+
+Power **7** means outages are possible, not routine. A storm can still drop it. If your work cannot pause, a small UPS for the router is cheap insurance, and a coworking desk with backup power is the fallback.
+
+### A setup that holds calls
+
+1. **Home internet you have tested.** Ask which provider is in the unit, and run a speed test from the desk, upload included, at the hour you take calls. "Wi-Fi included" in a short let is often one router for several units. Ask which you are buying.
+2. **A Mexican SIM or eSIM with real data.** Buy it on arrival, and compare the current plans on the operator's own page the day you buy. Learn the hotspot before the day you need it.
+3. **One coworking desk you have already used for a call.** Not a cafe with a view. Med density means there are choices, but they open, move, and close.
+
+### Coworking that is actually listed
+
+Coworking is **Med** on the row. Two spaces show current listings with opening hours on a coworking booking platform: **Nest Coworking**, on Avenida 10 between Calles 12 and 14, a block inland from Quinta, and **Bunker Coworking**, at Avenida 10 and Calle 38 in Zazil-Ha. Other names circulate in older roundups, and some of the best known ones have closed. Treat any name you cannot find on a current operator page as closed or moved.
+
+Do this before you rely on any of them. Read the operator's own page or listing for the address, the hours, the day pass, and the rules on calls. Message the space and ask about call booths and backup power. Book one trial morning and take a real call from it. Prices change, so take the current price from the operator, not from a blog.
+
+Cafes in Centro will let you open a laptop, and many have decent Wi-Fi. That is a quiet afternoon, not a booth with a door. If the job depends on a room full of other freelancers every day, [Mexico City](/destinations/mexico-city) and [Medellin](/destinations/medellin) (both **High**) are the honest answer.
+
+### Checklist for a rental you might keep
+
+- Speed test in the room, upload included, at call hour
+- Which provider, and whether the connection is shared with other units
+- What happens to the router when the power drops, and whether the building has a generator
+- Air conditioning that works in the room you will work in, and who pays the electricity
+- Which way the windows face, if the street has bars or a beach club
+- A named fallback (a SIM with data, a trial-tested coworking desk) written down before you need it
+
+## Visas and stay length: visitor entry of up to 180 days set at the border, then temporary residence (verify official rules)
+
+The default for many passports is visa-free entry as a visitor without permission to do paid work. Mexican law sets **180 days** as the maximum, and the immigration officer at your port of entry decides how many days you actually get. Temporary residence comes second, and it is a consular application, not a stamp. This is operational orientation, not legal advice. Your passport decides which rule applies, and when this page and the official source disagree, believe the source and the days recorded at your entry.
+
+### What the official sources publish
+
+Article 52 of Mexico's [Migration Law](https://www.gob.mx/cms/uploads/attachment/file/474147/LMigraci_n.pdf) (the text published as current through the reform of 15 January 2026) describes the *visitante sin permiso para realizar actividades remuneradas*: it authorizes a stay for an uninterrupted period **no longer than 180 days**, counted from the date of entry, without permission for paid activities in the country. Article 53 adds that visitors, apart from humanitarian cases and people with family ties to a Mexican or a legal resident, cannot change their immigration status from inside Mexico and must leave when the authorized period ends.
+
+The government's [general guidelines for issuing visas](https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf), published in the Official Gazette on 25 July 2025, are explicit about who sets the number: the length of stay "will be determined by the immigration authority at the point of entry and may not be greater than 180 days." The National Migration Institute's [traveller guide](https://www.gob.mx/cms/uploads/attachment/file/793747/2023_GUIA_DEL_VIAJERO_No_Visa.pdf) adds that officers can ask you to show the purpose of the trip and how you will support yourself. Carry a return or onward ticket, your accommodation address, and proof of funds, and answer the question about how long you are staying plainly.
+
+So 180 is the ceiling, not the promise. Read the number recorded at entry before you leave the desk. That number is the stay you have. A six-month lease with a shorter stay recorded is a planning failure.
+
+### Who needs a visa
+
+The National Migration Institute publishes the list of [nationalities that do not need a visa](https://www.inm.gob.mx/gobmx/word/index.php/paises-no-requieren-visa-para-mexico/) to travel to Mexico as visitors. It changes, and your passport may not be on it. The same traveller guide says you do not need a Mexican visa if you hold permanent residence in Canada, the United States, Japan, the United Kingdom, a Schengen country, or a Pacific Alliance country (Chile, Colombia, Peru), or a valid visa from Canada, the United States, Japan, the United Kingdom, or a Schengen country. If neither applies, the visitor visa is a consular step before you fly. The [SRE visitor visa procedure](https://www.gob.mx/public/tramites/detalleTramite.xhtml?homoclave=SRE-01-031) describes it as a visa for stays of up to 180 days, provided the activity involves no payment of any kind.
+
+### The FMM and the entry record
+
+Arrivals by air get the entry recorded electronically. The INM page on the [digital Forma Migratoria Multiple (FMMd)](https://www.gob.mx/inm/articulos/forma-migratoria-multiple-digital-fmmd) says officers review and stamp the passport, note the stay granted, and that you can download your FMMd once after entry, within the days granted. Cancun airport also has automated e-gates for some passports, which issue a ticket instead of a conversation at the counter. Either way, download and keep the record, keep any e-gate ticket, and check the departure date on it. If you enter by land, you need the paper or electronic FMM at the crossing.
+
+### Working on a visitor entry
+
+The visitor condition is, by name, without permission for paid activities in Mexico. A Mexican employer, Mexican clients, or being paid locally is not a visitor month. The law does not address remote work for a foreign employer by name. If your work is anything other than plainly for clients and employers outside Mexico, ask a consulate or a Mexican immigration lawyer before you arrive.
+
+### Temporary residence
+
+Temporary residence (*residente temporal*) is the category for stays longer than 180 days, up to **four years** under Article 52 of the law. The visa guidelines describe the route people use when they live on their own funds: you apply at a **Mexican consulate**, normally in your country of residence, with proof of economic solvency (either an average bank balance over the past twelve months or a monthly income over the past six months, set in UMA units, the Mexican reference unit that is updated every year). The visa you get is single entry. Within **30 calendar days** of arriving, you apply to the National Migration Institute for the residence card.
+
+The amounts are on each consulate's current checklist, and they move with the UMA value and the exchange rate. Read the checklist of the consulate that will handle your file, and do not use an income or savings figure copied from a forum. Mexico does not have a separate digital nomad visa. The visa types in the official guidelines do not include one, so treat any site selling a branded Mexican nomad visa with suspicion.
+
+### Tax, at a high level only
+
+A long stay can raise tax-residence questions at home and in Mexico, and temporary residence makes it a real question rather than a theoretical one. This is not tax advice. If Playa will be most of your year rather than a winter, pay for advice at home and in Mexico before a residence card, a lease, and a bank account accumulate.
+
+### A simple decision frame
+
+- **Your passport is visa-free and the trip fits a winter:** enter as a visitor, answer the officer plainly, and write down the last day recorded at entry.
+- **You need a visa, or the stay recorded is shorter than you planned:** that recorded number is your stay. Plan around it.
+- **You want longer than one visitor stay:** read your consulate's temporary residence checklist, and apply before you travel.
+- **You would be working for Mexican clients or a Mexican employer:** a visitor entry does not cover it. Ask the consulate.
+- **"I will just do border runs":** not a plan. The officer decides every entry from scratch, and nothing guarantees the next stay will be as long as the last.
+
+The same Mexican rules cover [Living in Mexico City](/guides/living-in-mexico-city). For a 90-day exemption and a separate digital nomad route on the same **UTC-5** clock, see [Living in Medellin](/guides/living-in-medellin).
+
+## Best months (Nov-Apr), rainy months (Jun-Sep), sargassum, and hurricane season
+
+The weather fields are short, and they are enough to avoid the expensive mistake. They do not show the two seasonal risks on the cons list, so the table adds them.
+
+| Window | What the Playa del Carmen row says | Practical read |
+|---|---|---|
+| Nov, Dec, Jan, Feb, Mar, Apr | \`bestMonths\` | The working season. Drier, less humid, and the busiest and priciest stretch for short lets, around the holidays in particular |
+| May | On neither list | Hot and humid, quieter, and the start of the sargassum build-up in many years |
+| Jun, Jul, Aug, Sep | \`rainyMonths\` | Heat, heavy showers, the core of hurricane season, and usually the heaviest sargassum |
+| Oct | On neither list | Still inside hurricane season. Quieter and cheaper, with less certainty |
+| Year-round | \`tempAvgC\` **27** | A coarse yearly average. It does not mean July feels like January |
+
+The [season guide](/guides/where-to-go-next-by-season) is the calendar version of this check. Playa's best months match [Tulum](/destinations/tulum) and [Cancun](/destinations/cancun) (**Nov-Apr**). [Merida](/destinations/merida-mexico) is **Nov-Mar**, inland and hotter. [Mexico City](/destinations/mexico-city) is **Mar-May** and **Nov**.
+
+### Hurricane season
+
+The US National Hurricane Center's [tropical cyclone climatology](https://www.nhc.noaa.gov/climo/) gives the Atlantic hurricane season as **1 June to 30 November**, with most activity between mid-August and mid-October. That is the "hurricane season" con in practice. Most weeks in that window are ordinary hot weeks. The risk is one storm that cancels flights, cuts power, and closes the ferry for a few days.
+
+If your stay touches June to November: buy insurance that covers trip disruption, keep a few days of water and a charged power bank, follow Mexico's national weather service and the state civil protection channels when a storm forms, and do not book a non-refundable exit flight on a week you cannot move.
+
+### Sargassum
+
+Sargassum is floating seaweed that washes onto Caribbean beaches in large amounts in some months. On the Mexican Caribbean it usually builds from spring, is heaviest in the summer months, and tails off in autumn. The University of South Florida's Optical Oceanography Lab publishes monthly outlook bulletins for the Caribbean on its [Sargassum Watch](https://optics.marine.usf.edu/projects/saws.html) pages. Its 2026 bulletins called this another major year, and its July 2026 outlook said amounts in every region had started to decrease that month, as in most previous years. The bulletins are regional outlooks, not forecasts for a single beach, and amounts change a lot year to year.
+
+It does not stop you working. It does change the beach, the smell on bad days, and the swimming. If the beach is the reason you came, put the stay in the best-month window and check the current outlook before you book a summer month. Cozumel's west coast and the cenotes inland are the usual swims when the town beaches are bad.
+
+### Booking order
+
+Same three slots. Buy them only after the month is one the table above allows. Live options are on the [Playa del Carmen destination page](/destinations/playa-del-carmen).
+
+| Slot | What to book |
+|---|---|
+| Stays | Dates inside Nov-Apr, booked early for December and Easter, or a summer stay you chose with storms and sargassum in mind |
+| Flights | Into CUN or TQO around that window, with a change rule if the stay touches June to November |
+| Insurance | Cover that includes trip disruption and medical care, read before you are standing in a clinic |
+
+## Daily life: Quinta Avenida, colectivos, ADO, airports, the Cozumel ferry, and Spanish
+
+### Walking and Quinta Avenida
+
+Centro, Gonzalo Guerrero, and the beach are walkable, and Quinta Avenida is pedestrian for long stretches. The rest of the town is a grid of streets that get hotter and less shaded the further inland you go. Before you sign in Colosio or Playacar, do the trip to your nearest supermarket and to your coworking desk once, at midday.
+
+### Colectivos and ADO buses
+
+Colectivos, shared vans, run along the federal highway between Cancun, Playa, and Tulum, stopping on request, and they are the cheap way to reach beaches, cenotes, and towns along the coast. ADO runs the long-distance buses. Its **Terminal Turistica** is on Quinta Avenida in Centro, and the **Terminal Alterna** is on Avenida 20 at Calle 12, where many longer-distance routes such as Merida, Bacalar, and Chetumal arrive. Check the current timetable and fare on ADO's own site, and buy longer trips ahead in high season.
+
+Taxis are the tool for a late night, a suitcase, and a trip to Playacar. Agree the fare before you get in.
+
+### Airports
+
+Cancun International Airport (CUN) is the main gateway, roughly an hour's drive north, with ADO buses from its terminals to Playa and most of the "easy US flights" on the pros. Tulum International Airport (TQO), opened in December 2023, is a longer drive to the south, around an hour and a half, with fewer routes. Check routes for your month on the airline's own page before you assume either.
+
+The Tren Maya has a Playa del Carmen station. Service on the Cancun to Playa del Carmen route has started and stopped since it opened, so check the current timetable on the official Tren Maya site before you plan around it.
+
+### The Cozumel ferry, the reef, and weekends
+
+Passenger ferries leave from the pier at the south end of Quinta Avenida for Cozumel, a crossing of roughly 35 to 45 minutes depending on the boat. Check the operator's current schedule and fare before you go. Cozumel's reefs are a national park, Arrecifes de Cozumel, also listed as a [Ramsar wetland site](https://rsis.ramsar.org/ris/1449),, and part of the Mesoamerican reef system, and that is what "great diving" on the pros means. Cenotes, the freshwater sinkholes of the Yucatan, are a short colectivo or drive away, and Tulum, Akumal, and Puerto Morelos are day trips on the same highway.
+
+### Food, water, and money
+
+Supermarkets, markets, taquerias a few streets back from Quinta, and cooking at home are how you stay near the **$1,200** figure. Quinta Avenida restaurants are how a month becomes a holiday. Drink purified water, not tap water. Mexico uses the peso. Pay in pesos rather than dollars, check your own bank's fees for ATM withdrawals and card payments, and use ATMs inside banks or malls.
+
+### Spanish and English
+
+The dataset language is **Spanish**, and English proficiency is **7**, high for Mexico. The tourist economy runs in English. Landlords outside the expat market, utility offices, banks, clinics, and government counters may not. Some Spanish, or a translation app and a friend for the lease, makes the month easier.
+
+### Safety and health
+
+Safety on the row is **6.8**, female safety **6**, and \`lgbtFriendly\` **7**, with "safety declining" on the cons. Those are dataset scores, not a street map. Use the ordinary habits: a booked taxi late at night, no flashing phones or cash on Quinta after the clubs close, drinks you watch, and a neighborhood you have walked at night. Read your own government's current travel advice for Quintana Roo before you go. Take the sun, the heat, and the water seriously, and sort insurance before you need a clinic.
+
+## Playa del Carmen vs Tulum, Cancun, Merida, Mexico City, and Medellin
+
+Choose with the rows, not with photos. Figures below are the live dataset fields. Entry rules depend on your passport, so the last row links each destination page, where the current visa line sits. On the Cancun and Merida rows, the long-term cost, the nightly median, internet reliability, and power stability are estimates.
+
+| Field | Playa del Carmen | Tulum | Cancun | Merida | Mexico City | Medellin |
+|---|---|---|---|---|---|---|
+| Solo month | $1,600 | $2,000 | $1,700 | $1,250 | $1,300 | $1,100 |
+| Longer stay | $1,200 | $1,500 | $1,275 | $938 | $1,000 | $800 |
+| Airbnb night | $80 | $100 | $77 | $57 | $60 | $45 |
+| Internet | 60 Mbps, reliability 6 | 40 Mbps, reliability 4 | 120 Mbps, reliability 8 | 100 Mbps, reliability 8 | 90 Mbps, reliability 7 | 80 Mbps, reliability 7 |
+| Coworking | Med | Low | Med | Med | High | High |
+| Safety | 6.8 (female 6) | 6.5 (female 6) | 7 (female 5) | 8 (female 7) | 6.0 (female 5) | 6.5 (female 5) |
+| Nightlife | 8 | 7 | 9 | 5 | 9 | 9 |
+| Community | 7 | 6 | 4 | 4 | 8 | 8 |
+| \`lgbtFriendly\` | 7 | 7 | 6 | 5 | 7 | 6 |
+| English | 7 | 7 | 8 | 5 | 5 | 4 |
+| Time zone | UTC-5 | UTC-5 | UTC-5 | UTC-6 | UTC-6 | UTC-5 |
+| Best months | Nov-Apr | Nov-Apr | Nov-Apr | Nov-Mar | Mar-May, Nov | Dec-Mar, Jul-Aug |
+| Hard part on the row | Rising costs, sargassum, hurricane season, tourist traps, safety declining | Overpriced, slow internet, sargassum, gentrification, limited infrastructure | Very touristy, expensive, less authentic | Very hot and humid, mosquitoes | Air quality, altitude, traffic, safety in some areas, earthquakes | Safety in some areas, altitude, language barrier, banking, air quality |
+| Entry rules | [Playa del Carmen page](/destinations/playa-del-carmen) | [Tulum page](/destinations/tulum) | [Cancun page](/destinations/cancun) | [Merida page](/destinations/merida-mexico) | [Mexico City page](/destinations/mexico-city) | [Medellin page](/destinations/medellin) |
+
+Tulum, Cancun, Merida, and Mexico City follow the same Mexican entry rules as Playa del Carmen. Medellin sits under Colombia's rules. Verify each country on its own official pages.
+
+**Stay with Playa del Carmen** when you want the Caribbean, community **7**, English **7**, and a walkable center on US Eastern hours, and you can pay **$1,600** and work around **60 Mbps** at reliability **6**. You accept safety **6.8**, tourist pricing, and a summer of storms and seaweed.
+
+**Look at Tulum** only when the cenotes, the ruins, and the aesthetic are the point and you will pay **$400** more. **$2,000** solo, **40 Mbps** at reliability **4**, coworking **Low**. Overpriced and slow internet are the first two cons. It is a weaker base for calls than Playa, not a quieter version of it. Open [Tulum](/destinations/tulum).
+
+**Look at Cancun** when the internet is the constraint. **$1,700** solo, **$100** more, buys **120 Mbps**, safety **7**, and the airport on your doorstep. Community drops to **4**, female safety to **5**, and the cons are very touristy and less authentic. Open [Cancun](/destinations/cancun).
+
+**Look at Merida** when safety and the bill matter more than the beach. **$1,250** solo, **$350** less, safety **8**, female safety **7**, **100 Mbps**, coworking **Med**. It is inland, very hot and humid, with community **4**, nightlife **5**, and **UTC-6**. Open [Merida](/destinations/merida-mexico).
+
+**Look at Mexico City** when coworking and the scene are the constraint, not the sea. **$1,300** solo, coworking **High**, community **8**, **90 Mbps** at reliability **7**, on **UTC-6**. Safety is **6.0**, and altitude and air quality are its cons. Read [Living in Mexico City](/guides/living-in-mexico-city).
+
+**Look at Medellin** when the budget is the objection and the clock has to stay **UTC-5**. **$1,100** solo, **$500** less, coworking **High**, community **8**, **80 Mbps** at reliability **7**, and no Caribbean. Colombia's entry rules are different. Read [Living in Medellin](/guides/living-in-medellin).
+
+**Look at Bali or Lisbon** when the comparison is really another beach scene or a step up in comfort. [Living in Bali](/guides/living-in-bali) is the other big beach community, at about **$1,200** solo with internet reliability **5**. [Living in Lisbon](/guides/living-in-lisbon) is **$2,200** with **200 Mbps**, safety **8.8**, and community **9**. [Living in Buenos Aires](/guides/living-in-buenos-aires) is the cheaper Latin America city at **$900**, on **UTC-3**.
+
+## First-week checklist and how to compare Playa del Carmen on Nomad Spin
+
+### Common mistakes
+
+- Assuming visa-free entry means 180 days. The officer decides the number at entry, and that recorded number is your stay
+- Taking on Mexican clients or a local job on a visitor entry
+- Paying the **$80** nightly median for thirty nights and calling the month **$1,600**
+- Signing for a flat one block from Quinta Avenida without hearing it on a Friday night
+- Signing a lease without a speed test, an air-conditioning test, and an answer on the electricity bill
+- Using home Wi-Fi alone for the client call you cannot drop, on reliability **6**
+- Booking a beach month in summer without checking the sargassum outlook and the hurricane season dates
+- Waiting until you are in Mexico to ask about temporary residence. The application starts at a consulate abroad
+
+### First week
+
+**Days 1-2**
+
+- SIM or eSIM in the phone, hotspot tested
+- The days recorded at entry checked, and the last legal day written down
+- Purified water sorted for the flat
+- A trial morning booked at a coworking space you have confirmed is open
+
+**Days 3-4**
+
+- See more than one monthly place: one in Centro or Gonzalo Guerrero, one in Playacar or further north
+- Run the speed test in the room at call hour, upload included
+- Walk each street at night, and once on a weekend
+- Ride a colectivo once, and find the ADO terminal you will use for the airport
+
+**Days 5-7**
+
+- Commit to one area for two to four weeks, not to "Playa" in the abstract
+- Fix the work loop: home deep work, a tested coworking desk for call days, a second connection
+- If you need longer than your recorded stay, read the consulate's temporary residence page now, and plan the trip home to apply
+- Only then book the longer stay, the onward flight, and insurance
+
+### Booking order
+
+These slots are last, after the week above, not before the flight is emotional. Book them from the [Playa del Carmen destination page](/destinations/playa-del-carmen).
+
+| Slot | What to book |
+|---|---|
+| Stays | The monthly place that passed the speed test, the noise test, and the air-conditioning test |
+| Flights | The onward or return date your recorded stay actually supports, from CUN or TQO |
+| Insurance | Travel and health cover you have read, including trip disruption if you stay into June to November |
+
+### How to compare Playa del Carmen on Nomad Spin
+
+Nomad Spin scores **780+ cities**. Playa del Carmen should win only when your floors are honest. The internet floor and the safety floor matter most here.
+
+1. Open the [home page](/) and [spin the globe](/) with a budget ceiling that can clear **$1,600**, or a plan to live on the **$1,200** longer-stay figure. On the same coast, [Cancun](/destinations/cancun) is **$1,700** and [Tulum](/destinations/tulum) **$2,000**. Inland, [Merida](/destinations/merida-mexico) is **$1,250**.
+2. Set an internet floor the **60 Mbps** can clear and a safety floor **6.8** can clear. Then look at who else survives. If raising the safety floor to 7 or the internet floor to 80 knocks Playa out, that is the row telling you something about your month.
+3. Open [Playa del Carmen](/destinations/playa-del-carmen) and read \`bestMonths\`, \`rainyMonths\`, and the sargassum and hurricane cons against your dates. The [season guide](/guides/where-to-go-next-by-season) is the calendar version of that check.
+4. If Mexico City is still in the pile, open [Living in Mexico City](/guides/living-in-mexico-city) and compare **$1,300**, **90 Mbps**, and High coworking against **$1,600**, **60 Mbps**, and Med. If Medellin is, open [Living in Medellin](/guides/living-in-medellin). If the alternative is another beach community, open [Living in Bali](/guides/living-in-bali).
+5. If you want the ranked context, read [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025) after the filters, not instead of them. If you want the decision order, use [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base).
+
+[Spin the globe](/) with those floors. Playa del Carmen should win when you want a Caribbean winter, a ready social life, US Eastern hours, and a walkable center, and your calls survive a backup plan. It should lose when you need fiber-grade reliability at home, a safety score of 8, a quiet street, or a year on one entry.
+
+*Last updated: October 2026. Visa rules, prices, ferry and bus timetables, and which coworking spaces are open change quickly. The $1,600 solo month, $1,200 longer stay, $80 nightly median, 60 Mbps, reliability 6, power 7, and safety 6.8 are Nomad Spin's Playa del Carmen row. The entry and residence rules are from the Mexican government pages cited above. The hurricane season dates are from the US National Hurricane Center. When they disagree with this page, the official source and the days recorded at your entry win.*
 `,
   },
   {
@@ -9304,14 +9707,14 @@ Nomad Spin scores **780+ cities**. Valencia should win only when your floors are
     date: "2026-10-07",
     updated: "2026-10-07",
     readTime: "16 min read",
-    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","kuala-lumpur","penang","tirana","kotor","tallinn"],
+    relatedDestinations: ["chiang-mai","lisbon","cape-town","mexico-city","medellin","bali","tenerife","split","barcelona","porto","valencia","madrid","kuala-lumpur","penang","tirana","kotor","playa-del-carmen","tallinn"],
     content: `## Stop picking a city first. Pick a season window
 
 Undecided nomads often start with a city name. That is backwards. The same place can be a dream in November and a productivity tax in March, burning haze in [Chiang Mai](/destinations/chiang-mai), peak tourist rents in [Lisbon](/destinations/lisbon), typhoon weeks in [Da Nang](/destinations/da-nang), or load-shedding plus winter rain in [Cape Town](/destinations/cape-town).
 
 A better order: choose a **season window**, apply your hard floors (budget, internet, safety, visa days), then spin inside that window. Nomad Spin’s dataset covers **780+ cities** with structured \`weather.bestMonths\`, \`weather.rainyMonths\`, and \`tempAvgC\` alongside cost and infrastructure fields. This calendar is how to read those months without turning them into another yearly top-10.
 
-If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kotor](/guides/living-in-kotor), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Penang](/guides/living-in-penang), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), and [Valencia](/guides/living-in-valencia).
+If you still need help locking filters before you care about climate, read [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base) first. For a yearly shortlist *after* season + constraints are set, see [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Deep living guides for specific hubs live at [Bali](/guides/living-in-bali), [Bangkok](/guides/living-in-bangkok), [Barcelona](/guides/living-in-barcelona), [Budapest](/guides/living-in-budapest), [Buenos Aires](/guides/living-in-buenos-aires), [Cape Town](/guides/living-in-cape-town), [Chiang Mai](/guides/living-in-chiang-mai), [Da Nang](/guides/living-in-da-nang), [Ho Chi Minh City](/guides/living-in-ho-chi-minh-city), [Hoi An](/guides/living-in-hoi-an), [Kotor](/guides/living-in-kotor), [Kuala Lumpur](/guides/living-in-kuala-lumpur), [Lisbon](/guides/living-in-lisbon), [Madrid](/guides/living-in-madrid), [Medellin](/guides/living-in-medellin), [Mexico City](/guides/living-in-mexico-city), [Penang](/guides/living-in-penang), [Playa del Carmen](/guides/living-in-playa-del-carmen), [Porto](/guides/living-in-porto), [Prague](/guides/living-in-prague), [Tallinn](/guides/living-in-tallinn), [Tbilisi](/guides/living-in-tbilisi), [Tirana](/guides/living-in-tirana), and [Valencia](/guides/living-in-valencia).
 
 ## How this calendar was built from Nomad Spin data
 
@@ -9336,7 +9739,7 @@ When \`dataSource\` is \`estimated\`, treat months and costs as directional and 
 
 ### Warm / dry-leaning candidates by region
 
-**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov to Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 30-day tourism exemption, passport-dependent). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov to Mar dry lean (\`$1,100\` / 120 Mbps). The [Bangkok living guide](/guides/living-in-bangkok) is the on-the-ground version of that row, including heat, traffic, and why the BTS pin matters. [Ho Chi Minh City](/destinations/ho-chi-minh-city) lists best months Dec, Jan, Feb, Mar, and Apr (\`$800\` / 85 Mbps / safety **7.5**). That dry window lines up with Chiang Mai and Bangkok, not with Da Nang's Feb-Jul beach season. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is the on-the-ground version, including District 1 versus Thao Dien and why traffic and air pollution stay on the cons. [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov to Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`.
+**Southeast Asia dry window:** [Chiang Mai](/destinations/chiang-mai) lists best months **Nov to Feb** (\`tempAvgC\` 28, \`costUSD\` **$850**, **95** Mbps, safety **8.2**, 30-day tourism exemption, passport-dependent). The [Chiang Mai living guide](/guides/living-in-chiang-mai) is the on-the-ground version of that row, including why Mar-Apr is a hard stop. [Bangkok](/destinations/bangkok) shares that Nov to Mar dry lean (\`$1,100\` / 120 Mbps). The [Bangkok living guide](/guides/living-in-bangkok) is the on-the-ground version of that row, including heat, traffic, and why the BTS pin matters. [Ho Chi Minh City](/destinations/ho-chi-minh-city) lists best months Dec, Jan, Feb, Mar, and Apr (\`$800\` / 85 Mbps / safety **7.5**). That dry window lines up with Chiang Mai and Bangkok, not with Da Nang's Feb-Jul beach season. The [Ho Chi Minh City living guide](/guides/living-in-ho-chi-minh-city) is the on-the-ground version, including District 1 versus Thao Dien and why traffic and air pollution stay on the cons. [Phuket](/destinations/phuket) and [Playa del Carmen](/destinations/playa-del-carmen) also flag Nov to Apr as best, beach winters, with tourist pricing and, for Playa, sargassum called out in \`cons\`. The [Playa del Carmen living guide](/guides/living-in-playa-del-carmen) is the on-the-ground version of that row (\`$1,600\` / 60 Mbps / safety **6.8**): rainy Jun to Sep, the Atlantic hurricane season, and the sargassum months that the best-month list does not show.
 
 **Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s \`rainyMonths\` are **Dec to Mar** (best months Apr to Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep to Dec** rainy stretch.
 
@@ -9416,7 +9819,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 - **Europe shoulder again:** Lisbon, Budapest, Valencia, Athens, Dubrovnik: Sep to Oct still on many best-month lists; Nov often flips into \`rainyMonths\` (Lisbon Nov to Feb, Split Nov to Jan, Porto Nov to Feb). The [Split living guide](/guides/living-in-split) covers the Nov-Jan stretch in Croatia. The [Porto living guide](/guides/living-in-porto) is the on-the-ground version of that wet winter. Valencia is the awkward one in that list: October is a best month and a rainy month, and flooding risk is on the cons. Read the [Valencia living guide](/guides/living-in-valencia) before you treat October as a settled arrival.
 - **Asia dry season starts:** Chiang Mai / Bangkok / Phuket best months begin **Nov**; get there after burning-season risk if you are bound for Chiang Mai. [Hanoi](/destinations/hanoi) best includes **Oct to Dec** and **Mar to Apr**.
 - **Cape Town spring into summer:** best months open **Oct to Nov**: prime window if you read the living guide’s power and safety notes first.
-- **Mexico / Caribbean:** Playa del Carmen best through Apr; rainy Jun to Sep should already be behind you by a true autumn escape.
+- **Mexico / Caribbean:** [Playa del Carmen](/destinations/playa-del-carmen) best months open **Nov** and run through **Apr**; rainy Jun to Sep should already be behind you by a true autumn escape. The Atlantic hurricane season still runs to 30 November, which the [Playa del Carmen living guide](/guides/living-in-playa-del-carmen) plans around.
 
 **Rainy-month traps:** spinning “somewhere warm in November” without checking \`rainyMonths\` is how people land Bali’s wet season or Da Nang’s storm stretch. Always open the destination page and scan both month arrays.
 

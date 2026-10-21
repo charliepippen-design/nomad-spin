@@ -210,6 +210,27 @@ describe('living guide visa sections', () => {
     expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
   });
 
+  it('cites the Mexican law, visa guidelines, and INM pages in the Playa del Carmen guide and prints no unofficial figures', () => {
+    const md = fs.readFileSync(
+      path.resolve(__dirname, '../../content/guides/living-in-playa-del-carmen.md'),
+      'utf-8',
+    );
+    expect(md).toMatch(/gob\.mx\/cms\/uploads\/attachment\/file\/474147\/LMigraci_n\.pdf/);
+    expect(md).toMatch(/lineamientos-visas-25-jul-2025\.pdf/);
+    expect(md).toMatch(/2023_GUIA_DEL_VIAJERO_No_Visa\.pdf/);
+    expect(md).toMatch(/inm\.gob\.mx\/gobmx\/word\/index\.php\/paises-no-requieren-visa-para-mexico/);
+    expect(md).toMatch(/gob\.mx\/inm\/articulos\/forma-migratoria-multiple-digital-fmmd/);
+    expect(md).toMatch(/homoclave=SRE-01-031/);
+    expect(md).toMatch(/determined by the immigration authority at the point of entry/);
+    expect(md).toMatch(/\*\*no longer than 180 days\*\*/);
+    expect(md).toMatch(/\*\*30 calendar days\*\*/);
+    expect(md).toMatch(/Mexico does not have a separate digital nomad visa/);
+    // No unofficial income or savings thresholds, no nomad visa label, no promise of 180 days.
+    expect(md).not.toMatch(/Digital Nomad Visa|\bMXN\b|\bUSD\b|\$\d[\d,]* (?:a|per) month in (?:income|savings)/);
+    expect(md).not.toMatch(/you (?:will )?get 180 days|180 days (?:by default|automatically)/i);
+    expect(md).not.toMatch(/\u2014|\u2013|\u2192/);
+  });
+
   it('cites the Albanian law and ministry pages in the Tirana guide and prints no unofficial figures', () => {
     const md = fs.readFileSync(
       path.resolve(__dirname, '../../content/guides/living-in-tirana.md'),

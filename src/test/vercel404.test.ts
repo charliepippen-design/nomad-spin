@@ -51,6 +51,12 @@ const KOTOR_GUIDE_ALIASES = [
   '/guides/kotor-digital-nomad-guide-costs-visas-where-to-live',
   '/guides/kotor-digital-nomad-guide-living-working-montenegro',
 ] as const;
+const PLAYA_GUIDE_ALIASES = [
+  '/guides/playa-del-carmen',
+  '/guides/playa-del-carmen-digital-nomad-guide',
+  '/guides/playa-del-carmen-digital-nomad-guide-2026',
+  '/guides/playa-del-carmen-nomad-guide-cost-visa-coworking',
+] as const;
 const HCMC_GUIDE_SLUG = 'living-in-ho-chi-minh-city';
 const KUALA_LUMPUR_GUIDE_ALIASES = [
   '/guides/kuala-lumpur',
@@ -107,6 +113,7 @@ describe('vercel.json unknown slug 404s', () => {
       ...TIRANA_GUIDE_ALIASES,
       ...PENANG_GUIDE_ALIASES,
       ...KOTOR_GUIDE_ALIASES,
+      ...PLAYA_GUIDE_ALIASES,
       '/destinations/lisbon',
       '/destinations/tbilisi-suburbs',
       '/destinations/not-a-real-city-xyz',
@@ -196,6 +203,15 @@ describe('vercel.json unknown slug 404s', () => {
       const rule = bySource.get(source);
       expect(rule, source).toBeDefined();
       expect(rule?.destination).toBe('/guides/living-in-kotor');
+      expect(rule?.statusCode).toBe(301);
+      expect(rule?.permanent).toBeUndefined();
+      expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);
+    }
+    expect(guides.some((guide) => guide.slug === 'living-in-playa-del-carmen')).toBe(true);
+    for (const source of PLAYA_GUIDE_ALIASES) {
+      const rule = bySource.get(source);
+      expect(rule, source).toBeDefined();
+      expect(rule?.destination).toBe('/guides/living-in-playa-del-carmen');
       expect(rule?.statusCode).toBe(301);
       expect(rule?.permanent).toBeUndefined();
       expect(guides.some((guide) => `/guides/${guide.slug}` === source), source).toBe(false);

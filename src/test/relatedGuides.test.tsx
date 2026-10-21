@@ -86,7 +86,7 @@ describe('related guides', () => {
 
   it('skips unpublished peer-map keys and applies them once that guide is published', () => {
     const published = new Set(guides.map((guide) => guide.slug));
-    const pending = ['living-in-madrid', 'living-in-hoi-an', 'living-in-split', 'living-in-kotor', 'living-in-tallinn'].filter((slug) => !published.has(slug));
+    const pending = ['living-in-madrid', 'living-in-hoi-an', 'living-in-split', 'living-in-kotor', 'living-in-playa-del-carmen', 'living-in-tallinn'].filter((slug) => !published.has(slug));
     for (const slug of pending) {
       expect(relatedGuideEntries(slug)).toEqual([]);
     }
@@ -111,6 +111,14 @@ describe('related guides', () => {
       'living-in-porto',
       'living-in-valencia',
       'living-in-budapest',
+      'how-to-choose-next-nomad-base',
+      'where-to-go-next-by-season',
+    ]);
+    const withPlaya = [...guides.filter((guide) => guide.slug !== 'living-in-playa-del-carmen'), { slug: 'living-in-playa-del-carmen' }];
+    expect(relatedGuideEntries('living-in-playa-del-carmen', withPlaya).map((item) => item.slug)).toEqual([
+      'living-in-mexico-city',
+      'living-in-medellin',
+      'living-in-bali',
       'how-to-choose-next-nomad-base',
       'where-to-go-next-by-season',
     ]);

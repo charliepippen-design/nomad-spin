@@ -66,15 +66,16 @@ describe('guideStayCta', () => {
     expect(guideStayCta('living-in-penang')).toMatchObject({ city: 'Penang', destinationSlug: 'penang' });
     expect(guideStayCta('living-in-penang')?.url).toContain('aid=8092520');
     expect(guideStayCta('living-in-kotor')?.url).toContain('aid=8092520');
+    expect(guideStayCta('living-in-playa-del-carmen')?.url).toContain('aid=8092520');
   });
 
   it('returns null for unknown guides', () => {
     expect(guideStayCta('not-a-guide')).toBeNull();
   });
 
-  it('covers all 28 published guides', () => {
+  it('covers all 29 published guides', () => {
     const slugs = guides.map((g) => g.slug);
-    expect(slugs).toHaveLength(28);
+    expect(slugs).toHaveLength(29);
     for (const slug of slugs) expect(guideStayCta(slug), slug).not.toBeNull();
   });
 

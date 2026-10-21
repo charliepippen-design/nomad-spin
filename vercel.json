@@ -1076,6 +1076,26 @@
       "statusCode": 301
     },
     {
+      "source": "/guides/playa-del-carmen",
+      "destination": "/guides/living-in-playa-del-carmen",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/playa-del-carmen-digital-nomad-guide",
+      "destination": "/guides/living-in-playa-del-carmen",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/playa-del-carmen-digital-nomad-guide-2026",
+      "destination": "/guides/living-in-playa-del-carmen",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/playa-del-carmen-nomad-guide-cost-visa-coworking",
+      "destination": "/guides/living-in-playa-del-carmen",
+      "statusCode": 301
+    },
+    {
       "source": "/guides/bali",
       "destination": "/guides/living-in-bali",
       "statusCode": 301

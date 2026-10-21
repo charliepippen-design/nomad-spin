@@ -34,6 +34,7 @@ Nomad Spin matches destinations to your preferences (budget, internet, safety, p
 - [Living in Medellin](/guides/living-in-medellin)
 - [Living in Mexico City](/guides/living-in-mexico-city)
 - [Living in Penang](/guides/living-in-penang)
+- [Living in Playa del Carmen](/guides/living-in-playa-del-carmen)
 - [Living in Porto](/guides/living-in-porto)
 - [Living in Prague](/guides/living-in-prague)
 - [Living in Split](/guides/living-in-split)

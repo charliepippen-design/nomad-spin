@@ -56,6 +56,13 @@ const KOTOR_GUIDE_ALIASES = [
   '/guides/kotor-digital-nomad-guide-living-working-montenegro',
 ] as const;
 
+const PLAYA_GUIDE_ALIASES = [
+  '/guides/playa-del-carmen',
+  '/guides/playa-del-carmen-digital-nomad-guide',
+  '/guides/playa-del-carmen-digital-nomad-guide-2026',
+  '/guides/playa-del-carmen-nomad-guide-cost-visa-coworking',
+] as const;
+
 function destinationPath(slug: string): string {
   return `/destinations/${slug}`;
 }
@@ -129,6 +136,7 @@ describe('vercel.json legacy accent redirects', () => {
       ...TIRANA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-tirana' })),
       ...PENANG_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-penang' })),
       ...KOTOR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kotor' })),
+      ...PLAYA_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-playa-del-carmen' })),
     ];
     const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
     expect(oldDraftCount).toBe(48);
@@ -151,6 +159,15 @@ describe('vercel.json legacy accent redirects', () => {
     expect(guidePaths.has('/guides/living-in-kotor')).toBe(true);
     for (const source of KOTOR_GUIDE_ALIASES) {
       expect301(bySource, source, '/guides/living-in-kotor');
+      expect(guidePaths.has(source), source).toBe(false);
+    }
+  });
+
+  it('301s old Playa del Carmen guide URLs to the living-in-playa-del-carmen guide', () => {
+    const guidePaths = new Set(guides.map((guide) => `/guides/${guide.slug}`));
+    expect(guidePaths.has('/guides/living-in-playa-del-carmen')).toBe(true);
+    for (const source of PLAYA_GUIDE_ALIASES) {
+      expect301(bySource, source, '/guides/living-in-playa-del-carmen');
       expect(guidePaths.has(source), source).toBe(false);
     }
   });

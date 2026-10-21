@@ -293,6 +293,8 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a digital nomad visa field of **365** days, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
 
+**Look at Playa del Carmen** when you want the sea on the same **UTC-5** clock and can pay **$500** more (**$1,600** against **$1,100**). Internet is **60 Mbps** at reliability **6**, coworking is **Med**, safety is **6.8**, and best months are **Nov-Apr**. Mexico's visitor stay can run up to 180 days, set by the officer at entry. Read [Living in Playa del Carmen](/guides/living-in-playa-del-carmen).
+
 If the alternative is a beach, [Living in Bali](/guides/living-in-bali) is the peer, at a solo month of **$1,200** and internet reliability **5**. If the alternative is scenery with a power problem, [Living in Cape Town](/guides/living-in-cape-town) is the peer: solo **$1,400**, safety **5.5**, power stability **4**.
 
 ## First-week checklist and how to compare Medellin on Nomad Spin
