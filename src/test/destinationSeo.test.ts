@@ -113,6 +113,11 @@ describe('destinationSeo', () => {
     expect(tiranaGuides).toContain('living-in-tirana');
     expect(tiranaGuides).toContain('how-to-choose-next-nomad-base');
 
+    const penangGuides = relatedGuidesForCity(cityByName('Penang')).map((g) => g.slug);
+    expect(penangGuides).toContain('living-in-penang');
+    expect(penangGuides).toContain('living-in-kuala-lumpur');
+    expect(penangGuides).toContain('how-to-choose-next-nomad-base');
+    expect(penangGuides).toContain('where-to-go-next-by-season');
     const kotorGuides = relatedGuidesForCity(cityByName('Kotor')).map((g) => g.slug);
     expect(kotorGuides).toContain('living-in-kotor');
     expect(kotorGuides).toContain('how-to-choose-next-nomad-base');
