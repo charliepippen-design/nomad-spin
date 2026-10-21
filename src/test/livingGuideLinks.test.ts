@@ -33,6 +33,7 @@ const LIVING_SLUGS = [
   'living-in-madrid',
   'living-in-split',
   'living-in-tirana',
+  'living-in-penang',
   'living-in-kotor',
   'living-in-playa-del-carmen',
 ] as const;
