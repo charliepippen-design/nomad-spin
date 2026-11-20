@@ -16,6 +16,21 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://www.digitalnomadspin.com/compare</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/find-your-base</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/methodology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.digitalnomadspin.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

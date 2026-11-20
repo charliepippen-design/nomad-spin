@@ -37,12 +37,12 @@ function DataSourceIndicator({ source }: { source: 'verified' | 'estimated' }) {
       <TooltipProvider delayDuration={200}>
         <Tooltip>
           <TooltipTrigger asChild>
-            <span className="inline-flex items-center gap-0.5 text-emerald-400/70">
+            <span className="inline-flex items-center gap-0.5 text-muted-foreground">
               <CheckCircle2 className="w-2.5 h-2.5" />
             </span>
           </TooltipTrigger>
           <TooltipContent side="top" className="max-w-[200px] text-xs">
-            Manually verified data from trusted sources.
+            Curated record. An editorial figure, not a live measurement.
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
@@ -57,7 +57,7 @@ function DataSourceIndicator({ source }: { source: 'verified' | 'estimated' }) {
           </span>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-[200px] text-xs">
-          AI-estimated data. May not reflect current conditions.
+          Estimated record, not checked by hand. May not reflect current conditions.
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -110,7 +110,7 @@ function ScoreRing({ score }: { score: number }) {
         <span className="text-lg font-mono font-light text-foreground tracking-wider">
           <AnimatedScore target={score} />
         </span>
-        <span className="text-[8px] font-mono text-muted-foreground uppercase tracking-[0.2em]">match</span>
+        <span className="text-[8px] font-mono text-muted-foreground uppercase tracking-[0.1em]">match</span>
       </div>
     </div>
   );
@@ -158,7 +158,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             }}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-popover via-popover/60 to-black/10" />
           {/* Unsplash attribution: top-right overlay */}
           {attribution && (
             <div className="absolute top-2 right-2 z-20 bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">
@@ -174,10 +174,10 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4, duration: 0.6 }}
-                    className="text-lg sm:text-2xl md:text-4xl font-mono font-medium tracking-[0.1em] sm:tracking-[0.15em] text-white truncate uppercase"
+                    className="font-display text-2xl font-extrabold tracking-tight text-white truncate sm:text-3xl md:text-4xl"
                     style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6)' }}
                   >
-                    {city.name} <span className="text-white/80 hidden sm:inline">// {city.countryCode}</span>
+                    {city.name}
                   </motion.h2>
                   <DataSourceIndicator source={dataSource} />
                 </div>
@@ -197,14 +197,14 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           </div>
         </div>
 
-        <div className="bg-black/80 backdrop-blur-[60px]">
+        <div className="bg-popover/95 backdrop-blur-[60px]">
           {/* Smart Badges */}
           {badges.length > 0 && (
             <div className="px-6 pt-4 flex flex-wrap gap-1.5">
               {badges.map((badge) => (
                 <span
                   key={badge.label}
-                  className={`inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-mono tracking-wider rounded-lg border ${badge.color}`}
+                  className="dns-chip"
                 >
                   {badge.emoji} {badge.label}
                 </span>
@@ -256,11 +256,11 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           </a>
 
           {/* Divider */}
-          <div className="mx-6 mt-4 border-t border-white/[0.06]" />
+          <div className="mx-6 mt-4 border-t border-border" />
 
           {/* Health Bars */}
           <div className="px-6 py-5 space-y-3">
-            <HealthBar label="BANDWIDTH" value={city.infra.internetReliability} delay={0.8} />
+            <HealthBar label="INTERNET" value={city.infra.internetReliability} delay={0.8} />
             <HealthBar label="SAFETY" value={Math.round(city.safety)} delay={0.9} />
             <HealthBar label="NIGHTLIFE" value={city.vibeMetrics.nightlife} delay={1.0} />
             <HealthBar label="COMMUNITY" value={city.vibeMetrics.communitySize} delay={1.1} />
@@ -270,7 +270,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
           {/* Intel + Risks */}
           <div className="px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-border/30">
             <div>
-              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
+              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.1em] text-muted-foreground mb-2 uppercase">
                 <Zap className="w-3 h-3" /> WHY THIS CITY
               </div>
               {intel.map((item, i) => (
@@ -286,7 +286,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               ))}
             </div>
             <div>
-              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.2em] text-muted-foreground mb-2 uppercase">
+              <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.1em] text-muted-foreground mb-2 uppercase">
                 <AlertTriangle className="w-3 h-3" /> THINGS TO KNOW
               </div>
               {risks.length > 0 ? risks.map((risk, i) => (
@@ -311,7 +311,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               <div className="rounded-lg border border-amber-500/20 bg-amber-500/[0.04] px-4 py-3">
                 <div className="flex items-center gap-1.5 mb-2">
                   <AlertOctagon className="w-3.5 h-3.5 text-amber-400/80" />
-                  <span className="text-[9px] font-mono tracking-[0.2em] text-amber-400/80 uppercase">LOCAL LAWS & REGULATIONS</span>
+                  <span className="text-[9px] font-mono tracking-[0.1em] text-amber-400/80 uppercase">LOCAL LAWS & REGULATIONS</span>
                 </div>
                 {city.legalNotes.map((note, i) => (
                   <p key={i} className="text-[11px] text-amber-200/60 font-mono leading-relaxed mb-1">
@@ -350,7 +350,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </motion.a>
           <Link
             to={cityPath(city)}
-            className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.15em] text-primary/70 hover:text-primary transition-colors uppercase"
+            className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.1em] text-primary/70 hover:text-primary transition-colors uppercase"
           >
             Read full {city.name} guide →
           </Link>
@@ -363,13 +363,13 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 
           {/* Action Row */}
           <div className="px-6 py-4 border-t border-border/30 flex gap-2">
-            <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+            <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
               <Bookmark className="w-3 h-3" /> SAVE
             </Button>
-            <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+            <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
               <RotateCcw className="w-3 h-3" /> SPIN AGAIN
             </Button>
-            <Button onClick={onShare} aria-label="Share destination" variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.15em]">
+            <Button onClick={onShare} aria-label="Share destination" variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
               <Share2 className="w-3 h-3" />
             </Button>
           </div>

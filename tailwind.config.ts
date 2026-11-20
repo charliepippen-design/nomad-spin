@@ -15,13 +15,17 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
         serif: ['Source Serif 4', 'Georgia', 'serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        // Labels and figures use the UI face. Code blocks set JetBrains Mono in index.css (.prose code).
+        mono: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        info: "hsl(var(--info))",
+        warning: "hsl(var(--warning))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {

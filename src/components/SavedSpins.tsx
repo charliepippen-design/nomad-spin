@@ -19,7 +19,7 @@ export default function SavedSpins() {
     >
       <div className="flex items-center gap-2 mb-3">
         <Bookmark className="w-3 h-3 text-muted-foreground" />
-        <h3 className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
+        <h3 className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.1em]">
           SAVED DESTINATIONS ({savedSpins.length})
         </h3>
       </div>

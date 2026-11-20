@@ -249,23 +249,23 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
             className="relative w-full max-w-lg max-h-[85vh] z-10 rounded-t-lg sm:rounded-lg overflow-hidden"
           >
             <div className="gradient-border-wrap rounded-t-lg sm:rounded-lg">
-              <div className="bg-black/80 backdrop-blur-[60px] rounded-t-lg sm:rounded-lg overflow-y-auto max-h-[85vh]">
+              <div className="bg-popover/95 backdrop-blur-[60px] rounded-t-lg sm:rounded-lg overflow-y-auto max-h-[85vh]">
                 {/* Header */}
                 <div className="flex items-center justify-between px-8 pt-8 pb-2">
                   <div>
-                    <h2 className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                      MISSION PROFILE
+                    <h2 className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground">
+                      YOUR PREFERENCES
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
-                  <button onClick={onClose} aria-label="Close preferences modal" className="p-2 rounded-sm hover:bg-white/5 transition-colors">
+                  <button onClick={onClose} aria-label="Close preferences modal" className="p-2 rounded-lg hover:bg-white/5 transition-colors">
                     <X className="w-4 h-4 text-muted-foreground" />
                   </button>
                 </div>
 
                 {/* Presets */}
                 <div className="px-8 pt-4 pb-2">
-                  <label className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 mb-3 block uppercase">
+                  <label className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 block uppercase">
                     QUICK PRESETS
                   </label>
                   <div className="grid grid-cols-4 gap-2">
@@ -273,7 +273,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       <button
                         key={preset.label}
                         onClick={() => applyPreset(preset)}
-                        className="flex flex-col items-center gap-1 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
+                        className="flex flex-col items-center gap-1 py-3 px-2 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                       >
                         <span className="text-muted-foreground group-hover:text-foreground transition-colors">{preset.icon}</span>
                         <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">{preset.label}</span>
@@ -286,7 +286,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         const regionSection = document.getElementById('region-section');
                         if (regionSection) regionSection.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="flex flex-col items-center gap-1 py-3 px-2 rounded-sm border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
+                      className="flex flex-col items-center gap-1 py-3 px-2 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                     >
                       <Globe className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
                       <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">REGION</span>
@@ -298,8 +298,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 {/* Form grid */}
                 <div className="grid gap-0 px-8 pt-4 pb-32">
                   {/* Extraction Point */}
-                  <div className="py-6 border-b border-white/[0.06]">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-3 block uppercase">
+                  <div className="py-6 border-b border-border">
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-3 block uppercase">
                       CURRENT LOCATION
                     </label>
                     <div className="relative flex gap-2">
@@ -307,14 +307,14 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       <button
                         onClick={geo.locate}
                         disabled={geo.locating}
-                        className="flex-shrink-0 px-3 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-destructive/50 hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
+                        className="flex-shrink-0 px-3 py-3.5 rounded-lg bg-white/[0.03] border border-border hover:border-destructive/50 hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
                         title="Detect my location"
                       >
                         <Crosshair className={`w-4 h-4 ${geo.locating ? 'animate-spin' : ''}`} />
                       </button>
                       <button
                         onClick={() => setOriginOpen(!originOpen)}
-                        className="flex-1 flex items-center justify-between px-4 py-3.5 rounded-sm bg-white/[0.03] border border-white/[0.08] hover:border-white/[0.15] transition-colors text-sm"
+                        className="flex-1 flex items-center justify-between px-4 py-3.5 rounded-lg bg-white/[0.03] border border-border hover:border-border transition-colors text-sm"
                       >
                         <span className={`font-mono tracking-wider ${geo.acquiredCity ? 'text-destructive typing-effect' : hasOrigin ? 'text-white' : 'text-muted-foreground'}`}>
                           {geo.acquiredCity
@@ -334,9 +334,9 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.96 }}
                             transition={{ duration: 0.15 }}
-                            className="absolute top-full left-0 right-0 mt-2 z-[60] rounded-sm max-h-60 overflow-y-auto bg-[#0a0a0a] border border-white/[0.1] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)]"
+                            className="absolute top-full left-0 right-0 mt-2 z-[60] rounded-lg max-h-60 overflow-y-auto bg-popover border border-border shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)]"
                           >
-                            <div className="sticky top-0 bg-[#0a0a0a] border-b border-white/[0.06] p-3">
+                            <div className="sticky top-0 bg-popover border-b border-border p-3">
                               <div className="flex items-center gap-2 px-2">
                                 <Search className="w-3.5 h-3.5 text-muted-foreground" />
                                 <input
@@ -369,8 +369,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Budget */}
-                  <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
+                  <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
                       MONTHLY BUDGET
                     </label>
                     <motion.div
@@ -388,8 +388,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Internet */}
-                  <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
+                  <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
                       INTERNET SPEED
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
@@ -401,8 +401,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Safety */}
-                  <div className="py-6 border-b border-white/[0.06]" style={{ minHeight: 100 }}>
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-1 block uppercase">
+                  <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
                       SAFETY RATING
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
@@ -414,8 +414,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Vibes */}
-                  <div className="py-6 border-b border-white/[0.06]">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
+                  <div className="py-6 border-b border-border">
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
                       YOUR VIBE
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -423,10 +423,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <button
                           key={v.value}
                           onClick={() => toggleVibe(v.value)}
-                          className={`px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
+                          className={`px-3.5 py-2 rounded-lg text-[11px] font-mono tracking-[0.1em] transition-all duration-200 border ${
                             preferences.vibes.includes(v.value)
                               ? 'border-white/30 bg-white/10 text-white'
-                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
+                              : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
                           {v.label}
@@ -436,8 +436,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   </div>
 
                   {/* Landscape */}
-                  <div className="py-6 border-b border-white/[0.06]">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
+                  <div className="py-6 border-b border-border">
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
                       LANDSCAPE
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -445,10 +445,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <button
                           key={l.value}
                           onClick={() => toggleLandscape(l.value)}
-                          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
+                          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[11px] font-mono tracking-[0.1em] transition-all duration-200 border ${
                             preferences.landscapes.includes(l.value)
                               ? 'border-white/30 bg-white/10 text-white'
-                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
+                              : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
                           {l.icon} {l.label}
@@ -459,7 +459,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
 
                   {/* Region */}
                   <div id="region-section" className="py-6">
-                    <label className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground mb-4 block uppercase">
+                    <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
                       PREFERRED REGION
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -467,10 +467,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <button
                           key={r.value}
                           onClick={() => { setPreferences({ region: r.value }); filterCities(); }}
-                          className={`px-3.5 py-2 rounded-sm text-[11px] font-mono tracking-[0.15em] transition-all duration-200 border ${
+                          className={`px-3.5 py-2 rounded-lg text-[11px] font-mono tracking-[0.1em] transition-all duration-200 border ${
                             preferences.region === r.value
                               ? 'border-white/30 bg-white/10 text-white'
-                              : 'border-white/[0.06] bg-transparent text-muted-foreground hover:border-white/15 hover:text-foreground/60'
+                              : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
                           {r.label}
@@ -481,15 +481,15 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 </div>
 
                 {/* Fixed bottom bar */}
-                <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-black/90 backdrop-blur-xl border-t border-white/[0.06] px-8 py-4">
+                <div className="fixed bottom-0 left-0 right-0 sm:absolute sm:bottom-0 z-20 bg-popover/95 backdrop-blur-xl border-t border-border px-8 py-4">
                   {/* Mission summary */}
                   <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 leading-relaxed">
                     {buildSummary()}
                   </p>
 
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground uppercase">
-                      <span className={`${impossible ? 'text-destructive' : 'text-white'} font-medium`}>{filteredCities.length}</span> DESTINATIONS FOUND
+                    <span className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground uppercase">
+                      <span className={`${impossible ? 'text-destructive' : 'text-foreground'} font-medium`}>{filteredCities.length}</span> DESTINATIONS FOUND
                     </span>
                     <div className="flex gap-2">
                       {impossible && nearMisses.length > 0 && (
@@ -522,7 +522,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       >
                         <div className="space-y-1.5 max-h-24 overflow-y-auto">
                           {nearMisses.slice(0, 5).map((city) => (
-                            <div key={city.id} className="flex items-center justify-between px-3 py-1.5 rounded-sm bg-white/[0.03] text-[10px] font-mono text-foreground/50">
+                            <div key={city.id} className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-white/[0.03] text-[10px] font-mono text-foreground/50">
                               <span>{city.name}, {city.country}</span>
                               <span>${city.costUSD}/mo</span>
                             </div>
@@ -535,20 +535,20 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   <button
                     onClick={onSpin}
                     disabled={impossible}
-                    className={`group w-full h-14 font-mono font-medium text-sm tracking-[0.25em] uppercase rounded-sm transition-all duration-300 relative overflow-hidden ${
+                    className={`group w-full h-14 font-display font-bold text-base rounded-lg transition-all duration-300 relative overflow-hidden ${
                       impossible
                         ? 'bg-destructive/20 border border-destructive/30 text-destructive cursor-not-allowed'
-                        : 'bg-white text-black hover:bg-white/90'
+                        : 'bg-primary text-primary-foreground hover:bg-primary/90'
                     }`}
                   >
                     {impossible ? (
                       <span className="flex items-center justify-center gap-2">
                         <AlertTriangle className="w-4 h-4" />
-                        NO DESTINATIONS MATCH
+                        No destinations match
                       </span>
                     ) : (
                       <>
-                        <span className="relative z-10">FIND MY NEXT DESTINATION</span>
+                        <span className="relative z-10">Find my next destination</span>
                         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_8px,rgba(0,0,0,0.05)_8px,rgba(0,0,0,0.05)_16px)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </>
                     )}

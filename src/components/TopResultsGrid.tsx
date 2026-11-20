@@ -33,7 +33,7 @@ function ScoreRingSmall({ score }: ScoreRingSmallProps) {
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-sm font-mono font-light text-foreground tracking-wider">{score}</span>
-        <span className="text-[6px] font-mono text-muted-foreground uppercase tracking-[0.15em]">match</span>
+        <span className="text-[6px] font-mono text-muted-foreground uppercase tracking-[0.1em]">match</span>
       </div>
     </div>
   );
@@ -101,11 +101,11 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         </div>
       </div>
 
-      <div className="bg-black/80 backdrop-blur-[60px] p-4">
+      <div className="bg-popover/95 backdrop-blur-[60px] p-4">
         <div className="flex items-center gap-3">
           <ScoreRingSmall score={score} />
           <div className="flex-1 min-w-0">
-            <span className="inline-block px-2 py-0.5 text-[8px] font-mono tracking-[0.15em] rounded-md border border-border/50 bg-white/[0.03] text-muted-foreground uppercase">
+            <span className="inline-block px-2 py-0.5 text-[8px] font-mono tracking-[0.1em] rounded-md border border-border/50 bg-white/[0.03] text-muted-foreground uppercase">
               {reason}
             </span>
             {/* Badges */}
@@ -143,7 +143,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         {/* View full dossier */}
           <button
             onClick={onSelect}
-            className="w-full mt-3 flex items-center justify-center gap-1.5 py-3 min-h-[44px] rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.15em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
+            className="w-full mt-3 flex items-center justify-center gap-1.5 py-3 min-h-[44px] rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.1em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
           >
           VIEW DETAILS <ChevronRight className="w-3 h-3" />
         </button>
@@ -178,7 +178,7 @@ export default function TopResultsGrid({ topResults, onSelectResult, primaryCont
 
       {runners.length > 0 && (
         <div className="space-y-2">
-          <p className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 uppercase text-center">
+          <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 uppercase text-center">
             OTHER GREAT MATCHES
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

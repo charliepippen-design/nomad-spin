@@ -100,7 +100,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
           className="relative w-full max-w-sm"
         >
           <div className="gradient-border-wrap rounded-xl">
-            <div className="bg-black/90 backdrop-blur-[60px] rounded-xl p-6">
+            <div className="bg-popover/95 backdrop-blur-[60px] rounded-xl p-6">
               {/* Close */}
               <button onClick={onClose} aria-label="Close authentication modal" className="absolute top-4 right-4 p-1 hover:bg-white/5 rounded-sm transition-colors">
                 <X className="w-4 h-4 text-muted-foreground" />
@@ -117,7 +117,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
               </div>
 
               {/* Benefits */}
-              <div className="flex flex-col gap-2 mb-5 p-3 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+              <div className="flex flex-col gap-2 mb-5 p-3 rounded-lg bg-white/[0.02] border border-border">
                 {BENEFITS.map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2.5">
                     <Icon className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
@@ -144,12 +144,12 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
 
               <div className="flex items-center gap-3 my-4">
                 <div className="flex-1 h-px bg-white/[0.06]" />
-                <span className="font-mono text-[9px] text-muted-foreground/50 tracking-[0.2em]">OR USE EMAIL</span>
+                <span className="font-mono text-[9px] text-muted-foreground/50 tracking-[0.1em]">OR USE EMAIL</span>
                 <div className="flex-1 h-px bg-white/[0.06]" />
               </div>
 
               {/* Tab Toggle */}
-              <div className="flex gap-1 mb-4 p-1 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+              <div className="flex gap-1 mb-4 p-1 rounded-lg bg-white/[0.03] border border-border">
                 <button
                   onClick={() => { setMode('login'); setError(''); }}
                   className={`flex-1 py-1.5 rounded-md font-mono text-[10px] tracking-wider uppercase transition-colors ${
@@ -180,7 +180,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your name"
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
+                      className="w-full bg-white/[0.03] border border-border rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
                     />
                   </div>
                 )}
@@ -195,7 +195,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
                     required
-                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
+                    className="w-full bg-white/[0.03] border border-border rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
                   />
                 </div>
 
@@ -210,7 +210,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
                     placeholder="••••••••"
                     required
                     minLength={6}
-                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
+                    className="w-full bg-white/[0.03] border border-border rounded-lg px-3 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-white/20 transition-colors"
                   />
                 </div>
 
@@ -224,7 +224,7 @@ export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthMod
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-2.5 rounded-lg font-mono text-xs tracking-wider transition-all bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.1] hover:border-white/[0.2] disabled:opacity-50 text-foreground"
+                  className="w-full py-2.5 rounded-lg font-mono text-xs tracking-wider transition-all bg-white/[0.06] border border-border hover:bg-white/[0.1] hover:border-white/[0.2] disabled:opacity-50 text-foreground"
                 >
                   {loading ? 'Please wait...' : success ? 'Done ✓' : mode === 'login' ? 'Sign in with email' : 'Create account'}
                 </button>

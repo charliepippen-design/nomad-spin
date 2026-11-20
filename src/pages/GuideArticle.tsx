@@ -135,7 +135,7 @@ export default function GuideArticle() {
 
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
         <header className="mb-10">
-          <p className="font-mono text-xs tracking-wider text-muted-foreground mb-4">
+          <p className="mb-4 text-sm font-medium text-muted-foreground">
             {updatedLabel} · {guide.readTime}
           </p>
           <h1 className="text-4xl md:text-5xl leading-tight text-foreground mb-6">
@@ -187,7 +187,7 @@ export default function GuideArticle() {
 
       {relatedDestinations.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">
-          <p className="font-mono text-xs tracking-wider text-muted-foreground mb-3">Related destinations</p>
+          <p className="mb-3 border-b border-border pb-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-foreground">Related destinations</p>
           <div className="flex flex-wrap gap-2">
             {relatedDestinations.map((destination) => (
               <Link

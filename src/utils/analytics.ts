@@ -28,7 +28,13 @@ export type AnalyticsEvent =
   | 'affiliate_click'
   | 'affiliate_click_error'
   | 'cta_variant_assigned'
-  | 'grid_tile_visible';
+  | 'grid_tile_visible'
+  | 'destination_search'
+  | 'compare_add_city'
+  | 'compare_complete'
+  | 'compare_share'
+  | 'base_finder_start'
+  | 'base_finder_complete';
 
 export type Vertical =
   | 'accommodation'

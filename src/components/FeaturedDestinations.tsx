@@ -31,7 +31,7 @@ export default function FeaturedDestinations() {
         className="max-w-4xl mx-auto flex flex-col items-center gap-8"
       >
         <motion.div variants={fadeUp} className="text-center bg-black/50 backdrop-blur-sm rounded-2xl px-6 py-4">
-          <h2 className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground uppercase mb-2">
+          <h2 className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground uppercase mb-2">
             Where to Stay
           </h2>
           <p className="text-xs text-muted-foreground/60 max-w-md mx-auto">

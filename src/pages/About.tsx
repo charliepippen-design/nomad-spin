@@ -41,12 +41,16 @@ export default function About() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl text-foreground mb-8">
-          About Nomad Spin
-        </h1>
+      <div className="dns-container py-12 md:py-20">
+        <div className="grid gap-8 md:grid-cols-[1fr_1.1fr] md:gap-16">
+        <div>
+          <p className="dns-eyebrow">About</p>
+          <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">
+            About Nomad Spin
+          </h1>
+        </div>
 
-        <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
+        <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
           <p>
             Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. We help you cut through decision paralysis and find your next destination based on what actually matters: cost of living, internet speed, safety, and vibe.
           </p>
@@ -55,26 +59,31 @@ export default function About() {
           </p>
         </div>
 
+        </div>
+
         {/* Values */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+        <div className="mt-14 grid grid-cols-1 gap-5 border-t border-border pt-10 md:mt-20 md:grid-cols-3">
           {[
             { icon: Globe2, title: 'Discovery First', desc: 'We prioritize serendipity. Spin the globe and let the data surprise you.' },
             { icon: BarChart3, title: 'Data-Driven', desc: 'Every recommendation is backed by real metrics, not sponsored placements.' },
             { icon: Heart, title: 'By Nomads, For Nomads', desc: 'Built by people who\'ve lived the lifestyle and know what matters on the ground.' },
           ].map((v) => (
-            <div key={v.title} className="rounded-xl border border-border/30 bg-card p-5 flex flex-col gap-3">
-              <v.icon className="w-5 h-5 text-foreground/60" />
-              <h2 className="text-lg text-foreground">{v.title}</h2>
-              <p className="text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
+            <div key={v.title} className="dns-card flex flex-col gap-3 p-6">
+              <v.icon className="h-5 w-5 text-primary" />
+              <h2 className="text-xl text-foreground">{v.title}</h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/20">
-          <p className="text-xs text-muted-foreground/60">
+        <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-8">
+          <p className="text-sm text-muted-foreground">
             Have feedback or a city suggestion?{' '}
-            <Link to="/contact" className="text-primary/70 hover:text-primary transition-colors">Get in touch</Link>.
+            <Link to="/contact" className="font-semibold text-primary hover:underline">Get in touch</Link>.
           </p>
+          <Link to="/methodology" className="text-sm font-semibold text-primary hover:underline">
+            How our data is built
+          </Link>
         </div>
       </div>
     </div>

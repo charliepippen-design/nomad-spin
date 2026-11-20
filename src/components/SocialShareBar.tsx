@@ -128,7 +128,7 @@ export default function SocialShareBar({ cityName, country, shareUrl }: SocialSh
           rel="noopener noreferrer"
           tabIndex={0}
           aria-label={btn.label}
-          className="w-9 h-9 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/15 hover:scale-110 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:outline-none transition-all duration-200"
+          className="w-9 h-9 rounded-full bg-white/[0.06] backdrop-blur-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/15 hover:scale-110 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:outline-none transition-all duration-200"
         >
           {btn.icon}
         </motion.a>
@@ -139,7 +139,7 @@ export default function SocialShareBar({ cityName, country, shareUrl }: SocialSh
         tabIndex={0}
         role="button"
         aria-label="Copy link"
-        className="w-9 h-9 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/15 hover:scale-110 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:outline-none transition-all duration-200"
+        className="w-9 h-9 rounded-full bg-white/[0.06] backdrop-blur-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/15 hover:scale-110 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:outline-none transition-all duration-200"
       >
         {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
       </motion.button>

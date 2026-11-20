@@ -24,7 +24,9 @@ describe('NotFound', () => {
     renderMissing();
 
     const header = screen.getByRole('banner');
-    expect(within(header).getByRole('link', { name: 'Spin' })).toHaveAttribute('href', '/');
+    expect(within(header).getByRole('link', { name: 'Explore' })).toHaveAttribute('href', '/');
+    expect(within(header).getByRole('link', { name: 'Compare' })).toHaveAttribute('href', '/compare');
+    expect(within(header).getByRole('link', { name: 'Find Your Base' })).toHaveAttribute('href', '/find-your-base');
     expect(within(header).getByRole('link', { name: 'Guides' })).toHaveAttribute('href', '/guides');
     expect(within(header).getByRole('link', { name: 'Destinations' })).toHaveAttribute('href', '/destinations');
     expect(within(header).getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about');
