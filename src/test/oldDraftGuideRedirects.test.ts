@@ -11,10 +11,10 @@ const entries = Object.entries(OLD_DRAFT_GUIDE_REDIRECTS).flatMap(([destination,
 );
 
 describe('vercel.json old draft guide redirects', () => {
-  it('covers 48 old draft slugs across the 7 live guide cities', () => {
+  it('covers 49 old draft slugs across the 7 live guide cities', () => {
     expect(Object.keys(OLD_DRAFT_GUIDE_REDIRECTS)).toHaveLength(7);
-    expect(entries).toHaveLength(48);
-    expect(new Set(entries.map((e) => e.source)).size).toBe(48);
+    expect(entries).toHaveLength(49);
+    expect(new Set(entries.map((e) => e.source)).size).toBe(49);
   });
 
   it('301s every old draft slug to its live guide', () => {

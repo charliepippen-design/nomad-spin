@@ -6,6 +6,11 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/guides/basic-guide-living-bali-2026",
+      "destination": "/guides/living-in-bali",
+      "statusCode": 301
+    },
+    {
       "source": "/destinations/%C3%A9vora",
       "destination": "/destinations/evora",
       "statusCode": 301
