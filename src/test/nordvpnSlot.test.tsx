@@ -66,15 +66,12 @@ describe('buildVpnUrl', () => {
 });
 
 describe('NordVPN slot on the destination page', () => {
-  it('renders one clean link in the coworking section only, with no disclosure', () => {
+  it('is hidden until a confirmed tracking link is set', () => {
     vi.stubEnv('VITE_NORDVPN_TRACKING_URL', '');
     const { container } = renderDestination('chiang-mai');
-    const links = nordLinks(container);
-    expect(links).toHaveLength(1);
-    expect(container.querySelector('#coworking')?.contains(links[0])).toBe(true);
-    expect(container.querySelector('#faq')?.contains(links[0]) ?? false).toBe(false);
-    expect(links[0].getAttribute('rel')).not.toContain('sponsored');
-    expect(container.textContent).not.toContain(DISCLOSURE);
+    expect(nordLinks(container)).toHaveLength(0);
+    expect(container.querySelector('#coworking')?.textContent ?? '').not.toContain('NordVPN');
+    expect(generateAffiliateLinks({ name: 'Chiang Mai', country: 'Thailand', countryCode: 'TH' }).vpn.url).toBe('');
     expect(jsonLdMentionsNord()).toBe(false);
   });
 
@@ -83,7 +80,9 @@ describe('NordVPN slot on the destination page', () => {
     const { container } = renderDestination('chiang-mai');
     const links = nordLinks(container);
     expect(links).toHaveLength(1);
-    expect(links[0].getAttribute('rel')).toContain('sponsored');
+    expect(container.querySelector('#coworking')?.contains(links[0])).toBe(true);
+    expect(container.querySelector('#faq')?.contains(links[0]) ?? false).toBe(false);
+    expect(links[0].getAttribute('rel')).toBe('sponsored nofollow noopener noreferrer');
     expect(container.querySelector('#coworking')?.textContent).toContain(DISCLOSURE);
     expect(jsonLdMentionsNord()).toBe(false);
   });

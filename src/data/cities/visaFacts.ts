@@ -1,6 +1,6 @@
 import type { City } from './types';
 
-/** High-certainty Spain telework path. visaDays stays the initial consular visa. */
+/** High-certainty Spain telework path, shown in the note only. */
 export const SPAIN_DN_VISA_NOTE =
   '1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies).';
 
@@ -10,13 +10,14 @@ export const SPAIN_DN_LEGAL_NOTES = [
   'Income is a share of the Spanish minimum wage (200% of SMI for the main applicant on official pages). Check the current euro amount and fees before you apply.',
 ];
 
-/** High-certainty Portugal remote-work path. visaDays stays 365 (not changed to the 2-year permit). */
+/**
+ * Portugal remote-work path, shown in the note only (the visa field is the Schengen exemption).
+ * MNE visa-types page: temporary stay visas run "up to one year"; residence visas are
+ * "valid for two entries and for a period of four months". AIMA art. 88(1) page: the permit is
+ * valid two years from issue and "renovavel por periodos sucessivos de tres anos".
+ */
 export const PORTUGAL_DN_VISA_NOTE =
-  'Temp-stay visa under 1 year, or D8 residency visa (4 months) then a 2-year permit, renew 3 (Lei 23/2007 art. 75).';
-
-/** Medium-certainty label fix is not applied. Tell readers to check the official source. */
-export const PORTUGAL_D7_LABEL_NOTE =
-  'This row is labeled D7/Digital Nomad Visa. D7 is a separate passive-income visa. Check official MNE and AIMA sources before you treat that label as the remote-work route.';
+  'temporary-stay visa (up to 1 year), or D8 residence visa (4 months, valid for 2 entries) then a 2-year residence permit, renewable for successive 3-year periods (Lei 23/2007 art. 75).';
 
 export const PORTUGAL_DN_LEGAL_NOTES = [
   'Visa types: https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa',
@@ -172,14 +173,33 @@ export const COUNTRY_VISA_RULES: Record<string, CountryVisaRule> = {
       'https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074',
     ],
   },
+  PT: {
+    visaType: 'Visa Exemption',
+    visaDays: 90,
+    visaNote: `${SCHENGEN_SHORT_STAY} Remote-work route: ${PORTUGAL_DN_VISA_NOTE}`,
+    sources: [
+      'https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa',
+      'https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe',
+    ],
+  },
   MY: {
     visaType: 'Visa Exemption',
     visaDays: 90,
-    visaNote: 'Days depend on nationality. DE Rantau Nomad Pass (MDEC), separate application.',
+    visaNote:
+      'Up to 90 days for many passports; 30 or 14 days for others. Check your nationality with the Immigration Department of Malaysia or a Malaysian embassy. DE Rantau Nomad Pass (MDEC), separate application.',
+    // Malaysian MFA embassy pages (checked 21 Nov 2026): Berlin "German passport holders can stay in
+    // Malaysia for 3 months (90 days)"; Abu Dhabi "Citizens of United Arab Emirates (UAE) do not require
+    // a visa to enter Malaysia for any social visit not exceeding 90 days"; Beijing (mutual exemption)
+    // "the maximum duration of each visit shall not exceed 30 days". Immigration Department page:
+    // "Visa is not required for a stay of less than one (1) month for ASEAN nationals except Myanmar."
+    // 14 days is indirect: the Yangon embassy page asks for an e-visa for social visits of "more than 14 days".
     sources: [
       'https://mdec.my/derantau',
       'https://rai.malaysia.gov.my/enter',
       'https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/',
+      'https://www.kln.gov.my/web/deu_berlin/requirement_foreigner',
+      'https://www.kln.gov.my/web/are_abu-dhabi/requirement_foreigner',
+      'https://www.kln.gov.my/web/chn_beijing/requirement_foreigner',
     ],
   },
   TR: {
@@ -215,13 +235,9 @@ const ROW_VISA_NOTE_EXTRA: Record<string, string> = {
   'fukuoka-jp': "Fukuoka's startup visa is for founders, not a general nomad route.",
 };
 
-function isDigitalNomadLabel(visaType: string): boolean {
-  return /digital nomad/i.test(visaType);
-}
-
 /**
  * Attach official visa notes for Spain, Portugal, and Thailand.
- * Does not change Spain or Portugal visaDays (that remap is not high certainty).
+ * Spain and Portugal rows show the Schengen exemption; the remote-work route is in the note.
  * Every Thailand row becomes the passport-dependent 30-day tourism exemption.
  * Every Vietnam 90-day row uses the E-Visa label already on Da Nang and Ho Chi Minh City.
  * Countries in COUNTRY_VISA_RULES get one official type, day count and note on every row.
@@ -237,14 +253,12 @@ export function applyOfficialVisaFacts<T extends City>(city: T): T {
     };
   }
 
-  if (city.countryCode === 'PT' && isDigitalNomadLabel(city.meta.visaType)) {
-    const d7Label = /d7/i.test(city.meta.visaType);
-    const visaNote = d7Label
-      ? `${PORTUGAL_DN_VISA_NOTE} ${PORTUGAL_D7_LABEL_NOTE}`
-      : PORTUGAL_DN_VISA_NOTE;
+  if (city.countryCode === 'PT') {
+    const rule = COUNTRY_VISA_RULES.PT;
     return {
       ...city,
-      meta: { ...city.meta, visaNote },
+      meta: { ...city.meta, visaType: rule.visaType, visaDays: rule.visaDays, visaNote: rule.visaNote },
+      visa: { type: rule.visaType, days: rule.visaDays },
       legalNotes: PORTUGAL_DN_LEGAL_NOTES,
     };
   }

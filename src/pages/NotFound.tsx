@@ -27,8 +27,9 @@ const NotFound = () => {
         <meta name="robots" content="noindex, follow" />
       </Helmet>
       <div className="text-center">
-        <h1 className="mb-4 text-4xl text-foreground">Page not found</h1>
-        <p className="mb-8 text-xl text-muted-foreground">This page does not exist.</p>
+        <p className="dns-num text-8xl text-foreground/10 md:text-9xl" aria-hidden="true">404</p>
+        <h1 className="mb-3 mt-2 text-4xl text-foreground md:text-5xl">Page not found</h1>
+        <p className="mb-8 text-lg text-muted-foreground">This page does not exist.</p>
         <nav aria-label="Site" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           {PAGE_LINKS.map((link) => (
             <Link key={link.to} to={link.to} className="text-sm font-medium text-primary hover:text-primary/80">

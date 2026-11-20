@@ -112,6 +112,11 @@ export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
     text: "Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Spain's digital nomad visa runs up to 1 year, and an in-country telework permit up to 3 years (Ley 14/2013). Verify current rules on official Spanish government pages.",
     officialLinks: [{ phrase: 'official Spanish government pages', href: SPAIN_VISA_URL }],
   },
+  PT: {
+    applies: isStayAllowanceVisa,
+    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Portugal has a temporary-stay visa of up to 1 year, or a residence visa that leads to a 2-year residence permit (Lei 23/2007). Verify current rules on official MNE and AIMA pages.',
+    officialLinks: [MNE_LINK, AIMA_LINK],
+  },
   MY: {
     applies: isStayAllowanceVisa,
     text: 'Up to {days} days for many passports, depending on nationality. For a longer remote-work stay, Malaysia runs the DE Rantau Nomad Pass, a separate application. Verify current rules with {source} before you book.',
@@ -288,36 +293,6 @@ function visaItem(text: string, officialLinks: OfficialLink[] = []): { text: str
   return { text: asciiText(text), officialLinks };
 }
 
-function spainPortugalVisa(city: City): { text: string; officialLinks: OfficialLink[] } | null {
-  const nomad = /digital nomad/i.test(city.meta.visaType);
-  if (!nomad) return null;
-
-  if (city.countryCode === 'ES') {
-    return visaItem(
-      "Up to 1 year on the initial visa, which is the 365 days Nomad Spin lists. Spain's in-country telework residence permit can run up to 3 years, renewable for 2 (Ley 14/2013). Verify the income rule and fees on official Spanish government pages.",
-      [{ phrase: 'official Spanish government pages', href: SPAIN_VISA_URL }],
-    );
-  }
-
-  if (city.countryCode !== 'PT') return null;
-
-  if (/d7/i.test(city.meta.visaType)) {
-    return visaItem(
-      'Up to 365 days on the initial D7/Digital Nomad Visa, per Nomad Spin\'s data. D7 is a separate passive-income visa, so do not treat that label as the remote-work route. Verify current requirements on official MNE and AIMA pages.',
-      [MNE_LINK, AIMA_LINK],
-    );
-  }
-
-  const ending =
-    city.id === 'lisbon-pt'
-      ? 'Verify thresholds and fees on official MNE and AIMA pages.'
-      : 'As in Lisbon, verify thresholds and fees on MNE and AIMA pages.';
-  return visaItem(
-    `Up to 1 year on the initial visa, which is the 365 days Nomad Spin lists. Portugal's temporary-stay visa covers under a year; the D8 residency visa leads to a 2-year residence permit, renewable for 3 (Lei 23/2007). ${ending}`,
-    [MNE_LINK, AIMA_LINK],
-  );
-}
-
 function clampVisa(text: string, city: City, links: OfficialLink[]): { text: string; officialLinks: OfficialLink[] } {
   let next = text;
   if (wordCount(next) > 50) {
@@ -335,9 +310,6 @@ function clampVisa(text: string, city: City, links: OfficialLink[]): { text: str
 }
 
 function visaCopy(city: City): { text: string; officialLinks: OfficialLink[] } {
-  const special = spainPortugalVisa(city);
-  if (special) return special;
-
   if (city.countryCode === 'TH') {
     return visaItem(
       "Usually 30 days, depending on your passport. Nomad Spin lists Thailand's Tourism Visa Exemption at 30 days for 60 countries and territories (effective 15 Sep 2026); a few get 15 days or visa on arrival. For longer stays, look at the Destination Thailand Visa. Verify on official Thai government pages.",

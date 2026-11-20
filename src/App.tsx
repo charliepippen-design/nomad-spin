@@ -16,7 +16,11 @@ import DestinationGuide from "./pages/DestinationGuide";
 import DestinationsIndex from "./pages/DestinationsIndex";
 import GuidesList from "./pages/GuidesList";
 import GuideArticle from "./pages/GuideArticle";
+import Compare from "./pages/Compare";
+import FindYourBase from "./pages/FindYourBase";
+import Methodology from "./pages/Methodology";
 import NotFound from "./pages/NotFound";
+import ConsentBanner from "./components/ConsentBanner";
 
 const queryClient = new QueryClient();
 
@@ -38,11 +42,15 @@ const App = () => (
                 <Route path="/terms-of-use" element={<TermsOfUse />} />
                 <Route path="/destinations" element={<DestinationsIndex />} />
                 <Route path="/destinations/:citySlug" element={<DestinationGuide />} />
+                <Route path="/compare" element={<Compare />} />
+                <Route path="/find-your-base" element={<FindYourBase />} />
+                <Route path="/methodology" element={<Methodology />} />
                 <Route path="/guides" element={<GuidesList />} />
                 <Route path="/guides/:slug" element={<GuideArticle />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
+            <ConsentBanner />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

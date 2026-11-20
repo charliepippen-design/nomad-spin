@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { guides } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
 import { listSubAreaDestinations, omitSubAreaDestinationLines } from '../src/lib/subAreaDestinations';
+import { DATASET_UPDATED } from '../src/data/datasetMeta';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,9 @@ const staticEntries: SitemapEntry[] = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/guides', changefreq: 'weekly', priority: '0.9' },
   { path: '/destinations', changefreq: 'weekly', priority: '0.85' },
+  { path: '/compare', changefreq: 'weekly', priority: '0.85' },
+  { path: '/find-your-base', changefreq: 'weekly', priority: '0.85' },
+  { path: '/methodology', changefreq: 'monthly', priority: '0.6' },
   { path: '/about', changefreq: 'monthly', priority: '0.8' },
   { path: '/contact', changefreq: 'monthly', priority: '0.7' },
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
@@ -40,6 +44,7 @@ const cityEntries: SitemapEntry[] = allCitySlugs()
   .filter(({ slug }) => !subAreaSlugs.has(slug))
   .map(({ slug }) => ({
     path: `/destinations/${slug}`,
+    lastmod: DATASET_UPDATED,
     changefreq: 'weekly' as const,
     priority: '0.7',
   }));

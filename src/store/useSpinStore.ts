@@ -5,7 +5,7 @@ import { Origin, origins as originsData } from '@/data/origins';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
 
 // Log dataset size at init
-console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
+if (import.meta.env.DEV) console.info(`[NomadSpin] Dataset loaded: ${cities.length} cities`);
 
 export type AppPhase = 'landing' | 'preferences' | 'spinning' | 'results';
 export type VibeOption = 'beach' | 'party' | 'workhub' | 'mountain' | 'adventure' | 'family' | 'foodie';

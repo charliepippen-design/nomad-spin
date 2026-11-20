@@ -95,6 +95,27 @@ describe('phase 1 hub visa data', () => {
     }
   });
 
+  it('puts every Portugal row on the Schengen exemption with the remote-work route in the note', () => {
+    const rows = byCountry('PT');
+    expect(rows.length).toBeGreaterThan(10);
+    for (const city of rows) {
+      expect(city.meta, city.id).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+      expect(city.visa, city.id).toEqual({ type: 'Visa Exemption', days: 90 });
+      expect(city.meta.visaNote, city.id).toMatch(/^Schengen short stay: 90 days in any 180\. Remote-work route:/);
+    }
+  });
+
+  it('spells out the Malaysia day counts by passport and cites the embassy pages they were checked on', () => {
+    const rule = COUNTRY_VISA_RULES.MY;
+    expect(rule.sources).toContain('https://www.imi.gov.my/index.php/en/main-services/visa/visa-requirement-by-country/');
+    expect(rule.sources).toContain('https://www.kln.gov.my/web/deu_berlin/requirement_foreigner');
+    expect(rule.sources).toContain('https://www.kln.gov.my/web/are_abu-dhabi/requirement_foreigner');
+    for (const city of byCountry('MY')) {
+      expect(city.meta.visaNote, city.id).toMatch(/^Up to 90 days for many passports; 30 or 14 days for others\./);
+      expect(city.meta.visaNote, city.id).toMatch(/Check your nationality/);
+    }
+  });
+
   it('puts every Albania row on the 90-in-180 default with the unique permit in the note', () => {
     const rule = COUNTRY_VISA_RULES.AL;
     expect(rule.sources).toContain('https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/');
@@ -135,7 +156,7 @@ describe('phase 1 hub visa data', () => {
   });
 
   it('uses one visa type and day count per country, so rows never contradict', () => {
-    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'MY', 'AL', 'ME']) {
+    for (const cc of ['DE', 'PL', 'MX', 'BR', 'CL', 'ID', 'CO', 'JP', 'KR', 'TW', 'PE', 'BG', 'GR', 'HR', 'TR', 'ES', 'PT', 'MY', 'AL', 'ME']) {
       const rule = COUNTRY_VISA_RULES[cc];
       expect(rule, cc).toBeDefined();
       expect(rule.sources.length, cc).toBeGreaterThan(0);

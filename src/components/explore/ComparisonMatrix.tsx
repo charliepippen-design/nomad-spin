@@ -27,8 +27,8 @@ function MetricRow({
       {values.map((v, i) => (
         <div
           key={i}
-          className={`flex flex-col items-center py-3 sm:py-4 border-b border-white/[0.06] ${
-            i > 0 ? 'border-l border-white/[0.06]' : ''
+          className={`flex flex-col items-center py-3 sm:py-4 border-b border-border ${
+            i > 0 ? 'border-l border-border' : ''
           }`}
         >
           <span className="text-[8px] sm:text-[10px] text-muted-foreground font-mono uppercase tracking-widest mb-1">
@@ -64,7 +64,7 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
       transition={{ type: 'spring', damping: 28, stiffness: 260 }}
       className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-3xl overflow-y-auto"
     >
-      <div className="sticky top-0 z-[125] bg-black/70 backdrop-blur-xl border-b border-white/[0.06]">
+      <div className="sticky top-0 z-[125] bg-popover/95 backdrop-blur-xl border-b border-border">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between px-3 md:px-8 py-3 md:py-4">
           <button
             onClick={onBack}
@@ -95,7 +95,7 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
             <div
               key={city.id}
               className={`relative aspect-[4/3] overflow-hidden ${
-                i > 0 ? 'border-l border-white/[0.06]' : ''
+                i > 0 ? 'border-l border-border' : ''
               }`}
             >
               <Link to={cityPath(city)} className="absolute inset-0 block">
@@ -121,7 +121,7 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
           ))}
         </div>
 
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-b-xl overflow-hidden">
+        <div className="bg-white/[0.03] border border-border rounded-b-xl overflow-hidden">
           <MetricRow
             label="Monthly Cost"
             values={costs.map((c) => `$${c.toLocaleString()}`)}

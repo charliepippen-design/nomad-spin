@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { cities } from '@/data/cities';
-import { visaPathSentence } from '@/lib/visaCopy';
+import { visaChipValue, visaPathSentence } from '@/lib/visaCopy';
 import { destinationIntro, destinationMetaDescription } from '@/lib/destinationSeo';
 
 const MISLEADING = /up to 365 days for most nationalities/i;
@@ -26,10 +26,10 @@ describe('Spain visa wording (default entry, nomad visa in the note)', () => {
   });
 });
 
-describe('Portugal digital nomad visa wording', () => {
-  const rows = cities.filter((c) => c.countryCode === 'PT' && /digital nomad/i.test(c.meta.visaType));
+describe('Portugal visa wording (default entry, remote-work visa in the note)', () => {
+  const rows = byCountry('PT');
 
-  it('covers the named cities and does not render a stay allowance', () => {
+  it('shows the Schengen exemption on every row, never a 365-day nomad visa', () => {
     const names = new Set(rows.map((c) => c.name));
     for (const name of ['Lisbon', 'Porto', 'Porto Santo']) {
       expect(names.has(name)).toBe(true);
@@ -37,30 +37,34 @@ describe('Portugal digital nomad visa wording', () => {
     expect(rows.length).toBeGreaterThan(10);
 
     for (const city of rows) {
-      expect(city.meta.visaDays).toBe(365);
-      expect(city.visa.days).toBe(365);
+      expect(city.meta, city.id).toMatchObject({ visaType: 'Visa Exemption', visaDays: 90 });
+      expect(city.visa, city.id).toEqual({ type: 'Visa Exemption', days: 90 });
+      expect(visaChipValue(city.countryCode, city.meta.visaType, city.meta.visaDays)).toBe('90 days');
       const line = visaPathSentence(city.meta);
+      expect(line).toMatch(/^Visa Exemption: up to 90 days\. Schengen short stay: 90 days in any 180\./);
       expect(line).not.toMatch(MISLEADING);
       expect(line).not.toMatch(/most nationalities/i);
-      expect(line).toMatch(/^Initial /);
-      expect(line).toMatch(/Application required; eligibility and renewals vary, verify official sources\./);
+      expect(line).not.toMatch(/365|^Initial |D7/);
       expect(destinationIntro(city)).not.toMatch(MISLEADING);
-      expect(destinationMetaDescription(city)).not.toMatch(/\(365 days\)/);
-      expect(city.meta.visaNote).toBeTruthy();
+      expect(destinationIntro(city)).not.toMatch(/365/);
+      expect(destinationMetaDescription(city)).not.toMatch(/365|Digital Nomad Visa/);
       expect(city.legalNotes.length).toBeGreaterThan(0);
     }
   });
 
-  it('keeps Portugal on the D8 path and flags the D7 label as unverified', () => {
-    const lisbon = rows.find((c) => c.id === 'lisbon-pt');
-    expect(lisbon?.meta.visaType).toBe('Digital Nomad Visa');
-    expect(lisbon?.meta.visaNote).toMatch(/Lei 23\/2007/);
-    expect(lisbon?.meta.visaNote).toMatch(/2-year/);
-    expect(lisbon?.legalNotes.join(' ')).toMatch(/vistos\.mne\.gov\.pt/);
-
-    const portoSanto = rows.find((c) => c.id === 'porto-santo-pt');
-    expect(portoSanto?.meta.visaType).toBe('D7/Digital Nomad Visa');
-    expect(portoSanto?.meta.visaNote).toMatch(/Check official MNE and AIMA sources/);
+  it('keeps the temporary-stay and D8 residence route in the note, with the official sources', () => {
+    for (const id of ['lisbon-pt', 'porto-pt', 'porto-santo-pt']) {
+      const city = rows.find((c) => c.id === id);
+      expect(city, id).toBeDefined();
+      const note = city!.meta.visaNote ?? '';
+      expect(note, id).toMatch(/temporary-stay visa \(up to 1 year\)/);
+      expect(note, id).toMatch(/D8 residence visa \(4 months, valid for 2 entries\)/);
+      expect(note, id).toMatch(/2-year residence permit, renewable for successive 3-year periods/);
+      expect(note, id).toMatch(/Lei 23\/2007/);
+      expect(note, id).not.toMatch(/D7|passive-income|renew 3\b/);
+      expect(city!.legalNotes.join(' '), id).toMatch(/vistos\.mne\.gov\.pt/);
+      expect(city!.legalNotes.join(' '), id).toMatch(/aima\.gov\.pt/);
+    }
   });
 });
 

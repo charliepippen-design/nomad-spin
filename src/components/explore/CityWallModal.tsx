@@ -52,8 +52,8 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
   const selectedCityData = exploreCities.filter((c) => selectedCities.includes(c.id));
 
   return (
-    <div className="fixed inset-0 z-[100] bg-[#0a0a0a]/95 backdrop-blur-2xl overflow-y-auto overflow-x-hidden animate-in fade-in duration-300">
-      <div className="sticky top-0 z-[105] bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06]">
+    <div className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-2xl overflow-y-auto overflow-x-hidden animate-in fade-in duration-300">
+      <div className="sticky top-0 z-[105] bg-background/90 backdrop-blur-xl border-b border-border">
         <div className="max-w-[1600px] mx-auto flex items-center justify-between gap-3 px-3 md:px-8 py-3 md:py-4">
           <div className="min-w-0">
             <h1 className="text-base md:text-2xl font-bold text-foreground tracking-tight truncate">
@@ -77,13 +77,13 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by city or country"
-            className="flex-1 min-w-0 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-white/30"
+            className="flex-1 min-w-0 rounded-lg border border-border bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-white/30"
             aria-label="Search cities"
           />
           <select
             value={region}
             onChange={(e) => setRegion(e.target.value as RegionFilter)}
-            className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-white/30"
+            className="rounded-lg border border-border bg-white/[0.04] px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-white/30"
             aria-label="Filter by region"
           >
             {REGIONS.map((item) => (
@@ -119,21 +119,21 @@ export default function CityWallModal({ isOpen, onClose }: CityWallModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: 'spring', damping: 24, stiffness: 300 }}
-            className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-[110] bg-white text-black px-3 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-4 max-w-[calc(100vw-2rem)]"
+            className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-[110] bg-popover text-foreground border border-border px-3 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-4 max-w-[calc(100vw-2rem)]"
           >
             <span className="text-xs sm:text-sm font-mono whitespace-nowrap">
               {selectedCities.length} {selectedCities.length === 1 ? 'city' : 'cities'}
             </span>
             <button
               onClick={() => setIsComparing(true)}
-              className="flex items-center gap-1.5 sm:gap-2 bg-black text-white px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono hover:bg-black/80 transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 bg-primary text-primary-foreground px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-mono hover:bg-popover/95 transition-colors whitespace-nowrap"
             >
               <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Compare
             </button>
             <button
               onClick={() => setSelectedCities([])}
-              className="text-[10px] sm:text-xs text-black/50 hover:text-black transition-colors font-mono"
+              className="text-[10px] sm:text-xs text-muted-foreground hover:text-foreground transition-colors font-mono"
             >
               Clear
             </button>

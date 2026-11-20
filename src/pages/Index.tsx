@@ -13,10 +13,15 @@ import TopResultsGrid from '@/components/TopResultsGrid';
 import LandingDrawer from '@/components/LandingDrawer';
 import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
+import HomeHero from '@/components/HomeHero';
+import HomeGuides from '@/components/HomeGuides';
+import { cities as ALL_CITIES } from '@/data/cities';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
 import GlobeTapHint from '@/components/GlobeTapHint';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
+import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
@@ -29,6 +34,8 @@ import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
 
 const Globe = lazy(() => import('@/components/Globe'));
+
+const GLOBE_ONLY_HASH = '#globe';
 
 const GlobeFallback = () => (
   <div className="w-full h-full absolute inset-0 flex items-center justify-center bg-background">
@@ -56,6 +63,23 @@ export default function Index() {
   const [autoSpin, setAutoSpin] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const [isCityWallOpen, setIsCityWallOpen] = useState(false);
+  // Globe-only mode: every overlay is hidden so the visitor can just play with the globe.
+  // It lives in the URL hash so the browser Back button leaves it.
+  const location = useLocation();
+  const navigate = useNavigate();
+  const globeOnly = location.hash === GLOBE_ONLY_HASH;
+  const setGlobeOnly = useCallback(
+    (on: boolean) => {
+      if (on) navigate(GLOBE_ONLY_HASH, { state: { enteredHere: true } });
+      else if ((location.state as { enteredHere?: boolean } | null)?.enteredHere) navigate(-1);
+      else navigate('/', { replace: true });
+    },
+    [navigate, location.state],
+  );
+  const selectedOnGlobe = useRef(new Set<string>());
+  // True while the globe is being dragged; the hero fades out of the way.
+  const [globeBusy, setGlobeBusy] = useState(false);
+  const globeBusyTimer = useRef<ReturnType<typeof setTimeout>>();
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const [howItWorksRequest, setHowItWorksRequest] = useState(0);
   const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
@@ -65,10 +89,49 @@ export default function Index() {
 
   const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
     if (city && pos) {
+      // One event per city per visit: a hover or tap on its marker.
+      if (!selectedOnGlobe.current.has(city.id)) {
+        selectedOnGlobe.current.add(city.id);
+        trackEvent('globe_city_select', { city: city.id, city_slug: citySlug(city) });
+      }
       setHoveredCity({ city, pos });
     } else {
       setHoveredCity(null);
     }
+  }, []);
+
+  // Floating globe controls step aside once the visitor scrolls into the editorial block.
+  const [pastHero, setPastHero] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.5);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Escape leaves globe-only mode.
+  useEffect(() => {
+    if (!globeOnly) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setGlobeOnly(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [globeOnly, setGlobeOnly]);
+
+  // Release anywhere ends a globe drag; the hero comes back shortly after.
+  useEffect(() => {
+    const onUp = () => {
+      clearTimeout(globeBusyTimer.current);
+      globeBusyTimer.current = setTimeout(() => setGlobeBusy(false), 500);
+    };
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
+    return () => {
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+      clearTimeout(globeBusyTimer.current);
+    };
   }, []);
 
   // Load from URL params on mount
@@ -201,7 +264,13 @@ export default function Index() {
       />
 
       {/* Globe — full-screen background layer */}
-      <div className="fixed inset-0 z-0">
+      <div
+        className="fixed inset-0 z-0"
+        onPointerDown={() => {
+          clearTimeout(globeBusyTimer.current);
+          setGlobeBusy(true);
+        }}
+      >
         <Suspense fallback={<GlobeFallback />}>
           <Globe
             spinning={isSpinning}
@@ -216,7 +285,7 @@ export default function Index() {
         </Suspense>
 
         {/* Mobile tap hint */}
-        {phase === 'landing' && !isSpinning && <GlobeTapHint />}
+        {phase === 'landing' && !isSpinning && !globeOnly && <GlobeTapHint />}
       </div>
 
 
@@ -241,14 +310,8 @@ export default function Index() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Globe controls. Site links live in the persistent header. */}
-        <div className="pointer-events-auto hidden lg:flex items-center justify-between gap-3 px-4 md:px-8 py-2">
+        <div className={`pointer-events-auto relative z-[6] items-center justify-between gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
             <div className="flex items-center gap-4">
-              <button
-                onClick={handleConfigureMission}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Explore
-              </button>
               <button
                 onClick={handleScrollToHowItWorks}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -387,6 +450,25 @@ export default function Index() {
             </div>
           </div>
 
+        {phase === 'landing' && !isSpinning && !showPrefs && !globeOnly && (
+          <HomeHero
+            onSpin={handleConfigureMission}
+            cityCount={ALL_CITIES.length}
+            onGlobeOnly={() => setGlobeOnly(true)}
+            dimmed={globeBusy}
+          />
+        )}
+
+        {globeOnly && phase === 'landing' && (
+          <button
+            type="button"
+            onClick={() => setGlobeOnly(false)}
+            className="dns-btn-secondary pointer-events-auto fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 !bg-card/90 backdrop-blur"
+          >
+            Show menu <span className="hidden text-xs font-normal text-muted-foreground sm:inline">Esc</span>
+          </button>
+        )}
+
         {/* Main */}
         <div className={`flex-1 flex flex-col items-center justify-end ${isMobile ? 'pb-4 px-3' : 'pb-8 px-4'}`}>
           <AnimatePresence mode="wait">
@@ -472,29 +554,7 @@ export default function Index() {
       </div>
 
       {/* Visible intro and links. Same content as the prerendered #seo-home block. */}
-      <section
-        id="home-intro"
-        className="relative z-10 border-t border-border/40 bg-background px-6 py-16"
-      >
-        <div className="mx-auto max-w-2xl">
-          <h1 className="text-3xl text-foreground mb-4">{HOME_H1}</h1>
-          <p className="text-sm text-foreground/80 leading-relaxed mb-6">{HOME_INTRO}</p>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link to={HOME_GUIDES_LINK.href} className="text-primary underline underline-offset-4">
-                {HOME_GUIDES_LINK.label}
-              </Link>
-            </li>
-            {guides.map((guide) => (
-              <li key={guide.slug}>
-                <Link to={`/guides/${guide.slug}`} className="text-primary underline underline-offset-4">
-                  {guide.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <HomeGuides guides={guides} />
 
       {/* Featured Destinations + How It Works now live inside the Command Drawer */}
 
@@ -528,7 +588,7 @@ export default function Index() {
       />
 
       {/* Landing Drawer — unified landing surface */}
-      {(phase === 'landing' || phase === 'preferences') && !isSpinning && (
+      {(phase === 'landing' || phase === 'preferences') && !isSpinning && !globeOnly && !pastHero && (
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
           onOpenCityWall={() => setIsCityWallOpen(true)}
@@ -553,11 +613,13 @@ export default function Index() {
 
 
       {/* Social Share Bar — always visible */}
-      <SocialShareBar
-        cityName={resultCity?.name}
-        country={resultCity?.country}
-        shareUrl={shareUrl}
-      />
+      {!globeOnly && !pastHero && (
+        <SocialShareBar
+          cityName={resultCity?.name}
+          country={resultCity?.country}
+          shareUrl={shareUrl}
+        />
+      )}
 
       {/* City Wall Modal */}
       <CityWallModal isOpen={isCityWallOpen} onClose={() => setIsCityWallOpen(false)} />

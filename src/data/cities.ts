@@ -697,7 +697,17 @@ const existingCitiesRaw: LegacyCity[] = [
   },
 ];
 
-const existingCities: City[] = existingCitiesRaw.map((c) => applyOfficialVisaFacts(withDefaults(c)));
+/** Hand-tuned rows whose figures have not been checked, so they are shown as estimates. */
+const UNVERIFIED_HAND_TUNED_IDS = new Set<string>([
+  // Tbilisi: the monthly cost is well below third-party cost-of-living figures and has not been verified.
+  'tbilisi-ge',
+]);
+
+function markUnverified(city: City): City {
+  return UNVERIFIED_HAND_TUNED_IDS.has(city.id) ? { ...city, dataSource: 'estimated' } : city;
+}
+
+const existingCities: City[] = existingCitiesRaw.map((c) => markUnverified(applyOfficialVisaFacts(withDefaults(c))));
 
 // Merge all cities
 export const cities: City[] = [

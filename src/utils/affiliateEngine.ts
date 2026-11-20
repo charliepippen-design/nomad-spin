@@ -3,7 +3,7 @@
  *
  * Builds tracking-ready outbound URLs for each monetization vertical.
  * A partner is "live" only when a real ID / tracking base is configured.
- * Until then links are clean (no placeholder or empty affiliate params).
+ * Until then generateAffiliateLinks returns an empty URL and the link is hidden.
  *
  * How to set partner IDs
  * Set the env var in Vercel (Project Settings > Environment Variables,
@@ -288,6 +288,17 @@ interface CityInput {
 }
 
 /**
+ * A partner is shown only when a confirmed affiliate ID or tracking link is
+ * configured. Without one the URL is empty and every surface hides the link.
+ */
+function liveOnly<T extends BuiltLink>(link: T): T {
+  return link.affiliate ? link : { ...link, url: '' };
+}
+
+/** rel for every commercial outbound link. */
+export const SPONSORED_REL = 'sponsored nofollow noopener noreferrer';
+
+/**
  * Generate affiliate links for a given city.
  * @param city        - City data with name, country, countryCode
  * @param originCity  - Optional origin city name for directional flight search
@@ -295,10 +306,10 @@ interface CityInput {
 export function generateAffiliateLinks(city: CityInput, originCity?: string): AffiliateLinks {
   const accom = buildAccommodationUrl(city.name, city.country, city.countryCode);
   const flights = buildFlightsUrl(city.name, originCity);
-  const esim = buildEsimUrl(city.name, city.countryCode);
-  const insurance = buildInsuranceUrl(city.name);
-  const visa = buildVisaUrl(city.name, city.countryCode);
-  const vpn = buildVpnUrl(city.name);
+  const esim = liveOnly(buildEsimUrl(city.name, city.countryCode));
+  const insurance = liveOnly(buildInsuranceUrl(city.name));
+  const visa = liveOnly(buildVisaUrl(city.name, city.countryCode));
+  const vpn = liveOnly(buildVpnUrl(city.name));
 
   return {
     accommodation: {

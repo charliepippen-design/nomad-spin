@@ -108,25 +108,26 @@ describe('destination FAQ copy', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('uses the Spain and Portugal initial-visa wording', () => {
+  it('leads Spain and Portugal with the 90-day Schengen stay and keeps the nomad route as the longer option', () => {
+    let checked = 0;
     for (const city of cities) {
       if (city.countryCode !== 'ES' && city.countryCode !== 'PT') continue;
-      if (!/digital nomad/i.test(city.meta.visaType)) continue;
-      const visa = destinationFaq(city)[2].a;
-      if (/d7/i.test(city.meta.visaType)) {
-        expect(visa, city.id).toMatch(/initial D7/);
-        expect(visa).toMatch(/passive-income/);
-        continue;
-      }
-      expect(visa, city.id).toMatch(/initial visa/);
+      checked += 1;
+      const q3 = destinationFaq(city)[2];
+      const visa = q3.a;
+      expect(visa, city.id).toMatch(/^Up to 90 days for many passports, counted across the whole Schengen area\./);
+      expect(visa, city.id).not.toMatch(/365|initial visa|D7|passive-income/);
       if (city.countryCode === 'ES') {
         expect(visa).toMatch(/3 years/);
         expect(visa).toMatch(/Ley 14\/2013/);
       } else {
-        expect(visa).toMatch(/2-year residence permit/);
-        expect(visa).toMatch(/Lei 23\/2007/);
+        expect(visa, city.id).toMatch(/temporary-stay visa of up to 1 year/);
+        expect(visa, city.id).toMatch(/2-year residence permit/);
+        expect(visa, city.id).toMatch(/Lei 23\/2007/);
+        expect(q3.officialLinks.map((link) => link.phrase)).toEqual(['MNE', 'AIMA']);
       }
     }
+    expect(checked).toBeGreaterThan(20);
   });
 
   it('labels builder-default cost and internet figures as estimates', () => {

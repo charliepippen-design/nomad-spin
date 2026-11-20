@@ -5,9 +5,11 @@ import dnsLogo from '@/assets/dns-logo.png';
 import { ThemeToggle } from './ThemeToggle';
 
 const NAV = [
-  { to: '/', label: 'Spin', end: true },
-  { to: '/guides', label: 'Guides', end: false },
+  { to: '/', label: 'Explore', end: true },
+  { to: '/compare', label: 'Compare', end: false },
+  { to: '/find-your-base', label: 'Find Your Base', end: false },
   { to: '/destinations', label: 'Destinations', end: false },
+  { to: '/guides', label: 'Guides', end: false },
   { to: '/about', label: 'About', end: true },
 ] as const;
 

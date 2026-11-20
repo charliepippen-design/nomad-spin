@@ -65,23 +65,30 @@ export default function Contact() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div className="max-w-lg mx-auto px-6 py-16 md:py-24">
-        <h1 className="text-4xl text-foreground mb-4">
+      <div className="dns-container grid gap-10 py-12 md:grid-cols-[1fr_1.1fr] md:gap-16 md:py-20">
+        <div>
+        <p className="dns-eyebrow">Get in touch</p>
+        <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">
           Contact
         </h1>
-        <p className="text-sm text-muted-foreground mb-10 leading-relaxed">
+        <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
           Have a question, feedback, or a city you'd like us to add? Drop us a message.
         </p>
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+          Spotted a wrong number on a city page? Tell us which city and which figure, with a source if you have one.
+        </p>
+        </div>
 
+        <div className="dns-card p-6 md:p-8">
         {submitted ? (
-          <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 text-center">
-            <p className="text-lg text-foreground">Thank you!</p>
-            <p className="text-xs text-muted-foreground mt-2">We'll get back to you soon.</p>
+          <div className="py-8 text-center">
+            <p className="font-display text-2xl font-bold text-foreground">Thank you!</p>
+            <p className="text-sm text-muted-foreground mt-2">We'll get back to you soon.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-[10px] font-mono tracking-[0.15em] text-muted-foreground uppercase mb-1.5">Name</label>
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">Name</label>
               <input
                 id="name"
                 type="text"
@@ -89,12 +96,12 @@ export default function Contact() {
                 maxLength={100}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-lg border border-border/50 bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring font-mono"
+                className="dns-input !py-3"
                 placeholder="Your name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-[10px] font-mono tracking-[0.15em] text-muted-foreground uppercase mb-1.5">Email</label>
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">Email</label>
               <input
                 id="email"
                 type="email"
@@ -102,12 +109,12 @@ export default function Contact() {
                 maxLength={255}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-border/50 bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring font-mono"
+                className="dns-input !py-3"
                 placeholder="you@example.com"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-[10px] font-mono tracking-[0.15em] text-muted-foreground uppercase mb-1.5">Message</label>
+              <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">Message</label>
               <textarea
                 id="message"
                 required
@@ -115,16 +122,17 @@ export default function Contact() {
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full rounded-lg border border-border/50 bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 focus:ring-ring font-mono resize-none"
+                className="dns-input resize-none !py-3"
                 placeholder="Your message..."
               />
             </div>
-            <Button type="submit" disabled={loading} className="w-full gap-2 font-mono tracking-wider uppercase text-xs">
+            <Button type="submit" disabled={loading} className="w-full gap-2 text-sm font-semibold">
               {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
               {loading ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         )}
+        </div>
       </div>
     </div>
   );

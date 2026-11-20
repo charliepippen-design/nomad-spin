@@ -131,7 +131,7 @@ describe('vercel.json legacy accent redirects', () => {
       ...KOTOR_GUIDE_ALIASES.map((source) => ({ source, destination: '/guides/living-in-kotor' })),
     ];
     const oldDraftCount = Object.values(OLD_DRAFT_GUIDE_REDIRECTS).flat().length;
-    expect(oldDraftCount).toBe(48);
+    expect(oldDraftCount).toBe(49);
     expect(redirects).toHaveLength(expected.length + aliases.length + oldDraftCount);
     for (const rule of expected) expect301(bySource, rule.source, rule.destination);
     for (const rule of aliases) expect301(bySource, rule.source, rule.destination);

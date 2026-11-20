@@ -34,7 +34,7 @@ afterEach(() => {
 
 describe('partner slots with no env set', () => {
   for (const city of [TH, CO, HU, US]) {
-    it(`${city.countryCode}: clean links, Booking for stays`, () => {
+    it(`${city.countryCode}: Booking for stays, every unconfirmed partner hidden`, () => {
       const links = generateAffiliateLinks(city);
       for (const url of urls(links)) {
         for (const fragment of BAD_FRAGMENTS) expect(url, fragment).not.toContain(fragment);
@@ -45,9 +45,10 @@ describe('partner slots with no env set', () => {
       expect(links.accommodation.partner).toBe('Booking.com');
       expect(links.accommodation.affiliate).toBe(true);
 
-      const esim = new URL(links.connectivity.url);
-      expect(esim.hostname).toBe('www.airalo.com');
-      expect(esim.searchParams.has('ref')).toBe(false);
+      // No confirmed affiliate link: the URL is empty, so the link is not shown.
+      for (const key of ['connectivity', 'insurance', 'visa', 'vpn', 'flights'] as const) {
+        expect(links[key].url, key).toBe('');
+      }
 
       expect(links.connectivity.affiliate).toBe(false);
       expect(links.flights.affiliate).toBe(false);
@@ -107,7 +108,8 @@ describe('partner slots with IDs set', () => {
     const co = { name: 'Bogotá', country: 'Colombia', countryCode: 'CO' };
     const links = generateAffiliateLinks(co);
     expect(new URL(links.accommodation.url).searchParams.get('utm_campaign')).toBe('city-bogota');
-    expect(links.vpn.url).toContain('utm_campaign=city-bogota');
+    vi.stubEnv('VITE_NORDVPN_TRACKING_URL', 'https://nordvpn.sjv.io/c/1/2/3');
+    expect(decodeURIComponent(generateAffiliateLinks(co).vpn.url)).toContain('utm_campaign=city-bogota');
     const med = generateAffiliateLinks({ name: 'Medellín', country: 'Colombia', countryCode: 'CO' });
     expect(new URL(med.accommodation.url).searchParams.get('utm_campaign')).toBe('city-medellin');
     const sp = generateAffiliateLinks({ name: 'São Paulo', country: 'Brazil', countryCode: 'BR' });

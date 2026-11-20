@@ -8,6 +8,9 @@ import {
   hubRelatedGuides,
 } from '@/lib/destinationSeo';
 import { visaPathSentence } from '@/lib/visaCopy';
+import { destinationBreadcrumbJsonLd, nearbyCities, sameCountryCities, type CityLink } from '@/lib/cityNeighbors';
+import { canonicalDestinationPath } from '@/lib/subAreaDestinations';
+import { DATASET_UPDATED, DATASET_UPDATED_LABEL } from '@/data/datasetMeta';
 import {
   rewriteSubAreaDestinationHrefs,
   subAreaBySlug,
@@ -44,6 +47,17 @@ export function destinationBodyHtml(city: City, slug: string): string {
   const reliabilityEstimate = city.formulaEstimates?.internetReliability ? ' (estimate)' : '';
   const powerEstimate = city.formulaEstimates?.powerGridStability ? ' (estimate)' : '';
   const noticeBlock = noticeHtml ? `${noticeHtml}\n  ` : '';
+  const nearby = nearbyCities(city, 6);
+  const sameCountry = sameCountryCities(city, 8, nearby);
+  const linkList = (title: string, links: CityLink[]) =>
+    links.length
+      ? `<h2>${esc(title)}</h2><ul>${links
+          .map(
+            ({ city: other, slug: otherSlug, km }) =>
+              `<li><a href="${esc(canonicalDestinationPath(otherSlug))}" style="color:#34d399">${esc(other.name)}, ${esc(other.country)}</a> (${km} km, $${other.costUSD}/mo)</li>`,
+          )
+          .join('')}</ul>`
+      : '';
   const relatedHtml = related.length
     ? `<h2>Related guides</h2><ul>${related
         .map((guide) => {
@@ -55,7 +69,7 @@ export function destinationBodyHtml(city: City, slug: string): string {
 
   return `
 <main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
-  <p><a href="/" style="color:#34d399">← Spin the globe</a> · <a href="/guides" style="color:#34d399">Guides</a></p>
+  <p><a href="/" style="color:#34d399">Home</a> / <a href="/destinations" style="color:#34d399">Destinations</a> / ${esc(city.name)} · <a href="/guides" style="color:#34d399">Guides</a></p>
   <h1>${esc(city.name)}, ${esc(city.country)}</h1>
   ${noticeBlock}${fieldGuideHtml}
   <p>${esc(intro)}</p>
@@ -82,8 +96,11 @@ export function destinationBodyHtml(city: City, slug: string): string {
   ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
   ${faqHtml}
   ${relatedHtml}
+  ${linkList('Nearby cities', nearby)}
+  ${linkList(`Other cities in ${city.country}`, sameCountry)}
+  <p>Dataset last updated <time datetime="${DATASET_UPDATED}">${DATASET_UPDATED_LABEL}</time>. <a href="/methodology" style="color:#34d399">How the data is built</a>.</p>
   <h2>Find your next base</h2>
-  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors, then <a href="/" style="color:#34d399">spin the globe</a> for a match, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
+  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors, then <a href="/" style="color:#34d399">spin the globe</a> for a match, <a href="/compare" style="color:#34d399">compare cities</a>, <a href="/find-your-base" style="color:#34d399">find your base</a>, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
   <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
 </main>`;
 }
@@ -92,5 +109,5 @@ export function destinationBodyHtml(city: City, slug: string): string {
 export function destinationPageJsonLd(city: City, pageUrl: string, slug: string): object | object[] {
   const place = destinationJsonLd(city, pageUrl);
   if (subAreaBySlug(slug)) return place;
-  return [place, destinationFaqJsonLd(city, pageUrl)];
+  return [place, destinationFaqJsonLd(city, pageUrl), destinationBreadcrumbJsonLd(city, pageUrl)];
 }

@@ -218,13 +218,13 @@ export function generateIntel(
   const intel: string[] = [];
 
   if (city.costUSD <= budgetMax * 0.7) {
-    intel.push(`${Math.round((1 - city.costUSD / budgetMax) * 100)}% under budget ceiling`);
+    intel.push(`${Math.round((1 - city.costUSD / budgetMax) * 100)}% under your budget`);
   }
   if (city.internetMbps >= internetMin * 1.5) {
-    intel.push(`${Math.round(city.internetMbps / internetMin * 100 - 100)}% above bandwidth threshold`);
+    intel.push(`Internet ${Math.round(city.internetMbps / internetMin * 100 - 100)}% above your minimum`);
   }
   if (city.safety >= 8.5) {
-    intel.push('Threat level: MINIMAL');
+    intel.push('Very high safety score');
   }
   if (origin && origin.id !== 'anywhere') {
     const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
@@ -253,13 +253,13 @@ export function generateRisks(city: City): string[] {
     risks.push('Rainy season active');
   }
   if (city.safety < 7) {
-    risks.push('Elevated street-level threat');
+    risks.push('Lower safety score');
   }
   if (city.infra.internetReliability < 6) {
     risks.push('Unreliable connectivity');
   }
   if (city.infra.powerGridStability < 6) {
-    risks.push('Power grid instability');
+    risks.push('Unstable power grid');
   }
   if (city.vibeMetrics.englishProficiency < 4) {
     risks.push('Low English proficiency');

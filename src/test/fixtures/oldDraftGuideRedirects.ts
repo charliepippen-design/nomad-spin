@@ -4,6 +4,7 @@
 export const OLD_DRAFT_GUIDE_REDIRECTS: Record<string, string[]> = {
   '/guides/living-in-bali': [
     '/guides/bali',
+    '/guides/basic-guide-living-bali-2026',
     '/guides/bali-digital-nomad-guide-2026',
     '/guides/bali-digital-nomad-guide-2026-canggu-ubud-cost',
     '/guides/bali-digital-nomad-guide-2026-complete',

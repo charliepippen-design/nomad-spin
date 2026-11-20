@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       # Vite inlines these at build time. The client reads VITE_SUPABASE_ANON_KEY
       # and falls back to VITE_SUPABASE_PUBLISHABLE_KEY. Either secret may be unset;

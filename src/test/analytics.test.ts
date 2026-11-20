@@ -51,13 +51,13 @@ describe('trackEvent without window.gtag (GTM only)', () => {
 });
 
 describe('trackAffiliateClick', () => {
-  it('pushes a plain affiliate_click object with the GTM fields', () => {
+  it('pushes a plain affiliate_outbound_click object with the GTM fields', () => {
     trackAffiliateClick('Booking.com', 'accommodation', 'Bogotá', 'https://www.booking.com/x', 'Find', {
       placement: 'destination_stay',
     });
-    const click = (w.dataLayer as Record<string, unknown>[]).find((e) => e.event === 'affiliate_click');
+    const click = (w.dataLayer as Record<string, unknown>[]).find((e) => e.event === 'affiliate_outbound_click');
     expect(click).toEqual({
-      event: 'affiliate_click',
+      event: 'affiliate_outbound_click',
       partner: 'Booking.com',
       placement: 'destination_stay',
       city_slug: 'bogota',
@@ -68,7 +68,7 @@ describe('trackAffiliateClick', () => {
 
   it('includes cta_variant in the gtag-style event too', () => {
     trackAffiliateClick('NordVPN', 'vpn', 'Lisbon', 'https://n.test', 'v');
-    const entry = (w.dataLayer as ArrayLike<unknown>[]).find((e) => e[0] === 'event' && e[1] === 'affiliate_click');
+    const entry = (w.dataLayer as ArrayLike<unknown>[]).find((e) => e[0] === 'event' && e[1] === 'affiliate_outbound_click');
     expect((entry?.[2] as Record<string, unknown>).cta_variant).toMatch(/^(control|monthly_stays)$/);
   });
 });
