@@ -308,3 +308,11 @@
 
 /* Figures set with the legacy mono utility stay aligned in columns. */
 .font-mono { font-variant-numeric: tabular-nums; }
+
+/* Wide tables in guide articles scroll inside themselves on small screens. */
+.page-content .prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

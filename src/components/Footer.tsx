@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Twitter, Instagram, Github, Coffee } from 'lucide-react';
+import { openConsentBanner } from '@/lib/consent';
 import dnsLogo from '@/assets/dns-logo.png';
 
 const columns: { title: string; links: { to: string; label: string }[] }[] = [
@@ -30,12 +30,6 @@ const columns: { title: string; links: { to: string; label: string }[] }[] = [
   },
 ];
 
-const socialLinks = [
-  { href: 'https://twitter.com/nomadspin', icon: Twitter, label: 'Twitter' },
-  { href: 'https://instagram.com/nomadspin', icon: Instagram, label: 'Instagram' },
-  { href: 'https://github.com/nomadspin', icon: Github, label: 'GitHub' },
-];
-
 export default function Footer() {
   return (
     <footer className="relative z-10 pointer-events-auto w-full border-t border-border bg-background">
@@ -50,20 +44,6 @@ export default function Footer() {
               Your next base. Better decided.
             </p>
             <p className="mt-2 text-sm text-muted-foreground">Travel discovery for digital nomads.</p>
-            <div className="mt-5 flex items-center gap-2">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground md:h-9 md:w-9"
-                >
-                  <s.icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Link columns */}
@@ -83,25 +63,19 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 md:flex-row md:items-start md:justify-between">
+        <div className="mt-12 border-t border-border pt-6">
           {/* Affiliate Disclosure */}
           <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
-            <span className="font-semibold text-foreground">Affiliate Disclosure:</span>{' '}
-            I may earn a commission from qualifying bookings at no extra cost to you. This helps keep the tool free and the data updated.
+            <span className="font-semibold text-foreground">Affiliate disclosure:</span>{' '}
+            Some outbound links are affiliate links. Nomad Spin may earn a commission at no extra cost to you.
           </p>
-          <a
-            href="https://buymeacoffee.com/digitalnomadspin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Coffee className="h-4 w-4" />
-            Buy me a coffee. Support this project
-          </a>
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Nomad Spin. All rights reserved.
+          © {new Date().getFullYear()} Nomad Spin. All rights reserved.{' '}
+          <button type="button" onClick={openConsentBanner} className="underline underline-offset-4 hover:text-foreground">
+            Cookie settings
+          </button>
         </p>
       </div>
     </footer>

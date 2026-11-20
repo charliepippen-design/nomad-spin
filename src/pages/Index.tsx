@@ -19,7 +19,9 @@ import { cities as ALL_CITIES } from '@/data/cities';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
 import GlobeTapHint from '@/components/GlobeTapHint';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { trackEvent } from '@/utils/analytics';
+import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
@@ -32,6 +34,8 @@ import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
 
 const Globe = lazy(() => import('@/components/Globe'));
+
+const GLOBE_ONLY_HASH = '#globe';
 
 const GlobeFallback = () => (
   <div className="w-full h-full absolute inset-0 flex items-center justify-center bg-background">
@@ -60,7 +64,19 @@ export default function Index() {
   const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
   const [isCityWallOpen, setIsCityWallOpen] = useState(false);
   // Globe-only mode: every overlay is hidden so the visitor can just play with the globe.
-  const [globeOnly, setGlobeOnly] = useState(false);
+  // It lives in the URL hash so the browser Back button leaves it.
+  const location = useLocation();
+  const navigate = useNavigate();
+  const globeOnly = location.hash === GLOBE_ONLY_HASH;
+  const setGlobeOnly = useCallback(
+    (on: boolean) => {
+      if (on) navigate(GLOBE_ONLY_HASH, { state: { enteredHere: true } });
+      else if ((location.state as { enteredHere?: boolean } | null)?.enteredHere) navigate(-1);
+      else navigate('/', { replace: true });
+    },
+    [navigate, location.state],
+  );
+  const selectedOnGlobe = useRef(new Set<string>());
   // True while the globe is being dragged; the hero fades out of the way.
   const [globeBusy, setGlobeBusy] = useState(false);
   const globeBusyTimer = useRef<ReturnType<typeof setTimeout>>();
@@ -73,6 +89,11 @@ export default function Index() {
 
   const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
     if (city && pos) {
+      // One event per city per visit: a hover or tap on its marker.
+      if (!selectedOnGlobe.current.has(city.id)) {
+        selectedOnGlobe.current.add(city.id);
+        trackEvent('globe_city_select', { city: city.id, city_slug: citySlug(city) });
+      }
       setHoveredCity({ city, pos });
     } else {
       setHoveredCity(null);
@@ -96,7 +117,7 @@ export default function Index() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [globeOnly]);
+  }, [globeOnly, setGlobeOnly]);
 
   // Release anywhere ends a globe drag; the hero comes back shortly after.
   useEffect(() => {

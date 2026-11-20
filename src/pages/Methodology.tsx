@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom';
 import { cities } from '@/data/cities';
-import { BUDGET_OVERRUN_LIMIT, CLIMATE_TOLERANCE_C, CRITERIA, CRITERION_LABEL, DEFAULT_WEIGHTS } from '@/lib/matching';
+import {
+  BELOW_MINIMUM_CAP,
+  BUDGET_OVERRUN_LIMIT,
+  CLIMATE_TOLERANCE_C,
+  CRITERIA,
+  CRITERION_LABEL,
+  DEFAULT_WEIGHTS,
+} from '@/lib/matching';
+import { DATASET_UPDATED_LABEL } from '@/data/datasetMeta';
 import PageMeta from '@/components/product/PageMeta';
 import ProvenanceMark from '@/components/product/ProvenanceMark';
 
@@ -46,29 +54,45 @@ export default function Methodology() {
 
           <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
             <Figure value={n(counts.total)} label="cities in the dataset" />
-            <Figure value={n(counts.total - counts.estimated)} label="curated records" />
+            <Figure value={n(counts.total - counts.estimated)} label="editorial records" />
             <Figure value={n(counts.estimated)} label="estimated records" />
           </dl>
 
           <Section title="Three kinds of figure">
-            <p>Every number on a city page, a comparison or a match falls into one of three groups.</p>
+            <p>
+              No figure on this site is a live measurement. Every number on a city page, a comparison or a match falls
+              into one of the groups below.
+            </p>
             <ul>
               <li>
-                <strong>Stored values.</strong> Monthly cost, internet speed, safety, visa route and stay length, climate
-                and the community scores are stored on each city record. They are editorial figures put together by
-                Nomad Spin, not live measurements.
-              </li>
-              <li>
-                <strong>Formula values</strong> <ProvenanceMark provenance="formula" /> When a record has no figure of its
-                own for a field, we derive one from another field with a fixed rule, and tag it. The rules are listed
-                below.
+                <strong>Editorial records.</strong> {n(counts.total - counts.estimated)} cities form the original set.
+                Their monthly cost, internet speed, safety, climate and community scores were entered by the Nomad Spin
+                editor. They carry no source link and no check date, so we call them editorial, not verified.
               </li>
               <li>
                 <strong>Estimated records</strong> <ProvenanceMark provenance="estimate" /> {n(counts.estimated)} of{' '}
-                {n(counts.total)} city records were produced with AI assistance and have not been checked by hand. Every
-                figure on those cities carries the tag. Find Your Base can hide them.
+                {n(counts.total)} city records were produced with AI assistance and have not been checked by hand. These
+                cities are marked as estimates on their city page, in Compare and in Find Your Base, and Find Your Base
+                can hide them.
+              </li>
+              <li>
+                <strong>Formula values</strong> <ProvenanceMark provenance="formula" /> When a record has no figure of its
+                own for a field, we work one out from another field with a fixed rule, and tag it. This applies to both
+                kinds of record. The rules are listed below.
               </li>
             </ul>
+          </Section>
+
+          <Section title="What “monthly cost” means">
+            <p>
+              Monthly cost is our estimate of what one person spends in a month in that city: rent, food, local
+              transport and everyday costs. It leaves out flights, insurance and visa fees. We have not yet fixed one
+              standard for the kind of housing it assumes.
+            </p>
+            <p>
+              In a spot check of 10 cities in November 2026, our figures were 35% to 67% lower than the ones on
+              nomads.com. Read our number as a lean budget, and compare it with a second source before you commit.
+            </p>
           </Section>
 
           <Section title="The formulas">
@@ -105,14 +129,19 @@ export default function Methodology() {
                 </tbody>
               </table>
             </div>
-            <p>These are placeholders for a real observation, which is why they are tagged wherever they appear.</p>
+            <p>
+              Formula values are not observations. They cover most of the dataset: {n(counts.costLongTerm)} of{' '}
+              {n(counts.total)} cities for long-stay cost, {n(counts.airbnbMedian)} for nightly stay and{' '}
+              {n(counts.internetReliability)} for connection reliability. Treat them as rough guides.
+            </p>
           </Section>
 
           <Section title="What we do not have yet">
             <ul>
               <li>
-                <strong>A source and a date on each figure.</strong> Records do not yet store where a number came from or
-                when it was last checked. Until they do, treat stored values as a starting point, not a quote.
+                <strong>A source and a check date on each figure.</strong> Records do not store where a number came from
+                or when it was checked. City pages show one date for the whole dataset, last changed on{' '}
+                {DATASET_UPDATED_LABEL}. Treat every figure as a starting point, not a quote.
               </li>
               <li>
                 <strong>Health insurance cost</strong> is missing for {n(counts.noInsurance)} cities. Those show “No
@@ -165,8 +194,9 @@ export default function Methodology() {
               </table>
             </div>
             <p>
-              Equal scores are ordered by lower monthly cost. Booking and partner links have no input into any score or
-              ranking.
+              A city that is over your budget or below one of your minimums is flagged on its card, and you can hide
+              such cities with one switch. Equal scores are ordered by lower monthly cost. The scoring code reads only
+              the city figures and your settings: booking and partner links have no input into any score or ranking.
             </p>
             <p>
               <Link to="/find-your-base">Open Find Your Base</Link>
@@ -193,13 +223,15 @@ export default function Methodology() {
   );
 }
 
+const CAP = Math.round(BELOW_MINIMUM_CAP * 100);
+
 const FIT_RULES = {
   budget: `100% at or under your budget. Falls in a straight line to 0% at ${Math.round(BUDGET_OVERRUN_LIMIT * 100)}% over.`,
   climate: `100% at your ideal temperature. Falls in a straight line to 0% at ${CLIMATE_TOLERANCE_C}°C away. Uses the annual average.`,
-  internet: '100% at or above your minimum speed. Below it, the share of your minimum the city reaches.',
-  safety: '100% at or above your minimum score. Below it, the share of your minimum the city reaches.',
+  internet: `100% at or above your minimum speed. Below it, ${CAP}% of the share of your minimum the city reaches.`,
+  safety: `100% at or above your minimum score. Below it, ${CAP}% of the share of your minimum the city reaches.`,
   community: 'The community score out of 10, as a percentage.',
-  visa: '100% when the common stay length covers the days you asked for. Below it, the share it covers.',
+  visa: `100% when the common stay length covers the days you asked for. Below it, ${CAP}% of the share it covers.`,
 } as const;
 
 function Figure({ value, label }: { value: string; label: string }) {

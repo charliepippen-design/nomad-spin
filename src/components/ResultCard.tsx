@@ -8,7 +8,7 @@ import { City } from '@/data/cities';
 import { Button } from '@/components/ui/button';
 import HealthBar from '@/components/HealthBar';
 import DeploymentGrid from '@/components/DeploymentGrid';
-import { generateAffiliateLinks } from '@/utils/affiliateEngine';
+import { generateAffiliateLinks, SPONSORED_REL } from '@/utils/affiliateEngine';
 import { trackAffiliateClick, trackSpinCompleted } from '@/utils/analytics';
 import { useCityImage } from '@/hooks/useCityImage';
 import { NEUTRAL_IMAGE } from '@/data/cityImages';
@@ -32,22 +32,8 @@ interface ResultCardProps {
 }
 
 function DataSourceIndicator({ source }: { source: 'verified' | 'estimated' }) {
-  if (source === 'verified') {
-    return (
-      <TooltipProvider delayDuration={200}>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="inline-flex items-center gap-0.5 text-muted-foreground">
-              <CheckCircle2 className="w-2.5 h-2.5" />
-            </span>
-          </TooltipTrigger>
-          <TooltipContent side="top" className="max-w-[200px] text-xs">
-            Curated record. An editorial figure, not a live measurement.
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-    );
-  }
+  // Editorial records carry no mark: a tick would read as "verified".
+  if (source === 'verified') return null;
   return (
     <TooltipProvider delayDuration={200}>
       <Tooltip>
@@ -234,11 +220,12 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}/mo`} tooltip="Estimated monthly cost for stays of 3+ months, including lower rent and local pricing." source={dataSource} />
           </div>
 
-          {/* Visa CTA */}
+          {/* Visa CTA: shown only with a confirmed partner link */}
+          {affiliateLinks.visa.url ? (
           <a
             href={affiliateLinks.visa.url}
             target="_blank"
-            rel={affiliateLinks.visa.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
+            rel={SPONSORED_REL}
             onClick={() =>
               trackAffiliateClick('iVisa', 'visa', city.name, affiliateLinks.visa.url, `Check visa options for ${city.country}`, {
                 placement: 'spin_card_visa',
@@ -254,6 +241,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </div>
             <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/50 group-hover:text-foreground/70 transition-colors" />
           </a>
+          ) : null}
 
           {/* Divider */}
           <div className="mx-6 mt-4 border-t border-border" />
@@ -330,7 +318,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <motion.a
               href={affiliateLinks.accommodation.url}
               target="_blank"
-              rel={affiliateLinks.accommodation.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
+              rel={SPONSORED_REL}
               onClick={() =>
                 trackAffiliateClick(
                   affiliateLinks.accommodation.partner,

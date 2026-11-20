@@ -41,19 +41,19 @@ export default function TermsOfUse() {
         </h1>
 
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-          <p><strong className="text-foreground">Last updated:</strong> February 2026</p>
+          <p><strong className="text-foreground">Last updated:</strong> November 2026</p>
 
           <h2 className="border-t border-border pt-8 text-2xl text-foreground">1. Acceptance</h2>
           <p>By using Nomad Spin, you agree to these terms. If you do not agree, please do not use the service.</p>
 
           <h2 className="border-t border-border pt-8 text-2xl text-foreground">2. Service Description</h2>
-          <p>Nomad Spin is a travel discovery tool that provides city recommendations based on publicly available data. Recommendations are for informational purposes only and should not be considered professional travel, legal, or financial advice.</p>
+          <p>Nomad Spin is a travel discovery tool that provides city recommendations from its own dataset of editorial figures and estimates. Recommendations are for informational purposes only and should not be considered professional travel, legal, or financial advice.</p>
 
           <h2 className="border-t border-border pt-8 text-2xl text-foreground">3. Data Accuracy</h2>
           <p>While we strive to keep data current, we cannot guarantee the accuracy of all information. Cost of living, visa rules, safety conditions, and other metrics can change. Always verify critical details before making travel plans.</p>
 
           <h2 className="border-t border-border pt-8 text-2xl text-foreground">4. Affiliate Links</h2>
-          <p>Nomad Spin contains affiliate links to third-party services. We may earn commissions from qualifying bookings. These links do not affect the objectivity of our recommendations.</p>
+          <p>Some outbound links are affiliate links. Nomad Spin may earn a commission at no extra cost to you. These links have no input into any score or ranking.</p>
 
           <h2 className="border-t border-border pt-8 text-2xl text-foreground">5. User Accounts</h2>
           <p>You are responsible for maintaining the security of your account credentials. We reserve the right to suspend accounts that violate these terms.</p>

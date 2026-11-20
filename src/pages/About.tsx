@@ -55,7 +55,7 @@ export default function About() {
             Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. We help you cut through decision paralysis and find your next destination based on what actually matters: cost of living, internet speed, safety, and vibe.
           </p>
           <p>
-            Our database covers <strong className="text-foreground">780+ cities worldwide</strong> with curated data on budgets, Wi-Fi reliability, visa requirements, coworking density, and more. Each city is scored against your personal preferences to surface the best matches.
+            Our database covers <strong className="text-foreground">780+ cities worldwide</strong> with figures on budgets, internet, safety, visa rules, coworking density, and more. Some of those records are estimates, and every page says which. Each city is scored against your own preferences.
           </p>
         </div>
 
@@ -65,8 +65,8 @@ export default function About() {
         <div className="mt-14 grid grid-cols-1 gap-5 border-t border-border pt-10 md:mt-20 md:grid-cols-3">
           {[
             { icon: Globe2, title: 'Discovery First', desc: 'We prioritize serendipity. Spin the globe and let the data surprise you.' },
-            { icon: BarChart3, title: 'Data-Driven', desc: 'Every recommendation is backed by real metrics, not sponsored placements.' },
-            { icon: Heart, title: 'By Nomads, For Nomads', desc: 'Built by people who\'ve lived the lifestyle and know what matters on the ground.' },
+            { icon: BarChart3, title: 'Numbers, not ads', desc: 'Scores and rankings use the city figures and your preferences. Partner links have no input.' },
+            { icon: Heart, title: 'Honest about gaps', desc: 'Estimates are tagged, missing figures say "No data", and the methodology page lists what we do not know yet.' },
           ].map((v) => (
             <div key={v.title} className="dns-card flex flex-col gap-3 p-6">
               <v.icon className="h-5 w-5 text-primary" />

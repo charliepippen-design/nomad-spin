@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Compass, X, ChevronUp, Globe2, Sun, Moon, Volume2, VolumeX,
   Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
-  BarChart3, ShoppingBag, ArrowUp, Coffee
+  BarChart3, ShoppingBag, ArrowUp
 } from 'lucide-react';
 import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
@@ -373,22 +373,9 @@ export default function LandingDrawer({
 
       {/* Data note */}
       <p className="text-[10px] text-muted-foreground/50 text-center leading-relaxed pt-2">
-        Our dataset covers 780+ cities worldwide with curated cost, internet speed, safety, and visa data, updated regularly.
+        Our dataset covers 780+ cities with cost, internet speed, safety and visa figures. Some records are estimates.
       </p>
       </div>
-
-      {/* Buy Me a Coffee */}
-      <a
-        href="https://buymeacoffee.com/digitalnomadspin"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-amber-500/30 bg-amber-500/[0.06] hover:bg-amber-500/[0.14] hover:border-amber-500/50 transition-all group"
-      >
-        <Coffee className="w-4 h-4 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
-        <span className="text-[11px] font-mono tracking-[0.18em] text-amber-400/70 group-hover:text-amber-400 transition-colors uppercase">
-          Buy me a coffee ☕
-        </span>
-      </a>
 
       {/* Back to top */}
       <motion.button

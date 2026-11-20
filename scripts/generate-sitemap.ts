@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { guides } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
 import { listSubAreaDestinations, omitSubAreaDestinationLines } from '../src/lib/subAreaDestinations';
+import { DATASET_UPDATED } from '../src/data/datasetMeta';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,6 +44,7 @@ const cityEntries: SitemapEntry[] = allCitySlugs()
   .filter(({ slug }) => !subAreaSlugs.has(slug))
   .map(({ slug }) => ({
     path: `/destinations/${slug}`,
+    lastmod: DATASET_UPDATED,
     changefreq: 'weekly' as const,
     priority: '0.7',
   }));

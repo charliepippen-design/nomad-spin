@@ -20,6 +20,7 @@ import Compare from "./pages/Compare";
 import FindYourBase from "./pages/FindYourBase";
 import Methodology from "./pages/Methodology";
 import NotFound from "./pages/NotFound";
+import ConsentBanner from "./components/ConsentBanner";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
+            <ConsentBanner />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

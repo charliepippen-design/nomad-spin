@@ -38,11 +38,41 @@ describe('criterion fit rules', () => {
     expect(at(5)).toBe(0);
   });
 
-  it('internet and safety: share of the minimum when below it', () => {
-    const prefs = { ...DEFAULT_PREFERENCES, internetMin: 100, safetyMin: 8 };
-    expect(criterionFit('internet', make({ internetMbps: 50 }), prefs).fit).toBeCloseTo(0.5);
+  it('internet, safety and visa: below the minimum earns at most half, and is flagged', () => {
+    const prefs = { ...DEFAULT_PREFERENCES, internetMin: 100, safetyMin: 8, visaMinDays: 90 };
+    expect(criterionFit('internet', make({ internetMbps: 50 }), prefs)).toMatchObject({ missed: true });
+    expect(criterionFit('internet', make({ internetMbps: 50 }), prefs).fit).toBeCloseTo(0.25);
     expect(criterionFit('internet', make({ internetMbps: 300 }), prefs).fit).toBe(1);
-    expect(criterionFit('safety', make({ safety: 6 }), prefs).fit).toBeCloseTo(0.75);
+    expect(criterionFit('internet', make({ internetMbps: 300 }), prefs).missed).toBeFalsy();
+    expect(criterionFit('safety', make({ safety: 6 }), prefs).fit).toBeCloseTo(0.375);
+    // Just under the line is still a clear drop, never a rounding error.
+    expect(criterionFit('safety', make({ safety: 7.9 }), prefs).fit).toBeLessThan(0.5);
+    expect(criterionFit('visa', make({ meta: { ...base.meta, visaDays: 30 } }), prefs).fit).toBeCloseTo(1 / 6);
+    expect(criterionFit('budget', make({ costUSD: prefs.budgetMax + 1 }), prefs).missed).toBe(true);
+  });
+
+  it('a missed minimum costs real points and can be filtered out', () => {
+    // Loose on everything except safety, so safety is the only possible miss.
+    const prefs = { ...DEFAULT_PREFERENCES, budgetMax: 8000, internetMin: 0, visaMinDays: 0, safetyMin: 7 };
+    const ok = make({ id: 'ok', safety: 7 });
+    const under = make({ id: 'under', safety: 6.5 });
+    const a = scoreCity(ok, prefs, DEFAULT_WEIGHTS);
+    const b = scoreCity(under, prefs, DEFAULT_WEIGHTS);
+    expect(a.score - b.score).toBeGreaterThanOrEqual(7);
+    expect(b.misses.map((c) => c.key)).toContain('safety');
+    expect(a.misses.map((c) => c.key)).not.toContain('safety');
+
+    const strict = rankCities([ok, under], { ...prefs, strictMinimums: true }, only('safety'));
+    expect(strict.results.map((r) => r.city.id)).toEqual(['ok']);
+    expect(strict.excludedByMinimums).toBe(1);
+    const loose = rankCities([ok, under], prefs, only('safety'));
+    expect(loose.results.map((r) => r.city.id)).toEqual(['ok', 'under']);
+  });
+
+  it('strict minimums leave no flagged city in the real dataset ranking', () => {
+    const { results } = rankCities(cities, { ...DEFAULT_PREFERENCES, strictMinimums: true }, DEFAULT_WEIGHTS, 50);
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.every((r) => r.misses.length === 0)).toBe(true);
   });
 
   it('a zero minimum never penalises', () => {

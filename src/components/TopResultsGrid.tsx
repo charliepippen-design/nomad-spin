@@ -1,6 +1,8 @@
 import { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, DollarSign, Wifi, Shield, ChevronRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, DollarSign, Wifi, Shield, ChevronRight, Sparkles } from 'lucide-react';
+import { cityPath } from '@/lib/citySlug';
 import type { ScoredCity } from '@/lib/scoring';
 import { getCityThumbnailUrl } from '@/data/cityImages';
 import UnsplashCredit from '@/components/UnsplashAttribution';
@@ -40,16 +42,11 @@ function ScoreRingSmall({ score }: ScoreRingSmallProps) {
 }
 
 function DataSourceBadge({ source }: { source: 'verified' | 'estimated' }) {
-  if (source === 'verified') {
-    return (
-      <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7px] font-mono tracking-wider rounded-md border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
-        <CheckCircle2 className="w-2.5 h-2.5" /> VERIFIED
-      </span>
-    );
-  }
+  // Editorial records carry no badge: nothing on them has a source or a check date.
+  if (source === 'verified') return null;
   return (
     <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7px] font-mono tracking-wider rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-400">
-      <Sparkles className="w-2.5 h-2.5" /> AI EST.
+      <Sparkles className="w-2.5 h-2.5" /> ESTIMATE
     </span>
   );
 }
@@ -141,12 +138,12 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         </div>
 
         {/* View full dossier */}
-          <button
-            onClick={onSelect}
+          <Link
+            to={cityPath(city)}
             className="w-full mt-3 flex items-center justify-center gap-1.5 py-3 min-h-[44px] rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.1em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
           >
           VIEW DETAILS <ChevronRight className="w-3 h-3" />
-        </button>
+        </Link>
       </div>
     </motion.div>
   );

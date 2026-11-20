@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ExternalLink, Bookmark, GitCompareArrows, ArrowUpRight } from 'lucide-react';
@@ -9,8 +9,11 @@ import { getCityImageUrl, getCityImageAlt, getCityPhoto } from '@/data/cityImage
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
 import { citySocialImage } from '@/lib/socialImage';
-import { generateAffiliateLinks } from '@/utils/affiliateEngine';
-import { trackAffiliateClick } from '@/utils/analytics';
+import { generateAffiliateLinks, SPONSORED_REL } from '@/utils/affiliateEngine';
+import { trackAffiliateClick, trackEvent } from '@/utils/analytics';
+import { destinationBreadcrumbJsonLd, nearbyCities, sameCountryCities, type CityLink } from '@/lib/cityNeighbors';
+import { canonicalDestinationPath } from '@/lib/subAreaDestinations';
+import { DATASET_UPDATED, DATASET_UPDATED_LABEL } from '@/data/datasetMeta';
 import { generateBadges } from '@/lib/badges';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
 import { useSpinStore } from '@/store/useSpinStore';
@@ -41,6 +44,12 @@ export default function DestinationGuide() {
 
   const resolved = useMemo(() => findCityBySlug(citySlug), [citySlug]);
   const city = resolved?.city;
+
+  // One profile view per city page opened.
+  const viewedId = city && resolved?.canonicalSlug === citySlug ? city.id : null;
+  useEffect(() => {
+    if (viewedId) trackEvent('destination_profile_view', { city: viewedId, city_slug: citySlug });
+  }, [viewedId, citySlug]);
 
   const { enrichedCity } = useCityEnrichment(city ?? null);
   const displayCity = enrichedCity || city;
@@ -78,6 +87,9 @@ export default function DestinationGuide() {
   const parentNotice = subArea ? subAreaParentNotice(subArea) : null;
   const faqItems = subArea ? [] : destinationFaq(city);
   const faqJsonLd = subArea ? null : destinationFaqJsonLd(city, pageUrl);
+  const breadcrumbJsonLd = destinationBreadcrumbJsonLd(city, pageUrl);
+  const nearby = nearbyCities(city, 6);
+  const sameCountry = sameCountryCities(city, 8, nearby);
 
   return (
     <div className="page-content min-h-screen bg-background">
@@ -99,6 +111,7 @@ export default function DestinationGuide() {
         <meta name="twitter:image:alt" content={ogImageAlt} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         {faqJsonLd ? <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script> : null}
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -186,6 +199,22 @@ export default function DestinationGuide() {
             {visaPathSentence(city.meta)}
           </p>
         )}
+      </div>
+
+      {/* Breadcrumb and dataset date */}
+      <div className="max-w-3xl mx-auto px-6 pt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs text-muted-foreground">
+        <nav aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-1.5">
+            <li><Link to="/" className="hover:text-foreground">Home</Link></li>
+            <li aria-hidden="true">/</li>
+            <li><Link to="/destinations" className="hover:text-foreground">Destinations</Link></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-foreground">{city.name}</li>
+          </ol>
+        </nav>
+        <p>
+          Dataset last updated <time dateTime={DATASET_UPDATED}>{DATASET_UPDATED_LABEL}</time>
+        </p>
       </div>
 
       {/* Decision actions */}
@@ -306,7 +335,7 @@ export default function DestinationGuide() {
           <a
             href={affiliateLinks.accommodation.url}
             target="_blank"
-            rel={affiliateLinks.accommodation.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
+            rel={SPONSORED_REL}
             onClick={() =>
               trackAffiliateClick(
                 affiliateLinks.accommodation.partner,
@@ -321,6 +350,9 @@ export default function DestinationGuide() {
           >
             Find a place to stay in {city.name} <ExternalLink className="w-3 h-3" />
           </a>
+          <p className="mt-2 text-[10px] text-muted-foreground">
+            Affiliate link: Nomad Spin may earn a commission at no extra cost to you.
+          </p>
         </GuideSection>
 
         <GuideSection title="Coworking and Wi-Fi" id="coworking">
@@ -348,22 +380,24 @@ export default function DestinationGuide() {
               ) : null}
             </div>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Working on cafe or coworking Wi-Fi? NordVPN encrypts your connection on shared networks.{' '}
-            <a
-              href={affiliateLinks.vpn.url}
-              target="_blank"
-              rel={affiliateLinks.vpn.affiliate ? 'sponsored nofollow noopener noreferrer' : 'noopener noreferrer'}
-              onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label, { placement: 'destination_nordvpn' })}
-              className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"
-            >
-              Get NordVPN <ExternalLink className="w-3 h-3" />
-            </a>
-          </p>
-          {affiliateLinks.vpn.affiliate ? (
-            <p className="mt-1 text-[10px] text-muted-foreground">
-              Affiliate link: Nomad Spin may earn a commission at no extra cost to you.
-            </p>
+          {affiliateLinks.vpn.url ? (
+            <>
+              <p className="mt-4 text-xs text-muted-foreground">
+                Working on cafe or coworking Wi-Fi? NordVPN encrypts your connection on shared networks.{' '}
+                <a
+                  href={affiliateLinks.vpn.url}
+                  target="_blank"
+                  rel={SPONSORED_REL}
+                  onClick={() => trackAffiliateClick('NordVPN', 'vpn', city.name, affiliateLinks.vpn.url, affiliateLinks.vpn.label, { placement: 'destination_nordvpn' })}
+                  className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"
+                >
+                  Get NordVPN <ExternalLink className="w-3 h-3" />
+                </a>
+              </p>
+              <p className="mt-1 text-[10px] text-muted-foreground">
+                Affiliate link: Nomad Spin may earn a commission at no extra cost to you.
+              </p>
+            </>
           ) : null}
         </GuideSection>
 
@@ -382,7 +416,7 @@ export default function DestinationGuide() {
             <a
               href={affiliateLinks.flights.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={SPONSORED_REL}
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
             >
               Search flights to {city.name} <ExternalLink className="w-3 h-3" />
@@ -457,6 +491,16 @@ export default function DestinationGuide() {
         );
       })()}
 
+      {/* More cities: internal links built from the dataset */}
+      <div className="max-w-3xl mx-auto px-6 py-10 border-t border-border/20 space-y-10">
+        <CityLinkList title="Nearby cities" links={nearby} showCountry />
+        {sameCountry.length > 0 ? <CityLinkList title={`Other cities in ${city.country}`} links={sameCountry} /> : null}
+        <p className="text-xs text-muted-foreground">
+          Distances are straight lines between city centres, rounded to 10 km.{' '}
+          <Link to="/destinations" className="underline underline-offset-4 hover:text-foreground">All destinations</Link>
+        </p>
+      </div>
+
       {/* Bottom CTA */}
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">
         <p className="text-xs text-muted-foreground mb-4">Not sure where to go next?</p>
@@ -468,6 +512,30 @@ export default function DestinationGuide() {
         </Link>
       </div>
     </div>
+  );
+}
+
+function CityLinkList({ title, links, showCountry = false }: { title: string; links: CityLink[]; showCountry?: boolean }) {
+  if (links.length === 0) return null;
+  return (
+    <section>
+      <h2 className="border-b border-border pb-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-foreground">{title}</h2>
+      <ul className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+        {links.map(({ city, slug, km }) => (
+          <li key={slug} className="min-w-0 border-b border-border">
+            <Link to={canonicalDestinationPath(slug)} className="group flex items-baseline justify-between gap-4 py-3">
+              <span className="min-w-0 truncate">
+                <span className="font-display text-base font-semibold text-foreground group-hover:text-primary">{city.name}</span>
+                {showCountry ? <span className="ml-2 text-sm text-muted-foreground">{city.country}</span> : null}
+              </span>
+              <span className="shrink-0 text-sm tabular-nums text-muted-foreground">
+                {km.toLocaleString('en-US')} km · ${city.costUSD.toLocaleString('en-US')}/mo
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

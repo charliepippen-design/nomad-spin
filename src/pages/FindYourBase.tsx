@@ -62,6 +62,7 @@ function readState(params: URLSearchParams): { prefs: MatchPreferences; weights:
       visaMinDays: num(params.get('v'), DEFAULT_PREFERENCES.visaMinDays, 0, 365),
       regions,
       datasetOnly: params.get('d') === '1',
+      strictMinimums: params.get('m') === '1',
     },
     weights,
   };
@@ -76,6 +77,7 @@ function writeState(prefs: MatchPreferences, weights: Record<CriterionKey, numbe
   if (prefs.visaMinDays !== DEFAULT_PREFERENCES.visaMinDays) out.v = String(prefs.visaMinDays);
   if (prefs.regions.length > 0) out.r = prefs.regions.join(',');
   if (prefs.datasetOnly) out.d = '1';
+  if (prefs.strictMinimums) out.m = '1';
   if (CRITERIA.some((k) => weights[k] !== DEFAULT_WEIGHTS[k])) out.w = CRITERIA.map((k) => weights[k]).join(',');
   return out;
 }
@@ -274,6 +276,21 @@ export default function FindYourBase() {
             <label className="mt-6 flex cursor-pointer items-start gap-3 border-t border-border pt-5">
               <input
                 type="checkbox"
+                checked={prefs.strictMinimums}
+                onChange={(e) => updatePrefs({ strictMinimums: e.target.checked })}
+                className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
+              />
+              <span className="text-sm text-foreground">
+                Only cities that meet my budget and minimums
+                <span className="block text-xs text-muted-foreground">
+                  Off: a city that misses one still appears, with a lower score and a warning.
+                </span>
+              </span>
+            </label>
+
+            <label className="mt-4 flex cursor-pointer items-start gap-3">
+              <input
+                type="checkbox"
                 checked={prefs.datasetOnly}
                 onChange={(e) => updatePrefs({ datasetOnly: e.target.checked })}
                 className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
@@ -318,7 +335,9 @@ export default function FindYourBase() {
               <div className="mt-4 dns-card p-6">
                 <h2 className="text-lg text-foreground">No cities in that selection</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Add a region or show cities with estimated records.
+                  {outcome.excludedByMinimums > 0
+                    ? `${outcome.excludedByMinimums.toLocaleString('en-US')} cities miss your budget or a minimum. Relax one, or turn off the strict filter.`
+                    : 'Add a region or show cities with estimated records.'}
                 </p>
               </div>
             ) : (
@@ -458,6 +477,12 @@ function ResultCard({
             {result.strongest ? <>{result.strongest.note}. </> : null}
             {result.weakest ? <span className="text-foreground/80">Trade-off: {lowerFirst(result.weakest.note)}.</span> : null}
           </p>
+
+          {result.misses.length > 0 && (
+            <p className="mt-2 text-xs font-medium text-warning">
+              Misses what you asked for: {result.misses.map((c) => lowerFirst(c.note)).join('; ')}.
+            </p>
+          )}
 
           {result.estimated && (
             <p className="mt-2 text-xs text-warning">Estimated record: these figures have not been checked by hand.</p>

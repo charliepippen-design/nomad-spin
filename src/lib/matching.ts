@@ -47,6 +47,8 @@ export interface MatchPreferences {
   regions: City['region'][];
   /** Drop rows whose whole record is flagged as estimated. */
   datasetOnly: boolean;
+  /** Hard filter: drop cities that are over budget or below any minimum. */
+  strictMinimums: boolean;
 }
 
 export const DEFAULT_PREFERENCES: MatchPreferences = {
@@ -57,6 +59,7 @@ export const DEFAULT_PREFERENCES: MatchPreferences = {
   visaMinDays: 90,
   regions: [],
   datasetOnly: false,
+  strictMinimums: false,
 };
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
@@ -65,6 +68,11 @@ const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
 export const CLIMATE_TOLERANCE_C = 15;
 /** Share over budget at which budget fit reaches zero (0.5 = 50% over). */
 export const BUDGET_OVERRUN_LIMIT = 0.5;
+/**
+ * A city below one of your minimums (internet, safety, visa length) earns at
+ * most this share of that criterion, so a miss always shows in the score.
+ */
+export const BELOW_MINIMUM_CAP = 0.5;
 
 export interface CriterionResult {
   key: CriterionKey;
@@ -76,9 +84,15 @@ export interface CriterionResult {
   points: number;
   /** Plain-language reason, built from the city's own numbers. */
   note: string;
+  /** True when the city is over your budget or below a minimum you set. */
+  missed: boolean;
 }
 
-export function criterionFit(key: CriterionKey, city: City, prefs: MatchPreferences): { fit: number; note: string } {
+export function criterionFit(
+  key: CriterionKey,
+  city: City,
+  prefs: MatchPreferences,
+): { fit: number; note: string; missed?: boolean } {
   switch (key) {
     case 'budget': {
       const cost = city.costUSD;
@@ -89,6 +103,7 @@ export function criterionFit(key: CriterionKey, city: City, prefs: MatchPreferen
       return {
         fit: clamp01(1 - over / BUDGET_OVERRUN_LIMIT),
         note: `$${cost.toLocaleString('en-US')}/mo is ${Math.round(over * 100)}% over your budget`,
+        missed: true,
       };
     }
     case 'climate': {
@@ -106,27 +121,37 @@ export function criterionFit(key: CriterionKey, city: City, prefs: MatchPreferen
       if (prefs.internetMin <= 0 || mbps >= prefs.internetMin) {
         return { fit: 1, note: `${mbps} Mbps meets your ${prefs.internetMin} Mbps minimum` };
       }
-      return { fit: clamp01(mbps / prefs.internetMin), note: `${mbps} Mbps is below your ${prefs.internetMin} Mbps minimum` };
+      return {
+        fit: BELOW_MINIMUM_CAP * clamp01(mbps / prefs.internetMin),
+        note: `${mbps} Mbps is below your ${prefs.internetMin} Mbps minimum`,
+        missed: true,
+      };
     }
     case 'safety': {
       const s = city.safety;
       if (prefs.safetyMin <= 0 || s >= prefs.safetyMin) {
         return { fit: 1, note: `Safety ${s}/10 meets your ${prefs.safetyMin}/10 minimum` };
       }
-      return { fit: clamp01(s / prefs.safetyMin), note: `Safety ${s}/10 is below your ${prefs.safetyMin}/10 minimum` };
+      return {
+        fit: BELOW_MINIMUM_CAP * clamp01(s / prefs.safetyMin),
+        note: `Safety ${s}/10 is below your ${prefs.safetyMin}/10 minimum`,
+        missed: true,
+      };
     }
     case 'community': {
       const size = city.vibeMetrics.communitySize;
       return { fit: clamp01(size / 10), note: `Nomad community ${size}/10` };
     }
     case 'visa': {
+      if (prefs.visaMinDays <= 0) return { fit: 1, note: 'You set no minimum stay' };
       const days = city.meta.visaDays;
-      if (prefs.visaMinDays <= 0 || days >= prefs.visaMinDays) {
+      if (days >= prefs.visaMinDays) {
         return { fit: 1, note: `${city.meta.visaType}: ${days} days covers your ${prefs.visaMinDays}` };
       }
       return {
-        fit: clamp01(days / prefs.visaMinDays),
+        fit: BELOW_MINIMUM_CAP * clamp01(days / prefs.visaMinDays),
         note: `${city.meta.visaType}: ${days} days, short of your ${prefs.visaMinDays}`,
+        missed: true,
       };
     }
   }
@@ -140,6 +165,8 @@ export interface MatchResult {
   /** Criteria with the highest and lowest fit among those that carry weight. */
   strongest: CriterionResult | null;
   weakest: CriterionResult | null;
+  /** Budget or minimums this city does not meet, whatever their weight. */
+  misses: CriterionResult[];
   /** True when the row is flagged `dataSource: 'estimated'`. */
   estimated: boolean;
 }
@@ -157,8 +184,8 @@ export function normalizeWeights(weights: Record<CriterionKey, number>): Record<
 export function scoreCity(city: City, prefs: MatchPreferences, weights: Record<CriterionKey, number>): MatchResult {
   const shares = normalizeWeights(weights);
   const criteria = CRITERIA.map<CriterionResult>((key) => {
-    const { fit, note } = criterionFit(key, city, prefs);
-    return { key, fit, weightShare: shares[key], points: fit * shares[key] * 100, note };
+    const { fit, note, missed = false } = criterionFit(key, city, prefs);
+    return { key, fit, weightShare: shares[key], points: fit * shares[key] * 100, note, missed };
   });
   const weighted = criteria.filter((c) => c.weightShare > 0);
   const byFit = [...weighted].sort((a, b) => b.fit - a.fit || b.weightShare - a.weightShare);
@@ -172,6 +199,7 @@ export function scoreCity(city: City, prefs: MatchPreferences, weights: Record<C
     criteria,
     strongest: byFit[0] ?? null,
     weakest: costliest && lost(costliest) > 0 && costliest !== byFit[0] ? costliest : null,
+    misses: criteria.filter((c) => c.missed),
     estimated: city.dataSource === 'estimated',
   };
 }
@@ -180,6 +208,8 @@ export interface MatchOutcome {
   results: MatchResult[];
   /** Cities scored after the region and data filters. */
   considered: number;
+  /** Cities dropped by the strict-minimums filter. */
+  excludedByMinimums: number;
   /** True when every weight is zero, so no ranking is possible. */
   noWeights: boolean;
 }
@@ -196,10 +226,11 @@ export function rankCities(
     if (prefs.datasetOnly && c.dataSource === 'estimated') return false;
     return true;
   });
-  if (noWeights) return { results: [], considered: pool.length, noWeights };
+  if (noWeights) return { results: [], considered: pool.length, excludedByMinimums: 0, noWeights };
 
-  const results = pool
-    .map((c) => scoreCity(c, prefs, weights))
+  const scored = pool.map((c) => scoreCity(c, prefs, weights));
+  const kept = prefs.strictMinimums ? scored.filter((r) => r.misses.length === 0) : scored;
+  const results = kept
     // Exact score first; cheaper city breaks a tie so the order is stable and explainable.
     .sort(
       (a, b) =>
@@ -208,5 +239,5 @@ export function rankCities(
         a.city.name.localeCompare(b.city.name),
     )
     .slice(0, limit);
-  return { results, considered: pool.length, noWeights };
+  return { results, considered: pool.length, excludedByMinimums: scored.length - kept.length, noWeights };
 }

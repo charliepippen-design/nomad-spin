@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { Building, Plane, Wifi, Shield, ExternalLink, AlertCircle } from 'lucide-react';
-import { type AffiliateLinks, type AffiliateLinkData } from '@/utils/affiliateEngine';
-import { trackAffiliateClick, trackAffiliateClickError, type Vertical } from '@/utils/analytics';
-import { useToast } from '@/hooks/use-toast';
+import { Building, Plane, Wifi, Shield, ExternalLink } from 'lucide-react';
+import { SPONSORED_REL, type AffiliateLinks } from '@/utils/affiliateEngine';
+import { trackAffiliateClick } from '@/utils/analytics';
 
 interface DeploymentGridProps {
   links: AffiliateLinks;
@@ -17,61 +16,26 @@ const VERTICALS: { key: keyof AffiliateLinks; icon: typeof Building; primary: bo
 ];
 
 export default function DeploymentGrid({ links, cityName }: DeploymentGridProps) {
-  const { toast } = useToast();
-
-  const handleClick = (link: AffiliateLinkData) => {
-    if (!link.url) return;
-
-    // Track before opening
-    trackAffiliateClick(link.partner, link.vertical, cityName, link.url, link.label, { placement: 'spin_card_grid' });
-
-    try {
-      window.open(link.url, '_blank', 'noopener,noreferrer');
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Unknown error';
-      trackAffiliateClickError(link.partner, link.vertical, cityName, link.url, msg);
-      toast({
-        title: 'Link Unavailable',
-        description: `Unable to open ${link.partner} link. Please try again.`,
-        variant: 'destructive',
-      });
-    }
-  };
+  // A partner without a confirmed affiliate link has an empty URL and is not shown.
+  const shown = VERTICALS.filter(({ key }) => links[key].url);
+  if (shown.length === 0) return null;
 
   return (
     <div className="space-y-2">
       <div className="grid grid-cols-2 gap-2">
-        {VERTICALS.map(({ key, icon: Icon, primary }, i) => {
+        {shown.map(({ key, icon: Icon, primary }, i) => {
           const link = links[key];
-          // Skyscanner stays hidden until VITE_SKYSCANNER_ID is set (empty URL).
-          if (key === 'flights' && !link.url) return null;
-          const isDisabled = !link.url;
-
-          if (isDisabled) {
-            return (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 0.4, y: 0 }}
-                transition={{ delay: 1.4 + i * 0.08 }}
-                className="flex flex-col items-center gap-1 py-3 px-2 rounded-sm border border-border/30 bg-white/[0.01] text-center cursor-not-allowed"
-                title="Unavailable for this destination"
-              >
-                <AlertCircle className="w-4 h-4 text-muted-foreground/50" />
-                <span className="text-[7px] font-mono tracking-wider text-muted-foreground/50 uppercase">
-                  UNAVAILABLE
-                </span>
-              </motion.div>
-            );
-          }
 
           return (
-            <motion.button
+            <motion.a
+              href={link.url}
+              target="_blank"
+              rel={SPONSORED_REL}
               key={key}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4 + i * 0.08 }}
-              onClick={() => handleClick(link)}
+              onClick={() => trackAffiliateClick(link.partner, link.vertical, cityName, link.url, link.label, { placement: 'spin_card_grid' })}
               className={`group relative flex flex-col items-center gap-1.5 rounded-sm border transition-all text-center cursor-pointer ${
                 primary
                   ? 'py-4 px-3 border-primary/40 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/60 hover:shadow-[0_0_16px_hsl(var(--primary)/0.2)]'
@@ -96,14 +60,14 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
               <span className="text-[7px] font-mono text-muted-foreground/40 tracking-wider">
                 EXTERNAL AFFILIATE LINK
               </span>
-            </motion.button>
+            </motion.a>
           );
         })}
       </div>
 
       {/* Affiliate disclaimer */}
       <p className="text-[8px] font-mono text-muted-foreground/30 text-center tracking-wider leading-relaxed">
-        Some outbound links are affiliate links, and we may earn a commission at no extra cost to you.
+        Affiliate links: Nomad Spin may earn a commission at no extra cost to you.
       </p>
     </div>
   );

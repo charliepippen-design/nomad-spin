@@ -38,7 +38,7 @@ describe('destination page affiliate tracking', () => {
     const stay = container.querySelector<HTMLAnchorElement>('a[href*="booking.com"]')!;
     expect(stay).toHaveTextContent('Find a place to stay in');
     fireEvent.click(stay);
-    const click = (window as W).dataLayer!.find((e) => e.event === 'affiliate_click');
+    const click = (window as W).dataLayer!.find((e) => e.event === 'affiliate_outbound_click');
     expect(click).toMatchObject({
       partner: 'Booking.com',
       placement: 'destination_stay',
@@ -50,10 +50,11 @@ describe('destination page affiliate tracking', () => {
     expect(stay.getAttribute('href')).toContain('utm_campaign=city-bogota');
   });
 
-  it('tracks the NordVPN link', () => {
+  it('tracks the NordVPN link once a tracking link is configured', () => {
+    vi.stubEnv('VITE_NORDVPN_TRACKING_URL', 'https://nordvpn.sjv.io/c/1/2/3');
     const { container } = renderDestination('bogota');
     fireEvent.click(container.querySelector('a[href*="nordvpn"]')!);
-    expect((window as W).dataLayer!.some((e) => e.event === 'affiliate_click' && e.partner === 'NordVPN')).toBe(true);
+    expect((window as W).dataLayer!.some((e) => e.event === 'affiliate_outbound_click' && e.partner === 'NordVPN')).toBe(true);
   });
 
   it('renders no Skyscanner link while VITE_SKYSCANNER_ID is unset', () => {

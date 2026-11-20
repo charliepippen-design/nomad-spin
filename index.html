@@ -2,19 +2,47 @@
 <html lang="en">
 
 <head>
-  <!-- Impact.com Universal Tracking Tag -->
-  <script type="text/javascript">(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7924825-40d9-43b7-ae9a-ca7878e3bf9c1.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');</script>
-  <!-- End Impact.com Universal Tracking Tag -->
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-NDK7J5HR');</script>
-  <!-- End Google Tag Manager -->
+  <!--
+    Consent gate. Nothing below contacts Google or Impact until the visitor
+    accepts in the cookie banner (src/components/ConsentBanner.tsx).
+    The choice is stored in localStorage under nomadspin_consent.
+  -->
+  <script>
+    (function (w, d) {
+      w.dataLayer = w.dataLayer || [];
+      function gtag() { w.dataLayer.push(arguments); }
+      w.gtag = w.gtag || gtag;
+      // Google Consent Mode v2: everything denied until the visitor says yes.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied'
+      });
+      var loaded = false;
+      w.__nomadspinLoadTracking = function () {
+        if (loaded) return;
+        loaded = true;
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        // Impact.com Universal Tracking Tag
+        (function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A7924825-40d9-43b7-ae9a-ca7878e3bf9c1.js','script','impactStat',d,w);impactStat('transformLinks');impactStat('trackImpression');
+        // Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(w, d, 'script', 'dataLayer', 'GTM-NDK7J5HR');
+      };
+      try {
+        if (w.localStorage.getItem('nomadspin_consent') === 'granted') w.__nomadspinLoadTracking();
+      } catch (e) { /* storage blocked: stay denied */ }
+    })(window, document);
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -70,10 +98,6 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDK7J5HR" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

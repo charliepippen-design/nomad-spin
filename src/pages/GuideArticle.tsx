@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';
+import { trackEvent } from '@/utils/analytics';
 import { useGuides } from '@/hooks/useGuides';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
@@ -193,6 +194,7 @@ export default function GuideArticle() {
               <Link
                 key={destination.slug}
                 to={`/destinations/${destination.slug}`}
+                onClick={() => trackEvent('guide_to_destination_click', { guide: slug, city_slug: destination.slug })}
                 className="px-3 py-1.5 rounded-lg border border-border bg-card text-sm text-foreground hover:border-primary/50 hover:text-primary transition-colors"
               >
                 {destination.name}

@@ -1,15 +1,12 @@
 /**
  * Analytics Infrastructure, Nomad Spin
  *
- * Fires events to Google Analytics 4 (gtag) if available,
- * otherwise logs to console with a distinct emoji prefix.
+ * Pushes gtag-style events to the dataLayer. Google Tag Manager, which
+ * forwards them to GA4, only loads after cookie consent (see index.html), so
+ * nothing leaves the browser before the visitor accepts.
  *
- * ═══════════════════════════════════════════════════════════════════
- *  VERIFICATION:
- *  1. Open browser console and look for 📊 prefixed logs.
- *  2. If GA4 is wired, check GA4 DebugView for the events below.
- *  3. Every event includes a session_id for funnel analysis.
- * ═══════════════════════════════════════════════════════════════════
+ * Console logging is on in local development only. Every event carries a
+ * session_id for funnel analysis.
  */
 
 import { slugify } from '@/lib/slugify';
@@ -25,7 +22,7 @@ declare global {
 
 export type AnalyticsEvent =
   | 'spin_completed'
-  | 'affiliate_click'
+  | 'affiliate_outbound_click'
   | 'affiliate_click_error'
   | 'cta_variant_assigned'
   | 'grid_tile_visible'
@@ -34,7 +31,10 @@ export type AnalyticsEvent =
   | 'compare_complete'
   | 'compare_share'
   | 'base_finder_start'
-  | 'base_finder_complete';
+  | 'base_finder_complete'
+  | 'globe_city_select'
+  | 'destination_profile_view'
+  | 'guide_to_destination_click';
 
 export type Vertical =
   | 'accommodation'
@@ -154,14 +154,10 @@ export function trackEvent(eventName: AnalyticsEvent, params: Record<string, unk
     }
   } catch {
     // Fail silently: GA may be blocked by ad-blockers
-    console.debug(`📊 [Analytics] gtag call failed for "${eventName}"`);
   }
 
-  // Console log for dev visibility
-  try {
+  if (import.meta.env.DEV) {
     console.log(`📊 [Analytics]: ${eventName}`, payload);
-  } catch {
-    // ignore
   }
 }
 
@@ -190,8 +186,8 @@ export interface AffiliateClickContext {
 }
 
 /**
- * Fire an affiliate_click. Sends a gtag-style event and also a plain
- * {event: 'affiliate_click', ...} dataLayer object for a GTM custom-event
+ * Fire an affiliate_outbound_click. Sends a gtag-style event and also a plain
+ * {event: 'affiliate_outbound_click', ...} dataLayer object for a GTM custom-event
  * trigger. Never throws and never blocks navigation.
  */
 export function trackAffiliateClick(
@@ -206,7 +202,7 @@ export function trackAffiliateClick(
     const citySlug = context.citySlug ?? (targetCity ? slugify(targetCity) : '');
     const placement = context.placement ?? '';
     const ctaVariant = getCtaVariant();
-    trackEvent('affiliate_click', {
+    trackEvent('affiliate_outbound_click', {
       partner,
       vertical,
       city_name: targetCity,
@@ -219,7 +215,7 @@ export function trackAffiliateClick(
     });
     if (typeof window !== 'undefined') {
       pushToDataLayer({
-        event: 'affiliate_click',
+        event: 'affiliate_outbound_click',
         partner,
         placement,
         city_slug: citySlug,

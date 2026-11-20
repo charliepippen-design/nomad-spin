@@ -15,13 +15,12 @@ export function isStayAllowanceVisa(visaType: string): boolean {
 }
 
 /**
- * Spain and Portugal digital nomad rows store 365 as the maximum initial
- * consular or temporary-stay visa, not a visa-free stay. D7-labeled rows
- * stay unlabeled until that label is resolved.
+ * Guard for a Spain or Portugal row labeled with the nomad visa: its day count
+ * would be the maximum initial visa, not a visa-free stay. Both countries now
+ * show the Schengen exemption (nomad route in the note), so no row matches today.
  */
 export function isMaxInitialNomadVisa(countryCode: string, visaType: string): boolean {
   if (countryCode !== 'ES' && countryCode !== 'PT') return false;
-  if (/d7/i.test(visaType)) return false;
   return /digital nomad/i.test(visaType);
 }
 

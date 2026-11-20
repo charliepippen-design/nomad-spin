@@ -18,6 +18,7 @@ import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { citySocialImage, guideSocialImage } from '../src/lib/socialImage';
 import { esc, injectSeo } from '../src/lib/prerenderHead';
 import { buildNotFoundHtml } from './not-found-page';
+import { staticPageBodyHtml, staticPagesPrerender } from '../src/lib/staticPagesPrerender';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -103,10 +104,6 @@ function writeRoute(route: string, html: string, filename = 'index.html') {
   console.log(`✅ Generated: /${route === '' ? filename : `${route}/${filename}`}`);
 }
 
-function createHtmlFile(route: string, title: string, description: string, extras: { ogType?: string; jsonLd?: object } = {}) {
-  const url = `${BASE_URL}/${route}`;
-  writeRoute(route, injectSeo(baseHtml, { title, description, url, ...extras }));
-}
 
 function destinationsIndexBodyHtml(): string {
   const sections = citiesByRegion()
@@ -149,7 +146,27 @@ function withVisibleBody(html: string, body: string): string {
   writeRoute('', withVisibleBody(baseHtml, homeBodyHtml(staticGuides)));
 
   // Static core pages
-  createHtmlFile('about', 'About Us | Nomad Spin', 'Learn about Nomad Spin and how we help digital nomads find their perfect base.');
+  // Each gets its own title, description, canonical, H1 and text in the raw HTML.
+  for (const page of staticPagesPrerender()) {
+    writeRoute(
+      page.route,
+      withVisibleBody(
+        injectSeo(baseHtml, {
+          title: page.title,
+          description: page.description,
+          url: `${BASE_URL}/${page.route}`,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: page.title,
+            url: `${BASE_URL}/${page.route}`,
+            description: page.description,
+          },
+        }),
+        staticPageBodyHtml(page),
+      ),
+    );
+  }
   const guidesIndexTitle = 'Digital Nomad Guides & Analysis | Nomad Spin';
   const guidesIndexDescription = GUIDES_INDEX_DESCRIPTION;
   writeRoute(
@@ -173,9 +190,6 @@ function withVisibleBody(html: string, body: string): string {
       guidesIndexBodyHtml(staticGuides),
     ),
   );
-  createHtmlFile('contact', 'Contact Us | Nomad Spin', 'Get in touch with the Nomad Spin team.');
-  createHtmlFile('privacy-policy', 'Privacy Policy | Nomad Spin', 'Read our privacy policy and how we protect your data.');
-  createHtmlFile('terms-of-use', 'Terms of Use | Nomad Spin', 'Read our terms of service.');
 
   const destinationsIndexUrl = `${BASE_URL}/destinations`;
   const destinationsIndexTitle = 'Destinations | Nomad Spin';
