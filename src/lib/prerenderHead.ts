@@ -36,6 +36,10 @@ export function injectSeo(
     ogType?: string;
     image?: SocialImage;
     jsonLd?: object | object[];
+    /** <html lang> and og:locale of the page. English when omitted. */
+    lang?: { htmlLang: string; ogLocale: string };
+    /** hreflang rows (see alternatesFor in src/i18n/paths.ts). None when the page is English only. */
+    alternates?: { hreflang: string; href: string }[];
   }
 ): string {
   const desc = esc(opts.description);
@@ -67,6 +71,16 @@ export function injectSeo(
   let out = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   for (const [attr, key, value] of metas) out = setHeadTag(out, 'meta', attr, key, 'content', value);
   out = setHeadTag(out, 'link', 'rel', 'canonical', 'href', url);
+  if (opts.lang) {
+    out = out.replace(/<html lang="[^"]*"/, `<html lang="${esc(opts.lang.htmlLang)}"`);
+    out = setHeadTag(out, 'meta', 'property', 'og:locale', 'content', esc(opts.lang.ogLocale));
+  }
+  if (opts.alternates?.length) {
+    const links = opts.alternates
+      .map((row) => `  <link data-rh="true" rel="alternate" hreflang="${esc(row.hreflang)}" href="${esc(row.href)}" />`)
+      .join('\n');
+    out = out.replace('</head>', `${links}\n</head>`);
+  }
 
   // Drop the homepage WebSite/Organization graph so destination pages don't claim to be the homepage.
   out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdBlock || '');

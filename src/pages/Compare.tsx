@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { Link, useNavigate } from '@/i18n/Link';
 import { ArrowRight, Check, Link2, Minus, X } from 'lucide-react';
 import type { City } from '@/data/cities';
 import {

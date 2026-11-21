@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';

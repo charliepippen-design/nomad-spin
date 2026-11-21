@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { ArrowUpRight } from 'lucide-react';
 import type { Guide } from '@/data/guides';
 import type { City } from '@/data/cities';

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { ArrowRight, ChevronDown, RotateCcw } from 'lucide-react';
 import { cities as ALL_CITIES } from '@/data/cities';
 import type { City } from '@/data/cities';

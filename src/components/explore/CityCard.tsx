@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { Check, Wifi } from 'lucide-react';
 import type { City } from '@/data/cities';
 import { getCityThumbnailUrl, getCityImageAlt } from '@/data/cityImages';

@@ -1,0 +1,15 @@
+{
+  "nav.explore": "Explore",
+  "nav.compare": "Compare",
+  "nav.findYourBase": "Find Your Base",
+  "nav.destinations": "Destinations",
+  "nav.guides": "Guides",
+  "nav.about": "About",
+  "nav.homeAria": "Nomad Spin home",
+  "nav.siteAria": "Site",
+  "nav.openMenu": "Open menu",
+  "nav.closeMenu": "Close menu",
+  "language.label": "Language",
+  "language.current": "Current language: {name}",
+  "language.unavailable": "English only for this page"
+}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Bookmark, GitCompareArrows, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import type { City } from '@/data/cities';
 import { useSpinStore } from '@/store/useSpinStore';
 import { cityPath } from '@/lib/citySlug';

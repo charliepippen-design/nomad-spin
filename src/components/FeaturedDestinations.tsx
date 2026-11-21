@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { motion } from 'framer-motion';
 import { MapPin, DollarSign } from 'lucide-react';
 import { getCityThumbnailUrl } from '@/data/cityImages';

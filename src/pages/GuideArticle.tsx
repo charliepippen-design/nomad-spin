@@ -1,4 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';

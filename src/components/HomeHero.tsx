@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from '@/i18n/Link';
 import { ArrowRight, Dices, GitCompareArrows, Maximize2 } from 'lucide-react';
 import CityPicker from '@/components/product/CityPicker';
 import { cityPath } from '@/lib/citySlug';

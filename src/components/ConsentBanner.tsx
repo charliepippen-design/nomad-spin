@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { CONSENT_OPEN_EVENT, getConsent, setConsent } from '@/lib/consent';
 
 /**

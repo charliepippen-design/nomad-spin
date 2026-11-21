@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { cities } from '@/data/cities';
 import {
   BELOW_MINIMUM_CAP,

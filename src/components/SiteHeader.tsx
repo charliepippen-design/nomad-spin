@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { NavLink } from '@/i18n/Link';
+import { useT } from '@/i18n/LocaleProvider';
+import type { TKey } from '@/i18n/dictionary';
+import LanguageSwitcher from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
 import dnsLogo from '@/assets/dns-logo.png';
 import { ThemeToggle } from './ThemeToggle';
 
-const NAV = [
-  { to: '/', label: 'Explore', end: true },
-  { to: '/compare', label: 'Compare', end: false },
-  { to: '/find-your-base', label: 'Find Your Base', end: false },
-  { to: '/destinations', label: 'Destinations', end: false },
-  { to: '/guides', label: 'Guides', end: false },
-  { to: '/about', label: 'About', end: true },
-] as const;
+const NAV: { to: string; label: TKey; end: boolean }[] = [
+  { to: '/', label: 'common.nav.explore', end: true },
+  { to: '/compare', label: 'common.nav.compare', end: false },
+  { to: '/find-your-base', label: 'common.nav.findYourBase', end: false },
+  { to: '/destinations', label: 'common.nav.destinations', end: false },
+  { to: '/guides', label: 'common.nav.guides', end: false },
+  { to: '/about', label: 'common.nav.about', end: true },
+];
 
 function linkClass(isActive: boolean): string {
   return `text-sm font-medium transition-colors ${
@@ -22,6 +26,7 @@ function linkClass(isActive: boolean): string {
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const t = useT();
 
   useEffect(() => {
     setOpen(false);
@@ -31,23 +36,24 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-[80] border-b border-border/60 bg-background/85 backdrop-blur-md pointer-events-auto">
       <div className="flex items-center justify-between gap-3 px-4 h-14">
         <div className="flex items-center gap-5 min-w-0">
-          <NavLink to="/" end className="shrink-0" aria-label="Nomad Spin home">
+          <NavLink to="/" end className="shrink-0" aria-label={t('common.nav.homeAria')}>
             <img src={dnsLogo} alt="Digital Nomad Spin" className="h-8 md:h-10 w-auto" />
           </NavLink>
-          <nav className="hidden lg:flex items-center gap-5" aria-label="Site">
+          <nav className="hidden lg:flex items-center gap-5" aria-label={t('common.nav.siteAria')}>
             {NAV.map((item) => (
               <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => linkClass(isActive)}>
-                {item.label}
+                {t(item.label)}
               </NavLink>
             ))}
           </nav>
         </div>
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             type="button"
             className="lg:hidden p-2 rounded-lg border border-border bg-background text-foreground"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? t('common.nav.closeMenu') : t('common.nav.openMenu')}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
@@ -56,7 +62,7 @@ export default function SiteHeader() {
         </div>
       </div>
       {open && (
-        <nav className="lg:hidden border-t border-border bg-background px-4 py-3 flex flex-col gap-1" aria-label="Site">
+        <nav className="lg:hidden border-t border-border bg-background px-4 py-3 flex flex-col gap-1" aria-label={t('common.nav.siteAria')}>
           {NAV.map((item) => (
             <NavLink
               key={item.to}
@@ -64,7 +70,7 @@ export default function SiteHeader() {
               end={item.end}
               className={({ isActive }) => `rounded-lg px-3 py-3 ${linkClass(isActive)} ${isActive ? 'bg-primary/10' : ''}`}
             >
-              {item.label}
+              {t(item.label)}
             </NavLink>
           ))}
         </nav>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { ExternalLink } from 'lucide-react';
 import { guideStayCta } from '@/lib/guideStayCta';
 import { trackAffiliateClick } from '@/utils/analytics';

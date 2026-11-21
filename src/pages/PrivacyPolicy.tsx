@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import PageMeta from '@/components/product/PageMeta';
 import { openConsentBanner } from '@/lib/consent';
 

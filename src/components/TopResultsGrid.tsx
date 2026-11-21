@@ -1,6 +1,6 @@
 import { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { MapPin, DollarSign, Wifi, Shield, ChevronRight, Sparkles } from 'lucide-react';
 import { cityPath } from '@/lib/citySlug';
 import type { ScoredCity } from '@/lib/scoring';

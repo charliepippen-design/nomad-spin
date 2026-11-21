@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback, type TouchEvent as ReactTouchEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Compass, X, ChevronUp, Globe2, Sun, Moon, Volume2, VolumeX,

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Search } from 'lucide-react';
 import type { City } from '@/data/cities';

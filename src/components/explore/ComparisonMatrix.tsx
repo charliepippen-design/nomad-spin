@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { ArrowLeft, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { City } from '@/data/cities';

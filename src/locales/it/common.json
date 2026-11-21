@@ -1,0 +1,15 @@
+{
+  "nav.explore": "Esplora",
+  "nav.compare": "Confronta",
+  "nav.findYourBase": "Trova la tua base",
+  "nav.destinations": "Destinazioni",
+  "nav.guides": "Guide",
+  "nav.about": "Chi siamo",
+  "nav.homeAria": "Home di Nomad Spin",
+  "nav.siteAria": "Sito",
+  "nav.openMenu": "Apri il menu",
+  "nav.closeMenu": "Chiudi il menu",
+  "language.label": "Lingua",
+  "language.current": "Lingua attuale: {name}",
+  "language.unavailable": "Questa pagina è solo in inglese"
+}

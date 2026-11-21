@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link, Navigate } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 import { MapPin, DollarSign, Wifi, Shield, Plane, Globe, Heart, Users, Zap, ExternalLink, Bookmark, GitCompareArrows, ArrowUpRight } from 'lucide-react';
 import { findCityBySlug } from '@/lib/citySlug';

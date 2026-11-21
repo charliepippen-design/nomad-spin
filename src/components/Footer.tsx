@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { openConsentBanner } from '@/lib/consent';
 import dnsLogo from '@/assets/dns-logo.png';
 
