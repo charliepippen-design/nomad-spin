@@ -18,13 +18,17 @@ import type { City } from '@/data/cities';
 import { cityPath, findCityBySlug } from '@/lib/citySlug';
 import type { Origin } from '@/data/origins';
 import type { User as SupaUser } from '@supabase/supabase-js';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
+import type { TKey } from '@/i18n/dictionary';
 
 
-// How it works data
-const steps = [
-  { icon: Globe2, number: '01', title: 'Spin & Select', description: 'Spin the globe and discover a city matched to your preferences.' },
-  { icon: BarChart3, number: '02', title: 'Compare Metrics', description: 'Review cost of living, internet speed, safety, and more at a glance.' },
-  { icon: ShoppingBag, number: '03', title: 'Book What You Need', description: 'Find stays, flights, eSIMs, and insurance, all in one place.' },
+// How it works data (text lives in the dictionary, translated at render time)
+const steps: { icon: React.ElementType; number: string; title: TKey; description: TKey }[] = [
+  { icon: Globe2, number: '01', title: 'globe.drawer.step1.title', description: 'globe.drawer.step1.description' },
+  { icon: BarChart3, number: '02', title: 'globe.drawer.step2.title', description: 'globe.drawer.step2.description' },
+  { icon: ShoppingBag, number: '03', title: 'globe.drawer.step3.title', description: 'globe.drawer.step3.description' },
 ];
 
 const FEATURED_SLUGS = ['buenos-aires', 'bangkok', 'lisbon'];
@@ -34,10 +38,10 @@ const featuredCities: City[] = FEATURED_SLUGS.flatMap((slug) => {
   return match ? [match.city] : [];
 });
 
-const benefits = [
-  { icon: Wifi, text: 'Avoid slow internet traps' },
-  { icon: DollarSign, text: 'Optimize cost vs. quality of life' },
-  { icon: Clock, text: 'Plan trips in minutes instead of days' },
+const benefits: { icon: React.ElementType; text: TKey }[] = [
+  { icon: Wifi, text: 'globe.drawer.benefit1' },
+  { icon: DollarSign, text: 'globe.drawer.benefit2' },
+  { icon: Clock, text: 'globe.drawer.benefit3' },
 ];
 
 // Mobile bottom sheet states
@@ -81,6 +85,8 @@ export default function LandingDrawer({
   const scrollRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const t = useT();
+  const locale = useLocale();
 
   // Touch gesture tracking
   const touchStartY = useRef(0);
@@ -202,21 +208,21 @@ export default function LandingDrawer({
     <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-5 overscroll-contain">
       {/* Badge */}
       <span className="inline-block self-start px-3 py-1 rounded-full border border-border/40 bg-white/[0.03] text-[9px] font-mono tracking-[0.1em] text-muted-foreground uppercase">
-        Travel Discovery Tool for Digital Nomads
+        {t('globe.drawer.badge')}
       </span>
 
       {/* Tagline */}
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-mono tracking-wide text-foreground leading-tight">
-          Spin the globe.<br />Find your next digital nomad base.
+          {t('globe.drawer.taglineLine1')}<br />{t('globe.drawer.taglineLine2')}
         </h2>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          Compare cost of living, internet, safety, and book stays, flights, and eSIMs in one place.
+          {t('globe.drawer.intro')}
         </p>
       </div>
 
       {/* Spin button */}
-      <SpinButton onClick={handleSpin} label="SPIN & COMPARE DESTINATIONS" />
+      <SpinButton onClick={handleSpin} label={t('globe.drawer.spinCta')} />
 
       {/* Explore Cities button */}
       <button
@@ -224,23 +230,23 @@ export default function LandingDrawer({
         className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-border bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/20 transition-all"
       >
         <Globe2 className="w-4 h-4 text-foreground/70" />
-        <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase font-medium">Explore All Cities</span>
+        <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase font-medium">{t('globe.drawer.exploreAll')}</span>
       </button>
 
       {/* Globe Controls */}
-      <Divider label="Globe Controls" />
+      <Divider label={t('globe.drawer.section.controls')} />
       <div className="space-y-1">
-        <ToggleRow label="Auto-spin" checked={autoSpin} onChange={() => setAutoSpin(s => !s)} icon={Globe2} />
-        <ToggleRow label={dayMode ? 'Day mode' : 'Night mode'} checked={dayMode} onChange={() => setDayMode(d => !d)} icon={dayMode ? Sun : Moon} />
-        <ToggleRow label={soundMuted ? 'Sound off' : 'Sound on'} checked={!soundMuted} onChange={toggleSound} icon={soundMuted ? VolumeX : Volume2} />
+        <ToggleRow label={t('globe.drawer.autoSpin')} checked={autoSpin} onChange={() => setAutoSpin(s => !s)} icon={Globe2} />
+        <ToggleRow label={dayMode ? t('globe.drawer.dayMode') : t('globe.drawer.nightMode')} checked={dayMode} onChange={() => setDayMode(d => !d)} icon={dayMode ? Sun : Moon} />
+        <ToggleRow label={soundMuted ? t('globe.drawer.soundOff') : t('globe.drawer.soundOn')} checked={!soundMuted} onChange={toggleSound} icon={soundMuted ? VolumeX : Volume2} />
       </div>
 
       {/* Your Base */}
-      <Divider label="Your Base" />
+      <Divider label={t('globe.drawer.section.base')} />
       <OriginSelector value={origin} onChange={setOrigin} />
 
       {/* Account */}
-      <Divider label="Account" />
+      <Divider label={t('globe.drawer.section.account')} />
       <div className="space-y-2">
         {isAuthenticated ? (
           <div className="flex items-center justify-between">
@@ -250,14 +256,14 @@ export default function LandingDrawer({
                   {(user?.user_metadata?.display_name || user?.email || 'U')[0].toUpperCase()}
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-foreground/70 tracking-wider">My picks</span>
+              <span className="text-[10px] font-mono text-foreground/70 tracking-wider">{t('globe.drawer.myPicks')}</span>
             </div>
             <button
               onClick={onSignOut}
               className="flex items-center gap-1 text-[9px] font-mono text-muted-foreground hover:text-foreground transition-colors"
             >
               <LogOut className="w-3 h-3" />
-              Sign out
+              {t('globe.drawer.signOut')}
             </button>
           </div>
         ) : (
@@ -266,33 +272,36 @@ export default function LandingDrawer({
             className="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
           >
             <Bookmark className="w-3.5 h-3.5 text-primary/70" />
-            <span className="text-[10px] font-mono text-primary/80 tracking-wider font-medium">Sign in · Save picks</span>
+            <span className="text-[10px] font-mono text-primary/80 tracking-wider font-medium">{t('globe.drawer.signIn')}</span>
           </button>
         )}
         <div className="flex items-center gap-3">
           {streak > 0 && (
             <div className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border/40 bg-white/[0.03]">
               <Flame className="w-3 h-3 text-orange-400" />
-              <span className="text-[10px] font-mono text-foreground/70 tracking-wider">{streak}D</span>
+              <span className="text-[10px] font-mono text-foreground/70 tracking-wider">{t('globe.drawer.streak', { count: streak })}</span>
             </div>
           )}
           {spinCount > 0 && (
-            <span className="text-[10px] font-mono text-muted-foreground tracking-wider">{spinCount} spins</span>
+            <span className="text-[10px] font-mono text-muted-foreground tracking-wider">{t.n('globe.drawer.spins', spinCount)}</span>
           )}
         </div>
       </div>
 
       {/* Saved Spins */}
-      <Divider label="Saved Spins" />
+      <Divider label={t('globe.drawer.section.saved')} />
       <SavedSpins />
 
       {/* Where to Stay */}
-      <Divider label="Where to Stay" />
+      <Divider label={t('globe.drawer.section.stay')} />
       <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
-        Click a destination to fly the globe there. Monthly cost, internet, and safety match the city guide.
+        {t('globe.drawer.stayIntro')}
       </p>
       <div className="grid grid-cols-1 gap-3">
-        {featuredCities.map((city) => (
+        {featuredCities.map((city) => {
+          const name = cityDisplayName(city, locale);
+          const country = countryName(city.countryCode, city.country, locale);
+          return (
           <div
             key={city.id}
             className="rounded-xl overflow-hidden border border-border/30 hover:border-primary/50 transition-all"
@@ -304,18 +313,18 @@ export default function LandingDrawer({
               <div className="relative h-28 overflow-hidden">
                 <img
                   src={getCityThumbnailUrl(city.id, city.region)}
-                  alt={`${city.name}, ${city.country}`}
+                  alt={`${name}, ${country}`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <h2 className="font-mono text-xs tracking-[0.12em] text-foreground uppercase truncate">
-                    {city.name}
+                    {name}
                   </h2>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <MapPin className="w-2.5 h-2.5 text-muted-foreground" />
-                    <span className="text-[9px] font-mono text-muted-foreground">{city.country}</span>
+                    <span className="text-[9px] font-mono text-muted-foreground">{country}</span>
                   </div>
                 </div>
               </div>
@@ -324,28 +333,29 @@ export default function LandingDrawer({
             <div className="bg-card p-2.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
               <div className="flex items-center gap-1.5">
                 <DollarSign className="w-3 h-3 text-muted-foreground" />
-                <span className="text-[10px] font-mono text-foreground/70">${city.costUSD}/mo</span>
+                <span className="text-[10px] font-mono text-foreground/70">${city.costUSD}{t('data.metric.perMonth')}</span>
               </div>
               <span className="text-[9px] font-mono text-muted-foreground/70 flex items-center gap-1">
                 <Wifi className="w-2.5 h-2.5" /> {city.internetMbps} Mbps
               </span>
               <span className="text-[9px] font-mono text-muted-foreground/70">
-                Safety {city.safety}/10
+                {t('globe.drawer.safety', { score: formatNumber(city.safety, locale) })}
               </span>
               <Link
                 to={cityPath(city)}
                 className="text-[9px] font-mono tracking-wider text-primary uppercase shrink-0"
               >
-                Guide
+                {t('globe.drawer.guide')}
               </Link>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* How It Works */}
       <div id="how-it-works" className="space-y-3 scroll-mt-4">
-      <Divider label="How It Works" />
+      <Divider label={t('globe.drawer.section.how')} />
       <div className="space-y-3">
         {steps.map((step) => (
           <div key={step.number} className="rounded-xl border border-border bg-white/[0.02] p-4 flex flex-col gap-2">
@@ -353,8 +363,8 @@ export default function LandingDrawer({
               <span className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground">{step.number}</span>
               <step.icon className="w-4 h-4 text-foreground/70" />
             </div>
-            <h2 className="font-mono text-sm tracking-wider text-foreground">{step.title}</h2>
-            <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
+            <h2 className="font-mono text-sm tracking-wider text-foreground">{t(step.title)}</h2>
+            <p className="text-xs text-muted-foreground leading-relaxed">{t(step.description)}</p>
           </div>
         ))}
       </div>
@@ -366,14 +376,14 @@ export default function LandingDrawer({
             <div className="w-7 h-7 rounded-full bg-white/[0.04] border border-border flex items-center justify-center shrink-0">
               <b.icon className="w-3 h-3 text-foreground/60" />
             </div>
-            <span className="text-xs text-muted-foreground">{b.text}</span>
+            <span className="text-xs text-muted-foreground">{t(b.text)}</span>
           </div>
         ))}
       </div>
 
       {/* Data note */}
       <p className="text-[10px] text-muted-foreground/50 text-center leading-relaxed pt-2">
-        Our dataset covers 780+ cities with cost, internet speed, safety and visa figures. Some records are estimates.
+        {t('globe.drawer.dataNote')}
       </p>
       </div>
 
@@ -383,10 +393,10 @@ export default function LandingDrawer({
         animate={{ opacity: [0.4, 1, 0.4] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
         className="flex items-center justify-center gap-2 w-full py-3 cursor-pointer"
-        aria-label="Back to top"
+        aria-label={t('globe.drawer.backToTop')}
       >
         <ArrowUp className="w-4 h-4 text-primary" />
-        <span className="text-xs font-mono tracking-[0.1em] text-primary uppercase">Back to top</span>
+        <span className="text-xs font-mono tracking-[0.1em] text-primary uppercase">{t('globe.drawer.backToTop')}</span>
         <ArrowUp className="w-4 h-4 text-primary" />
       </motion.button>
     </div>
@@ -422,7 +432,7 @@ export default function LandingDrawer({
               <button
                 onClick={() => setSheetState('peeking')}
                 className="relative flex items-center gap-2.5 px-7 py-4 rounded-full bg-popover/95 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 transition-all shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
-                aria-label="Explore Destinations"
+                aria-label={t('globe.drawer.exploreDestinations')}
               >
                 <motion.div
                   animate={{ rotate: [0, 360] }}
@@ -431,7 +441,7 @@ export default function LandingDrawer({
                   <Compass className="w-5 h-5 text-primary" />
                 </motion.div>
                 <span className="text-[11px] font-mono tracking-[0.1em] text-foreground/90 uppercase font-semibold">
-                  Explore
+                  {t('globe.drawer.explore')}
                 </span>
               </button>
             </motion.div>
@@ -482,7 +492,7 @@ export default function LandingDrawer({
                     >
                       <ChevronUp className="w-3.5 h-3.5 text-primary/60 animate-bounce" />
                       <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/50 uppercase">
-                        Swipe up to explore destinations
+                        {t('globe.drawer.swipeUp')}
                       </span>
                       <ChevronUp className="w-3.5 h-3.5 text-primary/60 animate-bounce" />
                     </motion.div>
@@ -497,7 +507,7 @@ export default function LandingDrawer({
                       <button
                         onClick={() => setSheetState('peeking')}
                         className="p-1.5 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground"
-                        aria-label="Collapse"
+                        aria-label={t('globe.drawer.collapse')}
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -516,13 +526,13 @@ export default function LandingDrawer({
                       onClick={() => { setSheetState('hidden'); onConfigureMission(); }}
                       className="flex-1 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-center"
                     >
-                      <span className="text-[10px] font-mono tracking-[0.1em] text-primary uppercase font-medium">Spin Globe</span>
+                      <span className="text-[10px] font-mono tracking-[0.1em] text-primary uppercase font-medium">{t('globe.drawer.spinGlobe')}</span>
                     </button>
                     <button
                       onClick={() => setSheetState('expanded')}
                       className="flex-1 py-2.5 rounded-lg bg-white/[0.04] border border-border text-center"
                     >
-                      <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase font-medium">View All</span>
+                      <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase font-medium">{t('globe.drawer.viewAll')}</span>
                     </button>
                   </div>
                 )}
@@ -559,7 +569,7 @@ export default function LandingDrawer({
             transition={{ delay: 0.5 }}
             onClick={() => setDesktopOpen(true)}
             className="fixed z-[60] pointer-events-auto group right-6 bottom-8 flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-popover/95 backdrop-blur-2xl border border-primary/25 hover:border-primary/50 hover:bg-popover/95 transition-all cursor-pointer shadow-[0_0_30px_rgba(var(--primary-rgb,139,92,246),0.2),0_4px_20px_rgba(0,0,0,0.4)]"
-            aria-label="Explore Destinations"
+            aria-label={t('globe.drawer.exploreDestinations')}
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
@@ -568,7 +578,7 @@ export default function LandingDrawer({
               <Compass className="w-5 h-5 text-primary" />
             </motion.div>
             <span className="text-[11px] font-mono tracking-[0.1em] text-foreground/90 group-hover:text-foreground uppercase transition-colors font-semibold">
-              Explore Destinations
+              {t('globe.drawer.exploreDestinations')}
             </span>
           </motion.button>
         )}
@@ -594,7 +604,7 @@ export default function LandingDrawer({
               <button
                 onClick={() => setDesktopOpen(false)}
                 className="p-1.5 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
-                aria-label="Close panel"
+                aria-label={t('globe.drawer.closePanel')}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -608,7 +618,7 @@ export default function LandingDrawer({
               animate={{ opacity: 1, scale: 1 }}
               onClick={scrollToTop}
               className="absolute bottom-4 right-6 z-10 w-10 h-10 rounded-full bg-primary/20 hover:bg-primary/30 text-primary flex items-center justify-center transition-colors"
-              aria-label="Scroll to top"
+              aria-label={t('globe.drawer.scrollTop')}
             >
               <ArrowUp className="w-5 h-5" />
             </motion.button>

@@ -1,12 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from '@/i18n/Link';
+import type { Locale } from '@/i18n/config';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
 import { ArrowRight, ChevronDown, RotateCcw } from 'lucide-react';
 import { cities as ALL_CITIES } from '@/data/cities';
 import type { City } from '@/data/cities';
 import {
   CRITERIA,
-  CRITERION_LABEL,
+  criterionLabel,
   DEFAULT_PREFERENCES,
   DEFAULT_WEIGHTS,
   normalizeWeights,
@@ -20,10 +25,6 @@ import { cityPath, citySlug } from '@/lib/citySlug';
 import { trackEvent } from '@/utils/analytics';
 import PageMeta from '@/components/product/PageMeta';
 
-const TITLE = 'Find Your Base: Match Cities to Your Life | Nomad Spin';
-const DESCRIPTION =
-  'Set your budget, climate, internet and safety needs, weight what matters, and see which cities fit. Every score is explained.';
-
 const REGIONS: City['region'][] = ['Europe', 'Asia', 'LATAM', 'North America', 'Africa', 'Oceania'];
 
 /** One bar colour per criterion, in a fixed order, so the breakdown reads the same on every card. */
@@ -36,7 +37,13 @@ const CRITERION_COLOR: Record<CriterionKey, string> = {
   visa: 'bg-[hsl(190_70%_55%)]',
 };
 
-// ── URL state: short keys so a shared link stays readable ──
+/** A bare figure: unchanged in English, decimal comma and the like elsewhere. */
+const plain = (n: number, locale: Locale): string => (locale === 'en' ? String(n) : formatNumber(n, locale));
+/** One decimal place, as `toFixed(1)` in English. */
+const oneDecimal = (n: number, locale: Locale): string =>
+  locale === 'en' ? n.toFixed(1) : formatNumber(n, locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+// ── URL state: short keys so a shared link stays readable. The keys and their values are the same in every language. ──
 const num = (raw: string | null, fallback: number, min: number, max: number): number => {
   if (raw === null || raw === '') return fallback;
   const n = Number(raw);
@@ -84,6 +91,8 @@ function writeState(prefs: MatchPreferences, weights: Record<CriterionKey, numbe
 }
 
 export default function FindYourBase() {
+  const t = useT();
+  const locale = useLocale();
   const [searchParams, setSearchParams] = useSearchParams();
   const initial = useMemo(() => readState(searchParams), []); // eslint-disable-line react-hooks/exhaustive-deps
   const [prefs, setPrefs] = useState<MatchPreferences>(initial.prefs);
@@ -113,7 +122,7 @@ export default function FindYourBase() {
     setSearchParams(writeState(prefs, weights), { replace: true });
   }, [prefs, weights, setSearchParams]);
 
-  const outcome = useMemo(() => rankCities(ALL_CITIES, prefs, weights, 12), [prefs, weights]);
+  const outcome = useMemo(() => rankCities(ALL_CITIES, prefs, weights, 12, locale), [prefs, weights, locale]);
   const shares = useMemo(() => normalizeWeights(weights), [weights]);
 
   const complete = (action: string, city?: City) => {
@@ -141,15 +150,14 @@ export default function FindYourBase() {
 
   return (
     <div className="page-content min-h-screen bg-background">
-      <PageMeta title={TITLE} description={DESCRIPTION} path="/find-your-base" />
+      <PageMeta title={t('tools.fyb.metaTitle')} description={t('tools.fyb.metaDescription')} path="/find-your-base" />
 
       <main className="dns-container py-10 md:py-14">
         <header className="max-w-2xl">
-          <p className="dns-eyebrow">Find your base</p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-foreground">Tell us what matters. See what fits.</h1>
+          <p className="dns-eyebrow">{t('tools.fyb.eyebrow')}</p>
+          <h1 className="mt-3 text-4xl md:text-5xl text-foreground">{t('tools.fyb.h1')}</h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-            {ALL_CITIES.length.toLocaleString('en-US')} cities, ranked against your needs. Move a slider and the list
-            reorders. Open any result to see exactly why it scored what it did.
+            {t('tools.fyb.intro', { count: formatNumber(ALL_CITIES.length, locale) })}
           </p>
         </header>
 
@@ -158,61 +166,61 @@ export default function FindYourBase() {
           <form
             className="dns-card p-5 lg:sticky lg:top-20"
             onSubmit={(e) => e.preventDefault()}
-            aria-label="Your preferences"
+            aria-label={t('tools.fyb.formAria')}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-base text-foreground">Your needs</h2>
+              <h2 className="text-base text-foreground">{t('tools.fyb.needs')}</h2>
               <button
                 type="button"
                 onClick={reset}
                 disabled={isDefault}
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-40"
               >
-                <RotateCcw className="h-3.5 w-3.5" /> Reset
+                <RotateCcw className="h-3.5 w-3.5" /> {t('tools.fyb.reset')}
               </button>
             </div>
 
             <div className="mt-4 space-y-5">
               <Range
-                label="Monthly budget"
+                label={t('tools.fyb.range.budget')}
                 value={prefs.budgetMax}
-                display={`$${prefs.budgetMax.toLocaleString('en-US')}`}
+                display={`$${formatNumber(prefs.budgetMax, locale)}`}
                 min={500}
                 max={6000}
                 step={100}
                 onChange={(v) => updatePrefs({ budgetMax: v })}
               />
               <Range
-                label="Ideal temperature"
+                label={t('tools.fyb.range.temp')}
                 value={prefs.tempIdeal}
-                display={`${prefs.tempIdeal}°C`}
+                display={`${plain(prefs.tempIdeal, locale)}°C`}
                 min={5}
                 max={32}
                 step={1}
                 onChange={(v) => updatePrefs({ tempIdeal: v })}
               />
               <Range
-                label="Minimum internet"
+                label={t('tools.fyb.range.internet')}
                 value={prefs.internetMin}
-                display={prefs.internetMin === 0 ? 'Any' : `${prefs.internetMin} Mbps`}
+                display={prefs.internetMin === 0 ? t('tools.fyb.any') : `${plain(prefs.internetMin, locale)} Mbps`}
                 min={0}
                 max={300}
                 step={10}
                 onChange={(v) => updatePrefs({ internetMin: v })}
               />
               <Range
-                label="Minimum safety"
+                label={t('tools.fyb.range.safety')}
                 value={prefs.safetyMin}
-                display={prefs.safetyMin === 0 ? 'Any' : `${prefs.safetyMin}/10`}
+                display={prefs.safetyMin === 0 ? t('tools.fyb.any') : `${plain(prefs.safetyMin, locale)}/10`}
                 min={0}
                 max={10}
                 step={0.5}
                 onChange={(v) => updatePrefs({ safetyMin: v })}
               />
               <Range
-                label="Stay without a new visa"
+                label={t('tools.fyb.range.visa')}
                 value={prefs.visaMinDays}
-                display={prefs.visaMinDays === 0 ? 'Any' : `${prefs.visaMinDays} days`}
+                display={prefs.visaMinDays === 0 ? t('tools.fyb.any') : t.n('data.unit.days', prefs.visaMinDays)}
                 min={0}
                 max={365}
                 step={15}
@@ -221,7 +229,7 @@ export default function FindYourBase() {
             </div>
 
             <fieldset className="mt-6">
-              <legend className="text-sm font-medium text-foreground">Regions</legend>
+              <legend className="text-sm font-medium text-foreground">{t('tools.fyb.regions')}</legend>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {REGIONS.map((region) => {
                   const on = prefs.regions.includes(region);
@@ -241,27 +249,27 @@ export default function FindYourBase() {
                           : 'border-border bg-background text-muted-foreground hover:text-foreground'
                       }`}
                     >
-                      {region === 'LATAM' ? 'Latin America' : region}
+                      {t.dyn(`data.region.${region}`, region)}
                     </button>
                   );
                 })}
               </div>
               <p className="mt-2 text-xs text-muted-foreground">
-                {prefs.regions.length === 0 ? 'All regions included.' : 'Only the selected regions.'}
+                {prefs.regions.length === 0 ? t('tools.fyb.regions.all') : t('tools.fyb.regions.some')}
               </p>
             </fieldset>
 
             <fieldset className="mt-6 border-t border-border pt-5">
-              <legend className="sr-only">Weights</legend>
-              <h2 className="text-base text-foreground">What matters most</h2>
+              <legend className="sr-only">{t('tools.fyb.weights.legend')}</legend>
+              <h2 className="text-base text-foreground">{t('tools.fyb.weights.title')}</h2>
               <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                Weights are shares of the score. The starting mix is a suggestion, not a finding.
+                {t('tools.fyb.weights.hint')}
               </p>
               <div className="mt-4 space-y-4">
                 {CRITERIA.map((key) => (
                   <Range
                     key={key}
-                    label={CRITERION_LABEL[key]}
+                    label={criterionLabel(key, locale)}
                     value={weights[key]}
                     display={`${Math.round(shares[key] * 100)}%`}
                     min={0}
@@ -282,9 +290,9 @@ export default function FindYourBase() {
                 className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
               />
               <span className="text-sm text-foreground">
-                Only cities that meet my budget and minimums
+                {t('tools.fyb.strict.label')}
                 <span className="block text-xs text-muted-foreground">
-                  Off: a city that misses one still appears, with a lower score and a warning.
+                  {t('tools.fyb.strict.hint')}
                 </span>
               </span>
             </label>
@@ -297,21 +305,24 @@ export default function FindYourBase() {
                 className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
               />
               <span className="text-sm text-foreground">
-                Hide cities with estimated records
+                {t('tools.fyb.dataset.label')}
                 <span className="block text-xs text-muted-foreground">
-                  Some city records are estimates that nobody has checked by hand.
+                  {t('tools.fyb.dataset.hint')}
                 </span>
               </span>
             </label>
           </form>
 
           {/* Results */}
-          <section aria-label="Matching cities" aria-live="polite">
+          <section aria-label={t('tools.fyb.results.aria')} aria-live="polite">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-sm text-muted-foreground">
                 {outcome.noWeights
-                  ? 'No ranking yet'
-                  : `Top ${outcome.results.length} of ${outcome.considered.toLocaleString('en-US')} cities`}
+                  ? t('tools.fyb.results.none')
+                  : t('tools.fyb.results.top', {
+                      shown: outcome.results.length,
+                      total: formatNumber(outcome.considered, locale),
+                    })}
               </p>
               {selected.length > 0 && (
                 <Link
@@ -320,25 +331,27 @@ export default function FindYourBase() {
                   className={selected.length >= 2 ? 'dns-btn-primary' : 'dns-btn-secondary pointer-events-none opacity-60'}
                   aria-disabled={selected.length < 2}
                 >
-                  Compare {selected.length} selected <ArrowRight className="h-4 w-4" />
+                  {t('tools.fyb.compareSelected', { count: selected.length })} <ArrowRight className="h-4 w-4" />
                 </Link>
               )}
             </div>
 
             {outcome.noWeights ? (
               <div className="mt-4 dns-card p-6">
-                <h2 className="text-lg text-foreground">Every weight is at zero</h2>
+                <h2 className="text-lg text-foreground">{t('tools.fyb.noWeights.title')}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Give at least one criterion some weight and the ranking comes back.
+                  {t('tools.fyb.noWeights.body')}
                 </p>
               </div>
             ) : outcome.results.length === 0 ? (
               <div className="mt-4 dns-card p-6">
-                <h2 className="text-lg text-foreground">No cities in that selection</h2>
+                <h2 className="text-lg text-foreground">{t('tools.fyb.empty.title')}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {outcome.excludedByMinimums > 0
-                    ? `${outcome.excludedByMinimums.toLocaleString('en-US')} cities miss your budget or a minimum. Relax one, or turn off the strict filter.`
-                    : 'Add a region or show cities with estimated records.'}
+                    ? t.n('tools.fyb.empty.minimums', outcome.excludedByMinimums, {
+                        count: formatNumber(outcome.excludedByMinimums, locale),
+                      })
+                    : t('tools.fyb.empty.other')}
                 </p>
               </div>
             ) : (
@@ -358,12 +371,13 @@ export default function FindYourBase() {
             )}
 
             <p className="mt-6 text-xs text-muted-foreground leading-relaxed">
-              A score is a fit to the numbers you entered, not a verdict on a place. Visa length depends on your
-              passport, and climate uses an annual average.{' '}
-              <Link to="/methodology" className="text-primary hover:underline">
-                How scoring works
-              </Link>
-              .
+              {rich(t('tools.fyb.disclaimer'), {
+                link: (children) => (
+                  <Link to="/methodology" className="text-primary hover:underline">
+                    {children}
+                  </Link>
+                ),
+              })}
             </p>
           </section>
         </div>
@@ -429,8 +443,11 @@ function ResultCard({
   onToggle: () => void;
   onOpen: () => void;
 }) {
+  const t = useT();
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const { city } = result;
+  const cityName = cityDisplayName(city, locale);
   const detailsId = `why-${city.id}`;
 
   return (
@@ -441,13 +458,15 @@ function ResultCard({
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h3 className="min-w-0 text-lg text-foreground">
               <Link to={cityPath(city)} onClick={onOpen} className="hover:text-primary">
-                {city.name}
+                {cityName}
               </Link>
-              <span className="ml-2 text-sm font-normal text-muted-foreground">{city.country}</span>
+              <span className="ml-2 text-sm font-normal text-muted-foreground">
+                {countryName(city.countryCode, city.country, locale)}
+              </span>
             </h3>
             <p className="shrink-0">
               <span className="dns-num text-2xl text-foreground">{result.score}</span>
-              <span className="text-xs text-muted-foreground"> / 100 fit</span>
+              <span className="text-xs text-muted-foreground"> {t('tools.fyb.card.fit')}</span>
             </p>
           </div>
 
@@ -457,7 +476,7 @@ function ResultCard({
             role="img"
             aria-label={result.criteria
               .filter((c) => c.weightShare > 0)
-              .map((c) => `${CRITERION_LABEL[c.key]} ${Math.round(c.points)} points`)
+              .map((c) => t.n('tools.fyb.card.barPoints', Math.round(c.points), { label: criterionLabel(c.key, locale) }))
               .join(', ')}
           >
             {result.criteria.map((c) =>
@@ -468,25 +487,25 @@ function ResultCard({
           </div>
 
           <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-4">
-            <Stat label="Cost" value={`$${city.costUSD.toLocaleString('en-US')}/mo`} />
-            <Stat label="Internet" value={`${city.internetMbps} Mbps`} />
-            <Stat label="Safety" value={`${city.safety}/10`} />
-            <Stat label="Avg temp" value={`${city.weather.tempAvgC}°C`} />
+            <Stat label={t('tools.fyb.card.cost')} value={t('tools.money.perMonth', { amount: formatNumber(city.costUSD, locale) })} />
+            <Stat label={t('data.metric.internet')} value={`${plain(city.internetMbps, locale)} Mbps`} />
+            <Stat label={t('data.metric.safety')} value={`${plain(city.safety, locale)}/10`} />
+            <Stat label={t('data.metric.avgTemp')} value={`${plain(city.weather.tempAvgC, locale)}°C`} />
           </dl>
 
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             {result.strongest ? <>{result.strongest.note}. </> : null}
-            {result.weakest ? <span className="text-foreground/80">Trade-off: {lowerFirst(result.weakest.note)}.</span> : null}
+            {result.weakest ? <span className="text-foreground/80">{t('tools.fyb.card.tradeoff', { note: lowerFirst(result.weakest.note) })}</span> : null}
           </p>
 
           {result.misses.length > 0 && (
             <p className="mt-2 text-xs font-medium text-warning">
-              Misses what you asked for: {result.misses.map((c) => lowerFirst(c.note)).join('; ')}.
+              {t('tools.fyb.card.misses', { list: result.misses.map((c) => lowerFirst(c.note)).join('; ') })}
             </p>
           )}
 
           {result.estimated && (
-            <p className="mt-2 text-xs text-warning">Estimated record: these figures have not been checked by hand.</p>
+            <p className="mt-2 text-xs text-warning">{t('tools.fyb.card.estimated')}</p>
           )}
 
           <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -497,7 +516,7 @@ function ResultCard({
               onClick={() => setOpen((v) => !v)}
               className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
             >
-              Why this score
+              {t('tools.fyb.card.why')}
               <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
             </button>
             <label className={`inline-flex items-center gap-2 text-sm ${!checked && !canSelect ? 'opacity-50' : 'cursor-pointer'} text-muted-foreground`}>
@@ -508,19 +527,19 @@ function ResultCard({
                 onChange={onToggle}
                 className="h-4 w-4 accent-[hsl(var(--primary))]"
               />
-              Compare
+              {t('tools.fyb.card.compare')}
             </label>
           </div>
 
           {open && (
             <table id={detailsId} className="mt-4 w-full text-left text-sm">
-              <caption className="sr-only">Score breakdown for {city.name}</caption>
+              <caption className="sr-only">{t('tools.fyb.card.caption', { city: cityName })}</caption>
               <thead>
                 <tr className="border-b border-border text-xs text-muted-foreground">
-                  <th scope="col" className="py-1.5 font-medium">Criterion</th>
-                  <th scope="col" className="py-1.5 font-medium">Why</th>
-                  <th scope="col" className="py-1.5 text-right font-medium">Fit</th>
-                  <th scope="col" className="py-1.5 text-right font-medium">Points</th>
+                  <th scope="col" className="py-1.5 font-medium">{t('tools.fyb.table.criterion')}</th>
+                  <th scope="col" className="py-1.5 font-medium">{t('tools.fyb.table.why')}</th>
+                  <th scope="col" className="py-1.5 text-right font-medium">{t('tools.fyb.table.fit')}</th>
+                  <th scope="col" className="py-1.5 text-right font-medium">{t('tools.fyb.table.points')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -529,13 +548,13 @@ function ResultCard({
                     <th scope="row" className="py-2 pr-3 font-medium text-foreground">
                       <span className="flex items-center gap-2">
                         <span className={`h-2 w-2 shrink-0 rounded-full ${CRITERION_COLOR[c.key]}`} aria-hidden="true" />
-                        {CRITERION_LABEL[c.key]}
+                        {criterionLabel(c.key, locale)}
                       </span>
                     </th>
                     <td className="py-2 pr-3 text-muted-foreground">{c.note}</td>
                     <td className="py-2 text-right tabular-nums text-foreground">{Math.round(c.fit * 100)}%</td>
                     <td className="py-2 text-right tabular-nums text-foreground">
-                      {c.weightShare === 0 ? '0' : c.points.toFixed(1)}
+                      {c.weightShare === 0 ? '0' : oneDecimal(c.points, locale)}
                       <span className="text-muted-foreground"> / {(c.weightShare * 100).toFixed(0)}</span>
                     </td>
                   </tr>

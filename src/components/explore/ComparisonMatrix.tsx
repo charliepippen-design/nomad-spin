@@ -7,6 +7,9 @@ import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
 import { cityPath } from '@/lib/citySlug';
 import NomadImage from '@/components/common/NomadImage';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
 
 interface ComparisonMatrixProps {
   cities: City[];
@@ -48,6 +51,8 @@ function MetricRow({
 }
 
 export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixProps) {
+  const t = useT();
+  const locale = useLocale();
   const costs = cities.map((c) => c.costUSD);
   const speeds = cities.map((c) => c.internetMbps);
   const safeties = cities.map((c) => c.safety);
@@ -71,15 +76,15 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
             className="flex items-center gap-1.5 text-xs sm:text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
-            Back
+            {t('globe.compare.back')}
           </button>
           <h2 className="text-sm sm:text-lg md:text-xl font-bold text-foreground tracking-tight font-mono uppercase">
-            Compare
+            {t('globe.compare.title')}
           </h2>
           <button
             onClick={onBack}
             className="p-2 rounded-lg hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
-            aria-label="Close comparison"
+            aria-label={t('globe.compare.close')}
           >
             <X className="w-5 h-5" />
           </button>
@@ -91,7 +96,10 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
           className="grid gap-0 mb-0"
           style={{ gridTemplateColumns: `repeat(${cities.length}, minmax(140px, 1fr))` }}
         >
-          {cities.map((city, i) => (
+          {cities.map((city, i) => {
+            const name = cityDisplayName(city, locale);
+            const country = countryName(city.countryCode, city.country, locale);
+            return (
             <div
               key={city.id}
               className={`relative aspect-[4/3] overflow-hidden ${
@@ -103,13 +111,13 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
                 src={getCityThumbnailUrl(city.id, city.region)}
                 cityName={city.name}
                 countryName={city.country}
-                alt={getCityImageAlt(city.name, city.country, city.id)}
+                alt={locale === 'en' ? getCityImageAlt(city.name, city.country, city.id) : `${name}, ${country}`}
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 z-10">
-                <p className="text-white font-bold text-xs sm:text-base leading-tight truncate">{city.name}</p>
-                <p className="text-white/60 text-[10px] sm:text-xs truncate">{city.country}</p>
+                <p className="text-white font-bold text-xs sm:text-base leading-tight truncate">{name}</p>
+                <p className="text-white/60 text-[10px] sm:text-xs truncate">{country}</p>
               </div>
               </Link>
               {getCityPhoto(city.id) && (
@@ -118,28 +126,29 @@ export default function ComparisonMatrix({ cities, onBack }: ComparisonMatrixPro
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="bg-white/[0.03] border border-border rounded-b-xl overflow-hidden">
           <MetricRow
-            label="Monthly Cost"
-            values={costs.map((c) => `$${c.toLocaleString()}`)}
+            label={t('globe.compare.monthlyCost')}
+            values={costs.map((c) => `$${formatNumber(c, locale)}`)}
             bestIndex={cheapestIdx}
           />
           <MetricRow
-            label="Internet"
+            label={t('globe.compare.internet')}
             values={speeds.map((s) => `${s} Mbps`)}
             bestIndex={fastestIdx}
           />
           <MetricRow
-            label="Avg Temp"
+            label={t('globe.compare.avgTemp')}
             values={cities.map((c) => `${c.weather.tempAvgC}°C`)}
             bestIndex={-1}
           />
           <MetricRow
-            label="Safety"
-            values={safeties.map((s) => `${s}/10`)}
+            label={t('globe.compare.safety')}
+            values={safeties.map((s) => `${formatNumber(s, locale)}/10`)}
             bestIndex={safestIdx}
           />
         </div>

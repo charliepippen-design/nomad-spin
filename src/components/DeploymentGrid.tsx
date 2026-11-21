@@ -2,9 +2,12 @@ import { motion } from 'framer-motion';
 import { Building, Plane, Wifi, Shield, ExternalLink } from 'lucide-react';
 import { SPONSORED_REL, type AffiliateLinks } from '@/utils/affiliateEngine';
 import { trackAffiliateClick } from '@/utils/analytics';
+import { useT } from '@/i18n/LocaleProvider';
 
 interface DeploymentGridProps {
   links: AffiliateLinks;
+  /** Same links with labels in the reader's language. `links` stays English for URLs and analytics. */
+  displayLinks?: AffiliateLinks;
   cityName: string;
 }
 
@@ -15,7 +18,8 @@ const VERTICALS: { key: keyof AffiliateLinks; icon: typeof Building; primary: bo
   { key: 'insurance', icon: Shield, primary: false },
 ];
 
-export default function DeploymentGrid({ links, cityName }: DeploymentGridProps) {
+export default function DeploymentGrid({ links, displayLinks, cityName }: DeploymentGridProps) {
+  const t = useT();
   // A partner without a confirmed affiliate link has an empty URL and is not shown.
   const shown = VERTICALS.filter(({ key }) => links[key].url);
   if (shown.length === 0) return null;
@@ -52,13 +56,13 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
                   ? 'text-primary/80 group-hover:text-primary'
                   : 'text-foreground/60 group-hover:text-foreground'
               }`}>
-                {link.label}
+                {(displayLinks ?? links)[key].label}
               </span>
               <span className="text-[9px] font-mono text-muted-foreground flex items-center gap-1">
                 {link.partner} <ExternalLink className="w-2.5 h-2.5" />
               </span>
               <span className="text-[7px] font-mono text-muted-foreground/40 tracking-wider">
-                EXTERNAL AFFILIATE LINK
+                {t('globe.deploy.external')}
               </span>
             </motion.a>
           );
@@ -67,7 +71,7 @@ export default function DeploymentGrid({ links, cityName }: DeploymentGridProps)
 
       {/* Affiliate disclaimer */}
       <p className="text-[8px] font-mono text-muted-foreground/30 text-center tracking-wider leading-relaxed">
-        Affiliate links: Nomad Spin may earn a commission at no extra cost to you.
+        {t('globe.deploy.disclaimer')}
       </p>
     </div>
   );

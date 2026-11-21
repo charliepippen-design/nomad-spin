@@ -4,7 +4,9 @@ import { DEFAULT_LOCALE, LOCALE_INFO, type Locale } from './config';
 
 /** 1200 -> "1,200" in English, "1.200" in Italian. */
 export function formatNumber(value: number, locale: Locale = DEFAULT_LOCALE, options?: Intl.NumberFormatOptions): string {
-  return value.toLocaleString(LOCALE_INFO[locale].intl, options);
+  if (locale === DEFAULT_LOCALE) return value.toLocaleString(LOCALE_INFO[locale].intl, options);
+  // Italian and Spanish only group from five digits by default ("2200"); prices read better as "2.200".
+  return value.toLocaleString(LOCALE_INFO[locale].intl, { useGrouping: 'always', ...options } as Intl.NumberFormatOptions);
 }
 
 const countryNames = new Map<Locale, Intl.DisplayNames | null>();

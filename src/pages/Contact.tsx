@@ -4,26 +4,29 @@ import { Button } from '@/components/ui/button';
 import { Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { LocaleLinks, canonicalUrl } from '@/i18n/seo';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
-const PAGE_URL = `${BASE_URL}/contact`;
-const TITLE = 'Contact | Nomad Spin';
-const DESCRIPTION = 'Get in touch with the Nomad Spin team. Share feedback, suggest a city, or ask a question.';
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: TITLE,
-  url: PAGE_URL,
-  description: DESCRIPTION,
-  mainEntity: {
-    '@type': 'Organization',
-    name: 'Nomad Spin',
-    url: BASE_URL,
-  },
-};
 
 export default function Contact() {
+  const t = useT();
+  const locale = useLocale();
+  const PAGE_URL = canonicalUrl('/contact', locale);
+  const TITLE = t('static.contact.title');
+  const DESCRIPTION = t('static.contact.description');
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: TITLE,
+    url: PAGE_URL,
+    description: DESCRIPTION,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Nomad Spin',
+      url: BASE_URL,
+    },
+  };
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -41,7 +44,7 @@ export default function Contact() {
       setSubmitted(true);
     } catch (err) {
       console.error('Contact form error:', err);
-      toast.error('Failed to send message. Please try again.');
+      toast.error(t('static.contact.error'));
     } finally {
       setLoading(false);
     }
@@ -64,31 +67,32 @@ export default function Contact() {
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
+      <LocaleLinks enPath="/contact" />
 
       <div className="dns-container grid gap-10 py-12 md:grid-cols-[1fr_1.1fr] md:gap-16 md:py-20">
         <div>
-        <p className="dns-eyebrow">Get in touch</p>
+        <p className="dns-eyebrow">{t('static.contact.eyebrow')}</p>
         <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">
-          Contact
+          {t('static.contact.h1')}
         </h1>
         <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-          Have a question, feedback, or a city you'd like us to add? Drop us a message.
+          {t('static.contact.intro')}
         </p>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-          Spotted a wrong number on a city page? Tell us which city and which figure, with a source if you have one.
+          {t('static.contact.wrongNumber')}
         </p>
         </div>
 
         <div className="dns-card p-6 md:p-8">
         {submitted ? (
           <div className="py-8 text-center">
-            <p className="font-display text-2xl font-bold text-foreground">Thank you!</p>
-            <p className="text-sm text-muted-foreground mt-2">We'll get back to you soon.</p>
+            <p className="font-display text-2xl font-bold text-foreground">{t('static.contact.thanks.title')}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t('static.contact.thanks.body')}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">Name</label>
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">{t('static.contact.form.name')}</label>
               <input
                 id="name"
                 type="text"
@@ -97,11 +101,11 @@ export default function Contact() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="dns-input !py-3"
-                placeholder="Your name"
+                placeholder={t('static.contact.form.namePlaceholder')}
               />
             </div>
             <div>
-              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">Email</label>
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">{t('static.contact.form.email')}</label>
               <input
                 id="email"
                 type="email"
@@ -110,11 +114,11 @@ export default function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="dns-input !py-3"
-                placeholder="you@example.com"
+                placeholder={t('static.contact.form.emailPlaceholder')}
               />
             </div>
             <div>
-              <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">Message</label>
+              <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">{t('static.contact.form.message')}</label>
               <textarea
                 id="message"
                 required
@@ -123,12 +127,12 @@ export default function Contact() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="dns-input resize-none !py-3"
-                placeholder="Your message..."
+                placeholder={t('static.contact.form.messagePlaceholder')}
               />
             </div>
             <Button type="submit" disabled={loading} className="w-full gap-2 text-sm font-semibold">
               {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
-              {loading ? 'Sending...' : 'Send Message'}
+              {loading ? t('static.contact.form.sending') : t('static.contact.form.send')}
             </Button>
           </form>
         )}

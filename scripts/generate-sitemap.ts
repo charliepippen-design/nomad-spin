@@ -5,6 +5,8 @@ import { guides } from '../src/data/guides';
 import { allCitySlugs } from '../src/lib/citySlug';
 import { listSubAreaDestinations, omitSubAreaDestinationLines } from '../src/lib/subAreaDestinations';
 import { DATASET_UPDATED } from '../src/data/datasetMeta';
+import { DEFAULT_LOCALE, PUBLISHED_LOCALES } from '../src/i18n/config';
+import { alternatesFor, localizePath } from '../src/i18n/paths';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +15,8 @@ const BASE_URL = 'https://www.digitalnomadspin.com';
 
 interface SitemapEntry {
   path: string;
+  /** English path of the same page, on rows for another language. */
+  enPath?: string;
   lastmod?: string;
   changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
   priority?: string;
@@ -49,7 +53,18 @@ const cityEntries: SitemapEntry[] = allCitySlugs()
     priority: '0.7',
   }));
 
-const entries = [...staticEntries, ...guideEntries, ...cityEntries];
+const englishEntries = [...staticEntries, ...guideEntries, ...cityEntries];
+
+// One row per translated page, right after the English rows. A page that has
+// not been translated has no URL in that language, so it gets no row.
+const localizedEntries: SitemapEntry[] = PUBLISHED_LOCALES.filter((locale) => locale !== DEFAULT_LOCALE).flatMap((locale) =>
+  englishEntries.flatMap((entry) => {
+    const localized = localizePath(entry.path, locale);
+    return localized ? [{ ...entry, path: localized, enPath: entry.path }] : [];
+  }),
+);
+
+const entries: SitemapEntry[] = [...englishEntries, ...localizedEntries];
 
 function generateSitemap(items: SitemapEntry[]) {
   const urls = items
@@ -58,6 +73,10 @@ function generateSitemap(items: SitemapEntry[]) {
         '  <url>',
         `    <loc>${BASE_URL}${e.path}</loc>`,
       ];
+      // hreflang set, identical on every language version of the page. None when English only.
+      for (const alt of alternatesFor(e.enPath ?? e.path)) {
+        lines.push(`    <xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${alt.href}" />`);
+      }
       if (e.lastmod) lines.push(`    <lastmod>${e.lastmod}</lastmod>`);
       if (e.changefreq) lines.push(`    <changefreq>${e.changefreq}</changefreq>`);
       if (e.priority) lines.push(`    <priority>${e.priority}</priority>`);
@@ -67,7 +86,7 @@ function generateSitemap(items: SitemapEntry[]) {
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>`;
 }

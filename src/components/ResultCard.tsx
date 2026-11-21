@@ -17,6 +17,9 @@ import { cityPath } from '@/lib/citySlug';
 import confetti from 'canvas-confetti';
 import type { ScoredCity } from '@/lib/scoring';
 import { isApplicationBasedVisa, visaPathSentence } from '@/lib/visaCopy';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { isCityTranslated, localizeCity } from '@/i18n/content';
+import { formatNumber } from '@/i18n/format';
 
 interface ResultCardProps {
   city: City;
@@ -33,6 +36,7 @@ interface ResultCardProps {
 
 function DataSourceIndicator({ source }: { source: 'verified' | 'estimated' }) {
   // Editorial records carry no mark: a tick would read as "verified".
+  const t = useT();
   if (source === 'verified') return null;
   return (
     <TooltipProvider delayDuration={200}>
@@ -43,7 +47,7 @@ function DataSourceIndicator({ source }: { source: 'verified' | 'estimated' }) {
           </span>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-[200px] text-xs">
-          Estimated record, not checked by hand. May not reflect current conditions.
+          {t('globe.result.estimatedTooltip')}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -73,6 +77,7 @@ function AnimatedScore({ target }: { target: number }) {
 }
 
 function ScoreRing({ score }: { score: number }) {
+  const t = useT();
   const circumference = 2 * Math.PI * 42;
   const offset = circumference - (score / 100) * circumference;
 
@@ -96,15 +101,42 @@ function ScoreRing({ score }: { score: number }) {
         <span className="text-lg font-mono font-light text-foreground tracking-wider">
           <AnimatedScore target={score} />
         </span>
-        <span className="text-[8px] font-mono text-muted-foreground uppercase tracking-[0.1em]">match</span>
+        <span className="text-[8px] font-mono text-muted-foreground uppercase tracking-[0.1em]">{t('globe.result.match')}</span>
       </div>
     </div>
   );
 }
 
 export default function ResultCard({ city, matchScore, matchReason, intel, risks, originCity, flightInfo, onSave, onRespin, onShare }: ResultCardProps) {
+  const t = useT();
+  const locale = useLocale();
+  // English links carry the URLs and the labels sent to analytics; displayLinks only changes what is read on screen.
   const affiliateLinks = generateAffiliateLinks(city, originCity);
-  const badges = generateBadges(city);
+  const displayLinks = locale === 'en' ? affiliateLinks : generateAffiliateLinks(city, originCity, locale);
+  const badges = generateBadges(city, locale);
+  // Names and free text in the reader's language. Free text (legal notes, visa note)
+  // is shown only when this city is translated, never in English on a translated screen.
+  const loc = localizeCity(city, locale);
+  const translated = isCityTranslated(city.id, locale);
+  const name = loc.name;
+  const country = loc.country;
+  const perMonth = t('data.metric.perMonth');
+  const hasVisaPath = Boolean(city.meta.visaNote) || isApplicationBasedVisa(city.meta.visaType);
+  const visaTooltip = (() => {
+    if (!hasVisaPath) return t('globe.result.stat.typicalStayTip');
+    if (locale === 'en') return visaPathSentence(city.meta);
+    const type = t.dyn(`data.visaType.${city.meta.visaType}`, city.meta.visaType);
+    const days = city.meta.visaDays;
+    const note = translated ? loc.meta.visaNote : undefined;
+    if (isApplicationBasedVisa(city.meta.visaType)) {
+      const base = t('globe.result.visaTip.application', { type, days });
+      return note ? `${base} ${note}` : base;
+    }
+    return note ? `${t('globe.result.visaTip.withNote', { type, days })} ${note}` : t('globe.result.visaTip.default', { days });
+  })();
+  const languageLabel = locale === 'en'
+    ? city.language
+    : city.language?.split(/(\s*[,/&]\s*)/).map((part) => t.dyn(`data.language.${part}`, part)).join('');
   const { imageUrl: heroImageUrl, attribution, alt: heroAlt } = useCityImage(city.id, city.name, city.country, city.region, 800);
   const dataSource = city.dataSource || 'verified';
 
@@ -136,7 +168,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
         <div className="relative h-48 overflow-hidden">
           <img
             src={heroImageUrl}
-            alt={heroAlt}
+            alt={locale === 'en' ? heroAlt : `${name}, ${country}`}
             loading="lazy"
             onError={(e) => {
               const fallback = NEUTRAL_IMAGE;
@@ -163,19 +195,19 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
                     className="font-display text-2xl font-extrabold tracking-tight text-white truncate sm:text-3xl md:text-4xl"
                     style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.6)' }}
                   >
-                    {city.name}
+                    {name}
                   </motion.h2>
                   <DataSourceIndicator source={dataSource} />
                 </div>
                 <div className="flex items-center gap-2 text-white/80 mt-1">
                   <MapPin className="w-3 h-3" />
-                  <span className="text-[11px] font-mono tracking-wider">{city.country} · {city.region}</span>
+                  <span className="text-[11px] font-mono tracking-wider">{country} · {t.dyn(`globe.region.${city.region}`, city.region)}</span>
                   <span className="text-[11px] font-mono tracking-wider text-white/50">{city.meta.timeZoneUtc}</span>
                 </div>
                 {city.language && (
                   <div className="flex items-center gap-1.5 text-white/50 mt-0.5">
                     <Languages className="w-2.5 h-2.5" />
-                    <span className="text-[10px] font-mono tracking-wider">{city.language}</span>
+                    <span className="text-[10px] font-mono tracking-wider">{languageLabel}</span>
                   </div>
                 )}
               </div>
@@ -203,21 +235,21 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <div className="mx-6 mt-3 flex items-center gap-3 px-4 py-2.5 rounded-lg border border-border/30 bg-white/[0.02]">
               <Plane className="w-4 h-4 text-primary/60" />
               <div className="flex-1 flex items-center gap-4 text-[10px] font-mono text-foreground/60">
-                <span>~{flightInfo.hours}h flight</span>
-                <span>~${flightInfo.costEstimate} est.</span>
-                <span className="text-muted-foreground/40">{flightInfo.distKm.toLocaleString()} km</span>
+                <span>{t('globe.result.flightHours', { hours: formatNumber(flightInfo.hours, locale) })}</span>
+                <span>{t('globe.result.flightCost', { cost: flightInfo.costEstimate })}</span>
+                <span className="text-muted-foreground/40">{formatNumber(flightInfo.distKm, locale)} km</span>
               </div>
             </div>
           )}
 
           {/* Tactical Data Grid */}
           <div className="grid grid-cols-2 gap-px bg-border/10 mx-6 mt-4 rounded-lg overflow-hidden">
-            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="TOTAL COST" value={`$${city.financials.costNomadSingle.toLocaleString()}/mo`} tooltip="Estimated total monthly living cost for a single digital nomad (rent, food, transport, etc.)." source={dataSource} />
-            <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label="AVG. INTERNET" value={`${city.infra.internetSpeedAvg} Mbps`} tooltip="Average download speed from fixed broadband and coworking spaces." source={dataSource} />
-            <StatItem icon={<Shield className="w-3.5 h-3.5" />} label="SAFETY" value={`${city.safety}/10`} tooltip="Composite safety score (1 to 10) based on crime rates, political stability, and traveler reports." source={dataSource} />
-            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label={city.meta.visaNote || isApplicationBasedVisa(city.meta.visaType) ? 'VISA PATH' : 'TYPICAL STAY'} value={`${city.meta.visaDays} days`} tooltip={city.meta.visaNote || isApplicationBasedVisa(city.meta.visaType) ? visaPathSentence(city.meta) : 'Approximate maximum stay for many nationalities; actual rules depend on your passport.'} source={dataSource} />
-            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label="ACCOM. (NIGHTLY)" value={`$${city.financials.airbnbMedian}/night`} tooltip="Approximate median nightly price for a 1-bedroom or studio on Airbnb / similar platforms." source={dataSource} />
-            <StatItem icon={<Clock className="w-3.5 h-3.5" />} label="LONG-TERM COST" value={`$${city.financials.costLongTerm.toLocaleString()}/mo`} tooltip="Estimated monthly cost for stays of 3+ months, including lower rent and local pricing." source={dataSource} />
+            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label={t('globe.result.stat.totalCost')} value={`$${formatNumber(city.financials.costNomadSingle, locale)}${perMonth}`} tooltip={t('globe.result.stat.totalCostTip')} source={dataSource} />
+            <StatItem icon={<Wifi className="w-3.5 h-3.5" />} label={t('globe.result.stat.avgInternet')} value={`${city.infra.internetSpeedAvg} Mbps`} tooltip={t('globe.result.stat.avgInternetTip')} source={dataSource} />
+            <StatItem icon={<Shield className="w-3.5 h-3.5" />} label={t('globe.result.stat.safety')} value={`${formatNumber(city.safety, locale)}/10`} tooltip={t('globe.result.stat.safetyTip')} source={dataSource} />
+            <StatItem icon={<Globe className="w-3.5 h-3.5" />} label={hasVisaPath ? t('globe.result.stat.visaPath') : t('globe.result.stat.typicalStay')} value={t.n('data.unit.days', city.meta.visaDays)} tooltip={visaTooltip} source={dataSource} />
+            <StatItem icon={<DollarSign className="w-3.5 h-3.5" />} label={t('globe.result.stat.accom')} value={t('globe.result.perNight', { price: city.financials.airbnbMedian })} tooltip={t('globe.result.stat.accomTip')} source={dataSource} />
+            <StatItem icon={<Clock className="w-3.5 h-3.5" />} label={t('globe.result.stat.longTerm')} value={`$${formatNumber(city.financials.costLongTerm, locale)}${perMonth}`} tooltip={t('globe.result.stat.longTermTip')} source={dataSource} />
           </div>
 
           {/* Visa CTA: shown only with a confirmed partner link */}
@@ -236,7 +268,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             <div className="flex items-center gap-2">
               <Globe className="w-4 h-4 text-primary/70 group-hover:text-primary transition-colors" />
               <span className="text-xs font-mono font-medium text-foreground/70 group-hover:text-foreground tracking-wide transition-colors">
-                Check visa options for {city.country}
+                {t('globe.result.visaCta', { country })}
               </span>
             </div>
             <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/50 group-hover:text-foreground/70 transition-colors" />
@@ -248,18 +280,18 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 
           {/* Health Bars */}
           <div className="px-6 py-5 space-y-3">
-            <HealthBar label="INTERNET" value={city.infra.internetReliability} delay={0.8} />
-            <HealthBar label="SAFETY" value={Math.round(city.safety)} delay={0.9} />
-            <HealthBar label="NIGHTLIFE" value={city.vibeMetrics.nightlife} delay={1.0} />
-            <HealthBar label="COMMUNITY" value={city.vibeMetrics.communitySize} delay={1.1} />
-            <HealthBar label="POWER GRID" value={city.infra.powerGridStability} delay={1.2} />
+            <HealthBar label={t('globe.result.health.internet')} value={city.infra.internetReliability} delay={0.8} />
+            <HealthBar label={t('globe.result.health.safety')} value={Math.round(city.safety)} delay={0.9} />
+            <HealthBar label={t('globe.result.health.nightlife')} value={city.vibeMetrics.nightlife} delay={1.0} />
+            <HealthBar label={t('globe.result.health.community')} value={city.vibeMetrics.communitySize} delay={1.1} />
+            <HealthBar label={t('globe.result.health.powerGrid')} value={city.infra.powerGridStability} delay={1.2} />
           </div>
 
           {/* Intel + Risks */}
           <div className="px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-border/30">
             <div>
               <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.1em] text-muted-foreground mb-2 uppercase">
-                <Zap className="w-3 h-3" /> WHY THIS CITY
+                <Zap className="w-3 h-3" /> {t('globe.result.why')}
               </div>
               {intel.map((item, i) => (
                 <motion.p
@@ -275,7 +307,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
             </div>
             <div>
               <div className="flex items-center gap-1.5 text-[9px] font-mono tracking-[0.1em] text-muted-foreground mb-2 uppercase">
-                <AlertTriangle className="w-3 h-3" /> THINGS TO KNOW
+                <AlertTriangle className="w-3 h-3" /> {t('globe.result.know')}
               </div>
               {risks.length > 0 ? risks.map((risk, i) => (
                 <motion.p
@@ -288,26 +320,26 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
                   ⚠ {risk}
                 </motion.p>
               )) : (
-                <p className="text-[11px] text-foreground/40 font-mono">No concerns noted</p>
+                <p className="text-[11px] text-foreground/40 font-mono">{t('globe.result.noConcerns')}</p>
               )}
             </div>
           </div>
 
           {/* Legal Notes Section */}
-          {city.legalNotes && city.legalNotes.length > 0 && (
+          {translated && loc.legalNotes && loc.legalNotes.length > 0 && (
             <div className="mx-6 mb-3">
               <div className="rounded-lg border border-amber-500/20 bg-amber-500/[0.04] px-4 py-3">
                 <div className="flex items-center gap-1.5 mb-2">
                   <AlertOctagon className="w-3.5 h-3.5 text-amber-400/80" />
-                  <span className="text-[9px] font-mono tracking-[0.1em] text-amber-400/80 uppercase">LOCAL LAWS & REGULATIONS</span>
+                  <span className="text-[9px] font-mono tracking-[0.1em] text-amber-400/80 uppercase">{t('globe.result.laws')}</span>
                 </div>
-                {city.legalNotes.map((note, i) => (
+                {loc.legalNotes.map((note, i) => (
                   <p key={i} className="text-[11px] text-amber-200/60 font-mono leading-relaxed mb-1">
                     • {note}
                   </p>
                 ))}
                 <p className="text-[9px] text-muted-foreground/40 font-mono mt-2 italic">
-                  Laws vary by region. Always verify current regulations before traveling.
+                  {t('globe.result.lawsNote')}
                 </p>
               </div>
             </div>
@@ -334,30 +366,30 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
               transition={{ delay: 1.3 }}
               className="flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-mono font-semibold text-sm tracking-wider transition-all hover:shadow-[0_0_24px_rgba(16,185,129,0.4)] active:scale-[0.98]"
             >
-              Find a place to stay in {city.name} <ExternalLink className="w-3.5 h-3.5" />
+              {t('globe.result.stayCta', { city: name })} <ExternalLink className="w-3.5 h-3.5" />
             </motion.a>
           <Link
             to={cityPath(city)}
             className="flex items-center justify-center gap-1.5 w-full py-2.5 text-[10px] font-mono tracking-[0.1em] text-primary/70 hover:text-primary transition-colors uppercase"
           >
-            Read full {city.name} guide →
+            {t('globe.result.guideCta', { city: name })}
           </Link>
           </div>
 
           {/* Secondary Links: Deployment Grid */}
           <div className="px-6 py-3 border-t border-border/30 mt-3">
-            <DeploymentGrid links={affiliateLinks} cityName={city.name} />
+            <DeploymentGrid links={affiliateLinks} displayLinks={displayLinks} cityName={city.name} />
           </div>
 
           {/* Action Row */}
           <div className="px-6 py-4 border-t border-border/30 flex gap-2">
             <Button onClick={onSave} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
-              <Bookmark className="w-3 h-3" /> SAVE
+              <Bookmark className="w-3 h-3" /> {t('globe.result.save')}
             </Button>
             <Button onClick={onRespin} variant="outline" className="flex-1 gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
-              <RotateCcw className="w-3 h-3" /> SPIN AGAIN
+              <RotateCcw className="w-3 h-3" /> {t('globe.result.spinAgain')}
             </Button>
-            <Button onClick={onShare} aria-label="Share destination" variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
+            <Button onClick={onShare} aria-label={t('globe.result.share')} variant="outline" className="gap-2 rounded-lg border-border text-foreground/60 hover:bg-white/5 hover:text-foreground text-[10px] font-mono tracking-[0.1em]">
               <Share2 className="w-3 h-3" />
             </Button>
           </div>
@@ -368,6 +400,7 @@ export default function ResultCard({ city, matchScore, matchReason, intel, risks
 }
 
 function StatItem({ icon, label, value, tooltip, source }: { icon: React.ReactNode; label: string; value: string; tooltip?: string; source?: 'verified' | 'estimated' }) {
+  const t = useT();
   return (
     <div className="flex items-center gap-2.5 p-3.5 bg-white/[0.02]">
       <span className="text-muted-foreground/80">{icon}</span>
@@ -379,7 +412,7 @@ function StatItem({ icon, label, value, tooltip, source }: { icon: React.ReactNo
             <TooltipProvider delayDuration={200}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <button type="button" className="text-muted-foreground/40 hover:text-foreground/60 transition-colors pointer-events-auto" aria-label={`Info about ${label}`}>
+                  <button type="button" className="text-muted-foreground/40 hover:text-foreground/60 transition-colors pointer-events-auto" aria-label={t('globe.result.infoAbout', { label })}>
                     <Info className="w-3 h-3" />
                   </button>
                 </TooltipTrigger>

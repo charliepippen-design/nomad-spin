@@ -1,4 +1,6 @@
 import type { UnsplashAttribution } from '@/hooks/useCityImage';
+import { useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
 
 interface Props {
   attribution: UnsplashAttribution | null;
@@ -17,6 +19,7 @@ interface Props {
  * Rendered wherever a curated Unsplash photo is shown. Not rendered for the neutral image (attribution is null).
  */
 export default function UnsplashCredit({ attribution, className = '', compact = false }: Props) {
+  const t = useT();
   if (!attribution) return null;
 
   return (
@@ -27,24 +30,29 @@ export default function UnsplashCredit({ attribution, className = '', compact = 
         ${className}
       `}
     >
-      Photo by{' '}
-      <a
-        href={attribution.photographerUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline decoration-white/20 hover:decoration-white/60 transition-colors"
-      >
-        {attribution.photographerName}
-      </a>
-      {' '}on{' '}
-      <a
-        href="https://unsplash.com/?utm_source=digital_nomad_spin&utm_medium=referral"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline decoration-white/20 hover:decoration-white/60 transition-colors"
-      >
-        Unsplash
-      </a>
+      {rich(t('common.credit.photoBy'), {
+        // The photographer's name comes from the photo record, not from the sentence.
+        author: () => (
+          <a
+            href={attribution.photographerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-white/20 hover:decoration-white/60 transition-colors"
+          >
+            {attribution.photographerName}
+          </a>
+        ),
+        unsplash: (children) => (
+          <a
+            href="https://unsplash.com/?utm_source=digital_nomad_spin&utm_medium=referral"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-white/20 hover:decoration-white/60 transition-colors"
+          >
+            {children}
+          </a>
+        ),
+      })}
     </p>
   );
 }

@@ -6,6 +6,9 @@ import { cityPath } from '@/lib/citySlug';
 import NomadImage from '@/components/common/NomadImage';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName } from '@/i18n/format';
 
 interface CityCardProps {
   city: City;
@@ -15,6 +18,10 @@ interface CityCardProps {
 
 export default function CityCard({ city, isSelected, onToggleSelect }: CityCardProps) {
   const attribution = cityAttribution(city.id);
+  const t = useT();
+  const locale = useLocale();
+  const name = cityDisplayName(city, locale);
+  const country = countryName(city.countryCode, city.country, locale);
   return (
     <div
       className={`relative w-full aspect-[3/4] rounded-lg overflow-hidden group transition-all select-none ${
@@ -27,7 +34,7 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
         src={getCityThumbnailUrl(city.id, city.region)}
         cityName={city.name}
         countryName={city.country}
-        alt={getCityImageAlt(city.name, city.country, city.id)}
+        alt={locale === 'en' ? getCityImageAlt(city.name, city.country, city.id) : `${name}, ${country}`}
         className="absolute inset-0 w-full h-full object-cover aspect-[3/4] transition-transform duration-700 group-hover:scale-110"
       />
 
@@ -36,7 +43,7 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
       <Link
         to={cityPath(city)}
         className="absolute inset-0 z-10"
-        aria-label={`${city.name}, ${city.country}. $${city.costUSD} per month.`}
+        aria-label={t('globe.card.aria', { city: name, country, cost: city.costUSD })}
       />
 
       <button
@@ -47,7 +54,7 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
             ? 'bg-primary border-primary'
             : 'border-white/40 bg-black/40 backdrop-blur-sm'
         }`}
-        aria-label={isSelected ? `Remove ${city.name} from compare` : `Add ${city.name} to compare`}
+        aria-label={isSelected ? t('globe.card.remove', { city: name }) : t('globe.card.add', { city: name })}
         aria-pressed={isSelected}
       >
         {isSelected && <Check className="w-3 h-3 text-primary-foreground" />}
@@ -65,15 +72,15 @@ export default function CityCard({ city, isSelected, onToggleSelect }: CityCardP
       )}
 
       <div className="absolute bottom-1.5 sm:bottom-2 left-1.5 sm:left-2 flex flex-col z-10 max-w-[60%] pointer-events-none">
-        <span className="text-white font-bold text-xs sm:text-sm leading-tight truncate">{city.name}</span>
-        <span className="text-white/70 text-[8px] sm:text-[10px] truncate">{city.country}</span>
+        <span className="text-white font-bold text-xs sm:text-sm leading-tight truncate">{name}</span>
+        <span className="text-white/70 text-[8px] sm:text-[10px] truncate">{country}</span>
       </div>
 
       <div className="absolute bottom-1.5 sm:bottom-2 right-1.5 sm:right-2 flex flex-col items-end gap-0.5 sm:gap-1 z-10 pointer-events-none">
         <span className="text-[8px] sm:text-[10px] bg-black/50 backdrop-blur-md px-1 sm:px-1.5 py-0.5 rounded text-white">
-          {city.weather.tempAvgC}° avg
+          {t('globe.card.avgTemp', { temp: city.weather.tempAvgC })}
         </span>
-        <span className="text-[10px] sm:text-xs font-extrabold text-white">${city.costUSD}/mo</span>
+        <span className="text-[10px] sm:text-xs font-extrabold text-white">${city.costUSD}{t('data.metric.perMonth')}</span>
       </div>
     </div>
   );

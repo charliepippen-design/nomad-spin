@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Copy, Check } from 'lucide-react';
 import { useState, useCallback } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useT } from '@/i18n/LocaleProvider';
 
 interface SocialShareBarProps {
   cityName?: string;
@@ -70,10 +71,11 @@ function buildUtmUrl(baseUrl: string): string {
 export default function SocialShareBar({ cityName, country, shareUrl }: SocialShareBarProps) {
   const [copied, setCopied] = useState(false);
   const isMobile = useIsMobile();
+  const t = useT();
 
   const shareText = cityName && country
-    ? encodeURIComponent(`I just found my next nomad destination: ${cityName}, ${country}! 🌍✈️ Check it out:`)
-    : encodeURIComponent('Discover your next digital nomad destination with Nomad Spin! 🌍✈️');
+    ? encodeURIComponent(t('globe.share.textCity', { city: cityName, country }))
+    : encodeURIComponent(t('globe.share.textGeneric'));
 
   const utmUrl = buildUtmUrl(shareUrl);
   const encodedUrl = encodeURIComponent(utmUrl);
@@ -87,22 +89,22 @@ export default function SocialShareBar({ cityName, country, shareUrl }: SocialSh
 
   const buttons = [
     {
-      label: 'Share on X',
+      label: t('globe.share.x'),
       href: `https://twitter.com/intent/tweet?text=${shareText}&url=${encodedUrl}`,
       icon: <TwitterIcon />,
     },
     {
-      label: 'Share on WhatsApp',
+      label: t('globe.share.whatsapp'),
       href: `https://wa.me/?text=${shareText}%20${encodedUrl}`,
       icon: <WhatsAppIcon />,
     },
     {
-      label: 'Share on LinkedIn',
+      label: t('globe.share.linkedin'),
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       icon: <LinkedInIcon />,
     },
     {
-      label: 'Share on Telegram',
+      label: t('globe.share.telegram'),
       href: `https://t.me/share/url?url=${encodedUrl}&text=${shareText}`,
       icon: <TelegramIcon />,
     },
@@ -138,7 +140,7 @@ export default function SocialShareBar({ cityName, country, shareUrl }: SocialSh
         onClick={handleCopy}
         tabIndex={0}
         role="button"
-        aria-label="Copy link"
+        aria-label={t('globe.share.copy')}
         className="w-9 h-9 rounded-full bg-white/[0.06] backdrop-blur-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/15 hover:scale-110 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:outline-none transition-all duration-200"
       >
         {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}

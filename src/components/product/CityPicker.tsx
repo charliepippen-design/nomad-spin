@@ -2,6 +2,9 @@ import { useId, useMemo, useRef, useState } from 'react';
 import { Search } from 'lucide-react';
 import { allCitySlugs } from '@/lib/citySlug';
 import type { City } from '@/data/cities';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
 
 interface CityPickerProps {
   onPick: (city: City, slug: string) => void;
@@ -23,11 +26,13 @@ function normalize(value: string): string {
 export default function CityPicker({
   onPick,
   excludeIds = [],
-  placeholder = 'Search a city or country',
+  placeholder,
   label,
   disabled = false,
   autoFocus = false,
 }: CityPickerProps) {
+  const t = useT();
+  const locale = useLocale();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -36,13 +41,25 @@ export default function CityPicker({
 
   const index = useMemo(
     () =>
-      allCitySlugs().map(({ city, slug }) => ({
-        city,
-        slug,
-        name: normalize(city.name),
-        country: normalize(city.country),
-      })),
-    [],
+      allCitySlugs().map(({ city, slug }) => {
+        // In another language a city answers to both names: "Lisbona" and "Lisbon".
+        const displayName = cityDisplayName(city, locale);
+        const displayCountry = countryName(city.countryCode, city.country, locale);
+        const name = normalize(displayName);
+        const country = normalize(displayCountry);
+        const enName = normalize(city.name);
+        const enCountry = normalize(city.country);
+        return {
+          city,
+          slug,
+          displayName,
+          displayCountry,
+          name,
+          names: enName === name ? [name] : [name, enName],
+          countries: enCountry === country ? [country] : [country, enCountry],
+        };
+      }),
+    [locale],
   );
 
   const results = useMemo(() => {
@@ -55,9 +72,9 @@ export default function CityPicker({
     const contains: typeof index = [];
     for (const row of index) {
       if (excluded.has(row.city.id)) continue;
-      if (row.name === q) exact.push(row);
-      else if (row.name.startsWith(q)) starts.push(row);
-      else if (row.name.includes(q) || row.country.includes(q)) contains.push(row);
+      if (row.names.some((n) => n === q)) exact.push(row);
+      else if (row.names.some((n) => n.startsWith(q))) starts.push(row);
+      else if (row.names.some((n) => n.includes(q)) || row.countries.some((c) => c.includes(q))) contains.push(row);
     }
     starts.sort((a, b) => a.name.length - b.name.length || a.name.localeCompare(b.name));
     return [...exact, ...starts, ...contains].slice(0, MAX_RESULTS);
@@ -92,7 +109,7 @@ export default function CityPicker({
         autoFocus={autoFocus}
         disabled={disabled}
         value={query}
-        placeholder={placeholder}
+        placeholder={placeholder ?? t('tools.picker.placeholder')}
         className="dns-input pl-10"
         onChange={(e) => {
           setQuery(e.target.value);
@@ -125,7 +142,7 @@ export default function CityPicker({
           className="absolute left-0 right-0 top-full z-30 mt-1.5 max-h-80 overflow-auto rounded-lg border border-border bg-popover p-1 shadow-xl shadow-black/30"
         >
           {results.length === 0 ? (
-            <li className="px-3 py-2.5 text-sm text-muted-foreground">No city matches “{query.trim()}”.</li>
+            <li className="px-3 py-2.5 text-sm text-muted-foreground">{t('tools.picker.noMatch', { query: query.trim() })}</li>
           ) : (
             results.map((row, i) => (
               <li
@@ -143,11 +160,11 @@ export default function CityPicker({
                 }}
               >
                 <span className="min-w-0 truncate">
-                  <span className="font-medium">{row.city.name}</span>
-                  <span className="text-muted-foreground">, {row.city.country}</span>
+                  <span className="font-medium">{row.displayName}</span>
+                  <span className="text-muted-foreground">, {row.displayCountry}</span>
                 </span>
                 <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
-                  ${row.city.costUSD.toLocaleString('en-US')}/mo
+                  {t('tools.money.perMonth', { amount: formatNumber(row.city.costUSD, locale) })}
                 </span>
               </li>
             ))

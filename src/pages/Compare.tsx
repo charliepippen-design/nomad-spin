@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Link, useNavigate } from '@/i18n/Link';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
 import { ArrowRight, Check, Link2, Minus, X } from 'lucide-react';
 import type { City } from '@/data/cities';
 import {
@@ -11,6 +15,7 @@ import {
   compareParamValue,
   comparePath,
   costDelta,
+  metricGroupLabel,
   parseCompareParam,
   type CompareGroup,
   type CompareRow,
@@ -21,10 +26,6 @@ import { trackEvent } from '@/utils/analytics';
 import CityPicker from '@/components/product/CityPicker';
 import PageMeta from '@/components/product/PageMeta';
 import ProvenanceMark from '@/components/product/ProvenanceMark';
-
-const TITLE = 'Compare Cities for Remote Work | Nomad Spin';
-const DESCRIPTION =
-  'Put two to four cities side by side: monthly cost, internet, safety, visa length, climate and community. Share the comparison with one link.';
 
 /** Starter pairs. Each slug is resolved against the dataset; a pair with a missing city is dropped. */
 const STARTER_SETS: string[][] = [
@@ -45,6 +46,8 @@ function gridStyle(count: number): React.CSSProperties {
 }
 
 export default function Compare() {
+  const t = useT();
+  const locale = useLocale();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const setShortlist = useCompareStore((s) => s.set);
@@ -90,7 +93,7 @@ export default function Compare() {
   const removeCity = (city: City) => setCities(cities.filter((c) => c.id !== city.id));
 
   const ready = cities.length >= MIN_COMPARE;
-  const groups = useMemo(() => (ready ? buildComparison(cities) : []), [ready, cities]);
+  const groups = useMemo(() => (ready ? buildComparison(cities, locale) : []), [ready, cities, locale]);
 
   useEffect(() => {
     if (!ready || completedKey.current === paramValue) return;
@@ -120,42 +123,41 @@ export default function Compare() {
 
   return (
     <div className="page-content min-h-screen bg-background">
-      <PageMeta title={TITLE} description={DESCRIPTION} path="/compare" />
+      <PageMeta title={t('tools.cmp.metaTitle')} description={t('tools.cmp.metaDescription')} path="/compare" />
 
       <main className="dns-container py-10 md:py-14">
         <header className="max-w-2xl">
-          <p className="dns-eyebrow">Compare</p>
-          <h1 className="mt-3 text-4xl md:text-5xl text-foreground">Side by side, on what matters.</h1>
+          <p className="dns-eyebrow">{t('tools.cmp.eyebrow')}</p>
+          <h1 className="mt-3 text-4xl md:text-5xl text-foreground">{t('tools.cmp.h1')}</h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-            Pick two to four cities. Each row shows who leads and where the data runs out. There is no overall
-            winner: that depends on what you care about.
+            {t('tools.cmp.intro')}
           </p>
         </header>
 
         {/* Selection */}
-        <section aria-label="Cities to compare" className="mt-8">
+        <section aria-label={t('tools.cmp.select.aria')} className="mt-8">
           <div className="grid gap-3 md:grid-cols-[minmax(0,22rem)_1fr] md:items-start">
             <div>
               <CityPicker
-                label="Add a city to compare"
-                placeholder={cities.length >= MAX_COMPARE ? 'Remove a city to add another' : 'Add a city'}
+                label={t('tools.cmp.picker.label')}
+                placeholder={cities.length >= MAX_COMPARE ? t('tools.cmp.picker.full') : t('tools.cmp.picker.add')}
                 excludeIds={cities.map((c) => c.id)}
                 disabled={cities.length >= MAX_COMPARE}
                 onPick={addCity}
               />
               <p className="mt-2 text-xs text-muted-foreground" aria-live="polite">
-                {cities.length} of {MAX_COMPARE} cities selected
+                {t('tools.cmp.selectedCount', { count: cities.length, max: MAX_COMPARE })}
               </p>
             </div>
             {cities.length > 0 && (
               <ul className="flex flex-wrap gap-2">
                 {cities.map((city) => (
                   <li key={city.id} className="dns-chip !py-1.5 !pl-3 !pr-1.5 !text-sm !text-foreground">
-                    {city.name}
+                    {cityDisplayName(city, locale)}
                     <button
                       type="button"
                       onClick={() => removeCity(city)}
-                      aria-label={`Remove ${city.name}`}
+                      aria-label={t('tools.cmp.remove', { city: cityDisplayName(city, locale) })}
                       className="ml-1 rounded-full p-1 text-muted-foreground hover:bg-background hover:text-foreground"
                     >
                       <X className="h-3.5 w-3.5" />
@@ -166,7 +168,7 @@ export default function Compare() {
                   <li>
                     <button type="button" onClick={copyLink} className="dns-btn-secondary !py-1.5 !text-sm">
                       {copied ? <Check className="h-4 w-4 text-primary" /> : <Link2 className="h-4 w-4" />}
-                      {copied ? 'Link copied' : 'Copy share link'}
+                      {copied ? t('tools.cmp.copied') : t('tools.cmp.copy')}
                     </button>
                   </li>
                 )}
@@ -179,12 +181,14 @@ export default function Compare() {
         {!ready && (
           <section className="mt-10 dns-card p-6 md:p-8">
             <h2 className="text-xl text-foreground">
-              {cities.length === 0 ? 'Start with a pair' : `Add one more city to compare with ${cities[0].name}`}
+              {cities.length === 0
+                ? t('tools.cmp.empty.title')
+                : t('tools.cmp.one.title', { city: cityDisplayName(cities[0], locale) })}
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
               {cities.length === 0
-                ? 'Search above, or open one of these.'
-                : 'Search above. You can add up to four.'}
+                ? t('tools.cmp.empty.body')
+                : t('tools.cmp.one.body')}
             </p>
             {cities.length === 0 && starters.length > 0 && (
               <ul className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -194,7 +198,7 @@ export default function Compare() {
                       to={comparePath(set)}
                       className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground hover:border-primary/50"
                     >
-                      <span>{set.map((c) => c.name).join(' vs ')}</span>
+                      <span>{set.map((c) => cityDisplayName(c, locale)).join(` ${t('tools.cmp.vs')} `)}</span>
                       <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     </Link>
                   </li>
@@ -209,9 +213,18 @@ export default function Compare() {
           <>
             {delta && (
               <p className="mt-8 text-lg text-foreground">
-                <strong className="font-semibold">{delta.cheaper.name}</strong> costs{' '}
-                <span className="dns-num text-primary">${delta.amount.toLocaleString('en-US')}</span> less per month than{' '}
-                {delta.pricier.name} ({delta.percent}% lower).
+                {rich(
+                  t('tools.cmp.delta', {
+                    cheaper: cityDisplayName(delta.cheaper, locale),
+                    amount: formatNumber(delta.amount, locale),
+                    pricier: cityDisplayName(delta.pricier, locale),
+                    percent: delta.percent,
+                  }),
+                  {
+                    strong: (children) => <strong className="font-semibold">{children}</strong>,
+                    amount: (children) => <span className="dns-num text-primary">{children}</span>,
+                  },
+                )}
               </p>
             )}
 
@@ -224,9 +237,11 @@ export default function Compare() {
                     {cities.map((city) => (
                       <div key={city.id} className="min-w-0">
                         <Link to={cityPath(city)} className="block truncate font-display text-base font-bold text-foreground hover:text-primary md:text-lg">
-                          {city.name}
+                          {cityDisplayName(city, locale)}
                         </Link>
-                        <p className="truncate text-xs text-muted-foreground">{city.country}</p>
+                        <p className="truncate text-xs text-muted-foreground">
+                          {countryName(city.countryCode, city.country, locale)}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -240,37 +255,39 @@ export default function Compare() {
 
             <footer className="mt-10 grid gap-4 md:grid-cols-2">
               <div className="dns-card p-5 text-sm text-muted-foreground leading-relaxed">
-                <h2 className="text-base text-foreground">How to read this</h2>
+                <h2 className="text-base text-foreground">{t('tools.cmp.how.title')}</h2>
                 <ul className="mt-3 space-y-2">
                   <li className="flex gap-2">
                     <span className="mt-0.5 inline-flex h-4 shrink-0 items-center rounded bg-primary/15 px-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
-                      Leads
+                      {t('tools.cmp.leads')}
                     </span>
-                    <span>One city is strictly best on that row. Ties and preference rows have no leader.</span>
+                    <span>{t('tools.cmp.how.leads')}</span>
                   </li>
                   <li className="flex gap-2">
                     <Minus className="mt-0.5 h-4 w-4 shrink-0" />
-                    <span>“No data” means the dataset has no figure for that city. It is never filled in.</span>
+                    <span>{t('tools.cmp.how.noData')}</span>
                   </li>
                   {hasEstimates && (
                     <li>
-                      Figures tagged <ProvenanceMark provenance="estimate" /> or <ProvenanceMark provenance="formula" /> are
-                      not hand-checked values.
+                      {rich(t('tools.cmp.how.estimates'), {
+                        estimate: () => <ProvenanceMark provenance="estimate" />,
+                        formula: () => <ProvenanceMark provenance="formula" />,
+                      })}
                     </li>
                   )}
-                  <li>Visa rows depend on your passport. Confirm with an official source before you book.</li>
+                  <li>{t('tools.cmp.how.visa')}</li>
                 </ul>
                 <Link to="/methodology" className="mt-4 inline-flex items-center gap-1 text-primary hover:underline">
-                  Methodology and data sources <ArrowRight className="h-3.5 w-3.5" />
+                  {t('tools.cmp.how.link')} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
               <div className="dns-card p-5">
-                <h2 className="text-base text-foreground">Not sure which criteria matter most?</h2>
+                <h2 className="text-base text-foreground">{t('tools.cmp.cta.title')}</h2>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  Find Your Base ranks every city against your budget, climate and work needs, with weights you control.
+                  {t('tools.cmp.cta.body')}
                 </p>
                 <Link to="/find-your-base" className="dns-btn-primary mt-4">
-                  Find your base <ArrowRight className="h-4 w-4" />
+                  {t('tools.cmp.cta.button')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </footer>
@@ -282,6 +299,8 @@ export default function Compare() {
 }
 
 function GroupBlock({ group, cities }: { group: CompareGroup; cities: City[] }) {
+  const t = useT();
+  const locale = useLocale();
   const leaders = cities
     .map((city, i) => ({ city, leads: group.leads[i] }))
     .filter((entry) => entry.leads > 0)
@@ -291,14 +310,20 @@ function GroupBlock({ group, cities }: { group: CompareGroup; cities: City[] }) 
     <section aria-labelledby={`group-${group.group}`} className="pt-8">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pb-2">
         <h2 id={`group-${group.group}`} className="text-xl text-foreground">
-          {group.group}
+          {metricGroupLabel(group.group, locale)}
         </h2>
         {group.decided > 0 && (
           <p className="text-xs text-muted-foreground">
             {leaders.length === 0
-              ? 'Level on every row'
+              ? t('tools.cmp.group.level')
               : leaders
-                  .map((entry) => `${entry.city.name} leads ${entry.leads} of ${group.decided}`)
+                  .map((entry) =>
+                    t('tools.cmp.group.leads', {
+                      city: cityDisplayName(entry.city, locale),
+                      count: entry.leads,
+                      total: group.decided,
+                    }),
+                  )
                   .join(' · ')}
           </p>
         )}
@@ -313,6 +338,7 @@ function GroupBlock({ group, cities }: { group: CompareGroup; cities: City[] }) 
 }
 
 function MetricRow({ row, count }: { row: CompareRow; count: number }) {
+  const t = useT();
   return (
     <div className="px-4 py-3.5 md:grid md:grid-cols-[13rem_1fr] md:gap-6 md:px-5">
       <div className="mb-2 md:mb-0">
@@ -323,7 +349,7 @@ function MetricRow({ row, count }: { row: CompareRow; count: number }) {
         {row.cells.map((cell) => (
           <div key={cell.city.id} className="min-w-0">
             {cell.text === null ? (
-              <p className="text-sm text-muted-foreground/70">No data</p>
+              <p className="text-sm text-muted-foreground/70">{t('tools.cmp.noData')}</p>
             ) : (
               <>
                 <p className={`text-sm leading-snug ${cell.isLeader ? 'text-primary' : 'text-foreground'}`}>
@@ -331,7 +357,7 @@ function MetricRow({ row, count }: { row: CompareRow; count: number }) {
                   <ProvenanceMark provenance={cell.provenance} />
                   {cell.isLeader && (
                     <span className="ml-1.5 inline-flex items-center rounded bg-primary/15 px-1.5 py-px align-middle text-[10px] font-semibold uppercase tracking-wide text-primary">
-                      Leads
+                      {t('tools.cmp.leads')}
                     </span>
                   )}
                 </p>

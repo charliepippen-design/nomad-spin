@@ -3,17 +3,21 @@ import { motion } from 'framer-motion';
 import { Link } from '@/i18n/Link';
 import { MapPin, DollarSign, Wifi, Shield, ChevronRight, Sparkles } from 'lucide-react';
 import { cityPath } from '@/lib/citySlug';
-import type { ScoredCity } from '@/lib/scoring';
+import { matchReasonLabel, type ScoredCity } from '@/lib/scoring';
 import { getCityThumbnailUrl } from '@/data/cityImages';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
 import { generateBadges } from '@/lib/badges';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
 
 interface ScoreRingSmallProps {
   score: number;
 }
 
 function ScoreRingSmall({ score }: ScoreRingSmallProps) {
+  const t = useT();
   const circumference = 2 * Math.PI * 28;
   const offset = circumference - (score / 100) * circumference;
 
@@ -35,7 +39,7 @@ function ScoreRingSmall({ score }: ScoreRingSmallProps) {
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-sm font-mono font-light text-foreground tracking-wider">{score}</span>
-        <span className="text-[6px] font-mono text-muted-foreground uppercase tracking-[0.1em]">match</span>
+        <span className="text-[6px] font-mono text-muted-foreground uppercase tracking-[0.1em]">{t('globe.result.match')}</span>
       </div>
     </div>
   );
@@ -43,10 +47,11 @@ function ScoreRingSmall({ score }: ScoreRingSmallProps) {
 
 function DataSourceBadge({ source }: { source: 'verified' | 'estimated' }) {
   // Editorial records carry no badge: nothing on them has a source or a check date.
+  const t = useT();
   if (source === 'verified') return null;
   return (
     <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[7px] font-mono tracking-wider rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-400">
-      <Sparkles className="w-2.5 h-2.5" /> ESTIMATE
+      <Sparkles className="w-2.5 h-2.5" /> {t('globe.top.estimate')}
     </span>
   );
 }
@@ -58,8 +63,14 @@ interface RunnerUpCardProps {
 }
 
 function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
-  const { city, score, reason } = scored;
-  const badges = generateBadges(city).slice(0, 2);
+  const { city, score } = scored;
+  const t = useT();
+  const locale = useLocale();
+  // Saved results may predate reasonKey: fall back to the stored English text.
+  const reason = scored.reasonKey ? matchReasonLabel(scored.reasonKey, locale) : scored.reason;
+  const badges = generateBadges(city, locale).slice(0, 2);
+  const name = cityDisplayName(city, locale);
+  const country = countryName(city.countryCode, city.country, locale);
   const thumbUrl = getCityThumbnailUrl(city.id, city.region);
 
   return (
@@ -73,7 +84,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
       <div className="relative h-24 overflow-hidden">
         <img
           src={thumbUrl}
-          alt={`${city.name}, ${city.country}`}
+          alt={`${name}, ${country}`}
           loading="lazy"
           
           className="w-full h-full object-cover"
@@ -87,11 +98,11 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         <div className="absolute bottom-2 left-3 right-3 flex items-end justify-between">
           <div>
             <h3 className="text-sm font-mono font-light tracking-[0.12em] text-white truncate uppercase drop-shadow-lg">
-              {city.name} <span className="text-white/60">// {city.countryCode}</span>
+              {name} <span className="text-white/60">// {city.countryCode}</span>
             </h3>
             <div className="flex items-center gap-1.5 text-white/60 mt-0.5">
               <MapPin className="w-2.5 h-2.5" />
-              <span className="text-[9px] font-mono tracking-wider">{city.country} · {city.region}</span>
+              <span className="text-[9px] font-mono tracking-wider">{country} · {t.dyn(`globe.region.${city.region}`, city.region)}</span>
             </div>
           </div>
           <DataSourceBadge source={city.dataSource || 'verified'} />
@@ -125,7 +136,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
         <div className="grid grid-cols-3 gap-px mt-3 bg-border/10 rounded-lg overflow-hidden">
           <div className="flex items-center gap-1.5 p-2 bg-white/[0.02]">
             <DollarSign className="w-2.5 h-2.5 text-muted-foreground" />
-            <span className="text-[10px] font-mono text-foreground">${city.costUSD}/mo</span>
+            <span className="text-[10px] font-mono text-foreground">${city.costUSD}{t('data.metric.perMonth')}</span>
           </div>
           <div className="flex items-center gap-1.5 p-2 bg-white/[0.02]">
             <Wifi className="w-2.5 h-2.5 text-muted-foreground" />
@@ -133,7 +144,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
           </div>
           <div className="flex items-center gap-1.5 p-2 bg-white/[0.02]">
             <Shield className="w-2.5 h-2.5 text-muted-foreground" />
-            <span className="text-[10px] font-mono text-foreground">{city.safety}/10</span>
+            <span className="text-[10px] font-mono text-foreground">{formatNumber(city.safety, locale)}/10</span>
           </div>
         </div>
 
@@ -142,7 +153,7 @@ function RunnerUpCard({ scored, rank, onSelect }: RunnerUpCardProps) {
             to={cityPath(city)}
             className="w-full mt-3 flex items-center justify-center gap-1.5 py-3 min-h-[44px] rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all text-[9px] font-mono tracking-[0.1em] text-muted-foreground hover:text-foreground uppercase active:scale-[0.98]"
           >
-          VIEW DETAILS <ChevronRight className="w-3 h-3" />
+          {t('globe.top.viewDetails')} <ChevronRight className="w-3 h-3" />
         </Link>
       </div>
     </motion.div>
@@ -156,6 +167,7 @@ interface TopResultsGridProps {
 }
 
 export default function TopResultsGrid({ topResults, onSelectResult, primaryContent }: TopResultsGridProps) {
+  const t = useT();
   const runners = topResults.slice(1, 3);
   const primaryRef = useRef<HTMLDivElement>(null);
 
@@ -176,7 +188,7 @@ export default function TopResultsGrid({ topResults, onSelectResult, primaryCont
       {runners.length > 0 && (
         <div className="space-y-2">
           <p className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 uppercase text-center">
-            OTHER GREAT MATCHES
+            {t('globe.top.others')}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {runners.map((scored, i) => (

@@ -1,5 +1,11 @@
 import { useMemo, useState } from 'react';
 import { Link } from '@/i18n/Link';
+import { cityDisplayName, isCityTranslated } from '@/i18n/content';
+import type { TKey } from '@/i18n/dictionary';
+import { countryName, formatNumber } from '@/i18n/format';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
+import { LocaleLinks, canonicalUrl } from '@/i18n/seo';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Search } from 'lucide-react';
 import type { City } from '@/data/cities';
@@ -8,18 +14,14 @@ import { canonicalDestinationPath } from '@/lib/subAreaDestinations';
 import { SectionRule } from '@/components/guides/GuideIndex';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
-const PAGE_URL = `${BASE_URL}/destinations`;
-const TITLE = 'Destinations | Nomad Spin';
-const DESCRIPTION =
-  'Browse digital nomad cities by region. Each page lists cost, internet, safety, and visa notes from the Nomad Spin dataset.';
 
 type SortKey = 'name' | 'cost' | 'internet' | 'safety';
 
-const SORTS: { key: SortKey; label: string }[] = [
-  { key: 'name', label: 'A to Z' },
-  { key: 'cost', label: 'Lowest cost' },
-  { key: 'internet', label: 'Fastest internet' },
-  { key: 'safety', label: 'Safest' },
+const SORTS: { key: SortKey; label: TKey }[] = [
+  { key: 'name', label: 'tools.dest.sort.name' },
+  { key: 'cost', label: 'tools.dest.sort.cost' },
+  { key: 'internet', label: 'tools.dest.sort.internet' },
+  { key: 'safety', label: 'tools.dest.sort.safety' },
 ];
 
 function sortRows(rows: DestinationIndexRow[], sort: SortKey): DestinationIndexRow[] {
@@ -33,11 +35,16 @@ function sortRows(rows: DestinationIndexRow[], sort: SortKey): DestinationIndexR
 }
 
 export default function DestinationsIndex() {
+  const t = useT();
+  const locale = useLocale();
+  const PAGE_URL = canonicalUrl('/destinations', locale);
+  const TITLE = t('tools.dest.metaTitle');
+  const DESCRIPTION = t('tools.dest.metaDescription');
   const [query, setQuery] = useState('');
   const [region, setRegion] = useState<City['region'] | 'all'>('all');
   const [sort, setSort] = useState<SortKey>('name');
 
-  const allGroups = useMemo(() => citiesByRegion(query), [query]);
+  const allGroups = useMemo(() => citiesByRegion(query, locale), [query, locale]);
   const groups = useMemo(
     () =>
       allGroups
@@ -51,7 +58,7 @@ export default function DestinationsIndex() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Destinations',
+    name: t('tools.dest.h1'),
     url: PAGE_URL,
     description: DESCRIPTION,
   };
@@ -73,24 +80,25 @@ export default function DestinationsIndex() {
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
+      <LocaleLinks enPath="/destinations" />
 
       <main className="dns-container py-12 md:py-20">
         {/* Masthead */}
         <header className="grid gap-6 md:grid-cols-[1fr_1.1fr] md:items-end md:gap-16">
           <div>
-            <p className="dns-eyebrow">The index</p>
-            <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">Destinations</h1>
+            <p className="dns-eyebrow">{t('tools.dest.eyebrow')}</p>
+            <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">{t('tools.dest.h1')}</h1>
           </div>
           <div>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              City pages from the Nomad Spin dataset, grouped by region. Open a city for cost, internet, safety, and visa notes.
+              {t('tools.dest.intro')}
             </p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
               <Link to="/compare" className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                Compare cities <ArrowRight className="h-4 w-4" />
+                {t('tools.dest.link.compare')} <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/find-your-base" className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                Find your base <ArrowRight className="h-4 w-4" />
+                {t('tools.dest.link.fyb')} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -100,18 +108,18 @@ export default function DestinationsIndex() {
         <div className="sticky top-14 z-20 -mx-4 mt-10 border-b border-border bg-background/95 px-4 py-4 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-center">
             <label className="relative block md:w-80">
-              <span className="sr-only">Search</span>
+              <span className="sr-only">{t('tools.dest.search.label')}</span>
               <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
               <input
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="City, country, or region"
-                aria-label="Search destinations"
+                placeholder={t('tools.dest.search.placeholder')}
+                aria-label={t('tools.dest.search.aria')}
                 className="dns-input pl-10"
               />
             </label>
-            <div className="flex flex-wrap gap-1.5" role="group" aria-label="Sort destinations">
+            <div className="flex flex-wrap gap-1.5" role="group" aria-label={t('tools.dest.sort.aria')}>
               {SORTS.map((option) => {
                 const on = sort === option.key;
                 return (
@@ -126,21 +134,21 @@ export default function DestinationsIndex() {
                         : 'border-border bg-card text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    {option.label}
+                    {t(option.label)}
                   </button>
                 );
               })}
             </div>
             <p className="text-sm tabular-nums text-muted-foreground md:ml-auto" aria-live="polite">
-              {matchCount.toLocaleString('en-US')} {matchCount === 1 ? 'city' : 'cities'}
+              {t.n('tools.dest.count', matchCount, { count: formatNumber(matchCount, locale) })}
             </p>
           </div>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm" role="group" aria-label="Filter by region">
-            <RegionTab label="All regions" count={totalMatches} on={region === 'all'} onClick={() => setRegion('all')} />
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm" role="group" aria-label={t('tools.dest.filter.aria')}>
+            <RegionTab label={t('tools.dest.allRegions')} count={totalMatches} on={region === 'all'} onClick={() => setRegion('all')} />
             {allGroups.map((group) => (
               <RegionTab
                 key={group.region}
-                label={regionLabel(group.region)}
+                label={regionLabel(group.region, locale)}
                 count={group.cities.length}
                 on={region === group.region}
                 onClick={() => setRegion(group.region)}
@@ -151,8 +159,8 @@ export default function DestinationsIndex() {
 
         {groups.length === 0 ? (
           <div className="mt-10 dns-card p-6">
-            <h2 className="text-lg text-foreground">No cities match that search.</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Try a country name, or clear the search to see every city.</p>
+            <h2 className="text-lg text-foreground">{t('tools.dest.empty.title')}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{t('tools.dest.empty.body')}</p>
             {(query || region !== 'all') && (
               <button
                 type="button"
@@ -162,7 +170,7 @@ export default function DestinationsIndex() {
                   setRegion('all');
                 }}
               >
-                Clear search
+                {t('tools.dest.clear')}
               </button>
             )}
           </div>
@@ -170,7 +178,7 @@ export default function DestinationsIndex() {
           <div className="space-y-14 pt-10">
             {groups.map((group) => (
               <section key={group.region} aria-labelledby={`region-${group.region}`}>
-                <SectionRule id={`region-${group.region}`} title={regionLabel(group.region)} count={group.cities.length} />
+                <SectionRule id={`region-${group.region}`} title={regionLabel(group.region, locale)} count={group.cities.length} />
                 <ul className="grid grid-cols-1 gap-x-10 md:grid-cols-2">
                   {group.cities.map(({ city, slug }) => (
                     <li key={slug} className="min-w-0 border-b border-border">
@@ -180,17 +188,30 @@ export default function DestinationsIndex() {
                       >
                         <span className="min-w-0 truncate">
                           <span className="font-display text-base font-semibold text-foreground group-hover:text-primary">
-                            {city.name}
+                            {cityDisplayName(city, locale)}
                           </span>
-                          <span className="ml-2 text-sm text-muted-foreground">{city.country}</span>
+                          {locale !== 'en' && !isCityTranslated(city.id, locale) ? (
+                            <span
+                              title={t('tools.dest.enOnly')}
+                              aria-label={t('tools.dest.enOnly')}
+                              className="ml-1.5 rounded border border-border px-1 py-px align-middle text-[10px] font-medium uppercase tracking-wide text-muted-foreground"
+                            >
+                              EN
+                            </span>
+                          ) : null}
+                          <span className="ml-2 text-sm text-muted-foreground">
+                            {countryName(city.countryCode, city.country, locale)}
+                          </span>
                         </span>
                         <span className="flex shrink-0 items-baseline gap-3 text-sm tabular-nums text-muted-foreground">
                           <span className={sort === 'internet' ? 'text-foreground' : 'hidden sm:inline'}>
-                            {city.internetMbps} Mbps
+                            {locale === 'en' ? city.internetMbps : formatNumber(city.internetMbps, locale)} Mbps
                           </span>
-                          <span className={sort === 'safety' ? 'text-foreground' : 'hidden sm:inline'}>{city.safety}/10</span>
+                          <span className={sort === 'safety' ? 'text-foreground' : 'hidden sm:inline'}>
+                            {locale === 'en' ? city.safety : formatNumber(city.safety, locale)}/10
+                          </span>
                           <span className={`w-[5.5rem] text-right ${sort === 'cost' || sort === 'name' ? 'text-foreground' : ''}`}>
-                            ${city.costUSD.toLocaleString('en-US')}/mo
+                            {t('tools.money.perMonth', { amount: formatNumber(city.costUSD, locale) })}
                           </span>
                         </span>
                       </Link>
@@ -203,11 +224,13 @@ export default function DestinationsIndex() {
         )}
 
         <p className="mt-12 text-xs text-muted-foreground">
-          Figures are editorial values, and some city records are estimates.{' '}
-          <Link to="/methodology" className="underline underline-offset-4 hover:text-foreground">
-            How the data is built
-          </Link>
-          .
+          {rich(t('tools.dest.footnote'), {
+            link: (children) => (
+              <Link to="/methodology" className="underline underline-offset-4 hover:text-foreground">
+                {children}
+              </Link>
+            ),
+          })}
         </p>
       </main>
     </div>

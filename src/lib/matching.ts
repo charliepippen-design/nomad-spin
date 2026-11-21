@@ -1,4 +1,7 @@
 import type { City } from '@/data/cities';
+import type { Locale } from '../i18n/config';
+import { getT } from '../i18n/dictionary';
+import { formatNumber } from '../i18n/format';
 
 /**
  * Find Your Base: transparent weighted matching.
@@ -21,6 +24,11 @@ export const CRITERION_LABEL: Record<CriterionKey, string> = {
   community: 'Community',
   visa: 'Visa length',
 };
+
+/** Criterion name in the reader's language. English equals CRITERION_LABEL. */
+export function criterionLabel(key: CriterionKey, locale: Locale = 'en'): string {
+  return getT(locale).dyn(`tools.criterion.${key}`, CRITERION_LABEL[key]);
+}
 
 /** Starting weights. Illustrative, not validated: the sliders are the point. */
 export const DEFAULT_WEIGHTS: Record<CriterionKey, number> = {
@@ -63,6 +71,8 @@ export const DEFAULT_PREFERENCES: MatchPreferences = {
 };
 
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
+/** A bare figure: unchanged in English, decimal comma and the like elsewhere. */
+const plain = (n: number, locale: Locale): string => (locale === 'en' ? String(n) : formatNumber(n, locale));
 
 /** Degrees away from the ideal at which climate fit reaches zero. */
 export const CLIMATE_TOLERANCE_C = 15;
@@ -92,65 +102,78 @@ export function criterionFit(
   key: CriterionKey,
   city: City,
   prefs: MatchPreferences,
+  locale: Locale = 'en',
 ): { fit: number; note: string; missed?: boolean } {
+  const t = getT(locale);
   switch (key) {
     case 'budget': {
       const cost = city.costUSD;
       if (cost <= prefs.budgetMax) {
-        return { fit: 1, note: `$${cost.toLocaleString('en-US')}/mo is within your $${prefs.budgetMax.toLocaleString('en-US')} budget` };
+        return { fit: 1, note: t('tools.note.budget.within', { cost: formatNumber(cost, locale), budget: formatNumber(prefs.budgetMax, locale) }) };
       }
       const over = (cost - prefs.budgetMax) / prefs.budgetMax;
       return {
         fit: clamp01(1 - over / BUDGET_OVERRUN_LIMIT),
-        note: `$${cost.toLocaleString('en-US')}/mo is ${Math.round(over * 100)}% over your budget`,
+        note: t('tools.note.budget.over', { cost: formatNumber(cost, locale), percent: Math.round(over * 100) }),
         missed: true,
       };
     }
     case 'climate': {
       const gap = Math.abs(city.weather.tempAvgC - prefs.tempIdeal);
+      const temp = plain(city.weather.tempAvgC, locale);
       return {
         fit: clamp01(1 - gap / CLIMATE_TOLERANCE_C),
         note:
           gap < 1
-            ? `Averages ${city.weather.tempAvgC}°C, right on your ${prefs.tempIdeal}°C`
-            : `Averages ${city.weather.tempAvgC}°C, ${Math.round(gap)}° ${city.weather.tempAvgC > prefs.tempIdeal ? 'warmer' : 'cooler'} than you asked`,
+            ? t('tools.note.climate.match', { temp, ideal: plain(prefs.tempIdeal, locale) })
+            : t(city.weather.tempAvgC > prefs.tempIdeal ? 'tools.note.climate.warmer' : 'tools.note.climate.cooler', {
+                temp,
+                gap: Math.round(gap),
+              }),
       };
     }
     case 'internet': {
       const mbps = city.internetMbps;
+      const vars = { mbps: plain(mbps, locale), min: plain(prefs.internetMin, locale) };
       if (prefs.internetMin <= 0 || mbps >= prefs.internetMin) {
-        return { fit: 1, note: `${mbps} Mbps meets your ${prefs.internetMin} Mbps minimum` };
+        return { fit: 1, note: t('tools.note.internet.meets', vars) };
       }
       return {
         fit: BELOW_MINIMUM_CAP * clamp01(mbps / prefs.internetMin),
-        note: `${mbps} Mbps is below your ${prefs.internetMin} Mbps minimum`,
+        note: t('tools.note.internet.below', vars),
         missed: true,
       };
     }
     case 'safety': {
       const s = city.safety;
+      const vars = { score: plain(s, locale), min: plain(prefs.safetyMin, locale) };
       if (prefs.safetyMin <= 0 || s >= prefs.safetyMin) {
-        return { fit: 1, note: `Safety ${s}/10 meets your ${prefs.safetyMin}/10 minimum` };
+        return { fit: 1, note: t('tools.note.safety.meets', vars) };
       }
       return {
         fit: BELOW_MINIMUM_CAP * clamp01(s / prefs.safetyMin),
-        note: `Safety ${s}/10 is below your ${prefs.safetyMin}/10 minimum`,
+        note: t('tools.note.safety.below', vars),
         missed: true,
       };
     }
     case 'community': {
       const size = city.vibeMetrics.communitySize;
-      return { fit: clamp01(size / 10), note: `Nomad community ${size}/10` };
+      return { fit: clamp01(size / 10), note: t('tools.note.community', { size: plain(size, locale) }) };
     }
     case 'visa': {
-      if (prefs.visaMinDays <= 0) return { fit: 1, note: 'You set no minimum stay' };
+      if (prefs.visaMinDays <= 0) return { fit: 1, note: t('tools.note.visa.none') };
       const days = city.meta.visaDays;
+      const vars = {
+        visaType: t.dyn(`data.visaType.${city.meta.visaType}`, city.meta.visaType),
+        days: plain(days, locale),
+        min: plain(prefs.visaMinDays, locale),
+      };
       if (days >= prefs.visaMinDays) {
-        return { fit: 1, note: `${city.meta.visaType}: ${days} days covers your ${prefs.visaMinDays}` };
+        return { fit: 1, note: t('tools.note.visa.covers', vars) };
       }
       return {
         fit: BELOW_MINIMUM_CAP * clamp01(days / prefs.visaMinDays),
-        note: `${city.meta.visaType}: ${days} days, short of your ${prefs.visaMinDays}`,
+        note: t('tools.note.visa.short', vars),
         missed: true,
       };
     }
@@ -181,10 +204,15 @@ export function normalizeWeights(weights: Record<CriterionKey, number>): Record<
   return out;
 }
 
-export function scoreCity(city: City, prefs: MatchPreferences, weights: Record<CriterionKey, number>): MatchResult {
+export function scoreCity(
+  city: City,
+  prefs: MatchPreferences,
+  weights: Record<CriterionKey, number>,
+  locale: Locale = 'en',
+): MatchResult {
   const shares = normalizeWeights(weights);
   const criteria = CRITERIA.map<CriterionResult>((key) => {
-    const { fit, note, missed = false } = criterionFit(key, city, prefs);
+    const { fit, note, missed = false } = criterionFit(key, city, prefs, locale);
     return { key, fit, weightShare: shares[key], points: fit * shares[key] * 100, note, missed };
   });
   const weighted = criteria.filter((c) => c.weightShare > 0);
@@ -219,6 +247,7 @@ export function rankCities(
   prefs: MatchPreferences,
   weights: Record<CriterionKey, number>,
   limit = 12,
+  locale: Locale = 'en',
 ): MatchOutcome {
   const noWeights = CRITERIA.every((k) => !(weights[k] > 0));
   const pool = cities.filter((c) => {
@@ -228,7 +257,7 @@ export function rankCities(
   });
   if (noWeights) return { results: [], considered: pool.length, excludedByMinimums: 0, noWeights };
 
-  const scored = pool.map((c) => scoreCity(c, prefs, weights));
+  const scored = pool.map((c) => scoreCity(c, prefs, weights, locale));
   const kept = prefs.strictMinimums ? scored.filter((r) => r.misses.length === 0) : scored;
   const results = kept
     // Exact score first; cheaper city breaks a tie so the order is stable and explainable.

@@ -3,6 +3,8 @@ import type { LandscapeOption } from '@/data/cities/types';
 import { Origin } from '@/data/origins';
 import { haversineKm, estimateFlightTimeHours, estimateFlightCost, getEffectiveDistance } from '@/lib/distance';
 import type { VibeOption } from '@/store/useSpinStore';
+import type { Locale } from '../i18n/config';
+import { getT } from '../i18n/dictionary';
 
 // ── Legacy scoring (kept for backward compat) ──
 
@@ -82,10 +84,30 @@ export function calculateMatchScore(
 
 // ── New: Preference-Weighted Scoring (0-100) ──
 
+/** What a city scored best on. `top` is the fallback when nothing stands out. */
+export type MatchReasonKey = 'budget' | 'vibe' | 'landscape' | 'safety' | 'internet' | 'proximity' | 'top';
+
+const REASON_LABEL: Record<MatchReasonKey, string> = {
+  budget: 'BEST FOR BUDGET',
+  vibe: 'IDEAL VIBE',
+  landscape: 'PERFECT LANDSCAPE',
+  safety: 'SAFEST OPTION',
+  internet: 'FASTEST CONNECTIVITY',
+  proximity: 'CLOSEST TO BASE',
+  top: 'TOP MATCH',
+};
+
+/** Badge text for a match reason. Use at render time: a stored `reason` keeps the language it was scored in. */
+export function matchReasonLabel(key: MatchReasonKey, locale: Locale = 'en'): string {
+  return getT(locale).dyn(`tools.score.reason.${key}`, REASON_LABEL[key]);
+}
+
 export interface ScoredCity {
   city: City;
   score: number;
   reason: string;
+  /** Language-neutral form of `reason`, for matchReasonLabel. */
+  reasonKey: MatchReasonKey;
   breakdown: {
     budget: number;
     internet: number;
@@ -110,6 +132,7 @@ export function scoreCityForPreferences(
   vibes: VibeOption[],
   origin: Origin | null,
   landscapes: LandscapeOption[] = [],
+  locale: Locale = 'en',
 ): ScoredCity {
   // Budget (0-28)
   let bRaw: number;
@@ -173,7 +196,7 @@ export function scoreCityForPreferences(
 
   const total = Math.max(0, Math.min(100, Math.round(bPts + iPts + sPts + vPts + lPts + pPts)));
 
-  const scores = [
+  const scores: { key: MatchReasonKey; val: number }[] = [
     { key: 'budget', val: bPts / 28 },
     { key: 'vibe', val: vPts / 20 },
     { key: 'landscape', val: lPts / 13 },
@@ -183,19 +206,13 @@ export function scoreCityForPreferences(
   ];
   scores.sort((a, b) => b.val - a.val);
 
-  const reasonMap: Record<string, string> = {
-    budget: 'BEST FOR BUDGET',
-    vibe: 'IDEAL VIBE',
-    landscape: 'PERFECT LANDSCAPE',
-    safety: 'SAFEST OPTION',
-    internet: 'FASTEST CONNECTIVITY',
-    proximity: 'CLOSEST TO BASE',
-  };
+  const reasonKey: MatchReasonKey = scores[0]?.key ?? 'top';
 
   return {
     city,
     score: total,
-    reason: reasonMap[scores[0].key] || 'TOP MATCH',
+    reason: matchReasonLabel(reasonKey, locale),
+    reasonKey,
     breakdown: {
       budget: Math.round(bPts),
       internet: Math.round(iPts),
@@ -214,58 +231,61 @@ export function generateIntel(
   budgetMax: number,
   internetMin: number,
   origin: Origin | null,
+  locale: Locale = 'en',
 ): string[] {
+  const t = getT(locale);
   const intel: string[] = [];
 
   if (city.costUSD <= budgetMax * 0.7) {
-    intel.push(`${Math.round((1 - city.costUSD / budgetMax) * 100)}% under your budget`);
+    intel.push(t('tools.score.intel.underBudget', { percent: Math.round((1 - city.costUSD / budgetMax) * 100) }));
   }
   if (city.internetMbps >= internetMin * 1.5) {
-    intel.push(`Internet ${Math.round(city.internetMbps / internetMin * 100 - 100)}% above your minimum`);
+    intel.push(t('tools.score.intel.internet', { percent: Math.round(city.internetMbps / internetMin * 100 - 100) }));
   }
   if (city.safety >= 8.5) {
-    intel.push('Very high safety score');
+    intel.push(t('tools.score.intel.safety'));
   }
   if (origin && origin.id !== 'anywhere') {
     const dist = haversineKm(origin.lat, origin.lng, city.lat, city.lng);
     const hours = Math.round(dist / 800);
-    intel.push(`~${hours}h flight from ${origin.name}`);
+    intel.push(t('tools.score.intel.flight', { hours, origin: origin.name }));
   }
   if (city.meta.visaDays >= 180) {
-    intel.push(`Extended stay: ${city.meta.visaDays}d visa`);
+    intel.push(t('tools.score.intel.visa', { days: city.meta.visaDays }));
   }
   if (city.infra.coworkingDensity === 'High') {
-    intel.push('High coworking density');
+    intel.push(t('tools.score.intel.coworking'));
   }
   if (city.vibeMetrics.communitySize >= 7) {
-    intel.push('Large nomad community');
+    intel.push(t('tools.score.intel.community'));
   }
 
   return intel.slice(0, 4);
 }
 
 /** Generate operational risks */
-export function generateRisks(city: City): string[] {
+export function generateRisks(city: City, locale: Locale = 'en'): string[] {
+  const t = getT(locale);
   const risks: string[] = [];
   const currentMonth = new Date().toLocaleString('en', { month: 'short' });
 
   if (city.weather.rainyMonths.includes(currentMonth)) {
-    risks.push('Rainy season active');
+    risks.push(t('tools.score.risk.rainy'));
   }
   if (city.safety < 7) {
-    risks.push('Lower safety score');
+    risks.push(t('tools.score.risk.safety'));
   }
   if (city.infra.internetReliability < 6) {
-    risks.push('Unreliable connectivity');
+    risks.push(t('tools.score.risk.internet'));
   }
   if (city.infra.powerGridStability < 6) {
-    risks.push('Unstable power grid');
+    risks.push(t('tools.score.risk.power'));
   }
   if (city.vibeMetrics.englishProficiency < 4) {
-    risks.push('Low English proficiency');
+    risks.push(t('tools.score.risk.english'));
   }
   if (city.financials.rentIndex > 50) {
-    risks.push('High rent index');
+    risks.push(t('tools.score.risk.rent'));
   }
 
   return risks.slice(0, 3);

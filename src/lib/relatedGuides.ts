@@ -2,6 +2,11 @@ import type { City } from '@/data/cities';
 import { guides, type Guide } from '@/data/guides';
 import { allCitySlugs, findCityBySlug } from '@/lib/citySlug';
 import { canonicalHubSlug, subAreaBySlug } from '@/lib/subAreaDestinations';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { cityDisplayName, localizedGuide } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
+import { formatNumber, monthName } from '../i18n/format';
+import { localizeHref } from '../i18n/paths';
 
 /**
  * Three peers per guide. Keys that are not published yet are ignored until
@@ -114,7 +119,7 @@ function regionOf(slug: string): City['region'] | null {
 }
 
 /** Compact best-month runs, with a year wrap such as Nov-Feb. Hyphen-minus only. */
-export function compactMonthRange(months: readonly string[]): string {
+export function compactMonthRange(months: readonly string[], locale: Locale = DEFAULT_LOCALE): string {
   const indexes = [...new Set(months.map((month) => MONTHS.indexOf(month as (typeof MONTHS)[number])))]
     .filter((index) => index >= 0)
     .sort((a, b) => a - b);
@@ -141,16 +146,17 @@ export function compactMonthRange(months: readonly string[]): string {
     .map((run) => {
       const start = MONTHS[run[0]];
       const end = MONTHS[run[run.length - 1]];
-      if (!start || !end || run.length === 1) return start ?? '';
-      return `${start}-${end}`;
+      if (!start || !end || run.length === 1) return start ? monthName(start, locale) : '';
+      return `${monthName(start, locale)}-${monthName(end, locale)}`;
     })
     .filter(Boolean)
     .join(', ');
 }
 
-function formatUsd(amount: number): string {
-  const digits = Math.abs(Math.round(amount)).toString();
-  const withCommas = digits.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+function formatUsd(amount: number, locale: Locale): string {
+  const whole = Math.abs(Math.round(amount));
+  if (locale !== DEFAULT_LOCALE) return `${amount < 0 ? '-' : ''}$${formatNumber(whole, locale)}`;
+  const withCommas = whole.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return `${amount < 0 ? '-' : ''}$${withCommas}`;
 }
 
@@ -172,27 +178,39 @@ function hasFormulaEstimate(city: City): boolean {
  * score, not the speed). A row with any formulaEstimates flag ends with
  * ", some figures est."
  */
-export function cityDataLine(city: City): string {
-  const months = compactMonthRange(city.weather?.bestMonths ?? []);
-  const best = months ? `, best ${months}` : '';
-  const some = hasFormulaEstimate(city) ? ', some figures est.' : '';
-  return `${formatUsd(city.costUSD)} solo, ${city.internetMbps} Mbps${best}${some}`;
+export function cityDataLine(city: City, locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
+  const months = compactMonthRange(city.weather?.bestMonths ?? [], locale);
+  const best = months ? t('guides.related.data.best', { months }) : '';
+  const some = hasFormulaEstimate(city) ? t('guides.related.data.someEst') : '';
+  const base = t('guides.related.data.base', { cost: formatUsd(city.costUSD, locale), mbps: city.internetMbps });
+  return `${base}${best}${some}`;
 }
 
-export function guideDisplayName(slug: string): string {
+/**
+ * Short name of a guide for link lists. `slug` is the English slug. A guide
+ * that has no translation in `locale` keeps its English name and says so,
+ * because its link opens the English article.
+ */
+export function guideDisplayName(slug: string, locale: Locale = DEFAULT_LOCALE): string {
+  if (locale !== DEFAULT_LOCALE && !localizedGuide(slug, locale)) {
+    return getT(locale)('guides.related.inEnglish', { name: guideDisplayName(slug) });
+  }
+  const t = getT(locale);
   const fixed = DISPLAY_NAMES[slug];
-  if (fixed) return fixed;
+  if (fixed) return t.dyn(`guides.related.name.${slug}`, fixed);
   const city = cityForLivingGuide(slug);
-  if (city) return `Living in ${city.name}`;
+  if (city) return t('guides.card.livingIn', { city: cityDisplayName(city, locale) });
   return slug;
 }
 
-function guideDetail(slug: string): string {
+function guideDetail(slug: string, locale: Locale): string {
+  const t = getT(locale);
   const plain = PLAIN_DETAILS[slug];
-  if (plain) return plain;
+  if (plain) return t.dyn(`guides.related.detail.${slug}`, plain);
   const city = cityForLivingGuide(slug);
-  if (city) return cityDataLine(city);
-  return 'A Nomad Spin guide.';
+  if (city) return cityDataLine(city, locale);
+  return t('guides.related.detail.default');
 }
 
 function unique(slugs: readonly string[]): string[] {
@@ -230,10 +248,15 @@ function sameRegionPeers(slug: string, published: readonly string[]): string[] {
  * Five related guides for a published slug: the peer map (or 3 same-region
  * guides when the slug has no row) plus the two general extras. An unpublished
  * slug returns nothing, even when the peer map has a row for it.
+ *
+ * `slug` and every returned `slug` are English slugs: link to `/guides/<slug>`
+ * and let the localized Link (or localizeHref) pick the translated URL. Names
+ * and details are in `locale`.
  */
 export function relatedGuideEntries(
   slug: string,
   catalog: readonly { slug: string }[] = guides,
+  locale: Locale = DEFAULT_LOCALE,
 ): RelatedGuideEntry[] {
   const publishedList = catalog.map((item) => item.slug);
   const published = new Set(publishedList);
@@ -253,8 +276,8 @@ export function relatedGuideEntries(
   const slugs = unique([...peers, ...extraGuides(slug, published)].filter((item) => item !== slug && published.has(item)));
   return slugs.map((item) => ({
     slug: item,
-    name: guideDisplayName(item),
-    detail: guideDetail(item),
+    name: guideDisplayName(item, locale),
+    detail: guideDetail(item, locale),
   }));
 }
 
@@ -337,24 +360,35 @@ function comparisonTableSlugs(content: string): string[] {
   return best.length >= 2 ? best : [];
 }
 
-function destinationEntry(slug: string): RelatedDestinationEntry | null {
+function destinationEntry(slug: string, locale: Locale): RelatedDestinationEntry | null {
   const hub = canonicalHubSlug(slug);
   if (subAreaBySlug(hub)) return null;
   const resolved = findCityBySlug(hub);
   if (!resolved || subAreaBySlug(resolved.canonicalSlug)) return null;
-  return { slug: resolved.canonicalSlug, name: resolved.city.name };
+  return { slug: resolved.canonicalSlug, name: cityDisplayName(resolved.city, locale) };
 }
 
-/** Comparison-table hubs when the guide has one, otherwise its destination list. Sub-areas are dropped. */
+type DestinationSource = Pick<Guide, 'content' | 'relatedDestinations'> & { sourceSlug?: string };
+
+/**
+ * Comparison-table hubs when the guide has one, otherwise its destination list. Sub-areas are dropped.
+ *
+ * A translated guide (it carries `sourceSlug`) gets the list of its English
+ * source, so every language links the same destinations: the comparison table
+ * is recognised by its English header and city names. Slugs are English; names are in `locale`.
+ */
 export function relatedDestinationEntries(
-  guide: Pick<Guide, 'content' | 'relatedDestinations'>,
+  guide: DestinationSource,
+  locale: Locale = DEFAULT_LOCALE,
 ): RelatedDestinationEntry[] {
-  const fromTable = comparisonTableSlugs(guide.content);
-  const source = fromTable.length >= 2 ? fromTable : (guide.relatedDestinations ?? []);
+  const english = guide.sourceSlug ? guides.find((item) => item.slug === guide.sourceSlug) : undefined;
+  const base = english ?? guide;
+  const fromTable = comparisonTableSlugs(base.content);
+  const source = fromTable.length >= 2 ? fromTable : (base.relatedDestinations ?? []);
   const seen = new Set<string>();
   const entries: RelatedDestinationEntry[] = [];
   for (const slug of source) {
-    const entry = destinationEntry(slug);
+    const entry = destinationEntry(slug, locale);
     if (!entry || seen.has(entry.slug)) continue;
     seen.add(entry.slug);
     entries.push(entry);
@@ -370,20 +404,27 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
-export function relatedGuidesHtml(slug: string): string {
-  const items = relatedGuideEntries(slug);
+/** `slug` is the English guide slug. Links point to the translated article when there is one. */
+export function relatedGuidesHtml(slug: string, locale: Locale = DEFAULT_LOCALE): string {
+  const items = relatedGuideEntries(slug, guides, locale);
   if (items.length === 0) return '';
   const list = items
-    .map((item) => `<li><a href="/guides/${esc(item.slug)}">${esc(item.name)}</a><p>${esc(item.detail)}</p></li>`)
+    .map(
+      (item) =>
+        `<li><a href="${esc(localizeHref(`/guides/${item.slug}`, locale))}">${esc(item.name)}</a><p>${esc(item.detail)}</p></li>`,
+    )
     .join('');
-  return `<h2>Related guides</h2><ul>${list}</ul>`;
+  return `<h2>${esc(getT(locale)('guides.article.relatedGuides'))}</h2><ul>${list}</ul>`;
 }
 
-export function relatedDestinationsHtml(guide: Pick<Guide, 'content' | 'relatedDestinations'>): string {
-  const items = relatedDestinationEntries(guide);
+export function relatedDestinationsHtml(guide: DestinationSource, locale: Locale = DEFAULT_LOCALE): string {
+  const items = relatedDestinationEntries(guide, locale);
   if (items.length === 0) return '';
   const list = items
-    .map((item) => `<li><a href="/destinations/${esc(item.slug)}">${esc(item.name)}</a></li>`)
+    .map(
+      (item) =>
+        `<li><a href="${esc(localizeHref(`/destinations/${item.slug}`, locale))}">${esc(item.name)}</a></li>`,
+    )
     .join('');
-  return `<h2>Related destinations</h2><ul>${list}</ul>`;
+  return `<h2>${esc(getT(locale)('guides.article.relatedDestinations'))}</h2><ul>${list}</ul>`;
 }

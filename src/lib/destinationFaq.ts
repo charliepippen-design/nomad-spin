@@ -1,5 +1,10 @@
 import type { City } from '@/data/cities/types';
 import { isApplicationBasedVisa, isStayAllowanceVisa } from '@/lib/visaCopy';
+import { DEFAULT_LOCALE, LOCALE_INFO, type Locale } from '../i18n/config';
+import { localizeCity } from '../i18n/content';
+import { getT, type TFunction } from '../i18n/dictionary';
+import { formatNumber, monthName } from '../i18n/format';
+import { en } from '../locales/en';
 
 export interface OfficialLink {
   phrase: string;
@@ -14,6 +19,12 @@ export interface DestinationFaqItem {
   officialLinks: OfficialLink[];
 }
 
+/**
+ * Every sentence lives in src/locales/<locale>/city.json under "faq.*".
+ * The English text below is read from the English file, so there is one source.
+ */
+const EN_TEXT: Record<string, string> = en.city;
+
 const SPAIN_VISA_URL =
   'https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx';
 const PORTUGAL_MNE_URL = 'https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa';
@@ -24,47 +35,53 @@ const THAILAND_VISA_URL = 'https://thailand.prd.go.th/en/content/category/detail
 const MNE_LINK: OfficialLink = { phrase: 'MNE', href: PORTUGAL_MNE_URL };
 const AIMA_LINK: OfficialLink = { phrase: 'AIMA', href: PORTUGAL_AIMA_URL };
 
-/** Agency names used on the priority pages. Other countries use a generic official-pages line. */
-export const OFFICIAL_VISA_SOURCE: Record<string, string> = {
-  ID: 'the Indonesian Directorate General of Immigration',
-  ZA: 'the South African Department of Home Affairs',
-  CO: 'Migracion Colombia or the Colombian Foreign Ministry',
-  AR: "Argentina's National Directorate of Migration",
-  MX: "Mexico's National Migration Institute or Foreign Ministry",
-  GE: 'the Georgian Ministry of Foreign Affairs',
-  HU: "Hungary's National Directorate-General for Aliens Policing",
-  MY: 'MDEC and the Immigration Department of Malaysia',
-  EE: 'the Estonian Police and Border Guard Board',
-  CZ: 'the Czech Ministry of the Interior',
-  VN: "Vietnam's official government e-visa portal",
-  TW: "Taiwan's Bureau of Consular Affairs",
-  KR: "a Korean embassy or Korea's Ministry of Justice",
-  JP: "Japan's Ministry of Foreign Affairs",
-  DE: "Germany's Federal Foreign Office",
-  CL: "Chile's National Migration Service",
-  PE: "Peru's National Superintendence of Migration",
-  BR: "Brazil's Ministry of Foreign Affairs",
-  PL: "Poland's Office for Foreigners",
-  GR: "Greece's Ministry of Foreign Affairs",
-  BG: "Bulgaria's Ministry of Foreign Affairs",
-  HR: "Croatia's Ministry of the Interior",
-  TR: "Turkey's Ministry of Foreign Affairs",
-  AL: "Albania's Ministry for Europe and Foreign Affairs",
-  ME: 'the Government of Montenegro (gov.me)',
+/** Link phrases that are words, not agency acronyms: English phrase -> dictionary key of its translation. */
+const LINK_PHRASE_KEYS: Record<string, string> = {
+  [EN_TEXT['faq.visa.rule.ES.link']]: 'city.faq.visa.rule.ES.link',
+  [EN_TEXT['faq.visa.TH.link']]: 'city.faq.visa.TH.link',
 };
+
+const SOURCE_COUNTRIES = [
+  'ID',
+  'ZA',
+  'CO',
+  'AR',
+  'MX',
+  'GE',
+  'HU',
+  'MY',
+  'EE',
+  'CZ',
+  'VN',
+  'TW',
+  'KR',
+  'JP',
+  'DE',
+  'CL',
+  'PE',
+  'BR',
+  'PL',
+  'GR',
+  'BG',
+  'HR',
+  'TR',
+  'AL',
+  'ME',
+] as const;
+
+/**
+ * Agency names used on the priority pages (English; translations are the
+ * "faq.visa.source.<CC>" keys). Other countries use a generic official-pages line.
+ */
+export const OFFICIAL_VISA_SOURCE: Record<string, string> = Object.fromEntries(
+  SOURCE_COUNTRIES.map((code) => [code, EN_TEXT[`faq.visa.source.${code}`]]),
+);
 
 /**
  * Visa-free countries: replaces the "check whether remote work is allowed"
- * sentence with the country's official longer-stay fact.
+ * sentence with the country's official longer-stay fact ("faq.visa.extra.<CC>").
  */
-const STAY_EXTRA: Record<string, string> = {
-  TW: 'For a longer remote-work stay, Taiwan also issues a Digital Nomad Visa.',
-  KR: 'For a longer remote-work stay, Korea offers the F-1-D Workation visa.',
-  JP: 'Japan also has a separate digital nomad status under Designated Activities.',
-  CL: 'Chile has no dedicated digital nomad visa, so longer stays need another residence route.',
-  CO: 'Migracion Colombia can extend that permit within a yearly cap.',
-  TR: 'Longer stays need a short-term residence permit.',
-};
+const STAY_EXTRA_COUNTRIES: ReadonlySet<string> = new Set(['TW', 'KR', 'JP', 'CL', 'CO', 'TR']);
 
 interface VisaCopyRule {
   /** Row visa types this copy is written for. Other types use the generic templates. */
@@ -74,61 +91,30 @@ interface VisaCopyRule {
   officialLinks?: OfficialLink[];
 }
 
+function stayRule(code: string, officialLinks?: OfficialLink[]): VisaCopyRule {
+  const rule: VisaCopyRule = { applies: isStayAllowanceVisa, text: EN_TEXT[`faq.visa.rule.${code}`] };
+  if (officialLinks) rule.officialLinks = officialLinks;
+  return rule;
+}
+
 /**
  * Per-country Q3 copy the generic templates can't express (officer decides,
  * e-visa for some passports, no nomad visa, Schengen counting). Numbers come from the row.
+ * English text; translations are the "faq.visa.rule.<CC>" keys.
  */
 export const VISA_FAQ_COPY: Record<string, VisaCopyRule> = {
-  DE: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer stay, Germany has a freelance residence permit, and the local immigration office sets its length. Verify current requirements with {source} before you apply.',
-  },
-  PL: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the whole Schengen area. Poland has no dedicated digital nomad visa, so a longer stay needs a national visa or residence permit for another purpose. Verify current rules with {source} before you book.',
-  },
-  MX: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, but the immigration officer decides how many days you get. Nomad Spin lists visa-free entry for Mexico. Longer stays need temporary residence through a Mexican consulate. Verify current rules with {source} before you book.',
-  },
-  BR: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, but US, Canadian and Australian citizens need an e-visa first. For a longer remote-work stay, Brazil offers the VITEM XIV digital nomad visa. Verify current rules with {source} before you book.',
-  },
-  BG: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the Schengen area, which Bulgaria has fully joined. For a longer stay, Bulgaria now offers a digital nomad residence permit that starts with a long-stay visa. Verify current rules with {source} before you book.',
-  },
-  GR: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Greece offers a Digital Nomad Visa of up to 1 year, then a residence permit. Verify current rules with {source} before you book.',
-  },
-  HR: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Croatia grants digital nomads a temporary stay of up to 18 months. Verify current rules with {source} before you book.',
-  },
-  ES: {
-    applies: isStayAllowanceVisa,
-    text: "Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Spain's digital nomad visa runs up to 1 year, and an in-country telework permit up to 3 years (Ley 14/2013). Verify current rules on official Spanish government pages.",
-    officialLinks: [{ phrase: 'official Spanish government pages', href: SPAIN_VISA_URL }],
-  },
-  PT: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, counted across the whole Schengen area. For a longer remote-work stay, Portugal has a temporary-stay visa of up to 1 year, or a residence visa that leads to a 2-year residence permit (Lei 23/2007). Verify current rules on official MNE and AIMA pages.',
-    officialLinks: [MNE_LINK, AIMA_LINK],
-  },
-  MY: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days for many passports, depending on nationality. For a longer remote-work stay, Malaysia runs the DE Rantau Nomad Pass, a separate application. Verify current rules with {source} before you book.',
-  },
-  AL: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days in any 180 for most visa-free passports under Law 79/2021; a few passports get longer. For a longer remote-work stay, Albania offers a one-year unique permit for digital mobile workers. Verify your passport with {source} before you book.',
-  },
-  ME: {
-    applies: isStayAllowanceVisa,
-    text: 'Up to {days} days in any 180 for most visa-free passports, counted from the date of first entry. Longer stays need a long-stay visa or a residence permit. Verify your passport with {source} before you book.',
-  },
+  DE: stayRule('DE'),
+  PL: stayRule('PL'),
+  MX: stayRule('MX'),
+  BR: stayRule('BR'),
+  BG: stayRule('BG'),
+  GR: stayRule('GR'),
+  HR: stayRule('HR'),
+  ES: stayRule('ES', [{ phrase: EN_TEXT['faq.visa.rule.ES.link'], href: SPAIN_VISA_URL }]),
+  PT: stayRule('PT', [MNE_LINK, AIMA_LINK]),
+  MY: stayRule('MY'),
+  AL: stayRule('AL'),
+  ME: stayRule('ME'),
 };
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
@@ -147,6 +133,7 @@ const MONTH_NAMES = [
   'December',
 ] as const;
 
+/** These patterns read the English dataset text, whatever the language of the answer. */
 const WEATHER_WORD =
   /\b(season|winters?|summers?|heat|hot|rain|rains|rainy|monsoon|haze|flood\w*|typhoon|humid\w*|humidity|cold|dark)\b/i;
 /** Cons that mention a season but are not about weather ("Limited winter nightlife", "Crowded summers"). */
@@ -158,6 +145,16 @@ const AFFILIATE =
 
 const KEEP_CASE =
   /^(?:[A-Z]{2,}(?:\b|[-/])|[A-Z]-|UNESCO\b|WiFi\b|E-residency\b|European\b|Port\b|Turia\b|Barajas\b|Andes\b|Caribbean\b|Adriatic\b|Atlantic\b|Pacific\b|Mediterranean\b)/;
+
+/** What every answer builder needs: the translator, the language, and the city in both forms. */
+interface Ctx {
+  t: TFunction;
+  locale: Locale;
+  /** English record: numbers, codes, and the text the patterns above read. */
+  city: City;
+  /** Same city with its text in `locale` (the same object in English). */
+  local: City;
+}
 
 function wordCount(text: string): number {
   const trimmed = text.trim();
@@ -182,8 +179,18 @@ export function asciiText(value: string): string {
     .replace(/[^\x00-\x7F]/g, '');
 }
 
-function lc(label: string): string {
-  const trimmed = asciiText(label).trim();
+/** English answers are plain ASCII. Other languages keep their accents and only lose long dashes. */
+function clean(value: string, locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? asciiText(value) : value.replace(/[\u2013\u2014]/g, '-');
+}
+
+/** Bare digits in English ("1200"), the language's own separators elsewhere. */
+function num(value: number, locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? String(value) : formatNumber(value, locale);
+}
+
+function lc(label: string, locale: Locale): string {
+  const trimmed = clean(label, locale).trim();
   if (!trimmed) return trimmed;
   const first = trimmed.split(/[\s/]/)[0] ?? trimmed;
   if (KEEP_CASE.test(trimmed)) return trimmed;
@@ -192,11 +199,24 @@ function lc(label: string): string {
   return trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
 }
 
-function list(items: string[]): string {
+function list(items: string[], t: TFunction): string {
   if (items.length === 0) return '';
   if (items.length === 1) return items[0];
-  if (items.length === 2) return `${items[0]} and ${items[1]}`;
-  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+  if (items.length === 2) return t('city.faq.list.two', { a: items[0], b: items[1] });
+  return t('city.faq.list.many', { rest: items.slice(0, -1).join(', '), last: items[items.length - 1] });
+}
+
+/** Cons picked by a pattern on the English text, returned in the reader's language. */
+function consMatching(ctx: Ctx, matches: (englishCon: string) => boolean): string[] {
+  const picked: string[] = [];
+  ctx.city.cons.forEach((con, index) => {
+    if (matches(con)) picked.push(lc(ctx.local.cons[index] ?? con, ctx.locale));
+  });
+  return picked;
+}
+
+function fullMonthName(index: number, locale: Locale): string {
+  return locale === DEFAULT_LOCALE ? MONTH_NAMES[index] : monthName(MONTHS[index], locale, 'long');
 }
 
 interface MonthRun {
@@ -205,7 +225,8 @@ interface MonthRun {
 }
 
 /** Collapse month tokens into prose, wrapping December into January. */
-export function rangeMonths(months: string[]): string {
+export function rangeMonths(months: string[], locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
   const present = Array<boolean>(12).fill(false);
   for (const month of months) {
     const index = MONTHS.indexOf(month as (typeof MONTHS)[number]);
@@ -213,7 +234,7 @@ export function rangeMonths(months: string[]): string {
   }
   const count = present.filter(Boolean).length;
   if (count === 0) return '';
-  if (count === 12) return 'January to December';
+  if (count === 12) return t('city.faq.months.all');
 
   let start = 0;
   for (let i = 0; i < 12; i += 1) {
@@ -249,21 +270,21 @@ export function rangeMonths(months: string[]): string {
   }
 
   const formatRun = (run: MonthRun): string => {
-    const from = MONTH_NAMES[run.start];
-    const to = MONTH_NAMES[(run.start + run.length - 1) % 12];
+    const from = fullMonthName(run.start, locale);
+    const to = fullMonthName((run.start + run.length - 1) % 12, locale);
     if (run.length === 1) return from;
-    if (run.length === 2 && runs.length === 1) return `${from} and ${to}`;
-    return `${from} to ${to}`;
+    if (run.length === 2 && runs.length === 1) return t('city.faq.months.pair', { from, to });
+    return t('city.faq.months.range', { from, to });
   };
 
-  return runs.map(formatRun).join(' and ');
+  return runs.map(formatRun).reduce((a, b) => t('city.faq.months.and', { a, b }));
 }
 
 function monthCount(months: string[]): number {
   return new Set(months.filter((month) => MONTHS.includes(month as (typeof MONTHS)[number]))).size;
 }
 
-function fit(required: string[], optional: string[] = [], pads: string[] = []): string {
+function fit(locale: Locale, required: string[], optional: string[] = [], pads: string[] = []): string {
   let text = joinSentences(required);
   const queued = [...optional];
   for (const extra of queued) {
@@ -277,113 +298,131 @@ function fit(required: string[], optional: string[] = [], pads: string[] = []): 
     const next = joinSentences([text, pad]);
     if (wordCount(next) <= 50) text = next;
   }
-  return asciiText(text);
+  return clean(text, locale);
 }
 
-function officialSource(city: City): string {
-  return OFFICIAL_VISA_SOURCE[city.countryCode] ?? `official ${asciiText(city.country)} government pages`;
+function genericSource(ctx: Ctx): string {
+  return ctx.t('city.faq.visa.genericSource', { country: clean(ctx.local.country, ctx.locale) });
 }
 
-function shortenSource(source: string, country: string): string {
-  const generic = `official ${asciiText(country)} government pages`;
-  return source === generic ? source : generic;
+function officialSource(ctx: Ctx): string {
+  const code = ctx.city.countryCode;
+  if (!(code in OFFICIAL_VISA_SOURCE)) return genericSource(ctx);
+  return ctx.t.dyn(`city.faq.visa.source.${code}`, OFFICIAL_VISA_SOURCE[code]);
 }
 
-function visaItem(text: string, officialLinks: OfficialLink[] = []): { text: string; officialLinks: OfficialLink[] } {
-  return { text: asciiText(text), officialLinks };
+function localizeLinks(links: OfficialLink[], t: TFunction): OfficialLink[] {
+  return links.map((link) => {
+    const key = LINK_PHRASE_KEYS[link.phrase];
+    return key ? { ...link, phrase: t.dyn(key, link.phrase) } : link;
+  });
 }
 
-function clampVisa(text: string, city: City, links: OfficialLink[]): { text: string; officialLinks: OfficialLink[] } {
+function visaItem(
+  text: string,
+  ctx: Ctx,
+  officialLinks: OfficialLink[] = [],
+): { text: string; officialLinks: OfficialLink[] } {
+  return { text: clean(text, ctx.locale), officialLinks: localizeLinks(officialLinks, ctx.t) };
+}
+
+function clampVisa(text: string, ctx: Ctx, links: OfficialLink[]): { text: string; officialLinks: OfficialLink[] } {
+  const { t } = ctx;
   let next = text;
   if (wordCount(next) > 50) {
-    const shorter = shortenSource(officialSource(city), city.country);
-    next = text.replace(officialSource(city), shorter);
+    next = text.replace(officialSource(ctx), genericSource(ctx));
   }
   if (wordCount(next) > 50) {
-    next = next.replace('Short visits without it follow normal entry rules. ', '');
-    next = next.replace('Check whether remote work is allowed on that entry. ', '');
+    next = next.replace(`${t('city.faq.visa.shortVisits')} `, '');
+    next = next.replace(`${t('city.faq.visa.remoteWorkCheck')} `, '');
   }
   if (wordCount(next) < 35) {
-    next = joinSentences([next, 'Rules change, so read the official page again before you travel.']);
+    next = joinSentences([next, t('city.faq.visa.rulesChange')]);
   }
-  return visaItem(next, links);
+  return visaItem(next, ctx, links);
 }
 
-function visaCopy(city: City): { text: string; officialLinks: OfficialLink[] } {
+/** Visa type inside a sentence: the dataset label in English, its translation elsewhere. */
+function visaTypeText(ctx: Ctx): string {
+  const type = ctx.city.meta.visaType;
+  return ctx.locale === DEFAULT_LOCALE ? asciiText(type) : ctx.t.dyn(`data.visaType.${type}`, type);
+}
+
+function visaCopy(ctx: Ctx): { text: string; officialLinks: OfficialLink[] } {
+  const { t, city } = ctx;
   if (city.countryCode === 'TH') {
-    return visaItem(
-      "Usually 30 days, depending on your passport. Nomad Spin lists Thailand's Tourism Visa Exemption at 30 days for 60 countries and territories (effective 15 Sep 2026); a few get 15 days or visa on arrival. For longer stays, look at the Destination Thailand Visa. Verify on official Thai government pages.",
-      [{ phrase: 'official Thai government pages', href: THAILAND_VISA_URL }],
-    );
+    return visaItem(t('city.faq.visa.TH'), ctx, [
+      { phrase: EN_TEXT['faq.visa.TH.link'], href: THAILAND_VISA_URL },
+    ]);
   }
 
-  const country = asciiText(city.country);
-  const source = officialSource(city);
+  const country = clean(ctx.local.country, ctx.locale);
+  const source = officialSource(ctx);
+  const days = String(city.meta.visaDays);
 
   const rule = VISA_FAQ_COPY[city.countryCode];
   if (rule && rule.applies(city.meta.visaType)) {
-    const text = rule.text
-      .replace('{days}', String(city.meta.visaDays))
+    const template =
+      ctx.locale === DEFAULT_LOCALE ? rule.text : t.dyn(`city.faq.visa.rule.${city.countryCode}`, rule.text);
+    const text = template
+      .replace('{days}', days)
       .replace('{months}', String(Math.round(city.meta.visaDays / 30.44)))
-      .replace('{type}', asciiText(city.meta.visaType))
+      .replace('{type}', visaTypeText(ctx))
       .replace('{source}', source);
-    return clampVisa(text, city, rule.officialLinks ?? []);
+    return clampVisa(text, ctx, rule.officialLinks ?? []);
   }
 
   if (city.countryCode === 'VN' && /e-visa/i.test(city.meta.visaType)) {
-    return clampVisa(
-      `Up to ${city.meta.visaDays} days on Vietnam's E-Visa, per Nomad Spin's data. It is an application-based visa, so apply before you travel and check the length printed on the visa you are granted. Verify current eligibility and validity on Vietnam's official government e-visa portal before you book.`,
-      city,
-      [],
-    );
+    return clampVisa(t('city.faq.visa.VN', { days, source }), ctx, []);
   }
 
   if (isStayAllowanceVisa(city.meta.visaType)) {
-    const kind = /on arrival/i.test(city.meta.visaType) ? 'a visa on arrival' : 'visa-free entry';
-    const extra = STAY_EXTRA[city.countryCode] ?? 'Check whether remote work is allowed on that entry.';
-    return clampVisa(
-      `Up to ${city.meta.visaDays} days for many passports. Nomad Spin lists ${kind} for ${country}; eligibility and length depend on your nationality. ${extra} Verify current rules with ${source} before you book.`,
-      city,
-      [],
-    );
+    const extra = STAY_EXTRA_COUNTRIES.has(city.countryCode)
+      ? t.dyn(`city.faq.visa.extra.${city.countryCode}`)
+      : t('city.faq.visa.remoteWorkCheck');
+    const key = /on arrival/i.test(city.meta.visaType) ? 'city.faq.visa.stayOnArrival' : 'city.faq.visa.stayVisaFree';
+    return clampVisa(t(key, { days, country, extra, source }), ctx, []);
   }
 
   if (isApplicationBasedVisa(city.meta.visaType)) {
     return clampVisa(
-      `Up to ${city.meta.visaDays} days on the initial ${asciiText(city.meta.visaType)}, per Nomad Spin's data. It is an application-based route, so eligibility, income rules and renewals vary by applicant. Short visits without it follow normal entry rules. Verify current requirements with ${source} before you apply.`,
-      city,
+      t('city.faq.visa.application', {
+        days,
+        type: visaTypeText(ctx),
+        shortVisits: t('city.faq.visa.shortVisits'),
+        source,
+      }),
+      ctx,
       [],
     );
   }
 
-  const fallbackSource = `official ${country} government pages`;
   return clampVisa(
-    `Up to ${city.meta.visaDays} days on the ${asciiText(city.meta.visaType)}, per Nomad Spin's data. Eligibility depends on your passport. Verify current rules on ${fallbackSource}.`,
-    city,
+    t('city.faq.visa.fallback', { days, type: visaTypeText(ctx), source: genericSource(ctx) }),
+    ctx,
     [],
   );
 }
 
-function costAnswer(city: City): string {
-  const nameBasis = city.dataSource === 'estimated' ? "Nomad Spin's estimates" : "Nomad Spin's data";
-  const airbnb = city.formulaEstimates?.airbnbMedian
-    ? `The median Airbnb estimate is $${city.financials.airbnbMedian} a night`
-    : `The median Airbnb is $${city.financials.airbnbMedian} a night`;
-  return fit([
-    `About $${city.financials.costNomadSingle} a month for a solo nomad, based on ${nameBasis}.`,
-    `For longer stays, our long-term monthly estimate is $${city.financials.costLongTerm}.`,
-    `${airbnb}, which matters most if you book short stays instead of a monthly rental.`,
+function costAnswer(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
+  const cost = num(city.financials.costNomadSingle, locale);
+  const price = num(city.financials.airbnbMedian, locale);
+  return fit(locale, [
+    city.dataSource === 'estimated' ? t('city.faq.cost.leadEstimates', { cost }) : t('city.faq.cost.leadData', { cost }),
+    t('city.faq.cost.longTerm', { cost: num(city.financials.costLongTerm, locale) }),
+    city.formulaEstimates?.airbnbMedian ? t('city.faq.cost.airbnbEstimate', { price }) : t('city.faq.cost.airbnb', { price }),
   ]);
 }
 
-function coworkingPhrase(density: City['infra']['coworkingDensity']): string {
+function coworkingSentence(density: City['infra']['coworkingDensity'], t: TFunction): string {
   switch (density) {
     case 'High':
-      return 'High, so backup desks are easy to find.';
+      return t('city.faq.net.coworkingHigh');
     case 'Med':
-      return 'Medium, so shortlist a coworking space early.';
+      return t('city.faq.net.coworkingMed');
     case 'Low':
-      return 'Low, so do not count on a coworking fallback.';
+      return t('city.faq.net.coworkingLow');
     default: {
       const unexpected: never = density;
       return unexpected;
@@ -391,94 +430,90 @@ function coworkingPhrase(density: City['infra']['coworkingDensity']): string {
   }
 }
 
-function netVerdict(score: number): string {
-  if (score >= 9) return 'Yes.';
-  if (score >= 8) return 'Yes, for most calls.';
-  if (score >= 7) return 'Usually, but keep a backup.';
-  return 'Not reliably, so plan a backup.';
+function netVerdict(score: number, t: TFunction): string {
+  if (score >= 9) return t('city.faq.net.verdict9');
+  if (score >= 8) return t('city.faq.net.verdict8');
+  if (score >= 7) return t('city.faq.net.verdict7');
+  return t('city.faq.net.verdictLow');
 }
 
-function reliabilityClause(city: City): string {
-  const reliability = city.infra.internetReliability;
-  const power = city.infra.powerGridStability;
+function speedSentence(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
+  const vars = {
+    speed: num(city.infra.internetSpeedAvg, locale),
+    reliability: num(city.infra.internetReliability, locale),
+    power: num(city.infra.powerGridStability, locale),
+  };
   const flags = city.formulaEstimates;
-  if (flags?.internetReliability && flags.powerGridStability) {
-    return `with estimated reliability ${reliability}/10 and power grid stability ${power}/10.`;
-  }
-  if (flags?.internetReliability) {
-    return `with estimated reliability ${reliability}/10 and power grid stability ${power}/10.`;
-  }
-  if (flags?.powerGridStability) {
-    return `with reliability ${reliability}/10 and estimated power grid stability ${power}/10.`;
-  }
-  return `with reliability ${reliability}/10 and power grid stability ${power}/10.`;
+  if (flags?.internetReliability) return t('city.faq.net.speedEstReliability', vars);
+  if (flags?.powerGridStability) return t('city.faq.net.speedEstPower', vars);
+  return t('city.faq.net.speed', vars);
 }
 
-function internetAnswer(city: City): string {
-  const netCons = city.cons.filter((con) => NET_WORD.test(con)).map(lc);
-  const consLine = netCons.length ? `Our trade-offs also flag ${list(netCons)}.` : '';
+function internetAnswer(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
+  const netCons = consMatching(ctx, (con) => NET_WORD.test(con));
+  const consLine = netCons.length ? t('city.faq.net.cons', { items: list(netCons, t) }) : '';
   return fit(
+    locale,
     [
-      netVerdict(city.infra.internetReliability),
-      `Nomad Spin lists average speeds around ${city.infra.internetSpeedAvg} Mbps ${reliabilityClause(city)}`,
-      `Coworking density is ${coworkingPhrase(city.infra.coworkingDensity)}`,
-      "Test your own apartment's connection before a long stay.",
+      netVerdict(city.infra.internetReliability, t),
+      speedSentence(ctx),
+      coworkingSentence(city.infra.coworkingDensity, t),
+      t('city.faq.net.test'),
     ],
     consLine ? [consLine] : [],
   );
 }
 
-function weatherAnswer(city: City): string {
+function weatherAnswer(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
   const best = city.weather.bestMonths;
   const rainy = city.weather.rainyMonths;
   const rainySet = new Set(rainy);
   const overlap = best.filter((month) => rainySet.has(month));
   const bestOnly = best.filter((month) => !rainySet.has(month));
-  const temp = `and the average temperature is about ${city.weather.tempAvgC} C.`;
-  const weatherCons = city.cons.filter((con) => WEATHER_WORD.test(con) && !NOT_WEATHER.test(con)).map(lc);
-  const weatherLine = weatherCons.length ? `Weather trade-offs we list: ${list(weatherCons)}.` : '';
-  const fill = 'Other months carry no weather flag in our data.';
+  const temp = num(city.weather.tempAvgC, locale);
+  const name = clean(ctx.local.name, locale);
+  const weatherCons = consMatching(ctx, (con) => WEATHER_WORD.test(con) && !NOT_WEATHER.test(con));
+  const weatherLine = weatherCons.length ? t('city.faq.weather.cons', { items: list(weatherCons, t) }) : '';
+  const fill = t('city.faq.weather.fill');
+
+  const bestSentence = () =>
+    monthCount(best) === 1
+      ? t('city.faq.weather.best_one', { months: rangeMonths(best, locale) })
+      : t('city.faq.weather.best_other', { months: rangeMonths(best, locale) });
+  const rainyPlanSentence = () =>
+    monthCount(rainy) === 1
+      ? t('city.faq.weather.rainyPlan_one', { months: rangeMonths(rainy, locale), temp })
+      : t('city.faq.weather.rainyPlan_other', { months: rangeMonths(rainy, locale), temp });
 
   let lead: string;
   if (overlap.length > 0) {
-    const safe = rangeMonths(bestOnly);
-    const overlapNames = list(overlap.map((month) => MONTH_NAMES[MONTHS.indexOf(month as (typeof MONTHS)[number])]));
-    const rainyNames = rangeMonths(rainy);
-    const safeClause =
+    const safe = rangeMonths(bestOnly, locale);
+    const overlapNames = list(
+      overlap.map((month) => fullMonthName(MONTHS.indexOf(month as (typeof MONTHS)[number]), locale)),
+      t,
+    );
+    const safeSentence =
       monthCount(bestOnly) === 1
-        ? `${safe} is the safest pick.`
+        ? t('city.faq.weather.safest_one', { months: safe })
         : safe
-          ? `${safe} are the safest picks.`
-          : 'No month is only a best month.';
+          ? t('city.faq.weather.safest_other', { months: safe })
+          : t('city.faq.weather.safestNone');
     lead = joinSentences([
-      safeClause,
-      `Nomad Spin lists ${overlapNames} as both a best and a rainy month, so expect some wet days.`,
-      `The rainy months are ${rainyNames}, ${temp}`,
+      safeSentence,
+      t('city.faq.weather.overlap', { months: overlapNames }),
+      t('city.faq.weather.rainyTemp', { months: rangeMonths(rainy, locale), temp }),
     ]);
   } else if (best.length === 0 && rainy.length === 0) {
-    lead = `Nomad Spin does not list best months or rainy months for ${asciiText(city.name)}. The average temperature is about ${city.weather.tempAvgC} C.`;
+    lead = t('city.faq.weather.none', { city: name, temp });
   } else if (best.length === 0) {
-    const rainyClause =
-      monthCount(rainy) === 1
-        ? `The rainy month to plan around is ${rangeMonths(rainy)}`
-        : `The rainy months to plan around are ${rangeMonths(rainy)}`;
-    lead = `Nomad Spin does not list best months for ${asciiText(city.name)}. ${rainyClause}, ${temp}`;
+    lead = `${t('city.faq.weather.noBest', { city: name })} ${rainyPlanSentence()}`;
   } else if (rainy.length === 0) {
-    const bestClause =
-      monthCount(best) === 1
-        ? `${rangeMonths(best)} is the best month in Nomad Spin's data.`
-        : `${rangeMonths(best)} are the best months in Nomad Spin's data.`;
-    lead = `${bestClause} No rainy months are listed, ${temp}`;
+    lead = `${bestSentence()} ${t('city.faq.weather.noRainy', { temp })}`;
   } else {
-    const bestClause =
-      monthCount(best) === 1
-        ? `${rangeMonths(best)} is the best month in Nomad Spin's data.`
-        : `${rangeMonths(best)} are the best months in Nomad Spin's data.`;
-    const rainyClause =
-      monthCount(rainy) === 1
-        ? `The rainy month to plan around is ${rangeMonths(rainy)}`
-        : `The rainy months to plan around are ${rangeMonths(rainy)}`;
-    lead = `${bestClause} ${rainyClause}, ${temp}`;
+    lead = `${bestSentence()} ${rainyPlanSentence()}`;
   }
 
   const withWeather = weatherLine && wordCount(joinSentences([lead, weatherLine])) <= 50
@@ -488,169 +523,183 @@ function weatherAnswer(city: City): string {
     wordCount(withWeather) < 38 && wordCount(joinSentences([withWeather, fill])) <= 50
       ? joinSentences([withWeather, fill])
       : withWeather;
-  return fit(
-    [withFill],
-    [],
-    ['Use that average as a year-round hint only.', 'Check the month lists on this page before you book a long stay.'],
-  );
+  return fit(locale, [withFill], [], [t('city.faq.weather.padAverage'), t('city.faq.weather.padCheck')]);
 }
 
-function safeVerdict(score: number): string {
-  if (score >= 8) return 'Yes, by our scores.';
-  if (score >= 7) return 'Mostly, with normal precautions.';
-  if (score >= 5) return 'It can be, but take extra care.';
-  return 'Take extra care.';
+function safeVerdict(score: number, t: TFunction): string {
+  if (score >= 8) return t('city.faq.safety.verdict8');
+  if (score >= 7) return t('city.faq.safety.verdict7');
+  if (score >= 5) return t('city.faq.safety.verdict5');
+  return t('city.faq.safety.verdictLow');
 }
 
-function safetyAnswer(city: City): string {
-  const name = asciiText(city.name);
-  const safetyCons = city.cons.filter((con) => SAFETY_WORD.test(con)).map(lc);
-  const consLine = safetyCons.length ? `Listed trade-offs: ${list(safetyCons)}.` : '';
+function safetyAnswer(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
+  const safetyCons = consMatching(ctx, (con) => SAFETY_WORD.test(con));
+  const consLine = safetyCons.length ? t('city.faq.safety.cons', { items: list(safetyCons, t) }) : '';
   return fit(
+    locale,
     [
-      safeVerdict(city.vibeMetrics.femaleSafety),
-      `${name} scores ${city.safety}/10 for overall safety and ${city.vibeMetrics.femaleSafety}/10 for female safety in Nomad Spin's data.`,
-      `LGBTQ+ friendliness scores ${city.vibeMetrics.lgbtFriendly}/10.`,
-      'Use normal city precautions and check recent local advice for the area you book.',
+      safeVerdict(city.vibeMetrics.femaleSafety, t),
+      t('city.faq.safety.scores', {
+        city: clean(ctx.local.name, locale),
+        safety: num(city.safety, locale),
+        female: num(city.vibeMetrics.femaleSafety, locale),
+      }),
+      t('city.faq.safety.lgbt', { score: num(city.vibeMetrics.lgbtFriendly, locale) }),
+      t('city.faq.safety.precautions'),
     ],
     consLine ? [consLine] : [],
-    ['Check a recent local advisory before you book.'],
+    [t('city.faq.safety.pad')],
   );
 }
 
-function closingFact(city: City): string {
+function closingFact(ctx: Ctx): string {
+  const { t, city, locale } = ctx;
   if (city.countryCode === 'TH' && city.meta.visaDays <= 30) {
-    return 'Visa stays are short on the tourism exemption.';
+    return t('city.faq.skip.thaiVisa');
   }
   const lows: string[] = [];
   const metrics: Array<[string, number]> = [
-    ['Female safety', city.vibeMetrics.femaleSafety],
-    ['English proficiency', city.vibeMetrics.englishProficiency],
-    ['LGBTQ+ friendliness', city.vibeMetrics.lgbtFriendly],
-    ['Internet reliability', city.infra.internetReliability],
-    ['Power grid stability', city.infra.powerGridStability],
+    [t('city.faq.low.femaleSafety', { score: num(city.vibeMetrics.femaleSafety, locale) }), city.vibeMetrics.femaleSafety],
+    [t('city.faq.low.english', { score: num(city.vibeMetrics.englishProficiency, locale) }), city.vibeMetrics.englishProficiency],
+    [t('city.faq.low.lgbt', { score: num(city.vibeMetrics.lgbtFriendly, locale) }), city.vibeMetrics.lgbtFriendly],
+    [t('city.faq.low.internet', { score: num(city.infra.internetReliability, locale) }), city.infra.internetReliability],
+    [t('city.faq.low.power', { score: num(city.infra.powerGridStability, locale) }), city.infra.powerGridStability],
   ];
-  for (const [label, score] of metrics) {
-    if (score <= 5) lows.push(`${label} scores ${score}/10`);
+  for (const [fragment, score] of metrics) {
+    if (score <= 5) lows.push(fragment);
   }
   if (lows.length > 0) {
-    return lowScores(lows);
+    return lowScores(lows, ctx);
   }
   if (city.weather.tempAvgC <= 12) {
-    return `The average temperature is about ${city.weather.tempAvgC} C.`;
+    return t('city.faq.skip.temperature', { temp: num(city.weather.tempAvgC, locale) });
   }
-  return costLine(city);
+  return costLine(ctx);
 }
 
-function costLine(city: City): string {
-  return `Expect about $${city.financials.costNomadSingle} a month in our data.`;
+function costLine(ctx: Ctx): string {
+  return ctx.t('city.faq.skip.cost', { cost: num(ctx.city.financials.costNomadSingle, ctx.locale) });
 }
 
 /** Next low metric (community size, then nightlife) used before the cost line when an answer runs short. */
-function secondaryLow(city: City): string | null {
-  const secondary: Array<[string, number]> = [
-    ['Community size', city.vibeMetrics.communitySize],
-    ['Nightlife', city.vibeMetrics.nightlife],
-  ];
-  for (const [label, score] of secondary) {
-    if (score <= 5) return `${label} scores ${score}/10 in our data.`;
+function secondaryLow(ctx: Ctx): string | null {
+  const { t, city, locale } = ctx;
+  if (city.vibeMetrics.communitySize <= 5) {
+    return t('city.faq.skip.community', { score: num(city.vibeMetrics.communitySize, locale) });
+  }
+  if (city.vibeMetrics.nightlife <= 5) {
+    return t('city.faq.skip.nightlife', { score: num(city.vibeMetrics.nightlife, locale) });
   }
   return null;
 }
 
-/** Up to two low scores. Labels after the first are lowercased mid-sentence, except proper nouns. */
-function lowScores(lows: string[]): string {
+/**
+ * Up to two low scores. In English, labels after the first are lowercased
+ * mid-sentence, except proper nouns; other languages write the fragments lowercase already.
+ */
+function lowScores(lows: string[], ctx: Ctx): string {
   const parts = lows
     .slice(0, 2)
-    .map((part, index) => (index === 0 || /^(English|LGBTQ)/.test(part) ? part : part.charAt(0).toLowerCase() + part.slice(1)));
-  return `${list(parts)} in our data.`;
+    .map((part, index) =>
+      ctx.locale !== DEFAULT_LOCALE || index === 0 || /^(English|LGBTQ)/.test(part)
+        ? part
+        : part.charAt(0).toLowerCase() + part.slice(1),
+    );
+  return ctx.t('city.faq.low.inData', { items: list(parts, ctx.t) });
 }
 
 /**
- * One listed con. Plural noun phrases read as "if X are a dealbreaker"; anything else
+ * One listed con. In English, plural noun phrases read as "if X are a dealbreaker"; anything else
  * (adjectives, comparisons, clauses) is quoted after a colon so the grammar holds.
+ * Other languages may use the colon form for both keys.
  */
-function singleConLine(name: string, con: string): string {
+function singleConLine(name: string, con: string, t: TFunction): string {
   const pluralNoun = /[^su]s$/i.test(con) && !/\b(than|varies|is|are)\b/i.test(con) && !/^(less|more|not|very|too)\b/i.test(con);
   return pluralNoun
-    ? `Skip ${name} if ${con} are a dealbreaker; it is the only trade-off Nomad Spin lists so far.`
-    : `Skip ${name} if this trade-off is a dealbreaker: ${con}. It is the only one Nomad Spin lists so far.`;
+    ? t('city.faq.skip.singlePlural', { city: name, con })
+    : t('city.faq.skip.single', { city: name, con });
 }
 
-function skipAnswer(city: City): string {
-  const name = asciiText(city.name);
-  const cons = city.cons.slice(0, 3).map(lc);
-  const pros = city.pros.slice(0, 3).map(lc);
-  const consText = cons.length ? list(cons) : 'the listed trade-offs';
-  const prosText = pros.length ? list(pros) : 'the listed strengths';
+function skipAnswer(ctx: Ctx): string {
+  const { t, locale } = ctx;
+  const name = clean(ctx.local.name, locale);
+  const cons = ctx.local.cons.slice(0, 3).map((con) => lc(con, locale));
+  const pros = ctx.local.pros.slice(0, 3).map((pro) => lc(pro, locale));
+  const consText = cons.length ? list(cons, t) : t('city.faq.skip.fallbackCons');
+  const prosText = pros.length ? list(pros, t) : t('city.faq.skip.fallbackPros');
   const consLine =
     cons.length === 1
-      ? singleConLine(name, cons[0])
-      : `Skip ${name} if these listed trade-offs are dealbreakers: ${consText}.`;
-  const lead = [consLine, `Its listed strengths are ${prosText}.`];
-  const closing = closingFact(city);
-  let full = fit(lead, [closing], [costLine(city)]);
+      ? singleConLine(name, cons[0], t)
+      : t('city.faq.skip.many', { city: name, cons: consText });
+  const lead = [consLine, t('city.faq.skip.strengths', { pros: prosText })];
+  const closing = closingFact(ctx);
+  let full = fit(locale, lead, [closing], [costLine(ctx)]);
   // When the closing fact is the cost line and the answer is still short, add the next low metric
   // first instead of printing the cost line twice.
-  const low = secondaryLow(city);
-  if (closing === costLine(city) && wordCount(full) < 35 && low) {
-    full = fit(lead, [low], [costLine(city)]);
+  const low = secondaryLow(ctx);
+  if (closing === costLine(ctx) && wordCount(full) < 35 && low) {
+    full = fit(locale, lead, [low], [costLine(ctx)]);
   }
   if (wordCount(full) >= 35 && wordCount(full) <= 50) return full;
-  return fit(
-    [full, 'Read the trade-offs on this page before you book.'],
-    [],
-    [`Expect about $${city.financials.costNomadSingle} a month in our data.`],
-  );
+  return fit(locale, [full, t('city.faq.skip.read')], [], [costLine(ctx)]);
 }
 
-export function destinationFaq(city: City): DestinationFaqItem[] {
-  const name = asciiText(city.name);
-  const country = asciiText(city.country);
-  const visa = visaCopy(city);
+export function destinationFaq(city: City, locale: Locale = DEFAULT_LOCALE): DestinationFaqItem[] {
+  const t = getT(locale);
+  const local = localizeCity(city, locale);
+  const ctx: Ctx = { t, locale, city, local };
+  const name = clean(local.name, locale);
+  const country = clean(local.country, locale);
+  const visa = visaCopy(ctx);
   const items: Array<{ q: string; a: string; officialLinks?: OfficialLink[] }> = [
     {
-      q: `How much does it cost to live in ${name} as a digital nomad?`,
-      a: costAnswer(city),
+      q: t('city.faq.q.cost', { city: name }),
+      a: costAnswer(ctx),
     },
     {
-      q: `Is the internet in ${name} good enough for video calls?`,
-      a: internetAnswer(city),
+      q: t('city.faq.q.internet', { city: name }),
+      a: internetAnswer(ctx),
     },
     {
-      q: `How long can I stay in ${country} as a digital nomad?`,
+      q: t('city.faq.q.visa', { country }),
       a: visa.text,
       officialLinks: visa.officialLinks,
     },
     {
-      q: `When is the best time to live in ${name}?`,
-      a: weatherAnswer(city),
+      q: t('city.faq.q.weather', { city: name }),
+      a: weatherAnswer(ctx),
     },
     {
-      q: `Is ${name} safe for solo female travelers?`,
-      a: safetyAnswer(city),
+      q: t('city.faq.q.safety', { city: name }),
+      a: safetyAnswer(ctx),
     },
     {
-      q: `Who should skip ${name} as a nomad base?`,
-      a: skipAnswer(city),
+      q: t('city.faq.q.skip', { city: name }),
+      a: skipAnswer(ctx),
     },
   ];
 
   return items.map((item) => ({
-    q: asciiText(item.q),
-    a: asciiText(item.a),
+    q: clean(item.q, locale),
+    a: clean(item.a, locale),
     officialLinks: item.officialLinks ?? [],
   }));
 }
 
-export function destinationFaqJsonLd(city: City, pageUrl: string): Record<string, unknown> {
+export function destinationFaqJsonLd(
+  city: City,
+  pageUrl: string,
+  locale: Locale = DEFAULT_LOCALE,
+): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${pageUrl}#faq`,
     url: pageUrl,
-    inLanguage: 'en',
-    mainEntity: destinationFaq(city).map((item) => ({
+    inLanguage: LOCALE_INFO[locale].htmlLang,
+    mainEntity: destinationFaq(city, locale).map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: {
@@ -684,10 +733,10 @@ function answerHtml(item: DestinationFaqItem): string {
 }
 
 /** Visible FAQ markup for prerender. Empty when the caller skips sub-area pages. */
-export function destinationFaqBodyHtml(items: DestinationFaqItem[]): string {
+export function destinationFaqBodyHtml(items: DestinationFaqItem[], locale: Locale = DEFAULT_LOCALE): string {
   if (items.length === 0) return '';
   const blocks = items.map((item) => `<h3>${esc(item.q)}</h3><p>${answerHtml(item)}</p>`).join('');
-  return `<h2>Quick answers</h2>${blocks}`;
+  return `<h2>${esc(getT(locale)('city.faq.title'))}</h2>${blocks}`;
 }
 
 export function faqHasAffiliate(value: string): boolean {
