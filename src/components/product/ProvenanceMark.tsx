@@ -1,20 +1,23 @@
 import type { Provenance } from '@/lib/compare';
+import { useT } from '@/i18n/LocaleProvider';
+import type { TKey } from '@/i18n/dictionary';
 
-const COPY: Record<Exclude<Provenance, 'dataset'>, { short: string; title: string }> = {
+const COPY: Record<Exclude<Provenance, 'dataset'>, { short: TKey; title: TKey }> = {
   formula: {
-    short: 'formula',
-    title: 'Derived from another figure with a fixed formula, not observed directly. See Methodology.',
+    short: 'common.provenance.formula.short',
+    title: 'common.provenance.formula.title',
   },
   estimate: {
-    short: 'est.',
-    title: 'This city’s whole record is an estimate and has not been checked by hand. See Methodology.',
+    short: 'common.provenance.estimate.short',
+    title: 'common.provenance.estimate.title',
   },
 };
 
 /** Small inline tag for figures that are not plain dataset values. Renders nothing for dataset values. */
 export default function ProvenanceMark({ provenance }: { provenance: Provenance }) {
+  const t = useT();
   if (provenance === 'dataset') return null;
-  const copy = COPY[provenance];
+  const copy = { short: t(COPY[provenance].short), title: t(COPY[provenance].title) };
   return (
     <span
       title={copy.title}

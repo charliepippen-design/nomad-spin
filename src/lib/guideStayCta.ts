@@ -1,12 +1,15 @@
 import { cities } from '@/data/cities';
 import { citySlug } from '@/lib/citySlug';
 import { buildBookingStayUrl } from '@/utils/affiliateEngine';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { cityDisplayName } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
 
 interface GuideStayCtaConfig {
   /** City id from src/data/cities.ts. Omit for guides that are not about one city. */
   cityId?: string;
-  heading?: string;
-  body?: string;
+  /** Heading and body for a guide that is not about one city: guides.stayCta.<text>.heading / .body. */
+  text?: 'list' | 'season' | 'shortlist';
 }
 
 /**
@@ -40,18 +43,9 @@ export const GUIDE_STAY_CTAS: Record<string, GuideStayCtaConfig> = {
   'living-in-tbilisi': { cityId: 'tbilisi-ge' },
   'living-in-valencia': { cityId: 'valencia-es' },
   'paraguay-tax-residency-remote-workers': { cityId: 'asuncion-py' },
-  'best-places-digital-nomads-2025': {
-    heading: 'Picked a city from the list?',
-    body: 'Once a destination makes your shortlist, compare stays for your dates on Booking.com.',
-  },
-  'where-to-go-next-by-season': {
-    heading: 'Know your season and city?',
-    body: 'When you have a destination for your months, compare stays for your dates on Booking.com.',
-  },
-  'how-to-choose-next-nomad-base': {
-    heading: 'Shortlist done?',
-    body: 'Once two or three destination pages pass your filters, compare stays for your dates on Booking.com.',
-  },
+  'best-places-digital-nomads-2025': { text: 'list' },
+  'where-to-go-next-by-season': { text: 'season' },
+  'how-to-choose-next-nomad-base': { text: 'shortlist' },
 };
 
 export interface GuideStayCta {
@@ -59,20 +53,24 @@ export interface GuideStayCta {
   body: string;
   url: string;
   partner: 'Booking.com';
-  /** City name when the guide is about one city. */
+  /** English city name when the guide is about one city. Used for tracking: never translated. */
   city?: string;
+  /** City name in the reader's language, for visible text. */
+  cityLabel?: string;
   destinationSlug?: string;
 }
 
-export function guideStayCta(slug: string): GuideStayCta | null {
+/** `slug` is always the English guide slug: it names the tracking campaign. */
+export function guideStayCta(slug: string, locale: Locale = DEFAULT_LOCALE): GuideStayCta | null {
   const config = GUIDE_STAY_CTAS[slug];
   if (!config) return null;
+  const t = getT(locale);
   const campaign = `guide-${slug}`;
 
   if (!config.cityId) {
     return {
-      heading: config.heading ?? '',
-      body: config.body ?? '',
+      heading: config.text ? t(`guides.stayCta.${config.text}.heading`) : '',
+      body: config.text ? t(`guides.stayCta.${config.text}.body`) : '',
       url: buildBookingStayUrl({ campaign }),
       partner: 'Booking.com',
     };
@@ -80,12 +78,14 @@ export function guideStayCta(slug: string): GuideStayCta | null {
 
   const city = cities.find((c) => c.id === config.cityId);
   if (!city) return null;
+  const cityLabel = cityDisplayName(city, locale);
   return {
-    heading: `Ready to book a month in ${city.name}?`,
-    body: `Search stays in ${city.name} on Booking.com. Filter for a desk and a kitchen, and read recent reviews for Wi-Fi before you pay.`,
+    heading: t('guides.stayCta.city.heading', { city: cityLabel }),
+    body: t('guides.stayCta.city.body', { city: cityLabel }),
     url: buildBookingStayUrl({ city: city.name, country: city.country, campaign }),
     partner: 'Booking.com',
     city: city.name,
+    cityLabel,
     destinationSlug: citySlug(city),
   };
 }

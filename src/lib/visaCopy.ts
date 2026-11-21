@@ -1,4 +1,11 @@
 import type { CityMeta } from '@/data/cities/types';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { getT } from '../i18n/dictionary';
+
+/** Visa type as shown to the reader: the dataset label in English, its translation elsewhere. */
+export function visaTypeLabel(visaType: string, locale: Locale = DEFAULT_LOCALE): string {
+  return locale === DEFAULT_LOCALE ? visaType : getT(locale).dyn(`data.visaType.${visaType}`, visaType);
+}
 
 const STAY_ALLOWANCE =
   /^(visa exemption|tourism visa exemption|visa free|visa-free|visa on arrival)$/i;
@@ -24,11 +31,17 @@ export function isMaxInitialNomadVisa(countryCode: string, visaType: string): bo
   return /digital nomad/i.test(visaType);
 }
 
-export function visaChipValue(countryCode: string, visaType: string, visaDays: number): string {
+export function visaChipValue(
+  countryCode: string,
+  visaType: string,
+  visaDays: number,
+  locale: Locale = DEFAULT_LOCALE,
+): string {
+  const t = getT(locale);
   if (isMaxInitialNomadVisa(countryCode, visaType)) {
-    return `${visaDays} days (max initial visa)`;
+    return t('city.visa.daysMaxInitial', { days: visaDays });
   }
-  return `${visaDays} days`;
+  return t('city.visa.days', { days: visaDays });
 }
 
 export function isApplicationBasedVisa(visaType: string): boolean {
@@ -39,16 +52,20 @@ export function isApplicationBasedVisa(visaType: string): boolean {
 /**
  * Getting There / prerender sentence.
  * Application visas are a path, not "up to N days for most nationalities."
+ * Pass the localized city's meta so the note is in the reader's language.
  */
-export function visaPathSentence(meta: Pick<CityMeta, 'visaType' | 'visaDays' | 'visaNote'>): string {
+export function visaPathSentence(
+  meta: Pick<CityMeta, 'visaType' | 'visaDays' | 'visaNote'>,
+  locale: Locale = DEFAULT_LOCALE,
+): string {
+  const t = getT(locale);
+  const type = visaTypeLabel(meta.visaType, locale);
   if (isApplicationBasedVisa(meta.visaType)) {
-    const base =
-      `Initial ${meta.visaType}: up to ${meta.visaDays} days. ` +
-      'Application required; eligibility and renewals vary, verify official sources.';
+    const base = t('city.visa.pathApplication', { type, days: meta.visaDays });
     return meta.visaNote ? `${base} ${meta.visaNote}` : base;
   }
   if (meta.visaNote) {
-    return `${meta.visaType}: up to ${meta.visaDays} days. ${meta.visaNote}`;
+    return t('city.visa.pathWithNote', { type, days: meta.visaDays, note: meta.visaNote });
   }
-  return `Up to ${meta.visaDays} days for most nationalities.`;
+  return t('city.visa.pathDefault', { days: meta.visaDays });
 }

@@ -4,8 +4,34 @@ import { origins, cityToOrigin, type Origin } from '@/data/origins';
 import { cities } from '@/data/cities';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName } from '@/i18n/format';
+import type { Locale } from '@/i18n/config';
+import type { TFunction } from '@/i18n/dictionary';
 
 const STORAGE_KEY = 'nomadspin_origin_city_slug';
+
+/** Name of an origin in the reader's language ("ANYWHERE" is interface text, the rest are cities). */
+export function originName(origin: Origin, locale: Locale, t: TFunction): string {
+  return origin.id === 'anywhere' ? t('globe.origin.anywhere') : cityDisplayName(origin, locale);
+}
+
+/** Country of an origin in the reader's language. Ids end with the ISO country code ("lisbon-pt"). */
+export function originCountry(origin: Origin, locale: Locale): string {
+  if (!origin.country || locale === 'en') return origin.country;
+  const code = origin.id.slice(origin.id.lastIndexOf('-') + 1).toUpperCase();
+  if (code.length !== 2) return origin.country;
+  return countryName(code === 'UK' ? 'GB' : code, origin.country, locale);
+}
+
+/** Search by the English or the translated name and country. */
+export function originMatches(origin: Origin, query: string, locale: Locale, t: TFunction): boolean {
+  const q = query.toLowerCase();
+  if (origin.name.toLowerCase().includes(q) || origin.country.toLowerCase().includes(q)) return true;
+  if (locale === 'en') return false;
+  return originName(origin, locale, t).toLowerCase().includes(q) || originCountry(origin, locale).toLowerCase().includes(q);
+}
 
 interface OriginSelectorProps {
   value: Origin | null;
@@ -16,6 +42,8 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
   const isMobile = useIsMobile();
+  const t = useT();
+  const locale = useLocale();
 
   const handleOriginFound = useCallback((origin: Origin) => {
     onChange(origin);
@@ -49,10 +77,10 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
 
   const hasOrigin = value && value.id !== 'anywhere';
   const displayName = geo.acquiredCity
-    ? (isMobile ? geo.acquiredCity.slice(0, 8) : `Located: ${geo.acquiredCity}`)
+    ? (isMobile ? geo.acquiredCity.slice(0, 8) : t('globe.origin.located', { city: geo.acquiredCity }))
     : hasOrigin
-      ? (isMobile ? value.name.slice(0, 8).toUpperCase() : `BASE: ${value.name.toUpperCase()}`)
-      : (isMobile ? 'BASE' : 'LOCATION: ANYWHERE');
+      ? (isMobile ? originName(value, locale, t).slice(0, 8).toUpperCase() : t('globe.origin.base', { city: originName(value, locale, t).toUpperCase() }))
+      : (isMobile ? t('globe.origin.baseShort') : t('globe.origin.locationAnywhere'));
 
   return (
     <div className="relative flex items-center gap-1">
@@ -61,8 +89,8 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
         onClick={geo.locate}
         disabled={geo.locating}
         className="p-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-all text-muted-foreground"
-        title="Detect my location"
-        aria-label="Detect my location"
+        title={t('globe.origin.detect')}
+        aria-label={t('globe.origin.detect')}
       >
         <Crosshair className={`w-3 h-3 ${geo.locating ? 'animate-spin' : ''}`} />
       </button>
@@ -70,8 +98,8 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
       <button
         onClick={() => setOpen(o => !o)}
         className="flex items-center gap-1.5 px-2 md:px-2.5 py-1.5 rounded-lg border border-border/40 bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
-        title="Filter recommendations based on your current base or target region"
-        aria-label="Choose your base location"
+        title={t('globe.origin.filterTitle')}
+        aria-label={t('globe.origin.choose')}
       >
         <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
         <span className={`text-[10px] font-mono tracking-wider max-w-[60px] md:max-w-[120px] truncate ${geo.acquiredCity ? 'text-primary' : 'text-muted-foreground'}`}>
@@ -91,7 +119,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search cities..."
+                  placeholder={t('globe.origin.search')}
                   className="flex-1 bg-transparent text-[10px] font-mono tracking-wider text-foreground placeholder:text-muted-foreground outline-none"
                   autoFocus
                 />
@@ -99,10 +127,7 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
             </div>
             <div className="overflow-y-auto flex-1">
               {(search.trim()
-                ? allSearchableOrigins.filter(o =>
-                    o.name.toLowerCase().includes(search.toLowerCase()) ||
-                    o.country.toLowerCase().includes(search.toLowerCase())
-                  )
+                ? allSearchableOrigins.filter(o => originMatches(o, search, locale, t))
                 : allSearchableOrigins
               ).map((origin) => (
                 <button
@@ -113,9 +138,9 @@ export default function OriginSelector({ value, onChange }: OriginSelectorProps)
                   }`}
                 >
                   <MapPin className="w-2.5 h-2.5 flex-shrink-0" />
-                  <span className="truncate">{origin.name}</span>
+                  <span className="truncate">{originName(origin, locale, t)}</span>
                   {origin.country && (
-                    <span className="text-muted-foreground/50 ml-auto flex-shrink-0">{origin.country}</span>
+                    <span className="text-muted-foreground/50 ml-auto flex-shrink-0">{originCountry(origin, locale)}</span>
                   )}
                 </button>
               ))}

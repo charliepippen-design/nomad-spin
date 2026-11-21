@@ -1,5 +1,7 @@
 import { useId, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
+import { useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
@@ -19,9 +21,12 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 /** Email field, explicit consent, and success and error states. */
 export default function NewsletterSignup({
   onSubscribe,
-  title = 'New cities and guides, by email',
-  blurb = 'An occasional email when we add a city or publish a guide. Unsubscribe with one click.',
+  title: titleProp,
+  blurb: blurbProp,
 }: NewsletterSignupProps) {
+  const t = useT();
+  const title = titleProp ?? t('common.newsletter.title');
+  const blurb = blurbProp ?? t('common.newsletter.blurb');
   const id = useId();
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
@@ -34,12 +39,12 @@ export default function NewsletterSignup({
     const value = email.trim();
     if (!EMAIL.test(value)) {
       setStatus('error');
-      setMessage('Enter a valid email address.');
+      setMessage(t('common.newsletter.invalidEmail'));
       return;
     }
     if (!consent) {
       setStatus('error');
-      setMessage('Tick the box to agree before you subscribe.');
+      setMessage(t('common.newsletter.consentRequired'));
       return;
     }
     setStatus('sending');
@@ -47,11 +52,11 @@ export default function NewsletterSignup({
     try {
       await onSubscribe(value);
       setStatus('success');
-      setMessage('Almost done. Check your inbox to confirm.');
+      setMessage(t('common.newsletter.success'));
       setEmail('');
     } catch {
       setStatus('error');
-      setMessage('That did not go through. Try again in a moment.');
+      setMessage(t('common.newsletter.failed'));
     }
   };
 
@@ -70,14 +75,14 @@ export default function NewsletterSignup({
         <form onSubmit={submit} noValidate className="mt-4 space-y-3">
           <div className="flex flex-col gap-2.5 sm:flex-row">
             <label htmlFor={`${id}-email`} className="sr-only">
-              Email address
+              {t('common.newsletter.emailLabel')}
             </label>
             <input
               id={`${id}-email`}
               type="email"
               autoComplete="email"
               inputMode="email"
-              placeholder="you@example.com"
+              placeholder={t('common.newsletter.emailPlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               aria-invalid={status === 'error'}
@@ -85,7 +90,7 @@ export default function NewsletterSignup({
               className="dns-input sm:flex-1"
             />
             <button type="submit" disabled={status === 'sending'} className="dns-btn-primary disabled:opacity-60">
-              {status === 'sending' ? 'Sending…' : 'Subscribe'}
+              {status === 'sending' ? t('common.newsletter.sending') : t('common.newsletter.subscribe')}
             </button>
           </div>
           <label className="flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed text-muted-foreground">
@@ -96,11 +101,13 @@ export default function NewsletterSignup({
               className="mt-0.5 h-4 w-4 accent-[hsl(var(--primary))]"
             />
             <span>
-              I agree to receive emails from Nomad Spin. See the{' '}
-              <Link to="/privacy-policy" className="underline underline-offset-4 hover:text-foreground">
-                privacy policy
-              </Link>
-              .
+              {rich(t('common.newsletter.consent'), {
+                link: (children) => (
+                  <Link to="/privacy-policy" className="underline underline-offset-4 hover:text-foreground">
+                    {children}
+                  </Link>
+                ),
+              })}
             </span>
           </label>
           {status === 'error' && message ? (

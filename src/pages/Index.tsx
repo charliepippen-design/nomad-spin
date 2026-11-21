@@ -6,7 +6,7 @@ import { useSoundManager } from '@/hooks/useSoundManager';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
-import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring';
+import { calculateMatchScore, generateIntel, generateRisks, matchReasonLabel } from '@/lib/scoring';
 import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import TopResultsGrid from '@/components/TopResultsGrid';
@@ -19,11 +19,15 @@ import { cities as ALL_CITIES } from '@/data/cities';
 import SocialShareBar from '@/components/SocialShareBar';
 import CityWallModal from '@/components/explore/CityWallModal';
 import GlobeTapHint from '@/components/GlobeTapHint';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link, useNavigate } from '@/i18n/Link';
 import { trackEvent } from '@/utils/analytics';
 import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
-import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
+import { homeDescription, homeTitle } from '@/lib/homeSeo';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName } from '@/i18n/format';
 
 import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -37,17 +41,20 @@ const Globe = lazy(() => import('@/components/Globe'));
 
 const GLOBE_ONLY_HASH = '#globe';
 
-const GlobeFallback = () => (
+const GlobeFallback = () => {
+  const t = useT();
+  return (
   <div className="w-full h-full absolute inset-0 flex items-center justify-center bg-background">
     <motion.div
       animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
       transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
       className="w-32 h-32 rounded-full bg-muted/30 border border-border/20 flex items-center justify-center"
     >
-      <span className="text-[10px] font-mono text-muted-foreground tracking-[0.2em]">LOADING</span>
+      <span className="text-[10px] font-mono text-muted-foreground tracking-[0.2em]">{t('home.loading')}</span>
     </motion.div>
   </div>
-);
+  );
+};
 
 export default function Index() {
   const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
@@ -92,6 +99,8 @@ export default function Index() {
   const hasMigrated = useRef(false);
   const { toast } = useToast();
   const isMobile = useIsMobile();
+  const t = useT();
+  const locale = useLocale();
 
   // A hovered card lingers briefly after the mouse leaves the marker, long enough to reach the card.
   // React reports "entered the card" before the canvas reports "left the globe",
@@ -210,8 +219,8 @@ export default function Index() {
       cloudSync.loadPreferences();
       cloudSync.migrateLocalData();
       toast({
-        title: "You're in",
-        description: "Your picks and settings will now be saved.",
+        title: t('home.toast.signedInTitle'),
+        description: t('home.toast.signedInText'),
       });
     }
   }, [auth.isAuthenticated, auth.user?.id]);
@@ -287,15 +296,21 @@ export default function Index() {
     if (!resultCity) return;
     const url = getShareableUrl();
     if (navigator.share) {
+      const cityName = cityDisplayName(resultCity, locale);
       navigator.share({
-        title: `Destination: ${resultCity.name}`,
-        text: `Next stop: ${resultCity.name}, ${resultCity.country}. Cost: $${resultCity.costUSD}/mo | Safety: ${resultCity.safety}/10`,
+        title: t('home.share.title', { city: cityName }),
+        text: t('home.share.text', {
+          city: cityName,
+          country: countryName(resultCity.countryCode, resultCity.country, locale),
+          cost: resultCity.costUSD,
+          safety: resultCity.safety,
+        }),
         url,
       }).catch(() => {});
     } else {
       navigator.clipboard?.writeText(url);
     }
-  }, [resultCity, getShareableUrl]);
+  }, [resultCity, getShareableUrl, t, locale]);
 
 
   // Use the top result's score if available, otherwise fallback to legacy
@@ -309,18 +324,18 @@ export default function Index() {
   const displayCity = enrichedCity || resultCity;
 
   const intel = displayCity
-    ? generateIntel(displayCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin)
+    ? generateIntel(displayCity, preferences.budgetRange[1], preferences.internetMin, preferences.origin, locale)
     : [];
 
-  const risks = displayCity ? generateRisks(displayCity) : [];
+  const risks = displayCity ? generateRisks(displayCity, locale) : [];
 
   const shareUrl = resultCity ? getShareableUrl() : window.location.href;
 
   return (
     <div className="noise-overlay relative min-h-screen w-full overflow-x-hidden bg-background">
       <SEO
-        title={HOME_TITLE}
-        description={HOME_DESCRIPTION}
+        title={homeTitle(locale)}
+        description={homeDescription(locale)}
         path="/"
       />
 
@@ -383,7 +398,7 @@ export default function Index() {
                 onClick={handleScrollToHowItWorks}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                How it works
+                {t('home.controls.howItWorks')}
               </button>
             </div>
 
@@ -393,13 +408,13 @@ export default function Index() {
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60">
                   <Flame className="w-3.5 h-3.5 text-orange-400" />
                   <span className="text-[11px] font-mono text-foreground/70 tracking-wider font-medium">
-                    {streak}D STREAK
+                    {t('home.controls.streak', { count: streak })}
                   </span>
                 </div>
               )}
               {spinCount > 0 && (
                 <span className="text-[11px] font-mono text-muted-foreground tracking-wider">
-                  {spinCount} spins
+                  {t.n('home.controls.spins', spinCount)}
                 </span>
               )}
             </div>
@@ -416,16 +431,16 @@ export default function Index() {
                           ? 'border-primary/50 bg-primary/10 text-primary'
                           : 'border-border/40 bg-background/60 text-muted-foreground hover:bg-muted'
                       }`}
-                      aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
+                      aria-label={autoSpin ? t('home.controls.autoRotateOff') : t('home.controls.autoRotateOn')}
                     >
                       <Globe2 className="w-3.5 h-3.5" />
                       <span className="text-[10px] font-mono tracking-wider">
-                        {autoSpin ? 'AUTO' : 'MANUAL'}
+                        {autoSpin ? t('home.controls.auto') : t('home.controls.manual')}
                       </span>
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom">
-                    <p className="text-xs">{autoSpin ? 'Click to disable auto-spin' : 'Click to enable auto-spin'}</p>
+                    <p className="text-xs">{autoSpin ? t('home.controls.autoSpinOffTip') : t('home.controls.autoSpinOnTip')}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -436,13 +451,13 @@ export default function Index() {
                     <button
                       onClick={() => setDayMode(d => !d)}
                       className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
-                      aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
+                      aria-label={dayMode ? t('home.controls.nightView') : t('home.controls.dayView')}
                     >
                       {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom">
-                    <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
+                    <p className="text-xs">{dayMode ? t('home.controls.nightMode') : t('home.controls.dayMode')}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -453,13 +468,13 @@ export default function Index() {
                     <button
                       onClick={sound.toggleMute}
                       className={`p-2 rounded-lg hover:bg-muted transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
-                      aria-label={sound.muted ? 'Unmute' : 'Mute'}
+                      aria-label={sound.muted ? t('home.controls.unmute') : t('home.controls.mute')}
                     >
                       {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom">
-                    <p className="text-xs">Toggle sounds</p>
+                    <p className="text-xs">{t('home.controls.toggleSounds')}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -485,12 +500,12 @@ export default function Index() {
                           </span>
                         </div>
                         <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
-                          My picks
+                          {t('home.controls.myPicks')}
                         </span>
                       </button>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p className="text-xs">Signed in · Click to sign out</p>
+                      <p className="text-xs">{t('home.controls.signedInTip')}</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -504,12 +519,12 @@ export default function Index() {
                       >
                         <Bookmark className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
                         <span className="text-[11px] font-mono text-primary/80 tracking-wider font-medium">
-                          Sign in · Save picks
+                          {t('home.controls.signInSave')}
                         </span>
                       </button>
                     </TooltipTrigger>
                     <TooltipContent side="bottom" className="max-w-[220px]">
-                      <p className="text-xs">Sign in to save cities, sync spins across devices, and track your streaks.</p>
+                      <p className="text-xs">{t('home.controls.signInTip')}</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -532,7 +547,7 @@ export default function Index() {
             onClick={() => setGlobeOnly(false)}
             className="dns-btn-secondary pointer-events-auto fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 !bg-card/90 backdrop-blur"
           >
-            Show menu <span className="hidden text-xs font-normal text-muted-foreground sm:inline">Esc</span>
+            {t('home.controls.showMenu')} <span className="hidden text-xs font-normal text-muted-foreground sm:inline">Esc</span>
           </button>
         )}
 
@@ -554,7 +569,7 @@ export default function Index() {
                   className="text-center"
                 >
                   <p className="font-mono text-xs tracking-[0.3em] text-foreground/60 uppercase">
-                    FINDING YOUR MATCH...
+                    {t('home.phase.finding')}
                   </p>
                 </motion.div>
               </motion.div>
@@ -575,7 +590,7 @@ export default function Index() {
                   transition={{ delay: 0.2 }}
                   className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
                 >
-                  YOUR TOP PICKS
+                  {t('home.phase.topPicks')}
                 </motion.p>
 
                 <TopResultsGrid
@@ -586,7 +601,7 @@ export default function Index() {
                       key={displayCity!.id}
                       city={displayCity!}
                       matchScore={matchScore}
-                      matchReason={primaryScored?.reason}
+                      matchReason={primaryScored?.reasonKey ? matchReasonLabel(primaryScored.reasonKey, locale) : primaryScored?.reason}
                       intel={intel}
                       risks={risks}
                       originCity={preferences.origin?.name}
@@ -612,7 +627,7 @@ export default function Index() {
                   className="flex items-center gap-2 text-[10px] font-mono text-muted-foreground hover:text-foreground transition-colors cursor-pointer mt-2 tracking-[0.2em] uppercase"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  START OVER
+                  {t('home.phase.startOver')}
                 </motion.button>
               </motion.div>
             )}
@@ -682,8 +697,8 @@ export default function Index() {
       {/* Social Share Bar — always visible */}
       {!globeOnly && !pastHero && (
         <SocialShareBar
-          cityName={resultCity?.name}
-          country={resultCity?.country}
+          cityName={resultCity ? cityDisplayName(resultCity, locale) : undefined}
+          country={resultCity ? countryName(resultCity.countryCode, resultCity.country, locale) : undefined}
           shareUrl={shareUrl}
         />
       )}

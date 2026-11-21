@@ -1,66 +1,113 @@
 import type { City } from '../data/cities';
 import { guides, type Guide } from '../data/guides';
+import { DEFAULT_LOCALE, LOCALE_INFO, type Locale } from '../i18n/config';
+import { guideForLocale, localizeCity } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
+import { formatNumber, monthName } from '../i18n/format';
+import { localizeHref } from '../i18n/paths';
 import { citySlug } from './citySlug';
-import { isMaxInitialNomadVisa, visaPathSentence } from './visaCopy';
+import { isMaxInitialNomadVisa, visaPathSentence, visaTypeLabel } from './visaCopy';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
 
+/**
+ * A dataset number inside a sentence. English keeps the bare digits it has
+ * always printed ("1200"); other languages get their own separators.
+ */
+export function plainNumber(value: number, locale: Locale = DEFAULT_LOCALE): string {
+  return locale === DEFAULT_LOCALE ? String(value) : formatNumber(value, locale);
+}
+
+/**
+ * A dataset label (region, vibe, landscape, coworking density, language).
+ * English shows the dataset value as stored; other languages use data.<group>.<value>.
+ */
+export function dataLabel(
+  group: 'region' | 'vibe' | 'landscape' | 'density' | 'language',
+  value: string,
+  locale: Locale = DEFAULT_LOCALE,
+): string {
+  return locale === DEFAULT_LOCALE ? value : getT(locale).dyn(`data.${group}.${value}`, value);
+}
+
 /** Format month lists for prose / meta (e.g. "Nov, Dec, Jan"). */
-export function formatMonths(months: string[] | undefined): string {
+export function formatMonths(months: string[] | undefined, locale: Locale = DEFAULT_LOCALE): string {
   if (!months || months.length === 0) return '';
-  return months.join(', ');
+  return months.map((month) => monthName(month, locale)).join(', ');
+}
+
+/** Tags inside a sentence are lowercase in other languages ("mare, montagna"); English prints the dataset value. */
+function inlineTags(group: 'vibe' | 'landscape', values: string[], locale: Locale): string {
+  if (locale === DEFAULT_LOCALE) return values.join(', ');
+  return values.map((value) => dataLabel(group, value, locale).toLowerCase()).join(', ');
 }
 
 /**
  * Deterministic intro from the same City fields the globe scores.
  * No LLM: stable output for prerender + React.
  */
-export function destinationIntro(city: City): string {
-  const best = formatMonths(city.weather?.bestMonths);
-  const rainy = formatMonths(city.weather?.rainyMonths);
-  const vibes = city.vibe?.length ? city.vibe.join(', ') : 'mixed';
-  const landscapes = city.landscape?.length ? city.landscape.join(', ') : 'urban';
+export function destinationIntro(source: City, locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
+  const city = localizeCity(source, locale);
+  const best = formatMonths(city.weather?.bestMonths, locale);
+  const rainy = formatMonths(city.weather?.rainyMonths, locale);
+  const vibes = city.vibe?.length ? inlineTags('vibe', city.vibe, locale) : t('city.intro.vibesMixed');
+  const landscapes = city.landscape?.length
+    ? inlineTags('landscape', city.landscape, locale)
+    : t('city.intro.landscapeUrban');
 
-  const regionArticle = city.region === 'Asia' || city.region === 'Africa' || city.region === 'Oceania' ? 'an' : 'a';
-  let intro =
-    `${city.name}, ${city.country} is ${regionArticle} ${city.region} base for digital nomads ` +
-    `with a typical solo monthly cost around $${city.costUSD}, average internet around ` +
-    `${city.internetMbps} Mbps, and a safety score of ${city.safety}/10.`;
+  // English only: "an Asia base", "a Europe base". Other languages use one wording for both keys.
+  const startsWithVowel = city.region === 'Asia' || city.region === 'Africa' || city.region === 'Oceania';
+  const parts = [
+    t(startsWithVowel ? 'city.intro.leadAn' : 'city.intro.leadA', {
+      city: city.name,
+      country: city.country,
+      region: dataLabel('region', city.region, locale),
+      cost: plainNumber(city.costUSD, locale),
+      mbps: plainNumber(city.internetMbps, locale),
+      safety: plainNumber(city.safety, locale),
+    }),
+  ];
 
-  if (best) {
-    intro += ` In our dataset the friendliest months are ${best}`;
-    if (rainy) intro += `, while rainy months to plan around are ${rainy}`;
-    intro += '.';
-  } else if (rainy) {
-    intro += ` Rainy months to plan around are ${rainy}.`;
-  }
+  if (best && rainy) parts.push(t('city.intro.monthsBoth', { best, rainy }));
+  else if (best) parts.push(t('city.intro.monthsBest', { best }));
+  else if (rainy) parts.push(t('city.intro.monthsRainy', { rainy }));
 
-  const tz = city.meta.timeZoneUtc ? ` Time zone ${city.meta.timeZoneUtc}.` : '';
-  intro +=
-    ` Place feel leans ${landscapes} with vibes tagged ${vibes}. ` +
-    `Visa: ${visaPathSentence(city.meta)}` +
-    tz;
+  parts.push(t('city.intro.feel', { landscapes, vibes }));
+  parts.push(t('city.intro.visa', { visa: visaPathSentence(city.meta, locale) }));
+  if (city.meta.timeZoneUtc) parts.push(t('city.intro.timeZone', { tz: city.meta.timeZoneUtc }));
 
-  return intro;
+  return parts.join(' ');
 }
 
-function visaMetaClause(city: City): string {
-  if (city.countryCode === 'TH') return 'tourism exemption (passport-dependent)';
-  if (city.meta.visaNote) return `${city.meta.visaType} (permit path; verify)`;
-  return `${city.meta.visaType} (${city.meta.visaDays} days)`;
+function visaMetaClause(city: City, locale: Locale): string {
+  const t = getT(locale);
+  if (city.countryCode === 'TH') return t('city.seo.visaThailand');
+  const type = visaTypeLabel(city.meta.visaType, locale);
+  if (city.meta.visaNote) return t('city.seo.visaPermit', { type });
+  return t('city.seo.visaDays', { type, days: city.meta.visaDays });
 }
 
-export function destinationMetaDescription(city: City): string {
-  const best = formatMonths(city.weather?.bestMonths);
-  const base =
-    `${city.name} for digital nomads: $${city.costUSD}/mo, ${city.internetMbps} Mbps, ` +
-    `safety ${city.safety}/10, ${visaMetaClause(city)}`;
-  const withMonths = best ? `${base}. Best months: ${best}.` : `${base}.`;
+export function destinationMetaDescription(source: City, locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
+  const city = localizeCity(source, locale);
+  const best = formatMonths(city.weather?.bestMonths, locale);
+  const vars = {
+    city: city.name,
+    cost: plainNumber(city.costUSD, locale),
+    mbps: plainNumber(city.internetMbps, locale),
+    safety: plainNumber(city.safety, locale),
+    visa: visaMetaClause(city, locale),
+  };
+  const withMonths = best
+    ? t('city.seo.descriptionMonths', { ...vars, months: best })
+    : t('city.seo.description', vars);
   return withMonths.length <= 160 ? withMonths : `${withMonths.slice(0, 157).replace(/\s+\S*$/, '')}…`;
 }
 
-export function destinationPageTitle(city: City): string {
-  return `${city.name}, ${city.country}: Digital Nomad Guide | Nomad Spin`;
+export function destinationPageTitle(source: City, locale: Locale = DEFAULT_LOCALE): string {
+  const city = localizeCity(source, locale);
+  return getT(locale)('city.seo.title', { city: city.name, country: city.country });
 }
 
 /** Guides whose relatedDestinations include this city slug (Bali living, season calendar, etc.). */
@@ -147,46 +194,54 @@ export function hubRelatedGuides(city: City): Guide[] {
 }
 
 /** Crawlable living-guide link for prerendered destination HTML. Empty when the city has no living guide. */
-export function destinationFieldGuideHtml(city: City): string {
+export function destinationFieldGuideHtml(city: City, locale: Locale = DEFAULT_LOCALE): string {
   const guide = livingGuideForCity(city);
   if (!guide) return '';
-  return `<h2>Field guide</h2><p><a href="/guides/${escHtml(guide.slug)}" style="color:#34d399">${escHtml(guide.title)}</a></p>`;
+  const title = guideForLocale(guide, locale).title;
+  const href = localizeHref(`/guides/${escHtml(guide.slug)}`, locale);
+  return `<h2>${escHtml(getT(locale)('city.fieldGuide.title'))}</h2><p><a href="${href}" style="color:#34d399">${escHtml(title)}</a></p>`;
 }
 
-export function destinationJsonLd(city: City, pageUrl: string): Record<string, unknown> {
-  const description = destinationIntro(city);
+export function destinationJsonLd(
+  source: City,
+  pageUrl: string,
+  locale: Locale = DEFAULT_LOCALE,
+): Record<string, unknown> {
+  const t = getT(locale);
+  const city = localizeCity(source, locale);
+  const description = destinationIntro(source, locale);
   const additionalProperty = [
-    { '@type': 'PropertyValue', name: 'Monthly cost (USD)', value: city.costUSD },
-    { '@type': 'PropertyValue', name: 'Internet Mbps', value: city.internetMbps },
-    { '@type': 'PropertyValue', name: 'Safety score', value: city.safety },
+    { '@type': 'PropertyValue', name: t('city.ld.monthlyCost'), value: city.costUSD },
+    { '@type': 'PropertyValue', name: t('city.ld.internet'), value: city.internetMbps },
+    { '@type': 'PropertyValue', name: t('city.ld.safety'), value: city.safety },
     {
       '@type': 'PropertyValue',
       name: isMaxInitialNomadVisa(city.countryCode, city.meta.visaType)
-        ? 'Visa days (maximum initial validity of the nomad visa)'
-        : 'Visa days',
+        ? t('city.ld.visaDaysMax')
+        : t('city.ld.visaDays'),
       value: city.meta.visaDays,
     },
-    { '@type': 'PropertyValue', name: 'Visa type', value: city.meta.visaType },
+    { '@type': 'PropertyValue', name: t('city.ld.visaType'), value: visaTypeLabel(city.meta.visaType, locale) },
   ];
   if (city.meta.visaNote) {
     additionalProperty.push({
       '@type': 'PropertyValue',
-      name: 'Visa note',
+      name: t('city.ld.visaNote'),
       value: city.meta.visaNote,
     });
   }
   if (city.weather?.bestMonths?.length) {
     additionalProperty.push({
       '@type': 'PropertyValue',
-      name: 'Best months',
-      value: city.weather.bestMonths.join(', '),
+      name: t('city.ld.bestMonths'),
+      value: formatMonths(city.weather.bestMonths, locale),
     });
   }
   if (city.weather?.rainyMonths?.length) {
     additionalProperty.push({
       '@type': 'PropertyValue',
-      name: 'Rainy months',
-      value: city.weather.rainyMonths.join(', '),
+      name: t('city.ld.rainyMonths'),
+      value: formatMonths(city.weather.rainyMonths, locale),
     });
   }
 
@@ -196,6 +251,7 @@ export function destinationJsonLd(city: City, pageUrl: string): Record<string, u
     name: `${city.name}, ${city.country}`,
     description,
     url: pageUrl,
+    ...(locale === DEFAULT_LOCALE ? {} : { inLanguage: LOCALE_INFO[locale].htmlLang }),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: city.lat,
@@ -206,7 +262,7 @@ export function destinationJsonLd(city: City, pageUrl: string): Record<string, u
       addressLocality: city.name,
       addressCountry: city.countryCode,
     },
-    touristType: 'Digital nomad',
+    touristType: t('city.ld.touristType'),
     additionalProperty,
   };
 }

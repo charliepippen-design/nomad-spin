@@ -7,7 +7,13 @@ import { cities } from '@/data/cities';
 import { Slider } from '@/components/ui/slider';
 import { useSoundManager } from '@/hooks/useSoundManager';
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { originCountry, originMatches, originName } from '@/components/OriginSelector';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName, formatNumber } from '@/i18n/format';
+import { rich } from '@/i18n/rich';
 
+// Labels below are the English fallback; the text shown comes from globe.prefs.* in the dictionary.
 const vibeOptions: { label: string; value: VibeOption }[] = [
   { label: 'BEACH', value: 'beach' },
   { label: 'PARTY', value: 'party' },
@@ -38,6 +44,8 @@ const regionOptions: { label: string; value: RegionOption }[] = [
 ];
 
 interface PresetConfig {
+  /** Dictionary id: globe.prefs.preset.<id>.label / .subtitle */
+  id: 'budget' | 'comfort' | 'quiet';
   label: string;
   subtitle: string;
   icon: React.ReactNode;
@@ -52,6 +60,7 @@ interface PresetConfig {
 
 const presets: PresetConfig[] = [
   {
+    id: 'budget',
     label: 'BUDGET SAVER',
     subtitle: 'Cost < $1,500',
     icon: <Zap className="w-3.5 h-3.5" />,
@@ -63,6 +72,7 @@ const presets: PresetConfig[] = [
     region: 'All',
   },
   {
+    id: 'comfort',
     label: 'HIGH COMFORT',
     subtitle: 'Fast + Safe',
     icon: <Briefcase className="w-3.5 h-3.5" />,
@@ -74,6 +84,7 @@ const presets: PresetConfig[] = [
     region: 'All',
   },
   {
+    id: 'quiet',
     label: 'QUIET / PRODUCTIVE',
     subtitle: 'Low nightlife',
     icon: <Mountain className="w-3.5 h-3.5" />,
@@ -95,6 +106,8 @@ interface PreferencesModalProps {
 export default function PreferencesModal({ open, onClose, onSpin }: PreferencesModalProps) {
   const { preferences, setPreferences, filterCities, filteredCities, getNearMisses } = useSpinStore();
   const sound = useSoundManager();
+  const t = useT();
+  const locale = useLocale();
   const [localBudget, setLocalBudget] = useState(preferences.budgetRange);
   const [localInternetRange, setLocalInternetRange] = useState<[number, number]>([10, preferences.internetMin]);
   const [localSafetyRange, setLocalSafetyRange] = useState<[number, number]>([1, preferences.safetyMin]);
@@ -204,10 +217,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   }, []);
 
   const filteredOrigins = originSearch.trim()
-    ? allSearchableOrigins.filter(o =>
-        o.name.toLowerCase().includes(originSearch.toLowerCase()) ||
-        o.country.toLowerCase().includes(originSearch.toLowerCase())
-      )
+    ? allSearchableOrigins.filter(o => originMatches(o, originSearch, locale, t))
     : allSearchableOrigins;
 
   const hasOrigin = preferences.origin && preferences.origin.id !== 'anywhere';
@@ -217,17 +227,20 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   // Build mission summary
   const buildSummary = () => {
     const parts: string[] = [];
-    const budgetLabel = localBudget[1] <= 1200 ? 'resource-efficient' : localBudget[1] <= 2500 ? 'mid-range' : 'premium';
+    const budgetLabel = localBudget[1] <= 1200 ? t('globe.prefs.summary.budgetLow') : localBudget[1] <= 2500 ? t('globe.prefs.summary.budgetMid') : t('globe.prefs.summary.budgetHigh');
     parts.push(budgetLabel);
-    if (localInternetRange[1] >= 100) parts.push('high-speed');
-    if (localSafetyRange[1] >= 8) parts.push('high-security');
-    if (preferences.vibes.length > 0) parts.push(preferences.vibes.join('/'));
-    if (preferences.landscapes.length > 0) parts.push(preferences.landscapes.join('/'));
+    if (localInternetRange[1] >= 100) parts.push(t('globe.prefs.summary.fast'));
+    if (localSafetyRange[1] >= 8) parts.push(t('globe.prefs.summary.safe'));
+    // English keeps the raw tags (beach/party); other languages use the shared vocabulary.
+    const tag = (group: 'vibe' | 'landscape', value: string) =>
+      locale === 'en' ? value : t.dyn(`data.${group}.${value}`, value).toLowerCase();
+    if (preferences.vibes.length > 0) parts.push(preferences.vibes.map((v) => tag('vibe', v)).join('/'));
+    if (preferences.landscapes.length > 0) parts.push(preferences.landscapes.map((l) => tag('landscape', l)).join('/'));
 
-    const origin = hasOrigin ? preferences.origin!.name : 'GLOBAL';
-    const region = preferences.region !== 'All' ? preferences.region : 'all regions';
+    const origin = hasOrigin ? originName(preferences.origin!, locale, t) : t('globe.prefs.summary.global');
+    const region = preferences.region !== 'All' ? t.dyn(`globe.region.${preferences.region}`, preferences.region) : t('globe.prefs.summary.allRegions');
 
-    return `Searching for ${parts.join(', ')} destinations in ${region} from ${origin}...`;
+    return t('globe.prefs.summary', { traits: parts.join(', '), region, origin });
   };
 
   return (
@@ -254,11 +267,11 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 <div className="flex items-center justify-between px-8 pt-8 pb-2">
                   <div>
                     <h2 className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground">
-                      YOUR PREFERENCES
+                      {t('globe.prefs.title')}
                     </h2>
                     <div className="h-px w-12 bg-gradient-to-r from-foreground/20 to-transparent mt-2" />
                   </div>
-                  <button onClick={onClose} aria-label="Close preferences modal" className="p-2 rounded-lg hover:bg-white/5 transition-colors">
+                  <button onClick={onClose} aria-label={t('globe.prefs.close')} className="p-2 rounded-lg hover:bg-white/5 transition-colors">
                     <X className="w-4 h-4 text-muted-foreground" />
                   </button>
                 </div>
@@ -266,7 +279,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                 {/* Presets */}
                 <div className="px-8 pt-4 pb-2">
                   <label className="text-[9px] font-mono tracking-[0.1em] text-muted-foreground/60 mb-3 block uppercase">
-                    QUICK PRESETS
+                    {t('globe.prefs.quickPresets')}
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {presets.map((preset) => (
@@ -276,8 +289,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         className="flex flex-col items-center gap-1 py-3 px-2 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                       >
                         <span className="text-muted-foreground group-hover:text-foreground transition-colors">{preset.icon}</span>
-                        <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">{preset.label}</span>
-                        <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">{preset.subtitle}</span>
+                        <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">{t.dyn(`globe.prefs.preset.${preset.id}.label`, preset.label)}</span>
+                        <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">{t.dyn(`globe.prefs.preset.${preset.id}.subtitle`, preset.subtitle)}</span>
                       </button>
                     ))}
                     {/* PREFERRED REGION preset */}
@@ -289,8 +302,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       className="flex flex-col items-center gap-1 py-3 px-2 rounded-lg border border-border/50 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                     >
                       <Globe className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                      <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">REGION</span>
-                      <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">Pick region</span>
+                      <span className="text-[8px] font-mono tracking-[0.1em] text-muted-foreground group-hover:text-foreground transition-colors leading-tight">{t('globe.prefs.preset.region.label')}</span>
+                      <span className="text-[7px] font-mono text-muted-foreground/50 leading-tight">{t('globe.prefs.preset.region.subtitle')}</span>
                     </button>
                   </div>
                 </div>
@@ -300,7 +313,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Extraction Point */}
                   <div className="py-6 border-b border-border">
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-3 block uppercase">
-                      CURRENT LOCATION
+                      {t('globe.prefs.currentLocation')}
                     </label>
                     <div className="relative flex gap-2">
                       {/* Locate Me button */}
@@ -308,7 +321,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         onClick={geo.locate}
                         disabled={geo.locating}
                         className="flex-shrink-0 px-3 py-3.5 rounded-lg bg-white/[0.03] border border-border hover:border-destructive/50 hover:text-destructive hover:shadow-[0_0_12px_rgba(255,0,0,0.3)] transition-all text-muted-foreground"
-                        title="Detect my location"
+                        title={t('globe.origin.detect')}
                       >
                         <Crosshair className={`w-4 h-4 ${geo.locating ? 'animate-spin' : ''}`} />
                       </button>
@@ -318,10 +331,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       >
                         <span className={`font-mono tracking-wider ${geo.acquiredCity ? 'text-destructive typing-effect' : hasOrigin ? 'text-white' : 'text-muted-foreground'}`}>
                           {geo.acquiredCity
-                            ? `Located: ${geo.acquiredCity}`
+                            ? t('globe.origin.located', { city: geo.acquiredCity })
                             : preferences.origin
-                              ? `${preferences.origin.name}${preferences.origin.country ? `, ${preferences.origin.country}` : ''}`
-                              : 'Select origin...'}
+                              ? `${originName(preferences.origin, locale, t)}${preferences.origin.country ? `, ${originCountry(preferences.origin, locale)}` : ''}`
+                              : t('globe.prefs.selectOrigin')}
                         </span>
                         <motion.div animate={{ rotate: originOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                           <Search className="w-3.5 h-3.5 text-muted-foreground" />
@@ -343,7 +356,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                                   type="text"
                                   value={originSearch}
                                   onChange={(e) => setOriginSearch(e.target.value)}
-                                  placeholder="Search cities..."
+                                  placeholder={t('globe.origin.search')}
                                   className="flex-1 bg-transparent text-sm text-white placeholder:text-muted-foreground outline-none font-mono tracking-wider"
                                   autoFocus
                                 />
@@ -355,12 +368,12 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                                 onClick={() => selectOrigin(o)}
                                 className="w-full text-left px-5 py-2.5 text-sm text-foreground/70 hover:bg-white/[0.05] hover:text-foreground transition-colors font-mono tracking-wider flex items-center justify-between"
                               >
-                                <span>{o.name}{o.country ? `, ${o.country}` : ''}</span>
+                                <span>{originName(o, locale, t)}{o.country ? `, ${originCountry(o, locale)}` : ''}</span>
                                 {preferences.origin?.id === o.id && <Check className="w-3 h-3 text-foreground/50" />}
                               </button>
                             ))}
                             {filteredOrigins.length === 0 && (
-                              <div className="px-5 py-4 text-xs text-muted-foreground font-mono">NO MATCHES</div>
+                              <div className="px-5 py-4 text-xs text-muted-foreground font-mono">{t('globe.prefs.noMatches')}</div>
                             )}
                           </motion.div>
                         )}
@@ -371,7 +384,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Budget */}
                   <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
-                      MONTHLY BUDGET
+                      {t('globe.prefs.monthlyBudget')}
                     </label>
                     <motion.div
                       animate={budgetAnimating ? { scale: 1.05 } : { scale: 1 }}
@@ -379,7 +392,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                       className="mb-4"
                     >
                       <span className={`text-2xl font-mono font-light tracking-wider transition-all duration-150 ${budgetAnimating ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-white'}`}>
-                        ${localBudget[0].toLocaleString()} to ${localBudget[1].toLocaleString()}
+                        {t('globe.prefs.budgetRange', { min: formatNumber(localBudget[0], locale), max: formatNumber(localBudget[1], locale) })}
                       </span>
                     </motion.div>
                     <div className="relative z-10 py-2">
@@ -390,10 +403,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Internet */}
                   <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
-                      INTERNET SPEED
+                      {t('globe.prefs.internetSpeed')}
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localInternetRange[0]} to {localInternetRange[1]} MBPS
+                      {t('globe.prefs.internetRange', { min: localInternetRange[0], max: localInternetRange[1] })}
                     </span>
                     <div className="relative z-10 py-2">
                       <Slider min={10} max={500} step={10} value={localInternetRange} onValueChange={(v) => setLocalInternetRange(v as [number, number])} />
@@ -403,10 +416,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Safety */}
                   <div className="py-6 border-b border-border" style={{ minHeight: 100 }}>
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-1 block uppercase">
-                      SAFETY RATING
+                      {t('globe.prefs.safetyRating')}
                     </label>
                     <span className="text-2xl font-mono font-light tracking-wider text-white mb-4 block">
-                      {localSafetyRange[0]} to {localSafetyRange[1]} / 10
+                      {t('globe.prefs.safetyRange', { min: formatNumber(localSafetyRange[0], locale), max: formatNumber(localSafetyRange[1], locale) })}
                     </span>
                     <div className="relative z-10 py-2">
                       <Slider min={1} max={10} step={0.5} value={localSafetyRange} onValueChange={(v) => setLocalSafetyRange(v as [number, number])} />
@@ -416,7 +429,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Vibes */}
                   <div className="py-6 border-b border-border">
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
-                      YOUR VIBE
+                      {t('globe.prefs.yourVibe')}
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {vibeOptions.map((v) => (
@@ -429,7 +442,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                               : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
-                          {v.label}
+                          {t.dyn(`globe.prefs.vibe.${v.value}`, v.label)}
                         </button>
                       ))}
                     </div>
@@ -438,7 +451,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Landscape */}
                   <div className="py-6 border-b border-border">
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
-                      LANDSCAPE
+                      {t('globe.prefs.landscapeTitle')}
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {landscapeOptions.map((l) => (
@@ -451,7 +464,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                               : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
-                          {l.icon} {l.label}
+                          {l.icon} {t.dyn(`globe.prefs.landscape.${l.value}`, l.label)}
                         </button>
                       ))}
                     </div>
@@ -460,7 +473,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                   {/* Region */}
                   <div id="region-section" className="py-6">
                     <label className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground mb-4 block uppercase">
-                      PREFERRED REGION
+                      {t('globe.prefs.preferredRegion')}
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {regionOptions.map((r) => (
@@ -473,7 +486,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                               : 'border-border bg-transparent text-muted-foreground hover:border-border hover:text-foreground/60'
                           }`}
                         >
-                          {r.label}
+                          {t.dyn(`globe.prefs.region.${r.value}`, r.label)}
                         </button>
                       ))}
                     </div>
@@ -489,7 +502,9 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
 
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-mono tracking-[0.1em] text-muted-foreground uppercase">
-                      <span className={`${impossible ? 'text-destructive' : 'text-foreground'} font-medium`}>{filteredCities.length}</span> DESTINATIONS FOUND
+                      {rich(t.n('globe.prefs.found', filteredCities.length), {
+                        count: (count) => <span className={`${impossible ? 'text-destructive' : 'text-foreground'} font-medium`}>{count}</span>,
+                      })}
                     </span>
                     <div className="flex gap-2">
                       {impossible && nearMisses.length > 0 && (
@@ -497,7 +512,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           onClick={() => setShowNearMisses(!showNearMisses)}
                           className="text-[10px] font-mono text-foreground/50 hover:text-foreground/80 transition-colors tracking-wider"
                         >
-                          {showNearMisses ? 'HIDE' : `${nearMisses.length} CLOSE MATCHES`}
+                          {showNearMisses ? t('globe.prefs.hide') : t.n('globe.prefs.closeMatches', nearMisses.length)}
                         </button>
                       )}
                       {impossible && (
@@ -505,7 +520,7 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                           onClick={() => { useSpinStore.getState().autoFixFilters(); setLocalBudget([500, 5000]); setLocalInternetRange([10, 500]); setLocalSafetyRange([1, 10]); }}
                           className="text-[10px] font-mono text-destructive/80 hover:text-destructive transition-colors tracking-wider underline underline-offset-2"
                         >
-                          RESET FILTERS
+                          {t('globe.prefs.reset')}
                         </button>
                       )}
                     </div>
@@ -523,8 +538,8 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                         <div className="space-y-1.5 max-h-24 overflow-y-auto">
                           {nearMisses.slice(0, 5).map((city) => (
                             <div key={city.id} className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-white/[0.03] text-[10px] font-mono text-foreground/50">
-                              <span>{city.name}, {city.country}</span>
-                              <span>${city.costUSD}/mo</span>
+                              <span>{cityDisplayName(city, locale)}, {countryName(city.countryCode, city.country, locale)}</span>
+                              <span>${city.costUSD}{t('data.metric.perMonth')}</span>
                             </div>
                           ))}
                         </div>
@@ -544,11 +559,11 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
                     {impossible ? (
                       <span className="flex items-center justify-center gap-2">
                         <AlertTriangle className="w-4 h-4" />
-                        No destinations match
+                        {t('globe.prefs.noMatch')}
                       </span>
                     ) : (
                       <>
-                        <span className="relative z-10">Find my next destination</span>
+                        <span className="relative z-10">{t('globe.prefs.findNext')}</span>
                         <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_8px,rgba(0,0,0,0.05)_8px,rgba(0,0,0,0.05)_16px)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </>
                     )}

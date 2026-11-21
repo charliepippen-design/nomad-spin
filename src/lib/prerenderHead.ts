@@ -27,6 +27,15 @@ function setHeadTag(html: string, tag: 'meta' | 'link', keyAttr: string, key: st
   return placed ? out : out.replace('</head>', `  ${element}\n</head>`);
 }
 
+/** Adds the hreflang rows of a page to its head. No rows, no change. */
+export function injectAlternates(html: string, alternates?: { hreflang: string; href: string }[]): string {
+  if (!alternates?.length) return html;
+  const links = alternates
+    .map((row) => `  <link data-rh="true" rel="alternate" hreflang="${esc(row.hreflang)}" href="${esc(row.href)}" />`)
+    .join('\n');
+  return html.replace('</head>', `${links}\n</head>`);
+}
+
 export function injectSeo(
   html: string,
   opts: {
@@ -36,6 +45,10 @@ export function injectSeo(
     ogType?: string;
     image?: SocialImage;
     jsonLd?: object | object[];
+    /** <html lang> and og:locale of the page. English when omitted. */
+    lang?: { htmlLang: string; ogLocale: string };
+    /** hreflang rows (see alternatesFor in src/i18n/paths.ts). None when the page is English only. */
+    alternates?: { hreflang: string; href: string }[];
   }
 ): string {
   const desc = esc(opts.description);
@@ -67,6 +80,11 @@ export function injectSeo(
   let out = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   for (const [attr, key, value] of metas) out = setHeadTag(out, 'meta', attr, key, 'content', value);
   out = setHeadTag(out, 'link', 'rel', 'canonical', 'href', url);
+  if (opts.lang) {
+    out = out.replace(/<html lang="[^"]*"/, `<html lang="${esc(opts.lang.htmlLang)}"`);
+    out = setHeadTag(out, 'meta', 'property', 'og:locale', 'content', esc(opts.lang.ogLocale));
+  }
+  out = injectAlternates(out, opts.alternates);
 
   // Drop the homepage WebSite/Organization graph so destination pages don't claim to be the homepage.
   out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdBlock || '');

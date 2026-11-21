@@ -27,6 +27,9 @@
 import { slugify } from '@/lib/slugify';
 import type { Vertical } from '@/utils/analytics';
 import { getCtaVariant } from '@/utils/analytics';
+import type { Locale } from '../i18n/config';
+import { getT } from '../i18n/dictionary';
+import { cityDisplayName } from '../i18n/content';
 
 export type PartnerKey = 'flatio' | 'booking' | 'airalo' | 'ivisa' | 'skyscanner' | 'safetywing' | 'nordvpn';
 
@@ -282,6 +285,8 @@ export interface AffiliateLinks {
 }
 
 interface CityInput {
+  /** City id. When given, labels use the city's name in the reader's language. */
+  id?: string;
   name: string;
   country: string;
   countryCode: string;
@@ -302,8 +307,12 @@ export const SPONSORED_REL = 'sponsored nofollow noopener noreferrer';
  * Generate affiliate links for a given city.
  * @param city        - City data with name, country, countryCode
  * @param originCity  - Optional origin city name for directional flight search
+ * @param locale      - Language of the labels only. URLs, partners and tracking never change.
  */
-export function generateAffiliateLinks(city: CityInput, originCity?: string): AffiliateLinks {
+export function generateAffiliateLinks(city: CityInput, originCity?: string, locale: Locale = 'en'): AffiliateLinks {
+  const t = getT(locale);
+  // URLs always use the English name; only the visible label is localized.
+  const labelCity = city.id ? cityDisplayName({ id: city.id, name: city.name }, locale) : city.name;
   const accom = buildAccommodationUrl(city.name, city.country, city.countryCode);
   const flights = buildFlightsUrl(city.name, originCity);
   const esim = liveOnly(buildEsimUrl(city.name, city.countryCode));
@@ -314,27 +323,27 @@ export function generateAffiliateLinks(city: CityInput, originCity?: string): Af
   return {
     accommodation: {
       ...accom,
-      label: `Find Stays in ${city.name}`,
+      label: t('globe.affiliate.stays', { city: labelCity }),
       vertical: 'accommodation',
     },
     flights: {
       ...flights,
       label: originCity
-        ? `Find Flights from ${originCity} to ${city.name}`
-        : `Find Flights to ${city.name}`,
+        ? t('globe.affiliate.flightsFrom', { origin: originCity, city: labelCity })
+        : t('globe.affiliate.flights', { city: labelCity }),
       vertical: 'flights',
     },
     connectivity: {
       ...esim,
-      label: `Get eSIM for ${city.name}`,
+      label: t('globe.affiliate.esim', { city: labelCity }),
       vertical: 'esim',
     },
     insurance: {
       ...insurance,
-      label: 'Travel Insurance',
+      label: t('globe.affiliate.insurance'),
       vertical: 'insurance',
     },
-    visa: { ...visa, label: `Check visa options`, vertical: 'visa' as Vertical },
-    vpn: { ...vpn, label: 'Secure your Wi-Fi with NordVPN', vertical: 'vpn' },
+    visa: { ...visa, label: t('globe.affiliate.visa'), vertical: 'visa' as Vertical },
+    vpn: { ...vpn, label: t('globe.affiliate.vpn'), vertical: 'vpn' },
   };
 }

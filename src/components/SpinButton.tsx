@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
+import { useT } from '@/i18n/LocaleProvider';
 
 interface SpinButtonProps {
   onClick: () => void;
   label?: string;
 }
 
-export default function SpinButton({ onClick, label = "SET PREFERENCES" }: SpinButtonProps) {
+export default function SpinButton({ onClick, label }: SpinButtonProps) {
+  const t = useT();
   return (
     <motion.button
       onClick={onClick}
@@ -21,7 +23,7 @@ export default function SpinButton({ onClick, label = "SET PREFERENCES" }: SpinB
         min-h-[48px]
       "
     >
-      <span className="relative z-10">{label}</span>
+      <span className="relative z-10">{label ?? t('common.spinButton.default')}</span>
     </motion.button>
   );
 }

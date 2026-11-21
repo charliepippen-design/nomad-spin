@@ -1,6 +1,9 @@
 import type { City } from '@/data/cities';
 import { citySlug, findCityBySlug } from '@/lib/citySlug';
-import { visaChipValue } from '@/lib/visaCopy';
+import { isMaxInitialNomadVisa, visaChipValue } from '@/lib/visaCopy';
+import type { Locale } from '../i18n/config';
+import { getT } from '../i18n/dictionary';
+import { formatNumber, monthName } from '../i18n/format';
 
 /**
  * City comparison engine.
@@ -38,19 +41,31 @@ export interface CompareMetric {
   better: 'higher' | 'lower' | 'none';
   /** Numeric value for bars and leaders. `null` = no data for this city. */
   value: (city: City) => number | null;
-  /** Display text. Receives the raw city so text-only rows can format themselves. */
-  format: (city: City) => string | null;
+  /** Display text. Receives the raw city so text-only rows can format themselves. English when no locale is given. */
+  format: (city: City, locale?: Locale) => string | null;
   /** Upper bound for a fixed scale (scores out of 10). Omit to scale to the row maximum. */
   scaleMax?: number;
   formulaKey?: FormulaKey;
 }
 
-const usd = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
-const outOfTen = (n: number) => `${n}/10`;
+/** A bare figure: unchanged in English, decimal comma and the like elsewhere. */
+const plain = (n: number, locale: Locale = 'en'): string => (locale === 'en' ? String(n) : formatNumber(n, locale));
+const perMonth = (n: number, locale: Locale = 'en') =>
+  getT(locale)('tools.money.perMonth', { amount: formatNumber(Math.round(n), locale) });
+const perNight = (n: number, locale: Locale = 'en') =>
+  getT(locale)('tools.money.perNight', { amount: formatNumber(Math.round(n), locale) });
+const outOfTen = (n: number, locale: Locale = 'en') => `${plain(n, locale)}/10`;
 const positive = (n: number | undefined | null): number | null =>
   typeof n === 'number' && Number.isFinite(n) && n > 0 ? n : null;
-const months = (list: string[] | undefined): string | null =>
-  list && list.length > 0 ? list.join(', ') : null;
+const months = (list: string[] | undefined, locale: Locale = 'en'): string | null =>
+  list && list.length > 0 ? list.map((m) => monthName(m, locale)).join(', ') : null;
+/** "90 days", with the Spain/Portugal nomad-visa caveat when it applies. */
+const stayLength = (c: City, locale: Locale = 'en'): string => {
+  if (locale === 'en') return visaChipValue(c.countryCode, c.meta.visaType, c.meta.visaDays);
+  const t = getT(locale);
+  const days = t.n('data.unit.days', c.meta.visaDays, { count: formatNumber(c.meta.visaDays, locale) });
+  return isMaxInitialNomadVisa(c.countryCode, c.meta.visaType) ? t('tools.cmp.value.maxInitialVisa', { days }) : days;
+};
 
 const COWORKING_RANK: Record<City['infra']['coworkingDensity'], number> = { Low: 1, Med: 2, High: 3 };
 const COWORKING_LABEL: Record<City['infra']['coworkingDensity'], string> = {
@@ -68,7 +83,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Solo nomad, short stay, USD per month.',
     better: 'lower',
     value: (c) => positive(c.costUSD),
-    format: (c) => (positive(c.costUSD) ? `${usd(c.costUSD)}/mo` : null),
+    format: (c, l) => (positive(c.costUSD) ? perMonth(c.costUSD, l) : null),
   },
   {
     key: 'costLongTerm',
@@ -77,7 +92,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Stays of three months or more, USD per month.',
     better: 'lower',
     value: (c) => positive(c.financials.costLongTerm),
-    format: (c) => (positive(c.financials.costLongTerm) ? `${usd(c.financials.costLongTerm)}/mo` : null),
+    format: (c, l) => (positive(c.financials.costLongTerm) ? perMonth(c.financials.costLongTerm, l) : null),
     formulaKey: 'costLongTerm',
   },
   {
@@ -87,7 +102,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Short-let median, USD per night.',
     better: 'lower',
     value: (c) => positive(c.financials.airbnbMedian),
-    format: (c) => (positive(c.financials.airbnbMedian) ? `${usd(c.financials.airbnbMedian)}/night` : null),
+    format: (c, l) => (positive(c.financials.airbnbMedian) ? perNight(c.financials.airbnbMedian, l) : null),
     formulaKey: 'airbnbMedian',
   },
   {
@@ -97,7 +112,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Typical monthly premium, USD.',
     better: 'lower',
     value: (c) => positive(c.healthInsurance?.costMonthly),
-    format: (c) => (positive(c.healthInsurance?.costMonthly) ? `${usd(c.healthInsurance.costMonthly)}/mo` : null),
+    format: (c, l) => (positive(c.healthInsurance?.costMonthly) ? perMonth(c.healthInsurance.costMonthly, l) : null),
   },
   // ── Connectivity ──
   {
@@ -107,7 +122,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Average download speed, Mbps.',
     better: 'higher',
     value: (c) => positive(c.internetMbps),
-    format: (c) => (positive(c.internetMbps) ? `${c.internetMbps} Mbps` : null),
+    format: (c, l) => (positive(c.internetMbps) ? `${plain(c.internetMbps, l)} Mbps` : null),
   },
   {
     key: 'reliability',
@@ -117,7 +132,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.infra.internetReliability),
-    format: (c) => (positive(c.infra.internetReliability) ? outOfTen(c.infra.internetReliability) : null),
+    format: (c, l) => (positive(c.infra.internetReliability) ? outOfTen(c.infra.internetReliability, l) : null),
     formulaKey: 'internetReliability',
   },
   {
@@ -128,7 +143,10 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 3,
     value: (c) => COWORKING_RANK[c.infra.coworkingDensity] ?? null,
-    format: (c) => COWORKING_LABEL[c.infra.coworkingDensity] ?? null,
+    format: (c, l) => {
+      const label = COWORKING_LABEL[c.infra.coworkingDensity];
+      return label ? getT(l).dyn(`data.density.${c.infra.coworkingDensity}`, label) : null;
+    },
   },
   {
     key: 'power',
@@ -138,7 +156,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.infra.powerGridStability),
-    format: (c) => (positive(c.infra.powerGridStability) ? outOfTen(c.infra.powerGridStability) : null),
+    format: (c, l) => (positive(c.infra.powerGridStability) ? outOfTen(c.infra.powerGridStability, l) : null),
     formulaKey: 'powerGridStability',
   },
   // ── Safety ──
@@ -150,7 +168,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.safety),
-    format: (c) => (positive(c.safety) ? outOfTen(c.safety) : null),
+    format: (c, l) => (positive(c.safety) ? outOfTen(c.safety, l) : null),
   },
   {
     key: 'femaleSafety',
@@ -160,7 +178,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.vibeMetrics.femaleSafety),
-    format: (c) => (positive(c.vibeMetrics.femaleSafety) ? outOfTen(c.vibeMetrics.femaleSafety) : null),
+    format: (c, l) => (positive(c.vibeMetrics.femaleSafety) ? outOfTen(c.vibeMetrics.femaleSafety, l) : null),
   },
   {
     key: 'lgbt',
@@ -170,7 +188,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.vibeMetrics.lgbtFriendly),
-    format: (c) => (positive(c.vibeMetrics.lgbtFriendly) ? outOfTen(c.vibeMetrics.lgbtFriendly) : null),
+    format: (c, l) => (positive(c.vibeMetrics.lgbtFriendly) ? outOfTen(c.vibeMetrics.lgbtFriendly, l) : null),
   },
   // ── Visa ── (no leader: the answer depends on your passport)
   {
@@ -180,7 +198,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'The route most nomads use. Depends on your passport.',
     better: 'none',
     value: () => null,
-    format: (c) => c.meta.visaType || null,
+    format: (c, l) => (c.meta.visaType ? getT(l).dyn(`data.visaType.${c.meta.visaType}`, c.meta.visaType) : null),
   },
   {
     key: 'visaDays',
@@ -189,8 +207,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Days allowed on that route. Check an official source before you book.',
     better: 'none',
     value: (c) => positive(c.meta.visaDays),
-    format: (c) =>
-      positive(c.meta.visaDays) ? visaChipValue(c.countryCode, c.meta.visaType, c.meta.visaDays) : null,
+    format: (c, l) => (positive(c.meta.visaDays) ? stayLength(c, l) : null),
   },
   // ── Climate ── (no leader: warmer is not better for everyone)
   {
@@ -200,7 +217,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Annual average, degrees Celsius.',
     better: 'none',
     value: (c) => (Number.isFinite(c.weather.tempAvgC) ? c.weather.tempAvgC : null),
-    format: (c) => (Number.isFinite(c.weather.tempAvgC) ? `${c.weather.tempAvgC}°C` : null),
+    format: (c, l) => (Number.isFinite(c.weather.tempAvgC) ? `${plain(c.weather.tempAvgC, l)}°C` : null),
   },
   {
     key: 'bestMonths',
@@ -209,7 +226,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Most comfortable months to be there.',
     better: 'none',
     value: () => null,
-    format: (c) => months(c.weather.bestMonths),
+    format: (c, l) => months(c.weather.bestMonths, l),
   },
   {
     key: 'rainyMonths',
@@ -218,7 +235,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     definition: 'Wettest part of the year.',
     better: 'none',
     value: () => null,
-    format: (c) => months(c.weather.rainyMonths),
+    format: (c, l) => months(c.weather.rainyMonths, l),
   },
   // ── Lifestyle ──
   {
@@ -229,7 +246,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.vibeMetrics.communitySize),
-    format: (c) => (positive(c.vibeMetrics.communitySize) ? outOfTen(c.vibeMetrics.communitySize) : null),
+    format: (c, l) => (positive(c.vibeMetrics.communitySize) ? outOfTen(c.vibeMetrics.communitySize, l) : null),
   },
   {
     key: 'english',
@@ -239,7 +256,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'higher',
     scaleMax: 10,
     value: (c) => positive(c.vibeMetrics.englishProficiency),
-    format: (c) => (positive(c.vibeMetrics.englishProficiency) ? outOfTen(c.vibeMetrics.englishProficiency) : null),
+    format: (c, l) => (positive(c.vibeMetrics.englishProficiency) ? outOfTen(c.vibeMetrics.englishProficiency, l) : null),
   },
   {
     key: 'nightlife',
@@ -249,7 +266,7 @@ export const COMPARE_METRICS: CompareMetric[] = [
     better: 'none',
     scaleMax: 10,
     value: (c) => positive(c.vibeMetrics.nightlife),
-    format: (c) => (positive(c.vibeMetrics.nightlife) ? outOfTen(c.vibeMetrics.nightlife) : null),
+    format: (c, l) => (positive(c.vibeMetrics.nightlife) ? outOfTen(c.vibeMetrics.nightlife, l) : null),
   },
   {
     key: 'timezone',
@@ -261,6 +278,22 @@ export const COMPARE_METRICS: CompareMetric[] = [
     format: (c) => c.meta.timeZoneUtc || null,
   },
 ];
+
+/** The metric with its label and definition in the reader's language. English returns the same object. */
+export function localizeMetric(metric: CompareMetric, locale: Locale = 'en'): CompareMetric {
+  if (locale === 'en') return metric;
+  const t = getT(locale);
+  return {
+    ...metric,
+    label: t.dyn(`tools.metric.${metric.key}.label`, metric.label),
+    definition: t.dyn(`tools.metric.${metric.key}.definition`, metric.definition),
+  };
+}
+
+/** Heading of a metric group in the reader's language. English is the group id itself. */
+export function metricGroupLabel(group: MetricGroup, locale: Locale = 'en'): string {
+  return getT(locale).dyn(`tools.group.${group}`, group);
+}
 
 export function metricProvenance(city: City, metric: Pick<CompareMetric, 'formulaKey'>): Provenance {
   if (city.dataSource === 'estimated') return 'estimate';
@@ -290,7 +323,7 @@ export interface CompareRow {
   missing: number;
 }
 
-export function buildRow(metric: CompareMetric, cities: City[]): CompareRow {
+export function buildRow(metric: CompareMetric, cities: City[], locale: Locale = 'en'): CompareRow {
   const values = cities.map((c) => metric.value(c));
   const present = values.filter((v): v is number => v !== null);
   const max = metric.scaleMax ?? (present.length > 0 ? Math.max(...present) : 0);
@@ -308,7 +341,7 @@ export function buildRow(metric: CompareMetric, cities: City[]): CompareRow {
     const value = values[i];
     return {
       city,
-      text: metric.format(city),
+      text: metric.format(city, locale),
       value,
       bar: value !== null && max > 0 ? Math.max(0, Math.min(1, value / max)) : null,
       provenance: metricProvenance(city, metric),
@@ -317,7 +350,7 @@ export function buildRow(metric: CompareMetric, cities: City[]): CompareRow {
   });
 
   return {
-    metric,
+    metric: localizeMetric(metric, locale),
     cells,
     leaderIndex,
     tie,
@@ -334,9 +367,9 @@ export interface CompareGroup {
   decided: number;
 }
 
-export function buildComparison(cities: City[]): CompareGroup[] {
+export function buildComparison(cities: City[], locale: Locale = 'en'): CompareGroup[] {
   return METRIC_GROUPS.map((group) => {
-    const rows = COMPARE_METRICS.filter((m) => m.group === group).map((m) => buildRow(m, cities));
+    const rows = COMPARE_METRICS.filter((m) => m.group === group).map((m) => buildRow(m, cities, locale));
     const leads = cities.map((_, i) => rows.filter((row) => row.leaderIndex === i).length);
     const decided = rows.filter((row) => row.leaderIndex !== null || row.tie).length;
     return { group, rows, leads, decided };

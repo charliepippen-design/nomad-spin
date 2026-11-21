@@ -1,5 +1,9 @@
 import type { City } from '@/data/cities';
 import { allCitySlugs } from '@/lib/citySlug';
+import type { Locale } from '../i18n/config';
+import { cityDisplayName } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
+import { countryName } from '../i18n/format';
 
 export interface DestinationIndexRow {
   city: City;
@@ -20,7 +24,9 @@ type UnlistedRegion = Exclude<City['region'], ListedRegion>;
 const regionOrderCoversAll: UnlistedRegion extends never ? true : never = true;
 void regionOrderCoversAll;
 
-export function regionLabel(region: City['region']): string {
+/** Region heading. English is the dataset's own label; other languages use `data.region.*`. */
+export function regionLabel(region: City['region'], locale: Locale = 'en'): string {
+  if (locale !== 'en') return getT(locale).dyn(`data.region.${region}`, region);
   switch (region) {
     case 'Europe':
     case 'Asia':
@@ -36,19 +42,40 @@ export function regionLabel(region: City['region']): string {
   }
 }
 
-export function citiesByRegion(query = ''): DestinationIndexGroup[] {
+/**
+ * Cities grouped by region, A to Z. In another language the search also matches
+ * the translated city, country and region names, and the order follows the
+ * translated city name. The rows always carry the English city record.
+ */
+export function citiesByRegion(query = '', locale: Locale = 'en'): DestinationIndexGroup[] {
   const q = query.trim().toLowerCase();
+  const translated = locale !== 'en';
   const rows = allCitySlugs().filter(({ city }) => {
     if (!q) return true;
     return (
       city.name.toLowerCase().includes(q) ||
       city.country.toLowerCase().includes(q) ||
-      city.region.toLowerCase().includes(q)
+      city.region.toLowerCase().includes(q) ||
+      (translated &&
+        (cityDisplayName(city, locale).toLowerCase().includes(q) ||
+          countryName(city.countryCode, city.country, locale).toLowerCase().includes(q) ||
+          regionLabel(city.region, locale).toLowerCase().includes(q)))
     );
   });
-  rows.sort(
-    (a, b) => a.city.name.localeCompare(b.city.name) || a.city.country.localeCompare(b.city.country),
-  );
+  if (translated) {
+    rows.sort(
+      (a, b) =>
+        cityDisplayName(a.city, locale).localeCompare(cityDisplayName(b.city, locale), locale) ||
+        countryName(a.city.countryCode, a.city.country, locale).localeCompare(
+          countryName(b.city.countryCode, b.city.country, locale),
+          locale,
+        ),
+    );
+  } else {
+    rows.sort(
+      (a, b) => a.city.name.localeCompare(b.city.name) || a.city.country.localeCompare(b.city.country),
+    );
+  }
 
   return REGION_ORDER.map((region) => ({
     region,

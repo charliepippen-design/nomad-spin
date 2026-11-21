@@ -1,0 +1,20 @@
+{
+  "status": "published",
+  "name": "Città del Messico",
+  "pros": [
+    "Scena gastronomica di livello mondiale",
+    "Cultura ricca",
+    "Lusso accessibile",
+    "Ottimi coworking",
+    "Scena artistica vivace"
+  ],
+  "cons": [
+    "Problemi di qualità dell'aria",
+    "Mal d'altitudine",
+    "Traffico congestionato",
+    "Sicurezza in alcune zone",
+    "Zona sismica"
+  ],
+  "visaNote": "Durata massima del soggiorno; il numero di giorni lo stabilisce l'agente dell'immigrazione all'ingresso. La residenza temporanea si richiede in consolato.",
+  "source_hash": "6973a87f5852"
+}

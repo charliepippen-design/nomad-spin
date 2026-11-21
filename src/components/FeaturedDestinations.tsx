@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { motion } from 'framer-motion';
 import { MapPin, DollarSign } from 'lucide-react';
 import { getCityThumbnailUrl } from '@/data/cityImages';
@@ -6,6 +6,9 @@ import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
 import { cities } from '@/data/cities';
 import { cityPath, findCityBySlug } from '@/lib/citySlug';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { cityDisplayName } from '@/i18n/content';
+import { countryName } from '@/i18n/format';
 
 const FEATURED_SLUGS = ['buenos-aires', 'medellin', 'bangkok', 'lisbon', 'tbilisi', 'mexico-city'];
 
@@ -19,6 +22,8 @@ const fadeUp = {
 };
 
 export default function FeaturedDestinations() {
+  const t = useT();
+  const locale = useLocale();
   if (featuredCities.length === 0) return null;
 
   return (
@@ -32,15 +37,18 @@ export default function FeaturedDestinations() {
       >
         <motion.div variants={fadeUp} className="text-center bg-black/50 backdrop-blur-sm rounded-2xl px-6 py-4">
           <h2 className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground uppercase mb-2">
-            Where to Stay
+            {t('home.featured.title')}
           </h2>
           <p className="text-xs text-muted-foreground/60 max-w-md mx-auto">
-            Explore our top destination guides: cost breakdowns, neighborhoods, Wi-Fi intel, and more.
+            {t('home.featured.text')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full">
-          {featuredCities.map((city) => (
+          {featuredCities.map((city) => {
+            const name = cityDisplayName(city, locale);
+            const country = countryName(city.countryCode, city.country, locale);
+            return (
             <motion.div
               key={city.id}
               variants={fadeUp}
@@ -50,25 +58,25 @@ export default function FeaturedDestinations() {
                 <div className="relative h-32 md:h-40 overflow-hidden">
                   <img
                     src={getCityThumbnailUrl(city.id, city.region)}
-                    alt={`${city.name}, ${city.country}`}
+                    alt={`${name}, ${country}`}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3">
                     <h3 className="font-mono text-xs tracking-[0.12em] text-white uppercase truncate">
-                      {city.name}
+                      {name}
                     </h3>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       <MapPin className="w-2.5 h-2.5 text-white/50" />
-                      <span className="text-[9px] font-mono text-white/50">{city.country}</span>
+                      <span className="text-[9px] font-mono text-white/50">{country}</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-card p-3 flex items-center gap-1.5">
                   <DollarSign className="w-3 h-3 text-muted-foreground" />
                   <span className="text-[10px] font-mono text-foreground/70">
-                    From ${city.costUSD}/mo
+                    {t('home.featured.from', { cost: city.costUSD })}
                   </span>
                 </div>
               </Link>
@@ -78,7 +86,8 @@ export default function FeaturedDestinations() {
                 </div>
               )}
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </section>

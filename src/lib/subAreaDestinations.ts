@@ -2,6 +2,10 @@ import type { City } from '@/data/cities';
 import { livingGuideForCity } from '@/lib/destinationSeo';
 import { allCitySlugs, findCityBySlug } from '@/lib/citySlug';
 import { haversineKm } from '@/lib/distance';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { cityDisplayName } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
+import { localizeHref } from '../i18n/paths';
 
 /**
  * Trailing slug tokens for a part of a city (suburbs, outskirts, and the same
@@ -123,10 +127,13 @@ export function canonicalDestinationPath(slug: string): string {
   return `/destinations/${canonicalHubSlug(slug)}`;
 }
 
-export function subAreaParentNotice(row: SubAreaDestination): SubAreaParentNotice | null {
+export function subAreaParentNotice(
+  row: SubAreaDestination,
+  locale: Locale = DEFAULT_LOCALE,
+): SubAreaParentNotice | null {
   if (!row.parent || !row.parentSlug) return null;
   return {
-    parentName: row.parent.name,
+    parentName: cityDisplayName(row.parent, locale),
     parentSlug: row.parentSlug,
     livingGuideSlug: livingGuideForCity(row.parent)?.slug ?? null,
   };
@@ -141,14 +148,21 @@ function escapeHtml(value: string): string {
 }
 
 /** Visible parent-hub line for prerendered sub-area pages. Empty when no parent hub exists. */
-export function subAreaParentNoticeHtml(row: SubAreaDestination): string {
-  const notice = subAreaParentNotice(row);
+export function subAreaParentNoticeHtml(row: SubAreaDestination, locale: Locale = DEFAULT_LOCALE): string {
+  const notice = subAreaParentNotice(row, locale);
   if (!notice) return '';
-  const hub = `<a href="/destinations/${escapeHtml(notice.parentSlug)}">${escapeHtml(notice.parentName)} guide</a>`;
-  const living = notice.livingGuideSlug
-    ? ` and the <a href="/guides/${escapeHtml(notice.livingGuideSlug)}">living guide</a>`
+  const t = getT(locale);
+  const text = t(notice.livingGuideSlug ? 'city.subArea.noticeLiving' : 'city.subArea.notice', {
+    parent: escapeHtml(notice.parentName),
+  });
+  const hubHref = localizeHref(`/destinations/${escapeHtml(notice.parentSlug)}`, locale);
+  const livingHref = notice.livingGuideSlug
+    ? localizeHref(`/guides/${escapeHtml(notice.livingGuideSlug)}`, locale)
     : '';
-  return `<p>Part of the ${escapeHtml(notice.parentName)} area. See the full ${hub}${living}.</p>`;
+  const html = text
+    .replace(/<link>(.*?)<\/link>/g, (_match, inner: string) => `<a href="${hubHref}">${inner}</a>`)
+    .replace(/<living>(.*?)<\/living>/g, (_match, inner: string) => `<a href="${livingHref}">${inner}</a>`);
+  return `<p>${html}</p>`;
 }
 
 const DESTINATION_HREF = /\/destinations\/([a-z0-9-]+)/g;

@@ -1,28 +1,39 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 import { Globe2, BarChart3, Heart } from 'lucide-react';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { rich } from '@/i18n/rich';
+import { LocaleLinks, canonicalUrl } from '@/i18n/seo';
 
 const BASE_URL = 'https://www.digitalnomadspin.com';
-const PAGE_URL = `${BASE_URL}/about`;
-const TITLE = 'About | Nomad Spin';
-const DESCRIPTION = 'Learn about Nomad Spin, a travel discovery tool helping digital nomads find their next base with data-driven city recommendations.';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  name: TITLE,
-  url: PAGE_URL,
-  description: DESCRIPTION,
-  mainEntity: {
-    '@type': 'Organization',
-    name: 'Nomad Spin',
-    url: BASE_URL,
-    logo: `${BASE_URL}/favicon.svg`,
-    description: 'Travel discovery tool for digital nomads and remote workers.',
-  },
-};
+const VALUES = [
+  { icon: Globe2, key: 'discovery' },
+  { icon: BarChart3, key: 'numbers' },
+  { icon: Heart, key: 'gaps' },
+] as const;
 
 export default function About() {
+  const t = useT();
+  const locale = useLocale();
+  const PAGE_URL = canonicalUrl('/about', locale);
+  const TITLE = t('static.about.title');
+  const DESCRIPTION = t('static.about.description');
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: TITLE,
+    url: PAGE_URL,
+    description: DESCRIPTION,
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Nomad Spin',
+      url: BASE_URL,
+      logo: `${BASE_URL}/favicon.svg`,
+      description: t('static.about.orgDescription'),
+    },
+  };
+
   return (
     <div className="page-content min-h-screen bg-background">
       <Helmet>
@@ -40,22 +51,23 @@ export default function About() {
         <meta name="twitter:image" content={`${BASE_URL}/og-preview.png`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
+      <LocaleLinks enPath="/about" />
 
       <div className="dns-container py-12 md:py-20">
         <div className="grid gap-8 md:grid-cols-[1fr_1.1fr] md:gap-16">
         <div>
-          <p className="dns-eyebrow">About</p>
+          <p className="dns-eyebrow">{t('static.about.eyebrow')}</p>
           <h1 className="mt-3 text-4xl leading-[1.08] text-foreground md:text-6xl">
-            About Nomad Spin
+            {t('static.about.h1')}
           </h1>
         </div>
 
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
           <p>
-            Nomad Spin is a travel discovery tool built for digital nomads, remote workers, and long-term travelers. We help you cut through decision paralysis and find your next destination based on what actually matters: cost of living, internet speed, safety, and vibe.
+            {t('static.about.intro')}
           </p>
           <p>
-            Our database covers <strong className="text-foreground">780+ cities worldwide</strong> with figures on budgets, internet, safety, visa rules, coworking density, and more. Some of those records are estimates, and every page says which. Each city is scored against your own preferences.
+            {rich(t('static.about.database'), { b: (children) => <strong className="text-foreground">{children}</strong> })}
           </p>
         </div>
 
@@ -63,26 +75,25 @@ export default function About() {
 
         {/* Values */}
         <div className="mt-14 grid grid-cols-1 gap-5 border-t border-border pt-10 md:mt-20 md:grid-cols-3">
-          {[
-            { icon: Globe2, title: 'Discovery First', desc: 'We prioritize serendipity. Spin the globe and let the data surprise you.' },
-            { icon: BarChart3, title: 'Numbers, not ads', desc: 'Scores and rankings use the city figures and your preferences. Partner links have no input.' },
-            { icon: Heart, title: 'Honest about gaps', desc: 'Estimates are tagged, missing figures say "No data", and the methodology page lists what we do not know yet.' },
-          ].map((v) => (
-            <div key={v.title} className="dns-card flex flex-col gap-3 p-6">
+          {VALUES.map((v) => (
+            <div key={v.key} className="dns-card flex flex-col gap-3 p-6">
               <v.icon className="h-5 w-5 text-primary" />
-              <h2 className="text-xl text-foreground">{v.title}</h2>
-              <p className="text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+              <h2 className="text-xl text-foreground">{t(`static.about.value.${v.key}.title`)}</h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">{t(`static.about.value.${v.key}.desc`)}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-8">
           <p className="text-sm text-muted-foreground">
-            Have feedback or a city suggestion?{' '}
-            <Link to="/contact" className="font-semibold text-primary hover:underline">Get in touch</Link>.
+            {rich(t('static.about.feedback'), {
+              link: (children) => (
+                <Link to="/contact" className="font-semibold text-primary hover:underline">{children}</Link>
+              ),
+            })}
           </p>
           <Link to="/methodology" className="text-sm font-semibold text-primary hover:underline">
-            How our data is built
+            {t('static.about.methodologyLink')}
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Moon, Monitor, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useT } from "@/i18n/LocaleProvider";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,7 @@ import {
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     setMounted(true);
@@ -30,7 +32,7 @@ export function ThemeToggle() {
           ) : (
             <Moon className="h-[1.2rem] w-[1.2rem]" />
           )}
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{t('common.theme.toggle')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-background/95 backdrop-blur-md border-border font-mono text-[10px] tracking-widest uppercase">
@@ -40,7 +42,7 @@ export function ThemeToggle() {
           data-active={theme === "light" || undefined}
         >
           <Sun className="h-3 w-3" />
-          Light
+          {t('common.theme.light')}
         </DropdownMenuItem>
         <DropdownMenuItem
           onSelect={() => setTheme("dark")}
@@ -48,7 +50,7 @@ export function ThemeToggle() {
           data-active={theme === "dark" || undefined}
         >
           <Moon className="h-3 w-3" />
-          Dark
+          {t('common.theme.dark')}
         </DropdownMenuItem>
         <DropdownMenuItem
           onSelect={() => setTheme("system")}
@@ -56,7 +58,7 @@ export function ThemeToggle() {
           data-active={theme === "system" || undefined}
         >
           <Monitor className="h-3 w-3" />
-          System
+          {t('common.theme.system')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,0 +1,20 @@
+{
+  "status": "published",
+  "name": "Spalato",
+  "pros": [
+    "Costa adriatica",
+    "Ricca di storia",
+    "Gite da un'isola all'altra",
+    "Sicura",
+    "Ottimo clima"
+  ],
+  "cons": [
+    "Turismo stagionale",
+    "Prezzi in aumento",
+    "Vita notturna limitata in inverno",
+    "Atmosfera da piccola città",
+    "Estati affollate"
+  ],
+  "visaNote": "Soggiorno breve Schengen: 90 giorni su 180. Soggiorno temporaneo per nomadi digitali, fino a 18 mesi (MUP).",
+  "source_hash": "d1e031c9eb2a"
+}

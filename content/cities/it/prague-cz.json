@@ -1,0 +1,19 @@
+{
+  "status": "published",
+  "name": "Praga",
+  "pros": [
+    "Architettura spettacolare",
+    "Grande cultura della birra",
+    "Economica per l'Europa",
+    "Posizione centrale",
+    "Ricca di storia"
+  ],
+  "cons": [
+    "Folla di turisti",
+    "Inverni freddi",
+    "Prezzi in aumento",
+    "Burocrazia",
+    "Barriera linguistica"
+  ],
+  "source_hash": "57786c002448"
+}

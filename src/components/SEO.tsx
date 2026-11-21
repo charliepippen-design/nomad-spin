@@ -2,6 +2,9 @@ import { Helmet } from 'react-helmet-async';
 import type { City } from '@/data/cities';
 import { HOME_DESCRIPTION as SITE_DESCRIPTION, HOME_TITLE as SITE_TITLE } from '@/lib/homeSeo';
 import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_ALT, SITE_URL as BASE_URL, citySocialImage } from '@/lib/socialImage';
+import { LOCALE_INFO } from '@/i18n/config';
+import { useLocale } from '@/i18n/LocaleProvider';
+import { absoluteUrl, alternatesFor } from '@/i18n/paths';
 
 
 /**
@@ -41,7 +44,10 @@ export default function SEO({
   path = '/',
   city,
 }: SEOProps) {
-  const pageUrl = `${BASE_URL}${path}`;
+  // `path` is the English path; the canonical URL is that page in the reader's language.
+  const locale = useLocale();
+  const pageUrl = absoluteUrl(path, locale);
+  const alternates = alternatesFor(path);
   // The homepage stays a WebApplication even after a spin. City JSON-LD belongs on /destinations/:slug.
   const citySeo = path === '/' ? null : city;
   const finalTitle = citySeo
@@ -87,6 +93,10 @@ export default function SEO({
       <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
       <link rel="canonical" href={pageUrl} />
+      {alternates.map((row) => (
+        <link key={row.hreflang} rel="alternate" hrefLang={row.hreflang} href={row.href} />
+      ))}
+      <meta property="og:locale" content={LOCALE_INFO[locale].ogLocale} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />

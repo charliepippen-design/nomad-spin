@@ -1,4 +1,5 @@
 import type { Guide } from '@/data/guides';
+import { DEFAULT_LOCALE, LOCALE_INFO, type Locale } from '../i18n/config';
 import { renderGuideMarkdown } from '@/lib/guideHtml';
 import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 
@@ -100,13 +101,17 @@ export function guideFaqEntries(content: string): GuideFaqEntry[] {
   return entries;
 }
 
-/** FAQPage JSON-LD for a guide, or null when it has fewer than MIN_FAQ_ENTRIES Q&As. */
-export function guideFaqJsonLd(guide: Pick<Guide, 'content'>) {
+/**
+ * FAQPage JSON-LD for a guide, or null when it has fewer than MIN_FAQ_ENTRIES Q&As.
+ * Pass the translated guide with its `locale`: the Q&As are read from its own body.
+ */
+export function guideFaqJsonLd(guide: Pick<Guide, 'content'>, locale: Locale = DEFAULT_LOCALE) {
   const entries = guideFaqEntries(guide.content);
   if (entries.length < MIN_FAQ_ENTRIES) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    ...(locale === DEFAULT_LOCALE ? {} : { inLanguage: LOCALE_INFO[locale].htmlLang }),
     mainEntity: entries.map(({ question, answer }) => ({
       '@type': 'Question',
       name: question,

@@ -1,14 +1,22 @@
 import type { City } from '@/data/cities';
 import { destinationFaq, destinationFaqBodyHtml, destinationFaqJsonLd } from '@/lib/destinationFaq';
 import {
+  dataLabel,
   destinationFieldGuideHtml,
   destinationIntro,
   destinationJsonLd,
   formatMonths,
   hubRelatedGuides,
+  plainNumber,
 } from '@/lib/destinationSeo';
 import { visaPathSentence } from '@/lib/visaCopy';
-import { destinationBreadcrumbJsonLd, nearbyCities, sameCountryCities, type CityLink } from '@/lib/cityNeighbors';
+import {
+  cityLinkLabel,
+  destinationBreadcrumbJsonLd,
+  nearbyCities,
+  sameCountryCities,
+  type CityLink,
+} from '@/lib/cityNeighbors';
 import { canonicalDestinationPath } from '@/lib/subAreaDestinations';
 import { DATASET_UPDATED, DATASET_UPDATED_LABEL } from '@/data/datasetMeta';
 import {
@@ -16,8 +24,11 @@ import {
   subAreaBySlug,
   subAreaParentNoticeHtml,
 } from '@/lib/subAreaDestinations';
-
-const BASE_URL = 'https://www.digitalnomadspin.com';
+import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
+import { guideForLocale, localizeCity } from '../i18n/content';
+import { getT } from '../i18n/dictionary';
+import { formatDate } from '../i18n/format';
+import { absoluteUrl, localizeHref } from '../i18n/paths';
 
 function esc(value: string): string {
   return value
@@ -28,86 +39,148 @@ function esc(value: string): string {
     .replace(/'/g, '&#39;');
 }
 
-/** Crawlable destination body. Sub-area pages add a parent-hub link near the top. */
-export function destinationBodyHtml(city: City, slug: string): string {
-  const intro = destinationIntro(city);
+const LINK_STYLE = 'style="color:#34d399"';
+
+/**
+ * Turns the marked spans of a translated sentence into HTML:
+ * "<link>How the data is built</link>" -> the element returned by tags.link.
+ * The sentence comes from the dictionary; values put into it are escaped by the caller.
+ */
+function htmlTags(text: string, tags: Record<string, (inner: string) => string>): string {
+  return text.replace(/<(\w+)>(.*?)<\/\1>/g, (match, name: string, inner: string) =>
+    tags[name] ? tags[name](inner) : match,
+  );
+}
+
+/**
+ * Crawlable destination body. Sub-area pages add a parent-hub link near the top.
+ * Links are written as English paths and sent to the page in `locale` when it exists.
+ */
+export function destinationBodyHtml(source: City, slug: string, locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
+  const city = localizeCity(source, locale);
+  const href = (enPath: string) => esc(localizeHref(enPath, locale));
+  const link = (enPath: string) => (inner: string) => `<a href="${href(enPath)}" ${LINK_STYLE}>${inner}</a>`;
+  const intro = destinationIntro(source, locale);
   const pros = city.pros.slice(0, 5).map((p) => `<li>${esc(p)}</li>`).join('');
   const cons = city.cons.slice(0, 3).map((c) => `<li>${esc(c)}</li>`).join('');
-  const vibes = (city.vibe ?? []).map((v) => `<li>${esc(v)}</li>`).join('');
-  const landscapes = (city.landscape ?? []).map((l) => `<li>${esc(l)}</li>`).join('');
-  const best = formatMonths(city.weather?.bestMonths);
-  const rainy = formatMonths(city.weather?.rainyMonths);
-  const related = hubRelatedGuides(city);
-  const fieldGuideHtml = destinationFieldGuideHtml(city);
+  const vibes = (city.vibe ?? []).map((v) => `<li>${esc(dataLabel('vibe', v, locale))}</li>`).join('');
+  const landscapes = (city.landscape ?? []).map((l) => `<li>${esc(dataLabel('landscape', l, locale))}</li>`).join('');
+  const best = formatMonths(city.weather?.bestMonths, locale);
+  const rainy = formatMonths(city.weather?.rainyMonths, locale);
+  const related = hubRelatedGuides(source);
+  const fieldGuideHtml = destinationFieldGuideHtml(source, locale);
   const subArea = subAreaBySlug(slug);
-  const noticeHtml = subArea ? subAreaParentNoticeHtml(subArea) : '';
-  const faqHtml = destinationFaqBodyHtml(subArea ? [] : destinationFaq(city));
-  const airbnbEstimate =
-    city.formulaEstimates?.airbnbMedian || city.dataSource === 'estimated' ? ' (estimate)' : '';
-  const reliabilityEstimate = city.formulaEstimates?.internetReliability ? ' (estimate)' : '';
-  const powerEstimate = city.formulaEstimates?.powerGridStability ? ' (estimate)' : '';
+  const noticeHtml = subArea ? subAreaParentNoticeHtml(subArea, locale) : '';
+  const faqHtml = destinationFaqBodyHtml(subArea ? [] : destinationFaq(source, locale), locale);
+  const estimate = ` ${t('city.pre.estimate')}`;
+  const airbnbEstimate = city.formulaEstimates?.airbnbMedian || city.dataSource === 'estimated' ? estimate : '';
+  const internetValue = t(
+    city.formulaEstimates?.internetReliability ? 'city.pre.internetValueEstimate' : 'city.pre.internetValue',
+    { mbps: plainNumber(city.internetMbps, locale), score: plainNumber(city.infra.internetReliability, locale) },
+  );
+  const powerEstimate = city.formulaEstimates?.powerGridStability ? estimate : '';
   const noticeBlock = noticeHtml ? `${noticeHtml}\n  ` : '';
-  const nearby = nearbyCities(city, 6);
-  const sameCountry = sameCountryCities(city, 8, nearby);
+  const nearby = nearbyCities(source, 6);
+  const sameCountry = sameCountryCities(source, 8, nearby);
+  const usd = (value: number) => `$${plainNumber(value, locale)}`;
   const linkList = (title: string, links: CityLink[]) =>
     links.length
       ? `<h2>${esc(title)}</h2><ul>${links
-          .map(
-            ({ city: other, slug: otherSlug, km }) =>
-              `<li><a href="${esc(canonicalDestinationPath(otherSlug))}" style="color:#34d399">${esc(other.name)}, ${esc(other.country)}</a> (${km} km, $${other.costUSD}/mo)</li>`,
-          )
+          .map((entry) => {
+            const label = cityLinkLabel(entry, locale);
+            const meta = t('city.pre.linkMeta', {
+              km: plainNumber(entry.km, locale),
+              cost: plainNumber(entry.city.costUSD, locale),
+            });
+            return `<li><a href="${href(canonicalDestinationPath(entry.slug))}" ${LINK_STYLE}>${esc(label.name)}, ${esc(label.country)}</a> ${meta}</li>`;
+          })
           .join('')}</ul>`
       : '';
   const relatedHtml = related.length
-    ? `<h2>Related guides</h2><ul>${related
+    ? `<h2>${esc(t('city.pre.relatedGuides'))}</h2><ul>${related
         .map((guide) => {
-          const excerpt = rewriteSubAreaDestinationHrefs(guide.excerpt);
-          return `<li><a href="${BASE_URL}/guides/${esc(guide.slug)}" style="color:#34d399">${esc(guide.title)}</a>: ${esc(excerpt)}</li>`;
+          const shown = guideForLocale(guide, locale);
+          const excerpt = rewriteSubAreaDestinationHrefs(shown.excerpt);
+          return `<li><a href="${esc(absoluteUrl(`/guides/${guide.slug}`, locale))}" ${LINK_STYLE}>${esc(shown.title)}</a>: ${esc(excerpt)}</li>`;
         })
         .join('')}</ul>`
     : '';
+  const datasetLabel = locale === DEFAULT_LOCALE ? DATASET_UPDATED_LABEL : formatDate(DATASET_UPDATED, locale);
+  const datasetHtml = htmlTags(t('city.pre.dataset', { date: esc(datasetLabel) }), {
+    time: (inner) => `<time datetime="${DATASET_UPDATED}">${inner}</time>`,
+    link: link('/methodology'),
+  });
+  const findBaseHtml = htmlTags(t('city.pre.findBaseText', { city: esc(city.name) }), {
+    spin: link('/'),
+    compare: link('/compare'),
+    base: link('/find-your-base'),
+    guides: link('/guides'),
+  });
+  const stat = (label: string, value: string) => `<li><strong>${esc(label)}</strong> ${value}</li>`;
+  const score = (value: number) => `${plainNumber(value, locale)}/10`;
 
   return `
 <main id="seo-destination" style="max-width:42rem;margin:2rem auto;padding:0 1.25rem;font-family:ui-sans-serif,system-ui,sans-serif;color:#e5e7eb;background:#0b0f14">
-  <p><a href="/" style="color:#34d399">Home</a> / <a href="/destinations" style="color:#34d399">Destinations</a> / ${esc(city.name)} · <a href="/guides" style="color:#34d399">Guides</a></p>
+  <p><a href="${href('/')}" ${LINK_STYLE}>${esc(t('city.breadcrumb.home'))}</a> / <a href="${href('/destinations')}" ${LINK_STYLE}>${esc(t('city.breadcrumb.destinations'))}</a> / ${esc(city.name)} · <a href="${href('/guides')}" ${LINK_STYLE}>${esc(t('city.pre.guides'))}</a></p>
   <h1>${esc(city.name)}, ${esc(city.country)}</h1>
   ${noticeBlock}${fieldGuideHtml}
   <p>${esc(intro)}</p>
-  <h2>Key stats for digital nomads</h2>
+  <h2>${esc(t('city.pre.keyStats'))}</h2>
   <ul>
-    <li><strong>Cost of living (solo / month):</strong> $${city.costUSD}</li>
-    <li><strong>Long-term monthly estimate:</strong> $${city.financials.costLongTerm}</li>
-    <li><strong>Median Airbnb (night):</strong> $${city.financials.airbnbMedian}${airbnbEstimate}</li>
-    <li><strong>Internet:</strong> ${city.internetMbps} Mbps (reliability ${city.infra.internetReliability}/10${reliabilityEstimate})</li>
-    <li><strong>Power grid stability:</strong> ${city.infra.powerGridStability}/10${powerEstimate}</li>
-    <li><strong>Coworking density:</strong> ${esc(city.infra.coworkingDensity)}</li>
-    <li><strong>Safety:</strong> ${city.safety}/10 (female safety ${city.vibeMetrics.femaleSafety}/10)</li>
-    <li><strong>Visa:</strong> ${esc(visaPathSentence(city.meta))}</li>
-    <li><strong>Timezone:</strong> ${esc(city.meta.timeZoneUtc || 'n/a')}</li>
-    <li><strong>Language:</strong> ${esc(city.language || 'n/a')}</li>
-    <li><strong>Region:</strong> ${esc(city.region)}</li>
-    ${best ? `<li><strong>Best months:</strong> ${esc(best)}</li>` : ''}
-    ${rainy ? `<li><strong>Rainy months:</strong> ${esc(rainy)}</li>` : ''}
-    ${city.weather?.tempAvgC != null ? `<li><strong>Avg temperature:</strong> ${city.weather.tempAvgC}°C</li>` : ''}
+    ${stat(t('city.pre.cost'), usd(city.costUSD))}
+    ${stat(t('city.pre.longTerm'), usd(city.financials.costLongTerm))}
+    ${stat(t('city.pre.airbnb'), `${usd(city.financials.airbnbMedian)}${esc(airbnbEstimate)}`)}
+    ${stat(t('city.pre.internet'), esc(internetValue))}
+    ${stat(t('city.pre.power'), `${score(city.infra.powerGridStability)}${esc(powerEstimate)}`)}
+    ${stat(t('city.pre.coworking'), esc(dataLabel('density', city.infra.coworkingDensity, locale)))}
+    ${stat(
+      t('city.pre.safety'),
+      esc(
+        t('city.pre.safetyValue', {
+          safety: plainNumber(city.safety, locale),
+          female: plainNumber(city.vibeMetrics.femaleSafety, locale),
+        }),
+      ),
+    )}
+    ${stat(t('city.pre.visa'), esc(visaPathSentence(city.meta, locale)))}
+    ${stat(t('city.pre.timezone'), esc(city.meta.timeZoneUtc || t('city.pre.na')))}
+    ${stat(t('city.pre.language'), esc(city.language ? dataLabel('language', city.language, locale) : t('city.pre.na')))}
+    ${stat(t('city.pre.region'), esc(dataLabel('region', city.region, locale)))}
+    ${best ? stat(t('city.pre.bestMonths'), esc(best)) : ''}
+    ${rainy ? stat(t('city.pre.rainyMonths'), esc(rainy)) : ''}
+    ${city.weather?.tempAvgC != null ? stat(t('city.pre.avgTemp'), `${plainNumber(city.weather.tempAvgC, locale)}°C`) : ''}
   </ul>
-  ${vibes ? `<h2>Vibe tags</h2><ul>${vibes}</ul>` : ''}
-  ${landscapes ? `<h2>Landscape</h2><ul>${landscapes}</ul>` : ''}
-  ${pros ? `<h2>Why go</h2><ul>${pros}</ul>` : ''}
-  ${cons ? `<h2>Trade-offs</h2><ul>${cons}</ul>` : ''}
+  ${vibes ? `<h2>${esc(t('city.pre.vibeTags'))}</h2><ul>${vibes}</ul>` : ''}
+  ${landscapes ? `<h2>${esc(t('city.pre.landscape'))}</h2><ul>${landscapes}</ul>` : ''}
+  ${pros ? `<h2>${esc(t('city.pre.whyGo'))}</h2><ul>${pros}</ul>` : ''}
+  ${cons ? `<h2>${esc(t('city.pre.tradeOffs'))}</h2><ul>${cons}</ul>` : ''}
   ${faqHtml}
   ${relatedHtml}
-  ${linkList('Nearby cities', nearby)}
-  ${linkList(`Other cities in ${city.country}`, sameCountry)}
-  <p>Dataset last updated <time datetime="${DATASET_UPDATED}">${DATASET_UPDATED_LABEL}</time>. <a href="/methodology" style="color:#34d399">How the data is built</a>.</p>
-  <h2>Find your next base</h2>
-  <p>Compare ${esc(city.name)} against your budget, internet, and safety floors, then <a href="/" style="color:#34d399">spin the globe</a> for a match, <a href="/compare" style="color:#34d399">compare cities</a>, <a href="/find-your-base" style="color:#34d399">find your base</a>, or browse more <a href="/guides" style="color:#34d399">nomad guides</a>.</p>
-  <p><a href="${BASE_URL}/destinations/${slug}" style="color:#34d399">Open the full ${esc(city.name)} destination page</a>.</p>
+  ${linkList(t('city.pre.nearby'), nearby)}
+  ${linkList(t('city.pre.otherCities', { country: city.country }), sameCountry)}
+  <p>${datasetHtml}</p>
+  <h2>${esc(t('city.pre.findBase'))}</h2>
+  <p>${findBaseHtml}</p>
+  <p><a href="${esc(absoluteUrl(`/destinations/${slug}`, locale))}" ${LINK_STYLE}>${esc(t('city.pre.openFull', { city: city.name }))}</a>.</p>
 </main>`;
 }
 
-/** Place JSON-LD, plus FAQPage on indexable destination pages. */
-export function destinationPageJsonLd(city: City, pageUrl: string, slug: string): object | object[] {
-  const place = destinationJsonLd(city, pageUrl);
+/**
+ * Place JSON-LD, plus FAQPage and breadcrumb on indexable destination pages.
+ * `pageUrl` is the page's absolute URL, already in `locale`.
+ */
+export function destinationPageJsonLd(
+  city: City,
+  pageUrl: string,
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE,
+): object | object[] {
+  const place = destinationJsonLd(city, pageUrl, locale);
   if (subAreaBySlug(slug)) return place;
-  return [place, destinationFaqJsonLd(city, pageUrl), destinationBreadcrumbJsonLd(city, pageUrl)];
+  return [
+    place,
+    destinationFaqJsonLd(city, pageUrl, locale),
+    destinationBreadcrumbJsonLd(city, pageUrl, locale),
+  ];
 }

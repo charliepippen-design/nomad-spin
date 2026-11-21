@@ -1,4 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
+import { Navigate as RouterNavigate, useParams } from 'react-router-dom';
+import { Link, useLocalizedHref } from '@/i18n/Link';
 import { Helmet } from 'react-helmet-async';
 import { Loader2 } from 'lucide-react';
 import GuideStayCta from '@/components/GuideStayCta';
@@ -6,19 +7,23 @@ import { trackEvent } from '@/utils/analytics';
 import { useGuides } from '@/hooks/useGuides';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
-import { guides as staticGuides } from '@/data/guides';
+import { guides as staticGuides, type Guide } from '@/data/guides';
 import { guideTitleTag } from '@/lib/guideHtml';
 import { guideFaqJsonLd } from '@/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd } from '@/lib/guideJsonLd';
 import { relatedDestinationEntries, relatedGuideEntries } from '@/lib/relatedGuides';
 import { rewriteSubAreaDestinationHrefs } from '@/lib/subAreaDestinations';
 import { guideHeroImage, guideSocialImage } from '@/lib/socialImage';
+import { useLocale, useT } from '@/i18n/LocaleProvider';
+import { DEFAULT_LOCALE } from '@/i18n/config';
+import { localizedGuide } from '@/i18n/content';
+import { formatDate } from '@/i18n/format';
+import { englishGuideSlug } from '@/i18n/paths';
+import { LocaleLinks, canonicalUrl } from '@/i18n/seo';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
-const BASE_URL = 'https://www.digitalnomadspin.com';
 
 /** Guide hero is full width, so it uses a wider photo than the 1200px social image. */
 const HERO_WIDTH = 1600;
@@ -35,14 +40,33 @@ const guideSchema = {
 
 export default function GuideArticle() {
   const { slug } = useParams<{ slug: string }>();
-  const { data: liveGuides, isLoading } = useGuides();
+  const t = useT();
+  const locale = useLocale();
+  const localizeHref = useLocalizedHref();
+  const isEnglish = locale === DEFAULT_LOCALE;
+  // Live rows are English. A translated article comes from the language bundle.
+  const { data: liveGuides, isLoading } = useGuides({ enabled: isEnglish });
 
-  const allGuides = (() => {
-    if (!liveGuides) return staticGuides;
-    return [...liveGuides, ...staticGuides.filter(sg => !liveGuides.some(lg => lg.slug === sg.slug))];
-  })();
+  let guide: Guide | undefined;
+  /** English slug of the article: images, related lists, tracking and hreflang are keyed on it. */
+  let enSlug: string;
 
-  const guide = allGuides.find(g => g.slug === slug);
+  if (isEnglish) {
+    const allGuides = (() => {
+      if (!liveGuides) return staticGuides;
+      return [...liveGuides, ...staticGuides.filter(sg => !liveGuides.some(lg => lg.slug === sg.slug))];
+    })();
+    guide = allGuides.find(g => g.slug === slug);
+    enSlug = guide?.slug ?? slug ?? '';
+  } else {
+    // The URL carries the translated slug (/it/guide/<slug>).
+    const sourceSlug = slug ? englishGuideSlug(slug, locale) : null;
+    const translated = sourceSlug ? localizedGuide(sourceSlug, locale) : null;
+    // Not translated in this language: the English article is the page.
+    if (!translated) return <RouterNavigate to={`/guides/${sourceSlug ?? slug ?? ''}`} replace />;
+    guide = translated;
+    enSlug = translated.sourceSlug;
+  }
 
   // A known static article renders on the first paint. The live query may
   // upgrade that copy when it arrives; it must not replace it with a spinner.
@@ -58,39 +82,47 @@ export default function GuideArticle() {
     return (
       <div className="page-content min-h-screen bg-background">
         <Helmet>
-          <title>Page Not Found (404) | Nomad Spin</title>
-          <meta name="description" content="Entry not found." />
+          <title>{t('guides.article.notFound.title')}</title>
+          <meta name="description" content={t('guides.article.notFound.description')} />
           <meta name="robots" content="noindex, follow" />
         </Helmet>
         <div className="max-w-2xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-3xl text-foreground mb-4">Guide not found</h1>
-          <p className="text-base text-muted-foreground mb-8">This guide is not in the library.</p>
+          <h1 className="text-3xl text-foreground mb-4">{t('guides.article.notFound.heading')}</h1>
+          <p className="text-base text-muted-foreground mb-8">{t('guides.article.notFound.body')}</p>
           <Link
             to="/guides"
             className="inline-flex items-center px-5 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
           >
-            Browse guides
+            {t('guides.article.notFound.cta')}
           </Link>
         </div>
       </div>
     );
   }
 
-  const pageUrl = `${BASE_URL}/guides/${guide.slug}`;
-  const { url: ogImage, alt: ogImageAlt } = guideSocialImage(guide.slug);
-  const hero = guideHeroImage(guide.slug, HERO_WIDTH);
+  const enPath = `/guides/${enSlug}`;
+  const pageUrl = canonicalUrl(enPath, locale);
+  const { url: ogImage, alt: ogImageAlt } = guideSocialImage(enSlug);
+  const hero = guideHeroImage(enSlug, HERO_WIDTH);
   const heroAttribution = hero ? cityAttribution(hero.cityId) : null;
-  const title = guideTitleTag(guide);
-  const jsonLd = guideArticleJsonLd(guide, pageUrl, ogImage);
-  const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl);
-  const faqJsonLd = guideFaqJsonLd(guide);
-  const relatedGuides = relatedGuideEntries(guide.slug);
-  const relatedDestinations = relatedDestinationEntries(guide);
-  const updatedLabel = new Date(`${(guide.updated ?? guide.date).slice(0, 10)}T12:00:00`).toLocaleDateString('en-US', {
+  const title = guideTitleTag(guide, locale);
+  const jsonLd = guideArticleJsonLd(guide, pageUrl, ogImage, locale);
+  const breadcrumbJsonLd = guideBreadcrumbJsonLd(guide, pageUrl, locale);
+  const faqJsonLd = guideFaqJsonLd(guide, locale);
+  const relatedGuides = relatedGuideEntries(enSlug, undefined, locale);
+  const relatedDestinations = relatedDestinationEntries(guide, locale);
+  const updatedLabel = formatDate((guide.updated ?? guide.date).slice(0, 10), locale, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
   });
+
+  // Links in the article body are written as English site paths. They lead to
+  // the translated page when there is one, and to the English page otherwise.
+  const markdownComponents: Components = {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    a: ({ node: _node, href, ...rest }) => <a href={href ? localizeHref(href) : href} {...rest} />,
+  };
 
   return (
     <div className="page-content min-h-screen bg-background pb-24">
@@ -115,6 +147,7 @@ export default function GuideArticle() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
         {faqJsonLd && <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>}
       </Helmet>
+      <LocaleLinks enPath={enPath} />
 
       {hero && (
         <figure className="relative h-64 md:h-80 overflow-hidden">
@@ -162,17 +195,21 @@ export default function GuideArticle() {
             prose-code:rounded-md prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
             prose-code:font-mono prose-code:font-medium prose-code:text-foreground
             ">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw, [rehypeSanitize, guideSchema]]}
+            components={markdownComponents}
+          >
             {rewriteSubAreaDestinationHrefs(guide.content)}
           </ReactMarkdown>
         </div>
       </article>
 
-      <GuideStayCta slug={guide.slug} />
+      <GuideStayCta slug={enSlug} />
 
       {relatedGuides.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">
-          <h2 className="text-2xl font-serif text-foreground mb-4">Related guides</h2>
+          <h2 className="text-2xl font-serif text-foreground mb-4">{t('guides.article.relatedGuides')}</h2>
           <ul className="space-y-3">
             {relatedGuides.map((item) => (
               <li key={item.slug}>
@@ -188,13 +225,13 @@ export default function GuideArticle() {
 
       {relatedDestinations.length > 0 && (
         <div className="max-w-3xl mx-auto px-6 mt-4">
-          <p className="mb-3 border-b border-border pb-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-foreground">Related destinations</p>
+          <p className="mb-3 border-b border-border pb-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-foreground">{t('guides.article.relatedDestinations')}</p>
           <div className="flex flex-wrap gap-2">
             {relatedDestinations.map((destination) => (
               <Link
                 key={destination.slug}
                 to={`/destinations/${destination.slug}`}
-                onClick={() => trackEvent('guide_to_destination_click', { guide: slug, city_slug: destination.slug })}
+                onClick={() => trackEvent('guide_to_destination_click', { guide: enSlug, city_slug: destination.slug })}
                 className="px-3 py-1.5 rounded-lg border border-border bg-card text-sm text-foreground hover:border-primary/50 hover:text-primary transition-colors"
               >
                 {destination.name}
@@ -205,12 +242,12 @@ export default function GuideArticle() {
       )}
 
       <div className="max-w-3xl mx-auto px-6 mt-12 text-center border-t border-border pt-12">
-        <p className="text-base text-muted-foreground mb-4">Ready to find a base?</p>
+        <p className="text-base text-muted-foreground mb-4">{t('guides.article.readyPrompt')}</p>
         <Link
           to="/"
           className="inline-flex items-center px-5 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
         >
-          Spin the globe
+          {t('guides.article.spin')}
         </Link>
       </div>
     </div>

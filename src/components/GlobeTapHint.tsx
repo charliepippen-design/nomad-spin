@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hand } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useT } from '@/i18n/LocaleProvider';
 
 export default function GlobeTapHint() {
   const [visible, setVisible] = useState(true);
   const isMobile = useIsMobile();
+  const t = useT();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(false), 3000);
@@ -30,7 +32,7 @@ export default function GlobeTapHint() {
           />
           <div className="flex items-center gap-1.5 bg-background/70 backdrop-blur-md rounded-full px-3 py-1.5">
             <Hand className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[10px] font-mono text-foreground/70 tracking-wider">Tap to explore</span>
+            <span className="text-[10px] font-mono text-foreground/70 tracking-wider">{t('home.tapHint')}</span>
           </div>
         </motion.div>
       )}

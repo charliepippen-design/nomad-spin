@@ -86,10 +86,16 @@ function rowToGuide(row: GuidesRow): Guide {
 
 // ── hook ──────────────────────────────────────────────────────────────────────
 
-export function useGuides() {
+/**
+ * Live guides are English only. A page shown in another language passes
+ * `enabled: false`: it reads its guides from the translated bundle and must
+ * not wait for, or be overwritten by, the English live rows.
+ */
+export function useGuides({ enabled = true }: { enabled?: boolean } = {}) {
   return useQuery<Guide[], Error>({
     queryKey: ['guides'],
     retry: false,
+    enabled,
     queryFn: () => fetchLiveGuides(),
     staleTime: 1000 * 60 * 5, // 5 min cache
   });

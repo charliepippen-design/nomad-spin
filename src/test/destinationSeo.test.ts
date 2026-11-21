@@ -10,6 +10,7 @@ import {
   relatedGuidesForCity,
   formatMonths,
 } from '@/lib/destinationSeo';
+import { destinationBodyHtml } from '@/lib/destinationPrerender';
 
 function cityByName(name: string) {
   const c = cities.find((x) => x.name === name);
@@ -159,8 +160,12 @@ describe('destinationSeo', () => {
     );
     expect(generator).toContain('city.pros.slice(0, 5)');
     expect(generator).toContain('city.cons.slice(0, 3)');
-    expect(generator).toContain('<h2>Why go</h2>');
-    expect(generator).toContain('<h2>Trade-offs</h2>');
+    // The two headings now come from the dictionary (city.pre.whyGo / city.pre.tradeOffs),
+    // so they are checked on the generated English HTML instead of the source text.
+    const madrid = cityByName('Madrid');
+    const madridHtml = destinationBodyHtml(madrid, citySlug(madrid));
+    expect(madridHtml).toContain('<h2>Why go</h2>');
+    expect(madridHtml).toContain('<h2>Trade-offs</h2>');
 
     const hubs: { name: string; pros: string[]; cons: string[] }[] = [
       {
