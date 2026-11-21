@@ -1,5 +1,5 @@
 import { useRef, useMemo, useCallback, Suspense, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree, useLoader, ThreeEvent } from '@react-three/fiber';
+import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { cities, type City } from '@/data/cities';
@@ -56,23 +56,37 @@ function AtmosphereGlow() {
   );
 }
 
-/* ── City markers using R3F built-in pointer events ── */
+/** How a city was reached: the mouse resting near it, or a click / tap on it. */
+export type CityPickKind = 'hover' | 'tap';
+export type CityPickHandler = (city: City | null, screenPos: { x: number; y: number } | null, kind: CityPickKind) => void;
+
+/** Pixels around a marker that still count as "on it". Markers are a few pixels wide, fingers are not. */
+const PICK_RADIUS_MOUSE = 22;
+const PICK_RADIUS_TOUCH = 40;
+/** Once a marker is hovered it keeps the hover out to this distance, so a shaky hand does not drop it. */
+const HOLD_RADIUS_MOUSE = 38;
+/** A press that travels further than this is a drag, not a tap. */
+const TAP_SLOP = 8;
+
+const CITY_INDEX = new Map(cities.map((city, index) => [city.id, index]));
+
+/* ── City markers. Picking is by screen distance to the nearest marker, not by hitting its mesh. ── */
 function CityMarkers({
   spinning,
   spinSpeed,
-  onHover,
-  onUnhover,
+  activeCityId,
+  onPick,
 }: {
   spinning: boolean;
   spinSpeed: number;
-  onHover: (city: City, screenPos: { x: number; y: number }) => void;
-  onUnhover: () => void;
+  activeCityId: string | null;
+  onPick: CityPickHandler;
 }) {
   const meshRef = useRef<THREE.InstancedMesh>(null!);
   const glowRef = useRef<THREE.Mesh>(null!);
   const timeRef = useRef(0);
   const hoveredRef = useRef<number | null>(null);
-  const { camera } = useThree();
+  const { camera, gl } = useThree();
   // Track camera distance for inverse-scale of dots
   const camDistRef = useRef(5.5);
 
@@ -136,44 +150,126 @@ function CityMarkers({
     }
   });
 
-  const handlePointerOver = useCallback((e: ThreeEvent<PointerEvent>) => {
-    if (spinning) return;
-    e.stopPropagation();
-    const idx = e.instanceId;
-    if (idx !== undefined && idx < cities.length) {
-      hoveredRef.current = idx;
-      onHover(cities[idx], { x: e.clientX, y: e.clientY });
-      document.body.style.cursor = 'pointer';
-    }
-  }, [spinning, onHover]);
+  // The highlighted marker is whatever the page says is active.
+  useEffect(() => {
+    hoveredRef.current = activeCityId ? CITY_INDEX.get(activeCityId) ?? null : null;
+  }, [activeCityId]);
 
-  const handlePointerOut = useCallback((e: ThreeEvent<PointerEvent>) => {
-    e.stopPropagation();
-    hoveredRef.current = null;
-    onUnhover();
-    document.body.style.cursor = 'auto';
-  }, [onUnhover]);
+  useEffect(() => {
+    const el = gl.domElement;
+    const v = new THREE.Vector3();
 
-  const handlePointerMove = useCallback((e: ThreeEvent<PointerEvent>) => {
-    if (spinning) return;
-    e.stopPropagation();
-    const idx = e.instanceId;
-    if (idx !== undefined && idx < cities.length) {
-      if (hoveredRef.current !== idx) {
-        hoveredRef.current = idx;
+    /** Nearest marker on the visible side of the globe within `radius` pixels, with its screen position. */
+    const pick = (clientX: number, clientY: number, radius: number) => {
+      const mesh = meshRef.current;
+      if (!mesh) return null;
+      mesh.updateWorldMatrix(true, false);
+      const rect = el.getBoundingClientRect();
+      let best = -1;
+      let bestDist = radius * radius;
+      let bestX = 0;
+      let bestY = 0;
+      for (let i = 0; i < count; i++) {
+        v.copy(positions[i]).applyMatrix4(mesh.matrixWorld);
+        // Behind the horizon as seen from the camera: not pickable.
+        if (v.dot(camera.position) < v.lengthSq()) continue;
+        v.project(camera);
+        const x = rect.left + ((v.x + 1) / 2) * rect.width;
+        const y = rect.top + ((1 - v.y) / 2) * rect.height;
+        const dist = (x - clientX) ** 2 + (y - clientY) ** 2;
+        if (dist < bestDist) {
+          best = i;
+          bestDist = dist;
+          bestX = x;
+          bestY = y;
+        }
       }
-      onHover(cities[idx], { x: e.clientX, y: e.clientY });
-    }
-  }, [spinning, onHover]);
+      return best < 0 ? null : { index: best, x: bestX, y: bestY };
+    };
+
+    let lastHover = -1;
+    let frame = 0;
+    const pointers = new Map<number, { x: number; y: number; moved: boolean }>();
+
+    /** Screen distance from a point to one marker, or Infinity when it is behind the globe. */
+    const distanceTo = (index: number, clientX: number, clientY: number) => {
+      const mesh = meshRef.current;
+      if (!mesh) return Infinity;
+      mesh.updateWorldMatrix(true, false);
+      v.copy(positions[index]).applyMatrix4(mesh.matrixWorld);
+      if (v.dot(camera.position) < v.lengthSq()) return Infinity;
+      v.project(camera);
+      const rect = el.getBoundingClientRect();
+      return Math.hypot(rect.left + ((v.x + 1) / 2) * rect.width - clientX, rect.top + ((1 - v.y) / 2) * rect.height - clientY);
+    };
+
+    const hover = (clientX: number, clientY: number) => {
+      const hit = pick(clientX, clientY, PICK_RADIUS_MOUSE);
+      // Hysteresis: leaving the pick radius by a few pixels keeps the current marker.
+      if (!hit && lastHover >= 0 && distanceTo(lastHover, clientX, clientY) <= HOLD_RADIUS_MOUSE) return;
+      const index = hit ? hit.index : -1;
+      el.style.cursor = hit ? 'pointer' : '';
+      if (index === lastHover) return;
+      lastHover = index;
+      // Anchor the card to the marker, not to the cursor, so it does not chase the mouse.
+      if (hit) onPick(cities[hit.index], { x: hit.x, y: hit.y }, 'hover');
+      else onPick(null, null, 'hover');
+    };
+
+    const onMove = (e: PointerEvent) => {
+      const press = pointers.get(e.pointerId);
+      if (press) {
+        if (Math.hypot(e.clientX - press.x, e.clientY - press.y) > TAP_SLOP) press.moved = true;
+        return;
+      }
+      if (spinning || e.pointerType !== 'mouse') return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => hover(e.clientX, e.clientY));
+    };
+    const onDown = (e: PointerEvent) => {
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, moved: false });
+      // A second finger means pinch-zoom: none of these presses is a tap.
+      if (pointers.size > 1) pointers.forEach((p) => (p.moved = true));
+    };
+    const onUp = (e: PointerEvent) => {
+      const press = pointers.get(e.pointerId);
+      pointers.delete(e.pointerId);
+      if (!press || press.moved || spinning) return;
+      const hit = pick(e.clientX, e.clientY, e.pointerType === 'mouse' ? PICK_RADIUS_MOUSE : PICK_RADIUS_TOUCH);
+      lastHover = hit ? hit.index : -1;
+      if (hit) onPick(cities[hit.index], { x: hit.x, y: hit.y }, 'tap');
+      else onPick(null, null, 'tap');
+    };
+    const onCancel = (e: PointerEvent) => pointers.delete(e.pointerId);
+    const onLeave = (e: PointerEvent) => {
+      // A queued hover must not fire after the pointer has moved onto the card.
+      cancelAnimationFrame(frame);
+      if (e.pointerType !== 'mouse' || lastHover === -1) return;
+      lastHover = -1;
+      onPick(null, null, 'hover');
+    };
+
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerdown', onDown);
+    el.addEventListener('pointerup', onUp);
+    el.addEventListener('pointercancel', onCancel);
+    el.addEventListener('pointerleave', onLeave);
+    return () => {
+      cancelAnimationFrame(frame);
+      el.style.cursor = '';
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerdown', onDown);
+      el.removeEventListener('pointerup', onUp);
+      el.removeEventListener('pointercancel', onCancel);
+      el.removeEventListener('pointerleave', onLeave);
+    };
+  }, [gl, camera, positions, count, spinning, onPick]);
 
   return (
     <>
       <instancedMesh
         ref={meshRef}
         args={[undefined, undefined, count]}
-        onPointerOver={handlePointerOver}
-        onPointerOut={handlePointerOut}
-        onPointerMove={handlePointerMove}
       >
         <sphereGeometry args={[1, 8, 8]} />
         <meshStandardMaterial
@@ -208,8 +304,8 @@ function Earth({
   userDragging,
   initialRotationY,
   focusCity,
-  onHover,
-  onUnhover,
+  activeCityId,
+  onPick,
 }: {
   spinning: boolean;
   spinSpeed: number;
@@ -218,8 +314,8 @@ function Earth({
   userDragging: boolean;
   initialRotationY: number;
   focusCity?: City | null;
-  onHover: (city: City, screenPos: { x: number; y: number }) => void;
-  onUnhover: () => void;
+  activeCityId: string | null;
+  onPick: CityPickHandler;
 }) {
   const groupRef = useRef<THREE.Group>(null!);
   const speedRef = useRef(0);
@@ -268,7 +364,8 @@ function Earth({
     let target: number;
     if (spinning) {
       target = spinSpeed;
-    } else if (autoSpin && !userDragging) {
+    } else if (autoSpin && !userDragging && !activeCityId) {
+      // The globe holds still while a city card is open, so the marker stays under the pointer.
       target = 0.003;
     } else {
       target = 0;
@@ -298,8 +395,8 @@ function Earth({
       <CityMarkers
         spinning={spinning}
         spinSpeed={speedRef.current}
-        onHover={onHover}
-        onUnhover={onUnhover}
+        activeCityId={activeCityId}
+        onPick={onPick}
       />
     </group>
   );
@@ -332,7 +429,10 @@ interface GlobeProps {
   autoSpin?: boolean;
   focusCity?: City | null;
   onAutoSpinOff?: () => void;
-  onCityHover?: (city: City | null, pos: { x: number; y: number } | null) => void;
+  /** City whose marker is highlighted. While set, auto-rotation pauses. */
+  activeCityId?: string | null;
+  /** Fired when the mouse rests near a marker or leaves it (hover), and on every click or tap (tap). */
+  onCityPick?: CityPickHandler;
 }
 
 export default function Globe({
@@ -343,7 +443,8 @@ export default function Globe({
   autoSpin = false,
   focusCity = null,
   onAutoSpinOff,
-  onCityHover,
+  activeCityId = null,
+  onCityPick,
 }: GlobeProps) {
   const [userDragging, setUserDragging] = useState(false);
   const [initialRotationY, setInitialRotationY] = useState(0);
@@ -366,13 +467,10 @@ export default function Globe({
     setUserDragging(false);
   }, []);
 
-  const handleHover = useCallback((city: City, screenPos: { x: number; y: number }) => {
-    onCityHover?.(city, screenPos);
-  }, [onCityHover]);
-
-  const handleUnhover = useCallback(() => {
-    onCityHover?.(null, null);
-  }, [onCityHover]);
+  const handlePick = useCallback<CityPickHandler>(
+    (city, screenPos, kind) => onCityPick?.(city, screenPos, kind),
+    [onCityPick],
+  );
 
   return (
     <div className="w-full h-full absolute inset-0">
@@ -394,8 +492,8 @@ export default function Globe({
             userDragging={userDragging}
             initialRotationY={initialRotationY}
             focusCity={focusCity}
-            onHover={handleHover}
-            onUnhover={handleUnhover}
+            activeCityId={activeCityId}
+            onPick={handlePick}
           />
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
