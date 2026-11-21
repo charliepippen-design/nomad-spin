@@ -8,9 +8,9 @@ Assessment only. No production behavior was changed.
 
 The product people remember is the globe. The product that can earn traffic is the editorial guide (Chiang Mai is the proof). Those two are already decoupled enough to restyle without a rewrite. What is failing is the shell around them: three different navs, three different price lists, a guide template dressed as a sci-fi HUD, and destination pages that admit the useful sections are "coming soon."
 
-Tier A (polish only) leaves the fake explore wall, the dead "How it Works" link, and the missing site nav in place. Those are traffic and trust problems, not spacing problems. Tier C (new shell / new design system / Lovable full-page rebuild) spends credits re-deriving a starter kit this repo already has, and it puts the globe, the 781 destination URLs, and the affiliate click path in the blast radius. Do that later, only if B's templates still cannot hold a Chiang Mai-quality guide.
+Tier A (polish only) leaves the fake explore wall, the dead "How it Works" link, and the missing site nav in place. Those are traffic and trust problems, not spacing problems. Tier C (new shell / new design system / the AI site builder full-page rebuild) spends credits re-deriving a starter kit this repo already has, and it puts the globe, the 781 destination URLs, and the affiliate click path in the blast radius. Do that later, only if B's templates still cannot hold a Chiang Mai-quality guide.
 
-**Do not spend Lovable credits on a full visual rebuild of pages.** Use Claude/Cursor on the shell, the guide template, and the destination template. Lovable is how this codebase accumulated a 49-file shadcn kit, a 15-city mock explore, and "as seen on" logos. More of that will not make the spin more unique.
+**Do not spend the AI site builder credits on a full visual rebuild of pages.** Use Claude/Cursor on the shell, the guide template, and the destination template. the AI site builder is how this codebase accumulated a 49-file shadcn kit, a 15-city mock explore, and "as seen on" logos. More of that will not make the spin more unique.
 
 ---
 
@@ -93,7 +93,7 @@ Slug note: the 2026 "best places" guide still lives at `/guides/best-places-digi
 
 ## 2. Design system reality
 
-This is a Lovable shadcn starter with a HUD painted on top. It is not a design system.
+This is a stock shadcn starter with a HUD painted on top. It is not a design system.
 
 **Tokens.** `components.json` is shadcn `style: default`, `baseColor: slate`, CSS variables. `src/index.css` sets primary to iOS blue (`210 100% 50%` light, `210 100% 60%` dark). Radius is `0.5rem`. Fonts are Inter (everything, including headings) and JetBrains Mono. Dark mode is near-black. Sidebar tokens exist for a sidebar the app does not have.
 
@@ -106,7 +106,7 @@ This is a Lovable shadcn starter with a HUD painted on top. It is not a design s
 - Four accents: token blue, globe marker `#00ffaa`, hover `#ffdd44`, scrollbar `#ffeb3b`, plus emerald CTAs on destination affiliate buttons (`text-emerald-400`) that are not the primary token.
 - Surfaces assume dark: `bg-[#0a0a0a]`, `bg-white/[0.03]`, `border-white/10`. Light mode exists (`next-themes`) and will look broken on the city wall, testimonials, and preference dropdown.
 - `src/App.css` is the unused Vite starter (`#root { max-width: 1280px }`, spinning React logo). It is not imported. Leave it or delete it in a cleanup; do not "design" around it.
-- `README.md` is still the Lovable boilerplate (`REPLACE_WITH_PROJECT_ID`).
+- `README.md` is still template boilerplate (`REPLACE_WITH_PROJECT_ID`).
 
 There is no component inventory worth porting except: stat chip, guide section, result card layout, affiliate grid, and the globe. The shadcn folder is not the system. Do not "finish adopting shadcn."
 
@@ -120,7 +120,7 @@ There is no component inventory worth porting except: stat chip, guide section, 
 - **Noise overlay, glass, and the fixed globe-as-background** on `/`. The home page is an instrument, not a marketing scroll. That is the brand. Do not replace it with a hero headline, three feature cards, and a logo cloud.
 - **The wordmark asset** (`src/assets/dns-logo.png`) used in the header. The footer drops it for tracked "NOMAD SPIN" text.
 
-### Generic Lovable, or actively harmful
+### Generic the AI site builder, or actively harmful
 
 - **"As seen on"** (`PublisherLogoCloud`): New York Times, CNN, TechCrunch, The Guardian, Forbes, set in CSS fonts, linking to generic digital-nomad articles. This is not coverage of Nomad Spin.
 - **Testimonials** name Elena R., Marcus T., and Sarah K. and praise a D7-visa/fiber cross-check and "community insights on short-term lease negotiations." The product does not do those things.
@@ -130,7 +130,7 @@ There is no component inventory worth porting except: stat chip, guide section, 
 - **Result card**: health bars labeled BANDWIDTH / NIGHTLIFE / POWER GRID, confetti, `DeploymentGrid`. The HUD voice is on-brand for the spin result. It is the wrong voice for a 5,000-word guide. Today both voices ship as one site.
 - **Chunky yellow scrollbar** (`#ffeb3b` in `index.css`). A gimmick that matches neither the blue token nor the green markers.
 
-The landing drawer (`LandingDrawer.tsx`, ~600 lines) is where the generic layer sits on top of the strong one: spin button, fake social proof, featured prices, how-it-works, saved spins, and mobile controls, all in one sheet. The globe is behind it. The drawer is what makes the home page feel like a Lovable demo.
+The landing drawer (`LandingDrawer.tsx`, ~600 lines) is where the generic layer sits on top of the strong one: spin button, fake social proof, featured prices, how-it-works, saved spins, and mobile controls, all in one sheet. The globe is behind it. The drawer is what makes the home page feel like a the AI site builder demo.
 
 ---
 
@@ -162,7 +162,7 @@ A visual/format change is **not** uniformly dangerous. The risk is concentrated 
 - `/destinations/:citySlug` (NFD slugs; legacy aliases redirect in `DestinationGuide`)
 - `/about`, `/contact`, `/privacy-policy`, `/terms-of-use`
 
-`vercel.json` rewrites unknown paths to `/index.html`, and the filesystem wins when `dist/<route>/index.html` exists. `generate-seo-pages.ts` writes those files by **regex-replacing** `<title>`, meta, canonical, and the homepage JSON-LD block, then injecting a `<main>` into `#root`. A Lovable pass that "cleans up" `index.html` head tags will make every prerendered title the homepage title. Two templates must stay in sync: the React page and `destinationBodyHtml` / `guideBodyHtml`.
+`vercel.json` rewrites unknown paths to `/index.html`, and the filesystem wins when `dist/<route>/index.html` exists. `generate-seo-pages.ts` writes those files by **regex-replacing** `<title>`, meta, canonical, and the homepage JSON-LD block, then injecting a `<main>` into `#root`. A the AI site builder pass that "cleans up" `index.html` head tags will make every prerendered title the homepage title. Two templates must stay in sync: the React page and `destinationBodyHtml` / `guideBodyHtml`.
 
 **Analytics.** Three systems, easy to drop:
 
@@ -216,13 +216,13 @@ Keep, as libraries: city data and slug rules, scoring, globe component, affiliat
 
 Rebuild: `Layout`, `Index`, page templates, tokens. Retire the unused shadcn kit instead of theming it. If the framework changes (Next/Astro for guides), replace `generate-seo-pages.ts` on purpose. Do not "let the new framework figure out SEO."
 
-Lovable is the wrong tool for C. A full-page regenerate will rewrite `Index.tsx` and `index.html`, which is how you lose the phase machine, the prerender regex, and GTM in one prompt.
+the AI site builder is the wrong tool for C. A full-page regenerate will rewrite `Index.tsx` and `index.html`, which is how you lose the phase machine, the prerender regex, and GTM in one prompt.
 
 ---
 
-## 6. Lovable credits vs Claude/Cursor
+## 6. the AI site builder credits vs Claude/Cursor
 
-**Spend Claude/Cursor. Do not spend Lovable credits on a full visual rebuild.**
+**Spend Claude/Cursor. Do not spend the AI site builder credits on a full visual rebuild.**
 
 Priority order, under traffic and monetization constraints:
 
@@ -232,8 +232,8 @@ Priority order, under traffic and monetization constraints:
 4. **Then** the shell and the destination template (tier B items 1, 4, 5, 6).
 5. **Leave the globe alone** unless a change is a deliberate lighting/marker pass reviewed against a spin on desktop and mobile.
 
-Where Lovable fits: a throwaway mood board in a branch, or a single presentational experiment (one guide hero, one stat row) that a person ports by hand. It does not fit `Index.tsx`, `Globe.tsx`, `index.html`, the SEO scripts, or "redesign all pages."
+Where the AI site builder fits: a throwaway mood board in a branch, or a single presentational experiment (one guide hero, one stat row) that a person ports by hand. It does not fit `Index.tsx`, `Globe.tsx`, `index.html`, the SEO scripts, or "redesign all pages."
 
 Where Claude/Cursor fits: the shell, the two templates, the mock-data deletion, the prerender body, and any token cleanup. Those edits have to preserve imports (`generateAffiliateLinks`, `trackAffiliateClick`, `cityPath`, Helmet canonicals, GTM). An agent that can see the file is less likely to replace them with a generic card grid than a prompt that regenerates the page.
 
-The owner's constraint (no cheap auto-content, keep the spin) maps cleanly onto this: the spin is code, the quality is the markdown, and the Lovable layer is the part that looks finished while showing the wrong city.
+The owner's constraint (no cheap auto-content, keep the spin) maps cleanly onto this: the spin is code, the quality is the markdown, and the the AI site builder layer is the part that looks finished while showing the wrong city.
