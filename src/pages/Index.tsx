@@ -61,7 +61,13 @@ export default function Index() {
   const [resetCamera, setResetCamera] = useState(false);
   const [dayMode, setDayMode] = useState(true);
   const [autoSpin, setAutoSpin] = useState(false);
-  const [hoveredCity, setHoveredCity] = useState<{ city: City; pos: { x: number; y: number } } | null>(null);
+  // City card on the globe. `pinned` = opened by a click or tap, so it stays until dismissed.
+  const [activeCity, setActiveCity] = useState<{ city: City; pos: { x: number; y: number }; pinned: boolean } | null>(null);
+  const cardHideTimer = useRef<ReturnType<typeof setTimeout>>();
+  const cardSwitchTimer = useRef<ReturnType<typeof setTimeout>>();
+  // Mirror of activeCity for event handlers, which must decide without waiting for a render.
+  const activeCityRef = useRef(activeCity);
+  activeCityRef.current = activeCity;
   const [isCityWallOpen, setIsCityWallOpen] = useState(false);
   // Globe-only mode: every overlay is hidden so the visitor can just play with the globe.
   // It lives in the URL hash so the browser Back button leaves it.
@@ -87,18 +93,73 @@ export default function Index() {
   const { toast } = useToast();
   const isMobile = useIsMobile();
 
-  const handleCityHover = useCallback((city: City | null, pos: { x: number; y: number } | null) => {
-    if (city && pos) {
-      // One event per city per visit: a hover or tap on its marker.
-      if (!selectedOnGlobe.current.has(city.id)) {
-        selectedOnGlobe.current.add(city.id);
-        trackEvent('globe_city_select', { city: city.id, city_slug: citySlug(city) });
-      }
-      setHoveredCity({ city, pos });
-    } else {
-      setHoveredCity(null);
-    }
+  // A hovered card lingers briefly after the mouse leaves the marker, long enough to reach the card.
+  // React reports "entered the card" before the canvas reports "left the globe",
+  // so the hide request is ignored while the pointer is known to be on the card.
+  const pointerOnCard = useRef(false);
+  const scheduleCardHide = useCallback(() => {
+    clearTimeout(cardHideTimer.current);
+    if (pointerOnCard.current) return;
+    cardHideTimer.current = setTimeout(() => setActiveCity((current) => (current?.pinned ? current : null)), 400);
   }, []);
+  const keepCardOpen = useCallback(() => {
+    pointerOnCard.current = true;
+    clearTimeout(cardHideTimer.current);
+    clearTimeout(cardSwitchTimer.current);
+  }, []);
+  const leaveCard = useCallback(() => {
+    pointerOnCard.current = false;
+    scheduleCardHide();
+  }, [scheduleCardHide]);
+  const closeCard = useCallback(() => {
+    pointerOnCard.current = false;
+    clearTimeout(cardHideTimer.current);
+    clearTimeout(cardSwitchTimer.current);
+    setActiveCity(null);
+  }, []);
+
+  const handleCityPick = useCallback(
+    (city: City | null, pos: { x: number; y: number } | null, kind: 'hover' | 'tap') => {
+      if (city && pos) {
+        // One event per city per visit: a hover or tap on its marker.
+        if (!selectedOnGlobe.current.has(city.id)) {
+          selectedOnGlobe.current.add(city.id);
+          trackEvent('globe_city_select', { city: city.id, city_slug: citySlug(city) });
+        }
+        clearTimeout(cardHideTimer.current);
+        clearTimeout(cardSwitchTimer.current);
+        if (kind === 'tap') {
+          setActiveCity({ city, pos, pinned: true });
+          return;
+        }
+        const next = { city, pos, pinned: false };
+        const current = activeCityRef.current;
+        // Passing over other markers does not replace a card the visitor pinned.
+        if (current?.pinned) return;
+        if (!current || current.city.id === city.id) {
+          setActiveCity(next);
+          return;
+        }
+        // Another card is open: switch only if the mouse rests on the new marker,
+        // so crossing markers on the way to the card does not swap it away.
+        cardSwitchTimer.current = setTimeout(() => setActiveCity((now) => (now?.pinned ? now : next)), 250);
+        return;
+      }
+      clearTimeout(cardSwitchTimer.current);
+      // A click or tap on empty globe dismisses; the mouse leaving a marker starts the grace period.
+      if (kind === 'tap') closeCard();
+      else scheduleCardHide();
+    },
+    [closeCard, scheduleCardHide],
+  );
+
+  useEffect(
+    () => () => {
+      clearTimeout(cardHideTimer.current);
+      clearTimeout(cardSwitchTimer.current);
+    },
+    [],
+  );
 
   // Floating globe controls step aside once the visitor scrolls into the editorial block.
   const [pastHero, setPastHero] = useState(false);
@@ -280,7 +341,8 @@ export default function Index() {
             autoSpin={autoSpin}
             focusCity={phase === 'results' ? resultCity : flyToTarget ? ({ lat: flyToTarget.lat, lng: flyToTarget.lng } as City) : null}
             onAutoSpinOff={() => setAutoSpin(false)}
-            onCityHover={handleCityHover}
+            activeCityId={activeCity?.city.id ?? null}
+            onCityPick={handleCityPick}
           />
         </Suspense>
 
@@ -291,12 +353,17 @@ export default function Index() {
 
       {/* City Tooltip */}
       <TooltipPresence>
-        {hoveredCity && (
+        {activeCity && !isSpinning && (
           <CityTooltip
-            key={hoveredCity.city.id}
-            city={hoveredCity.city}
-            x={hoveredCity.pos.x}
-            y={hoveredCity.pos.y}
+            key={activeCity.city.id}
+            city={activeCity.city}
+            x={activeCity.pos.x}
+            y={activeCity.pos.y}
+            sheet={isMobile}
+            pinned={activeCity.pinned}
+            onClose={closeCard}
+            onPointerEnter={keepCardOpen}
+            onPointerLeave={leaveCard}
           />
         )}
       </TooltipPresence>
