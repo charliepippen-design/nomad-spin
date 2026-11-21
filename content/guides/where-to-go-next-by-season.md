@@ -33,7 +33,7 @@ When `dataSource` is `estimated`, treat months and costs as directional and conf
 
 **Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s `rainyMonths` are **Dec to Mar** (best months Apr to Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep to Dec** rainy stretch.
 
-**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan to Apr** and **Oct to Dec** (`tempAvgC` 21, ~$1,800, 130 to 140 Mbps, safety 8, digital nomad visa field of 365 days). That 365 is the initial consular visa. Spain's in-country residence authorization can run longer. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
+**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan to Apr** and **Oct to Dec** (`tempAvgC` 21, ~$1,800, 130 to 140 Mbps, safety 8, visa exemption field of 90 days). That 90 is the Schengen short stay, 90 days in any 180. Spain's 1-year consular telework visa is the longer route. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
 
 **Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct to Mar** (`$1,400` / 100 Mbps): peak nature season, but safety **5.5** and `powerGridStability` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher `costUSD`.
 
@@ -59,7 +59,7 @@ Shoulder months often win the **cost vs weather** trade: Europe’s best-month l
 
 Many European rows share Apr to Jun / Sep to Oct best months:
 
-- [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: `$2,200` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
+- [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: `$2,200` / **200** Mbps / safety **8.8** / visa exemption field of 90 days (the remote-work route is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: `$2,500` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Madrid](/destinations/madrid): **Apr, May, Jun, Sep, Oct**: `$2,200` / **200** Mbps / safety **8** / the same Spain telework field. Rainy months are **Nov** and **Dec**. Very hot summers are the con, and July and August are not best months. The [Madrid living guide](/guides/living-in-madrid) is the Jul-Aug rule for that row.
 - [Tirana](/destinations/tirana): **Apr, May, Jun, Sep, Oct**: `$1,150` / **90** Mbps / safety **7** / **Visa Exemption** of **90** days in any 180 for most visa-free passports. Rainy months are **Nov** and **Dec**. Traffic and developing infrastructure are the cons. The [Tirana living guide](/guides/living-in-tirana) is the thin-coworking, spring-and-autumn version of that row.
@@ -123,7 +123,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Power and internet under weather stress.** Cape Town’s low `powerGridStability` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 
-**Visa daydreaming.** A perfect climate month with **30** `visaDays` (Bali) is a different trip than **180** (Mexico City) or **365** (Tbilisi is visa-free; Lisbon and Las Palmas list a 365-day digital nomad visa field, which is an application, not a visa-free year). Encode trip length before you fall for `bestMonths`.
+**Visa daydreaming.** A perfect climate month with **30** `visaDays` (Bali) is a different trip than **180** (Mexico City) or **365** (Tbilisi is visa-free; Lisbon and Las Palmas list the 90-day Schengen exemption, and the longer remote-work route is an application, not a visa-free year). Encode trip length before you fall for `bestMonths`.
 
 **Estimated rows.** Prefer `dataSource: "verified"` when the month decision is expensive; double-check official weather and visa sources either way.
 

@@ -296,7 +296,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | LGBTQ+ score | 3 | 5 | 9 | 6 | 6 |
 | English | 4 | 7 | 8 | 5 | 4 |
 | Community | 6 | 7 | 9 | 9 | 8 |
-| Visa field in Nomad Spin | Visa Free, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
+| Visa field in Nomad Spin | Visa Free, 365 days | Digital Nomad Visa, 365 days | Visa Exemption, 90 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
 | Time zone | UTC+4 | UTC+1 | UTC+0 | UTC+7 | UTC-5 |
 | Best months | May, Jun, Sep, Oct | Apr, May, Jun, Sep, Oct | Apr, May, Jun, Sep, Oct | Nov, Dec, Jan, Feb | Jan, Feb, Mar, Jul, Aug, Dec |
 
@@ -306,7 +306,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Budapest** when you want a European city with **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.3**, and you can pay the **$1,500** solo month. The visa field is a **Digital Nomad Visa**, **365** days, which is an application with conditions, not a stamp on arrival. Cold winters are on [Budapest](/destinations/budapest)'s cons too. The pipes and the English score (**7**) are the upgrade. The bill is the cost of it. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
-**Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, `lgbtFriendly` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is also a digital nomad visa, **365** days, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the year is the same idea.
+**Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, `lgbtFriendly` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is **Visa Exemption**, **90** days in any 180, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the stay is the same idea.
 
 **Look at [Chiang Mai](/destinations/chiang-mai)** when you want a larger scene (community **9**, coworking **High**) at a solo month of **$850**, close to Tbilisi's **$800**, with **95 Mbps** and safety **8.2**. The visa field is a **30-day** tourism exemption (passport-dependent, tourism only), which is a different stay from 365. The DTV is the long-stay path. Best months are **Nov-Feb**, and burning season is the seasonal hard part. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before you treat the two cities as interchangeable cheap bases. Time zone **UTC+7** is a different call sheet from **UTC+4**.
 

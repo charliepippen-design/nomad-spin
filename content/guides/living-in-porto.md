@@ -5,7 +5,7 @@ Living in Porto as a digital nomad is a rational Portugal base in 2026 if you wa
 - **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
 - **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
 - **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. Check the MNE page for the current consular visa length before you apply. The statute is Lei 23/2007.
+- **Stay length:** the row says **Visa Exemption**, **90 days**, time zone **UTC+0**. That 90 is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. Check the MNE page for the current consular visa length before you apply. The statute is Lei 23/2007.
 - **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
 
 The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
@@ -22,7 +22,7 @@ Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and p
 
 ### What visa do digital nomads use in Porto?
 
-Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. Check the MNE page for the current consular visa length before you apply. Thresholds and fees change; verify them on the MNE and AIMA pages.
+Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. Check the MNE page for the current consular visa length before you apply. Thresholds and fees change; verify them on the MNE and AIMA pages.
 
 ### Who should skip living in Porto?
 
@@ -195,7 +195,7 @@ Ribeira is a viewpoint. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
 
-**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). Check the MNE visa-type page for the current consular visa length before you apply. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+**Visas and stay length (verify before you apply).** Nomad Spin lists the Schengen visa exemption, 90 days in any 180. That is the default entry, not the remote-work route. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). Check the MNE visa-type page for the current consular visa length before you apply. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
 
 Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
 
@@ -277,15 +277,15 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 | City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
 |---|---:|---:|---:|---|---|
-| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May, Jun, Sep, Oct |
-| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
+| Porto | $1,800 | 200 | 9.0 | Visa Exemption, 90 days | May-Sep |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Barcelona | $2,500 | 300 | 7.5 | Visa Exemption, 90 days | May, Jun, Sep, Oct |
+| Madrid | $2,200 | 200 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep |
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 
-**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (`tempAvgC` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
+**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (`tempAvgC` **11**, rainy **Nov-Dec**). The visa field there is 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
 
 **Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
@@ -295,7 +295,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Split** when the sea and islands matter more than the internet. [Split](/destinations/split) matches Porto's **$1,800** solo month and **$1,400** longer-stay figure, with safety **9.0**, coworking **Med**, and best months **May-Sep**, but it posts **100 Mbps** against Porto's **200 Mbps**, and community **4** against **6**. Crowded summers and seasonal tourism are its cons. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
 
-Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
+Spain's rows use the same 90-day Schengen field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
 
 If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
 
@@ -303,7 +303,7 @@ If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living 
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as the 2-year permit
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the D8 visa as the 2-year permit
 - Paying the **$85** nightly median for thirty nights and calling the month **$1,800**
 - Booking a Ribeira view for the month, then discovering the hill, the noise, and the crowds
 - Choosing Foz, then acting surprised that the long-stay **$1,400** figure did not survive the address

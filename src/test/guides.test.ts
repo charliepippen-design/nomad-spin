@@ -240,7 +240,8 @@ describe('static guides', () => {
     expect(g!.content).toContain('$120');
     expect(g!.content).toContain('200 Mbps');
     expect(g!.content).toContain('8.8');
-    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('90 days');
+    expect(g!.content).not.toMatch(/365-day\*\* field|initial[- ]visa field/);
     expect(g!.content).toContain('780+');
     expect(g!.content).not.toMatch(/—|–/);
     expect(g!.title).not.toMatch(/—|–/);
@@ -902,7 +903,8 @@ describe('static guides', () => {
     expect(g!.content).toContain('$400');
     expect(g!.content).toContain('200 Mbps');
     expect(g!.content).toContain('9.0');
-    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('90 days');
+    expect(g!.content).not.toMatch(/365-day\*\* field|initial[- ]visa field/);
     expect(g!.content).toContain('2 years');
     expect(g!.content).toContain('Lei 23/2007');
     expect(g!.content).toContain('780+');
@@ -1025,8 +1027,9 @@ describe('static guides', () => {
     expect(g!.content).toContain('$130');
     expect(g!.content).toContain('300 Mbps');
     expect(g!.content).toContain('7.5');
-    expect(g!.content).toContain('Digital Nomad Visa');
-    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90 days');
+    expect(g!.content).not.toMatch(/365-day\*\* field|initial[- ]visa field/);
     expect(g!.content).toContain('UTC+1');
     expect(g!.content).toContain('200%');
     expect(g!.content).toContain('Ley 14/2013');
@@ -1086,8 +1089,9 @@ describe('static guides', () => {
     expect(g!.content).toContain('$2,580');
     expect(g!.content).toContain('170 Mbps');
     expect(g!.content).toContain('8.0');
-    expect(g!.content).toContain('Digital Nomad Visa');
-    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90 days');
+    expect(g!.content).not.toMatch(/365-day\*\* field|initial[- ]visa field/);
     expect(g!.content).toContain('UTC+1');
     expect(g!.content).toContain('200%');
     expect(g!.content).toContain('Ley 14/2013');
@@ -1158,8 +1162,9 @@ describe('static guides', () => {
     expect(g!.content).toContain('$300');
     expect(g!.content).toContain('200 Mbps');
     expect(g!.content).toContain('8');
-    expect(g!.content).toContain('Digital Nomad Visa');
-    expect(g!.content).toContain('365');
+    expect(g!.content).toContain('Visa Exemption');
+    expect(g!.content).toContain('90 days');
+    expect(g!.content).not.toMatch(/365-day\*\* field|initial[- ]visa field/);
     expect(g!.content).toContain('UTC+1');
     expect(g!.content).toContain('200%');
     expect(g!.content).toContain('Ley 14/2013');
