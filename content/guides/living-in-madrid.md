@@ -6,7 +6,7 @@ The case for living in Madrid as a digital nomad is a work decision before it is
 
 **Is Madrid internet good enough for video calls?** Yes. Nomad Spin shows about **200 Mbps** average. Reliability **9/10** and power **9/10** are estimates. Coworking density is High. Test upload speed in the actual unit before signing. Fiber is widespread. Do not trust vague Airbnb wifi claims.
 
-**What visa do digital nomads use in Madrid?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+**What visa do digital nomads use in Madrid?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
 
 **Who should skip living in Madrid?** Skip it if you need a beach, a tight budget, or mild summers. Nomad Spin flags expensive living and very hot summers as trade-offs. If Jul-Aug heat without air conditioning blocks your work, pick Valencia's coast or another base for those months.
 
@@ -205,7 +205,7 @@ Gran Via is a walk. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify UGE and BOE)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Madrid](/destinations/madrid). That matches Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Madrid](/destinations/madrid). That is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note: Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -296,11 +296,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Community | 6 | 8 | 5 | 9 | 7 |
 | `lgbtFriendly` | 9 | 9 | 7 | 9 | 5 |
 | English | 5 | 7 | 5 | 8 | 7 |
-| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Visa field | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Digital Nomad Visa, 365 days |
 | Best months | Apr-Jun, Sep-Oct | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Expensive, very hot summers, limited English | Rent, pickpockets, crowds | Hot summers, flooding risk, limited English | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
-The Spain rows share the telework path: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals (Ley 14/2013, art. 74 quinquies). Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+The Spain rows share the telework path: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals (Ley 14/2013, art. 74 quinquies). Lisbon's field is the same Schengen 90 days, with a different country's remote-work route. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Madrid** when you want the capital routine, coworking **High**, nightlife **9**, and `lgbtFriendly` **9**, and you can fund **$2,200** (or live inside the **$1,650** estimate on purpose). You do not need a beach. You accept English **5**, community **6**, and the Jul-Aug rule.
 
@@ -322,7 +322,7 @@ If the objection is "I needed the beach outside my door and a third of the bill,
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as a stay for most nationalities
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the residence permit
 - Paying the **$100** nightly estimate for thirty nights and calling the month **$2,200**
 - Booking Sol, Gran Via, or a Malasana view over a bar for the month, then discovering the noise
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there

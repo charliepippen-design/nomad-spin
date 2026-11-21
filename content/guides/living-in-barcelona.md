@@ -6,7 +6,7 @@ The case for living in Barcelona as a digital nomad is a budget decision before 
 
 **Is Barcelona internet good enough for video calls?** Yes. The row shows about **300 Mbps**, reliability **9/10**, power **9/10**, and coworking density **High**. That is the fastest speed among these Europe peers. The bigger work risk is street noise. Check which way the bedroom faces, and whether the windows close, before you book.
 
-**What visa do digital nomads use in Barcelona?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. The in-Spain teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income is **200%** of the Spanish minimum wage. Fees and the euro amount change. Verify on official Spanish pages.
+**What visa do digital nomads use in Barcelona?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-Spain teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income is **200%** of the Spanish minimum wage. Fees and the euro amount change. Verify on official Spanish pages.
 
 **Who should skip living in Barcelona?** Skip it if your budget is under about **$2,000** a month, or if you hate crowds. The row flags expensive rent, pickpocketing, and tourist crowds. Safety is **7.5** (female safety **7**). If you want a Spanish beach city for less, start with [Valencia](/destinations/valencia) at about **$1,900**.
 
@@ -194,7 +194,7 @@ La Rambla is a walk. It is not an office. The beach is not a backup connection.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Barcelona](/destinations/barcelona). That is Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Barcelona](/destinations/barcelona). That is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note: Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -287,11 +287,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Safety | 7.5 (female 7) | 8 (female 7) | 8 (female 7) | 8.8 (female 8) | 8.3 (female 7) |
 | Nightlife | 9 | 7 | 9 | 8 | 9 |
 | `lgbtFriendly` | 9 | 7 | 9 | 9 | 5 |
-| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Visa field | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Digital Nomad Visa, 365 days |
 | Best months | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Rent, pickpockets, crowds | Hot summers, flooding risk | Expensive, very hot summers | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
-The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's field is the same Schengen 90 days, with a different country's remote-work route. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
 
@@ -311,7 +311,7 @@ If the objection is "I needed the beach outside my door and a third of the bill,
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the residence permit
 - Paying the **$130** nightly median for thirty nights and calling the month **$2,500**
 - Booking Barceloneta, the Born, or a Gothic view apartment for the month, then discovering the noise and the tourists
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there

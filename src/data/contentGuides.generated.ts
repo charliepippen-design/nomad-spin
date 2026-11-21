@@ -69,7 +69,7 @@ The constraint people romanticize and under-specify: how long you can legally st
 - \`meta.timeZoneUtc\`: brutal if you have fixed US or EU standup hours
 - \`language\`: daily friction outside coworking English bubbles
 
-Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon and Budapest: **Digital Nomad Visa**, **365** days. For Lisbon that 365 is the initial visa field, not a visa-free year; the residence permit path is longer (see the Lisbon guide). For Budapest that field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid list the same **Digital Nomad Visa**, **365** days. For those rows the 365 is Spain's consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Kotor: visa-free entry for **90** days in any 180 for listed passports, counted from first entry, \`UTC+1\`, and Montenegro is outside Schengen. The longer remote-work route is Montenegro's temporary residence permit for digital nomads, up to 2 years, filed in person (see the [Kotor living guide](/guides/living-in-kotor)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). Penang: the same **Visa Exemption**, **90** days for many passports, \`UTC+8\`, with the same DE Rantau pass as the longer route (see the [Penang living guide](/guides/living-in-penang)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
+Tbilisi: **Visa Free**, **365** days, \`UTC+4\`. Lisbon: **Visa Exemption**, **90** days in any 180 (Schengen short stay). The remote-work route is in the visa note, and the residence permit path is longer (see the Lisbon guide). Budapest: **Digital Nomad Visa**, **365** days. That field is Hungary's White Card, and the official income pages do not currently match (see the [Budapest living guide](/guides/living-in-budapest)). Prague: **Freelance Visa**, **365** days, \`UTC+1\`. That field is not a digital nomad visa you collect on arrival. It points at a trade-licence path, and Czechia also runs a separate Digital Nomad Program for some passports (see the [Prague living guide](/guides/living-in-prague)). Tallinn: **Digital Nomad Visa**, **365** days, \`UTC+2\`. That field is Estonia's long-stay D visa for teleworking, not e-Residency (see the [Tallinn living guide](/guides/living-in-tallinn)). Valencia, Barcelona, and Madrid: **Visa Exemption**, **90** days in any 180. For those rows the longer route is Spain's 1-year consular telework visa, and the in-Spain residence permit can run up to 3 years (see the [Valencia living guide](/guides/living-in-valencia) and the [Madrid living guide](/guides/living-in-madrid)). Split: **Schengen short stay**, **90** days in any 180 for many passports, \`UTC+1\`. The longer remote-work route is Croatia's temporary stay for digital nomads (non-EU, non-EEA, non-Swiss), granted for up to 18 months with an application on the Ministry of the Interior page (see the [Split living guide](/guides/living-in-split)). Mexico City: **Visa Exemption**, **180** days. Medellín: **Visa Exemption**, **90** days, \`UTC-5\` (see the [Medellin living guide](/guides/living-in-medellin)). Buenos Aires: **Visa Exemption**, **90** days, \`UTC-3\` (see the [Buenos Aires living guide](/guides/living-in-buenos-aires)). The longer remote-work route there is a separate Migraciones file. Chiang Mai and Bangkok: **Tourism Visa Exemption**, **30** days (passport-dependent, tourism only; the DTV is the long-stay path; see the [Bangkok living guide](/guides/living-in-bangkok)). Bali: **Visa on Arrival**, **30** days (extensions and longer stays are a separate planning problem, see the Bali guide). Tirana: **Visa Exemption**, **90** days in any 180 for most visa-free passports, \`UTC+1\`. The longer remote-work route is Albania's one-year unique permit for digital mobile workers (see the [Tirana living guide](/guides/living-in-tirana)). Kotor: visa-free entry for **90** days in any 180 for listed passports, counted from first entry, \`UTC+1\`, and Montenegro is outside Schengen. The longer remote-work route is Montenegro's temporary residence permit for digital nomads, up to 2 years, filed in person (see the [Kotor living guide](/guides/living-in-kotor)). Ho Chi Minh City and Da Nang: **E-Visa**, **90** days (no dedicated digital nomad visa; see the living guides). Kuala Lumpur: **Visa Exemption**, **90** days for many passports, \`UTC+8\`. The longer remote-work route is MDEC's [DE Rantau Nomad Pass](https://mdec.my/api/media/file/DE-Rantau_Pass_FAQ_v10.pdf), granted for 3 to 12 months with an application (see the [Kuala Lumpur living guide](/guides/living-in-kuala-lumpur)). Penang: the same **Visa Exemption**, **90** days for many passports, \`UTC+8\`, with the same DE Rantau pass as the longer route (see the [Penang living guide](/guides/living-in-penang)). A beautiful city with 30 visa days is a different product than the same city with a year-long route.
 
 When a row is marked \`dataSource: "estimated"\` instead of \`"verified"\`, treat the numbers as directional and verify before you commit deposit money.
 
@@ -846,7 +846,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Mexico City** when you need US hours (**UTC-6**), food and nightlife **9**, and a visa field of up to **180 days**, and you accept safety **6.0**, altitude, and air. The solo month is **$1,300**. Read [Living in Mexico City](/guides/living-in-mexico-city) before you treat it as Bangkok on a US clock. It is the right comparison if the question is "megacity" and the question is not "Asia."
 
-If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is another full living guide in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a digital nomad visa field of **365 days**, **UTC+0**. Read [Living in Lisbon](/guides/living-in-lisbon) for the neighborhoods and the D8. Different budgets. Different guides.
+If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is another full living guide in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a visa exemption field of **90 days** in any 180, **UTC+0**. Read [Living in Lisbon](/guides/living-in-lisbon) for the neighborhoods and the D8. Different budgets. Different guides.
 
 ## First-week checklist + compare Bangkok on Nomad Spin
 
@@ -924,7 +924,7 @@ The case for living in Barcelona as a digital nomad is a budget decision before 
 
 **Is Barcelona internet good enough for video calls?** Yes. The row shows about **300 Mbps**, reliability **9/10**, power **9/10**, and coworking density **High**. That is the fastest speed among these Europe peers. The bigger work risk is street noise. Check which way the bedroom faces, and whether the windows close, before you book.
 
-**What visa do digital nomads use in Barcelona?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. The in-Spain teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income is **200%** of the Spanish minimum wage. Fees and the euro amount change. Verify on official Spanish pages.
+**What visa do digital nomads use in Barcelona?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-Spain teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income is **200%** of the Spanish minimum wage. Fees and the euro amount change. Verify on official Spanish pages.
 
 **Who should skip living in Barcelona?** Skip it if your budget is under about **$2,000** a month, or if you hate crowds. The row flags expensive rent, pickpocketing, and tourist crowds. Safety is **7.5** (female safety **7**). If you want a Spanish beach city for less, start with [Valencia](/destinations/valencia) at about **$1,900**.
 
@@ -1112,7 +1112,7 @@ La Rambla is a walk. It is not an office. The beach is not a backup connection.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Barcelona](/destinations/barcelona). That is Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Barcelona](/destinations/barcelona). That is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note: Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -1205,11 +1205,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Safety | 7.5 (female 7) | 8 (female 7) | 8 (female 7) | 8.8 (female 8) | 8.3 (female 7) |
 | Nightlife | 9 | 7 | 9 | 8 | 9 |
 | \`lgbtFriendly\` | 9 | 7 | 9 | 9 | 5 |
-| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Visa field | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Digital Nomad Visa, 365 days |
 | Best months | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Rent, pickpockets, crowds | Hot summers, flooding risk | Expensive, very hot summers | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
-The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+The Spain rows share the telework path in the visa note: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon's field is the same Schengen 90 days, with a different country's remote-work route. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Barcelona** when you want the beach and the big-city week together, you need **300 Mbps**, and you can fund **$2,500** (or live inside **$2,000** on purpose). You accept safety **7.5**, the rent, and the crowds.
 
@@ -1229,7 +1229,7 @@ If the objection is "I needed the beach outside my door and a third of the bill,
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the residence permit
 - Paying the **$130** nightly median for thirty nights and calling the month **$2,500**
 - Booking Barceloneta, the Born, or a Gothic view apartment for the month, then discovering the noise and the tourists
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
@@ -1598,7 +1598,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 | Prague | $1,700 | 200 | 8.8 | Freelance Visa, 365 days | May-Sep |
 | Krakow | $1,450 | 120 | 8.0 | Temporary Visa, 365 days | May-Sep |
 | Vienna | $2,400 | 120 | 9.0 | Red-White-Red Card, 365 days | Apr-Sep |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days (Schengen short stay; the D8 residence permit is 2 years) | Apr-Jun, Sep-Oct |
 
 **Stay with Budapest** when you want **200 Mbps**, reliability **9**, power **9**, coworking **High**, and nightlife **9**, and **$1,500** is a number you can actually pay. You accept Hungarian, a winter plan, female safety **7**, and \`lgbtFriendly\` **5**. The White Card is an application with a foreign-income test, not a stamp on arrival.
 
@@ -1608,7 +1608,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Vienna](/destinations/vienna)** when you want safety **9.0**, female safety **9**, and you will pay **$2,400** for it. Internet on that row is **120 Mbps**, coworking **Med**, community **5**. The visa field is a **Red-White-Red Card**, **365 days**. Best months run **Apr-Sep**. Vienna is the polished, expensive version of this climate. It is the wrong comparison if the reason you opened this page was the $1,500.
 
-**Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat the two "digital nomad visa" labels as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
+**Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says **Visa Exemption**, 90 days. That number is the Schengen short stay, 90 days in any 180. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat Budapest's "digital nomad visa" label and Portugal's remote-work route as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
 
 **Look at [Split](/destinations/split)** when the sea is the requirement and you can pay **$300** more. Solo **$1,800**, **100 Mbps**, safety **9.0**, coworking **Med**, community **4**. Budapest wins on speed and desks, Split on the water. Neighborhoods, summer crowds, and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
 
@@ -4711,7 +4711,7 @@ Living in Lisbon as a digital nomad is still a rational choice in 2026, and it i
 
 - **Cost:** about **$2,200** a month solo, about **$1,800** on a longer stay. A short Airbnb sits near **$120** a night, which is a different budget.
 - **Internet:** yes for video calls. The average is **200 Mbps**, reliability **9/10**, power stability **9/10**, coworking density **High**.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**. That is the initial visa field, not a residence card and not a stay for most nationalities. Portugal's remote-work path is a temporary-stay visa or a D8 residency visa, then a residence permit. The AIMA page says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. Check the MNE visa-type page for the current consular visa length before you apply, and check the AIMA page for the permit.
+- **Stay length:** the row says **Visa Exemption**, **90 days**. That is the Schengen short stay, 90 days in any 180. It is not a remote-work visa and not a residence card. Portugal's remote-work path is a temporary-stay visa or a D8 residency visa, then a residence permit. The AIMA page says that permit is valid for **2 years** from the date the title is issued and is renewable for successive **3-year** periods. Check the MNE visa-type page for the current consular visa length before you apply, and check the AIMA page for the permit.
 - **Skip it** if that budget is fiction, or if you hate bureaucracy. "Bureaucratic processes" is a listed con, not a vibe you can ignore.
 - **Best months:** **Apr, May, Jun, Sep, Oct**. Rainy months are **Nov, Dec, Jan, Feb**. July and August are neither. They are the crowd months.
 
@@ -4723,13 +4723,13 @@ The same page tags the city **beach**, **party**, and **workhub**. Safety is **8
 
 **Is Lisbon internet good enough for video calls?** Yes. Nomad Spin shows an average of 200 Mbps, reliability 9/10, power stability 9/10, and High coworking density. It is still an average, so test the apartment connection at your real meeting hour before you sign, and avoid bedrooms that face nightlife streets.
 
-**What visa do digital nomads use in Lisbon?** Nomad Spin lists a Digital Nomad Visa for up to 365 days. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a 2-year residence permit, renewable for 3. Thresholds and fees change, so verify on MNE and AIMA pages.
+**What visa do digital nomads use in Lisbon?** Nomad Spin lists the Schengen visa exemption, 90 days in any 180, as the default entry. Portugal's remote-work route is a temporary-stay visa (under a year) or a D8 residency visa that leads to a 2-year residence permit, renewable for 3. Thresholds and fees change, so verify on MNE and AIMA pages.
 
 **Which Lisbon neighborhood is best for remote workers?** Arroios and Anjos suit a longer stay with metro access and everyday food. Santos is a creative pocket near the river and Cais do Sodre. Principe Real is the polished social pick. Campo de Ourique, Estrela and Alvalade are quieter. Alfama and Baixa suit a few nights, not a month.
 
 **When is the best time to live in Lisbon?** Apr, May, Jun, Sep and Oct are the best months on Nomad Spin's row. Nov through Feb is the rainy season, wet and windy but workable with a fibered flat. July and August are not rainy. They are the crowd months, when nightly rates leave the $120 median behind.
 
-**Is Lisbon or Porto better for digital nomads?** Porto if budget and safety lead: about $1,800 solo against Lisbon's $2,200, the same 200 Mbps, and safety 9.0 versus 8.8. Lisbon if scene size leads: community 9 and coworking High against Porto's community 6 and coworking Med. Both rows list the same Digital Nomad Visa field.
+**Is Lisbon or Porto better for digital nomads?** Porto if budget and safety lead: about $1,800 solo against Lisbon's $2,200, the same 200 Mbps, and safety 9.0 versus 8.8. Lisbon if scene size leads: community 9 and coworking High against Porto's community 6 and coworking Med. Both rows list the same visa field, the Schengen exemption of 90 days in any 180.
 
 Worth it, with conditions. You are paying Western European rent for a mild coastal capital with fast internet and a large scene. The bill sits with other Western European capitals, not with a starter-city budget. If budget, internet, and safety are not locked yet, start with [How to Choose Your Next Nomad Base](/guides/how-to-choose-next-nomad-base). If the open question is the month, use [Where to Go Next by Season](/guides/where-to-go-next-by-season). The shortlist that still puts Lisbon on the Europe line is [Best Places for Digital Nomads in 2026](/guides/best-places-digital-nomads-2025). Use that list to find candidates. Use this page, and the live destination row, before you book.
 
@@ -4904,7 +4904,7 @@ This is operational orientation, not legal advice. Fees, income thresholds, and 
 
 ### What Nomad Spin currently shows
 
-The Lisbon row says **Digital Nomad Visa**, **365 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto), with a note under the visa stat. Use **365** as the initial-visa field in the dataset. It is not a visa-free allowance, and it is not a card you already hold.
+The Lisbon row says **Visa Exemption**, **90 days**. Porto's row says the same pair. That is what you will see on [/destinations/lisbon](/destinations/lisbon) and [/destinations/porto](/destinations/porto), with a note under the visa stat. Read **90** as the Schengen short stay, 90 days in any 180. The remote-work route is in the note, not in the field. It is not a card you already hold.
 
 ### Two remote-work visas, then a residence permit
 
@@ -4941,7 +4941,7 @@ Other routes (D7 passive income, student visas, work visas for Portuguese employ
 
 - **A few weeks, and your passport qualifies:** a Schengen short stay, after you confirm the 90/180 count.
 - **Many months, working for foreign clients or a foreign employer:** the temporary-stay visa or the D8 residency visa, then the AIMA permit, using the live consulate checklist.
-- **A year because the city page says 365:** not a plan. 365 is the initial-visa field. The residence permit, if granted, is 2 years and can renew for 3.
+- **A year on the 90-day field:** not a plan. 90 days in any 180 is the Schengen short stay. The residence permit, if granted, is 2 years and can renew for 3.
 - **"I will just stay and sort it out":** not a plan.
 
 When the destination page and the consulate disagree, the consulate wins.
@@ -5024,19 +5024,19 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields,
 | Safety | 8.8 (female 8) | 9.0 (female 9) | 8.3 (female 7) | 7.5 (female 7) | 5.5 (female 4) |
 | Nightlife | 8 | 6 | 9 | 9 | 7 |
 | Community | 9 | 6 | 7 | 8 | 5 |
-| Visa field in Nomad Spin | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Visa exemption, 90 days |
+| Visa field in Nomad Spin | Visa Exemption, 90 days | Visa Exemption, 90 days | Digital Nomad Visa, 365 days | Visa Exemption, 90 days | Visa exemption, 90 days |
 | Best months | Apr-Jun, Sep-Oct | May-Sep | Apr-Jun, Sep-Oct | May-Jun, Sep-Oct | Oct-Mar |
 | Hard part on the row | Rising rents, summer crowds, bureaucracy | Rainy winters, smaller scene | Cold winters, language | Rent, pickpockets, crowds | Safety, power stability 4 |
 
 **Stay with Lisbon** when you want community **9**, call-grade internet, and a coastal capital, and you can fund **$2,200** (or live inside **$1,800** on purpose). The beach is a train. The paperwork is real. The scene is why people accept both.
 
-**Look at Porto** when you want the same country, the same **200 Mbps** and reliability **9**, the same D8 field, and a lower solo month (**$1,800**, longer stay **$1,400**). Safety on the [Porto](/destinations/porto) row is **9.0**. You give up scale: community **6**, coworking **Med**, nightlife **6**. Rainy months are also **Nov-Feb**. Porto is the cheaper Portugal answer, not a smaller Lisbon with the same social density. The full Porto picture is in [Living in Porto](/guides/living-in-porto). [Living in Porto](/guides/living-in-porto) is that comparison in full.
+**Look at Porto** when you want the same country, the same **200 Mbps** and reliability **9**, the same visa field and D8 route, and a lower solo month (**$1,800**, longer stay **$1,400**). Safety on the [Porto](/destinations/porto) row is **9.0**. You give up scale: community **6**, coworking **Med**, nightlife **6**. Rainy months are also **Nov-Feb**. Porto is the cheaper Portugal answer, not a smaller Lisbon with the same social density. The full Porto picture is in [Living in Porto](/guides/living-in-porto). [Living in Porto](/guides/living-in-porto) is that comparison in full.
 
-**Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field is also a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
+**Look at Budapest** when you want cheaper Europe with the same headline internet (**200 Mbps**, reliability **9**, power **9**) and you can take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The solo month is **$1,500**, the longer stay **$1,100**. Nightlife is **9**. Community is **7**. \`lgbtFriendly\` is **5**, against Lisbon's **9**. The visa field there is a digital nomad visa of up to 365 days, which means you still verify Hungary's current rule rather than copying Portugal's. [Budapest](/destinations/budapest) is the dataset's answer when the Lisbon bill is the problem and you still want a European workhub. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
 **Look at Barcelona** when you want another coastal workhub and you will pay more, not less. [Barcelona](/destinations/barcelona) is **$2,500** solo, **$2,000** longer stay, **$130** a night, with **300 Mbps**. Safety is **7.5**. Best months overlap Lisbon's shoulders (May, Jun, Sep, Oct). It is the upgrade, or the sideways move, not the discount. Neighborhoods, the rent strategy, and Spain's telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
-**Look at Cape Town** when you want mountains and ocean at **$1,400** solo and you will take safety **5.5** and power stability **4** seriously. That is a different product. Read [Living in Cape Town](/guides/living-in-cape-town) before you treat "coastal city" as one category. The visa field there is an exemption, **90 days**, not a 365-day nomad visa.
+**Look at Cape Town** when you want mountains and ocean at **$1,400** solo and you will take safety **5.5** and power stability **4** seriously. That is a different product. Read [Living in Cape Town](/guides/living-in-cape-town) before you treat "coastal city" as one category. The visa field there is also an exemption, **90 days**, but it is not the Schengen count.
 
 If the Europe price is the whole objection, Porto and Budapest are the cheaper rows in this comparison. Outside this table, [Living in Prague](/guides/living-in-prague) ($1,700 solo, 200 Mbps) and [Living in Valencia](/guides/living-in-valencia) ($1,900 solo, 170 Mbps) are two more Europe rows, and [Living in Tbilisi](/guides/living-in-tbilisi) is the low-cost one at $800 solo, with a visa-free stay of up to 365 days for passports on Georgia's official list. If the objection is "I needed the beach outside my door and half the bill," Lisbon's beach tag will not become Bali. [Living in Bali](/guides/living-in-bali) is the social island at about **$1,200** solo, with internet reliability **5**. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problems. Different guides.
 
@@ -5044,7 +5044,7 @@ If the Europe price is the whole objection, Porto and Budapest are the cheaper r
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have
+- Treating the **90-day** Schengen allowance as permission to work remotely long term
 - Paying the **$120** nightly median for thirty nights and calling the month **$2,200**
 - Booking Alfama or a Baixa view apartment for the month, then discovering the hills, the noise, and the tourists
 - Choosing Principe Real, then acting surprised that the long-stay **$1,800** figure did not survive contact with brunch
@@ -5117,7 +5117,7 @@ The case for living in Madrid as a digital nomad is a work decision before it is
 
 **Is Madrid internet good enough for video calls?** Yes. Nomad Spin shows about **200 Mbps** average. Reliability **9/10** and power **9/10** are estimates. Coworking density is High. Test upload speed in the actual unit before signing. Fiber is widespread. Do not trust vague Airbnb wifi claims.
 
-**What visa do digital nomads use in Madrid?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+**What visa do digital nomads use in Madrid?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
 
 **Who should skip living in Madrid?** Skip it if you need a beach, a tight budget, or mild summers. Nomad Spin flags expensive living and very hot summers as trade-offs. If Jul-Aug heat without air conditioning blocks your work, pick Valencia's coast or another base for those months.
 
@@ -5316,7 +5316,7 @@ Gran Via is a walk. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify UGE and BOE)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Madrid](/destinations/madrid). That matches Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Madrid](/destinations/madrid). That is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note: Spain's consular telework visa, valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, the residence authorization can run up to 3 years and renew for 2 (Ley 14/2013, art. 74 quinquies). Do not read that as entering as a tourist and converting.
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -5407,11 +5407,11 @@ Choose with the rows, not with tiles. Figures below are the live dataset fields.
 | Community | 6 | 8 | 5 | 9 | 7 |
 | \`lgbtFriendly\` | 9 | 9 | 7 | 9 | 5 |
 | English | 5 | 7 | 5 | 8 | 7 |
-| Visa field | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days |
+| Visa field | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Visa Exemption, 90 days | Digital Nomad Visa, 365 days |
 | Best months | Apr-Jun, Sep-Oct | May, Jun, Sep, Oct | Apr-Jun, Sep | Apr-Jun, Sep-Oct | Apr-Jun, Sep-Oct |
 | Hard part on the row | Expensive, very hot summers, limited English | Rent, pickpockets, crowds | Hot summers, flooding risk, limited English | Rising rents, summer crowds, bureaucracy | Cold winters, language |
 
-The Spain rows share the telework path: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals (Ley 14/2013, art. 74 quinquies). Lisbon's 365 is a different country's initial visa. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
+The Spain rows share the telework path: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals (Ley 14/2013, art. 74 quinquies). Lisbon's field is the same Schengen 90 days, with a different country's remote-work route. The residence permit there is 2 years. Read [Living in Lisbon](/guides/living-in-lisbon). Budapest's 365 is Hungary's field. Verify that rule on an official Hungarian page. Do not paste Spain's statute onto it.
 
 **Stay with Madrid** when you want the capital routine, coworking **High**, nightlife **9**, and \`lgbtFriendly\` **9**, and you can fund **$2,200** (or live inside the **$1,650** estimate on purpose). You do not need a beach. You accept English **5**, community **6**, and the Jul-Aug rule.
 
@@ -5433,7 +5433,7 @@ If the objection is "I needed the beach outside my door and a third of the bill,
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as a stay for most nationalities
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the residence permit
 - Paying the **$100** nightly estimate for thirty nights and calling the month **$2,200**
 - Booking Sol, Gran Via, or a Malasana view over a bar for the month, then discovering the noise
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
@@ -5777,7 +5777,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Nightlife | 9 | 9 | 9 | 5 | 8 |
 | Community | 8 | 8 | 6 | 9 | 9 |
 | English | 4 | 5 | 4 | 5 | 8 |
-| Visa field in Nomad Spin | Exemption, 90 days | Exemption, 180 days | Exemption, 90 days | Tourism exemption, 30 days | Digital Nomad Visa, 365 days |
+| Visa field in Nomad Spin | Exemption, 90 days | Exemption, 180 days | Exemption, 90 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
 | Time zone | UTC-5 | UTC-6 | UTC-3 | UTC+7 | UTC+0 |
 | Best months | Jan, Feb, Mar, Jul, Aug, Dec | Mar, Apr, May, Nov | Mar, Apr, May, Sep, Oct, Nov | Nov, Dec, Jan, Feb | Apr, May, Jun, Sep, Oct |
 | Rainy months | Apr, May, Oct, Nov | Jun, Jul, Aug, Sep | Jun, Jul | Jun, Jul, Aug, Sep | Nov, Dec, Jan, Feb |
@@ -5790,7 +5790,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Chiang Mai** when you want safety **8.2**, a solo month of **$850**, and community **9**, and you can live with nightlife **5**, **UTC+7**, and a **30-day** tourism exemption (passport-dependent, tourism only). Burning season is the hard seasonal con. Read [Living in Chiang Mai](/guides/living-in-chiang-mai) before a March arrival. The DTV is the long-stay path there.
 
-**Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a digital nomad visa field of **365** days, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
+**Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a visa exemption field of **90** days in any 180, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
 
 If the alternative is a beach, [Living in Bali](/guides/living-in-bali) is the peer, at a solo month of **$1,200** and internet reliability **5**. If the alternative is scenery with a power problem, [Living in Cape Town](/guides/living-in-cape-town) is the peer: solo **$1,400**, safety **5.5**, power stability **4**.
 
@@ -6166,7 +6166,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Pick Chiang Mai** when you want safety **8.2**, female safety **8**, community **9**, and the **$850** band, and you do not need a megacity or US office hours. **UTC+7** is the trade. The visa field is a **30-day** tourism exemption and it depends on your passport. The [Chiang Mai living guide](/guides/living-in-chiang-mai) explains the Destination Thailand Visa as the long-stay path, and why Mar-Apr is a hard stop there. None of that makes Chiang Mai a $1,300 food capital. It makes it the calmer, cheaper, higher-safety comparison.
 
-**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a digital nomad visa field of **365** days (an application, with a longer residence permit possible), **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a **30-day** tourism exemption (passport-dependent, tourism only) at **UTC+7**. The DTV is the long-stay path. Read the [Bangkok living guide](/guides/living-in-bangkok). Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
+**Look further only when this table has already failed a real constraint.** [Lisbon](/destinations/lisbon) is the expensive high-comfort version: solo **$2,200**, **200 Mbps**, reliability **9**, safety **8.8**, a visa exemption field of **90** days in any 180 (the remote-work route is an application, with a longer residence permit possible), **UTC+0**. [Bangkok](/destinations/bangkok) is the other megacity food-and-nightlife row: solo **$1,100**, **120 Mbps**, reliability **8**, safety **7.8**, nightlife **9**, and a **30-day** tourism exemption (passport-dependent, tourism only) at **UTC+7**. The DTV is the long-stay path. Read the [Bangkok living guide](/guides/living-in-bangkok). Different clocks, different bills. Open those pages when the Mexico City cons (air, altitude, safety **6.0**) are the thing you keep circling.
 
 ## First-week setup checklist and how to compare on Nomad Spin
 
@@ -6655,7 +6655,7 @@ Living in Porto as a digital nomad is a rational Portugal base in 2026 if you wa
 - **Cost:** about **$1,800** a month solo, about **$1,400** on a longer stay. A short Airbnb sits near **$85** a night, which is a different budget. That solo figure is about **$400** under Lisbon's **$2,200**.
 - **Internet:** yes for video calls. The average is **200 Mbps**, the same headline as Lisbon, with reliability **9/10**, power stability **9/10**, and coworking density **Med**.
 - **Safety:** **9.0**, female safety **9**. In this comparison set that is the top score.
-- **Stay length:** the row says **Digital Nomad Visa**, up to **365 days**, time zone **UTC+0**. That 365 is the initial-visa field. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. Check the MNE page for the current consular visa length before you apply. The statute is Lei 23/2007.
+- **Stay length:** the row says **Visa Exemption**, **90 days**, time zone **UTC+0**. That 90 is the Schengen short stay, 90 days in any 180. The remote-work route is in the visa note. The AIMA page says the residence permit is valid for **2 years** from issue and renewable for **3-year** periods. Check the MNE page for the current consular visa length before you apply. The statute is Lei 23/2007.
 - **Skip it** if you want big nightlife, a large nomad scene, or a dry winter. The listed trade-offs are rainy winters, hilly terrain, and a smaller city than Lisbon.
 
 The same page tags the city **foodie**, **workhub**, and **adventure**, on an **urban** landscape, in **Europe**, with **Portuguese** as the language. Best months are **May, Jun, Jul, Aug, Sep**. Rainy months are **Nov, Dec, Jan, Feb**. Average temperature on the row is **15°C**. Pros are port wine culture, affordable for Europe, a beautiful riverfront, safe, and a growing tech scene.
@@ -6672,7 +6672,7 @@ Yes. Nomad Spin shows about **200 Mbps** on average, reliability **9/10**, and p
 
 ### What visa do digital nomads use in Porto?
 
-Nomad Spin lists a Digital Nomad Visa for up to **365 days**. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. Check the MNE page for the current consular visa length before you apply. Thresholds and fees change; verify them on the MNE and AIMA pages.
+Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Portugal's remote-work route is a temporary-stay visa or a D8 residency visa that leads to a residence permit valid for **2 years**, renewable for 3-year periods. Same national rules as Lisbon. Check the MNE page for the current consular visa length before you apply. Thresholds and fees change; verify them on the MNE and AIMA pages.
 
 ### Who should skip living in Porto?
 
@@ -6845,7 +6845,7 @@ Ribeira is a viewpoint. It is not an office.
 
 ## Visas and stay length: Schengen 90/180 vs the Portugal D8 (verify before you apply)
 
-**Visas and stay length (verify before you apply).** Nomad Spin lists a Digital Nomad Visa with up to 365 days. That reflects the initial visa. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). Check the MNE visa-type page for the current consular visa length before you apply. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
+**Visas and stay length (verify before you apply).** Nomad Spin lists the Schengen visa exemption, 90 days in any 180. That is the default entry, not the remote-work route. Portugal actually has two remote-work visas, a temporary-stay visa and a residency visa (often called the D8). Check the MNE visa-type page for the current consular visa length before you apply. The residency visa is used to apply to AIMA for a residence permit. That permit is valid for 2 years from issue and renewable for 3-year periods. The statute is Lei 23/2007. You will need proof of remote work for an employer or clients abroad and an address in Portugal. Check the income threshold, fees, and AIMA timelines on official pages before you book. Short visits fall under Schengen 90/180.
 
 Same national rules as Lisbon. Your AIMA appointment location may differ (verify). The longer walk-through is the visa section of the [Lisbon living guide](/guides/living-in-lisbon). Confirm the [MNE visa-type page](https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa), the [consolidated text of Lei 23/2007](https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2007-67564445), and the [AIMA remote-work residence permit page](https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe) (art. 88(1)). This guide does not print a euro income figure, and it is not tax advice. A tourist stamp is not the D8. When the consulate disagrees with the city page, the consulate wins.
 
@@ -6927,15 +6927,15 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 | City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
 |---|---:|---:|---:|---|---|
-| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May, Jun, Sep, Oct |
-| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
+| Porto | $1,800 | 200 | 9.0 | Visa Exemption, 90 days | May-Sep |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Barcelona | $2,500 | 300 | 7.5 | Visa Exemption, 90 days | May, Jun, Sep, Oct |
+| Madrid | $2,200 | 200 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep |
 
 **Porto against Lisbon.** Same country, same **200 Mbps**, same D8 national rules, same rainy months on the calendar. Porto is **$1,800** solo and **$1,400** longer stay, safety **9.0** (female **9**), community **6**, nightlife **6**, coworking **Med**. Lisbon is **$2,200** / **$1,800**, safety **8.8** (female **8**), community **9**, nightlife **8**, coworking **High**. Best months differ: Porto includes high summer, Lisbon's friendliest list is the shoulders. If the only thing you wanted from Lisbon was the internet and a European city, Porto is the row that prices that wish. If you wanted the scene, pay Lisbon and read that guide.
 
-**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The visa field is also 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
+**Budapest** is the other Europe peer at this internet tier: the same **200 Mbps** and reliability **9**, solo **$1,500** (about **$300** under Porto), safety **8.3**, coworking **High**. You give up Porto's safety **9.0** and you take a colder city (\`tempAvgC\` **11**, rainy **Nov-Dec**). The visa field there is 365 days. That is Hungary's rule, not the Portuguese D8. Read [Living in Budapest](/guides/living-in-budapest) and the [Budapest](/destinations/budapest) row when the bill is the objection and you still want call-grade internet in Europe.
 
 **Barcelona** when you want a faster headline (**300 Mbps**) and you will pay **$2,500** solo with safety **7.5**. Best months are May, Jun, Sep, Oct. [Barcelona](/destinations/barcelona) is the expensive coastal peer, not the discount. Neighborhoods, rent, and the Spain telework path are in [Living in Barcelona](/guides/living-in-barcelona).
 
@@ -6945,7 +6945,7 @@ Figures below are the live dataset fields. The visa column is the dataset label 
 
 **Split** when the sea and islands matter more than the internet. [Split](/destinations/split) matches Porto's **$1,800** solo month and **$1,400** longer-stay figure, with safety **9.0**, coworking **Med**, and best months **May-Sep**, but it posts **100 Mbps** against Porto's **200 Mbps**, and community **4** against **6**. Crowded summers and seasonal tourism are its cons. Neighborhoods and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
 
-Spain's rows use the same 365-day dataset field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
+Spain's rows use the same 90-day Schengen field. Their residence path is a different law. If Spain is the actual plan, check the official Spanish pages for the current residence rules before you apply.
 
 If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living in Budapest](/guides/living-in-budapest) is the next row, not a cheaper Porto. If the Europe price is the whole objection, you are no longer choosing inside this table. [Living in Chiang Mai](/guides/living-in-chiang-mai) is the starter city at about **$850**, with no beach and a burning-season con. Different problem. Different guide.
 
@@ -6953,7 +6953,7 @@ If you still want **200 Mbps** in Europe and **$1,800** is the problem, [Living 
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as the 2-year permit
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the D8 visa as the 2-year permit
 - Paying the **$85** nightly median for thirty nights and calling the month **$1,800**
 - Booking a Ribeira view for the month, then discovering the hill, the noise, and the crowds
 - Choosing Foz, then acting surprised that the long-stay **$1,400** figure did not survive the address
@@ -7025,7 +7025,7 @@ Nomad Spin scores **780+ cities**. Porto should win only when your floors are ho
 
 Living in Prague as a digital nomad is a specific trade in 2026: Lisbon-level safety for $500 less, plus a visa fork the other Europe guides on this site do not share. The row on [Prague](/destinations/prague) shows safety **8.8**, the same score as [Lisbon](/destinations/lisbon), at **$1,700** a month solo against Lisbon's **$2,200**. Coworking density is **High**. Internet is **200 Mbps**, reliability **9/10**, power **9/10**. Female safety is **8**, the same as Lisbon. The longer stay on the Prague row is **$1,300**. The nightly Airbnb median is **$80**.
 
-That is the go. The no-go is the rest of the row, and it is mostly the calendar and the paperwork. Best months are **May, Jun, Jul, Aug, and Sep**. Rainy months are **Nov and Dec**. Average temperature is **9°C**. The live trade-offs are tourist crowds, cold winters, and rising prices. The visa field is **Freelance Visa**, up to **365 days**, time zone **UTC+1**, language Czech, region Europe. That 365 is not a stamp you collect at the airport, and it is not the same product as a digital nomad visa in Lisbon or Budapest. Czechia runs a trade-licence path and a separate Digital Nomad Program. They do not accept the same person. The section below separates them. Verify both on an official page before you book a year.
+That is the go. The no-go is the rest of the row, and it is mostly the calendar and the paperwork. Best months are **May, Jun, Jul, Aug, and Sep**. Rainy months are **Nov and Dec**. Average temperature is **9°C**. The live trade-offs are tourist crowds, cold winters, and rising prices. The visa field is **Freelance Visa**, up to **365 days**, time zone **UTC+1**, language Czech, region Europe. That 365 is not a stamp you collect at the airport, and it is not the same product as Budapest's digital nomad visa field or Portugal's D8. Czechia runs a trade-licence path and a separate Digital Nomad Program. They do not accept the same person. The section below separates them. Verify both on an official page before you book a year.
 
 The vibe tags are \`party\`, \`foodie\`, and \`workhub\`, on an urban landscape. Pros on the page: stunning architecture, great beer culture, affordable for Europe, central location, rich history. "Affordable for Europe" means cheaper than Lisbon in this dataset. It does not mean cheap in the abstract. Rising prices are on the trade-off list because that gap has been closing.
 
@@ -7209,7 +7209,7 @@ Vinohrady, Karlín, and the calmer edges of Holešovice will let you open a lapt
 
 This is operational orientation, not legal advice. Forms, fees, and processing times move. The number on our city page is not the law. When this section and a Czech government page disagree, the government page wins. Read it the week you apply.
 
-The fork is the reason to read this page. In this comparison set, Prague is the city whose visa field says **Freelance Visa**. Budapest, Lisbon, Barcelona, and Valencia list a **Digital Nomad Visa**. Those labels are not the same paperwork. Prague's field is also not one Czech product. There are three different stays. Pick the one that matches how you actually earn money.
+The fork is the reason to read this page. In this comparison set, Prague is the city whose visa field says **Freelance Visa**. Budapest lists a **Digital Nomad Visa**. Lisbon, Barcelona, and Valencia list the Schengen **Visa Exemption**, 90 days in any 180. Those labels are not the same paperwork. Prague's field is also not one Czech product. There are three different stays. Pick the one that matches how you actually earn money.
 
 ### What Nomad Spin currently shows
 
@@ -7318,23 +7318,23 @@ The daily texture is why people stay after the spreadsheet says yes. Architectur
 
 ## Prague vs Budapest, Lisbon, Barcelona, and Valencia
 
-The comparison that matters is the one in the opening: the same safety score as Lisbon, for **$500** a month less, with a visa field that is not Lisbon's D8 and not Budapest's White Card. The peers below are the other cities readers actually put on the same list. Every figure is from that city's Nomad Spin row. Visa labels are the dataset field. They are not a ruling that you already qualify.
+The comparison that matters is the one in the opening: the same safety score as Lisbon, for **$500** a month less, with a visa path that is not Lisbon's D8 and not Budapest's White Card. The peers below are the other cities readers actually put on the same list. Every figure is from that city's Nomad Spin row. Visa labels are the dataset field. They are not a ruling that you already qualify.
 
 | City | Solo $/mo | Mbps | Safety | Visa field in Nomad Spin | Best months |
 |---|---:|---:|---:|---|---|
 | Prague | $1,700 | 200 | 8.8 | Freelance Visa, 365 days | May-Sep |
 | Budapest | $1,500 | 200 | 8.3 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
-| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days (initial field; in-Spain residence authorization up to 3 years) | May-Jun, Sep-Oct |
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days (same Spain note as Barcelona) | Apr-Jun, Sep |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days (Schengen short stay; the D8 residence permit is 2 years) | Apr-Jun, Sep-Oct |
+| Barcelona | $2,500 | 300 | 7.5 | Visa Exemption, 90 days (Schengen short stay; in-Spain residence authorization up to 3 years) | May-Jun, Sep-Oct |
+| Valencia | $1,900 | 170 | 8.0 | Visa Exemption, 90 days (same Spain note as Barcelona) | Apr-Jun, Sep |
 
 **Stay with Prague** when you want safety **8.8**, **200 Mbps**, reliability **9**, power **9**, coworking **High**, and **$1,700** is a number you can actually pay. You accept Czech, a winter plan, tourist crowds if you wander into Prague 1, and a visa that is a trade licence or a narrow Digital Nomad Program, not a stamp on arrival. Female safety is **8**. \`lgbtFriendly\` is **7**. Community is **7**.
 
 **Look at [Budapest](/destinations/budapest)** when **$1,500** is the ceiling and you still want **200 Mbps**, reliability **9**, power **9**, and coworking **High**. Safety is **8.3** (female safety **7**). You save about **$200** a month against Prague and you give up the safety tie with Lisbon. Best months are **Apr-Jun** and **Sep-Oct**. Rainy months are **Nov-Dec**. Cold winters are on that row too. The visa field is a **Digital Nomad Visa**, **365 days**, which in Hungarian rules is the White Card: remote work for a foreign employer, and no gainful activity in Hungary. That is a different file from a Czech trade licence. Read the [Budapest living guide](/guides/living-in-budapest) before you treat the two 365s as the same product.
 
-**Look at [Lisbon](/destinations/lisbon)** when you want the same **8.8** safety and the same **200 Mbps**, and you will pay **$2,200** for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. The longer stay is **$1,800**. The nightly median is **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat "digital nomad visa" as the same paperwork as Prague's Freelance Visa field. The question is whether community size and the coast are worth about **$500** a month to you. Rising rents are Lisbon's version of Prague's rising prices.
+**Look at [Lisbon](/destinations/lisbon)** when you want the same **8.8** safety and the same **200 Mbps**, and you will pay **$2,200** for coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**. The longer stay is **$1,800**. The nightly median is **$120**. The visa field says **Visa Exemption**, 90 days. That number is the Schengen short stay, 90 days in any 180. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat Portugal's remote-work route as the same paperwork as Prague's Freelance Visa field. The question is whether community size and the coast are worth about **$500** a month to you. Rising rents are Lisbon's version of Prague's rising prices.
 
-**Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says 365 days. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). Neighborhoods, rent, and that path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
+**Look at [Barcelona](/destinations/barcelona)** when you want **300 Mbps** and a beach, and you will pay **$2,500** and accept safety **7.5**. The longer stay on that row is **$2,000**. Coworking is **High**. Best months are **May, Jun, Sep, and Oct**. The visa field says **Visa Exemption**, 90 days in any 180. Spain's telework path is a consular visa of up to 1 year, then an in-country residence authorization of up to **3 years** (Ley 14/2013, art. 74 quinquies). Neighborhoods, rent, and that path are in [Living in Barcelona](/guides/living-in-barcelona). Do not make it the reason you are reading this one. If $2,500 does not fit, Prague at **$1,700** is one of the cheaper peers, and the visa is not Spain's.
 
 **Look at [Valencia](/destinations/valencia)** when you want a smaller Spain beach city at **$1,900**, which is **$200** more than Prague, with **170 Mbps** and coworking **Med** rather than High. Safety on that row is **8.0**. Best months are **Apr-Jun** and **Sep**. October is on Valencia's rainy-month list, not its best-month list, and flooding risk is one of that row's cons. The October calendar and the Spain telework path are in [Living in Valencia](/guides/living-in-valencia). Do not treat a beach month as a copy of this visa section.
 
@@ -7821,7 +7821,7 @@ Nomad Spin scores **780+ cities**. Split should win only when your floors are ho
     excerpt: "Tallinn for remote workers in 2026: real monthly costs, e-Residency vs the D-visa, Kalamaja, 300 Mbps internet, and dark-winter trade-offs.",
     date: "2026-10-11",
     updated: "2026-10-11",
-    readTime: "37 min read",
+    readTime: "38 min read",
     relatedDestinations: ["tallinn"],
     content: `## Is living in Tallinn worth it for digital nomads in 2026?
 
@@ -8125,7 +8125,7 @@ The comparison that matters is the one in the opening: same summer and the same 
 
 **Look at [Riga](/destinations/riga)** when you want the same Jun-Aug window and the same **UTC+2** for less money. Solo **$1,300**, longer stay **$950**, nightly median **$60**, internet **200 Mbps**, reliability **9**, power **8**, safety **8.5**. The visa field is also **Digital Nomad Visa**, **365 days**. The matching label is not the same paperwork. Check the current rule on an official Latvian page before you plan the year there. Cold dark winters are on that row too.
 
-**Look at [Lisbon](/destinations/lisbon)** when you want coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**, and you will pay **$2,200** solo (**$1,800** long-term, nightly median **$120**). Internet is **200 Mbps**, not Tallinn's **300**. Safety is **8.8**, a step under **9.2**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a longer residence permit. Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat "digital nomad visa" as the same paperwork. The question is whether the coast and the community are worth about **$600** a month to you.
+**Look at [Lisbon](/destinations/lisbon)** when you want coast, English **8**, community **9**, female safety **8**, and \`lgbtFriendly\` **9**, and you will pay **$2,200** solo (**$1,800** long-term, nightly median **$120**). Internet is **200 Mbps**, not Tallinn's **300**. Safety is **8.8**, a step under **9.2**. The visa field says **Visa Exemption**, 90 days. That number is the Schengen short stay, 90 days in any 180. Portugal's remote-work path is a separate application and leads to a longer residence permit. Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat Portugal's remote-work route as the same paperwork. The question is whether the coast and the community are worth about **$600** a month to you.
 
 **Look at [Tbilisi](/destinations/tbilisi)** when the European bill is still too high and a visa-free year matters more than the pipes. Solo **$800**, longer stay **$550**, internet **60 Mbps**, reliability **7**, coworking **Med**, safety **8.0**. The visa field is **Visa Free**, **365 days**, for passports on Georgia's list. Time zone **UTC+4**. Cold winters are on that row too. Read the [Tbilisi living guide](/guides/living-in-tbilisi) if **$1,600** is the number that failed. Tbilisi is the value comparison. It is not a district of Tallinn.
 
@@ -8486,7 +8486,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | LGBTQ+ score | 3 | 5 | 9 | 6 | 6 |
 | English | 4 | 7 | 8 | 5 | 4 |
 | Community | 6 | 7 | 9 | 9 | 8 |
-| Visa field in Nomad Spin | Visa Free, 365 days | Digital Nomad Visa, 365 days | Digital Nomad Visa, 365 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
+| Visa field in Nomad Spin | Visa Free, 365 days | Digital Nomad Visa, 365 days | Visa Exemption, 90 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
 | Time zone | UTC+4 | UTC+1 | UTC+0 | UTC+7 | UTC-5 |
 | Best months | May, Jun, Sep, Oct | Apr, May, Jun, Sep, Oct | Apr, May, Jun, Sep, Oct | Nov, Dec, Jan, Feb | Jan, Feb, Mar, Jul, Aug, Dec |
 
@@ -8496,7 +8496,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Budapest** when you want a European city with **200 Mbps**, reliability **9**, power **9**, coworking **High**, and safety **8.3**, and you can pay the **$1,500** solo month. The visa field is a **Digital Nomad Visa**, **365** days, which is an application with conditions, not a stamp on arrival. Cold winters are on [Budapest](/destinations/budapest)'s cons too. The pipes and the English score (**7**) are the upgrade. The bill is the cost of it. The [Budapest living guide](/guides/living-in-budapest) is that comparison in full, including the White Card.
 
-**Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, \`lgbtFriendly\` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is also a digital nomad visa, **365** days, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the year is the same idea.
+**Look at Lisbon** when comfort is the point and the budget can clear **$2,200** solo (**$1,800** long-term). Internet **200 Mbps**, reliability **9**, power **9**, safety **8.8**, female safety **8**, \`lgbtFriendly\` **9**, English **8**, community **9**. That is the polished Europe comparison. The visa field is **Visa Exemption**, **90** days in any 180, not a visa-free year. Rising rents are on the cons. If Tbilisi's **$800** is the reason you are here, Lisbon is a different product. Open [Lisbon](/destinations/lisbon) and the [Lisbon living guide](/guides/living-in-lisbon) and compare the two rows before you decide the stay is the same idea.
 
 **Look at [Chiang Mai](/destinations/chiang-mai)** when you want a larger scene (community **9**, coworking **High**) at a solo month of **$850**, close to Tbilisi's **$800**, with **95 Mbps** and safety **8.2**. The visa field is a **30-day** tourism exemption (passport-dependent, tourism only), which is a different stay from 365. The DTV is the long-stay path. Best months are **Nov-Feb**, and burning season is the seasonal hard part. Read the [Chiang Mai living guide](/guides/living-in-chiang-mai) before you treat the two cities as interchangeable cheap bases. Time zone **UTC+7** is a different call sheet from **UTC+4**.
 
@@ -8958,7 +8958,7 @@ Nomad Spin scores **780+ cities**. Tirana should win only when your floors are r
     excerpt: "Valencia for remote workers in 2026: real monthly costs, Ruzafa vs Cabanyal, Spain nomad visa notes, 170 Mbps internet, and flooding trade-offs.",
     date: "2026-10-07",
     updated: "2026-10-07",
-    readTime: "29 min read",
+    readTime: "30 min read",
     relatedDestinations: ["valencia","barcelona","madrid","lisbon","porto"],
     content: `## Is living in Valencia worth it for digital nomads in 2026?
 
@@ -8968,7 +8968,7 @@ The case for living in Valencia as a digital nomad is a calendar decision before
 
 **Is Valencia internet good enough for video calls?** Yes for most remote roles. Nomad Spin shows about **170 Mbps** on average. Reliability **9/10** and power **9/10** are estimates. Coworking density is Medium. Test upload speed in the actual unit before signing, and keep a mobile data backup for storm days in Oct-Nov.
 
-**What visa do digital nomads use in Valencia?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+**What visa do digital nomads use in Valencia?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
 
 **Who should skip living in Valencia?** Skip it if you need Barcelona-scale nightlife, hate heat, or cannot plan around flooding risk. Nomad Spin flags hot summers and flooding risk as trade-offs. If Jul-Aug heat or Oct-Nov storms disrupt your work, pick another base for those months.
 
@@ -9123,7 +9123,7 @@ The beach is not a backup connection.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Valencia](/destinations/valencia). That matches Spain's consular telework visa, which is valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, Spain's teleworker residence authorization can be granted for up to 3 years and renewed in 2-year periods (Ley 14/2013, art. 74 quinquies). The row's visa note says the same thing: 1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies). Do not read the **365** as a stamp you already have, and do not read it as "enter as a tourist and convert."
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Valencia](/destinations/valencia). That is the Schengen short stay, 90 days in any 180. The remote-work route is Spain's consular telework visa, which is valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, Spain's teleworker residence authorization can be granted for up to 3 years and renewed in 2-year periods (Ley 14/2013, art. 74 quinquies). The row's visa note says the same thing: 1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies). Do not read the **90 days** as permission to work remotely long term, and do not read the route as "enter as a tourist and convert."
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -9132,9 +9132,9 @@ Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** 
 
 You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, health insurance with an insurer authorized in Spain, and income of at least **200%** of the monthly SMI. Official pages state that share of the minimum wage, not a euro amount for this guide to copy. Family add-ons on those pages are **75%** of SMI for the first family member and **25%** for each additional member. Check the current euro amount and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), and [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa).
 
-Same national rules as Barcelona. The neighborhood and the flood calendar change. The statute does not. Read [Living in Barcelona](/guides/living-in-barcelona) if you want the same path next to the expensive beach. Short visits for many passports fall under Schengen **90 days in any 180**, which is a different thing. The NIE is the identity number. The TIE is the residence card. The padrón is how the Ajuntament records where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and UGE or the consulate disagree, the official source wins.
+Same national rules as Barcelona. The neighborhood and the flood calendar change. The statute does not. Read [Living in Barcelona](/guides/living-in-barcelona) if you want the same path next to the expensive beach. Short visits for many passports fall under Schengen **90 days in any 180**, which is the visa field on the row. The NIE is the identity number. The TIE is the residence card. The padrón is how the Ajuntament records where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and UGE or the consulate disagree, the official source wins.
 
-Anyone filtering the globe on visa days will see **365**. That field is the initial consular visa. It is not the 3-year residence authorization.
+Anyone filtering the globe on visa days will see **90**. That field is the Schengen short stay. It is not the 1-year consular visa, and it is not the 3-year residence authorization.
 
 ## Best months and the October problem: rain, DANA and flood-aware housing
 
@@ -9213,11 +9213,11 @@ Choose with the rows. Valencia's headline is the October problem. The price gap 
 
 | City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
 |---|---:|---:|---:|---|---|
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
-| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May-Jun, Sep-Oct |
-| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
+| Valencia | $1,900 | 170 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep |
+| Barcelona | $2,500 | 300 | 7.5 | Visa Exemption, 90 days | May-Jun, Sep-Oct |
+| Madrid | $2,200 | 200 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Porto | $1,800 | 200 | 9.0 | Visa Exemption, 90 days | May-Sep |
 
 The visa column is the dataset label on every one of these rows. It is not the residence-permit length. Spain's path is in the visa section above: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon and Porto use Portugal's D8. That permit is 2 years from issue. Read [Living in Lisbon](/guides/living-in-lisbon) and [Living in Porto](/guides/living-in-porto). Do not paste Spain's statute onto Portugal.
 
@@ -9239,7 +9239,7 @@ If the objection is "I needed the beach and a third of this bill," none of these
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as the 3-year residence authorization
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the 3-year residence authorization
 - Paying the **$86** nightly median for thirty nights and calling the month **$1,900**
 - Booking a ground-floor October let without opening \`rainyMonths\` or PATRICOVA
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there
@@ -9340,7 +9340,7 @@ When \`dataSource\` is \`estimated\`, treat months and costs as directional and 
 
 **Avoid stacking rain on purpose:** [Bali](/destinations/bali)’s \`rainyMonths\` are **Dec to Mar** (best months Apr to Sep). If your Instagram plan is “Bali for Christmas,” you are choosing the wet window, doable, but not what the weather fields recommend. Same caution for Da Nang’s **Sep to Dec** rainy stretch.
 
-**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan to Apr** and **Oct to Dec** (\`tempAvgC\` 21, ~$1,800, 130 to 140 Mbps, safety 8, digital nomad visa field of 365 days). That 365 is the initial consular visa. Spain's in-country residence authorization can run longer. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
+**Canaries as Europe-adjacent winter base:** [Las Palmas](/destinations/las-palmas) and [Tenerife](/destinations/tenerife) list best months spanning **Jan to Apr** and **Oct to Dec** (\`tempAvgC\` 21, ~$1,800, 130 to 140 Mbps, safety 8, visa exemption field of 90 days). That 90 is the Schengen short stay, 90 days in any 180. Spain's 1-year consular telework visa is the longer route. Verify on official sources. Good when you want EU timezone overlap without northern winter weather.
 
 **Southern-hemisphere summer:** [Cape Town](/destinations/cape-town) best months **Oct to Mar** (\`$1,400\` / 100 Mbps): peak nature season, but safety **5.5** and \`powerGridStability\` **4** mean you plan neighborhoods and power backup (see the [Cape Town living guide](/guides/living-in-cape-town)). [Sydney](/destinations/sydney) / [Melbourne](/destinations/melbourne) / [Auckland](/destinations/auckland) also peak in austral summer, at much higher \`costUSD\`.
 
@@ -9366,7 +9366,7 @@ Shoulder months often win the **cost vs weather** trade: Europe’s best-month l
 
 Many European rows share Apr to Jun / Sep to Oct best months:
 
-- [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / digital nomad visa field of 365 days (the residence permit path is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
+- [Lisbon](/destinations/lisbon): **Apr to Jun, Sep to Oct**: \`$2,200\` / **200** Mbps / safety **8.8** / visa exemption field of 90 days (the remote-work route is longer; see the living guide). The [Lisbon living guide](/guides/living-in-lisbon) is the on-the-ground version of that row, including why July and August are the crowd months rather than the best months.
 - [Barcelona](/destinations/barcelona): **May, Jun, Sep, Oct**: \`$2,500\` / **300** Mbps / safety **7.5** / the same Spain telework field (1-year consular visa, longer residence permit possible). Rainy months are **Nov** and **Mar**. The [Barcelona living guide](/guides/living-in-barcelona) is the budget version of that row: if $2,500 does not fit, the cheaper peers are named with numbers.
 - [Madrid](/destinations/madrid): **Apr, May, Jun, Sep, Oct**: \`$2,200\` / **200** Mbps / safety **8** / the same Spain telework field. Rainy months are **Nov** and **Dec**. Very hot summers are the con, and July and August are not best months. The [Madrid living guide](/guides/living-in-madrid) is the Jul-Aug rule for that row.
 - [Tirana](/destinations/tirana): **Apr, May, Jun, Sep, Oct**: \`$1,150\` / **90** Mbps / safety **7** / **Visa Exemption** of **90** days in any 180 for most visa-free passports. Rainy months are **Nov** and **Dec**. Traffic and developing infrastructure are the cons. The [Tirana living guide](/guides/living-in-tirana) is the thin-coworking, spring-and-autumn version of that row.
@@ -9430,7 +9430,7 @@ Post-summer migrations are when nomads leave peak Europe and chase drier or mild
 
 **Power and internet under weather stress.** Cape Town’s low \`powerGridStability\` matters more in any season you rely on home Wi‑Fi. [Bali](/destinations/bali) / [Canggu](/destinations/canggu) internet reliability scores are middling, wet months make backup SIMs more important ([Bali living guide](/guides/living-in-bali)).
 
-**Visa daydreaming.** A perfect climate month with **30** \`visaDays\` (Bali) is a different trip than **180** (Mexico City) or **365** (Tbilisi is visa-free; Lisbon and Las Palmas list a 365-day digital nomad visa field, which is an application, not a visa-free year). Encode trip length before you fall for \`bestMonths\`.
+**Visa daydreaming.** A perfect climate month with **30** \`visaDays\` (Bali) is a different trip than **180** (Mexico City) or **365** (Tbilisi is visa-free; Lisbon and Las Palmas list the 90-day Schengen exemption, and the longer remote-work route is an application, not a visa-free year). Encode trip length before you fall for \`bestMonths\`.
 
 **Estimated rows.** Prefer \`dataSource: "verified"\` when the month decision is expensive; double-check official weather and visa sources either way.
 

@@ -304,7 +304,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 | Prague | $1,700 | 200 | 8.8 | Freelance Visa, 365 days | May-Sep |
 | Krakow | $1,450 | 120 | 8.0 | Temporary Visa, 365 days | May-Sep |
 | Vienna | $2,400 | 120 | 9.0 | Red-White-Red Card, 365 days | Apr-Sep |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days (initial field; the residence permit is 2 years) | Apr-Jun, Sep-Oct |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days (Schengen short stay; the D8 residence permit is 2 years) | Apr-Jun, Sep-Oct |
 
 **Stay with Budapest** when you want **200 Mbps**, reliability **9**, power **9**, coworking **High**, and nightlife **9**, and **$1,500** is a number you can actually pay. You accept Hungarian, a winter plan, female safety **7**, and `lgbtFriendly` **5**. The White Card is an application with a foreign-income test, not a stamp on arrival.
 
@@ -314,7 +314,7 @@ The comparison that matters is the one in the opening: same internet class as Li
 
 **Look at [Vienna](/destinations/vienna)** when you want safety **9.0**, female safety **9**, and you will pay **$2,400** for it. Internet on that row is **120 Mbps**, coworking **Med**, community **5**. The visa field is a **Red-White-Red Card**, **365 days**. Best months run **Apr-Sep**. Vienna is the polished, expensive version of this climate. It is the wrong comparison if the reason you opened this page was the $1,500.
 
-**Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and `lgbtFriendly` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says 365 days. That number is the initial visa field. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat the two "digital nomad visa" labels as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
+**Look at [Lisbon](/destinations/lisbon)** when you want the same **200 Mbps** and you will pay the premium for coast, English **8**, community **9**, female safety **8**, and `lgbtFriendly` **9**. Solo **$2,200**, longer stay **$1,800**, nightly median **$120**. The visa field says **Visa Exemption**, 90 days. That number is the Schengen short stay, 90 days in any 180. Portugal's remote-work path leads to a **2-year** residence permit, renewable for 3-year periods (Lei 23/2007, art. 75). Read the [Lisbon living guide](/guides/living-in-lisbon) before you treat Budapest's "digital nomad visa" label and Portugal's remote-work route as the same paperwork. Rising rents are Lisbon's version of Budapest's rising prices. The question is whether community size and the coast are worth about **$700** a month to you.
 
 **Look at [Split](/destinations/split)** when the sea is the requirement and you can pay **$300** more. Solo **$1,800**, **100 Mbps**, safety **9.0**, coworking **Med**, community **4**. Budapest wins on speed and desks, Split on the water. Neighborhoods, summer crowds, and Croatia's nomad stay are in [Living in Split](/guides/living-in-split).
 

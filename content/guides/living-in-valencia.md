@@ -6,7 +6,7 @@ The case for living in Valencia as a digital nomad is a calendar decision before
 
 **Is Valencia internet good enough for video calls?** Yes for most remote roles. Nomad Spin shows about **170 Mbps** on average. Reliability **9/10** and power **9/10** are estimates. Coworking density is Medium. Test upload speed in the actual unit before signing, and keep a mobile data backup for storm days in Oct-Nov.
 
-**What visa do digital nomads use in Valencia?** Nomad Spin lists a Digital Nomad Visa for up to **365 days**, which is the length of Spain's consular telework visa. Spain's in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
+**What visa do digital nomads use in Valencia?** Nomad Spin lists the Schengen visa exemption, **90 days** in any 180, as the default entry. Spain's consular telework visa is valid for up to 1 year. The in-country teleworker residence permit can run up to 3 years and renew for 2 (Ley 14/2013). Income and fees change. Verify on official Spanish pages.
 
 **Who should skip living in Valencia?** Skip it if you need Barcelona-scale nightlife, hate heat, or cannot plan around flooding risk. Nomad Spin flags hot summers and flooding risk as trade-offs. If Jul-Aug heat or Oct-Nov storms disrupt your work, pick another base for those months.
 
@@ -161,7 +161,7 @@ The beach is not a backup connection.
 
 ## Visas and stay length: Schengen 90/180 vs Spain's telework visa (verify official rules)
 
-Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** on [Valencia](/destinations/valencia). That matches Spain's consular telework visa, which is valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, Spain's teleworker residence authorization can be granted for up to 3 years and renewed in 2-year periods (Ley 14/2013, art. 74 quinquies). The row's visa note says the same thing: 1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies). Do not read the **365** as a stamp you already have, and do not read it as "enter as a tourist and convert."
+Not legal advice. Nomad Spin lists **Visa Exemption**, **90 days**, on [Valencia](/destinations/valencia). That is the Schengen short stay, 90 days in any 180. The remote-work route is Spain's consular telework visa, which is valid for up to 1 year. If you are already legally in Spain, or once you hold that visa, Spain's teleworker residence authorization can be granted for up to 3 years and renewed in 2-year periods (Ley 14/2013, art. 74 quinquies). The row's visa note says the same thing: 1-yr consular telework visa; in-Spain residence permit up to 3 years, renew 2 (Ley 14/2013 art. 74 quinquies). Do not read the **90 days** as permission to work remotely long term, and do not read the route as "enter as a tourist and convert."
 
 | Route | Where | Length (official) |
 |---|---|---|
@@ -170,9 +170,9 @@ Not legal advice. Nomad Spin lists a Digital Nomad Visa with up to **365 days** 
 
 You need remote work for companies outside Spain (freelancers may bill Spanish clients for at most **20%** of activity), a degree or 3 years of experience, health insurance with an insurer authorized in Spain, and income of at least **200%** of the monthly SMI. Official pages state that share of the minimum wage, not a euro amount for this guide to copy. Family add-ons on those pages are **75%** of SMI for the first family member and **25%** for each additional member. Check the current euro amount and the fees on the [London consulate page](https://www.exteriores.gob.es/Consulados/londres/en/ServiciosConsulares/Paginas/Consular/Digital-Nomad-Visa.aspx), the [BOE text of Ley 14/2013](https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074), and [Plataforma ONE](https://www.one.gob.es/en/procedures/application-digital-nomad-visa).
 
-Same national rules as Barcelona. The neighborhood and the flood calendar change. The statute does not. Read [Living in Barcelona](/guides/living-in-barcelona) if you want the same path next to the expensive beach. Short visits for many passports fall under Schengen **90 days in any 180**, which is a different thing. The NIE is the identity number. The TIE is the residence card. The padrón is how the Ajuntament records where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and UGE or the consulate disagree, the official source wins.
+Same national rules as Barcelona. The neighborhood and the flood calendar change. The statute does not. Read [Living in Barcelona](/guides/living-in-barcelona) if you want the same path next to the expensive beach. Short visits for many passports fall under Schengen **90 days in any 180**, which is the visa field on the row. The NIE is the identity number. The TIE is the residence card. The padrón is how the Ajuntament records where you live. More than 183 days in a year can make you tax resident. A special tax regime may apply. Verify with Agencia Tributaria or an adviser. This is not tax advice. When this page and UGE or the consulate disagree, the official source wins.
 
-Anyone filtering the globe on visa days will see **365**. That field is the initial consular visa. It is not the 3-year residence authorization.
+Anyone filtering the globe on visa days will see **90**. That field is the Schengen short stay. It is not the 1-year consular visa, and it is not the 3-year residence authorization.
 
 ## Best months and the October problem: rain, DANA and flood-aware housing
 
@@ -251,11 +251,11 @@ Choose with the rows. Valencia's headline is the October problem. The price gap 
 
 | City | Solo $/mo | Mbps | Safety | Visa (dataset) | Best months |
 |---|---:|---:|---:|---|---|
-| Valencia | $1,900 | 170 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep |
-| Barcelona | $2,500 | 300 | 7.5 | Digital Nomad Visa, 365 days | May-Jun, Sep-Oct |
-| Madrid | $2,200 | 200 | 8.0 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Lisbon | $2,200 | 200 | 8.8 | Digital Nomad Visa, 365 days | Apr-Jun, Sep-Oct |
-| Porto | $1,800 | 200 | 9.0 | Digital Nomad Visa, 365 days | May-Sep |
+| Valencia | $1,900 | 170 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep |
+| Barcelona | $2,500 | 300 | 7.5 | Visa Exemption, 90 days | May-Jun, Sep-Oct |
+| Madrid | $2,200 | 200 | 8.0 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Lisbon | $2,200 | 200 | 8.8 | Visa Exemption, 90 days | Apr-Jun, Sep-Oct |
+| Porto | $1,800 | 200 | 9.0 | Visa Exemption, 90 days | May-Sep |
 
 The visa column is the dataset label on every one of these rows. It is not the residence-permit length. Spain's path is in the visa section above: 1-year consular visa, in-Spain residence permit up to 3 years, then 2-year renewals. Lisbon and Porto use Portugal's D8. That permit is 2 years from issue. Read [Living in Lisbon](/guides/living-in-lisbon) and [Living in Porto](/guides/living-in-porto). Do not paste Spain's statute onto Portugal.
 
@@ -277,7 +277,7 @@ If the objection is "I needed the beach and a third of this bill," none of these
 
 ### Common mistakes
 
-- Treating the **365-day** field as a stamp you already have, or as the 3-year residence authorization
+- Treating the **90-day** Schengen allowance as permission to work remotely long term, or the 1-year visa as the 3-year residence authorization
 - Paying the **$86** nightly median for thirty nights and calling the month **$1,900**
 - Booking a ground-floor October let without opening `rainyMonths` or PATRICOVA
 - Assuming the income floor is a euro number you saw on a blog. The rule on the official pages is **200%** of the SMI. Check the current amount there

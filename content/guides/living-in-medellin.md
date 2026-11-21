@@ -278,7 +278,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 | Nightlife | 9 | 9 | 9 | 5 | 8 |
 | Community | 8 | 8 | 6 | 9 | 9 |
 | English | 4 | 5 | 4 | 5 | 8 |
-| Visa field in Nomad Spin | Exemption, 90 days | Exemption, 180 days | Exemption, 90 days | Tourism exemption, 30 days | Digital Nomad Visa, 365 days |
+| Visa field in Nomad Spin | Exemption, 90 days | Exemption, 180 days | Exemption, 90 days | Tourism exemption, 30 days | Visa Exemption, 90 days |
 | Time zone | UTC-5 | UTC-6 | UTC-3 | UTC+7 | UTC+0 |
 | Best months | Jan, Feb, Mar, Jul, Aug, Dec | Mar, Apr, May, Nov | Mar, Apr, May, Sep, Oct, Nov | Nov, Dec, Jan, Feb | Apr, May, Jun, Sep, Oct |
 | Rainy months | Apr, May, Oct, Nov | Jun, Jul, Aug, Sep | Jun, Jul | Jun, Jul, Aug, Sep | Nov, Dec, Jan, Feb |
@@ -291,7 +291,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Chiang Mai** when you want safety **8.2**, a solo month of **$850**, and community **9**, and you can live with nightlife **5**, **UTC+7**, and a **30-day** tourism exemption (passport-dependent, tourism only). Burning season is the hard seasonal con. Read [Living in Chiang Mai](/guides/living-in-chiang-mai) before a March arrival. The DTV is the long-stay path there.
 
-**Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a digital nomad visa field of **365** days, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
+**Look at Lisbon** when you want safety **8.8**, **200 Mbps**, English proficiency **8**, and a visa exemption field of **90** days in any 180, and you can pay **$2,200**. That is the premium contrast, not a cheaper Medellín. Read [Living in Lisbon](/guides/living-in-lisbon) before you treat the D8 as a formality.
 
 If the alternative is a beach, [Living in Bali](/guides/living-in-bali) is the peer, at a solo month of **$1,200** and internet reliability **5**. If the alternative is scenery with a power problem, [Living in Cape Town](/guides/living-in-cape-town) is the peer: solo **$1,400**, safety **5.5**, power stability **4**.
 

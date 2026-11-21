@@ -292,7 +292,7 @@ Choose with the rows, not with photos. Figures below are the live dataset fields
 
 **Look at Mexico City** when you need US hours (**UTC-6**), food and nightlife **9**, and a visa field of up to **180 days**, and you accept safety **6.0**, altitude, and air. The solo month is **$1,300**. Read [Living in Mexico City](/guides/living-in-mexico-city) before you treat it as Bangkok on a US clock. It is the right comparison if the question is "megacity" and the question is not "Asia."
 
-If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is another full living guide in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a digital nomad visa field of **365 days**, **UTC+0**. Read [Living in Lisbon](/guides/living-in-lisbon) for the neighborhoods and the D8. Different budgets. Different guides.
+If the alternative is not a peer in that table, [Cape Town](/guides/living-in-cape-town) is another full living guide in this set: solo **$1,400**, safety **5.5**, power stability **4**. [Lisbon](/destinations/lisbon) is the premium megacity contrast: solo **$2,200**, **200 Mbps**, safety **8.8**, a visa exemption field of **90 days** in any 180, **UTC+0**. Read [Living in Lisbon](/guides/living-in-lisbon) for the neighborhoods and the D8. Different budgets. Different guides.
 
 ## First-week checklist + compare Bangkok on Nomad Spin
 
