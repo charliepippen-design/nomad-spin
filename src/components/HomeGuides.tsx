@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import type { Guide } from '@/data/guides';
 import { homeGuidesLink, homeH1, homeIntro } from '@/lib/homeSeo';
 import { useLocale, useT } from '@/i18n/LocaleProvider';
-import { cityDisplayName, guideForLocale } from '@/i18n/content';
+import { cityDisplayName, guideForLocale, localizedGuide } from '@/i18n/content';
 import { CityGuideCard, CityGuideRow, EssayRow, SectionRule, splitGuides } from '@/components/guides/GuideIndex';
 
 /** Photo cards shown before the rest of the city guides drop to compact rows. */
@@ -20,7 +20,10 @@ export default function HomeGuides({ guides }: { guides: readonly Guide[] }) {
   const guidesLink = homeGuidesLink(locale);
   // Title and excerpt in the reader's language when the guide is translated. The English
   // slug is kept: the cards link to /guides/<english slug> and Link localizes the URL.
-  const shown = guides.map((guide) => ({ ...guideForLocale(guide, locale), slug: guide.slug, relatedDestinations: guide.relatedDestinations }));
+  const shown = guides
+    // Another language lists only the guides it has; the guides index links the English ones, labelled.
+    .filter((guide) => locale === 'en' || localizedGuide(guide.slug, locale) !== null)
+    .map((guide) => ({ ...guideForLocale(guide, locale), slug: guide.slug, relatedDestinations: guide.relatedDestinations }));
   const { cityGuides, essays } = splitGuides(shown);
   // Photo cards lead; guides without a curated photo join the compact list.
   const featured = cityGuides.filter((entry) => entry.hasPhoto).slice(0, FEATURED_COUNT);

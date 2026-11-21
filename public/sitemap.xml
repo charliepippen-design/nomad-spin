@@ -1,52 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.digitalnomadspin.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/compare</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/compare" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/confronta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/compare" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/find-your-base</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/find-your-base" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/trova-la-tua-base" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/find-your-base" />
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/methodology</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/methodology" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/metodologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/methodology" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/about" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/contatti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/contact" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/privacy-policy" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/termini-di-utilizzo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/terms-of-use" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -82,6 +112,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-chiang-mai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-chiang-mai" />
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -94,6 +127,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-lisbon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-lisbon" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-lisbona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-lisbon" />
     <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -118,6 +154,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/how-to-choose-next-nomad-base</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/how-to-choose-next-nomad-base" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/come-scegliere-la-prossima-base-da-nomade-digitale" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/how-to-choose-next-nomad-base" />
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -130,6 +169,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-barcelona</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-barcelona" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-barcellona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-barcelona" />
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -190,6 +232,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/where-to-go-next-by-season</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/where-to-go-next-by-season" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/dove-andare-stagione-per-stagione" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/where-to-go-next-by-season" />
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -202,6 +247,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/guides/living-in-bali</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-bali" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-bali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-bali" />
     <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -220,54 +268,81 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/chiang-mai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/chiang-mai" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/bali</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/bali" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/bali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/bali" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/lisbon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/lisbon" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/lisbon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/lisbon" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/medellin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/medellin" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/medellin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/medellin" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/tbilisi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tbilisi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tbilisi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tbilisi" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/cape-town</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/cape-town" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/cape-town" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/cape-town" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/mexico-city</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/mexico-city" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/mexico-city" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/mexico-city" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/buenos-aires</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/buenos-aires" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/buenos-aires" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/buenos-aires" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/ho-chi-minh-city</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/ho-chi-minh-city" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/ho-chi-minh-city" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/ho-chi-minh-city" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -280,60 +355,90 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/bangkok</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/bangkok" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/bangkok" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/bangkok" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/barcelona</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/barcelona" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/barcelona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/barcelona" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/budapest</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/budapest" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/budapest" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/budapest" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/playa-del-carmen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/playa-del-carmen" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/playa-del-carmen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/playa-del-carmen" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/kuala-lumpur</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/kuala-lumpur" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/kuala-lumpur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/kuala-lumpur" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/da-nang</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/da-nang" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/da-nang" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/da-nang" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/berlin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/berlin" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/berlin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/berlin" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/split</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/split" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/split" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/split" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/tallinn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tallinn" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tallinn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tallinn" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/canggu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/canggu" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/canggu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/canggu" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -346,18 +451,27 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/porto</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/porto" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/porto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/porto" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/seoul</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/seoul" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/seoul" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/seoul" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/taipei</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/taipei" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/taipei" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/taipei" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -376,18 +490,27 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/tokyo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tokyo" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tokyo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tokyo" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/prague</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/prague" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/prague" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/prague" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/dubai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/dubai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/dubai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/dubai" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -424,6 +547,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/sofia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/sofia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/sofia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/sofia" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -442,18 +568,27 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/penang</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/penang" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/penang" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/penang" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/athens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/athens" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/athens" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/athens" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/koh-phangan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/koh-phangan" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/koh-phangan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/koh-phangan" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -496,6 +631,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/ubud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/ubud" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/ubud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/ubud" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -508,6 +646,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/hanoi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/hanoi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/hanoi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/hanoi" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -520,12 +661,18 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/phuket</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/phuket" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/phuket" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/phuket" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/hoi-an</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/hoi-an" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/hoi-an" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/hoi-an" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -598,6 +745,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/singapore</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/singapore" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/singapore" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/singapore" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -916,6 +1066,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/madrid</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/madrid" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/madrid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/madrid" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -934,18 +1087,27 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/valencia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/valencia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/valencia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/valencia" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/las-palmas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/las-palmas" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/las-palmas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/las-palmas" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/tenerife</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tenerife" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tenerife" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tenerife" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -958,6 +1120,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/krakow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/krakow" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/krakow" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/krakow" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -988,12 +1153,18 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/belgrade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/belgrade" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/belgrade" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/belgrade" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/istanbul</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/istanbul" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/istanbul" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/istanbul" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1870,6 +2041,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/seminyak</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/seminyak" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/seminyak" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/seminyak" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1900,6 +2074,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/langkawi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/langkawi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/langkawi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/langkawi" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -2092,12 +2269,18 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/tirana</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tirana" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tirana" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tirana" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/saranda</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/saranda" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/saranda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/saranda" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -2110,18 +2293,27 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/podgorica</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/podgorica" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/podgorica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/podgorica" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/kotor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/kotor" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/kotor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/kotor" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/budva</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/budva" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/budva" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/budva" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -2476,6 +2668,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/zadar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/zadar" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/zadar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/zadar" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -2494,6 +2689,9 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/dubrovnik</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/dubrovnik" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/dubrovnik" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/dubrovnik" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -4720,6 +4918,590 @@
   </url>
   <url>
     <loc>https://www.digitalnomadspin.com/destinations/jersey</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/confronta</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/compare" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/confronta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/compare" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/trova-la-tua-base</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/find-your-base" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/trova-la-tua-base" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/find-your-base" />
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/metodologia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/methodology" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/metodologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/methodology" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/chi-siamo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/contatti</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/contatti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/privacy-policy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/termini-di-utilizzo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/termini-di-utilizzo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/terms-of-use" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/vivere-a-chiang-mai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-chiang-mai" />
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/vivere-a-lisbona</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-lisbon" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-lisbona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-lisbon" />
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/come-scegliere-la-prossima-base-da-nomade-digitale</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/how-to-choose-next-nomad-base" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/come-scegliere-la-prossima-base-da-nomade-digitale" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/how-to-choose-next-nomad-base" />
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/vivere-a-barcellona</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-barcelona" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-barcellona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-barcelona" />
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/dove-andare-stagione-per-stagione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/where-to-go-next-by-season" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/dove-andare-stagione-per-stagione" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/where-to-go-next-by-season" />
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/guide/vivere-a-bali</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/guides/living-in-bali" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/guide/vivere-a-bali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/guides/living-in-bali" />
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/chiang-mai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/chiang-mai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/chiang-mai" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/bali</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/bali" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/bali" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/bali" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/lisbon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/lisbon" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/lisbon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/lisbon" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/medellin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/medellin" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/medellin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/medellin" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/tbilisi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tbilisi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tbilisi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tbilisi" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/cape-town</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/cape-town" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/cape-town" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/cape-town" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/mexico-city</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/mexico-city" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/mexico-city" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/mexico-city" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/buenos-aires</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/buenos-aires" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/buenos-aires" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/buenos-aires" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/ho-chi-minh-city</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/ho-chi-minh-city" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/ho-chi-minh-city" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/ho-chi-minh-city" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/bangkok</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/bangkok" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/bangkok" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/bangkok" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/barcelona</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/barcelona" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/barcelona" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/barcelona" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/budapest</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/budapest" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/budapest" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/budapest" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/playa-del-carmen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/playa-del-carmen" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/playa-del-carmen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/playa-del-carmen" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/kuala-lumpur</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/kuala-lumpur" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/kuala-lumpur" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/kuala-lumpur" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/da-nang</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/da-nang" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/da-nang" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/da-nang" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/berlin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/berlin" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/berlin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/berlin" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/split</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/split" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/split" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/split" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/tallinn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tallinn" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tallinn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tallinn" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/canggu</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/canggu" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/canggu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/canggu" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/porto</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/porto" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/porto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/porto" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/seoul</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/seoul" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/seoul" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/seoul" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/taipei</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/taipei" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/taipei" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/taipei" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/tokyo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tokyo" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tokyo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tokyo" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/prague</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/prague" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/prague" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/prague" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/dubai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/dubai" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/dubai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/dubai" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/sofia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/sofia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/sofia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/sofia" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/penang</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/penang" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/penang" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/penang" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/athens</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/athens" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/athens" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/athens" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/koh-phangan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/koh-phangan" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/koh-phangan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/koh-phangan" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/ubud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/ubud" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/ubud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/ubud" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/hanoi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/hanoi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/hanoi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/hanoi" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/phuket</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/phuket" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/phuket" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/phuket" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/hoi-an</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/hoi-an" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/hoi-an" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/hoi-an" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/singapore</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/singapore" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/singapore" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/singapore" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/madrid</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/madrid" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/madrid" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/madrid" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/valencia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/valencia" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/valencia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/valencia" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/las-palmas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/las-palmas" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/las-palmas" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/las-palmas" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/tenerife</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tenerife" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tenerife" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tenerife" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/krakow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/krakow" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/krakow" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/krakow" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/belgrade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/belgrade" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/belgrade" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/belgrade" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/istanbul</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/istanbul" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/istanbul" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/istanbul" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/seminyak</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/seminyak" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/seminyak" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/seminyak" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/langkawi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/langkawi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/langkawi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/langkawi" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/tirana</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/tirana" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/tirana" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/tirana" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/saranda</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/saranda" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/saranda" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/saranda" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/podgorica</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/podgorica" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/podgorica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/podgorica" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/kotor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/kotor" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/kotor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/kotor" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/budva</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/budva" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/budva" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/budva" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/zadar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/zadar" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/zadar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/zadar" />
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.digitalnomadspin.com/it/destinazioni/dubrovnik</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.digitalnomadspin.com/destinations/dubrovnik" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.digitalnomadspin.com/it/destinazioni/dubrovnik" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.digitalnomadspin.com/destinations/dubrovnik" />
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -27,6 +27,15 @@ function setHeadTag(html: string, tag: 'meta' | 'link', keyAttr: string, key: st
   return placed ? out : out.replace('</head>', `  ${element}\n</head>`);
 }
 
+/** Adds the hreflang rows of a page to its head. No rows, no change. */
+export function injectAlternates(html: string, alternates?: { hreflang: string; href: string }[]): string {
+  if (!alternates?.length) return html;
+  const links = alternates
+    .map((row) => `  <link data-rh="true" rel="alternate" hreflang="${esc(row.hreflang)}" href="${esc(row.href)}" />`)
+    .join('\n');
+  return html.replace('</head>', `${links}\n</head>`);
+}
+
 export function injectSeo(
   html: string,
   opts: {
@@ -75,12 +84,7 @@ export function injectSeo(
     out = out.replace(/<html lang="[^"]*"/, `<html lang="${esc(opts.lang.htmlLang)}"`);
     out = setHeadTag(out, 'meta', 'property', 'og:locale', 'content', esc(opts.lang.ogLocale));
   }
-  if (opts.alternates?.length) {
-    const links = opts.alternates
-      .map((row) => `  <link data-rh="true" rel="alternate" hreflang="${esc(row.hreflang)}" href="${esc(row.href)}" />`)
-      .join('\n');
-    out = out.replace('</head>', `${links}\n</head>`);
-  }
+  out = injectAlternates(out, opts.alternates);
 
   // Drop the homepage WebSite/Organization graph so destination pages don't claim to be the homepage.
   out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdBlock || '');

@@ -1,6 +1,6 @@
 import type { Guide } from '../data/guides';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
-import { guideForLocale } from '../i18n/content';
+import { guideForLocale, localizedGuide } from '../i18n/content';
 import { getT } from '../i18n/dictionary';
 import { localizeHref } from '../i18n/paths';
 
@@ -47,7 +47,9 @@ function esc(value: string): string {
  */
 export function homeBodyHtml(guides: readonly HomeGuideLink[], locale: Locale = DEFAULT_LOCALE): string {
   const link = homeGuidesLink(locale);
+  // Another language lists only the guides it has; the guides index links the English ones, labelled.
   const items = guides
+    .filter((guide) => locale === DEFAULT_LOCALE || localizedGuide(guide.slug, locale) !== null)
     .map((guide) => {
       const title = guideForLocale(guide as Guide, locale).title;
       return `<li><a href="${esc(localizeHref(`/guides/${guide.slug}`, locale))}">${esc(title)}</a></li>`;

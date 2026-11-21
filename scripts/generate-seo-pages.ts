@@ -10,15 +10,21 @@ import {
 } from '../src/lib/destinationSeo';
 import { destinationBodyHtml, destinationPageJsonLd } from '../src/lib/destinationPrerender';
 import { canonicalDestinationPath, destinationRobotsContent, insertRobotsMeta } from '../src/lib/subAreaDestinations';
-import { GUIDES_INDEX_DESCRIPTION, guideBodyHtml, guidesIndexBodyHtml, guideTitleTag } from '../src/lib/guideHtml';
+import { guideBodyHtml, guidesIndexBodyHtml, guideTitleTag, guidesIndexDescription, guidesIndexTitle } from '../src/lib/guideHtml';
 import { guideFaqJsonLd } from '../src/lib/guideFaq';
 import { guideArticleJsonLd, guideBreadcrumbJsonLd, guidesIndexBreadcrumbJsonLd } from '../src/lib/guideJsonLd';
-import { homeBodyHtml } from '../src/lib/homeSeo';
+import { homeBodyHtml, homeDescription, homeTitle } from '../src/lib/homeSeo';
 import { citiesByRegion, regionLabel } from '../src/lib/destinationIndex';
 import { citySocialImage, guideSocialImage } from '../src/lib/socialImage';
-import { esc, injectSeo } from '../src/lib/prerenderHead';
+import { esc, injectAlternates, injectSeo } from '../src/lib/prerenderHead';
 import { buildNotFoundHtml } from './not-found-page';
 import { staticPageBodyHtml, staticPagesPrerender } from '../src/lib/staticPagesPrerender';
+import { DEFAULT_LOCALE, LOCALE_INFO, PUBLISHED_LOCALES, type Locale } from '../src/i18n/config';
+import { getT, loadLocale } from '../src/i18n/dictionary';
+import { localizedGuides } from '../src/i18n/content';
+import { absoluteUrl, alternatesFor, localizeHref, localizePath } from '../src/i18n/paths';
+import { cityDisplayName } from '../src/i18n/content';
+import { countryName, formatNumber } from '../src/i18n/format';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -105,23 +111,28 @@ function writeRoute(route: string, html: string, filename = 'index.html') {
 }
 
 
-function destinationsIndexBodyHtml(): string {
-  const sections = citiesByRegion()
+function destinationsIndexBodyHtml(locale: Locale = DEFAULT_LOCALE): string {
+  const t = getT(locale);
+  const english = locale === DEFAULT_LOCALE;
+  const sections = citiesByRegion('', locale)
     .map((group) => {
       const items = group.cities
-        .map(
-          ({ city, slug }) =>
-            `<li><a href="${esc(canonicalDestinationPath(slug))}" style="color:#007a52">${esc(city.name)}, ${esc(city.country)}</a> ($${city.costUSD}/mo)</li>`,
-        )
+        .map(({ city, slug }) => {
+          const href = localizeHref(canonicalDestinationPath(slug), locale);
+          const name = cityDisplayName(city, locale);
+          const country = countryName(city.countryCode, city.country, locale);
+          const cost = english ? String(city.costUSD) : formatNumber(city.costUSD, locale);
+          return `<li><a href="${esc(href)}" style="color:#007a52">${esc(name)}, ${esc(country)}</a> ($${cost}${esc(t('data.metric.perMonth'))})</li>`;
+        })
         .join('');
-      return `<h2>${esc(regionLabel(group.region))}</h2><ul>${items}</ul>`;
+      return `<h2>${esc(regionLabel(group.region, locale))}</h2><ul>${items}</ul>`;
     })
     .join('');
 
   return `
 <main id="seo-destinations" style="max-width:48rem;margin:2rem auto;padding:0 1.25rem;font-family:Georgia,'Source Serif 4',serif;font-weight:400;line-height:1.6;color:#1c1917;background:#fff">
-  <h1>Destinations</h1>
-  <p>City pages from the Nomad Spin dataset, grouped by region.</p>
+  <h1>${esc(t('tools.dest.h1'))}</h1>
+  <p>${esc(t('tools.dest.prerenderIntro'))}</p>
   ${sections}
 </main>`;
 }
@@ -139,118 +150,171 @@ function withVisibleBody(html: string, body: string): string {
   fs.writeFileSync(path.join(distDir, '404.html'), buildNotFoundHtml());
   console.log('✅ Generated noindex 404 page: /404.html');
 
-  const guides = await fetchLiveGuides();
+  const liveGuides = await fetchLiveGuides();
 
-  // Home (/): keep the WebSite/Organization JSON-LD already in index.html, add a crawlable body.
-  // Other routes keep using the untouched baseHtml read above.
-  writeRoute('', withVisibleBody(baseHtml, homeBodyHtml(staticGuides)));
+  for (const locale of PUBLISHED_LOCALES) {
+    await loadLocale(locale);
+    const english = locale === DEFAULT_LOCALE;
+    // English pages keep the head they always had; other languages state theirs.
+    const lang = english ? undefined : { htmlLang: LOCALE_INFO[locale].htmlLang, ogLocale: LOCALE_INFO[locale].ogLocale };
+    /** Folder of an English path in this language, or null when the page is not translated. */
+    const routeOf = (enPath: string): string | null => {
+      const localized = localizePath(enPath, locale);
+      return localized === null ? null : localized.replace(/^\//, '');
+    };
+    if (!english) console.log(`\n🌐 Language: ${locale}`);
 
-  // Static core pages
-  // Each gets its own title, description, canonical, H1 and text in the raw HTML.
-  for (const page of staticPagesPrerender()) {
+    // Home: keep the WebSite/Organization JSON-LD already in index.html, add a crawlable body.
+    if (english) {
+      writeRoute('', injectAlternates(withVisibleBody(baseHtml, homeBodyHtml(staticGuides)), alternatesFor('/')));
+    } else {
+      const homeUrl = absoluteUrl('/', locale);
+      const graph = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(baseHtml)![1]);
+      for (const node of graph['@graph'] ?? []) {
+        if (node['@type'] !== 'WebSite') continue;
+        node.url = homeUrl;
+        node.description = homeDescription(locale);
+        node.inLanguage = LOCALE_INFO[locale].htmlLang;
+      }
+      writeRoute(
+        routeOf('/')!,
+        withVisibleBody(
+          injectSeo(baseHtml, {
+            title: homeTitle(locale),
+            description: homeDescription(locale),
+            url: homeUrl,
+            jsonLd: graph,
+            lang,
+            alternates: alternatesFor('/'),
+          }),
+          homeBodyHtml(staticGuides, locale),
+        ),
+      );
+    }
+
+    // Static core pages
+    // Each gets its own title, description, canonical, H1 and text in the raw HTML.
+    for (const page of staticPagesPrerender(locale)) {
+      const enPath = `/${page.route}`;
+      const url = absoluteUrl(enPath, locale);
+      writeRoute(
+        routeOf(enPath)!,
+        withVisibleBody(
+          injectSeo(baseHtml, {
+            title: page.title,
+            description: page.description,
+            url,
+            jsonLd: {
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: page.title,
+              url,
+              description: page.description,
+              ...(english ? {} : { inLanguage: LOCALE_INFO[locale].htmlLang }),
+            },
+            lang,
+            alternates: alternatesFor(enPath),
+          }),
+          staticPageBodyHtml(page, locale),
+        ),
+      );
+    }
+
+    const guidesUrl = absoluteUrl('/guides', locale);
     writeRoute(
-      page.route,
+      routeOf('/guides')!,
       withVisibleBody(
         injectSeo(baseHtml, {
-          title: page.title,
-          description: page.description,
-          url: `${BASE_URL}/${page.route}`,
-          jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'WebPage',
-            name: page.title,
-            url: `${BASE_URL}/${page.route}`,
-            description: page.description,
-          },
+          title: guidesIndexTitle(locale),
+          description: guidesIndexDescription(locale),
+          url: guidesUrl,
+          jsonLd: [
+            {
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: guidesIndexTitle(locale),
+              url: guidesUrl,
+              description: guidesIndexDescription(locale),
+              ...(english ? {} : { inLanguage: LOCALE_INFO[locale].htmlLang }),
+            },
+            guidesIndexBreadcrumbJsonLd(locale),
+          ],
+          lang,
+          alternates: alternatesFor('/guides'),
         }),
-        staticPageBodyHtml(page),
+        english ? guidesIndexBodyHtml(staticGuides) : guidesIndexBodyHtml(localizedGuides(locale), locale, staticGuides),
       ),
     );
-  }
-  const guidesIndexTitle = 'Digital Nomad Guides & Analysis | Nomad Spin';
-  const guidesIndexDescription = GUIDES_INDEX_DESCRIPTION;
-  writeRoute(
-    'guides',
-    withVisibleBody(
-      injectSeo(baseHtml, {
-        title: guidesIndexTitle,
-        description: guidesIndexDescription,
-        url: `${BASE_URL}/guides`,
-        jsonLd: [
-          {
+
+    const destinationsIndexUrl = absoluteUrl('/destinations', locale);
+    const t = getT(locale);
+    writeRoute(
+      routeOf('/destinations')!,
+      withVisibleBody(
+        injectSeo(baseHtml, {
+          title: t('tools.dest.metaTitle'),
+          description: t('tools.dest.metaDescription'),
+          url: destinationsIndexUrl,
+          jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: guidesIndexTitle,
-            url: `${BASE_URL}/guides`,
-            description: guidesIndexDescription,
+            name: t('tools.dest.h1'),
+            url: destinationsIndexUrl,
+            description: t('tools.dest.metaDescription'),
+            ...(english ? {} : { inLanguage: LOCALE_INFO[locale].htmlLang }),
           },
-          guidesIndexBreadcrumbJsonLd(),
-        ],
-      }),
-      guidesIndexBodyHtml(staticGuides),
-    ),
-  );
-
-  const destinationsIndexUrl = `${BASE_URL}/destinations`;
-  const destinationsIndexTitle = 'Destinations | Nomad Spin';
-  const destinationsIndexDescription =
-    'Browse digital nomad cities by region. Each page lists cost, internet, safety, and visa notes from the Nomad Spin dataset.';
-  writeRoute(
-    'destinations',
-    withVisibleBody(
-      injectSeo(baseHtml, {
-        title: destinationsIndexTitle,
-        description: destinationsIndexDescription,
-        url: destinationsIndexUrl,
-        jsonLd: {
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          name: 'Destinations',
-          url: destinationsIndexUrl,
-          description: destinationsIndexDescription,
-        },
-      }),
-      destinationsIndexBodyHtml(),
-    ),
-  );
-
-  // 3. Guide pages
-  console.log(`\n📚 Generating ${guides.length} guide pages...`);
-  for (const guide of guides) {
-    const title = guideTitleTag(guide);
-    const url = `${BASE_URL}/guides/${guide.slug}`;
-    const faqJsonLd = guideFaqJsonLd(guide);
-    const image = guideSocialImage(guide.slug);
-    const jsonLd = [guideArticleJsonLd(guide, url, image.url), guideBreadcrumbJsonLd(guide, url), ...(faqJsonLd ? [faqJsonLd] : [])];
-    writeRoute(
-      `guides/${guide.slug}`,
-      withVisibleBody(
-        injectSeo(baseHtml, { title, description: guide.excerpt, url, ogType: 'article', image, jsonLd }),
-        guideBodyHtml(guide)
-      )
+          lang,
+          alternates: alternatesFor('/destinations'),
+        }),
+        destinationsIndexBodyHtml(locale),
+      ),
     );
+
+    // Guide pages. English: live + static guides. Other languages: the translated guides only.
+    const guides: (Guide & { sourceSlug?: string })[] = english ? liveGuides : localizedGuides(locale);
+    console.log(`\n📚 Generating ${guides.length} guide pages...`);
+    for (const guide of guides) {
+      const enSlug = guide.sourceSlug ?? guide.slug;
+      const enPath = `/guides/${enSlug}`;
+      const route = english ? `guides/${guide.slug}` : routeOf(enPath);
+      if (!route) continue;
+      const title = guideTitleTag(guide, locale);
+      const url = english ? `${BASE_URL}/guides/${guide.slug}` : absoluteUrl(enPath, locale);
+      const faqJsonLd = guideFaqJsonLd(guide, locale);
+      const image = guideSocialImage(enSlug);
+      const jsonLd = [guideArticleJsonLd(guide, url, image.url, locale), guideBreadcrumbJsonLd(guide, url, locale), ...(faqJsonLd ? [faqJsonLd] : [])];
+      writeRoute(
+        route,
+        withVisibleBody(
+          injectSeo(baseHtml, { title, description: guide.excerpt, url, ogType: 'article', image, jsonLd, lang, alternates: alternatesFor(enPath) }),
+          guideBodyHtml(guide, locale)
+        )
+      );
+    }
+
+    // Destination pages: one HTML shell per city with title/meta/canonical/JSON-LD + visible stats.
+    // Other languages: only the cities whose text is translated.
+    const destinations = allCitySlugs().filter(({ slug }) => routeOf(`/destinations/${slug}`) !== null);
+    console.log(`\n🌍 Generating ${destinations.length} destination pages...`);
+    for (const { city, slug } of destinations) {
+      const enPath = `/destinations/${slug}`;
+      const title = destinationPageTitle(city, locale);
+      const description = destinationMetaDescription(city, locale);
+      const url = absoluteUrl(enPath, locale);
+      const jsonLd = destinationPageJsonLd(city, url, slug, locale);
+      // Self canonical stays on this URL. noindex sub-area pages do not canonical to the parent hub.
+      const head = insertRobotsMeta(
+        injectSeo(baseHtml, { title, description, url, image: citySocialImage(city.id), jsonLd, lang, alternates: alternatesFor(enPath) }),
+        destinationRobotsContent(slug),
+      );
+      writeRoute(
+        routeOf(enPath)!,
+        withVisibleBody(head, destinationBodyHtml(city, slug, locale)),
+      );
+    }
   }
 
-  // 4. Destination pages — one HTML shell per city with title/meta/canonical/JSON-LD + visible stats
-  const destinations = allCitySlugs();
-  console.log(`\n🌍 Generating ${destinations.length} destination pages...`);
-  for (const { city, slug } of destinations) {
-    const title = destinationPageTitle(city);
-    const description = destinationMetaDescription(city);
-    const url = `${BASE_URL}/destinations/${slug}`;
-    const jsonLd = destinationPageJsonLd(city, url, slug);
-    // Self canonical stays on this URL. noindex sub-area pages do not canonical to the parent hub.
-    const head = insertRobotsMeta(
-      injectSeo(baseHtml, { title, description, url, image: citySocialImage(city.id), jsonLd }),
-      destinationRobotsContent(slug),
-    );
-    writeRoute(
-      `destinations/${slug}`,
-      withVisibleBody(head, destinationBodyHtml(city, slug)),
-    );
-  }
-
-  // 5. Sitemap is produced by scripts/generate-sitemap.ts (prebuild) into public/sitemap.xml
+  // Sitemap is produced by scripts/generate-sitemap.ts (prebuild) into public/sitemap.xml
   //    and copied to dist by Vite. Do NOT overwrite it here.
 
   console.log('\n✨ Post-Build Generation Complete!');
