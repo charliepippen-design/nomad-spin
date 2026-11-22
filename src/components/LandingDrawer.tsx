@@ -58,6 +58,7 @@ interface LandingDrawerProps {
   isAuthenticated: boolean;
   user: SupaUser | null;
   onSignOut: () => void;
+  onOpenPicks: () => void;
   onOpenAuth: () => void;
   streak: number;
   spinCount: number;
@@ -69,7 +70,7 @@ export default function LandingDrawer({
   onConfigureMission, onOpenCityWall,
   autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
-  isAuthenticated, user, onSignOut, onOpenAuth,
+  isAuthenticated, user, onSignOut, onOpenPicks, onOpenAuth,
   streak, spinCount, onFlyTo, howItWorksRequest,
 }: LandingDrawerProps) {
   // Desktop: simple open/close
@@ -244,14 +245,17 @@ export default function LandingDrawer({
       <div className="space-y-2">
         {isAuthenticated ? (
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <button
+              onClick={onOpenPicks}
+              className="flex items-center gap-2 rounded-lg px-1.5 py-1 -ml-1.5 hover:bg-white/[0.06] transition-colors"
+            >
               <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-[9px] font-mono font-bold text-primary">
                   {(user?.user_metadata?.display_name || user?.email || 'U')[0].toUpperCase()}
                 </span>
               </div>
               <span className="text-[10px] font-mono text-foreground/70 tracking-wider">My picks</span>
-            </div>
+            </button>
             <button
               onClick={onSignOut}
               className="flex items-center gap-1 text-[9px] font-mono text-muted-foreground hover:text-foreground transition-colors"

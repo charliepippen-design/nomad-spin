@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react'
 import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
+import { useAccountUi } from '@/store/useAccountUi';
 import { useSoundManager } from '@/hooks/useSoundManager';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
@@ -25,7 +26,7 @@ import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
-import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
+import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark, LogOut } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import OriginSelector from '@/components/OriginSelector';
 import CityTooltip from '@/components/CityTooltip';
@@ -51,6 +52,7 @@ const GlobeFallback = () => (
 
 export default function Index() {
   const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
+  const setPicksOpen = useAccountUi((s) => s.setPicksOpen);
   const sound = useSoundManager();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
@@ -472,28 +474,28 @@ export default function Index() {
 
               {/* Auth */}
               {auth.isAuthenticated ? (
-                <TooltipProvider delayDuration={300}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={auth.signOut}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60 hover:bg-muted transition-colors"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <span className="text-[9px] font-mono font-bold text-primary">
-                            {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
-                          My picks
-                        </span>
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom">
-                      <p className="text-xs">Signed in · Click to sign out</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => setPicksOpen(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60 hover:bg-muted transition-colors"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[9px] font-mono font-bold text-primary">
+                        {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
+                      My picks
+                    </span>
+                  </button>
+                  <button
+                    onClick={auth.signOut}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-mono text-muted-foreground tracking-wider hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                    Sign out
+                  </button>
+                </div>
               ) : (
                 <TooltipProvider delayDuration={300}>
                   <Tooltip>
@@ -670,6 +672,7 @@ export default function Index() {
           isAuthenticated={auth.isAuthenticated}
           user={auth.user}
           onSignOut={auth.signOut}
+          onOpenPicks={() => setPicksOpen(true)}
           onOpenAuth={() => setShowAuth(true)}
           streak={streak}
           spinCount={spinCount}
