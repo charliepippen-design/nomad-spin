@@ -36,10 +36,8 @@ serve(async (req) => {
     const slug = makeSlug(cityName, country);
 
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
-
-    // Check cache first
+    // Extra city data (language, tax, insurance, eSIM, legal notes) is read from
+    // the stored records only: this function makes no outside calls.
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
@@ -56,130 +54,9 @@ serve(async (req) => {
       });
     }
 
-    // Call AI to enrich
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
-        messages: [
-          {
-            role: "system",
-            content: "You are a travel data assistant. Return structured data about cities for digital nomads. Be factual and concise."
-          },
-          {
-            role: "user",
-            content: `Provide enrichment data for ${cityName}, ${country}. I need: primary language spoken, landscape type(s), income tax info for nomads, monthly health insurance cost estimate, eSIM availability, and any important legal notes (especially regarding drugs, prostitution, or unusual local laws). Use the provided tool to return structured data.`
-          }
-        ],
-        tools: [
-          {
-            type: "function",
-            function: {
-              name: "enrich_city",
-              description: "Return structured enrichment data for a city",
-              parameters: {
-                type: "object",
-                properties: {
-                  language: { type: "string", description: "Primary language spoken" },
-                  landscape: {
-                    type: "array",
-                    items: { type: "string", enum: ["seaside", "mountain", "urban", "rural", "island", "desert"] },
-                    description: "Landscape types that apply"
-                  },
-                  taxation: {
-                    type: "object",
-                    properties: {
-                      incomeTax: { type: "string", description: "Brief tax rate description" },
-                      notes: { type: "string", description: "Tax notes relevant to nomads" }
-                    },
-                    required: ["incomeTax", "notes"]
-                  },
-                  healthInsurance: {
-                    type: "object",
-                    properties: {
-                      costMonthly: { type: "number", description: "Estimated monthly cost in USD" },
-                      quality: { type: "number", description: "Quality rating 1-10" }
-                    },
-                    required: ["costMonthly", "quality"]
-                  },
-                  esim: {
-                    type: "object",
-                    properties: {
-                      available: { type: "boolean" },
-                      costMonthly: { type: "number", description: "Estimated monthly eSIM cost in USD" }
-                    },
-                    required: ["available", "costMonthly"]
-                  },
-                  legalNotes: {
-                    type: "array",
-                    items: { type: "string" },
-                    description: "Important legal disclaimers about local laws"
-                  }
-                },
-                required: ["language", "landscape", "taxation", "healthInsurance", "esim", "legalNotes"],
-                additionalProperties: false
-              }
-            }
-          }
-        ],
-        tool_choice: { type: "function", function: { name: "enrich_city" } },
-      }),
-    });
-
-    if (!response.ok) {
-      if (response.status === 429) {
-        return new Response(JSON.stringify({ error: "Rate limit exceeded. Try again later." }), {
-          status: 429,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-      if (response.status === 402) {
-        return new Response(JSON.stringify({ error: "AI credits exhausted." }), {
-          status: 402,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-      const errText = await response.text();
-      console.error("AI gateway error:", response.status, errText);
-      return new Response(JSON.stringify({ error: "AI enrichment failed" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const aiResult = await response.json();
-    const toolCall = aiResult.choices?.[0]?.message?.tool_calls?.[0];
-    
-    let enrichmentData: Record<string, unknown> = {};
-    if (toolCall?.function?.arguments) {
-      try {
-        enrichmentData = JSON.parse(toolCall.function.arguments);
-      } catch {
-        console.error("Failed to parse tool call arguments");
-      }
-    }
-
-    // Cache the result
-    await fetch(`${SUPABASE_URL}/rest/v1/city_enrichment_cache`, {
-      method: "POST",
-      headers: {
-        apikey: SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-        "Content-Type": "application/json",
-        Prefer: "resolution=merge-duplicates",
-      },
-      body: JSON.stringify({
-        slug,
-        enrichment_data: enrichmentData,
-        fetched_at: new Date().toISOString(),
-      }),
-    });
-
-    return new Response(JSON.stringify(enrichmentData), {
+    // No stored record for this city. Records are prepared ahead of time and the
+    // page falls back to the base dataset, so an empty answer is a normal case.
+    return new Response(JSON.stringify({}), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {

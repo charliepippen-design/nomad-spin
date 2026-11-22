@@ -50,6 +50,12 @@ export function useCityEnrichment(city: City | null) {
           return;
         }
 
+        // No stored record for this city: keep the base dataset as it is.
+        if (Object.keys(data).length === 0) {
+          if (!cancelled) setEnrichedCity(city);
+          return;
+        }
+
         if (cancelled) return;
 
         const enrichment = data as EnrichmentData;
