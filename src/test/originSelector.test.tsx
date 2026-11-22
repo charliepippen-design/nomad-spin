@@ -111,6 +111,22 @@ describe('changing the origin changes the results', () => {
     );
   });
 
+  it('results already on screen are rescored when the origin changes', () => {
+    const store = useSpinStore.getState();
+    store.setPreferences({ origin: athens });
+    store.filterCities();
+    store.spin();
+    const before = useSpinStore.getState().topResults;
+    expect(before.length).toBeGreaterThan(0);
+    useSpinStore.getState().setPreferences({ origin: newYork });
+    const after = useSpinStore.getState().topResults;
+    expect(after.map((r) => r.city.id)).toEqual(before.map((r) => r.city.id));
+    expect(after[0].flightInfo!.distKm).not.toBe(before[0].flightInfo!.distKm);
+    useSpinStore.getState().setPreferences({ origin: null });
+    expect(useSpinStore.getState().topResults[0].flightInfo).toBeUndefined();
+    useSpinStore.setState({ topResults: [], resultCity: null });
+  });
+
   it('the "flight from" line names the origin', () => {
     expect(generateIntel(lisbon, 3000, 20, athens).join(' ')).toContain('flight from Athens');
     expect(generateIntel(lisbon, 3000, 20, newYork).join(' ')).toContain('flight from New York');

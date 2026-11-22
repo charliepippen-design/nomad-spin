@@ -100,9 +100,27 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   setPhase: (phase) => set({ phase }),
 
   setPreferences: (prefs) =>
-    set((state) => ({
-      preferences: { ...state.preferences, ...prefs },
-    })),
+    set((state) => {
+      const preferences = { ...state.preferences, ...prefs };
+      const originChanged = 'origin' in prefs && prefs.origin?.id !== state.preferences.origin?.id;
+      if (!originChanged || state.topResults.length === 0) return { preferences };
+      // Results on screen were scored from the old origin: rescore them in place,
+      // so match score and flight time follow the new city without a new spin.
+      return {
+        preferences,
+        topResults: state.topResults.map((result) =>
+          scoreCityForPreferences(
+            result.city,
+            preferences.budgetRange[1],
+            preferences.internetMin,
+            preferences.safetyMin,
+            preferences.vibes,
+            preferences.origin,
+            preferences.landscapes,
+          ),
+        ),
+      };
+    }),
 
   filterCities: () => {
     const { preferences } = get();
