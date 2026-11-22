@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Search, Check, AlertTriangle, Zap, Briefcase, Mountain, Crosshair, Globe, Waves, Building, TreePine, Palmtree } from 'lucide-react';
 import { useSpinStore, type VibeOption, type RegionOption, type LandscapeOption } from '@/store/useSpinStore';
 import { origins, cityToOrigin, type Origin } from '@/data/origins';
 import { cities } from '@/data/cities';
 import { Slider } from '@/components/ui/slider';
-import { useSoundManager } from '@/hooks/useSoundManager';
 import { useGeolocation } from '@/hooks/useGeolocation';
 
 const vibeOptions: { label: string; value: VibeOption }[] = [
@@ -94,7 +93,6 @@ interface PreferencesModalProps {
 
 export default function PreferencesModal({ open, onClose, onSpin }: PreferencesModalProps) {
   const { preferences, setPreferences, filterCities, filteredCities, getNearMisses } = useSpinStore();
-  const sound = useSoundManager();
   const [localBudget, setLocalBudget] = useState(preferences.budgetRange);
   const [localInternetRange, setLocalInternetRange] = useState<[number, number]>([10, preferences.internetMin]);
   const [localSafetyRange, setLocalSafetyRange] = useState<[number, number]>([1, preferences.safetyMin]);
@@ -103,12 +101,10 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
   const [budgetAnimating, setBudgetAnimating] = useState(false);
   const [showNearMisses, setShowNearMisses] = useState(false);
   const [isShortRange, setIsShortRange] = useState(false);
-  const lastBudgetTick = useRef(localBudget[1]);
 
   const handleGeoOrigin = useCallback((origin: Origin) => {
     setPreferences({ origin });
-    sound.playTick();
-  }, [setPreferences, sound]);
+  }, [setPreferences]);
 
   const geo = useGeolocation(handleGeoOrigin);
 
@@ -134,7 +130,6 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       region: preset.region,
     });
     setIsShortRange(false);
-    sound.playTick();
   };
 
   const applyShortRange = () => {
@@ -154,18 +149,13 @@ export default function PreferencesModal({ open, onClose, onSpin }: PreferencesM
       region: 'All',
     });
     setIsShortRange(true);
-    sound.playTick();
   };
 
   const handleBudgetChange = useCallback((v: number[]) => {
     const newVal = v as [number, number];
-    if (Math.abs(newVal[1] - lastBudgetTick.current) >= 100) {
-      sound.playTick();
-      lastBudgetTick.current = newVal[1];
-    }
     setBudgetAnimating(true);
     setLocalBudget(newVal);
-  }, [sound]);
+  }, []);
 
   const handleBudgetCommit = useCallback(() => {
     setTimeout(() => setBudgetAnimating(false), 200);

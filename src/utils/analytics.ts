@@ -21,6 +21,7 @@ declare global {
 // ── Typed event names ──────────────────────────────────────────────────────
 
 export type AnalyticsEvent =
+  | 'spin'
   | 'spin_completed'
   | 'affiliate_outbound_click'
   | 'affiliate_click_error'

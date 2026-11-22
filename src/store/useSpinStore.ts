@@ -36,9 +36,6 @@ interface SpinStore {
   resultCity: City | null;
   topResults: ScoredCity[];
   savedSpins: SavedSpin[];
-  spinCount: number;
-  streak: number;
-  lastSpinDate: string | null;
 
   setPhase: (phase: AppPhase) => void;
   setPreferences: (prefs: Partial<Preferences>) => void;
@@ -67,13 +64,11 @@ const defaultPreferences: Preferences = {
   origin: null,
 };
 
-function calculateStreak(lastDate: string | null): number {
-  if (!lastDate) return 1;
-  const last = new Date(lastDate);
-  const now = new Date();
-  const diffDays = Math.floor((now.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
-  if (diffDays <= 1) return parseInt(localStorage.getItem('streak') || '1') + (diffDays === 1 ? 1 : 0);
-  return 1;
+// Streak, spin counter and sounds were removed: drop what older versions left in the browser.
+try {
+  for (const key of ['spinCount', 'streak', 'lastSpinDate', 'nomadSpin_muted']) localStorage.removeItem(key);
+} catch {
+  // Storage unavailable: nothing to clean.
 }
 
 function loadSavedSpins(): SavedSpin[] {
@@ -101,9 +96,6 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   resultCity: null,
   topResults: [],
   savedSpins: loadSavedSpins(),
-  spinCount: parseInt(localStorage.getItem('spinCount') || '0'),
-  streak: parseInt(localStorage.getItem('streak') || '0'),
-  lastSpinDate: localStorage.getItem('lastSpinDate'),
 
   setPhase: (phase) => set({ phase }),
 
@@ -184,20 +176,9 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const rest = pool.filter((_, i) => i !== primaryIdx).slice(0, 2);
     const top3 = [primary, ...rest];
 
-    const newCount = get().spinCount + 1;
-    const today = new Date().toISOString().split('T')[0];
-    const newStreak = calculateStreak(get().lastSpinDate);
-
-    localStorage.setItem('spinCount', String(newCount));
-    localStorage.setItem('streak', String(newStreak));
-    localStorage.setItem('lastSpinDate', today);
-
     set({
       resultCity: top3[0]?.city || null,
       topResults: top3,
-      spinCount: newCount,
-      streak: newStreak,
-      lastSpinDate: today,
     });
   },
 

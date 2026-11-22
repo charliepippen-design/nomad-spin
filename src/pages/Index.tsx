@@ -216,6 +216,12 @@ export default function Index() {
     setPhase('spinning');
     setIsSpinning(true);
     setSpinSpeed(0.8);
+    // One event per spin: this replaces the old on-screen spin counter.
+    const { preferences: prefs } = useSpinStore.getState();
+    trackEvent('spin', {
+      region: prefs.region,
+      has_origin: !!prefs.origin && prefs.origin.id !== 'anywhere',
+    });
 
     if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
@@ -229,10 +235,7 @@ export default function Index() {
       setIsSpinning(false);
       setSpinSpeed(0.003);
       setPhase('results');
-      if (auth.isAuthenticated) {
-        cloudSync.syncStreaks();
-        cloudSync.syncPreferences();
-      }
+      if (auth.isAuthenticated) cloudSync.syncPreferences();
     }, 3500);
   }, [spin, setPhase, auth.isAuthenticated, cloudSync]);
 
