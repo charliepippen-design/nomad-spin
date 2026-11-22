@@ -3,7 +3,7 @@ import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useAccountUi } from '@/store/useAccountUi';
-import { useSoundManager } from '@/hooks/useSoundManager';
+import { useTheme } from 'next-themes';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
@@ -26,7 +26,7 @@ import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
-import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark, LogOut } from 'lucide-react';
+import { RotateCcw, Bookmark, LogOut } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import OriginSelector from '@/components/OriginSelector';
 import CityTooltip from '@/components/CityTooltip';
@@ -51,9 +51,8 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
   const setPicksOpen = useAccountUi((s) => s.setPicksOpen);
-  const sound = useSoundManager();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
   const [showPrefs, setShowPrefs] = useState(false);
@@ -61,8 +60,11 @@ export default function Index() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
-  const [dayMode, setDayMode] = useState(true);
-  const [autoSpin, setAutoSpin] = useState(false);
+  // The globe follows the site theme: day texture on light, night texture on dark.
+  const { resolvedTheme } = useTheme();
+  const dayMode = resolvedTheme === 'light';
+  // The globe turns slowly at rest and stops for good at the first drag.
+  const [autoSpin, setAutoSpin] = useState(true);
   // City card on the globe. `pinned` = opened by a click or tap, so it stays until dismissed.
   const [activeCity, setActiveCity] = useState<{ city: City; pos: { x: number; y: number }; pinned: boolean } | null>(null);
   const cardHideTimer = useRef<ReturnType<typeof setTimeout>>();
@@ -90,7 +92,6 @@ export default function Index() {
   const globeBusyTimer = useRef<ReturnType<typeof setTimeout>>();
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const [howItWorksRequest, setHowItWorksRequest] = useState(0);
-  const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
   const hasMigrated = useRef(false);
   const { toast } = useToast();
   const isMobile = useIsMobile();
@@ -218,12 +219,6 @@ export default function Index() {
     }
   }, [auth.isAuthenticated, auth.user?.id]);
 
-  // Idle hum on mount
-  useEffect(() => {
-    const t = setTimeout(() => sound.startIdle(), 2000);
-    return () => { clearTimeout(t); sound.stopIdle(); };
-  }, []);
-
   const handleScrollToHowItWorks = useCallback(() => {
     if (phase === 'spinning') return;
     if (phase !== 'landing' && phase !== 'preferences') setPhase('landing');
@@ -241,40 +236,24 @@ export default function Index() {
     setIsSpinning(true);
     setSpinSpeed(0.8);
 
-    sound.startSpin();
-    sound.updateSpinPitch(0.8);
-
     if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
-    setTimeout(() => { setSpinSpeed(0.3); sound.updateSpinPitch(0.3); }, 1000);
-    setTimeout(() => {
-      setSpinSpeed(0.08);
-      sound.updateSpinPitch(0.08);
-      let tickCount = 0;
-      tickIntervalRef.current = setInterval(() => {
-        sound.playTick();
-        tickCount++;
-        if (tickCount > 6) clearInterval(tickIntervalRef.current);
-      }, 200);
-    }, 2000);
+    setTimeout(() => setSpinSpeed(0.3), 1000);
+    setTimeout(() => setSpinSpeed(0.08), 2000);
     setTimeout(() => {
       setSpinSpeed(0.015);
-      sound.updateSpinPitch(0.015);
       spin();
     }, 2800);
     setTimeout(() => {
       setIsSpinning(false);
       setSpinSpeed(0.003);
-      sound.stopSpin();
-      sound.playResult();
       setPhase('results');
-      clearInterval(tickIntervalRef.current);
       if (auth.isAuthenticated) {
         cloudSync.syncStreaks();
         cloudSync.syncPreferences();
       }
     }, 3500);
-  }, [spin, setPhase, sound, auth.isAuthenticated, cloudSync]);
+  }, [spin, setPhase, auth.isAuthenticated, cloudSync]);
 
   const handleRespin = useCallback(() => {
     resetForRespin();
@@ -379,93 +358,9 @@ export default function Index() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
         {/* Globe controls. Site links live in the persistent header. */}
-        <div className={`pointer-events-auto relative z-[6] items-center justify-between gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
-            <div className="flex items-center gap-4">
-              <button
-                onClick={handleScrollToHowItWorks}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                How it works
-              </button>
-            </div>
-
-            {/* CENTER: Streak + Spins (desktop only) */}
-            <div className="flex items-center gap-3">
-              {streak > 0 && (
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60">
-                  <Flame className="w-3.5 h-3.5 text-orange-400" />
-                  <span className="text-[11px] font-mono text-foreground/70 tracking-wider font-medium">
-                    {streak}D STREAK
-                  </span>
-                </div>
-              )}
-              {spinCount > 0 && (
-                <span className="text-[11px] font-mono text-muted-foreground tracking-wider">
-                  {spinCount} spins
-                </span>
-              )}
-            </div>
-
+        <div className={`pointer-events-auto relative z-[6] items-center justify-end gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
             {/* RIGHT: Controls + Auth */}
             <div className="flex items-center gap-2">
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={() => setAutoSpin(s => !s)}
-                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-colors ${
-                        autoSpin
-                          ? 'border-primary/50 bg-primary/10 text-primary'
-                          : 'border-border/40 bg-background/60 text-muted-foreground hover:bg-muted'
-                      }`}
-                      aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
-                    >
-                      <Globe2 className="w-3.5 h-3.5" />
-                      <span className="text-[10px] font-mono tracking-wider">
-                        {autoSpin ? 'AUTO' : 'MANUAL'}
-                      </span>
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">{autoSpin ? 'Click to disable auto-spin' : 'Click to enable auto-spin'}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={() => setDayMode(d => !d)}
-                      className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
-                      aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
-                    >
-                      {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={sound.toggleMute}
-                      className={`p-2 rounded-lg hover:bg-muted transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
-                      aria-label={sound.muted ? 'Unmute' : 'Mute'}
-                    >
-                      {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">Toggle sounds</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
               {/* Origin */}
               <OriginSelector
                 value={preferences.origin}
@@ -511,7 +406,7 @@ export default function Index() {
                       </button>
                     </TooltipTrigger>
                     <TooltipContent side="bottom" className="max-w-[220px]">
-                      <p className="text-xs">Sign in to save cities, sync spins across devices, and track your streaks.</p>
+                      <p className="text-xs">Sign in to save cities and sync them across devices.</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -524,6 +419,7 @@ export default function Index() {
             onSpin={handleConfigureMission}
             cityCount={ALL_CITIES.length}
             onGlobeOnly={() => setGlobeOnly(true)}
+            onHowItWorks={handleScrollToHowItWorks}
             dimmed={globeBusy}
           />
         )}
@@ -661,12 +557,6 @@ export default function Index() {
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
           onOpenCityWall={() => setIsCityWallOpen(true)}
-          autoSpin={autoSpin}
-          setAutoSpin={setAutoSpin}
-          dayMode={dayMode}
-          setDayMode={setDayMode}
-          soundMuted={sound.muted}
-          toggleSound={sound.toggleMute}
           origin={preferences.origin}
           setOrigin={(origin) => setPreferences({ origin })}
           isAuthenticated={auth.isAuthenticated}
@@ -674,8 +564,6 @@ export default function Index() {
           onSignOut={auth.signOut}
           onOpenPicks={() => setPicksOpen(true)}
           onOpenAuth={() => setShowAuth(true)}
-          streak={streak}
-          spinCount={spinCount}
           onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}
           howItWorksRequest={howItWorksRequest}
         />

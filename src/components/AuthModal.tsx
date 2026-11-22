@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Bookmark, RefreshCw, Flame, Mail } from 'lucide-react';
+import { X, Bookmark, RefreshCw, SlidersHorizontal, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface AuthModalProps {
@@ -13,7 +13,7 @@ interface AuthModalProps {
 const BENEFITS = [
   { icon: Bookmark, text: 'Save your favorite cities' },
   { icon: RefreshCw, text: 'Sync spins across devices' },
-  { icon: Flame, text: 'Track your streak & filters' },
+  { icon: SlidersHorizontal, text: 'Keep your filters' },
 ];
 
 export default function AuthModal({ open, onClose, onSignUp, onSignIn }: AuthModalProps) {
