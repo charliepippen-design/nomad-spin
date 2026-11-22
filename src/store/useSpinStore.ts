@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
 import type { LandscapeOption } from '@/data/cities/types';
-import { Origin, origins as originsData } from '@/data/origins';
+import type { Origin } from '@/data/origins';
+import { findOriginById } from '@/lib/originLookup';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
 
 // Log dataset size at init
@@ -287,7 +288,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const region = (params.get('r') || 'All') as RegionOption;
     const originId = params.get('o');
 
-    const origin = originId ? originsData.find((o) => o.id === originId) || null : null;
+    const origin = findOriginById(originId);
 
     set({
       preferences: {

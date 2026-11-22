@@ -3,6 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import dnsLogo from '@/assets/dns-logo.png';
 import { ThemeToggle } from './ThemeToggle';
+import OriginSelector from './OriginSelector';
+import { useSpinStore } from '@/store/useSpinStore';
 
 const NAV = [
   { to: '/', label: 'Explore', end: true },
@@ -22,6 +24,8 @@ function linkClass(isActive: boolean): string {
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const origin = useSpinStore((s) => s.preferences.origin);
+  const setPreferences = useSpinStore((s) => s.setPreferences);
 
   useEffect(() => {
     setOpen(false);
@@ -43,6 +47,12 @@ export default function SiteHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
+          {/* Too wide for a phone header: on small screens it lives in the home drawer. */}
+          <OriginSelector
+            className="hidden md:block"
+            value={origin}
+            onChange={(next) => setPreferences({ origin: next })}
+          />
           <ThemeToggle />
           <button
             type="button"

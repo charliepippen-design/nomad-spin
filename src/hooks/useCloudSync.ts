@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useSpinStore, SavedSpin } from '@/store/useSpinStore';
-import { origins as originsData } from '@/data/origins';
+import { findOriginById } from '@/lib/originLookup';
 
 export function useCloudSync(userId: string | undefined) {
   const store = useSpinStore();
@@ -93,9 +93,8 @@ export function useCloudSync(userId: string | undefined) {
       .maybeSingle();
 
     if (data) {
-      const origin = data.origin_id
-        ? originsData.find((o) => o.id === data.origin_id) || null
-        : null;
+      // No origin saved in the account: keep the one chosen on this device.
+      const origin = findOriginById(data.origin_id) ?? useSpinStore.getState().preferences.origin;
 
       useSpinStore.setState({
         preferences: {

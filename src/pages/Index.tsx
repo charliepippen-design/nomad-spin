@@ -28,7 +28,6 @@ import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } f
 
 import { RotateCcw, Bookmark, LogOut } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import OriginSelector from '@/components/OriginSelector';
 import CityTooltip from '@/components/CityTooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
@@ -361,12 +360,6 @@ export default function Index() {
         <div className={`pointer-events-auto relative z-[6] items-center justify-end gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
             {/* RIGHT: Controls + Auth */}
             <div className="flex items-center gap-2">
-              {/* Origin */}
-              <OriginSelector
-                value={preferences.origin}
-                onChange={(origin) => setPreferences({ origin })}
-              />
-
               {/* Auth */}
               {auth.isAuthenticated ? (
                 <div className="flex items-center gap-1.5">
