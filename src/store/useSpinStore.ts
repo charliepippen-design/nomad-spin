@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { City, cities } from '@/data/cities';
 import type { LandscapeOption } from '@/data/cities/types';
-import { Origin, origins as originsData } from '@/data/origins';
+import type { Origin } from '@/data/origins';
+import { findOriginById } from '@/lib/originLookup';
 import { scoreCityForPreferences, type ScoredCity } from '@/lib/scoring';
 
 // Log dataset size at init
@@ -35,9 +36,6 @@ interface SpinStore {
   resultCity: City | null;
   topResults: ScoredCity[];
   savedSpins: SavedSpin[];
-  spinCount: number;
-  streak: number;
-  lastSpinDate: string | null;
 
   setPhase: (phase: AppPhase) => void;
   setPreferences: (prefs: Partial<Preferences>) => void;
@@ -66,13 +64,11 @@ const defaultPreferences: Preferences = {
   origin: null,
 };
 
-function calculateStreak(lastDate: string | null): number {
-  if (!lastDate) return 1;
-  const last = new Date(lastDate);
-  const now = new Date();
-  const diffDays = Math.floor((now.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
-  if (diffDays <= 1) return parseInt(localStorage.getItem('streak') || '1') + (diffDays === 1 ? 1 : 0);
-  return 1;
+// Streak, spin counter and sounds were removed: drop what older versions left in the browser.
+try {
+  for (const key of ['spinCount', 'streak', 'lastSpinDate', 'nomadSpin_muted']) localStorage.removeItem(key);
+} catch {
+  // Storage unavailable: nothing to clean.
 }
 
 function loadSavedSpins(): SavedSpin[] {
@@ -100,16 +96,31 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
   resultCity: null,
   topResults: [],
   savedSpins: loadSavedSpins(),
-  spinCount: parseInt(localStorage.getItem('spinCount') || '0'),
-  streak: parseInt(localStorage.getItem('streak') || '0'),
-  lastSpinDate: localStorage.getItem('lastSpinDate'),
 
   setPhase: (phase) => set({ phase }),
 
   setPreferences: (prefs) =>
-    set((state) => ({
-      preferences: { ...state.preferences, ...prefs },
-    })),
+    set((state) => {
+      const preferences = { ...state.preferences, ...prefs };
+      const originChanged = 'origin' in prefs && prefs.origin?.id !== state.preferences.origin?.id;
+      if (!originChanged || state.topResults.length === 0) return { preferences };
+      // Results on screen were scored from the old origin: rescore them in place,
+      // so match score and flight time follow the new city without a new spin.
+      return {
+        preferences,
+        topResults: state.topResults.map((result) =>
+          scoreCityForPreferences(
+            result.city,
+            preferences.budgetRange[1],
+            preferences.internetMin,
+            preferences.safetyMin,
+            preferences.vibes,
+            preferences.origin,
+            preferences.landscapes,
+          ),
+        ),
+      };
+    }),
 
   filterCities: () => {
     const { preferences } = get();
@@ -183,20 +194,9 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const rest = pool.filter((_, i) => i !== primaryIdx).slice(0, 2);
     const top3 = [primary, ...rest];
 
-    const newCount = get().spinCount + 1;
-    const today = new Date().toISOString().split('T')[0];
-    const newStreak = calculateStreak(get().lastSpinDate);
-
-    localStorage.setItem('spinCount', String(newCount));
-    localStorage.setItem('streak', String(newStreak));
-    localStorage.setItem('lastSpinDate', today);
-
     set({
       resultCity: top3[0]?.city || null,
       topResults: top3,
-      spinCount: newCount,
-      streak: newStreak,
-      lastSpinDate: today,
     });
   },
 
@@ -287,7 +287,7 @@ export const useSpinStore = create<SpinStore>((set, get) => ({
     const region = (params.get('r') || 'All') as RegionOption;
     const originId = params.get('o');
 
-    const origin = originId ? originsData.find((o) => o.id === originId) || null : null;
+    const origin = findOriginById(originId);
 
     set({
       preferences: {

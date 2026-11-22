@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useSpinStore, SavedSpin } from '@/store/useSpinStore';
-import { origins as originsData } from '@/data/origins';
+import { findOriginById } from '@/lib/originLookup';
 
 export function useCloudSync(userId: string | undefined) {
   const store = useSpinStore();
@@ -47,42 +47,6 @@ export function useCloudSync(userId: string | undefined) {
       .eq('city_id', cityId);
   }, [userId]);
 
-  // Load streaks FROM cloud
-  const loadStreaks = useCallback(async () => {
-    if (!userId) return;
-    const { data } = await supabase
-      .from('user_streaks')
-      .select('*')
-      .eq('user_id', userId)
-      .maybeSingle();
-
-    if (data) {
-      useSpinStore.setState({
-        spinCount: data.spin_count,
-        streak: data.streak,
-        lastSpinDate: data.last_spin_date,
-      });
-      localStorage.setItem('spinCount', String(data.spin_count));
-      localStorage.setItem('streak', String(data.streak));
-      if (data.last_spin_date) localStorage.setItem('lastSpinDate', data.last_spin_date);
-    }
-  }, [userId]);
-
-  // Update streaks TO cloud
-  const syncStreaks = useCallback(async () => {
-    if (!userId) return;
-    const { spinCount, streak, lastSpinDate } = useSpinStore.getState();
-    await supabase
-      .from('user_streaks')
-      .update({
-        spin_count: spinCount,
-        streak: streak,
-        last_spin_date: lastSpinDate,
-        updated_at: new Date().toISOString(),
-      })
-      .eq('user_id', userId);
-  }, [userId]);
-
   // Load preferences FROM cloud
   const loadPreferences = useCallback(async () => {
     if (!userId) return;
@@ -93,9 +57,8 @@ export function useCloudSync(userId: string | undefined) {
       .maybeSingle();
 
     if (data) {
-      const origin = data.origin_id
-        ? originsData.find((o) => o.id === data.origin_id) || null
-        : null;
+      // No origin saved in the account: keep the one chosen on this device.
+      const origin = findOriginById(data.origin_id) ?? useSpinStore.getState().preferences.origin;
 
       useSpinStore.setState({
         preferences: {
@@ -130,6 +93,19 @@ export function useCloudSync(userId: string | undefined) {
       .eq('user_id', userId);
   }, [userId]);
 
+  // Save only the origin TO cloud, leaving the other saved settings as they are
+  const syncOrigin = useCallback(async () => {
+    if (!userId) return;
+    const { preferences } = useSpinStore.getState();
+    await supabase
+      .from('user_preferences')
+      .update({
+        origin_id: preferences.origin?.id || null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('user_id', userId);
+  }, [userId]);
+
   // Migrate localStorage data to cloud on first login
   const migrateLocalData = useCallback(async () => {
     if (!userId) return;
@@ -157,43 +133,17 @@ export function useCloudSync(userId: string | undefined) {
       }
     }
 
-    // Migrate streaks (take the higher values)
-    const localCount = store.spinCount;
-    const localStreak = store.streak;
-    if (localCount > 0 || localStreak > 0) {
-      const { data: cloudStreak } = await supabase
-        .from('user_streaks')
-        .select('*')
-        .eq('user_id', userId)
-        .maybeSingle();
-
-      if (cloudStreak) {
-        const mergedCount = Math.max(localCount, cloudStreak.spin_count);
-        const mergedStreak = Math.max(localStreak, cloudStreak.streak);
-        await supabase
-          .from('user_streaks')
-          .update({
-            spin_count: mergedCount,
-            streak: mergedStreak,
-            last_spin_date: store.lastSpinDate || cloudStreak.last_spin_date,
-            updated_at: new Date().toISOString(),
-          })
-          .eq('user_id', userId);
-      }
-    }
-
     // Sync preferences
     await syncPreferences();
-  }, [userId, store.savedSpins, store.spinCount, store.streak, store.lastSpinDate, syncPreferences]);
+  }, [userId, store.savedSpins, syncPreferences]);
 
   return {
     loadSavedSpins,
     saveSpin,
     removeSpin,
-    loadStreaks,
-    syncStreaks,
     loadPreferences,
     syncPreferences,
+    syncOrigin,
     migrateLocalData,
   };
 }

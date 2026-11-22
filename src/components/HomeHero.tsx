@@ -11,6 +11,8 @@ interface HomeHeroProps {
   cityCount: number;
   /** Hides every overlay so only the globe is left. */
   onGlobeOnly: () => void;
+  /** Opens the drawer on its "How it works" section. */
+  onHowItWorks: () => void;
   /** True while the visitor is dragging the globe: the panel fades out of the way. */
   dimmed?: boolean;
 }
@@ -20,7 +22,7 @@ interface HomeHeroProps {
  * The wrapper ignores pointer events so the globe stays draggable around the panel.
  * The page <h1> lives in the intro section below the fold; this headline is a tagline.
  */
-export default function HomeHero({ onSpin, cityCount, onGlobeOnly, dimmed = false }: HomeHeroProps) {
+export default function HomeHero({ onSpin, cityCount, onGlobeOnly, onHowItWorks, dimmed = false }: HomeHeroProps) {
   const fade = `transition-opacity duration-300 ${dimmed ? 'opacity-0' : 'opacity-100'}`;
   const navigate = useNavigate();
 
@@ -72,13 +74,22 @@ export default function HomeHero({ onSpin, cityCount, onGlobeOnly, dimmed = fals
             </Link>
           </div>
 
-          <button
-            type="button"
-            onClick={onGlobeOnly}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-md py-1 text-sm font-medium text-muted-foreground hover:text-foreground"
-          >
-            <Maximize2 className="h-3.5 w-3.5" /> Just the globe
-          </button>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1">
+            <button
+              type="button"
+              onClick={onHowItWorks}
+              className="inline-flex items-center rounded-md py-1 text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              How it works
+            </button>
+            <button
+              type="button"
+              onClick={onGlobeOnly}
+              className="inline-flex items-center gap-1.5 rounded-md py-1 text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
+              <Maximize2 className="h-3.5 w-3.5" /> Just the globe
+            </button>
+          </div>
 
           <p className="mt-3 hidden text-xs text-muted-foreground sm:block">
             Cost, internet, safety, visa length and climate for every city.{' '}

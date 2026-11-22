@@ -1,8 +1,9 @@
 import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
-import { useSoundManager } from '@/hooks/useSoundManager';
+import { useAccountUi } from '@/store/useAccountUi';
+import { useOriginPreference } from '@/hooks/useOriginPreference';
+import { useTheme } from 'next-themes';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
@@ -11,7 +12,6 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import TopResultsGrid from '@/components/TopResultsGrid';
 import LandingDrawer from '@/components/LandingDrawer';
-import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import HomeHero from '@/components/HomeHero';
 import HomeGuides from '@/components/HomeGuides';
@@ -25,9 +25,7 @@ import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
-import { RotateCcw, Volume2, VolumeX, Flame, Sun, Moon, Globe2, Bookmark } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import OriginSelector from '@/components/OriginSelector';
+import { RotateCcw } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
@@ -50,17 +48,21 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, spinCount, streak, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
-  const sound = useSoundManager();
+  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, resetForRespin, preferences, getShareableUrl } = useSpinStore();
+  const setPicksOpen = useAccountUi((s) => s.setPicksOpen);
+  const setAuthOpen = useAccountUi((s) => s.setAuthOpen);
+  const [origin, setOrigin] = useOriginPreference();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
   const [showPrefs, setShowPrefs] = useState(false);
-  const [showAuth, setShowAuth] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
-  const [dayMode, setDayMode] = useState(true);
-  const [autoSpin, setAutoSpin] = useState(false);
+  // The globe follows the site theme: day texture on light, night texture on dark.
+  const { resolvedTheme } = useTheme();
+  const dayMode = resolvedTheme === 'light';
+  // The globe turns slowly at rest and stops for good at the first drag.
+  const [autoSpin, setAutoSpin] = useState(true);
   // City card on the globe. `pinned` = opened by a click or tap, so it stays until dismissed.
   const [activeCity, setActiveCity] = useState<{ city: City; pos: { x: number; y: number }; pinned: boolean } | null>(null);
   const cardHideTimer = useRef<ReturnType<typeof setTimeout>>();
@@ -88,9 +90,6 @@ export default function Index() {
   const globeBusyTimer = useRef<ReturnType<typeof setTimeout>>();
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const [howItWorksRequest, setHowItWorksRequest] = useState(0);
-  const tickIntervalRef = useRef<ReturnType<typeof setInterval>>();
-  const hasMigrated = useRef(false);
-  const { toast } = useToast();
   const isMobile = useIsMobile();
 
   // A hovered card lingers briefly after the mouse leaves the marker, long enough to reach the card.
@@ -201,27 +200,6 @@ export default function Index() {
     if (loaded) setShowPrefs(true);
   }, []);
 
-  // Sync from cloud when user authenticates
-  useEffect(() => {
-    if (auth.isAuthenticated && auth.user && !hasMigrated.current) {
-      hasMigrated.current = true;
-      cloudSync.loadSavedSpins();
-      cloudSync.loadStreaks();
-      cloudSync.loadPreferences();
-      cloudSync.migrateLocalData();
-      toast({
-        title: "You're in",
-        description: "Your picks and settings will now be saved.",
-      });
-    }
-  }, [auth.isAuthenticated, auth.user?.id]);
-
-  // Idle hum on mount
-  useEffect(() => {
-    const t = setTimeout(() => sound.startIdle(), 2000);
-    return () => { clearTimeout(t); sound.stopIdle(); };
-  }, []);
-
   const handleScrollToHowItWorks = useCallback(() => {
     if (phase === 'spinning') return;
     if (phase !== 'landing' && phase !== 'preferences') setPhase('landing');
@@ -238,41 +216,28 @@ export default function Index() {
     setPhase('spinning');
     setIsSpinning(true);
     setSpinSpeed(0.8);
-
-    sound.startSpin();
-    sound.updateSpinPitch(0.8);
+    // One event per spin: this replaces the old on-screen spin counter.
+    const { preferences: prefs } = useSpinStore.getState();
+    trackEvent('spin', {
+      region: prefs.region,
+      has_origin: !!prefs.origin && prefs.origin.id !== 'anywhere',
+    });
 
     if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
-    setTimeout(() => { setSpinSpeed(0.3); sound.updateSpinPitch(0.3); }, 1000);
-    setTimeout(() => {
-      setSpinSpeed(0.08);
-      sound.updateSpinPitch(0.08);
-      let tickCount = 0;
-      tickIntervalRef.current = setInterval(() => {
-        sound.playTick();
-        tickCount++;
-        if (tickCount > 6) clearInterval(tickIntervalRef.current);
-      }, 200);
-    }, 2000);
+    setTimeout(() => setSpinSpeed(0.3), 1000);
+    setTimeout(() => setSpinSpeed(0.08), 2000);
     setTimeout(() => {
       setSpinSpeed(0.015);
-      sound.updateSpinPitch(0.015);
       spin();
     }, 2800);
     setTimeout(() => {
       setIsSpinning(false);
       setSpinSpeed(0.003);
-      sound.stopSpin();
-      sound.playResult();
       setPhase('results');
-      clearInterval(tickIntervalRef.current);
-      if (auth.isAuthenticated) {
-        cloudSync.syncStreaks();
-        cloudSync.syncPreferences();
-      }
+      if (auth.isAuthenticated) cloudSync.syncPreferences();
     }, 3500);
-  }, [spin, setPhase, sound, auth.isAuthenticated, cloudSync]);
+  }, [spin, setPhase, auth.isAuthenticated, cloudSync]);
 
   const handleRespin = useCallback(() => {
     resetForRespin();
@@ -376,152 +341,12 @@ export default function Index() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
-        {/* Globe controls. Site links live in the persistent header. */}
-        <div className={`pointer-events-auto relative z-[6] items-center justify-between gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
-            <div className="flex items-center gap-4">
-              <button
-                onClick={handleScrollToHowItWorks}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                How it works
-              </button>
-            </div>
-
-            {/* CENTER: Streak + Spins (desktop only) */}
-            <div className="flex items-center gap-3">
-              {streak > 0 && (
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60">
-                  <Flame className="w-3.5 h-3.5 text-orange-400" />
-                  <span className="text-[11px] font-mono text-foreground/70 tracking-wider font-medium">
-                    {streak}D STREAK
-                  </span>
-                </div>
-              )}
-              {spinCount > 0 && (
-                <span className="text-[11px] font-mono text-muted-foreground tracking-wider">
-                  {spinCount} spins
-                </span>
-              )}
-            </div>
-
-            {/* RIGHT: Controls + Auth */}
-            <div className="flex items-center gap-2">
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={() => setAutoSpin(s => !s)}
-                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-colors ${
-                        autoSpin
-                          ? 'border-primary/50 bg-primary/10 text-primary'
-                          : 'border-border/40 bg-background/60 text-muted-foreground hover:bg-muted'
-                      }`}
-                      aria-label={autoSpin ? 'Disable auto-rotate' : 'Enable auto-rotate'}
-                    >
-                      <Globe2 className="w-3.5 h-3.5" />
-                      <span className="text-[10px] font-mono tracking-wider">
-                        {autoSpin ? 'AUTO' : 'MANUAL'}
-                      </span>
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">{autoSpin ? 'Click to disable auto-spin' : 'Click to enable auto-spin'}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={() => setDayMode(d => !d)}
-                      className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground"
-                      aria-label={dayMode ? 'Switch to night view' : 'Switch to day view'}
-                    >
-                      {dayMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">{dayMode ? 'Night mode' : 'Day mode'}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              <TooltipProvider delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={sound.toggleMute}
-                      className={`p-2 rounded-lg hover:bg-muted transition-colors ${sound.muted ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}
-                      aria-label={sound.muted ? 'Unmute' : 'Mute'}
-                    >
-                      {sound.muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p className="text-xs">Toggle sounds</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              {/* Origin */}
-              <OriginSelector
-                value={preferences.origin}
-                onChange={(origin) => setPreferences({ origin })}
-              />
-
-              {/* Auth */}
-              {auth.isAuthenticated ? (
-                <TooltipProvider delayDuration={300}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={auth.signOut}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60 hover:bg-muted transition-colors"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                          <span className="text-[9px] font-mono font-bold text-primary">
-                            {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
-                          My picks
-                        </span>
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom">
-                      <p className="text-xs">Signed in · Click to sign out</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              ) : (
-                <TooltipProvider delayDuration={300}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={() => setShowAuth(true)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
-                      >
-                        <Bookmark className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
-                        <span className="text-[11px] font-mono text-primary/80 tracking-wider font-medium">
-                          Sign in · Save picks
-                        </span>
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom" className="max-w-[220px]">
-                      <p className="text-xs">Sign in to save cities, sync spins across devices, and track your streaks.</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              )}
-            </div>
-          </div>
-
         {phase === 'landing' && !isSpinning && !showPrefs && !globeOnly && (
           <HomeHero
             onSpin={handleConfigureMission}
             cityCount={ALL_CITIES.length}
             onGlobeOnly={() => setGlobeOnly(true)}
+            onHowItWorks={handleScrollToHowItWorks}
             dimmed={globeBusy}
           />
         )}
@@ -637,42 +462,18 @@ export default function Index() {
         onSpin={startSpin}
       />
 
-      {/* Auth Modal */}
-      <AuthModal
-        open={showAuth}
-        onClose={() => setShowAuth(false)}
-        onSignUp={async (email, password, name) => {
-          const result = await auth.signUp(email, password, name);
-          if (!result.error) {
-            setTimeout(() => cloudSync.migrateLocalData(), 1000);
-          }
-          return result;
-        }}
-        onSignIn={async (email, password) => {
-          const result = await auth.signIn(email, password);
-          return result;
-        }}
-      />
-
       {/* Landing Drawer — unified landing surface */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && !globeOnly && !pastHero && (
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
           onOpenCityWall={() => setIsCityWallOpen(true)}
-          autoSpin={autoSpin}
-          setAutoSpin={setAutoSpin}
-          dayMode={dayMode}
-          setDayMode={setDayMode}
-          soundMuted={sound.muted}
-          toggleSound={sound.toggleMute}
-          origin={preferences.origin}
-          setOrigin={(origin) => setPreferences({ origin })}
+          origin={origin}
+          setOrigin={setOrigin}
           isAuthenticated={auth.isAuthenticated}
           user={auth.user}
           onSignOut={auth.signOut}
-          onOpenAuth={() => setShowAuth(true)}
-          streak={streak}
-          spinCount={spinCount}
+          onOpenPicks={() => setPicksOpen(true)}
+          onOpenAuth={() => setAuthOpen(true)}
           onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}
           howItWorksRequest={howItWorksRequest}
         />

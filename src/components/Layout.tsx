@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Footer from './Footer';
 import SiteHeader from './SiteHeader';
+import SavedPicksPanel from './SavedPicksPanel';
 
 export default function Layout() {
   return (
@@ -10,6 +11,7 @@ export default function Layout() {
         <Outlet />
       </div>
       <Footer />
+      <SavedPicksPanel />
     </div>
   );
 }

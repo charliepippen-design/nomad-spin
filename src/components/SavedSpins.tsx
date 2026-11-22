@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
+import { useAccountUi } from '@/store/useAccountUi';
+import { cityPath } from '@/lib/citySlug';
 import { Bookmark, MapPin, Trash2, RotateCcw } from 'lucide-react';
 
 export default function SavedSpins() {
   const { savedSpins, removeSavedSpin, redeploySpin } = useSpinStore();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
+  const setPicksOpen = useAccountUi((s) => s.setPicksOpen);
 
   if (savedSpins.length === 0) return null;
 
@@ -31,9 +35,13 @@ export default function SavedSpins() {
           >
             <MapPin className="w-3 h-3 text-muted-foreground flex-shrink-0" />
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-mono text-foreground/80 truncate tracking-wider">
+              <Link
+                to={cityPath(entry.city)}
+                onClick={() => setPicksOpen(false)}
+                className="block text-xs font-mono text-foreground/80 truncate tracking-wider hover:text-primary"
+              >
                 TRIP #{String(index + 1).padStart(3, '0')}: {entry.city.name.toUpperCase()}
-              </p>
+              </Link>
               <p className="text-[10px] text-muted-foreground font-mono">
                 {entry.city.country} · ${entry.city.costUSD}/mo · {entry.timestamp}
               </p>

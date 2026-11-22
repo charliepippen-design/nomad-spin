@@ -2,14 +2,12 @@ import { useState, useRef, useEffect, useCallback, type TouchEvent as ReactTouch
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Compass, X, ChevronUp, Globe2, Sun, Moon, Volume2, VolumeX,
-  Flame, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
+  Compass, X, ChevronUp, Globe2, Bookmark, LogOut, MapPin, DollarSign, Wifi, Clock,
   BarChart3, ShoppingBag, ArrowUp
 } from 'lucide-react';
 import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
-import { Switch } from '@/components/ui/switch';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { getCityThumbnailUrl } from '@/data/cityImages';
 import UnsplashCredit from '@/components/UnsplashAttribution';
@@ -47,30 +45,22 @@ const PEEK_HEIGHT_VH = 15; // 15% of viewport
 interface LandingDrawerProps {
   onConfigureMission: () => void;
   onOpenCityWall: () => void;
-  autoSpin: boolean;
-  setAutoSpin: (v: boolean | ((prev: boolean) => boolean)) => void;
-  dayMode: boolean;
-  setDayMode: (v: boolean | ((prev: boolean) => boolean)) => void;
-  soundMuted: boolean;
-  toggleSound: () => void;
   origin: Origin | null;
   setOrigin: (origin: Origin | null) => void;
   isAuthenticated: boolean;
   user: SupaUser | null;
   onSignOut: () => void;
+  onOpenPicks: () => void;
   onOpenAuth: () => void;
-  streak: number;
-  spinCount: number;
   onFlyTo?: (lat: number, lng: number) => void;
   howItWorksRequest: number;
 }
 
 export default function LandingDrawer({
   onConfigureMission, onOpenCityWall,
-  autoSpin, setAutoSpin, dayMode, setDayMode, soundMuted, toggleSound,
   origin, setOrigin,
-  isAuthenticated, user, onSignOut, onOpenAuth,
-  streak, spinCount, onFlyTo, howItWorksRequest,
+  isAuthenticated, user, onSignOut, onOpenPicks, onOpenAuth,
+  onFlyTo, howItWorksRequest,
 }: LandingDrawerProps) {
   // Desktop: simple open/close
   const [desktopOpen, setDesktopOpen] = useState(false);
@@ -186,17 +176,6 @@ export default function LandingDrawer({
     </div>
   );
 
-  // Toggle row
-  const ToggleRow = ({ label, checked, onChange, icon: Icon }: { label: string; checked: boolean; onChange: () => void; icon: React.ElementType }) => (
-    <div className="flex items-center justify-between py-1">
-      <div className="flex items-center gap-2">
-        <Icon className="w-3.5 h-3.5 text-muted-foreground" />
-        <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase">{label}</span>
-      </div>
-      <Switch checked={checked} onCheckedChange={onChange} className="scale-75" />
-    </div>
-  );
-
   // Shared scrollable content (used by both desktop panel and mobile sheet)
   const DrawerContent = () => (
     <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-5 overscroll-contain">
@@ -227,14 +206,6 @@ export default function LandingDrawer({
         <span className="text-[10px] font-mono tracking-[0.1em] text-foreground/70 uppercase font-medium">Explore All Cities</span>
       </button>
 
-      {/* Globe Controls */}
-      <Divider label="Globe Controls" />
-      <div className="space-y-1">
-        <ToggleRow label="Auto-spin" checked={autoSpin} onChange={() => setAutoSpin(s => !s)} icon={Globe2} />
-        <ToggleRow label={dayMode ? 'Day mode' : 'Night mode'} checked={dayMode} onChange={() => setDayMode(d => !d)} icon={dayMode ? Sun : Moon} />
-        <ToggleRow label={soundMuted ? 'Sound off' : 'Sound on'} checked={!soundMuted} onChange={toggleSound} icon={soundMuted ? VolumeX : Volume2} />
-      </div>
-
       {/* Your Base */}
       <Divider label="Your Base" />
       <OriginSelector value={origin} onChange={setOrigin} />
@@ -244,14 +215,17 @@ export default function LandingDrawer({
       <div className="space-y-2">
         {isAuthenticated ? (
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <button
+              onClick={onOpenPicks}
+              className="flex items-center gap-2 rounded-lg px-1.5 py-1 -ml-1.5 hover:bg-white/[0.06] transition-colors"
+            >
               <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-[9px] font-mono font-bold text-primary">
                   {(user?.user_metadata?.display_name || user?.email || 'U')[0].toUpperCase()}
                 </span>
               </div>
               <span className="text-[10px] font-mono text-foreground/70 tracking-wider">My picks</span>
-            </div>
+            </button>
             <button
               onClick={onSignOut}
               className="flex items-center gap-1 text-[9px] font-mono text-muted-foreground hover:text-foreground transition-colors"
@@ -269,17 +243,6 @@ export default function LandingDrawer({
             <span className="text-[10px] font-mono text-primary/80 tracking-wider font-medium">Sign in · Save picks</span>
           </button>
         )}
-        <div className="flex items-center gap-3">
-          {streak > 0 && (
-            <div className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-border/40 bg-white/[0.03]">
-              <Flame className="w-3 h-3 text-orange-400" />
-              <span className="text-[10px] font-mono text-foreground/70 tracking-wider">{streak}D</span>
-            </div>
-          )}
-          {spinCount > 0 && (
-            <span className="text-[10px] font-mono text-muted-foreground tracking-wider">{spinCount} spins</span>
-          )}
-        </div>
       </div>
 
       {/* Saved Spins */}
