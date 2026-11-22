@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import AccountMenu from '@/components/AccountMenu';
@@ -9,10 +9,21 @@ import { useSpinStore } from '@/store/useSpinStore';
 import { findCityBySlug } from '@/lib/citySlug';
 
 const signOut = vi.fn();
+const pushLocalSpins = vi.fn(async () => {});
 const authState = { isAuthenticated: false, loading: false, user: null as null | { id: string; email: string } };
 
 vi.mock('@/hooks/useAuth', () => ({
-  useAuth: () => ({ ...authState, session: null, signOut, signIn: vi.fn(), signUp: vi.fn() }),
+  accountInitial: () => 'S',
+  useAuth: () => ({
+    ...authState,
+    session: null,
+    signOut,
+    signIn: vi.fn(),
+    signUp: vi.fn(),
+    resendConfirmation: vi.fn(),
+    requestPasswordReset: vi.fn(),
+    updatePassword: vi.fn(),
+  }),
 }));
 
 vi.mock('@/hooks/useCloudSync', () => ({
@@ -20,10 +31,10 @@ vi.mock('@/hooks/useCloudSync', () => ({
     loadSavedSpins: vi.fn(),
     saveSpin: vi.fn(),
     removeSpin: vi.fn(),
-    loadPreferences: vi.fn(),
     syncPreferences: vi.fn(),
     syncOrigin: vi.fn(),
-    migrateLocalData: vi.fn(),
+    pushLocalSpins,
+    syncOnSignIn: vi.fn(),
   }),
 }));
 
@@ -42,9 +53,10 @@ function renderHeaderAccount() {
 
 beforeEach(() => {
   signOut.mockClear();
+  pushLocalSpins.mockClear();
   authState.isAuthenticated = false;
   authState.user = null;
-  useAccountUi.setState({ authOpen: false, picksOpen: false });
+  useAccountUi.setState({ authOpen: false, authView: 'signin', picksOpen: false });
   useSpinStore.setState({ savedSpins: [] });
 });
 
@@ -69,7 +81,7 @@ describe('account entry in the site header', () => {
 
     fireEvent.keyDown(screen.getByRole('button', { name: 'Account menu' }), { key: 'Enter' });
     const items = screen.getAllByRole('menuitem').map((i) => i.textContent);
-    expect(items).toEqual(['My picks (1)', 'Sign out']);
+    expect(items).toEqual(['My picks (1)', 'Change password', 'Sign out']);
 
     fireEvent.click(screen.getByRole('menuitem', { name: 'My picks (1)' }));
     expect(useAccountUi.getState().picksOpen).toBe(true);
@@ -82,13 +94,28 @@ describe('account entry in the site header', () => {
     expect(signOut).not.toHaveBeenCalled();
   });
 
-  it('signed in: only "Sign out" signs out', () => {
+  it('signed in: "Sign out" saves the device picks, signs out and clears the local copy', async () => {
+    authState.isAuthenticated = true;
+    authState.user = { id: 'u1', email: 'someone@example.com' };
+    useSpinStore.getState().saveCity(lisbon);
+    renderHeaderAccount();
+    fireEvent.keyDown(screen.getByRole('button', { name: 'Account menu' }), { key: 'Enter' });
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Sign out' }));
+    await waitFor(() => expect(signOut).toHaveBeenCalledTimes(1));
+    expect(pushLocalSpins).toHaveBeenCalledTimes(1);
+    expect(pushLocalSpins.mock.invocationCallOrder[0]).toBeLessThan(signOut.mock.invocationCallOrder[0]);
+    await waitFor(() => expect(useSpinStore.getState().savedSpins).toHaveLength(0));
+    expect(localStorage.getItem('savedSpins')).toBeNull();
+  });
+
+  it('signed in: "Change password" opens the new-password screen without signing out', () => {
     authState.isAuthenticated = true;
     authState.user = { id: 'u1', email: 'someone@example.com' };
     renderHeaderAccount();
     fireEvent.keyDown(screen.getByRole('button', { name: 'Account menu' }), { key: 'Enter' });
-    fireEvent.click(screen.getByRole('menuitem', { name: 'Sign out' }));
-    expect(signOut).toHaveBeenCalledTimes(1);
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Change password' }));
+    expect(screen.getByRole('heading', { name: 'Choose a new password' })).toBeTruthy();
+    expect(signOut).not.toHaveBeenCalled();
   });
 
   it('the panel says so when nothing is saved', () => {

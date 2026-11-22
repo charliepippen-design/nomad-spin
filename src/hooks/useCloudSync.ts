@@ -4,8 +4,6 @@ import { useSpinStore, SavedSpin } from '@/store/useSpinStore';
 import { findOriginById } from '@/lib/originLookup';
 
 export function useCloudSync(userId: string | undefined) {
-  const store = useSpinStore();
-
   // Sync saved spins FROM cloud
   const loadSavedSpins = useCallback(async () => {
     if (!userId) return;
@@ -47,33 +45,6 @@ export function useCloudSync(userId: string | undefined) {
       .eq('city_id', cityId);
   }, [userId]);
 
-  // Load preferences FROM cloud
-  const loadPreferences = useCallback(async () => {
-    if (!userId) return;
-    const { data } = await supabase
-      .from('user_preferences')
-      .select('*')
-      .eq('user_id', userId)
-      .maybeSingle();
-
-    if (data) {
-      // No origin saved in the account: keep the one chosen on this device.
-      const origin = findOriginById(data.origin_id) ?? useSpinStore.getState().preferences.origin;
-
-      useSpinStore.setState({
-        preferences: {
-          budgetRange: [data.budget_min, data.budget_max],
-          internetMin: data.internet_min,
-          safetyMin: data.safety_min,
-          vibes: (data.vibes || []) as any,
-          landscapes: [],
-          region: (data.region || 'All') as any,
-          origin,
-        },
-      });
-    }
-  }, [userId]);
-
   // Save preferences TO cloud
   const syncPreferences = useCallback(async () => {
     if (!userId) return;
@@ -106,44 +77,96 @@ export function useCloudSync(userId: string | undefined) {
       .eq('user_id', userId);
   }, [userId]);
 
-  // Migrate localStorage data to cloud on first login
-  const migrateLocalData = useCallback(async () => {
+  // Push picks saved on this device that the account does not have yet
+  const pushLocalSpins = useCallback(async () => {
     if (!userId) return;
+    const localSpins = useSpinStore.getState().savedSpins;
+    if (localSpins.length === 0) return;
 
-    // Migrate saved spins
-    const localSpins = store.savedSpins;
-    if (localSpins.length > 0) {
-      const { data: existing } = await supabase
-        .from('saved_spins')
-        .select('city_id')
-        .eq('user_id', userId);
+    const { data: existing, error } = await supabase
+      .from('saved_spins')
+      .select('city_id')
+      .eq('user_id', userId);
+    // Unknown account state: inserting blind could duplicate rows.
+    if (error) return;
 
-      const existingIds = new Set((existing || []).map((e: any) => e.city_id));
-      const toInsert = localSpins
-        .filter((s) => !existingIds.has(s.city.id))
-        .map((s) => ({
-          user_id: userId,
-          city_id: s.city.id,
-          city_data: s.city as any,
-          preferences: s.preferences as any,
-        }));
+    const existingIds = new Set((existing || []).map((e: any) => e.city_id));
+    const toInsert = localSpins
+      .filter((s) => !existingIds.has(s.city.id))
+      .map((s) => ({
+        user_id: userId,
+        city_id: s.city.id,
+        city_data: s.city as any,
+        preferences: s.preferences as any,
+      }));
 
-      if (toInsert.length > 0) {
-        await supabase.from('saved_spins').insert(toInsert);
-      }
+    if (toInsert.length > 0) {
+      await supabase.from('saved_spins').insert(toInsert);
+    }
+  }, [userId]);
+
+  // Bring the settings of the account and of this device in line
+  const reconcilePreferences = useCallback(async () => {
+    if (!userId) return;
+    const { data } = await supabase
+      .from('user_preferences')
+      .select('*')
+      .eq('user_id', userId)
+      .maybeSingle();
+    if (!data) return;
+
+    // A row still at its defaults was never saved by the visitor (a new account):
+    // what they set on this device before signing in goes up. Otherwise the account wins.
+    const untouched =
+      data.budget_min === 500 &&
+      data.budget_max === 3000 &&
+      data.internet_min === 20 &&
+      data.safety_min === 5 &&
+      (data.vibes || []).length === 0 &&
+      (data.region || 'All') === 'All' &&
+      !data.origin_id;
+    if (untouched) {
+      await syncPreferences();
+      return;
     }
 
-    // Sync preferences
-    await syncPreferences();
-  }, [userId, store.savedSpins, syncPreferences]);
+    // No origin saved in the account: keep the one chosen on this device.
+    const origin = findOriginById(data.origin_id) ?? useSpinStore.getState().preferences.origin;
+    useSpinStore.setState({
+      preferences: {
+        budgetRange: [data.budget_min, data.budget_max],
+        internetMin: data.internet_min,
+        safetyMin: data.safety_min,
+        vibes: (data.vibes || []) as any,
+        landscapes: [],
+        region: (data.region || 'All') as any,
+        origin,
+      },
+    });
+  }, [userId, syncPreferences]);
+
+  /**
+   * Runs once after signing in, one step at a time so no step overwrites another:
+   * picks from this device go up, the account's picks come down, settings are reconciled.
+   */
+  const syncOnSignIn = useCallback(async () => {
+    if (!userId) return;
+    try {
+      await pushLocalSpins();
+      await loadSavedSpins();
+      await reconcilePreferences();
+    } catch {
+      // Offline or server down: the visitor stays signed in with what is on this device.
+    }
+  }, [userId, pushLocalSpins, loadSavedSpins, reconcilePreferences]);
 
   return {
     loadSavedSpins,
     saveSpin,
     removeSpin,
-    loadPreferences,
     syncPreferences,
     syncOrigin,
-    migrateLocalData,
+    pushLocalSpins,
+    syncOnSignIn,
   };
 }

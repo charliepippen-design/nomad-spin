@@ -5,6 +5,7 @@ import { useAccountUi } from '@/store/useAccountUi';
 import { useOriginPreference } from '@/hooks/useOriginPreference';
 import { useTheme } from 'next-themes';
 import { useAuth } from '@/hooks/useAuth';
+import { useSignOut } from '@/hooks/useSignOut';
 import { useCloudSync } from '@/hooks/useCloudSync';
 import { useCityEnrichment } from '@/hooks/useCityEnrichment';
 import { calculateMatchScore, generateIntel, generateRisks } from '@/lib/scoring';
@@ -53,6 +54,7 @@ export default function Index() {
   const setAuthOpen = useAccountUi((s) => s.setAuthOpen);
   const [origin, setOrigin] = useOriginPreference();
   const auth = useAuth();
+  const signOut = useSignOut();
   const cloudSync = useCloudSync(auth.user?.id);
   const [showPrefs, setShowPrefs] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -471,7 +473,7 @@ export default function Index() {
           setOrigin={setOrigin}
           isAuthenticated={auth.isAuthenticated}
           user={auth.user}
-          onSignOut={auth.signOut}
+          onSignOut={signOut}
           onOpenPicks={() => setPicksOpen(true)}
           onOpenAuth={() => setAuthOpen(true)}
           onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}

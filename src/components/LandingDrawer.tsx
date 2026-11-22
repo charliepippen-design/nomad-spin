@@ -9,6 +9,7 @@ import SpinButton from '@/components/SpinButton';
 import SavedSpins from '@/components/SavedSpins';
 import OriginSelector from '@/components/OriginSelector';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { accountInitial } from '@/hooks/useAuth';
 import { getCityThumbnailUrl } from '@/data/cityImages';
 import UnsplashCredit from '@/components/UnsplashAttribution';
 import { cityAttribution } from '@/hooks/useCityImage';
@@ -221,7 +222,7 @@ export default function LandingDrawer({
             >
               <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
                 <span className="text-[9px] font-mono font-bold text-primary">
-                  {(user?.user_metadata?.display_name || user?.email || 'U')[0].toUpperCase()}
+                  {accountInitial(user)}
                 </span>
               </div>
               <span className="text-[10px] font-mono text-foreground/70 tracking-wider">My picks</span>
