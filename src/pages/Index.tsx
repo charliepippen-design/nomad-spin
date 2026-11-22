@@ -1,8 +1,8 @@
 import { useState, useCallback, useRef, lazy, Suspense, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSpinStore } from '@/store/useSpinStore';
 import { useAccountUi } from '@/store/useAccountUi';
+import { useOriginPreference } from '@/hooks/useOriginPreference';
 import { useTheme } from 'next-themes';
 import { useAuth } from '@/hooks/useAuth';
 import { useCloudSync } from '@/hooks/useCloudSync';
@@ -12,7 +12,6 @@ import PreferencesModal from '@/components/PreferencesModal';
 import ResultCard from '@/components/ResultCard';
 import TopResultsGrid from '@/components/TopResultsGrid';
 import LandingDrawer from '@/components/LandingDrawer';
-import AuthModal from '@/components/AuthModal';
 import SEO from '@/components/SEO';
 import HomeHero from '@/components/HomeHero';
 import HomeGuides from '@/components/HomeGuides';
@@ -26,8 +25,7 @@ import { citySlug } from '@/lib/citySlug';
 import { guides } from '@/data/guides';
 import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } from '@/lib/homeSeo';
 
-import { RotateCcw, Bookmark, LogOut } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { RotateCcw } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
 import { useIsMobile } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
@@ -50,12 +48,13 @@ const GlobeFallback = () => (
 );
 
 export default function Index() {
-  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, resetForRespin, preferences, setPreferences, getShareableUrl } = useSpinStore();
+  const { phase, setPhase, filterCities, spin, resultCity, topResults, selectResult, saveResult, resetForRespin, preferences, getShareableUrl } = useSpinStore();
   const setPicksOpen = useAccountUi((s) => s.setPicksOpen);
+  const setAuthOpen = useAccountUi((s) => s.setAuthOpen);
+  const [origin, setOrigin] = useOriginPreference();
   const auth = useAuth();
   const cloudSync = useCloudSync(auth.user?.id);
   const [showPrefs, setShowPrefs] = useState(false);
-  const [showAuth, setShowAuth] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinSpeed, setSpinSpeed] = useState(0.003);
   const [resetCamera, setResetCamera] = useState(false);
@@ -91,8 +90,6 @@ export default function Index() {
   const globeBusyTimer = useRef<ReturnType<typeof setTimeout>>();
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const [howItWorksRequest, setHowItWorksRequest] = useState(0);
-  const hasMigrated = useRef(false);
-  const { toast } = useToast();
   const isMobile = useIsMobile();
 
   // A hovered card lingers briefly after the mouse leaves the marker, long enough to reach the card.
@@ -202,21 +199,6 @@ export default function Index() {
     const loaded = useSpinStore.getState().loadFromUrl();
     if (loaded) setShowPrefs(true);
   }, []);
-
-  // Sync from cloud when user authenticates
-  useEffect(() => {
-    if (auth.isAuthenticated && auth.user && !hasMigrated.current) {
-      hasMigrated.current = true;
-      cloudSync.loadSavedSpins();
-      cloudSync.loadStreaks();
-      cloudSync.loadPreferences();
-      cloudSync.migrateLocalData();
-      toast({
-        title: "You're in",
-        description: "Your picks and settings will now be saved.",
-      });
-    }
-  }, [auth.isAuthenticated, auth.user?.id]);
 
   const handleScrollToHowItWorks = useCallback(() => {
     if (phase === 'spinning') return;
@@ -356,57 +338,6 @@ export default function Index() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col pointer-events-none">
-        {/* Globe controls. Site links live in the persistent header. */}
-        <div className={`pointer-events-auto relative z-[6] items-center justify-end gap-3 px-4 md:px-8 py-2 ${globeOnly ? 'hidden' : 'hidden lg:flex'}`}>
-            {/* RIGHT: Controls + Auth */}
-            <div className="flex items-center gap-2">
-              {/* Auth */}
-              {auth.isAuthenticated ? (
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => setPicksOpen(true)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/40 bg-background/60 hover:bg-muted transition-colors"
-                  >
-                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-[9px] font-mono font-bold text-primary">
-                        {(auth.user?.user_metadata?.display_name || auth.user?.email || 'U')[0].toUpperCase()}
-                      </span>
-                    </div>
-                    <span className="text-[11px] font-mono text-foreground/70 tracking-wider">
-                      My picks
-                    </span>
-                  </button>
-                  <button
-                    onClick={auth.signOut}
-                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-mono text-muted-foreground tracking-wider hover:bg-muted hover:text-foreground transition-colors"
-                  >
-                    <LogOut className="w-3.5 h-3.5" />
-                    Sign out
-                  </button>
-                </div>
-              ) : (
-                <TooltipProvider delayDuration={300}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={() => setShowAuth(true)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/[0.06] hover:bg-primary/[0.12] hover:border-primary/50 transition-all"
-                      >
-                        <Bookmark className="w-3.5 h-3.5 text-primary/70 flex-shrink-0" />
-                        <span className="text-[11px] font-mono text-primary/80 tracking-wider font-medium">
-                          Sign in · Save picks
-                        </span>
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom" className="max-w-[220px]">
-                      <p className="text-xs">Sign in to save cities and sync them across devices.</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              )}
-            </div>
-          </div>
-
         {phase === 'landing' && !isSpinning && !showPrefs && !globeOnly && (
           <HomeHero
             onSpin={handleConfigureMission}
@@ -528,35 +459,18 @@ export default function Index() {
         onSpin={startSpin}
       />
 
-      {/* Auth Modal */}
-      <AuthModal
-        open={showAuth}
-        onClose={() => setShowAuth(false)}
-        onSignUp={async (email, password, name) => {
-          const result = await auth.signUp(email, password, name);
-          if (!result.error) {
-            setTimeout(() => cloudSync.migrateLocalData(), 1000);
-          }
-          return result;
-        }}
-        onSignIn={async (email, password) => {
-          const result = await auth.signIn(email, password);
-          return result;
-        }}
-      />
-
       {/* Landing Drawer — unified landing surface */}
       {(phase === 'landing' || phase === 'preferences') && !isSpinning && !globeOnly && !pastHero && (
         <LandingDrawer
           onConfigureMission={handleConfigureMission}
           onOpenCityWall={() => setIsCityWallOpen(true)}
-          origin={preferences.origin}
-          setOrigin={(origin) => setPreferences({ origin })}
+          origin={origin}
+          setOrigin={setOrigin}
           isAuthenticated={auth.isAuthenticated}
           user={auth.user}
           onSignOut={auth.signOut}
           onOpenPicks={() => setPicksOpen(true)}
-          onOpenAuth={() => setShowAuth(true)}
+          onOpenAuth={() => setAuthOpen(true)}
           onFlyTo={(lat, lng) => setFlyToTarget({ lat, lng })}
           howItWorksRequest={howItWorksRequest}
         />

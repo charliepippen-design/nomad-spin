@@ -4,7 +4,8 @@ import { Menu, X } from 'lucide-react';
 import dnsLogo from '@/assets/dns-logo.png';
 import { ThemeToggle } from './ThemeToggle';
 import OriginSelector from './OriginSelector';
-import { useSpinStore } from '@/store/useSpinStore';
+import AccountMenu from './AccountMenu';
+import { useOriginPreference } from '@/hooks/useOriginPreference';
 
 const NAV = [
   { to: '/', label: 'Explore', end: true },
@@ -24,8 +25,7 @@ function linkClass(isActive: boolean): string {
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const origin = useSpinStore((s) => s.preferences.origin);
-  const setPreferences = useSpinStore((s) => s.setPreferences);
+  const [origin, setOrigin] = useOriginPreference();
 
   useEffect(() => {
     setOpen(false);
@@ -51,8 +51,9 @@ export default function SiteHeader() {
           <OriginSelector
             className="hidden md:block"
             value={origin}
-            onChange={(next) => setPreferences({ origin: next })}
+            onChange={setOrigin}
           />
+          <AccountMenu />
           <ThemeToggle />
           <button
             type="button"

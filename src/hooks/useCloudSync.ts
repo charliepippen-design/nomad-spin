@@ -129,6 +129,19 @@ export function useCloudSync(userId: string | undefined) {
       .eq('user_id', userId);
   }, [userId]);
 
+  // Save only the origin TO cloud, leaving the other saved settings as they are
+  const syncOrigin = useCallback(async () => {
+    if (!userId) return;
+    const { preferences } = useSpinStore.getState();
+    await supabase
+      .from('user_preferences')
+      .update({
+        origin_id: preferences.origin?.id || null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('user_id', userId);
+  }, [userId]);
+
   // Migrate localStorage data to cloud on first login
   const migrateLocalData = useCallback(async () => {
     if (!userId) return;
@@ -193,6 +206,7 @@ export function useCloudSync(userId: string | undefined) {
     syncStreaks,
     loadPreferences,
     syncPreferences,
+    syncOrigin,
     migrateLocalData,
   };
 }
