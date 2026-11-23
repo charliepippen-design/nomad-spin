@@ -1,0 +1,13 @@
+name: Supabase keepalive
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query a public table
+        run: curl --fail --silent --show-error "${{ secrets.VITE_SUPABASE_URL }}/rest/v1/city_enrichment_cache?select=slug&limit=1" -H "apikey: ${{ secrets.VITE_SUPABASE_ANON_KEY }}"
