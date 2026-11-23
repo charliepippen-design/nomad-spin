@@ -28,13 +28,21 @@ import { HOME_DESCRIPTION, HOME_GUIDES_LINK, HOME_H1, HOME_INTRO, HOME_TITLE } f
 
 import { RotateCcw } from 'lucide-react';
 import CityTooltip from '@/components/CityTooltip';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useIsMobile, useIsPhone } from '@/hooks/use-mobile';
 import type { City } from '@/data/cities';
 import { AnimatePresence as TooltipPresence } from 'framer-motion';
 
 const Globe = lazy(() => import('@/components/Globe'));
 
 const GLOBE_ONLY_HASH = '#globe';
+
+// Phones (below the sm breakpoint) show a compact hero on top and the Explore button at the bottom.
+/** How far the globe slides down so its centre sits in the middle of the space between them. */
+const PHONE_GLOBE_OFFSET_PX = 80;
+/** Finger travel that counts as dragging the globe rather than tapping it. */
+const PHONE_DRAG_THRESHOLD_PX = 8;
+/** The hero comes back this long after the finger lifts. */
+const PHONE_HERO_RETURN_MS = 2000;
 
 const GlobeFallback = () => (
   <div className="w-full h-full absolute inset-0 flex items-center justify-center bg-background">
@@ -93,6 +101,11 @@ export default function Index() {
   const [flyToTarget, setFlyToTarget] = useState<{ lat: number; lng: number } | null>(null);
   const [howItWorksRequest, setHowItWorksRequest] = useState(0);
   const isMobile = useIsMobile();
+  const isPhone = useIsPhone();
+  const isPhoneRef = useRef(isPhone);
+  isPhoneRef.current = isPhone;
+  // Where a touch on the globe started, to tell a drag from a tap on phones.
+  const globeTouchStart = useRef<{ x: number; y: number } | null>(null);
 
   // A hovered card lingers briefly after the mouse leaves the marker, long enough to reach the card.
   // React reports "entered the card" before the canvas reports "left the globe",
@@ -184,8 +197,12 @@ export default function Index() {
   // Release anywhere ends a globe drag; the hero comes back shortly after.
   useEffect(() => {
     const onUp = () => {
+      globeTouchStart.current = null;
       clearTimeout(globeBusyTimer.current);
-      globeBusyTimer.current = setTimeout(() => setGlobeBusy(false), 500);
+      globeBusyTimer.current = setTimeout(
+        () => setGlobeBusy(false),
+        isPhoneRef.current ? PHONE_HERO_RETURN_MS : 500,
+      );
     };
     window.addEventListener('pointerup', onUp);
     window.addEventListener('pointercancel', onUp);
@@ -294,7 +311,16 @@ export default function Index() {
       {/* Globe — full-screen background layer */}
       <div
         className="fixed inset-0 z-0"
-        onPointerDown={() => {
+        onPointerDown={(e) => {
+          clearTimeout(globeBusyTimer.current);
+          // On phones a tap picks a city; only a real drag clears the hero away.
+          if (isPhone) globeTouchStart.current = { x: e.clientX, y: e.clientY };
+          else setGlobeBusy(true);
+        }}
+        onPointerMove={(e) => {
+          const start = globeTouchStart.current;
+          if (!start || Math.hypot(e.clientX - start.x, e.clientY - start.y) < PHONE_DRAG_THRESHOLD_PX) return;
+          globeTouchStart.current = null;
           clearTimeout(globeBusyTimer.current);
           setGlobeBusy(true);
         }}
@@ -310,6 +336,7 @@ export default function Index() {
             onAutoSpinOff={() => setAutoSpin(false)}
             activeCityId={activeCity?.city.id ?? null}
             onCityPick={handleCityPick}
+            offsetY={isPhone && phase === 'landing' && !globeOnly ? PHONE_GLOBE_OFFSET_PX : 0}
           />
         </Suspense>
 
