@@ -420,6 +420,30 @@ function CameraRig({ resetCamera, focusCity }: { resetCamera: boolean; focusCity
   return null;
 }
 
+/**
+ * Slides the whole picture down by `offsetY` pixels without moving the camera,
+ * so rotation, zoom and marker picking behave exactly as before.
+ */
+function VerticalShift({ offsetY }: { offsetY: number }) {
+  const camera = useThree((state) => state.camera) as THREE.PerspectiveCamera;
+  const size = useThree((state) => state.size);
+  const current = useRef(0);
+  const applied = useRef({ y: 0, width: 0, height: 0 });
+
+  useFrame(() => {
+    const gap = offsetY - current.current;
+    current.current = Math.abs(gap) < 0.5 ? offsetY : current.current + gap * 0.12;
+    const y = Math.round(current.current);
+    const last = applied.current;
+    if (y === last.y && size.width === last.width && size.height === last.height) return;
+    applied.current = { y, width: size.width, height: size.height };
+    if (y === 0) camera.clearViewOffset();
+    else camera.setViewOffset(size.width, size.height, 0, -y, size.width, size.height);
+  });
+
+  return null;
+}
+
 /* ── Main Globe ── */
 interface GlobeProps {
   spinning?: boolean;
@@ -433,6 +457,8 @@ interface GlobeProps {
   activeCityId?: string | null;
   /** Fired when the mouse rests near a marker or leaves it (hover), and on every click or tap (tap). */
   onCityPick?: CityPickHandler;
+  /** Pixels to slide the globe down on screen, to centre it in the space the page leaves free. */
+  offsetY?: number;
 }
 
 export default function Globe({
@@ -445,6 +471,7 @@ export default function Globe({
   onAutoSpinOff,
   activeCityId = null,
   onCityPick,
+  offsetY = 0,
 }: GlobeProps) {
   const [userDragging, setUserDragging] = useState(false);
   const [initialRotationY, setInitialRotationY] = useState(0);
@@ -498,6 +525,7 @@ export default function Globe({
           <AtmosphereGlow />
           <Stars radius={60} depth={60} count={3000} factor={3} saturation={0} fade speed={0.3} />
           <CameraRig resetCamera={resetCamera} focusCity={focusCity} />
+          <VerticalShift offsetY={offsetY} />
           {!spinning && (
             <OrbitControls
               enableZoom={true}
