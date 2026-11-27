@@ -1322,6 +1322,8 @@
     }
   ],
   "rewrites": [
+    { "source": "/m9x2", "destination": "https://GTM-NDK7J5HR.fps.goog/m9x2" },
+    { "source": "/m9x2/:path*", "destination": "https://GTM-NDK7J5HR.fps.goog/m9x2/:path*" },
     { "source": "/", "destination": "/index.html" },
     { "source": "/about", "destination": "/index.html" },
     { "source": "/about/", "destination": "/index.html" },
