@@ -72,9 +72,9 @@ describe('guideStayCta', () => {
     expect(guideStayCta('not-a-guide')).toBeNull();
   });
 
-  it('covers all 28 published guides', () => {
+  it('covers all 39 published guides', () => {
     const slugs = guides.map((g) => g.slug);
-    expect(slugs).toHaveLength(28);
+    expect(slugs).toHaveLength(39);
     for (const slug of slugs) expect(guideStayCta(slug), slug).not.toBeNull();
   });
 
